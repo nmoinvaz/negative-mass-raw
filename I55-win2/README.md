@@ -23,6 +23,10 @@ and `scipy.libs` date from 2026-11-07 22:05, while the `scipy` and `sympy` folde
 2026-11-08 15:36–15:37 (before the last boot), which fits Nathan's note that the project was moved to `D:\` that day.
 The package versions match #7's.
 
+Drive: `D:` is Nathan's dev drive (ReFS, 220 GB; `fsutil devdrv query` needs elevation, so Dev Drive status is Nathan's
+word). #7 ran from `C:` (NTFS). The code, the venv and the output all sit on `D:` now, so this rerun differs from #7 in
+the BIOS and microcode and also in the file system. A clean run cannot be credited to the update alone.
+
 `OPENBLAS_NUM_THREADS=OMP_NUM_THREADS=MKL_NUM_THREADS=1`, Normal priority, no affinity. One queue, at most 2 processes
 (the convergence job is 1, the scan uses a pool of 2).
 
