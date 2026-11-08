@@ -35,6 +35,8 @@ queue stops (`STOPPED_control.txt`). A job that exits non-zero is logged in `que
   `.log`, `.jsonl`: a serial run of D(g) on that scan's grid. `retry_scan_085_l2.py`, `retry.log`: the one retry of the
   scan and its comparison with the diagnostic (`--selftest` shows that the comparison can fail). `retries.py` runs
   `python -X faulthandler -u convergence.py 2 0.85` and then that scan, one after the other.
+  `retry_conv_085_l3.py` then runs `python -X faulthandler -u convergence.py 3 0.85` once, and `compare_conv_rows.py`
+  compares a convergence rerun's printed rows with the first run's, digit for digit (`--selftest` shows it can fail).
 - `queue.log`: start, exit code and time of every job. `queue_done.txt` lists the jobs that finished.
 - `<job>.log`: the job's output. `memwatch.log`: one line per minute, the queue's process tree.
 - `scan_eps-1_w0.7_l*_n100.csv`, `scan_eps-1_w0.85_l*_n100.csv`: the real-γ scans (γ, D).
