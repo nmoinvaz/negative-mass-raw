@@ -1,0 +1,23 @@
+=== 2026-11-08 16:05:52Z conv_070_l3: -u convergence.py 3 0.70
+base (rtol1e-10, phi_cut1e-9, R60)    : r_m=22.97
+rtol 1e-12                            : r_m=22.97
+phi_cut 1e-12 (larger r_m)            : r_m=32.18
+background R=90                       : r_m=22.97
+r0 = 3e-3                             : r_m=22.97
+
+gamma=   0.001: D_base=-9.891676e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=7.5e-05  D(r_m~34)=-6.962e-02  q_int=+1.743875e-01 q_ext=-1.307242e-01  (3s)
+gamma=    0.03: D_base=-9.590279e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=8.0e-05  D(r_m~34)=-6.546e-02  q_int=+1.766674e-01 q_ext=-1.347357e-01  (3s)
+gamma=     0.3: D_base=-4.715690e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.3e-04  D(r_m~34)=-2.499e-02  q_int=+3.411388e-01 q_ext=-3.320403e-01  (3s)
+gamma=       1: D_base=-1.648402e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.4e-04  D(r_m~34)=-8.454e-03  q_int=+1.011853e+00 q_ext=-1.010875e+00  (3s)
+gamma=       3: D_base=-1.974120e-03  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.4e-04  D(r_m~34)=-1.007e-03  q_int=+3.003853e+00 q_ext=-3.003743e+00  (5s)
+gamma=      10: D_base=-7.309811e-05  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.4e-04  D(r_m~34)=-3.725e-05  q_int=+1.000114e+01 q_ext=-1.000113e+01  (11s)
+gamma=      40: D_base=-1.184848e-06  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.4e-04  D(r_m~34)=-6.037e-07  q_int=+4.000029e+01 q_ext=-4.000028e+01  (38s)
+C:\Users\nathan\Source\negative-mass-i7\phase2\nonradial\polar_solver.py:106: RuntimeWarning: overflow encountered in multiply
+  return r * (s * s + V(r) - q * q) / f
+C:\Users\nathan\Source\negative-mass-venv\Lib\site-packages\scipy\integrate\_ivp\rk.py:684: RuntimeWarning: invalid value encountered in dot
+  err5 = np.dot(K.T, self.E5) / scale
+C:\Users\nathan\Source\negative-mass-venv\Lib\site-packages\scipy\integrate\_ivp\rk.py:685: RuntimeWarning: invalid value encountered in dot
+  err3 = np.dot(K.T, self.E3) / scale
+gamma=     137: D_base=-2.955815e-08  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.4e-04  D(r_m~34)=-1.506e-08  q_int=+1.370001e+02 q_ext=-1.370001e+02  (126s)
+gamma=     300: D_base=-2.815456e-09  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.4e-04  D(r_m~34)=-1.434e-09  q_int=+3.000000e+02 q_ext=-3.000000e+02  (281s)
+gamma=   1e+03: D_base=-7.602041e-11  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.4e-04  D(r_m~34)=-3.873e-11  q_int=+1.000000e+03 q_ext=-1.000000e+03  (1040s)
