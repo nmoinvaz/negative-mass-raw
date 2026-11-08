@@ -38,6 +38,8 @@ queue stops (`STOPPED_control.txt`). A job that exits non-zero is logged in `que
   `retries2.py` runs the scan retry, `conv_085_l3` and `conv_085_l2` once more, one after the other, each continuing
   after a crash of the one before. `retry_conv_085_l3.py` runs `python -X faulthandler -u convergence.py 3 0.85`, and `compare_conv_rows.py`
   compares a convergence rerun's printed rows with the first run's, digit for digit (`--selftest` shows it can fail).
+- `env_and_warnings.md`: the thread variables of each attempt, the venv's BLAS and LAPACK, and the overflow warnings in
+  each log.
 - `queue.log`: start, exit code and time of every job. `queue_done.txt` lists the jobs that finished.
 - `<job>.log`: the job's output. `memwatch.log`: one line per minute, the queue's process tree.
 - `scan_eps-1_w0.7_l*_n100.csv`, `scan_eps-1_w0.85_l*_n100.csv`: the real-γ scans (γ, D).

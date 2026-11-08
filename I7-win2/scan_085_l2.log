@@ -5,3 +5,33 @@ C:\Users\nathan\Source\negative-mass-venv\Lib\site-packages\scipy\integrate\_ivp
   err5 = np.dot(K.T, self.E5) / scale
 C:\Users\nathan\Source\negative-mass-venv\Lib\site-packages\scipy\integrate\_ivp\rk.py:685: RuntimeWarning: invalid value encountered in dot
   err3 = np.dot(K.T, self.E3) / scale
+=== 2026-11-08 17:24:09Z scan_085_l2 retry: -X faulthandler -u scan_growing.py -1 0.85 2 100 1e-3 300
+C:\Users\nathan\Source\negative-mass-i7\phase2\nonradial\polar_solver.py:106: RuntimeWarning: overflow encountered in multiply
+  return r * (s * s + V(r) - q * q) / f
+C:\Users\nathan\Source\negative-mass-venv\Lib\site-packages\scipy\integrate\_ivp\rk.py:684: RuntimeWarning: invalid value encountered in dot
+  err5 = np.dot(K.T, self.E5) / scale
+C:\Users\nathan\Source\negative-mass-venv\Lib\site-packages\scipy\integrate\_ivp\rk.py:685: RuntimeWarning: invalid value encountered in dot
+  err3 = np.dot(K.T, self.E3) / scale
+Windows fatal exception: access violation
+
+Current thread 0x00001938 (most recent call first):
+  File "C:\Users\nathan\Source\negative-mass-venv\Lib\site-packages\numpy\_core\shape_base.py", line 62 in atleast_1d
+  File "C:\Users\nathan\Source\negative-mass-i7\phase2\nonradial\polar_solver.py", line 50 in J
+  File "C:\Users\nathan\Source\negative-mass-i7\phase2\nonradial\polar_solver.py", line 74 in <lambda>
+  File "C:\Users\nathan\Source\negative-mass-venv\Lib\site-packages\scipy\integrate\_ivp\base.py", line 24 in fun_wrapped
+  File "C:\Users\nathan\Source\negative-mass-venv\Lib\site-packages\scipy\integrate\_ivp\base.py", line 158 in fun
+  File "C:\Users\nathan\Source\negative-mass-venv\Lib\site-packages\scipy\integrate\_ivp\rk.py", line 64 in rk_step
+  File "C:\Users\nathan\Source\negative-mass-venv\Lib\site-packages\scipy\integrate\_ivp\rk.py", line 144 in _step_impl
+  File "C:\Users\nathan\Source\negative-mass-venv\Lib\site-packages\scipy\integrate\_ivp\base.py", line 201 in step
+  File "C:\Users\nathan\Source\negative-mass-venv\Lib\site-packages\scipy\integrate\_ivp\ivp.py", line 660 in solve_ivp
+  File "C:\Users\nathan\Source\negative-mass-i7\phase2\nonradial\polar_solver.py", line 74 in _integrate_plane
+  File "C:\Users\nathan\Source\negative-mass-i7\phase2\nonradial\polar_solver.py", line 88 in regular_plane
+  File "C:\Users\nathan\Source\negative-mass-i7\phase2\nonradial\polar_solver.py", line 163 in D
+  File "C:\Users\nathan\Source\negative-mass-i7\phase2\nonradial\scan_growing.py", line 29 in Dg
+  File "C:\Users\nathan\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\pool.py", line 48 in mapstar
+  File "C:\Users\nathan\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\pool.py", line 125 in worker
+  File "C:\Users\nathan\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\process.py", line 108 in run
+  File "C:\Users\nathan\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\process.py", line 314 in _bootstrap
+  File "C:\Users\nathan\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\spawn.py", line 135 in _main
+  File "C:\Users\nathan\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\spawn.py", line 122 in spawn_main
+  File "<string>", line 1 in <module>
