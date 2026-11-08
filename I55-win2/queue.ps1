@@ -2,7 +2,7 @@
 # Logs each start and exit code in queue.log. A crashed job is not retried, the queue goes on. Nothing here
 # stops or kills a process.
 $raw = $PSScriptRoot
-$py = 'D:\negative-mass-venv\Scripts\python.exe'
+$py = 'D:\negative-mass-venv314\Scripts\python.exe'
 $env:OPENBLAS_NUM_THREADS = '1'; $env:OMP_NUM_THREADS = '1'; $env:MKL_NUM_THREADS = '1'
 Set-Location 'D:\negative-mass\phase2\nonradial'
 Set-Content -Path "$raw\queue.pid" -Value $PID -Encoding ascii
