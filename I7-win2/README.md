@@ -33,7 +33,8 @@ queue stops (`STOPPED_control.txt`). A job that exits non-zero is logged in `que
   here stops or kills a process.
 - `scan_085_l2_hang.txt`: why `scan_085_l2` did not finish in the queue (a pool worker crashed). `diag_085_l2.py`,
   `.log`, `.jsonl`: a serial run of D(g) on that scan's grid. `retry_scan_085_l2.py`, `retry.log`: the one retry of the
-  scan and its comparison with the diagnostic (`--selftest` shows that the comparison can fail).
+  scan and its comparison with the diagnostic (`--selftest` shows that the comparison can fail). `retries.py` runs
+  `python -X faulthandler -u convergence.py 2 0.85` and then that scan, one after the other.
 - `queue.log`: start, exit code and time of every job. `queue_done.txt` lists the jobs that finished.
 - `<job>.log`: the job's output. `memwatch.log`: one line per minute, the queue's process tree.
 - `scan_eps-1_w0.7_l*_n100.csv`, `scan_eps-1_w0.85_l*_n100.csv`: the real-γ scans (γ, D).

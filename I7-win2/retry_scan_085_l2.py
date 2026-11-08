@@ -60,7 +60,7 @@ def main():
     open(os.path.join(RAW, "retry.pid"), "w").write(str(os.getpid()))
     env = dict(os.environ, TAG="_n100", PYTHONUNBUFFERED="1", OPENBLAS_NUM_THREADS="1", OMP_NUM_THREADS="1",
                MKL_NUM_THREADS="1")
-    cmd = [PY, "-u", "scan_growing.py", "-1", "0.85", "2", "100", "1e-3", "300"]
+    cmd = [PY, "-X", "faulthandler", "-u", "scan_growing.py", "-1", "0.85", "2", "100", "1e-3", "300"]
     t0 = time.time()
     say("retry start " + " ".join(cmd[1:]) + " with TAG=_n100")
     with open(os.path.join(RAW, "scan_085_l2.log"), "ab") as log:
