@@ -1,1 +1,7 @@
 === 2026-11-08 14:35:00Z scan_085_l2: -u scan_growing.py -1 0.85 2 100 1e-3 300
+C:\Users\nathan\Source\negative-mass-i7\phase2\nonradial\polar_solver.py:106: RuntimeWarning: overflow encountered in multiply
+  return r * (s * s + V(r) - q * q) / f
+C:\Users\nathan\Source\negative-mass-venv\Lib\site-packages\scipy\integrate\_ivp\rk.py:684: RuntimeWarning: invalid value encountered in dot
+  err5 = np.dot(K.T, self.E5) / scale
+C:\Users\nathan\Source\negative-mass-venv\Lib\site-packages\scipy\integrate\_ivp\rk.py:685: RuntimeWarning: invalid value encountered in dot
+  err3 = np.dot(K.T, self.E3) / scale

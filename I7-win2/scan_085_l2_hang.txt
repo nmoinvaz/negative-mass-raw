@@ -1,0 +1,13 @@
+scan_085_l2 (scan_growing.py -1 0.85 2 100 1e-3 300, TAG=_n100) did not complete.
+
+14:35:00Z  started (parent plus a pool of 2 workers).
+14:40:02Z  one pool worker crashed: Windows Error Reporting, APPCRASH, python.exe 3.12.8150.1013, faulting module
+           python312.dll offset 0x1a71fc, exception 0xc0000005 (access violation). The replacement worker started at
+           14:40:04Z and was never given work.
+14:40-15:37Z  multiprocessing.Pool.map kept waiting for the lost chunk: the parent and both workers sat idle (0.00 cores in
+           memwatch.log) for 57 minutes. No scan_eps-1_w0.85_l2_n100.csv was written.
+15:37:54Z  the scan's four processes (launcher, python, 2 workers) were ended by hand; queue.py logged exit 4294967295 and
+           moved on to wind_070_l2. queue_done.txt therefore lists scan_085_l2 although it did not finish.
+
+The log before the crash holds only the RuntimeWarning lines (overflow in polar_solver.py:106, invalid value in scipy's
+rk.py), the same kind as in the other scans' logs.
