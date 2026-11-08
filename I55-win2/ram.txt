@@ -1,0 +1,9 @@
+win2 RAM, read 2026-11-08 ~16:00 local (before the queue's conv_085_l3 finished), Get-CimInstance Win32_PhysicalMemory:
+
+BankLabel  DeviceLocator                Manufacturer  PartNumber          CapacityGB  Speed  ConfiguredClockSpeed  ConfiguredVoltage
+BANK 0     Controller0-ChannelA-DIMM0   Corsair       CMP96GX5M2B6400C32  48          4800   4800                  1100 mV
+BANK 1     Controller0-ChannelB-DIMM0   Corsair       CMP96GX5M2B6400C32  48          4800   4800                  1100 mV
+
+2 x 48 GB DDR5 (SMBIOSMemoryType 34). The part number reads as a 6400 MT/s CL32 kit (not checked against the maker's
+datasheet), so the modules run at 4800 MT/s, 1.10 V, the JEDEC default, with no XMP/EXPO profile applied.
+The speed before the BIOS update was not recorded.
