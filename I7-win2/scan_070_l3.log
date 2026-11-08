@@ -1,0 +1,15 @@
+=== 2026-11-08 14:20:32Z scan_070_l3: -u scan_growing.py -1 0.70 3 100 1e-3 1000
+C:\Users\nathan\Source\negative-mass-i7\phase2\nonradial\polar_solver.py:106: RuntimeWarning: overflow encountered in multiply
+  return r * (s * s + V(r) - q * q) / f
+C:\Users\nathan\Source\negative-mass-venv\Lib\site-packages\scipy\integrate\_ivp\rk.py:684: RuntimeWarning: invalid value encountered in dot
+  err5 = np.dot(K.T, self.E5) / scale
+C:\Users\nathan\Source\negative-mass-venv\Lib\site-packages\scipy\integrate\_ivp\rk.py:685: RuntimeWarning: invalid value encountered in dot
+  err3 = np.dot(K.T, self.E3) / scale
+C:\Users\nathan\Source\negative-mass-i7\phase2\nonradial\polar_solver.py:106: RuntimeWarning: overflow encountered in multiply
+  return r * (s * s + V(r) - q * q) / f
+C:\Users\nathan\Source\negative-mass-venv\Lib\site-packages\scipy\integrate\_ivp\rk.py:684: RuntimeWarning: invalid value encountered in dot
+  err5 = np.dot(K.T, self.E5) / scale
+C:\Users\nathan\Source\negative-mass-venv\Lib\site-packages\scipy\integrate\_ivp\rk.py:685: RuntimeWarning: invalid value encountered in dot
+  err3 = np.dot(K.T, self.E3) / scale
+eps-1_w0.7_l3_n100: rm=22.97 M=-0.020824 rtol=1e-10 phi_cut=1e-09  100 pts in [0.001,1000.0]  (867s)
+   sign changes: 0;  D range: min|D|=7.602e-11 at gamma=1000; sign at gmin -1, at gmax -1
