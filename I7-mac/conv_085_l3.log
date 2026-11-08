@@ -1,0 +1,21 @@
+start 2026-11-08 18:09:35 UTC
+Apple M5
+base (rtol1e-10, phi_cut1e-9, R60)    : r_m=27.94
+rtol 1e-12                            : r_m=27.94
+phi_cut 1e-12 (larger r_m)            : r_m=40.35
+background R=90                       : r_m=27.94
+r0 = 3e-3                             : r_m=27.94
+
+gamma=   0.001: D_base=-3.544223e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.5e-04  D(r_m~34)=-2.361e-02  q_int=+1.432463e-01 q_ext=-1.074161e-01  (5s)
+gamma=    0.03: D_base=-3.444056e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.6e-04  D(r_m~34)=-2.190e-02  q_int=+1.460159e-01 q_ext=-1.122381e-01  (6s)
+gamma=     0.3: D_base=-2.641644e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.4e-04  D(r_m~34)=-1.301e-02  q_int=+3.277100e-01 q_ext=-3.223401e-01  (5s)
+gamma=       1: D_base=-1.105471e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.5e-04  D(r_m~34)=-5.325e-03  q_int=+1.007950e+00 q_ext=-1.007405e+00  (5s)
+gamma=       3: D_base=-1.300025e-03  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.6e-04  D(r_m~34)=-6.240e-04  q_int=+3.002594e+00 q_ext=-3.002533e+00  (8s)
+gamma=      10: D_base=-4.909179e-05  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.6e-04  D(r_m~34)=-2.355e-05  q_int=+1.000077e+01 q_ext=-1.000077e+01  (20s)
+gamma=      40: D_base=-7.988193e-07  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.6e-04  D(r_m~34)=-3.831e-07  q_int=+4.000019e+01 q_ext=-4.000019e+01  (80s)
+gamma=     137: D_base=-1.993306e-08  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.6e-04  D(r_m~34)=-9.559e-09  q_int=+1.370001e+02 q_ext=-1.370001e+02  (264s)
+/private/tmp/claude-501/-Users-nathan-Source-negative-mass/d4fc534f-c31f-44b0-b4de-c82b45381a1c/scratchpad/i7mac/src/phase2/nonradial/polar_solver.py:106: RuntimeWarning: overflow encountered in multiply
+  return r * (s * s + V(r) - q * q) / f
+gamma=     300: D_base=-1.898689e-09  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.6e-04  D(r_m~34)=-9.105e-10  q_int=+3.000000e+02 q_ext=-3.000000e+02  (527s)
+gamma=   1e+03: D_base=-5.126692e-11  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.6e-04  D(r_m~34)=-2.459e-11  q_int=+1.000000e+03 q_ext=-1.000000e+03  (2706s)
+exit 0 19:10:10 UTC
