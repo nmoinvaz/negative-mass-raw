@@ -1,0 +1,20 @@
+start 2026-11-08 17:31:30 UTC
+Apple M5
+base (rtol1e-10, phi_cut1e-9, R60)    : r_m=27.94
+rtol 1e-12                            : r_m=27.94
+phi_cut 1e-12 (larger r_m)            : r_m=40.35
+background R=90                       : r_m=27.94
+r0 = 3e-3                             : r_m=27.94
+
+gamma=   0.001: D_base=-2.441090e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.4e-04  D(r_m~34)=-1.656e-02  q_int=+1.074671e-01 q_ext=-7.163051e-02  (4s)
+gamma=    0.03: D_base=-2.143252e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.7e-04  D(r_m~34)=-1.293e-02  q_int=+1.110127e-01 q_ext=-7.905346e-02  (4s)
+gamma=     0.3: D_base=-1.090323e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.5e-04  D(r_m~34)=-5.287e-03  q_int=+3.142643e-01 q_ext=-3.113417e-01  (4s)
+gamma=       1: D_base=-4.440950e-03  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.6e-04  D(r_m~34)=-2.134e-03  q_int=+1.003985e+00 q_ext=-1.003711e+00  (4s)
+gamma=       3: D_base=-5.203110e-04  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.6e-04  D(r_m~34)=-2.497e-04  q_int=+3.001298e+00 q_ext=-3.001267e+00  (7s)
+gamma=      10: D_base=-1.963272e-05  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.6e-04  D(r_m~34)=-9.417e-06  q_int=+1.000039e+01 q_ext=-1.000038e+01  (16s)
+gamma=      40: D_base=-3.194297e-07  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.6e-04  D(r_m~34)=-1.532e-07  q_int=+4.000010e+01 q_ext=-4.000010e+01  (64s)
+/private/tmp/claude-501/-Users-nathan-Source-negative-mass/d4fc534f-c31f-44b0-b4de-c82b45381a1c/scratchpad/i7mac/src/phase2/nonradial/polar_solver.py:106: RuntimeWarning: overflow encountered in multiply
+  return r * (s * s + V(r) - q * q) / f
+gamma=     137: D_base=-7.970727e-09  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.6e-04  D(r_m~34)=-3.823e-09  q_int=+1.370000e+02 q_ext=-1.370000e+02  (233s)
+gamma=     300: D_base=-7.592372e-10  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.6e-04  D(r_m~34)=-3.641e-10  q_int=+3.000000e+02 q_ext=-3.000000e+02  (669s)
+exit 0 17:48:21 UTC
