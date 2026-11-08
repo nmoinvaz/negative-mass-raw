@@ -1,7 +1,7 @@
 # Reports the cpu and memory of the I7 queue's process tree, one line per interval. It only reports, it never
 # stops or kills a process.  Usage: powershell -File memwatch.ps1 -Log memwatch.log
-param([string]$Log = "$PSScriptRoot\memwatch.log", [int]$Interval = 60)
-$pidFile = "$PSScriptRoot\queue.pid"
+param([string]$Log = "$PSScriptRoot\memwatch.log", [int]$Interval = 60, [string]$PidFile = "$PSScriptRoot\queue.pid")
+$pidFile = $PidFile
 for ($i = 0; $i -lt 60 -and -not (Test-Path $pidFile); $i++) { Start-Sleep 2 }
 if (-not (Test-Path $pidFile)) { exit 1 }
 $root = [int](Get-Content $pidFile)
