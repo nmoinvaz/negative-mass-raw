@@ -20,3 +20,6 @@ Code: `git archive 731cac8 phase2` (branch `wip/i7-phantom-scans`, merged as 5bd
   pass if every relative difference is ≤ 1e-8, with a self-test that scales one D by 1 + 1e-7 and must fire. From this
   folder: `python3 cmp_scan_diag.py scan_eps-1_w0.85_l2_n100.csv ../I7-win2/diag_085_l2.jsonl --selftest`.
 - `conv_085_l2_importfail.log`: a first attempt that exported only phase2/nonradial and failed on `import boson_star`.
+- `cmp_conv_logs.py`: the rows of two `convergence.py` logs digit for digit (timings dropped), exit 1 if the row counts
+  or any row differ, with a self-test that changes one digit of D_base and must fire. For #55, from this folder:
+  `python3 cmp_conv_logs.py conv_085_l3.log ../I55-win2/conv_085_l3.log --selftest`.
