@@ -20,7 +20,8 @@ Python: `D:\negative-mass-venv\Scripts\python.exe`, Python 3.12.8, numpy 2.5.4, 
 This is the venv #7 ran in (its `pyvenv.cfg` records creation as `C:\Users\nathan\Source\negative-mass-venv`, which
 does not exist on win2 now), so the task's `C:\...` path is replaced by this one. The two OpenBLAS DLLs in `numpy.libs`
 and `scipy.libs` date from 2026-11-07 22:05, while the `scipy` and `sympy` folders have modification times of
-2026-11-08 15:36–15:37 (before the last boot), cause not known. The package versions match #7's.
+2026-11-08 15:36–15:37 (before the last boot), which fits Nathan's note that the project was moved to `D:\` that day.
+The package versions match #7's.
 
 `OPENBLAS_NUM_THREADS=OMP_NUM_THREADS=MKL_NUM_THREADS=1`, Normal priority, no affinity. One queue, at most 2 processes
 (the convergence job is 1, the scan uses a pool of 2).
