@@ -26,9 +26,8 @@ for fam, tag in (("eps=+1", "p"), ("eps=-1", "m")):
         r = [g[n].get(N, (None, ["missing"]))[1] for n in (16, 80, 160)]
         w = g[160][N][0]
         a, b, c = r
-        if a == c: note = "same"
-        elif a[0] != c[0]: note = "16 missed the lowest root"
-        else: note = "lowest agrees, later roots differ"
+        k = next((i for i, (x, y) in enumerate(zip(a, c)) if x != y), min(len(a), len(c)))
+        note = "same" if a == c else ("lowest root missed" if k == 0 else f"first {k} root(s) right, root {k + 1} wrong or missing")
         print(f"{N:>8} {w:>9}  {', '.join(a):<46} {', '.join(b):<46} {', '.join(c):<46} {note}")
         if b != c: print(f"{'':>19}!! 80 vs 160 differ at N={N}")
     print()
