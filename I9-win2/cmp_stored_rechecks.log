@@ -1,0 +1,15 @@
+Stored rechecks against the new logs (CR stripped), 2026-11-09.
+
+low_recheck_p.txt (eps=+1 N=3) against the N=3 line of low_p80.log and low_p160.log:
+  low_p80: identical
+  low_p160: identical
+
+low_recheck_m.txt (eps=-1 N=12) against the N=12 line of low_m80.log and low_m160.log:
+  low_m80: identical
+  low_m160: identical
+
+low_m16.log against RESULTS.md section 4's table (3 printed digits) and low_recheck_m.txt:
+  N = 0.3 : low_m16 w=0.494702 M=-0.171041 sigma2_0=1.01556e-01 ; RESULTS 0.4947, -0.171, 1.02e-1 : agree
+  N = 1   : low_m16 w=0.447692 M=-0.496216 sigma2_0=5.22676e-02 ; RESULTS 0.4477, -0.496, 5.23e-2 : agree
+  N = 12  : low_m16 roots 1.37899e-01, 2.46247e-01 ; low_recheck_m.txt roots 1.66106e-02, 6.16025e-02, 1.37899e-01 : differ,
+            the 16-point grid misses the two lowest roots, 80 and 160 points reproduce low_recheck_m.txt

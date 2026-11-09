@@ -7,3 +7,11 @@
 2026-11-09 01:09:37Z start low_p80 : python -X faulthandler -u lowscan.py 1 0.3,1,3,6,9.2,15,25,35,40,42,42.6 80 80
 2026-11-09 01:32:20Z exit  low_p80 : 0 (0x00000000) after 1,363 s
 2026-11-09 01:32:20Z start low_p160 : python -X faulthandler -u lowscan.py 1 0.3,1,3,6,9.2,15,25,35,40,42,42.6 160 160
+2026-11-09 02:12:14Z exit  low_p160 : 0 (0x00000000) after 2,394 s
+2026-11-09 02:12:14Z start low_m16 : python -X faulthandler -u lowscan.py -1 0.3,1,12 16 16
+2026-11-09 02:13:32Z exit  low_m16 : 0 (0x00000000) after 78 s
+2026-11-09 02:13:32Z start low_m80 : python -X faulthandler -u lowscan.py -1 0.3,1,12 80 80
+2026-11-09 02:16:57Z exit  low_m80 : 0 (0x00000000) after 206 s
+2026-11-09 02:16:57Z start low_m160 : python -X faulthandler -u lowscan.py -1 0.3,1,12 160 160
+2026-11-09 02:22:43Z exit  low_m160 : 0 (0x00000000) after 346 s
+2026-11-09 02:22:43Z queue B done

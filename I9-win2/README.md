@@ -55,3 +55,12 @@ goes on.
   `memwatch.ps1` for each (`memwatch_A.log`, `memwatch_B.log`, a reporter of the queue's cpu and memory, the I7-win2
   script, it never stops or kills a process), all detached.
 - `<job>.log`: the job's stdout and stderr.
+
+## Result
+
+Queue A ran 2026-11-09 00:54:51Z to 01:33:28Z and queue B to 02:22:43Z, 1 h 28 min in all. All 10 jobs exited 0 (wall
+times in `queue_A.log` and `queue_B.log`, the pilot 281 s and equal to the Mac's row). The checks are saved as
+`strong_refine.log`, `cmp_low_p_stored.log`, `cmp_low_p.log`, `cmp_low_m.log`, `cmp_fd.log`, `cmp_complex.log`,
+`cmp_strong_stored.log` and `cmp_stored_rechecks.log`, and all pass, each self-test having fired or recovered. The
+80-point and 160-point rows agree on every N, so nothing was rerun at 320. `roots_table.py` writes `roots_table.txt`,
+the lowest roots at the three grids. `events.txt` has no Application Error and no WHEA-Logger event since 16:54 local.
