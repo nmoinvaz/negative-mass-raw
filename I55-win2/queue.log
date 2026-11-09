@@ -1,2 +1,7 @@
 2026-11-08 23:56:30Z queue pid 24548, python D:\negative-mass-venv314\Scripts\python.exe, cwd D:\negative-mass\phase2\nonradial
 2026-11-08 23:56:30Z start conv_085_l3 : python -X faulthandler -u convergence.py 3 0.85
+2026-11-09 00:28:16Z exit  conv_085_l3 : 0 (0x00000000)
+2026-11-09 00:28:16Z start scan_085_l2 : python -X faulthandler -u scan_growing.py -1 0.85 2 100 1e-3 300
+2026-11-09 00:36:02Z exit  scan_085_l2 : 0 (0x00000000)
+2026-11-09 00:36:02Z copied scan_eps-1_w0.85_l2_n100.csv
+2026-11-09 00:36:02Z queue done

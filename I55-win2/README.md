@@ -48,6 +48,14 @@ the acceptance checks.
 
 A crashed job is not retried, the queue goes on. At the end `scan_eps-1_w0.85_l2_n100.csv` is copied here.
 
+## Result
+
+The Python 3.14.10 queue ran 2026-11-08 23:56:30Z to 2026-11-09 00:36:02Z (`queue.log`). Both jobs exited 0 (`conv_085_l3`
+31 min 46 s, `scan_085_l2` 7 min 46 s). `cmp_conv.log`: all 15 rows identical to `I7-mac/conv_085_l3.log`, self-test
+FIRED. `cmp_scan.log`: 100 points, largest relative difference 0 against `I7-win2/diag_085_l2.jsonl` (tolerance 1e-8),
+self-test FIRED. `events.txt`: no `Application Error` and no WHEA-Logger events since 15:48 local. The process tree
+peaked at 331 MB working set and 370 MB private (`memwatch.log`), at most 2 cores.
+
 ## Files
 
 - `launch.cmd`: starts `queue.ps1` (the queue, with exit codes in `queue.log`) and `memwatch.ps1` (a reporter of the
