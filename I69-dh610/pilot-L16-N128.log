@@ -1,0 +1,14 @@
+######## python notes/warp/zero_modes.py --part=scan --sigma=2 --L=16 --N=128 --tmax=0.5 --step=0.25 --out=/tmp/claude-1000/-home-nathan-Source-negative-mass-i69/e5f68190-43ef-4990-8888-a12fba3b260a/scratchpad/out/pilot.jsonl
+== scan: witten2, sigma R = 2.0, L = 16.0, N = 128, v_c = 3.74490, up to 0.5 v_c in steps of 0.25
+  ||M|| = 0.22868, ||M|| v_c = 0.85638 (the certificate uses 1.02 ||M||)
+  t = v/v_c =  0.250  v =    0.9362  s_min = 0.898492  [50 apps, 17.3 s, peak 2.27 GB]
+  t = v/v_c =  0.500  v =    1.8724  s_min = 0.810758  [50 apps, 17.3 s, peak 2.27 GB]
+  smallest s_min 0.810758 at v/v_c = 0.5; certificate: 2 of 2 intervals certified, smallest lower bound 0.7454
+  [PASS] scan_resolved: 0 candidate(s), 0 intervals not certified
+  [PASS] lanczos_converged: 0 of 2 runs
+peak resident memory 2.26 GB
+  [PASS] memory: peak 2.26 GB, limit 8.0 GB
+all checks passed
+  wall time 51.58 s
+  maximum resident set size 2374688 kB
+  exit status 0

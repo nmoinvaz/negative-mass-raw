@@ -1,0 +1,9 @@
+######## python notes/warp/zero_modes.py --controls --only=half
+== controls: each --mutate makes its target checks fail; the same run without it passes them
+  half        (drops the 1/2 in B (witten2 and witten4) in the FFT operator; --part=dense,regress63,planted --L=10 --N=40): baseline exit 0, mutated exit 1, failed ['dense', 'regress63', 'planted_pm_i'], 1288 s -> fired
+  [PASS] controls: every control fired
+peak resident memory 0.07 GB
+all checks passed
+  wall time 1965.79 s
+  maximum resident set size 805124 kB
+  exit status 0

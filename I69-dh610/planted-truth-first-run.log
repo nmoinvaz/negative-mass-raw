@@ -1,0 +1,142 @@
+######## python notes/warp/zero_modes.py --confirm
+== adjoint: T = M^H for the three operators (dot test with random fields)
+  witten4  |<x, My> - <Tx, y>| / (|x| |My|) = 6.8e-18
+  witten2  |<x, My> - <Tx, y>| / (|x| |My|) = 7.1e-18
+  ly       |<x, My> - <Tx, y>| / (|x| |My|) = 2.6e-17
+  [PASS] adjoint: worst 2.6e-17
+== dense: Lanczos s_min against a dense SVD built from explicit DFT matrices and gammas (N = 8)
+  witten2  v = 3.0: full dense 0.484259896 Lanczos 0.484259896; free dense 0.485341719 Lanczos 0.485341719
+  witten2  v = (0.7+0.4j): full dense 0.732261753 Lanczos 0.732261753; free dense 0.732922837 Lanczos 0.732922837
+  witten2  v = -2.0: full dense 0.588969117 Lanczos 0.588969117; free dense 0.589331887 Lanczos 0.589331887
+  witten4  v = 3.0: full dense 0.484022090 Lanczos 0.484022090; free dense 0.485020148 Lanczos 0.485020148
+  witten4  v = (0.7+0.4j): full dense 0.732248207 Lanczos 0.732248207; free dense 0.732898941 Lanczos 0.732898941
+  witten4  v = -2.0: full dense 0.588939880 Lanczos 0.588939880; free dense 0.589322898 Lanczos 0.589322898
+  [PASS] dense: largest |dense - Lanczos| 1.9e-15
+== vc: v_c = 1/kappa_K(1), S = 5.477904090
+  sigma R =  2.0: v_c = 3.74490 (#58: 3.74490)
+  sigma R =  4.0: v_c = 2.47097 (#58: 2.47097)
+  sigma R =  8.0: v_c = 1.56243 (#58: 1.56243)
+  sigma R = 16.0: v_c = 0.98503 (#58: 0.98503)
+  [PASS] vc: equal to #58's printed values, max difference 3.7e-06
+== regress63: the mean-free s_min at N = 64 equals #63's scan table, and the full-space value is below it
+  sigma R = 2, v/v_c = 1: mean-free 0.691615 (#63: 0.691615), full space 0.691615
+  sigma R = 2, v/v_c = 2: mean-free 0.531532 (#63: 0.531532), full space 0.531532
+  sigma R = 2, v/v_c = 4: mean-free 0.389574 (#63: 0.389574), full space 0.389574
+  sigma R = 4, v/v_c = 1: mean-free 0.729964 (#63: 0.729964), full space 0.729964
+  sigma R = 4, v/v_c = 2: mean-free 0.580202 (#63: 0.580202), full space 0.580202
+  sigma R = 4, v/v_c = 4: mean-free 0.440720 (#63: 0.440720), full space 0.440720
+  [PASS] regress63: largest difference from #63's table 4.9e-07
+== sectors: s_min(witten4) = s_min(witten2, +v) = s_min(witten2, -v) (sigma R = 2, L = 8, N = 64)
+  v/v_c = 2: witten4 0.53153234, witten2 +v 0.53153234, witten2 -v 0.53153234
+  v/v_c = 4: witten4 0.38957436, witten2 +v 0.38957436, witten2 -v 0.38957436
+  [PASS] sectors: largest difference 2.7e-14
+== lanczos: s_min is the same from three random starting vectors, and every run converged
+  v/v_c = 3: 0.444224387, 0.444224387, 0.444224387
+  v/v_c = 7: 0.300363630, 0.300363630, 0.300363630
+  v/v_c = 10: 0.253710626, 0.253710626, 0.253710626
+  [PASS] lanczos: seed spread 3.8e-14, unconverged runs 0 of 39
+== planted: tau1 = 6/(1 + r^2), zero modes at v = +-i; L = 10.0, N = 64
+  top |lambda| = 0.9910, 0.9910, 0.9910, 0.9910, 0.6000, 0.6000, 0.6000, 0.6000  [6 s]
+  zero-mode speeds v* = -1/lambda: +0.0000+1.0091i, +0.0000-1.0091i; s_min there 5.3e-09, 1.6e-08; s_min(+i), s_min(-i) = 0.0071, 0.0071
+  refine along +i t: minimum s_min = 6.9e-06 at t = 1.00912
+  [PASS] planted_pm_i: |lambda| = 0.9910 (exact 1), |Re|/|lambda| = 8.6e-16, s_min at v* <= 1.6e-08, s_min(+-i) <= 0.0071, refined |v*| = 1.0091
+  the zero-mode speed 1/|lambda| against box and grid (eigenvalue route):
+    (L, N) = (10, 64): 1/|lambda| = 1.00911
+    (L, N) = (14, 64): 1/|lambda| = 1.00403
+    (L, N) = (20, 64): 1/|lambda| = 1.00134
+  [PASS] planted_conv: |v*| = 1.0091, 1.0040, 1.0013 at L = 10, 14, 20, tending to the exact 1
+  real scan of the planted tau up to 10 v_c, v_c = 1/sqrt(3):
+  ||M|| = 1.53541, ||M|| v_c = 0.88647 (the certificate uses 1.02 ||M||)
+  t = v/v_c =  0.250  v =    0.1443  s_min = 0.941367  [50 apps, 1.6 s, peak 0.77 GB]
+  t = v/v_c =  0.500  v =    0.2887  s_min = 0.902430  [50 apps, 1.6 s, peak 0.77 GB]
+  t = v/v_c =  0.750  v =    0.4330  s_min = 0.879376  [50 apps, 1.6 s, peak 0.77 GB]
+  t = v/v_c =  1.000  v =    0.5774  s_min = 0.867689  [50 apps, 1.6 s, peak 0.77 GB]
+  t = v/v_c =  1.250  v =    0.7217  s_min = 0.863236  [50 apps, 1.6 s, peak 0.77 GB]
+  t = v/v_c =  1.500  v =    0.8660  s_min = 0.862938  [50 apps, 1.6 s, peak 0.77 GB]
+  t = v/v_c =  1.750  v =    1.0104  s_min = 0.864826  [50 apps, 1.6 s, peak 0.77 GB]
+  t = v/v_c =  2.000  v =    1.1547  s_min = 0.867750  [50 apps, 1.6 s, peak 0.77 GB]
+  t = v/v_c =  2.250  v =    1.2990  s_min = 0.871070  [74 apps, 2.6 s, peak 0.77 GB]
+  t = v/v_c =  2.500  v =    1.4434  s_min = 0.874435  [74 apps, 2.6 s, peak 0.77 GB]
+  t = v/v_c =  2.750  v =    1.5877  s_min = 0.877661  [74 apps, 2.6 s, peak 0.77 GB]
+  t = v/v_c =  3.000  v =    1.7321  s_min = 0.880658  [98 apps, 3.7 s, peak 0.77 GB]
+  t = v/v_c =  3.250  v =    1.8764  s_min = 0.883385  [98 apps, 3.6 s, peak 0.77 GB]
+  t = v/v_c =  3.500  v =    2.0207  s_min = 0.885835  [122 apps, 4.6 s, peak 0.77 GB]
+  t = v/v_c =  3.750  v =    2.1651  s_min = 0.888017  [122 apps, 4.6 s, peak 0.77 GB]
+  t = v/v_c =  4.000  v =    2.3094  s_min = 0.889947  [170 apps, 6.7 s, peak 0.77 GB]
+  t = v/v_c =  4.250  v =    2.4537  s_min = 0.891647  [194 apps, 7.8 s, peak 0.77 GB]
+  t = v/v_c =  4.500  v =    2.5981  s_min = 0.893137  [266 apps, 10.8 s, peak 0.77 GB]
+  t = v/v_c =  4.750  v =    2.7424  s_min = 0.891595  [338 apps, 13.6 s, peak 0.77 GB]
+  t = v/v_c =  5.000  v =    2.8868  s_min = 0.888302  [338 apps, 14.1 s, peak 0.77 GB]
+  t = v/v_c =  5.250  v =    3.0311  s_min = 0.885153  [338 apps, 14.4 s, peak 0.77 GB]
+  t = v/v_c =  5.500  v =    3.1754  s_min = 0.882142  [362 apps, 15.1 s, peak 0.77 GB]
+  t = v/v_c =  5.750  v =    3.3198  s_min = 0.879260  [362 apps, 15.4 s, peak 0.77 GB]
+  t = v/v_c =  6.000  v =    3.4641  s_min = 0.876500  [386 apps, 16.3 s, peak 0.77 GB]
+  t = v/v_c =  6.250  v =    3.6084  s_min = 0.873855  [386 apps, 16.3 s, peak 0.77 GB]
+  t = v/v_c =  6.500  v =    3.7528  s_min = 0.871320  [410 apps, 17.1 s, peak 0.77 GB]
+  t = v/v_c =  6.750  v =    3.8971  s_min = 0.868888  [410 apps, 17.4 s, peak 0.77 GB]
+  t = v/v_c =  7.000  v =    4.0415  s_min = 0.866554  [434 apps, 18.4 s, peak 0.77 GB]
+  t = v/v_c =  7.250  v =    4.1858  s_min = 0.864312  [458 apps, 19.3 s, peak 0.77 GB]
+  t = v/v_c =  7.500  v =    4.3301  s_min = 0.862159  [482 apps, 20.3 s, peak 0.77 GB]
+  t = v/v_c =  7.750  v =    4.4745  s_min = 0.860089  [506 apps, 21.7 s, peak 0.77 GB]
+  t = v/v_c =  8.000  v =    4.6188  s_min = 0.858099  [506 apps, 21.4 s, peak 0.77 GB]
+  t = v/v_c =  8.250  v =    4.7631  s_min = 0.856184  [506 apps, 21.9 s, peak 0.77 GB]
+  t = v/v_c =  8.500  v =    4.9075  s_min = 0.854341  [554 apps, 23.9 s, peak 0.77 GB]
+  t = v/v_c =  8.750  v =    5.0518  s_min = 0.852567  [554 apps, 22.9 s, peak 0.77 GB]
+  t = v/v_c =  9.000  v =    5.1962  s_min = 0.850858  [602 apps, 24.7 s, peak 0.77 GB]
+  t = v/v_c =  9.250  v =    5.3405  s_min = 0.849211  [602 apps, 24.4 s, peak 0.77 GB]
+  t = v/v_c =  9.500  v =    5.4848  s_min = 0.847623  [602 apps, 24.4 s, peak 0.77 GB]
+  t = v/v_c =  9.750  v =    5.6292  s_min = 0.846092  [650 apps, 28.7 s, peak 0.77 GB]
+  t = v/v_c = 10.000  v =    5.7735  s_min = 0.844615  [650 apps, 28.6 s, peak 0.77 GB]
+  [PASS] planted_real: no zero-mode candidate, every one of 40 intervals certified, smallest s_min 0.8446 at 10 v_c
+== ly: Loss-Yau potential, a real zero mode at v = 1 (to test the real scan); L = 10.0, N = 32
+  ||M|| = 1.53837, ||M|| v_c = 0.88818 (the certificate uses 1.02 ||M||)
+  t = v/v_c =  0.250  v =    0.1443  s_min = 0.835103  [50 apps, 0.2 s, peak 0.77 GB]
+  t = v/v_c =  0.500  v =    0.2887  s_min = 0.676979  [50 apps, 0.2 s, peak 0.77 GB]
+  t = v/v_c =  0.750  v =    0.4330  s_min = 0.525899  [50 apps, 0.2 s, peak 0.77 GB]
+  t = v/v_c =  1.000  v =    0.5774  s_min = 0.382035  [50 apps, 0.2 s, peak 0.77 GB]
+  t = v/v_c =  1.250  v =    0.7217  s_min = 0.245607  [74 apps, 0.3 s, peak 0.77 GB]
+  t = v/v_c =  1.500  v =    0.8660  s_min = 0.117298  [74 apps, 0.3 s, peak 0.77 GB]
+  t = v/v_c =  1.750  v =    1.0104  s_min = 0.000358  [146 apps, 0.7 s, peak 0.77 GB]
+  t = v/v_c =  2.000  v =    1.1547  s_min = 0.097156  [122 apps, 0.5 s, peak 0.77 GB]
+  t = v/v_c =  2.250  v =    1.2990  s_min = 0.138345  [122 apps, 0.5 s, peak 0.77 GB]
+  t = v/v_c =  2.500  v =    1.4434  s_min = 0.108291  [146 apps, 0.6 s, peak 0.77 GB]
+  t = v/v_c =  2.750  v =    1.5877  s_min = 0.051758  [194 apps, 0.9 s, peak 0.77 GB]
+  t = v/v_c =  3.000  v =    1.7321  s_min = 0.007652  [242 apps, 1.1 s, peak 0.77 GB]
+    bisect [1.5000, 1.7500] at 1.6250: s_min = 0.056816
+    bisect [1.6250, 1.7500] at 1.6875: s_min = 0.027747
+    bisect [1.6875, 1.7500] at 1.7188: s_min = 0.013563
+    bisect [1.7188, 1.7500] at 1.7344: s_min = 0.006568
+    refined [1.7344, 1.7500]: minimum s_min = 4.989e-06 at v = 1.009888 (1.74918 units)
+    bisect [1.7500, 2.0000] at 1.8750: s_min = 0.052722
+    bisect [1.7500, 1.8750] at 1.8125: s_min = 0.027284
+    bisect [1.7500, 1.8125] at 1.7812: s_min = 0.013985
+    bisect [1.7500, 1.7812] at 1.7656: s_min = 0.007210
+    refined [1.7500, 1.7656]: minimum s_min = 3.791e-04 at v = 1.010391 (1.75005 units)
+    bisect [2.5000, 2.7500] at 2.6250: s_min = 0.081301
+    bisect [2.7500, 3.0000] at 2.8750: s_min = 0.021236
+    bisect [2.7500, 2.8750] at 2.8125: s_min = 0.036595
+    bisect [2.8750, 3.0000] at 2.9375: s_min = 0.004869
+    bisect [2.8750, 2.9375] at 2.9062: s_min = 0.013279
+    bisect [2.9062, 2.9375] at 2.9219: s_min = 0.009129
+    refined [2.9219, 2.9375]: minimum s_min = 4.890e-03 at v = 1.695921 (2.93742 units)
+    bisect [2.9375, 3.0000] at 2.9688: s_min = 0.000254
+    bisect [2.9375, 2.9688] at 2.9531: s_min = 0.000540
+    refined [2.9375, 2.9531]: minimum s_min = 5.622e-04 at v = 1.704942 (2.95305 units)
+    refined [2.9531, 2.9688]: minimum s_min = 2.298e-05 at v = 1.706157 (2.95515 units)
+    bisect [2.9688, 3.0000] at 2.9844: s_min = 0.003974
+    refined [2.9688, 2.9844]: minimum s_min = 2.730e-04 at v = 1.714054 (2.96883 units)
+  refined zero-mode speed v* = 1.00989 with s_min = 5.0e-06
+  [PASS] ly_real: 2 distinct candidate(s); the one within 5 % of the exact v = 1 has s_min < 1e-3
+  box and grid convergence of the zero near v = 1:
+    (L, N) = (10, 32): v* = 1.00991, s_min there 8.4e-06
+    (L, N) = (10, 48): v* = 1.00996, s_min there 5.4e-06
+    (L, N) = (14, 48): v* = 1.00423, s_min there 3.1e-06
+    (L, N) = (14, 64): v* = 1.00430, s_min there 8.2e-06
+    spread of v* 5.7e-03 (limit 2e-2), all s_min < 1e-3: True
+  [PASS] ly_converged: v* = 1.00991 at L = 10 and 1.00430 at L = 14, settling toward the exact 1; every s_min below 1e-3
+peak resident memory 0.77 GB
+  [PASS] memory: peak 0.77 GB, limit 8.0 GB
+all checks passed
+  wall time 1258.07 s
+  maximum resident set size 805352 kB
+  exit status 0

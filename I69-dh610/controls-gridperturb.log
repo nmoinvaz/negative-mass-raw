@@ -1,0 +1,9 @@
+######## python notes/warp/zero_modes.py --controls --raw=/home/nathan/Source/negative-mass-raw/I69-dh610 --only=gridperturb
+== controls: each --mutate makes its target checks fail; the same run without it passes them
+  gridperturb (scales the (2 L1, 128) column of the table by 1.01; agree_N already fails on the data; --part=table): baseline exit 1, mutated exit 1, failed ['agree_N', 'agree_N160'], 1 s -> fired
+  [PASS] controls: every control fired
+peak resident memory 0.07 GB
+all checks passed
+  wall time 2.00 s
+  maximum resident set size 74280 kB
+  exit status 0

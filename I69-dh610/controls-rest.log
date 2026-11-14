@@ -1,0 +1,17 @@
+######## python notes/warp/zero_modes.py --controls --only=rot,adj,bscale,lip,lyscale,lowiter,lipbig,mem,conj
+== controls: each --mutate makes its target checks fail; the same run without it passes them
+  conj        (Gram operator uses v instead of conj(v); only dense sees it, a zero of A is a zero of any (I + w T) A; --part=dense): baseline exit 0, mutated exit 1, failed ['dense'], 207 s -> fired
+  adj         (treats the anti-Hermitian B of ly as Hermitian in M^H; --part=adjoint): baseline exit 0, mutated exit 1, failed ['adjoint'], 1 s -> fired
+  bscale      (scales B of witten2 by 11/10; --part=sectors): baseline exit 0, mutated exit 1, failed ['sectors'], 72 s -> fired
+  rot         (scans the planted tau along the imaginary axis; --part=planted --L=10 --N=40 --tmax=3): baseline exit 0, mutated exit 1, failed ['planted_real'], 1326 s -> fired
+  lip         (uses a tenth of ||M|| in the certificate; --part=ly --L=10 --N=32): baseline exit 0, mutated exit 1, failed ['ly_real'], 11 s -> fired
+  lyscale     (scales the Loss-Yau potential A by 11/10 in the operator; --part=ly --L=10 --N=32): baseline exit 0, mutated exit 1, failed ['ly_real'], 184 s -> fired
+  lowiter     (stops Lanczos after two restarts; --part=lanczos): baseline exit 0, mutated exit 1, failed ['lanczos'], 60 s -> fired
+  lipbig      (uses 50 ||M|| in the certificate; --part=scan --sigma=2 --L=8 --N=32 --tmax=1 --step=1): baseline exit 0, mutated exit 1, failed ['scan_resolved'], 36 s -> fired
+  mem         (sets the memory limit to 0.05 GB; --part=vc): baseline exit 0, mutated exit 1, failed ['memory'], 0 s -> fired
+  [PASS] controls: every control fired
+peak resident memory 0.07 GB
+all checks passed
+  wall time 2615.44 s
+  maximum resident set size 804708 kB
+  exit status 0

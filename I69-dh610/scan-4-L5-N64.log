@@ -1,0 +1,52 @@
+######## python notes/warp/zero_modes.py --part=scan --sigma=4 --L=5 --N=64 --out=/home/nathan/Source/negative-mass-raw/I69-dh610/scan-4-L5-N64.jsonl
+== scan: witten2, sigma R = 4.0, L = 5.0, N = 64, v_c = 2.47097, up to 10.0 v_c in steps of 0.25
+  ||M|| = 0.29446, ||M|| v_c = 0.72761 (the certificate uses 1.02 ||M||)
+  t = v/v_c =  0.250  v =    0.6177  s_min = 0.918223  [50 apps, 4.5 s, peak 0.35 GB]
+  t = v/v_c =  0.500  v =    1.2355  s_min = 0.846359  [50 apps, 5.1 s, peak 0.35 GB]
+  t = v/v_c =  0.750  v =    1.8532  s_min = 0.783876  [50 apps, 4.7 s, peak 0.35 GB]
+  t = v/v_c =  1.000  v =    2.4710  s_min = 0.729964  [50 apps, 4.4 s, peak 0.35 GB]
+  t = v/v_c =  1.250  v =    3.0887  s_min = 0.683649  [74 apps, 7.3 s, peak 0.35 GB]
+  t = v/v_c =  1.500  v =    3.7065  s_min = 0.643899  [74 apps, 7.9 s, peak 0.35 GB]
+  t = v/v_c =  1.750  v =    4.3242  s_min = 0.609718  [74 apps, 8.6 s, peak 0.35 GB]
+  t = v/v_c =  2.000  v =    4.9419  s_min = 0.580202  [74 apps, 8.3 s, peak 0.35 GB]
+  t = v/v_c =  2.250  v =    5.5597  s_min = 0.554564  [74 apps, 8.4 s, peak 0.35 GB]
+  t = v/v_c =  2.500  v =    6.1774  s_min = 0.532145  [74 apps, 9.0 s, peak 0.35 GB]
+  t = v/v_c =  2.750  v =    6.7952  s_min = 0.512395  [98 apps, 11.6 s, peak 0.35 GB]
+  t = v/v_c =  3.000  v =    7.4129  s_min = 0.494870  [98 apps, 10.6 s, peak 0.35 GB]
+  t = v/v_c =  3.250  v =    8.0307  s_min = 0.479207  [98 apps, 8.4 s, peak 0.35 GB]
+  t = v/v_c =  3.500  v =    8.6484  s_min = 0.465113  [98 apps, 9.1 s, peak 0.35 GB]
+  t = v/v_c =  3.750  v =    9.2661  s_min = 0.452348  [122 apps, 11.1 s, peak 0.35 GB]
+  t = v/v_c =  4.000  v =    9.8839  s_min = 0.440720  [122 apps, 11.8 s, peak 0.35 GB]
+  t = v/v_c =  4.250  v =   10.5016  s_min = 0.430070  [122 apps, 11.8 s, peak 0.35 GB]
+  t = v/v_c =  4.500  v =   11.1194  s_min = 0.420266  [122 apps, 10.1 s, peak 0.35 GB]
+  t = v/v_c =  4.750  v =   11.7371  s_min = 0.411200  [146 apps, 13.3 s, peak 0.35 GB]
+  t = v/v_c =  5.000  v =   12.3549  s_min = 0.402781  [146 apps, 12.6 s, peak 0.35 GB]
+  t = v/v_c =  5.250  v =   12.9726  s_min = 0.394935  [146 apps, 14.4 s, peak 0.35 GB]
+  t = v/v_c =  5.500  v =   13.5903  s_min = 0.387596  [170 apps, 16.3 s, peak 0.35 GB]
+  t = v/v_c =  5.750  v =   14.2081  s_min = 0.380710  [170 apps, 13.8 s, peak 0.35 GB]
+  t = v/v_c =  6.000  v =   14.8258  s_min = 0.374230  [170 apps, 14.8 s, peak 0.35 GB]
+  t = v/v_c =  6.250  v =   15.4436  s_min = 0.368116  [170 apps, 16.0 s, peak 0.35 GB]
+  t = v/v_c =  6.500  v =   16.0613  s_min = 0.362333  [194 apps, 17.7 s, peak 0.35 GB]
+  t = v/v_c =  6.750  v =   16.6791  s_min = 0.356851  [194 apps, 17.7 s, peak 0.35 GB]
+  t = v/v_c =  7.000  v =   17.2968  s_min = 0.351643  [218 apps, 27.2 s, peak 0.35 GB]
+  t = v/v_c =  7.250  v =   17.9145  s_min = 0.346686  [218 apps, 24.1 s, peak 0.35 GB]
+  t = v/v_c =  7.500  v =   18.5323  s_min = 0.341959  [218 apps, 19.0 s, peak 0.35 GB]
+  t = v/v_c =  7.750  v =   19.1500  s_min = 0.337444  [218 apps, 19.0 s, peak 0.35 GB]
+  t = v/v_c =  8.000  v =   19.7678  s_min = 0.333125  [242 apps, 23.1 s, peak 0.35 GB]
+  t = v/v_c =  8.250  v =   20.3855  s_min = 0.328988  [242 apps, 23.4 s, peak 0.35 GB]
+  t = v/v_c =  8.500  v =   21.0033  s_min = 0.325018  [266 apps, 22.7 s, peak 0.35 GB]
+  t = v/v_c =  8.750  v =   21.6210  s_min = 0.321205  [266 apps, 22.4 s, peak 0.35 GB]
+  t = v/v_c =  9.000  v =   22.2387  s_min = 0.317538  [266 apps, 27.5 s, peak 0.35 GB]
+  t = v/v_c =  9.250  v =   22.8565  s_min = 0.314008  [290 apps, 27.8 s, peak 0.35 GB]
+  t = v/v_c =  9.500  v =   23.4742  s_min = 0.310605  [290 apps, 29.5 s, peak 0.35 GB]
+  t = v/v_c =  9.750  v =   24.0920  s_min = 0.307321  [290 apps, 25.9 s, peak 0.35 GB]
+  t = v/v_c = 10.000  v =   24.7097  s_min = 0.304150  [314 apps, 27.6 s, peak 0.35 GB]
+  smallest s_min 0.304150 at v/v_c = 10; certificate: 40 of 40 intervals certified, smallest lower bound 0.2130
+  [PASS] scan_resolved: 40 of 40 intervals certified, 0 refined to a minimum, 0 unresolved
+  [PASS] lanczos_converged: 0 of 40 runs
+peak resident memory 0.36 GB
+  [PASS] memory: peak 0.36 GB, limit 8.0 GB
+all checks passed
+  wall time 613.67 s
+  maximum resident set size 372388 kB
+  exit status 0
