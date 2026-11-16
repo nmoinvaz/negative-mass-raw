@@ -23,7 +23,13 @@ processes at a time.
   discretisation and one half-integer m = J_z, with `vc`, `n`, `h`, `nth`, `rout` and `q`.
 - `report.log`: `--part=report`, the tables and checks, also saved as `notes/warp/tanh_spectrum_check_output.txt` in the
   code repository.
-- `memory-*.log`: the sampled working set and CPU time of each solve process, for the progress posts.
+- `memory-sampler.log`: the working set, peak working set and CPU time of each compute process once a minute, and the
+  machine's free memory, written by `sample.ps1`.
+- `job_<name>.cmd` and `go_<name>.cmd`: the launchers. `go_` starts `job_` with `start /BELOWNORMAL /MIN`, and `job_`
+  sets `OMP_NUM_THREADS=1`, `OPENBLAS_NUM_THREADS=1` and `MKL_NUM_THREADS=1`, runs the command from the checkout root
+  and writes `<log>.exit` with the exit code. The `report` job was run by hand with the same command, and its output
+  went to the code repository's file, copied here as `report.log`.
+- `<log>.exit`: the exit code of the run that wrote `<log>`.
 
 Derived results (tables, the speed bound line, notes) are in the code repository at `notes/warp/tanh_spectrum_check.md`
 on branch `wip/i94-sector-check`.
