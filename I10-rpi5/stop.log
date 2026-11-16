@@ -1,0 +1,6 @@
+S1 PASS: w(alpha_c) quadratic over 8 rows (k < 0.15), residual 7.44e-10, w = 1 at alpha_c* = 4.018176550085109, last row alpha_c = 4.017906, follow stop record: status 2, R tried 2932.8
+S2 PASS: star at alpha_c = 4.017906 (k = 0.0109) on R = 1919 and R = 600: relative differences {'w': 1.2082162913568694e-11, 'N': 2.3700288037956084e-10, 'M': 3.095893471383513e-10}
+S3 PASS: Yukawa tail on R = 600 reaches alpha_c = 4.01817640, w = 0.99999997, k = 2.46e-04 (follow stopped at k = 0.0109), N = 802.0840, M = -610.6174; first failure: bvp(alpha_c) failed alpha_c=4.018176402813221 R=600.0: A singular Jacobian encountered when solving the collocation system.
+S4a PASS: WKB tail on R = 280 against the Yukawa star at alpha_c = 4.0 (k = 0.089): {'w': 1.2504196451274239e-11, 'N': 2.4310097802293917e-10, 'M': 3.1900461168515343e-10}
+S4b PASS: WKB tail continues through w = 1 to alpha_c = 4.0300, w = 1.002592 (31 stars), N increasing, second/first differences at most 4.81e-04; at w = 1 N = 802.0841188486073, M = -610.6174811813694
+exit 0

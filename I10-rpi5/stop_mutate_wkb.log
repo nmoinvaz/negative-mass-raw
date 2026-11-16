@@ -1,0 +1,5 @@
+S1 PASS: w(alpha_c) quadratic over 8 rows (k < 0.15), residual 7.44e-10, w = 1 at alpha_c* = 4.018176550085109, last row alpha_c = 4.017906, follow stop record: status 2, R tried 2932.8
+S2 PASS: star at alpha_c = 4.017906 (k = 0.0109) on R = 1919 and R = 600: relative differences {'w': 1.2082162913568694e-11, 'N': 2.3700288037956084e-10, 'M': 3.095893471383513e-10}
+S4a PASS: WKB tail on R = 280 against the Yukawa star at alpha_c = 4.0 (k = 0.089): {'w': 1.6480539617163628e-11, 'N': 3.2038612115966007e-10, 'M': 4.204529124165551e-10}
+S4b FAIL: WKB tail continues through w = 1 to alpha_c = 4.0182, w = 1.000000 (24 stars), N increasing, second/first differences at most 7.00e+00; at w = 1 N = None, M = None
+exit 1
