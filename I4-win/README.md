@@ -6,12 +6,13 @@ Issue: https://github.com/nmoinvaz/negative-mass/issues/4
 
 ## Code and environment
 
-Code: `C:\Users\nathan\Source\negative-mass-i4` on branch `wip/i4-polar-l456` at 63682b6, `phase2/nonradial`, scripts
-unmodified.
+Code: `C:\Users\nathan\Source\negative-mass-i4` on branch `wip/i4-polar-l456`, started at 63682b6, `phase2/nonradial`,
+scripts unmodified. The outputs are committed there (`scan_eps-1_w0.7603_l{L}.csv`, `convergence_l{L}_output.txt`,
+`kappa_eff_l{L}_output.txt`, `kappa_eff_l{L}_w0.7603.csv`).
 
 Python: `negative-mass-venv314\Scripts\python.exe`, Python 3.14.10, numpy 2.5.4, scipy 1.18.1, sympy 1.14.0, mpmath 1.3.0
 (the pinned requirements.txt). Every run has `OMP_NUM_THREADS=1` and `OPENBLAS_NUM_THREADS=1`, below-normal priority, and
-at most 4 processes in all (`NPROC=4`), launched detached with `start`.
+at most 4 processes of mine at a time, launched detached with `start`.
 
 ## Task
 
@@ -24,16 +25,61 @@ gamma in [1e-3, GMAX] on 100 log-spaced points, with GMAX above the point-mass r
 | 5 | 4801 | 6000 |
 | 6 | 9602 | 12000 |
 
+## How the stages ran
+
+The stages overlapped, with the coordinator's agreement (issue comments), because one evaluation of the convergence
+variants (rtol 1e-12 at the top gamma) runs for hours on one core.
+
+- l = 4: scan 12:54 to 13:44 (NPROC=4), convergence 13:44 to 18:31 (NPROC=4), kappa_eff after it. The rtol 1e-12
+  evaluation at gamma = 3000 took 17168 s, inside the 5 h cap.
+- l = 5: scan 15:55 to 18:23 (NPROC=3, beside the l = 4 evaluation), kappa_eff 5 and 6 early on a free core (18:39 to
+  about 18:50), convergence from 18:24 (NPROC=3). The rtol 1e-12 evaluation at gamma = 6000 reached the 5 h cap and was
+  stopped, see below.
+- l = 6: scan started 18:51 with NPROC=1, restarted at 23:33 with NPROC=4 from its partial file.
+
 ## Files
 
-- `mini_bs.log`: `python mini_bs.py`, the known-QNM control (Mini BS I, l = 2). Must reproduce `mini_bs_output.txt`
-  (sigma = 0.119519 - 5.35e-05 i).
-- `scan_l{L}.log`: `NPROC=4 python scan_growing.py -1 0.7603 L 100 0.001 GMAX`, its stdout. The output
+- `mini_bs.log`: `python mini_bs.py`, the known-QNM control (Mini BS I, l = 2). `mini_bs_vs_stored.diff` is
+  `diff mini_bs.log mini_bs_output.txt` (14 lines: the four pre-polish shooting rows differ in omega at about 2e-6, and
+  the last |D| is 1.35e-15 against 1.45e-16). The sigma, the secant iterates and the target star agree to the printed
+  digits; the coordinator took the diff as platform noise.
+- `scan_l{L}.log`: `NPROC=N python scan_growing.py -1 0.7603 L 100 0.001 GMAX`, its stdout and stderr. The output
   `scan_eps-1_w0.7603_l{L}.csv` (gamma, D) is committed to the code repository, and the per-point
   `scan_eps-1_w0.7603_l{L}.partial.csv` (index, gamma, D) is kept here.
-- `convergence_l{L}.log` and `convergence_l{L}_w0.7603.partial.csv`: `NPROC=4 GAMS=0.001,0.03,0.3,1,3,10,40,137,300,1000,GMAX
-  python convergence.py L`, its stdout (also in the code repository as `convergence_l{L}_output.txt`) and its
-  per-evaluation records (variant, gamma, D, seconds).
-- `kappa_eff_l{L}.log`: `python kappa_eff.py L`, its stdout (also `kappa_eff_l{L}_output.txt` in the code repository,
-  with `kappa_eff_l{L}_w0.7603.csv`).
-- `progress.log`: the hourly cpu and memory samples of the python processes.
+- `convergence_l{L}_w0.7603.partial.csv`: the per-evaluation records of `GAMS=0.001,0.03,0.3,1,3,10,40,137,300,1000,GMAX
+  python convergence.py L` (variant, gamma, D, seconds).
+  - l = 4: `convergence_l4.log` is its stdout with stderr merged (`2>&1`), so it carries the RuntimeWarning lines. The
+    committed `convergence_l4_output.txt` is the same text with those warning lines (and the source line after each)
+    removed. `kappa_eff_l4.log` and `kappa_eff_l4_output.txt` are related in the same way.
+  - l = 5, 6: stderr goes to separate files, `convergence_l{L}.stderr` and `kappa_eff_l{L}.stderr`.
+- `kappa_eff_l{L}`: `python kappa_eff.py L`. `kappa_eff_l5_output.txt` was produced twice, at 18:39 and again at
+  23:28 after the convergence stopped, and the second run is identical to the committed file (`git diff` empty).
+- `stage_l{L}.status`, `stage_kappa.status`: the launchers' own time stamps. In `stage_kappa.status` every line shows
+  18:39:35, because `%time%` expands once inside the loop of `run_kappa.cmd`; the real run was 18:39 to about 18:50.
+  The l = 5 convergence line `convergence exit -1` at 23:26:51 is my stop of the pool (below). The `regen exit 1`
+  line in `stage_l5.status` at 23:27:56 is a failed launch of the table regeneration, because `run_regen.cmd` first
+  passed GAMS with its quotes; `convergence_l5_regen.stderr` was overwritten by the relaunch (23:28:22, exit 0).
+- `progress.log` and `sample_progress.ps1`: the cpu, memory and partial-file counts sampled every 10 min.
+- `run_*.cmd`: the launchers (`run_mini_bs.cmd`, `run_stage.cmd` for l = 4, `run_scan.cmd`, `run_conv.cmd`,
+  `run_kappa.cmd`, `run_regen.cmd`; `run_stage2.cmd` was written and not used).
+- `cap_row.py`: not part of the repository scripts; it prints a convergence row from a partial file whose rtol 1e-12
+  evaluation was stopped at the cap (below).
+
+## The 5 h cap on the rtol 1e-12 evaluations at l = 5 and 6
+
+The coordinator's rule: an rtol 1e-12 evaluation that has not finished 5 h after it started is stopped, its row is
+recorded as not completed with its run time, and the other four variants' signs at that gamma stand.
+
+- l = 5, gamma = 6000: the evaluation started with the pool at 18:24:27 plus a start-up of about 1 min, and was still
+  running at 23:26. At 23:26:37 I stopped the pool worker that ran it (its wall time since creation was 18129 s, its cpu
+  time 17992 s including the start-up). I identified the worker by its pipe write counter (260 bytes, 24 operations,
+  against about 3650 bytes for the two others, which had returned 65 results between them) and checked the process
+  parent and command line before stopping it. The other 65 evaluations were already in the partial file, so I stopped
+  the main process and its workers, and `convergence.py 5` exited with -1.
+- `convergence_l5_output.txt` was then written by `run_regen.cmd 5 "0.001,...,1000"` (convergence.py with GAMS
+  without 6000, which reads the finished evaluations from the partial file and runs nothing), and the gamma = 6000 row
+  was appended with `cap_row.py convergence_l5_w0.7603.partial.csv 6000 18129`, which prints the row in the format of
+  convergence.py from base, phi_cut 1e-12, background R = 90, r0 = 3e-3 and q, and marks the rtol 1e-12 variant as not
+  completed. The time in parentheses on that row is the sum of the five evaluations that finished.
+  A rehearsal on the complete l = 4 partial file with rtol 1e-12 dropped gives the convergence.py row in every field
+  that does not depend on the dropped variant.
