@@ -1,0 +1,7 @@
+eps-1_w0.7603_l3_0.03_0.1_6.0_y02.5: r_m=24.11, R_s fixed = 1342.8 (min Re k on contour 0.030)
+   edge (0.1+2.5j)->(0.1+6j): cumulative phase -3.2764  (27 evals, 2048s)
+   edge (0.1+6j)->(0.03+6j): cumulative phase -3.3884  (47 evals, 4340s)
+   edge (0.03+6j)->(0.03+2.5j): cumulative phase -0.2221  (73 evals, 6359s)
+   edge (0.03+2.5j)->(0.1+2.5j): cumulative phase -0.0000  (92 evals, 7388s)
+RESULT eps-1_w0.7603_l3_0.03_0.1_6.0_y02.5: zeros in Re s∈[0.03,0.1], Im s∈[2.5,6.0]: winding = -0.0000  (max phase step 0.38 rad, min|D| 2.71e-04)
+PLANTED eps-1_w0.7603_l3_0.03_0.1_6.0_y02.5: s0 = (0.05+3j), expected 1 planted zeros inside; count with the factor +1.0000, without -0.0000, difference +1.0000  (max phase step 0.39 rad)  PASS
