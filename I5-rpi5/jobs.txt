@@ -1,0 +1,23 @@
+as_l2|$PY -u axis_scan.py -1 0.7603 2 0.005 0.005 0.235 231 --out=$RAW/axis_scan_l2_x0.005.csv
+as_l3|$PY -u axis_scan.py -1 0.7603 3 0.005 0.005 0.235 231 --out=$RAW/axis_scan_l3_x0.005.csv
+n1_l2|$PY -u winding2.py -1 0.7603 2 0.0001 0.1 0.23 --cachedir=$RAW/cache --plant=0.0005,0.12
+n1_l3|$PY -u winding2.py -1 0.7603 3 0.0001 0.1 0.23 --cachedir=$RAW/cache --plant=0.0005,0.12
+n3_l2|$PY -u winding2.py -1 0.7603 2 -0.001 0.0001 0.23 --y0=0.01 --cachedir=$RAW/cache --plant=-0.0005,0.12
+n3_l3|$PY -u winding2.py -1 0.7603 3 -0.001 0.0001 0.23 --y0=0.01 --cachedir=$RAW/cache --plant=-0.0005,0.12
+rep_l2|$RAW/plant_chain.sh 0.3,1.76 -1 0.7603 2 0.1 2.0 2.5 --cachedir=$RAW/cache
+s1_l2|$PY -u winding2.py -1 0.7603 2 0.03 0.1 2.5 --cachedir=$RAW/cache --plant=0.04,0.25
+cs_axis|$PY -u axis_scan.py 1 0.853087 2 0.005 0.09 0.15 61 --mini --out=$RAW/axis_scan_mini_x0.005.csv; echo "exit $?"; $PY -u axis_scan.py 1 0.853087 2 0.005 0.09 0.15 61 --mini --mutate=move --out=$RAW/axis_scan_mini_x0.005.csv; echo "exit $? (1 expected)"
+s1_l3|$PY -u winding2.py -1 0.7603 3 0.03 0.1 2.5 --cachedir=$RAW/cache --plant=0.04,0.25
+cs_default|$PY -u control_winding2.py --cachedir=$RAW/cache
+cs_strip|$PY -u control_winding2.py --strip --cachedir=$RAW/cache
+h1_l2|$PY -u winding2.py -1 0.7603 2 0.1 2.0 6.0 --y0=2.5 --cachedir=$RAW/cache --plant=0.3,2.7
+cs_strip2|$PY -u control_winding2.py --strip --cachedir=$RAW/cache; echo "exit $?"; $PY -u control_winding2.py --strip --mutate=reverse --cachedir=$RAW/cache; echo "exit $? (1 expected)"
+cs_strip2_r80|$PY -u control_winding2.py --strip --rsmult=80 --cachedir=$RAW/cache
+cs_strip2_shift|$PY -u control_winding2.py --strip --mutate=shift --cachedir=$RAW/cache; echo "exit $? (1 expected)"
+h1_l3|$PY -u winding2.py -1 0.7603 3 0.1 2.0 6.0 --y0=2.5 --cachedir=$RAW/cache --plant=0.3,2.7
+ref_l2|$RAW/ref_chain.sh 2 300 0.6034715752374341 0.6407997139119147
+ref_l3|$RAW/ref_chain.sh 3 1000 1.1152642855358035 1.1842497052596677
+t1_r40|$PY -u winding2.py -1 0.7603 2 0.02 0.1 0.33 --y0=0.15 --cachedir=$RAW/cache --plant=0.03,0.25
+t1_r80|$PY -u winding2.py -1 0.7603 2 0.02 0.1 0.33 --y0=0.15 --rsmult=80 --zfac=2 --cachedir=$RAW/cache --plant=0.03,0.25
+t2_r40|$PY -u winding2.py -1 0.7603 2 0.02 0.1 1.84 --y0=1.68 --cachedir=$RAW/cache --plant=0.03,1.77
+t2_r80|$PY -u winding2.py -1 0.7603 2 0.02 0.1 1.84 --y0=1.68 --rsmult=80 --zfac=2 --cachedir=$RAW/cache --plant=0.03,1.77

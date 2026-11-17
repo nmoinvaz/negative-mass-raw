@@ -1,0 +1,12 @@
+x = 0.005, y in [0.09, 0.15], 61 points (215s); |D| range 9.258e-04 .. 9.979e-03
+   local minimum of |D| at y = 0.133000: |D| = 1.143e-03, ratio to the mean at y +- 0.02: 0.203
+   local minimum of |D| at y = 0.143000: |D| = 9.258e-04, ratio to the mean at y +- 0.02: 0.422
+   smallest ratio of |D| to its mean at y +- 0.02: 0.203 at y = 0.1330; max |second difference of ln|D||: 0.039
+CONTROL Mini BS I: dip at y = 0.12300 (|D| ratio 0.844), looked for y = 0.11952  FAIL
+exit 1
+x = 0.005, y in [0.09, 0.15], 61 points (0s); |D| range 9.258e-04 .. 9.979e-03
+   local minimum of |D| at y = 0.133000: |D| = 1.143e-03, ratio to the mean at y +- 0.02: 0.203
+   local minimum of |D| at y = 0.143000: |D| = 9.258e-04, ratio to the mean at y +- 0.02: 0.422
+   smallest ratio of |D| to its mean at y +- 0.02: 0.203 at y = 0.1330; max |second difference of ln|D||: 0.039
+CONTROL Mini BS I: dip at y = 0.14300 (|D| ratio 0.422), looked for y = 0.13952  FAIL
+exit 1 (1 expected)

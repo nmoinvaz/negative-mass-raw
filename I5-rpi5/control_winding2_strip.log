@@ -1,0 +1,7 @@
+# python control_winding2.py ; python control_winding2.py --strip   2026-11-16T14:49:55-08:00
+winding2 normalisation control, around QNM: winding = +1.0000  (expected 1, R_s = 207, min Re k 0.232, rsmult 40, 56 steps, max step 0.33 rad)  PASS
+winding2 normalisation control, displaced: winding = +0.0000  (expected 0, R_s = 207, min Re k 0.232, rsmult 40, 32 steps, max step 0.03 rad)  PASS
+exit 0
+winding2 normalisation control, strip around upper QNM: winding = +3.0000  (expected 1, R_s = 376, min Re k 0.117, rsmult 40, 176 steps, max step 0.39 rad)  FAIL
+Terminated
+exit 143
