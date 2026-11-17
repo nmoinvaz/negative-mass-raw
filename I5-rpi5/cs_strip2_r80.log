@@ -1,0 +1,4 @@
+winding2 normalisation control, strip, fundamental only: winding = +1.0000  (expected 1, R_s = 419, min Re k 0.208, rsmult 80, 88 steps, max step 0.38 rad)  PASS
+winding2 normalisation control, strip, three zeros: winding = +3.0000  (expected 3, R_s = 717, min Re k 0.117, rsmult 80, 186 steps, max step 0.40 rad)  PASS
+winding2 normalisation control, strip, above the QNM: winding = +2.0000  (expected 2, R_s = 717, min Re k 0.117, rsmult 80, 146 steps, max step 0.40 rad)  PASS
+winding2 normalisation control, strip, between the QNM and the next zero: winding = +0.0000  (expected 0, R_s = 454, min Re k 0.191, rsmult 80, 68 steps, max step 0.38 rad)  PASS

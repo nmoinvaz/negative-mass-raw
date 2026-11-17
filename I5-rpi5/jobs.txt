@@ -21,3 +21,5 @@ t1_r40|$PY -u winding2.py -1 0.7603 2 0.02 0.1 0.33 --y0=0.15 --cachedir=$RAW/ca
 t1_r80|$PY -u winding2.py -1 0.7603 2 0.02 0.1 0.33 --y0=0.15 --rsmult=80 --zfac=2 --cachedir=$RAW/cache --plant=0.03,0.25
 t2_r40|$PY -u winding2.py -1 0.7603 2 0.02 0.1 1.84 --y0=1.68 --cachedir=$RAW/cache --plant=0.03,1.77
 t2_r80|$PY -u winding2.py -1 0.7603 2 0.02 0.1 1.84 --y0=1.68 --rsmult=80 --zfac=2 --cachedir=$RAW/cache --plant=0.03,1.77
+s2_l2|$PY -u winding2.py -1 0.7603 2 0.01 0.03 2.5 --cachedir=$RAW/cache --plant=0.015,0.25
+h2_l2|$PY -u winding2.py -1 0.7603 2 0.1 2.0 10.0 --y0=6.0 --cachedir=$RAW/cache --plant=0.3,6.2

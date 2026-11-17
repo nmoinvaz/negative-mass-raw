@@ -1,0 +1,61 @@
+reproduce gamma=0.001: D = -7.562988573e-02, stored -7.562988573e-02, relative 9.2e-16  PASS
+reproduce gamma=0.932603: D = -1.640628414e-02, stored -1.640628414e-02, relative 4.4e-15  PASS
+reproduce gamma=1000: D = -6.891913404e-11, stored -6.891913419e-11, relative 2.2e-09  PASS
+level 1: 199 points, 99 to evaluate  (580s)
+   level 1: 2/99 done, gamma up to 0.001233  (602s)
+   level 1: 22/99 done, gamma up to 0.02009  (637s)
+   level 1: 42/99 done, gamma up to 0.3275  (672s)
+   level 1: 62/99 done, gamma up to 5.337  (715s)
+   level 1: 82/99 done, gamma up to 86.97  (1037s)
+/home/nathan/Source/negative-mass-i5/phase2/nonradial/polar_solver.py:106: RuntimeWarning: overflow encountered in multiply
+  return r * (s * s + V(r) - q * q) / f
+/home/nathan/Source/negative-mass-venv314/lib/python3.14/site-packages/scipy/integrate/_ivp/rk.py:684: RuntimeWarning: invalid value encountered in dot
+  err5 = np.dot(K.T, self.E5) / scale
+/home/nathan/Source/negative-mass-venv314/lib/python3.14/site-packages/scipy/integrate/_ivp/rk.py:685: RuntimeWarning: invalid value encountered in dot
+  err3 = np.dot(K.T, self.E3) / scale
+level 2: 397 points, 198 to evaluate  (4471s)
+   level 2: 2/198 done, gamma up to 0.00111  (4493s)
+   level 2: 22/198 done, gamma up to 0.004482  (4530s)
+   level 2: 42/198 done, gamma up to 0.0181  (4565s)
+   level 2: 62/198 done, gamma up to 0.07305  (4600s)
+   level 2: 82/198 done, gamma up to 0.2949  (4635s)
+   level 2: 102/198 done, gamma up to 1.191  (4668s)
+   level 2: 122/198 done, gamma up to 4.806  (4716s)
+   level 2: 142/198 done, gamma up to 19.4  (4838s)
+   level 2: 162/198 done, gamma up to 78.33  (5283s)
+   level 2: 182/198 done, gamma up to 316.2  (7087s)
+level 0: step ratio 1.14976, 100 points, sign changes 0, min|D| 6.892e-11
+level 1: step ratio 1.07227, 199 points, sign changes 0, min |D_i|/sqrt|D_(i-1) D_(i+1)| 1.000, max 1.003, min|D| 6.892e-11
+level 2: step ratio 1.03550, 397 points, sign changes 0, min |D_i|/sqrt|D_(i-1) D_(i+1)| 1.000, max 1.001, min|D| 6.892e-11
+HALVING sign counts by level [0, 0, 0]: halving the step changes no sign count  PASS
+ALL CHECKS PASS  (12292s)
+== main rc=0 (0 expected)
+level 1: 199 points, 0 to evaluate  (0s)
+level 2: 397 points, 0 to evaluate  (0s)
+level 0: step ratio 1.14976, 100 points, sign changes 0, min|D| 6.212e-05
+level 1: step ratio 1.07227, 199 points, sign changes 2, min |D_i|/sqrt|D_(i-1) D_(i+1)| 0.227, max 1.431, min|D| 1.445e-05  brackets [(1.0723, 1.1498), (1.1498, 1.2328)]
+level 2: step ratio 1.03550, 397 points, sign changes 2, min |D_i|/sqrt|D_(i-1) D_(i+1)| 0.152, max 2.857, min|D| 4.666e-06  brackets [(1.1103, 1.1498), (1.1498, 1.1906)]
+PLANTED pair at 1.11526, 1.18425: level 0 sees 0 sign changes, finest level sees 2, intervals [(1.11034, 1.14976), (1.14976, 1.19058)]  PASS
+ALL CHECKS PASS  (0s)
+== planted pair rc=0 (0 expected)
+level 0: step ratio 1.14976, 100 points, sign changes 0, min|D| 6.212e-05
+PLANTED pair at 1.11526, 1.18425: level 0 sees 0 sign changes, finest level sees 0, intervals []  FAIL  [mutate=coarse]
+A CHECK FAILED  (0s)
+== planted pair, mutate=coarse rc=1 (1 expected)
+level 1: 199 points, 0 to evaluate  (0s)
+level 2: 397 points, 0 to evaluate  (0s)
+level 0: step ratio 1.14976, 100 points, sign changes 0, min|D| 6.876e-05
+level 1: step ratio 1.07227, 199 points, sign changes 2, min |D_i|/sqrt|D_(i-1) D_(i+1)| 0.021, max 3.437, min|D| 1.605e-06  brackets [(1.0723, 1.1498), (1.1498, 1.2328)]
+level 2: step ratio 1.03550, 397 points, sign changes 2, min |D_i|/sqrt|D_(i-1) D_(i+1)| 0.090, max 1.622, min|D| 1.605e-06  brackets [(1.1103, 1.1498), (1.1498, 1.1906)]
+HALVING sign counts by level [0, 2, 2]: halving the step changes no sign count  FAIL  [mutate=pair]
+A CHECK FAILED  (0s)
+== mutate=pair rc=1 (1 expected)
+reproduce gamma=0.001: D = -7.562988573e-02, stored -7.638618459e-02, relative 9.9e-03  FAIL  [mutate=stale]
+level 1: 199 points, 0 to evaluate  (20s)
+level 2: 397 points, 0 to evaluate  (20s)
+level 0: step ratio 1.14976, 100 points, sign changes 0, min|D| 6.892e-11
+level 1: step ratio 1.07227, 199 points, sign changes 0, min |D_i|/sqrt|D_(i-1) D_(i+1)| 1.000, max 1.003, min|D| 6.892e-11
+level 2: step ratio 1.03550, 397 points, sign changes 0, min |D_i|/sqrt|D_(i-1) D_(i+1)| 1.000, max 1.001, min|D| 6.892e-11
+HALVING sign counts by level [0, 0, 0]: halving the step changes no sign count  PASS  [mutate=stale]
+A CHECK FAILED  (20s)
+== mutate=stale rc=1 (1 expected)
