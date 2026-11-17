@@ -30,7 +30,7 @@ def row(path, g, secs, exclude=()):
     s = (f"gamma={g:8.3g}: D_base={Ds[BASE]:+.6e}  signs={signs}  rel.spread (same r_m)={spread:.1e}  "
          f"D(r_m~34)={Ds[PHI]:+.3e}  q_int={qi:+.6e} q_ext={qe:+.6e}  ({T:.0f}s)")
     if not done_rtol:
-        s += (f"  [rtol 1e-12 not completed, stopped at the 5 h cap, its worker had run {secs:.0f}s of wall time; signs and spread are over "
+        s += (f"  [rtol 1e-12 not completed, stopped after its worker had run {secs:.0f}s of wall time, past the 5 h cap (18000s); signs and spread are over "
               f"{len(Ds)} variants]")
     return s
 

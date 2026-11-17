@@ -35,7 +35,10 @@ variants (rtol 1e-12 at the top gamma) runs for hours on one core.
 - l = 5: scan 15:55 to 18:23 (NPROC=3, beside the l = 4 evaluation), kappa_eff 5 and 6 early on a free core (18:39 to
   about 18:50), convergence from 18:24 (NPROC=3). The rtol 1e-12 evaluation at gamma = 6000 reached the 5 h cap and was
   stopped, see below.
-- l = 6: scan started 18:51 with NPROC=1, restarted at 23:33 with NPROC=4 from its partial file.
+- l = 6: scan started 18:51 with NPROC=1 (1 point, 11252 s), restarted at 23:33 with NPROC=4 from its partial file and
+  finished at 03:23 (99 points, 13845 s). Convergence 03:24 to 10:05 (NPROC=4), then the table regeneration and the
+  kappa_eff 6 rerun (10:06, identical to the committed file). The rtol 1e-12 evaluation at gamma = 12000 was stopped
+  1 h 16 min after the 5 h cap, see below.
 
 ## Files
 
@@ -53,7 +56,8 @@ variants (rtol 1e-12 at the top gamma) runs for hours on one core.
     removed. `kappa_eff_l4.log` and `kappa_eff_l4_output.txt` are related in the same way.
   - l = 5, 6: stderr goes to separate files, `convergence_l{L}.stderr` and `kappa_eff_l{L}.stderr`.
 - `kappa_eff_l{L}`: `python kappa_eff.py L`. `kappa_eff_l5_output.txt` was produced twice, at 18:39 and again at
-  23:28 after the convergence stopped, and the second run is identical to the committed file (`git diff` empty).
+  23:28 after the convergence stopped, and `kappa_eff_l6_output.txt` at 18:39 and again at 10:06 after it; the second
+  runs are identical to the committed files (`git diff` empty, csv included).
 - `stage_l{L}.status`, `stage_kappa.status`: the launchers' own time stamps. In `stage_kappa.status` every line shows
   18:39:35, because `%time%` expands once inside the loop of `run_kappa.cmd`; the real run was 18:39 to about 18:50.
   The l = 5 convergence line `convergence exit -1` at 23:26:51 is my stop of the pool (below). The `regen exit 1`
@@ -83,3 +87,13 @@ recorded as not completed with its run time, and the other four variants' signs 
   completed. The time in parentheses on that row is the sum of the five evaluations that finished.
   A rehearsal on the complete l = 4 partial file with rtol 1e-12 dropped gives the convergence.py row in every field
   that does not depend on the dropped variant.
+- l = 6, gamma = 12000: the evaluation started with the pool at 03:24:15 plus a start-up of about 1 min, and the 5 h
+  cap was due at about 08:25. Two workers (the rtol 1e-12 and the phi_cut 1e-12 evaluations) had returned nothing, so their
+  pipe write counters (260 bytes, 24 operations) were identical, and phi_cut 1e-12 has no cap. I waited for the phi_cut
+  1e-12 result, which came at 09:40 after 22534 s, and stopped the worker that still had none (pid 8256, wall time
+  since creation 22599 s, cpu 22439 s) at 09:40:55, 1 h 16 min after the cap. After the other 65 evaluations finished I
+  stopped the pool (10:05:55, `convergence.py 6` exit -1), ran `run_regen.cmd 6` (exit 0) and appended the row with
+  `cap_row.py convergence_l6_w0.7603.partial.csv 12000 22599`.
+- `cap_row.py` first said "stopped at the 5 h cap" in the row; it now says "stopped after its worker had run N s of wall
+  time, past the 5 h cap (18000 s)", and both capped rows (l = 5 and l = 6) were regenerated with that wording after the
+  l = 6 stop (the l = 5 row was reworded in the same commit as the l = 6 table).
