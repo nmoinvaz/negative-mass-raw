@@ -1,0 +1,7 @@
+chk_cache|$PY -u check_cache_i54.py $RAW/cache; echo "exit $?"; $PY -u check_cache_i54.py $RAW/cache --mutate=scale; echo "exit $? (1 expected)"
+w085_l3|$PY -u winding2.py -1 0.85 3 0.1 2.0 2.5 --cachedir=$RAW/cache --plant=0.3,1.76
+w085_l2|$PY -u winding2.py -1 0.85 2 0.1 2.0 2.5 --cachedir=$RAW/cache --plant=0.3,1.76
+w070_l3|$PY -u winding2.py -1 0.70 3 0.1 2.0 2.5 --cachedir=$RAW/cache --plant=0.3,1.76
+w070_l2|$PY -u winding2.py -1 0.70 2 0.1 2.0 2.5 --cachedir=$RAW/cache --plant=0.3,1.76
+w07603_l3|$PY -u winding2.py -1 0.7603 3 0.1 2.0 2.5 --cachedir=$RAW/cache --plant=0.3,1.76
+c075_l2|$PY -u winding2.py 1 0.75 2 0.1 2.0 2.5 --cachedir=$RAW/cache --plant=0.3,1.76
