@@ -21,6 +21,10 @@ Boxes: Re s ∈ [0.1, 2], |Im s| ≤ 2.5, planted zero 0.3 + 1.76i (and its conj
 | `w07603_l3` | phantom ω = 0.7603 | 3 |
 | `c075_l2` | canonical ω = 0.75 (eps = +1) | 2 |
 
+Result (stage 1): all six boxes count 0 with the planted pair returned (+2 of 2) in each, and ω = 0.85, l = 3 changed
+from #7's −2 to 0. The old rule lost one 2π on the left edge, which `replay_old_rule_i54.py` locates from the caches.
+Stage 2 (pole search) was not run, since it was only for a surviving −2.
+
 The seventh row of the §5 table, phantom ω = 0.7603, l = 2, was recounted by #5 (`../I5-rpi5/rep_l2.log`) and is not
 rerun here.
 
@@ -35,5 +39,10 @@ status in `done/<name>.rc`. `queue.log` has the start and end times.
 | `cache/` | per-evaluation caches of `winding2.py`. The four ω = 0.70 and 0.85 files start as byte copies of #7's (`../I7-win2/winding2_cache_*.pkl`, sha256 in `cache_original.sha256`) and grow as the new rule asks for more evaluations. The ω = 0.7603 (l = 3) and ω = 0.75 caches start empty. |
 | `cache_original.sha256` | sha256 of the four caches as copied |
 | `jobs.txt`, `launch_I54.sh` | the queue and its launcher |
+| `chk_cache.log` | `check_cache_i54.py` on the four copied caches, then its `--mutate=scale` (exit 1 expected) |
 | `<job>.log`, `done/`, `queue.log` | output, exit status and times of each job |
-| `memwatch.log` | cpu, memory and load of the jobs, one line per minute (reports only) |
+| `memwatch.sh`, `memwatch.log` | cpu, memory and load of the jobs, one line per minute (reports only, stops nothing) |
+
+The tables of RESULTS.md §5.2 come from these logs: from `phase2/nonradial` of the checkout,
+`python collect_i54.py ../../../negative-mass-raw > i54_recount_output.txt` and
+`python replay_old_rule_i54.py ../../../negative-mass-raw > i54_replay_output.txt`.
