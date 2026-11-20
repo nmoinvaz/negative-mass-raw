@@ -1,0 +1,2 @@
+control|$PY -u control_winding2.py --cachedir=$RAW/cache; echo "exit $?"
+s1_l6|$PY -u winding2.py -1 0.7603 6 0.03 0.1 2.5 --cachedir=$RAW/cache --plant=0.04,0.25
