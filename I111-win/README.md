@@ -35,10 +35,16 @@ Sizes: `WIDE` is `--solver=arpack --floor=0.07 --fnth=4 --fh=0.4`. The `base` ru
   `notes/warp/tanh_spectrum_check_output.txt` in the code repository.
 - `memory-sampler.log`: the working set, peak working set and CPU time of each compute process once a minute, and the
   machine's free memory, written by `sample.ps1`.
+- `queue.ps1`, `queue.log`: started (2, B) and (2, A) as slots freed (at most two solve processes at a time), only
+  while every finished job had exited 0.
 - `job_<name>.cmd` and `go_<name>.cmd`: the launchers. `go_` starts `job_` with `start /BELOWNORMAL /MIN`, and `job_`
   sets `OMP_NUM_THREADS=1`, `OPENBLAS_NUM_THREADS=1` and `MKL_NUM_THREADS=1`, runs the command from the checkout root
   and writes `<log>.exit` with the exit code.
 - `<log>.exit`: the exit code of the run that wrote `<log>`.
+
+Outcome: the solves, `compare` and `planted` exited 0, and `--mutate=compare` and `--mutate=kterm` exited 1, as
+required. The wide report and the regenerated #94 report exit 1 on `AB` failures (sigma R = 4, m = 19/2 and 21/2 in the
+wide one, from #94's files; m = 9/2 to 21/2 in #94's). `--mutate=next` exits 1.
 
 Derived results (tables, the speed bound lines, notes) are in the code repository at `notes/warp/tanh_spectrum_check.md`
 on branch `wip/i111-wide-windows`.
