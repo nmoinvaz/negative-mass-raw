@@ -1,0 +1,6 @@
+planted|--part=planted --ms=11.5,20.5 --solver=arpack
+pilot-s4-B-m20.5|--part=solve --sigma=4 --disc=B --ms=20.5 --solver=arpack --out=%~dp0eig
+solve-s4-B|--part=solve --sigma=4 --disc=B --ms=11.5,12.5,13.5,14.5,15.5,16.5,17.5,18.5,19.5,20.5 --solver=arpack --out=%~dp0eig
+solve-s4-A|--part=solve --sigma=4 --disc=A --ms=11.5,12.5,13.5,14.5,15.5,16.5,17.5,18.5,19.5,20.5 --solver=arpack --out=%~dp0eig
+solve-s2-B|--part=solve --sigma=2 --disc=B --ms=11.5,12.5,13.5,14.5,15.5,16.5,17.5,18.5,19.5,20.5 --solver=arpack --out=%~dp0eig
+solve-s2-A|--part=solve --sigma=2 --disc=A --ms=11.5,12.5,13.5,14.5,15.5,16.5,17.5,18.5,19.5,20.5 --solver=arpack --out=%~dp0eig
