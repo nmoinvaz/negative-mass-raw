@@ -50,4 +50,33 @@ MS is `11.5,12.5,13.5,14.5,15.5,16.5,17.5,18.5,19.5,20.5` (m = 23/2 to 41/2).
 
 ## Outcome
 
-To be filled in when the runs end.
+Every run exited 0 except `--mutate=bump` and the extra `below` control, which must fail and did.
+
+| run | exit | wall | peak working set (sampled each minute) |
+|---|---|---|---|
+| planted, m = 23/2 and 41/2, n = 10868 and 17836 | 0 | 46 s | not sampled (the sampler lists processes above 100 MB) |
+| pilot, sigma R = 4, B, m = 41/2, n = 23484 | 0 | 76 s | 1.5 GiB |
+| solve sigma R = 4, B (m = 41/2 from the pilot) | 0 | 273 s | 1.4 GiB |
+| solve sigma R = 4, A | 0 | 208 s | 1.1 GiB |
+| solve sigma R = 2, B | 0 | 365 s | 1.5 GiB |
+| solve sigma R = 2, A | 0 | 217 s | 1.1 GiB |
+| `highm` (`highm.log`, same as `notes/warp/tanh_spectrum_check_high_m_output.txt`) | 0 | 0 s | |
+| `highm --mutate=bump` (`highm-mutate-bump.log`) | 1 | 0 s | |
+| extra control, `highm` on #118's m = 19/2 and 21/2 files (`highm-control-below.log`) | 1 | 0 s | |
+
+A sector took 11 to 79 s. ARPACK kept 64 eigenvalues per sector, down to |mu| v_c = 0.0336 to 0.0495, all below the
+`--floor=0.07`, so k was never doubled, at residuals of 2e-14 or less. The solves ran two at a time from 18:35 to 18:45 on
+2026-11-20, started with choptuik-large-d at 1.51, 1.20 and 1.19 cores (`cores.log`). The machine's free memory stayed
+between 23.7 and 25.9 GiB. No process was stopped and none died (`queue.log`).
+
+`highm.log`: 42 checks, all pass. `highm-mutate-bump.log`: exit 1, four failed checks, `fall` at both sigma R, and `ABhigh`
+at m = 33/2 at both sigma R (the mutation changes A's value only, so A and B differ there by 6e-2). The extra control is
+read-only: `--part=highm --out=../I118-win/eig --ms=9.5,10.5`. It has no sector files of this task and shows `below`
+failing on real data (m = 19/2 and 21/2 against 0.0830 and 0.0944). The script has no `--mutate` that fires `below`.
+
+- `trend.py`, `trend.log`: written by the runner, reads `eig/` only. Per sector, the signed (A - B) / A, m |mu| v_c, its
+  step, the local exponent d ln|mu| / d ln m, the margin to the line, ARPACK's count and smallest modulus. Not part of the
+  script's checks.
+
+Derived results (the table, the criteria and the trend) are in the code repository at
+`notes/warp/tanh_spectrum_check.md`, section "Sectors m = 23/2 to 41/2 (#120)", on branch `wip/i120-high-m`.
