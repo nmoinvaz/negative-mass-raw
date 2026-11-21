@@ -49,3 +49,29 @@ sigma R = 2 and 4, m = 21/2 (reproduction of #75's printed values), 23/2, 29/2, 
 - `<job>.log` is a job's stdout, `<job>.log.exit` its exit code, `cores.log` the readings before each second start,
   `queue.log` the queue's events, `memory-sampler.log` the sampler.
 - `eig/`: the sector files.
+
+## Results
+
+All three solve jobs exited 0 and none died. `runs.log` has each job's wall time and each sector's time, `table.log` the
+ten-sector table (leading |mu| v_c of A and B, #120's, the differences).
+
+| run | exit | wall | peak memory |
+|---|---|---|---|
+| pilot, sigma R = 4, m = 41/2 (`pilot-s4-m20.5`) | 0 | 342 s (sector 335 s) | 2.57 GiB (2627 MiB, sampled once a minute) |
+| sigma R = 2, m = 21/2 to 41/2 (`solve-s2`) | 0 | 1126 s | 1.69 GiB (1730 MiB) |
+| sigma R = 4, m = 21/2 to 35/2 (`solve-s4`) | 0 | 1539 s | 2.57 GiB (2636 MiB) |
+| `tanh_spectrum_highm.py` (`highm.log`) | 0 | 0.2 s | |
+| `--mutate=plant` (`highm-mutate-plant.log`) | 1 | 0.2 s | |
+| `--mutate=conv` (`highm-mutate-conv.log`) | 1 | 0.2 s | |
+
+- Peak memory is the largest peak working set of the job's processes, the worker included. The sampler ran once a minute
+  until 09:45 (the pilot) and every 10 s after, so the pilot's last 47 s (B's eigensolve) went unsampled. `solve-s4` has
+  the same sizes and peaked at 2636 MiB, 0.3 % above the pilot's A-phase peak of 2627 MiB, so the pilot's value is not
+  short. Free memory over the run: 19.3 to 25.1 GiB. `cores.log` holds the one reading before the second start:
+  choptuik-large-d at 2.02 cores.
+- `highm-cp1252-error.log`: the first `tanh_spectrum_highm.py` run, as the task states the command. It exits 1 with a
+  UnicodeDecodeError before any check runs, because `printed75` opens `tanh_spectrum.md` without an encoding and Windows
+  Python 3.14 reads it as cp1252. `highm.log` and the two mutation logs are the same command run as `python -X utf8`.
+  The script is unmodified. `highm.log` equals `notes/warp/tanh_spectrum_highm_output.txt` of the code repository.
+- `--mutate=plant` fails only `vs120 sR=4 m=14.5` (1.0e-03 against 1e-4), `--mutate=conv` only `conv sR=2 m=20.5`
+  (1.0e-05 against 1e-6). Each prints its single failure and nothing else fails.

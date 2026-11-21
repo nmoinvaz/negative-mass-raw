@@ -1,7 +1,7 @@
-# Samples the working set, peak working set and CPU time of the tanh_spectrum.py processes every 60 s, worker processes
+# Samples the working set, peak working set and CPU time of the tanh_spectrum.py processes every $Every s, worker processes
 # (descendants of a process whose command line names the script) included, and the free memory. Each line carries the
 # arguments of the script process it belongs to, with this folder's eig path shortened to "eig".
-param([string]$Log)
+param([string]$Log, [int]$Every = 60)
 $raw = Split-Path -Parent $MyInvocation.MyCommand.Path
 while ($true) {
   $t = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'
@@ -25,5 +25,5 @@ while ($true) {
   }
   $os = Get-CimInstance Win32_OperatingSystem
   "{0} free={1:N1}GB of {2:N1}GB" -f $t, ($os.FreePhysicalMemory / 1MB), ($os.TotalVisibleMemorySize / 1MB) | Add-Content -Path $Log -Encoding utf8
-  Start-Sleep -Seconds 60
+  Start-Sleep -Seconds $Every
 }

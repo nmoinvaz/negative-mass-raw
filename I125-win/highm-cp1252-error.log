@@ -1,0 +1,14 @@
+== sigma R = 2
+Traceback (most recent call last):
+  File "..\negative-mass-i125\notes\warp\tanh_spectrum_highm.py", line 98, in <module>
+    main()
+    ~~~~^^
+  File "..\negative-mass-i125\notes\warp\tanh_spectrum_highm.py", line 79, in main
+    want = printed75(sig)
+  File "..\negative-mass-i125\notes\warp\tanh_spectrum_highm.py", line 64, in printed75
+    md = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "tanh_spectrum.md")).read()
+  File "<python>\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x81 in position 647: character maps to <undefined>
+plain exit 1

@@ -1,0 +1,29 @@
+== vc: v_c by quadrature, S = 5.477904090
+  sigma R =  2.0: v_c = 3.744900  (mass_bounds.md 3.74490)
+  sigma R =  4.0: v_c = 2.470971  (mass_bounds.md 2.47097)
+  sigma R =  8.0: v_c = 1.562434  (mass_bounds.md 1.56243)
+  sigma R = 16.0: v_c = 0.985030  (mass_bounds.md 0.98503)
+  [PASS] v_c: equal to mass_bounds.md's printed values, max difference 3.7e-06
+== planted: tau1 = 6/(1 + r^2), mu = +-i/l_n, l_n = 1 + 2n/3, the first levels of each m > 0
+  FL m = 0.5: top |mu| = 1.0000000000, worst error over levels n <= 4 7.3e-15, max |Re mu|/|mu| 2.3e-16
+  FL m = 1.5: top |mu| = 0.6000000000, worst error over levels n <= 4 4.1e-15, max |Re mu|/|mu| 2.3e-16
+  FL m = 2.5: top |mu| = 0.4285714286, worst error over levels n <= 4 2.9e-15, max |Re mu|/|mu| 2.3e-16
+  [PASS] planted: rho(T1) = 1.000000000000 (exact 1), worst error over the levels 7.3e-15
+  [PASS] real_identity: Re(v) int tau1 |psi|^2 = 0 with int tau1 |psi|^2 > 0 forces Re mu = 0: max |Re mu|/|mu| 2.3e-16, real candidates 0
+== tanh: sigmas [4.0], m = [20.5], discretisation A dK = 28, p = {2.0: 80, 4.0: 100}, Lmap = 2, npan = 160; B dK + 10, p + 10, Lmap = 3, npan x 1.5 (p per sigma R)
+  sigma R = 4, m = 20.5: done in 335 s, peak resident nan GiB
+-- sigma R = 4, v_c = 2.470971; eigenvalues of S^-1 M times v_c; T1 has them and their negatives
+   m    | the four leading eigenvalues of block A                       | |mu| v_c, A / B         | stable to 1e-5 above | spectrum symmetric under mu -> -mu
+   20.5 | -0.000000+0.053886i -0.000000-0.053886i -0.000000-0.053886i -0.000000+0.053886i | 0.05388590 / 0.05388589 |               0.0479 | 3.2e-08
+   rho(T1) v_c = 0.05388590 (A), 0.05388589 (B), sqrt(3) rho v_c = 0.0933 (FL: <= 1)
+   window: every eigenvalue with |mu| v_c >= 0.0539 is converged in every m listed, and the leading one of m = 20.5 is 0.0539; so a real zero mode needs |v| > 18.56 v_c = 45.86
+  [PASS] converged: sigma R = 4: rho(T1) v_c = 0.05388590, A and B differ by 8.8e-09
+  ref63 sigma R = 4: not compared, m = 1/2 is not among the sectors run
+== real: the real eigenvalues of S^-1 M (a real zero-mode speed is v = 1/mu) and the identity
+   sigma R | m    | window |mu| v_c >= | eigenvalues in it (A / B) | real in it (A / B) | real anywhere, |mu| v_c > 1e-8 (A / B), largest, persisting in B | identity
+         4 | 20.5 |            0.0479 |  10 /  12 | 0 / 0 |  63 /  48, 3.6e-04, 0 | max |Re mu|/|mu| max(|q_rel|, cluster Gram) 0.0e+00 on 109 eigenfunctions, 61 real
+  [PASS] no_real_in_window: sigma R = 4, m = 20.5: no real eigenvalue with |mu| v_c >= 0.0479
+  [PASS] real_identity: sigma R = 4, m = 20.5: Re(v) <psi, tau1 psi> = 0 on the 109 evaluated eigenfunctions (61 with a real eigenvalue), worst 0.0e+00
+   residual ||S psi - v M psi|| / ||S psi|| of the leading eigenfunctions, sigma R = 4, m = 20.5: worst 8.6e-03
+peak resident memory nan GiB, wall 342 s
+all checks passed
