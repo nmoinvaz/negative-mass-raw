@@ -6,8 +6,9 @@ param([Parameter(ValueFromRemainingArguments = $true)][string[]]$Jobs)
 $raw = Split-Path -Parent $MyInvocation.MyCommand.Path
 $re = 'p4_1025|hp1058|_hpkernel|venv-md510|choptuik'
 $pending = New-Object System.Collections.Generic.List[string]
-foreach ($j in $Jobs) { $pending.Add($j) }
 $started = New-Object System.Collections.Generic.List[string]
+# A name with a leading '+' is a job already running (started by an earlier queue): counted, not started.
+foreach ($j in $Jobs) { if ($j.StartsWith('+')) { $started.Add($j.Substring(1)) } else { $pending.Add($j) } }
 $tries = @{}
 function Log($m) { "$(Get-Date -Format s) $m" | Add-Content "$raw\queue.log" -Encoding utf8 }
 function Exit-Of($j) { $f = "$raw\$j.log.exit"; if (Test-Path $f) { return [int]((Get-Content $f -Raw).Trim()) } else { return $null } }

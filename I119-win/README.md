@@ -57,3 +57,10 @@ n = 102414 (B, m = 21/2).
 The pilot ran alone (51.6 min, k = 256, 9.06 GiB). Then one `queue.ps1` ran `stage1-s2-A-m4.5 stage1-s2-B-m4.5
 solve-s4-B solve-s2-B solve-s4-A solve-s2-A`: stage 1 on both slots, then (4, B) and (2, B) when the stage-1 jobs
 exited, so no two processes solve the same sector, then (4, A) and (2, A). (4, B) reuses the pilot's m = 21/2 file.
+
+Change at 21:54 (2026-11-20): with (4, B) and (2, B) running, `queue.ps1` was replaced by one that treats them as running
+(`+solve-s4-B +solve-s2-B`) and starts the A solves as 17 single-sector jobs `solve-s<sigma R>-A-m<m>` (jobs.txt, longest
+expected first), instead of the two jobs (4, A) and (2, A), whose launchers `go_solve-s4-A.cmd` and `go_solve-s2-A.cmd` were
+never used. Each job is one sector of the lists above, so the files written are the same. The reason: run in order,
+(2, A) would have run alone for about 6 h at the end, with the other slot idle. The old queue's log lines are in
+`queue.log`.
