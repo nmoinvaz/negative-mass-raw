@@ -43,4 +43,27 @@ Sizes: `WIDE` is `--solver=arpack --floor=0.07 --fnth=4 --fh=0.4`, as in #111. E
 - `memory-sampler.log`: working set, peak working set and CPU time of each compute process once a minute, and the machine's
   free memory, written by `sample.ps1`. `cores.log`: choptuik-large-d's CPU use over 10 s before each launch.
 
-Status: in progress.
+- `queue.ps1`, `queue.log`: started (4, B), (4, A), (2, B), (2, A) in that order, a second one only while choptuik-large-d
+  used under 4 cores, and only while every finished job had exited 0. `report-wide.log` and `report-wide-mutate-next.log`
+  have their `.exit` files; the first is also `notes/warp/tanh_spectrum_check_wide_output.txt` in the code repository.
+
+## Outcome
+
+Every run exited 0 except `--mutate=next`, which must exit 1 and did (22 failed `next` checks, no others).
+
+| run | exit | wall | peak working set (sampled each minute) |
+|---|---|---|---|
+| planted, m = 19/2, 21/2, n = 72240, 78010 | 0 | 2813 s | 6.5 GiB |
+| pilot, sigma R = 4, B, m = 21/2, n = 102414 | 0 | 1591 s | 8.7 GiB |
+| solve sigma R = 4, B (m = 21/2 from the pilot) | 0 | 1515 s | 8.2 GiB |
+| solve sigma R = 4, A | 0 | 2564 s | 6.5 GiB |
+| solve sigma R = 2, B | 0 | 2594 s | 8.7 GiB |
+| solve sigma R = 2, A | 0 | 2277 s | 6.5 GiB |
+| report, #118 and #111 files | 0 | 0 s | |
+| report, `--mutate=next` | 1 | 0 s | |
+
+Two solves ran at once from 16:22 to 17:30 on 2026-11-20, started when choptuik-large-d used 1.2 to 1.7 cores. The
+machine's free memory stayed between 12.9 and 26.7 GiB. No process was stopped.
+
+Derived results (the four new table rows, the checks and the speed-bound lines) are in the code repository at
+`notes/warp/tanh_spectrum_check.md`, section "Wider windows (#111)", on branch `wip/i118-wide-m19-21`.
