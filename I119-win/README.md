@@ -81,3 +81,4 @@ are in the closing comment of the issue and the note's section "Lower floor (#11
 | `compare-i118.log` | the same with `--ref=../I118-win/eig` | 0 (8 files, worst 2.1e-14) |
 | `compare-i111-mutate-compare.log` | `compare-i111` with `--mutate=compare` | 1 (28 files fail, 1.0e-9) |
 | `table.py`, `table.log` | the 18-sector table of the note, from the two reports and `eig/` | 0 |
+| `reals.py`, `reals.log` | real eigenvalues returned in the 36 files against the windows | 0 (none returned, A or B) |
