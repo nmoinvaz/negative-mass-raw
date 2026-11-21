@@ -1,0 +1,5 @@
+# diagnose_plant.py <212-point cache> 0.03 0.1 2.5 0.04,0.25 --guard=all --expect=none
+cache ../../../negative-mass-raw/I115-rpi5/cache_before_guard/winding2_cache_eps-1_w0.7603_l5_0.03_0.1_2.5.pkl: 212 points; planted s0 = (0.04+0.25j); guard all
+== D
+CHECK FAIL: the cache lacks the point (0.1+0.00390625j) that the counter asks for (guard all)
+exit 1
