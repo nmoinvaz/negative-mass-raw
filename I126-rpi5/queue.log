@@ -80,3 +80,6 @@
 2026-11-21T02:37:39-08:00 swap: w_boxes.txt renamed w_boxes.old, so the second worker stops after its running box; gated workers (launch_I126_gated.sh) take w_boxes_g.txt, the boxes not yet started
 2026-11-21T02:37:39-08:00 waiting to start w_s1_l6: 2 of this task's processes running, 15-min load 6.06 (needs one process and load < 4)
 2026-11-21T02:37:39-08:00 waiting to start w_s1_l4: 2 of this task's processes running, 15-min load 6.06 (needs one process and load < 4)
+2026-11-21T02:38:37-08:00 end w_s3_l3 rc=0
+2026-11-21T03:22:36-08:00 end w_s2_l2 rc=0
+2026-11-21T03:22:41-08:00 start w_s1_l6: winding2.py -1 0.7603 6 0.03 0.1 2.5 --plant=0.04,0.25 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
