@@ -27,6 +27,6 @@ Boxes, for each l (the pilot is `s1_l6`; planted zero in the same cached evaluat
 
 Also here: `launch_I115.sh` (queue workers), `start_second.sh` (starts the second worker once the 15-minute load is below
 4), `memwatch.sh` and `memwatch.log` (load and rss, reported only), and, for the one failed planted-zero check
-(`s1_l5`), `diagnose_plant.py` with its output `diagnose_s1.log`. `diagnose_plant.py` reads only a box's cache, replays
+(`s1_l5`), `diagnose_plant.py` with its outputs `diagnose_s1.log` (s1 at l = 4, 5, 6) and `diagnose_all.log` (all nine boxes). `diagnose_plant.py` reads only a box's cache, replays
 `winding2.py`'s adaptive counter on D and on D times the planted factor, and compares each accepted step with the dense
 chain of all cached points on the edge. It is a diagnostic, not a check, and is not in the code repository.
