@@ -10,7 +10,7 @@ R = os.path.dirname(os.path.abspath(__file__))
 logs = sys.argv[1:] or sorted(glob.glob(os.path.join(R, "conv-*.log")))
 peak = {}
 for ln in open(os.path.join(R, "memory-sampler.log"), encoding="utf-8-sig"):
-    m = re.search(r"peak=([\d,]+)MB cpu=\d+s (tanh_spectrum --part=conv.*)$", ln)
+    m = re.search(r"peak=([\d,]+)MB cpu=[\d,]+s (tanh_spectrum --part=conv.*)$", ln)
     if m:
         peak[m.group(2).strip()] = max(peak.get(m.group(2).strip(), 0.0), float(m.group(1).replace(",", "")))
 for path in logs:

@@ -16,7 +16,7 @@ for ln in open(os.path.join(R, "jobs.txt"), encoding="utf-8"):
         jobs[j] = script.replace(".py", "") + " " + a.replace("%~dp0", "")
 peak, free = defaultdict(float), []
 for ln in open(os.path.join(R, "memory-sampler.log"), encoding="utf-8-sig"):
-    m = re.search(r"peak=([\d,]+)MB cpu=\d+s (.*)$", ln)
+    m = re.search(r"peak=([\d,]+)MB cpu=[\d,]+s (.*)$", ln)
     if m:
         a = m.group(2).strip()
         peak[a] = max(peak[a], float(m.group(1).replace(",", "")))
