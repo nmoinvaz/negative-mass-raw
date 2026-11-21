@@ -1,0 +1,26 @@
+== conv: |mu| v_c of the leading eigenvalue and of the fifth (the next quadruple), one parameter changed at a time from the base dK = 20, p, Lmap = 2, npan = 160
+  sigma R = 8, m = 0.5
+    variant    | leading |mu| v_c | change from base | fifth |mu| v_c | change from base | s
+    base       | 0.2995108024   | +0.0e+00         | 0.22493037   | +0.0e+00         | 95
+    dK = 12    | 0.2995108017   | -6.3e-10         | 0.22492634   | -4.0e-06         | 39
+    dK = 28    | 0.2995108024   | +1.9e-15         | 0.22493037   | +3.4e-14         | 234
+    p = 140    | 0.2995108040   | +1.6e-09         | 0.22493037   | -5.0e-09         | 79
+    p = 180    | 0.2995108015   | -9.2e-10         | 0.22493037   | -2.6e-10         | 135
+    Lmap = 1   | 0.2995108012   | -1.2e-09         | 0.22493037   | -5.2e-10         | 107
+    Lmap = 4   | 0.2995107962   | -6.2e-09         | 0.22493036   | -1.7e-08         | 88
+    npan = 80  | 0.2995108041   | +1.7e-09         | 0.22493037   | +1.2e-09         | 102
+    npan = 320 | 0.2995108024   | -6.1e-14         | 0.22493037   | -4.5e-14         | 154
+  sigma R = 8, m = 1.5
+    variant    | leading |mu| v_c | change from base | fifth |mu| v_c | change from base | s
+    base       | 0.2525096912   | +0.0e+00         | 0.19912335   | +0.0e+00         | 113
+    dK = 12    | 0.2525096779   | -1.3e-08         | 0.19910493   | -1.8e-05         | 42
+    dK = 28    | 0.2525096912   | -1.1e-16         | 0.19912335   | +1.4e-12         | 245
+    p = 140    | 0.2525096849   | -6.3e-09         | 0.19912334   | -1.2e-08         | 89
+    p = 180    | 0.2525096916   | +3.8e-10         | 0.19912335   | +7.8e-10         | 142
+    Lmap = 1   | 0.2525096915   | +3.0e-10         | 0.19912335   | +6.2e-10         | 117
+    Lmap = 4   | 0.2525096780   | -1.3e-08         | 0.19912333   | -2.6e-08         | 85
+    npan = 80  | 0.2525096912   | +1.8e-14         | 0.19912335   | -8.3e-13         | 84
+    npan = 320 | 0.2525096912   | +6.7e-16         | 0.19912335   | -1.3e-15         | 121
+  [FAIL] conv: leading eigenvalue moves by at most 5.2e-08 (relative) under every change but the deliberately coarse dK = 12
+peak resident memory nan GiB, wall 2073 s
+FAILED: conv
