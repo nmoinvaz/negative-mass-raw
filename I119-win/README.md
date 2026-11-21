@@ -64,3 +64,23 @@ expected first), instead of the two jobs (4, A) and (2, A), whose launchers `go_
 never used. Each job is one sector of the lists above, so the files written are the same. The reason: run in order,
 (2, A) would have run alone for about 6 h at the end, with the other slot idle. The old queue's log lines are in
 `queue.log`.
+
+## Results
+
+All 22 jobs exited 0 and none died (`*.log.exit`, `queue.log`). 36 sector files in `eig/`. Times and peak memory per job
+are in the closing comment of the issue and the note's section "Lower floor (#119)".
+
+| file | what | exit |
+|---|---|---|
+| `report-old-i118-i111.log` | `--part=report` on #118's and #111's files (floor 0.07), the "before" of the table | 1 (`match` fails in 18 sectors, `own75` at sigma R = 2, m = 9/2) |
+| `report-stage1-m4.5.log` | early `--part=report --ms=4.5` after stage 1 | 1 (its sigma R = 4 row is #111's file) |
+| `report-wide.log` | `--part=report --out=eig,../I118-win/eig,../I111-win/eig` | 1 (`match` fails at sigma R = 2, m = 19/2 and 21/2) |
+| `report-wide-mutate-floorup.log` | the same with `--mutate=floorup` | 1 (`match` and `own75` fail in all 22 sectors) |
+| `compare-i111-partial.log` | `--part=compare` after stage 1, against `../I111-win/eig` | 0 (2 files) |
+| `compare-i111.log` | `--part=compare --out=eig --ref=../I111-win/eig` | 0 (28 files, worst 2.4e-14) |
+| `compare-i118.log` | the same with `--ref=../I118-win/eig` | 0 (8 files, worst 2.1e-14) |
+| `compare-i111-mutate-compare.log` | `compare-i111` with `--mutate=compare` | 1 (28 files fail, 1.0e-9) |
+| `table.py`, `table.log` | the 18-sector table of the note, from the two reports and `eig/` | 0 |
+| `reals.py`, `reals.log` | real eigenvalues returned in the 36 files against the windows | 0 (none returned, A or B) |
+| `cost.py`, `cost.log` | solve time per sector at floor 0.04 against floor 0.07 (#111's and #118's logs), ratios by k | 0 |
+| `runs.py`, `runs.log` | wall time and peak working set per job, free-memory range, residual range of the 36 files | 0 |
