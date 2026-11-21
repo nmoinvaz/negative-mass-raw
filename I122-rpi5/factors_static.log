@@ -1,0 +1,35 @@
+d_factors.py parts factors, RTOL 1e-08, raw /home/nathan/Source/negative-mass-raw/I122-rpi5
+
+===== part factors
+# D's factors, in the order of polar_solver.D (D = det[Y, Z] py pz exp(-i Im Theta))
+| # | factor | holomorphic in a box? | zero-free? | checked by |
+|---|---|---|---|---|
+| 1 | interior start data Y0 (regular_plane) | constant, real, s-independent | 3 independent columns | structure |
+| 2 | J(r; s^2), interior and vacuum | polynomial in s^2 (entire); singularities in r only | - | jpoly |
+| 3 | interior flow Phi(r_m, r0; s), DOP853 in chunks | entire: linear ODE with entire coefficients | Phi invertible, so the plane keeps rank 3 | harm (numerical) |
+| 4 | QR of the regular plane: Q, phase of R's diagonal | D = det[Y, Z] / prod abs(R_ii), a positive divisor; arg D = arg det | abs(R_ii) > 0 | pole (the factor enters as c / abs(c)), structure |
+| 5 | Moncrief map T(r_m) | constant in s (poles in r at 2 M_ext and -3 M_ext/lam, not at r_m) | det T != 0 | moncrief |
+| 6 | Zerilli column zv = (1, q/f), q = f Z'/Z | meromorphic; poles at the zeros of Z(r_m; s) (the pole source, none in the 61 boxes: #121, #123, #124) | first entry 1 | axis (D_axis against D), harm at n3_l2 |
+| 7 | scalar block Js = Jvac(R_s, s)[2:, 2:], R_s fixed per box | entire (factor 2) | - | jpoly |
+| 8 | eig(Js), the two eigenvalues of smallest real part | eigenvectors carry arbitrary normalisations and the choice is by real part: neither is holomorphic by itself | - | norm, order |
+| 9 | projector P = V_sel V^-1_sel | holomorphic while the selected pair stays apart from the other two (Riesz projector); independent of the eigenvector normalisation | - | gap, norm |
+| 10 | start columns P[:, 0], P[:, 2] | holomorphic | independent iff P e0 and P e2 are | cols |
+| 11 | scalar plane flow R_s -> r_m and its QR phases | as 3 and 4 | as 3 | harm, pole_s |
+| 12 | decaying plane Z = [m, S] and its QR | m = T zv and S as above; positive divisor as 4 | m != 0 (T invertible, zv[0] = 1); S rank 2 (sigma_min(S) reported in norm) | pole_z, norm |
+| 13 | det[Y, Z] times the QR phases | holomorphic matching determinant divided by a positive function | zeros are the modes | harm |
+| 14 | winding2.py's exp(-i Im Theta), Theta = (k+ + k-)(R_s - r_m) + (k+ + k- + s) r_m | a pure phase, not holomorphic; arg = -Im Theta = arg exp(-Theta), and exp(-Theta) is holomorphic and zero-free where k+- = sqrt(1 + (s -+ i w)^2) (principal) is, i.e. off the cut on Re s = 0, abs(Im s -+ w) >= 1 | never zero | harm, gap |
+
+   eps -1, w 0.7603, l 2: r_m 24.110, M_ext -0.014580, T conditioning 8.205e-02, J linear-in-s^2 and even defect 2.6e-14
+   eps -1, w 0.7603, l 3: r_m 24.110, M_ext -0.014580, T conditioning 2.008e-01, J linear-in-s^2 and even defect 1.6e-14
+   eps +1, w 0.75, l 2: r_m 23.765, M_ext +0.014626, T conditioning 8.363e-02, J linear-in-s^2 and even defect 2.4e-14
+   eps -1, w 0.7, l 2: r_m 22.973, M_ext -0.020824, T conditioning 8.594e-02, J linear-in-s^2 and even defect 5.6e-15
+   eps -1, w 0.7, l 3: r_m 22.973, M_ext -0.020824, T conditioning 2.100e-01, J linear-in-s^2 and even defect 1.9e-14
+   eps -1, w 0.85, l 2: r_m 27.941, M_ext -0.009745, T conditioning 7.103e-02, J linear-in-s^2 and even defect 1.7e-14
+   eps -1, w 0.85, l 3: r_m 27.941, M_ext -0.009745, T conditioning 1.747e-01, J linear-in-s^2 and even defect 1.3e-14
+   eps -1, w 0.7603, l 4: r_m 24.110, M_ext -0.014580, T conditioning 3.442e-01, J linear-in-s^2 and even defect 6.8e-14
+   eps -1, w 0.7603, l 5: r_m 24.110, M_ext -0.014580, T conditioning 4.923e-01, J linear-in-s^2 and even defect 4.3e-14
+   eps -1, w 0.7603, l 6: r_m 24.110, M_ext -0.014580, T conditioning 6.247e-01, J linear-in-s^2 and even defect 3.9e-14
+  [PASS] moncrief: smallest |det T| / (|col 1| |col 2|) over the 10 (star, l) is 7.103e-02 (limit 0.001)
+  [PASS] jpoly: worst defect 6.8e-14 (limit 1e-10); planted linear 6.8e-16 passes, planted with a t^2 term 4.3e-02 fails
+
+all checks passed  (73 s)

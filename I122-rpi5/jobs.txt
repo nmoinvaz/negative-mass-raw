@@ -1,0 +1,29 @@
+gap|--part=gap
+gap_mut_branch|--part=gap --mutate=branch
+gap_mut_cols|--part=gap --mutate=cols
+factors_static|--part=factors --skip=harm
+factors_mut_singularT|--part=factors --skip=harm --mutate=singularT
+factors_mut_jnonlin|--part=factors --skip=harm --mutate=jnonlin
+pole_z|--part=pole --plant=z --stop=10800
+pole_s|--part=pole --plant=s --stop=10800
+factors_p7603_l2|--part=factors --skip=static --boxes=w_p7603_l2
+factors_p7603_l3|--part=factors --skip=static --boxes=w_p7603_l3
+factors_c075_l2|--part=factors --skip=static --boxes=w_c075_l2
+factors_p085_l3|--part=factors --skip=static --boxes=w_p085_l3
+factors_n1_l4|--part=factors --skip=static --boxes=w_n1_l4
+factors_n3_l2|--part=factors --skip=static --boxes=w_n3_l2
+norm_p7603_l2|--part=norm --boxes=w_p7603_l2
+norm_p7603_l3|--part=norm --boxes=w_p7603_l3
+norm_c075_l2|--part=norm --boxes=w_c075_l2
+norm_p085_l3|--part=norm --boxes=w_p085_l3
+norm_n1_l4|--part=norm --boxes=w_n1_l4
+norm_n3_l2|--part=norm --boxes=w_n3_l2
+axis_n3_l2|--part=axis --boxes=w_n3_l2
+axis_n3_l3|--part=axis --boxes=w_n3_l3
+factors_mut_nonholo|--part=factors --skip=static --boxes=w_n1_l4 --mutate=nonholo
+norm_mut_noproj|--part=norm --boxes=w_n1_l4,w_c075_l2 --mutate=noproj
+pole_mut_nophase|--part=pole --plant=z --mutate=nophase --maxeval=300 --stop=10800
+pole_mut_nogauge|--part=pole --plant=z --mutate=nogauge --maxeval=300 --stop=10800
+pole_mut_reverse|--part=pole --plant=z --mutate=reverse --stop=10800
+axis_mut_reverse|--part=axis --boxes=w_n3_l2 --mutate=reverse
+axis_mut_wrongq|--part=axis --boxes=w_n3_l2 --mutate=wrongq

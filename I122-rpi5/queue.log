@@ -1,0 +1,15 @@
+2026-11-21T12:11:08-08:00 start gap: d_factors.py --part=gap --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T12:17:15-08:00 end gap rc=0
+2026-11-21T12:17:15-08:00 waiting to start gap_mut_branch: 1 of this task's processes running, 15-min load 4.32 (needs one process and load < 4)
+2026-11-21T12:19:15-08:00 start gap_mut_branch: d_factors.py --part=gap --mutate=branch --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T12:22:18-08:00 waiting to start pole_z: 1 of this task's processes running, 15-min load 4.45 (needs one process and load < 4)
+2026-11-21T12:25:24-08:00 end gap_mut_branch rc=1
+2026-11-21T12:25:24-08:00 start gap_mut_cols: d_factors.py --part=gap --mutate=cols --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T12:30:31-08:00 end gap_mut_cols rc=1
+2026-11-21T12:30:31-08:00 start factors_static: d_factors.py --part=factors --skip=harm --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T12:31:45-08:00 end factors_static rc=0
+2026-11-21T12:31:45-08:00 start factors_mut_singularT: d_factors.py --part=factors --skip=harm --mutate=singularT --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T12:32:59-08:00 end factors_mut_singularT rc=1
+2026-11-21T12:32:59-08:00 start factors_mut_jnonlin: d_factors.py --part=factors --skip=harm --mutate=jnonlin --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T12:34:15-08:00 end factors_mut_jnonlin rc=1
+2026-11-21T12:34:19-08:00 start pole_z: d_factors.py --part=pole --plant=z --stop=10800 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
