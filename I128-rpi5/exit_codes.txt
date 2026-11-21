@@ -5,3 +5,7 @@ replay_i126.py --mutate=misplant exit 1
 replay_i126.py --mutate=nocache exit 1
 replay_i126.py --mutate=nojobs exit 1
 collect_i126.py --mutate=nolog exit 1
+synthetic_y0.py exit 0
+synthetic_y0.py --mutate=wrongcount exit 1
+cross_replay_i126.py exit 0
+cross_replay_i126.py --mutate=thin exit 1
