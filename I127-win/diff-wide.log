@@ -1,0 +1,30 @@
+rows: 22 old, 22 new
+row sR=2 m=10.5: window 1e-5 / 1e-4 (#75): '0.0330 / 0.0330 (0.0563)' -> '0.0322 / 0.0260 (0.0563)'; set by: 'floor' -> 'match'; eigs in window: '252' -> '504'  [cosmetic: dir]
+row sR=2 m=9.5: window 1e-5 / 1e-4 (#75): '0.0341 / 0.0341 (0.0595)' -> '0.0332 / 0.0277 (0.0595)'; set by: 'floor' -> 'match'; eigs in window: '252' -> '456'  [cosmetic: dir]
+check match sR=2 m=10.5:
+   old: [FAIL] match sR=2 m=10.5: 1e-5 window 0.0330 set by floor (floor 0.0330)
+   new: [PASS] match sR=2 m=10.5: 1e-5 window 0.0322 set by match (floor 0.0259)
+check match sR=2 m=9.5:
+   old: [FAIL] match sR=2 m=9.5: 1e-5 window 0.0341 set by floor (floor 0.0341)
+   new: [PASS] match sR=2 m=9.5: 1e-5 window 0.0332 set by match (floor 0.0266)
+check noreal sR=2 m=10.5:
+   old: [PASS] noreal sR=2 m=10.5: no real eigenvalue with |mu| v_c above 0.0330, in A or B
+   new: [PASS] noreal sR=2 m=10.5: no real eigenvalue with |mu| v_c above 0.0260, in A or B
+check noreal sR=2 m=9.5:
+   old: [PASS] noreal sR=2 m=9.5: no real eigenvalue with |mu| v_c above 0.0341, in A or B
+   new: [PASS] noreal sR=2 m=9.5: no real eigenvalue with |mu| v_c above 0.0277, in A or B
+check own75 sR=2 m=10.5:
+   old: [PASS] own75 sR=2 m=10.5: 1e-5 window 0.0330 against #75's own 0.0563
+   new: [PASS] own75 sR=2 m=10.5: 1e-5 window 0.0322 against #75's own 0.0563
+check own75 sR=2 m=9.5:
+   old: [PASS] own75 sR=2 m=9.5: 1e-5 window 0.0341 against #75's own 0.0595
+   new: [PASS] own75 sR=2 m=9.5: 1e-5 window 0.0332 against #75's own 0.0595
+check sym sR=2 m=10.5:
+   old: [PASS] sym sR=2 m=10.5: window symmetric under mu -> -mu to 3.3e-08 relative
+   new: [PASS] sym sR=2 m=10.5: window symmetric under mu -> -mu to 2.7e-07 relative
+check sym sR=2 m=9.5:
+   old: [PASS] sym sR=2 m=9.5: window symmetric under mu -> -mu to 4.4e-08 relative
+   new: [PASS] sym sR=2 m=9.5: window symmetric under mu -> -mu to 3.5e-07 relative
+checks: 156 old, 156 new, 8 differ
+other lines only in old: ['FAILED: match sR=2 m=9.5, match sR=2 m=10.5']
+other lines only in new: ['all checks passed']

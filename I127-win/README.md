@@ -60,3 +60,22 @@ is under the floor.
 
 The pilot runs alone, launched by hand with `go_pilot-s2-B-m10.5.cmd`. When it has exited 0, one `queue.ps1` runs
 `solve-s2-B-m9.5 solve-s2-A-m9.5-10.5`.
+
+## Results
+
+All four sectors exited 0 (`runs.log`: pilot 3817 s, B at m = 19/2 2752 s, A pair 5570 s; 12139 s of solve time; peaks 9.87,
+6.91 and 7.33 GiB). Each file holds k = 512 eigenvalues, residual 5.0e-14 at most, down to |mu| v_c = 0.0266 (m = 19/2) and
+0.0259 (m = 21/2), above the requested floor of 0.025. `report-wide.log` exits 0 (156 of 156 checks): the 10^-5 windows are
+0.0332 and 0.0322, both `match`. The two sectors' table is `table.log`, the real-eigenvalue count `reals.log` (none),
+and the lines that differ from the wide report at fa3f7b3 `diff-wide.log`.
+
+- `report-wide.log`: the wide report, `--out=eig,../I119-win/eig,../I118-win/eig,../I111-win/eig`. Exit 0.
+  `report-old-wide-fa3f7b3.log`: the wide report on main before this task (#119's), for `table.py` and `diff_wide.py`.
+- `report-wide-mutate-floorup.log`: exit 1, `match` and `own75` fail in all 22 sectors (112 of 156 checks pass).
+- `report-wide-mutate-real.log`: exit 1, `sym` and `noreal` fail at sigma R = 2, m = 11/2 and nowhere else.
+- `compare-i119.log`: exit 0 (4 files, 252 and 252 eigenvalues each above #119's floor, worst partner distance 2.8e-14).
+  `compare-i119-mutate-compare.log`: exit 1, 4 of 4 fail at 1.0e-9. `compare-i119-partial.log`: the same on the three
+  files finished at 08:30.
+- `report-early-m9.5.log`: the report on `--ms=9.5` run when the first three sectors were in.
+- `table.py`, `reals.py`, `diff_wide.py`, `runs.py`: the helpers the numbers in the note come from (`table.log`,
+  `reals.log`, `diff-wide.log`, `runs.log`). Run with the venv python and `-X utf8`.
