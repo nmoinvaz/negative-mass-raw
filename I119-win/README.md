@@ -83,3 +83,4 @@ are in the closing comment of the issue and the note's section "Lower floor (#11
 | `table.py`, `table.log` | the 18-sector table of the note, from the two reports and `eig/` | 0 |
 | `reals.py`, `reals.log` | real eigenvalues returned in the 36 files against the windows | 0 (none returned, A or B) |
 | `cost.py`, `cost.log` | solve time per sector at floor 0.04 against floor 0.07 (#111's and #118's logs), ratios by k | 0 |
+| `runs.py`, `runs.log` | wall time and peak working set per job, free-memory range, residual range of the 36 files | 0 |
