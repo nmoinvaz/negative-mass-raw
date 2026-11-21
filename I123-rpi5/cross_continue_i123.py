@@ -73,7 +73,7 @@ def q_exact_flat(s):
 rows = []
 for name in ('contour', 'holo'):
     line = next(x for x in txt.splitlines() if x.startswith(f"   q at the {name} points: "))
-    for sm, qm in re.findall(r"(\(\S+?\)) ([+-]?\d\.\d+e[+-]\d+[+-]\d\.\d+e[+-]\d+j)", line):
+    for sm, qm in re.findall(r"(\(\S+?\)|[\d.e+-]+j) ([+-]?\d\.\d+e[+-]\d+[+-]\d\.\d+e[+-]\d+j)", line):
         rows.append((name, complex(sm), complex(qm)))
 worst = 0.0
 for name, s, qlog in rows:
