@@ -1,0 +1,190 @@
+  [PASS] v_c sR=2: 3.744900 against #75's 3.7449
+
+== sigma R = 2, v_c = 3.744900
+  m    | n A / B       | leading mu v_c (A)  | |mu| v_c A | B        | #75      | rel. to #75 | converged above, 1e-5 / 1e-4 (#75) | set by | eigs in window | real in window A / B | next |mu| v_c A | B        | #75      | rel. to #75 | A - B lead, next | dir
+   0.5 | 32144 / 42408 | -0.02730+0.40865i | 0.409556   | 0.409556 | 0.409556 | 1.6e-08     | 0.4137 / 0.4137 (0.0777)           | floor  |    0           | 0 / 0                | 0.257195         | 0.257195 | 0.257195 | 1.4e-06     | - -              | I119-win/eig
+  [PASS] lead sR=2 m=0.5: leading |mu| v_c 0.409556 against #75's 0.409556
+  [PASS] next sR=2 m=0.5: second |mu| v_c 0.257195 against #75's 0.257195
+  [PASS] AB sR=2 m=0.5: A and B leading differ by 2.5e-10 relative
+  [PASS] sym sR=2 m=0.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=2 m=0.5: no real eigenvalue with |mu| v_c above 0.4137, in A or B
+  [FAIL] match sR=2 m=0.5: 1e-5 window 0.4137 set by floor (floor 0.4137)
+  [FAIL] own75 sR=2 m=0.5: 1e-5 window 0.4137 against #75's own 0.0777
+   1.5 | 35496 / 47124 | -0.00483+0.29895i | 0.298994   | 0.298994 | 0.298994 | 6.5e-07     | 0.3020 / 0.3020 (0.0803)           | floor  |    0           | 0 / 0                | 0.207406         | 0.207406 | 0.207406 | 3.1e-07     | - -              | I119-win/eig
+  [PASS] lead sR=2 m=1.5: leading |mu| v_c 0.298994 against #75's 0.298994
+  [PASS] next sR=2 m=1.5: second |mu| v_c 0.207406 against #75's 0.207406
+  [PASS] AB sR=2 m=1.5: A and B leading differ by 2.9e-10 relative
+  [PASS] sym sR=2 m=1.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=2 m=1.5: no real eigenvalue with |mu| v_c above 0.3020, in A or B
+  [FAIL] match sR=2 m=1.5: 1e-5 window 0.3020 set by floor (floor 0.3020)
+  [FAIL] own75 sR=2 m=1.5: 1e-5 window 0.3020 against #75's own 0.0803
+   2.5 | 39590 / 52080 | -0.00106-0.23298i | 0.232982   | 0.232982 | 0.232982 | 9.2e-07     | 0.2353 / 0.2353 (0.0751)           | floor  |    0           | 0 / 0                | 0.173753         | 0.173753 | 0.173753 | 2.3e-06     | - -              | I119-win/eig
+  [PASS] lead sR=2 m=2.5: leading |mu| v_c 0.232982 against #75's 0.232982
+  [PASS] next sR=2 m=2.5: second |mu| v_c 0.173753 against #75's 0.173753
+  [PASS] AB sR=2 m=2.5: A and B leading differ by 3.2e-10 relative
+  [PASS] sym sR=2 m=2.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=2 m=2.5: no real eigenvalue with |mu| v_c above 0.2353, in A or B
+  [FAIL] match sR=2 m=2.5: 1e-5 window 0.2353 set by floor (floor 0.2353)
+  [FAIL] own75 sR=2 m=2.5: 1e-5 window 0.2353 against #75's own 0.0751
+   3.5 | 43512 / 57720 | -0.00026+0.19037i | 0.190371   | 0.190371 | 0.190371 | 5.4e-07     | 0.1923 / 0.1923 (0.0711)           | floor  |    0           | 0 / 0                | 0.149201         | 0.149201 | 0.149201 | 3.2e-06     | - -              | I119-win/eig
+  [PASS] lead sR=2 m=3.5: leading |mu| v_c 0.190371 against #75's 0.190371
+  [PASS] next sR=2 m=3.5: second |mu| v_c 0.149201 against #75's 0.149201
+  [PASS] AB sR=2 m=3.5: A and B leading differ by 3.3e-10 relative
+  [PASS] sym sR=2 m=3.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=2 m=3.5: no real eigenvalue with |mu| v_c above 0.1923, in A or B
+  [FAIL] match sR=2 m=3.5: 1e-5 window 0.1923 set by floor (floor 0.1923)
+  [FAIL] own75 sR=2 m=3.5: 1e-5 window 0.1923 against #75's own 0.0711
+   4.5 | 47792 / 63180 | +0.00007+0.16080i | 0.160798   | 0.160798 | 0.160798 | 2.9e-06     | 0.1624 / 0.1624 (0.0667)           | floor  |    0           | 0 / 0                | 0.130580         | 0.130580 | 0.130580 | 1.7e-06     | - -              | I119-win/eig
+  [PASS] lead sR=2 m=4.5: leading |mu| v_c 0.160798 against #75's 0.160798
+  [PASS] next sR=2 m=4.5: second |mu| v_c 0.130580 against #75's 0.130580
+  [PASS] AB sR=2 m=4.5: A and B leading differ by 3.1e-10 relative
+  [PASS] sym sR=2 m=4.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=2 m=4.5: no real eigenvalue with |mu| v_c above 0.1624, in A or B
+  [FAIL] match sR=2 m=4.5: 1e-5 window 0.1624 set by floor (floor 0.1624)
+  [FAIL] own75 sR=2 m=4.5: 1e-5 window 0.1624 against #75's own 0.0667
+   5.5 | 52514 / 69090 | +0.00002+0.13913i | 0.139127   | 0.139127 | 0.139127 | 4.8e-07     | 0.1405 / 0.1405 (0.0688)           | floor  |    0           | 0 / 0                | 0.116022         | 0.116022 | 0.116022 | 7.1e-07     | - -              | I119-win/eig
+  [PASS] lead sR=2 m=5.5: leading |mu| v_c 0.139127 against #75's 0.139127
+  [PASS] next sR=2 m=5.5: second |mu| v_c 0.116022 against #75's 0.116022
+  [PASS] AB sR=2 m=5.5: A and B leading differ by 2.9e-10 relative
+  [PASS] sym sR=2 m=5.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=2 m=5.5: no real eigenvalue with |mu| v_c above 0.1405, in A or B
+  [FAIL] match sR=2 m=5.5: 1e-5 window 0.1405 set by floor (floor 0.1405)
+  [FAIL] own75 sR=2 m=5.5: 1e-5 window 0.1405 against #75's own 0.0688
+   6.5 | 57204 / 75558 | -0.00001+0.12258i | 0.122581   | 0.122581 | 0.122581 | 1.8e-06     | 0.1238 / 0.1238 (0.0649)           | floor  |    0           | 0 / 0                | 0.104349         | 0.104349 | 0.104349 | 1.4e-06     | - -              | I119-win/eig
+  [PASS] lead sR=2 m=6.5: leading |mu| v_c 0.122581 against #75's 0.122581
+  [PASS] next sR=2 m=6.5: second |mu| v_c 0.104349 against #75's 0.104349
+  [PASS] AB sR=2 m=6.5: A and B leading differ by 2.6e-10 relative
+  [PASS] sym sR=2 m=6.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=2 m=6.5: no real eigenvalue with |mu| v_c above 0.1238, in A or B
+  [FAIL] match sR=2 m=6.5: 1e-5 window 0.1238 set by floor (floor 0.1238)
+  [FAIL] own75 sR=2 m=6.5: 1e-5 window 0.1238 against #75's own 0.0649
+   7.5 | 62094 / 81472 | -0.00000+0.10954i | 0.109541   | 0.109541 | 0.109541 | 4.4e-06     | 0.1106 / 0.1106 (0.0611)           | floor  |    0           | 0 / 0                | 0.094791         | 0.094791 | 0.094791 | 1.0e-06     | - -              | I119-win/eig
+  [PASS] lead sR=2 m=7.5: leading |mu| v_c 0.109541 against #75's 0.109541
+  [PASS] next sR=2 m=7.5: second |mu| v_c 0.094791 against #75's 0.094791
+  [PASS] AB sR=2 m=7.5: A and B leading differ by 2.4e-10 relative
+  [PASS] sym sR=2 m=7.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=2 m=7.5: no real eigenvalue with |mu| v_c above 0.1106, in A or B
+  [FAIL] match sR=2 m=7.5: 1e-5 window 0.1106 set by floor (floor 0.1106)
+  [FAIL] own75 sR=2 m=7.5: 1e-5 window 0.1106 against #75's own 0.0611
+   8.5 | 66960 / 88480 | -0.00000+0.09900i | 0.099002   | 0.099002 | 0.099002 | 2.5e-06     | 0.1000 / 0.1000 (0.0578)           | floor  |    0           | 0 / 0                | 0.086825         | 0.086825 | 0.086825 | 4.0e-06     | - -              | I119-win/eig
+  [PASS] lead sR=2 m=8.5: leading |mu| v_c 0.099002 against #75's 0.099002
+  [PASS] next sR=2 m=8.5: second |mu| v_c 0.086825 against #75's 0.086825
+  [PASS] AB sR=2 m=8.5: A and B leading differ by 2.2e-10 relative
+  [PASS] sym sR=2 m=8.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=2 m=8.5: no real eigenvalue with |mu| v_c above 0.1000, in A or B
+  [FAIL] match sR=2 m=8.5: 1e-5 window 0.1000 set by floor (floor 0.1000)
+  [FAIL] own75 sR=2 m=8.5: 1e-5 window 0.1000 against #75's own 0.0578
+   9.5 | 72240 / 94866 | -0.00000-0.09031i | 0.090309   | 0.090309 | 0.090309 | 2.3e-06     | 0.0912 / 0.0912 (0.0595)           | floor  |    0           | 0 / 0                | 0.080088         | 0.080088 | 0.080088 | 4.6e-06     | - -              | I119-win/eig
+  [PASS] lead sR=2 m=9.5: leading |mu| v_c 0.090309 against #75's 0.090309
+  [PASS] next sR=2 m=9.5: second |mu| v_c 0.080088 against #75's 0.080088
+  [PASS] AB sR=2 m=9.5: A and B leading differ by 2.0e-10 relative
+  [PASS] sym sR=2 m=9.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=2 m=9.5: no real eigenvalue with |mu| v_c above 0.0912, in A or B
+  [FAIL] match sR=2 m=9.5: 1e-5 window 0.0912 set by floor (floor 0.0912)
+  [FAIL] own75 sR=2 m=9.5: 1e-5 window 0.0912 against #75's own 0.0595
+  10.5 | 78010 / 102414 | -0.00000-0.08302i | 0.083018   | 0.083018 | 0.083018 | 4.3e-06     | 0.0838 / 0.0838 (0.0563)           | floor  |    0           | 0 / 0                | 0.074316         | 0.074316 | 0.074316 | 4.0e-06     | - -              | I119-win/eig
+  [PASS] lead sR=2 m=10.5: leading |mu| v_c 0.083018 against #75's 0.083018
+  [PASS] next sR=2 m=10.5: second |mu| v_c 0.074316 against #75's 0.074316
+  [PASS] AB sR=2 m=10.5: A and B leading differ by 1.8e-10 relative
+  [PASS] sym sR=2 m=10.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=2 m=10.5: no real eigenvalue with |mu| v_c above 0.0838, in A or B
+  [FAIL] match sR=2 m=10.5: 1e-5 window 0.0838 set by floor (floor 0.0838)
+  [FAIL] own75 sR=2 m=10.5: 1e-5 window 0.0838 against #75's own 0.0563
+  tolerance 1e-05: every eigenvalue with |mu| v_c >= 0.4137 is converged in every sector computed (the leading eigenvalue of the last sector is 0.0830), so no real zero mode with |v| <= 2.42 v_c, provided the leading eigenvalue keeps falling with m (#75, at 1e-5 with its own basis: 12.05 v_c, a window from 0.0830)
+  tolerance 1e-04: every eigenvalue with |mu| v_c >= 0.4137 is converged in every sector computed (the leading eigenvalue of the last sector is 0.0830), so no real zero mode with |v| <= 2.42 v_c, provided the leading eigenvalue keeps falling with m (#75, at 1e-5 with its own basis: 12.05 v_c, a window from 0.0830)
+  [PASS] v_c sR=4: 2.470971 against #75's 2.470971
+
+== sigma R = 4, v_c = 2.470971
+  m    | n A / B       | leading mu v_c (A)  | |mu| v_c A | B        | #75      | rel. to #75 | converged above, 1e-5 / 1e-4 (#75) | set by | eigs in window | real in window A / B | next |mu| v_c A | B        | #75      | rel. to #75 | A - B lead, next | dir
+   0.5 | 51548 / 67716 | -0.01590-0.36731i | 0.367657   | 0.367657 | 0.367657 | 8.7e-07     | 0.3713 / 0.3713 (0.0969)           | floor  |    0           | 0 / 0                | 0.250083         | 0.250083 | 0.250083 | 9.7e-07     | - -              | I111-win/eig
+  [PASS] lead sR=4 m=0.5: leading |mu| v_c 0.367657 against #75's 0.367657
+  [PASS] next sR=4 m=0.5: second |mu| v_c 0.250083 against #75's 0.250083
+  [PASS] AB sR=4 m=0.5: A and B leading differ by 1.6e-10 relative
+  [PASS] sym sR=4 m=0.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=4 m=0.5: no real eigenvalue with |mu| v_c above 0.3713, in A or B
+  [FAIL] match sR=4 m=0.5: 1e-5 window 0.3713 set by floor (floor 0.3713)
+  [FAIL] own75 sR=4 m=0.5: 1e-5 window 0.3713 against #75's own 0.0969
+   1.5 | 53652 / 70686 | -0.00278+0.28852i | 0.288531   | 0.288531 | 0.288531 | 8.9e-07     | 0.2914 / 0.2914 (0.0910)           | floor  |    0           | 0 / 0                | 0.211765         | 0.211765 | 0.211765 | 1.3e-06     | - -              | I111-win/eig
+  [PASS] lead sR=4 m=1.5: leading |mu| v_c 0.288531 against #75's 0.288531
+  [PASS] next sR=4 m=1.5: second |mu| v_c 0.211765 against #75's 0.211765
+  [PASS] AB sR=4 m=1.5: A and B leading differ by 2.7e-10 relative
+  [PASS] sym sR=4 m=1.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=4 m=1.5: no real eigenvalue with |mu| v_c above 0.2914, in A or B
+  [FAIL] match sR=4 m=1.5: 1e-5 window 0.2914 set by floor (floor 0.2914)
+  [FAIL] own75 sR=4 m=1.5: 1e-5 window 0.2914 against #75's own 0.0910
+   2.5 | 56282 / 73656 | +0.00060-0.23538i | 0.235378   | 0.235378 | 0.235378 | 1.7e-06     | 0.2377 / 0.2377 (0.0858)           | floor  |    0           | 0 / 0                | 0.182557         | 0.182557 | 0.182557 | 5.5e-07     | - -              | I111-win/eig
+  [PASS] lead sR=4 m=2.5: leading |mu| v_c 0.235378 against #75's 0.235378
+  [PASS] next sR=4 m=2.5: second |mu| v_c 0.182557 against #75's 0.182557
+  [PASS] AB sR=4 m=2.5: A and B leading differ by 4.2e-10 relative
+  [PASS] sym sR=4 m=2.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=4 m=2.5: no real eigenvalue with |mu| v_c above 0.2377, in A or B
+  [FAIL] match sR=4 m=2.5: 1e-5 window 0.2377 set by floor (floor 0.2377)
+  [FAIL] own75 sR=4 m=2.5: 1e-5 window 0.2377 against #75's own 0.0858
+   3.5 | 58386 / 77220 | +0.00015-0.19848i | 0.198480   | 0.198480 | 0.198480 | 9.1e-08     | 0.2005 / 0.2005 (0.0806)           | floor  |    0           | 0 / 0                | 0.160023         | 0.160023 | 0.160023 | 2.0e-06     | - -              | I111-win/eig
+  [PASS] lead sR=4 m=3.5: leading |mu| v_c 0.198480 against #75's 0.198480
+  [PASS] next sR=4 m=3.5: second |mu| v_c 0.160023 against #75's 0.160023
+  [PASS] AB sR=4 m=3.5: A and B leading differ by 6.0e-10 relative
+  [PASS] sym sR=4 m=3.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=4 m=3.5: no real eigenvalue with |mu| v_c above 0.2005, in A or B
+  [FAIL] match sR=4 m=3.5: 1e-5 window 0.2005 set by floor (floor 0.2005)
+  [FAIL] own75 sR=4 m=3.5: 1e-5 window 0.2005 against #75's own 0.0806
+   4.5 | 61016 / 80190 | +0.00004+0.17151i | 0.171512   | 0.171512 | 0.171512 | 6.1e-07     | 0.1732 / 0.1732 (0.0840)           | floor  |    0           | 0 / 0                | 0.142278         | 0.142278 | 0.142278 | 9.1e-07     | - -              | I119-win/eig
+  [PASS] lead sR=4 m=4.5: leading |mu| v_c 0.171512 against #75's 0.171512
+  [PASS] next sR=4 m=4.5: second |mu| v_c 0.142278 against #75's 0.142278
+  [PASS] AB sR=4 m=4.5: A and B leading differ by 7.7e-10 relative
+  [PASS] sym sR=4 m=4.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=4 m=4.5: no real eigenvalue with |mu| v_c above 0.1732, in A or B
+  [FAIL] match sR=4 m=4.5: 1e-5 window 0.1732 set by floor (floor 0.1732)
+  [FAIL] own75 sR=4 m=4.5: 1e-5 window 0.1732 against #75's own 0.0840
+   5.5 | 63646 / 83754 | -0.00001-0.15097i | 0.150969   | 0.150969 | 0.150969 | 2.0e-06     | 0.1525 / 0.1525 (0.0790)           | floor  |    0           | 0 / 0                | 0.128000         | 0.128000 | 0.128000 | 1.5e-06     | - -              | I119-win/eig
+  [PASS] lead sR=4 m=5.5: leading |mu| v_c 0.150969 against #75's 0.150969
+  [PASS] next sR=4 m=5.5: second |mu| v_c 0.128000 against #75's 0.128000
+  [PASS] AB sR=4 m=5.5: A and B leading differ by 9.7e-10 relative
+  [PASS] sym sR=4 m=5.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=4 m=5.5: no real eigenvalue with |mu| v_c above 0.1525, in A or B
+  [FAIL] match sR=4 m=5.5: 1e-5 window 0.1525 set by floor (floor 0.1525)
+  [FAIL] own75 sR=4 m=5.5: 1e-5 window 0.1525 against #75's own 0.0790
+   6.5 | 66276 / 87318 | -0.00000-0.13481i | 0.134809   | 0.134809 | 0.134809 | 3.6e-06     | 0.1362 / 0.1362 (0.0745)           | floor  |    0           | 0 / 0                | 0.116287         | 0.116287 | 0.116287 | 2.1e-06     | - -              | I119-win/eig
+  [PASS] lead sR=4 m=6.5: leading |mu| v_c 0.134809 against #75's 0.134809
+  [PASS] next sR=4 m=6.5: second |mu| v_c 0.116287 against #75's 0.116287
+  [PASS] AB sR=4 m=6.5: A and B leading differ by 1.2e-09 relative
+  [PASS] sym sR=4 m=6.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=4 m=6.5: no real eigenvalue with |mu| v_c above 0.1362, in A or B
+  [FAIL] match sR=4 m=6.5: 1e-5 window 0.1362 set by floor (floor 0.1362)
+  [FAIL] own75 sR=4 m=6.5: 1e-5 window 0.1362 against #75's own 0.0745
+   7.5 | 68906 / 90288 | -0.00000-0.12177i | 0.121766   | 0.121766 | 0.121766 | 5.3e-07     | 0.1230 / 0.1230 (0.0705)           | floor  |    0           | 0 / 0                | 0.106515         | 0.106515 | 0.106515 | 2.0e-06     | - -              | I119-win/eig
+  [PASS] lead sR=4 m=7.5: leading |mu| v_c 0.121766 against #75's 0.121766
+  [PASS] next sR=4 m=7.5: second |mu| v_c 0.106515 against #75's 0.106515
+  [PASS] AB sR=4 m=7.5: A and B leading differ by 1.5e-09 relative
+  [PASS] sym sR=4 m=7.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=4 m=7.5: no real eigenvalue with |mu| v_c above 0.1230, in A or B
+  [FAIL] match sR=4 m=7.5: 1e-5 window 0.1230 set by floor (floor 0.1230)
+  [FAIL] own75 sR=4 m=7.5: 1e-5 window 0.1230 against #75's own 0.0705
+   8.5 | 71010 / 93852 | -0.00000+0.11102i | 0.111020   | 0.111020 | 0.111020 | 4.9e-07     | 0.1121 / 0.1121 (0.0727)           | floor  |    0           | 0 / 0                | 0.098245         | 0.098245 | 0.098245 | 1.5e-06     | - -              | I119-win/eig
+  [PASS] lead sR=4 m=8.5: leading |mu| v_c 0.111020 against #75's 0.111020
+  [PASS] next sR=4 m=8.5: second |mu| v_c 0.098245 against #75's 0.098245
+  [PASS] AB sR=4 m=8.5: A and B leading differ by 1.8e-09 relative
+  [PASS] sym sR=4 m=8.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=4 m=8.5: no real eigenvalue with |mu| v_c above 0.1121, in A or B
+  [FAIL] match sR=4 m=8.5: 1e-5 window 0.1121 set by floor (floor 0.1121)
+  [FAIL] own75 sR=4 m=8.5: 1e-5 window 0.1121 against #75's own 0.0727
+   9.5 | 73640 / 96822 | -0.00000-0.10201i | 0.102014   | 0.102014 | 0.102014 | 1.9e-06     | 0.1030 / 0.1030 (0.0688)           | floor  |    0           | 0 / 0                | 0.091157         | 0.091157 | 0.091157 | 5.0e-06     | - -              | I119-win/eig
+  [PASS] lead sR=4 m=9.5: leading |mu| v_c 0.102014 against #75's 0.102014
+  [PASS] next sR=4 m=9.5: second |mu| v_c 0.091157 against #75's 0.091157
+  [PASS] AB sR=4 m=9.5: A and B leading differ by 2.1e-09 relative
+  [PASS] sym sR=4 m=9.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=4 m=9.5: no real eigenvalue with |mu| v_c above 0.1030, in A or B
+  [FAIL] match sR=4 m=9.5: 1e-5 window 0.1030 set by floor (floor 0.1030)
+  [FAIL] own75 sR=4 m=9.5: 1e-5 window 0.1030 against #75's own 0.0688
+  10.5 | 78010 / 102414 | -0.00000+0.09436i | 0.094358   | 0.094358 | 0.094358 | 1.2e-06     | 0.0953 / 0.0953 (0.0653)           | floor  |    0           | 0 / 0                | 0.085018         | 0.085018 | 0.085018 | 6.1e-07     | - -              | I119-win/eig
+  [PASS] lead sR=4 m=10.5: leading |mu| v_c 0.094358 against #75's 0.094358
+  [PASS] next sR=4 m=10.5: second |mu| v_c 0.085018 against #75's 0.085018
+  [PASS] AB sR=4 m=10.5: A and B leading differ by 2.2e-09 relative
+  [PASS] sym sR=4 m=10.5: window symmetric under mu -> -mu to 0.0e+00 relative
+  [PASS] noreal sR=4 m=10.5: no real eigenvalue with |mu| v_c above 0.0953, in A or B
+  [FAIL] match sR=4 m=10.5: 1e-5 window 0.0953 set by floor (floor 0.0953)
+  [FAIL] own75 sR=4 m=10.5: 1e-5 window 0.0953 against #75's own 0.0653
+  tolerance 1e-05: every eigenvalue with |mu| v_c >= 0.3713 is converged in every sector computed (the leading eigenvalue of the last sector is 0.0944), so no real zero mode with |v| <= 2.69 v_c, provided the leading eigenvalue keeps falling with m (#75, at 1e-5 with its own basis: 10.32 v_c, a window from 0.0969)
+  tolerance 1e-04: every eigenvalue with |mu| v_c >= 0.3713 is converged in every sector computed (the leading eigenvalue of the last sector is 0.0944), so no real zero mode with |v| <= 2.69 v_c, provided the leading eigenvalue keeps falling with m (#75, at 1e-5 with its own basis: 10.32 v_c, a window from 0.0969)
+wall 0 s
+FAILED: match sR=2 m=0.5, own75 sR=2 m=0.5, match sR=2 m=1.5, own75 sR=2 m=1.5, match sR=2 m=2.5, own75 sR=2 m=2.5, match sR=2 m=3.5, own75 sR=2 m=3.5, match sR=2 m=4.5, own75 sR=2 m=4.5, match sR=2 m=5.5, own75 sR=2 m=5.5, match sR=2 m=6.5, own75 sR=2 m=6.5, match sR=2 m=7.5, own75 sR=2 m=7.5, match sR=2 m=8.5, own75 sR=2 m=8.5, match sR=2 m=9.5, own75 sR=2 m=9.5, match sR=2 m=10.5, own75 sR=2 m=10.5, match sR=4 m=0.5, own75 sR=4 m=0.5, match sR=4 m=1.5, own75 sR=4 m=1.5, match sR=4 m=2.5, own75 sR=4 m=2.5, match sR=4 m=3.5, own75 sR=4 m=3.5, match sR=4 m=4.5, own75 sR=4 m=4.5, match sR=4 m=5.5, own75 sR=4 m=5.5, match sR=4 m=6.5, own75 sR=4 m=6.5, match sR=4 m=7.5, own75 sR=4 m=7.5, match sR=4 m=8.5, own75 sR=4 m=8.5, match sR=4 m=9.5, own75 sR=4 m=9.5, match sR=4 m=10.5, own75 sR=4 m=10.5
