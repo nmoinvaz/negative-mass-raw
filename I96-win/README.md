@@ -14,9 +14,17 @@ Python: `negative-mass-venv314\Scripts\python.exe`, Python 3.14.10, numpy 2.5.4,
 requirements.txt). Every run has `OMP_NUM_THREADS=1`, `OPENBLAS_NUM_THREADS=1` and `MKL_NUM_THREADS=1`, `--procs=1` for
 `tanh_spectrum.py`, below-normal priority, and is launched detached with `start`. At most two processes (a
 `tanh_spectrum.py` run is a main process and one worker). A second one starts only while choptuik-large-d's processes
-together use under 4 cores (CPU-seconds delta over 10 s, `cores.log`) and, beside a sigma R = 16 solve, only if the
-pilot's peak working set plus the second's expected peak is under 24 GiB. Memory is reported only: nothing stops or
-kills a process because of it (`memory-sampler.log`, once a minute, worker processes included).
+together use under 4 cores (CPU-seconds delta over 10 s, `cores.log`).
+
+Launch rule. The task's rule was: beside a sigma R = 16 solve only if the pilot's peak plus the second's expected peak is
+under 24 GiB. The pilot (sigma R = 16, p = 320, one sector) peaked at 24.43 GiB, so nothing could run beside such a
+solve, and the coordinator ordered the sigma R = 8 sectors to run alone first. After the pilot post the coordinator
+replaced the rule for the rest of #96 (2026-11-21, about 14:50): two processes may run together when the sum of their expected
+peaks is under 24 GiB, where a process's expected peak is its own measured one if it has run before at that size and
+otherwise a scaled estimate (named as one). A sigma R = 16 sector solve (24.4 GiB) still runs alone. No run whose expected
+peak exceeds 28 GiB is launched (sectors at P = 360 would, by p^2 scaling, peak near 31 GiB). Why: the sigma R = 16 `conv`
+(about 10 GiB, estimated) fits beside the sigma R = 8 sectors (about 9.5 GiB, estimated), which saves about 6.5 h. Memory is
+reported only: nothing stops or kills a process because of it (`memory-sampler.log`, once a minute, worker processes included).
 
 Sizes are written in the job lines of `jobs.txt`. `--raw` writes one `tanh_sigma{S}_m{M}.npz` per sector (`vc`, `muA`,
 `muB`, every eigenvalue of S^-1 M in A and B) to `eig/`.
@@ -29,7 +37,7 @@ Sizes are written in the job lines of `jobs.txt`. `--raw` writes one `tanh_sigma
    time, rho(T1) v_c of A and B, their difference, the window and the peak. Stop condition: more than 4 h, then stop it
    and report before the next step.
 3. `sectors-s8` (the coordinator moved this ahead of the sigma R = 16 sizes, after the pilot, because nothing can run
-   beside a sigma R = 16 solve): `--part=vc,planted,shift,tanh --sigmas=8 --p=8:200 --npan=160 --procs=1 --raw=eig`,
+   beside a sigma R = 16 solve; once the rule above changed, `conv-s16-p320-n320` started beside it at 14:53): `--part=vc,planted,shift,tanh --sigmas=8 --p=8:200 --npan=160 --procs=1 --raw=eig`,
    all 11 sectors m = 1/2 to 21/2, alone. A process that dies restarts with the same command (the dead log kept as
    `<job>.died<N>.log`, `queue.ps1`).
 4. `conv-s16-*`: as step 1 at sigma R = 16, from the pilot's P and N. At most 4 attempts.
