@@ -65,7 +65,7 @@ ten-sector table (leading |mu| v_c of A and B, #120's, the differences).
 | `--mutate=conv` (`highm-mutate-conv.log`) | 1 | 0.2 s | |
 
 - Peak memory is the largest peak working set of the job's processes, the worker included. The sampler ran once a minute
-  until 09:45 (the pilot) and every 10 s after, so the pilot's last 47 s (B's eigensolve) went unsampled. `solve-s4` has
+  until 09:45 (the pilot) and every 10 s after, so the pilot's last 42 s (B's eigensolve) went unsampled. `solve-s4` has
   the same sizes and peaked at 2636 MiB, 0.3 % above the pilot's A-phase peak of 2627 MiB, so the pilot's value is not
   short. Free memory over the run: 19.3 to 25.1 GiB. `cores.log` holds the one reading before the second start:
   choptuik-large-d at 2.02 cores.
