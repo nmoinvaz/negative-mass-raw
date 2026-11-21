@@ -1,0 +1,3 @@
+pilot-s2-B-m10.5|--part=solve --sigma=2 --disc=B --ms=10.5 --solver=arpack --floor=0.025 --k0=512 --kmax=512 --fnth=4 --fh=0.4 --out=%~dp0eig
+solve-s2-B-m9.5|--part=solve --sigma=2 --disc=B --ms=9.5 --solver=arpack --floor=0.025 --k0=512 --kmax=512 --fnth=4 --fh=0.4 --out=%~dp0eig
+solve-s2-A-m9.5-10.5|--part=solve --sigma=2 --disc=A --ms=9.5,10.5 --solver=arpack --floor=0.025 --k0=512 --kmax=512 --fnth=4 --fh=0.4 --out=%~dp0eig
