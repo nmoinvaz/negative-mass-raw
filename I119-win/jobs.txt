@@ -1,0 +1,7 @@
+pilot-s4-B-m10.5|--part=solve --sigma=4 --disc=B --ms=10.5 --solver=arpack --floor=0.04 --fnth=4 --fh=0.4 --out=%~dp0eig
+stage1-s2-A-m4.5|--part=solve --sigma=2 --disc=A --ms=4.5 --solver=arpack --floor=0.04 --fnth=4 --fh=0.4 --out=%~dp0eig
+stage1-s2-B-m4.5|--part=solve --sigma=2 --disc=B --ms=4.5 --solver=arpack --floor=0.04 --fnth=4 --fh=0.4 --out=%~dp0eig
+solve-s2-B|--part=solve --sigma=2 --disc=B --ms=0.5,1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5,10.5 --solver=arpack --floor=0.04 --fnth=4 --fh=0.4 --out=%~dp0eig
+solve-s4-B|--part=solve --sigma=4 --disc=B --ms=4.5,5.5,6.5,7.5,8.5,9.5,10.5 --solver=arpack --floor=0.04 --fnth=4 --fh=0.4 --out=%~dp0eig
+solve-s2-A|--part=solve --sigma=2 --disc=A --ms=0.5,1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5,10.5 --solver=arpack --floor=0.04 --fnth=4 --fh=0.4 --out=%~dp0eig
+solve-s4-A|--part=solve --sigma=4 --disc=A --ms=4.5,5.5,6.5,7.5,8.5,9.5,10.5 --solver=arpack --floor=0.04 --fnth=4 --fh=0.4 --out=%~dp0eig

@@ -1,0 +1,22 @@
+
+== sigma R = 2, v_c = 3.744900, line 0.083 (1/0.083 = 12.05 v_c)
+  m    | n A / B       | leading |mu| v_c A | B          | A vs B  | m |mu| v_c
+   9.5 | 72240 / 94866 | 0.090309           | 0.090309   | 2.0e-10 | 0.8579
+  [PASS] ABhigh sR=2 m=9.5: A and B leading differ by 2.0e-10 relative
+  [FAIL] below sR=2 m=9.5: leading 0.090309 against 0.083
+  10.5 | 78010 / 102414 | 0.083018           | 0.083018   | 1.8e-10 | 0.8717
+  [PASS] ABhigh sR=2 m=10.5: A and B leading differ by 1.8e-10 relative
+  [FAIL] below sR=2 m=10.5: leading 0.083018 against 0.083
+  [FAIL] fall sR=2: leading |mu| v_c falls from #75's 0.083018 at m = 21/2 through every sector (largest step +7.29e-03)
+
+== sigma R = 4, v_c = 2.470971, line 0.0944 (1/0.0944 = 10.59 v_c)
+  m    | n A / B       | leading |mu| v_c A | B          | A vs B  | m |mu| v_c
+   9.5 | 73640 / 96822 | 0.102014           | 0.102014   | 2.1e-09 | 0.9691
+  [PASS] ABhigh sR=4 m=9.5: A and B leading differ by 2.1e-09 relative
+  [FAIL] below sR=4 m=9.5: leading 0.102014 against 0.0944
+  10.5 | 78010 / 102414 | 0.094358           | 0.094358   | 2.2e-09 | 0.9908
+  [PASS] ABhigh sR=4 m=10.5: A and B leading differ by 2.2e-09 relative
+  [PASS] below sR=4 m=10.5: leading 0.094358 against 0.0944
+  [FAIL] fall sR=4: leading |mu| v_c falls from #75's 0.094358 at m = 21/2 through every sector (largest step +7.66e-03)
+wall 0 s
+FAILED: below sR=2 m=9.5, below sR=2 m=10.5, fall sR=2, below sR=4 m=9.5, fall sR=4
