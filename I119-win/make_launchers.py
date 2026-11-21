@@ -1,12 +1,16 @@
 """Writes job_<job>.cmd and go_<job>.cmd for every line of jobs.txt, beside this file. Run with the venv python.
-A line of jobs.txt is <job>|<arguments of tanh_spectrum_check.py>; <job> is also the log's name."""
+A line of jobs.txt is <job>|<arguments of tanh_spectrum_check.py>; <job> is also the log's name. With job names as
+arguments only those are written, so the files of a running job are left alone."""
 import os
+import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 for ln in open(os.path.join(HERE, 'jobs.txt'), encoding='utf-8'):
     if not ln.strip():
         continue
     job, args = ln.rstrip('\n').split('|', 1)
+    if sys.argv[1:] and job not in sys.argv[1:]:
+        continue
     job_cmd = (
         "@echo off\r\n"
         "set OMP_NUM_THREADS=1\r\n"
