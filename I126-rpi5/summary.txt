@@ -1,0 +1,162 @@
+# Walls and evaluations of #126's jobs (from queue.log and the logs)
+
+## W boxes (winding2.py --guard=all)
+
+| job | exit | wall (min) | evaluations |
+|---|---|---|---|
+| w_p7603_l2 | 0 | 4.3 | 135 |
+| w_p7603_l3 | 0 | 12.8 | 195 |
+| w_c075_l2 | 0 | 3.2 | 111 |
+| w_p070_l2 | 0 | 5.8 | 134 |
+| w_p070_l3 | 0 | 17.0 | 209 |
+| w_p085_l2 | 0 | 7.1 | 129 |
+| w_p085_l3 | 0 | 13.2 | 205 |
+| w_n1_l2 | 0 | 1.3 | 84 |
+| w_n1_l3 | 0 | 1.4 | 112 |
+| w_n3_l2 | 0 | 2.6 | 116 |
+| w_n3_l3 | 0 | 2.2 | 124 |
+| w_s1_l2 | 0 | 28.0 | 180 |
+| w_s1_l3 | 0 | 40.9 | 233 |
+| w_h1_l2 | 0 | 7.5 | 108 |
+| w_h1_l3 | 0 | 8.6 | 126 |
+| w_t1_r40 | 0 | 3.2 | 94 |
+| w_t1_r80 | 0 | 5.5 | 94 |
+| w_t2_r40 | 0 | 16.9 | 94 |
+| w_t2_r80 | 0 | 25.2 | 94 |
+| w_s2_l2 | 0 | 141.8 | 227 |
+| w_h2_l2 | 0 | 11.3 | 92 |
+| w_s3_l2 | 0 | 35.6 | 106 |
+| w_s3_l3 | 0 | 35.4 | 106 |
+| w_rep_l4 | 0 | 27.5 | 261 |
+| w_s1_l4 | 0 | 55.4 | 289 |
+| w_n1_l4 | 0 | 0.3 | 131 |
+| w_rep_l5 | 0 | 35.4 | 327 |
+| w_n1_l5 | 0 | 2.9 | 128 |
+| w_rep_l6 | 0 | 46.1 | 407 |
+| w_s1_l6 | 0 | 100.6 | 433 |
+| w_n1_l6 | 0 | 3.5 | 144 |
+
+31 jobs, 702.6 min = 11.71 h of process time
+
+## Z boxes (zerilli_zeros.py --guard=all)
+
+| job | exit | wall (min) | evaluations |
+|---|---|---|---|
+| z_p7603_l2 | 0 | 0.4 | 71 |
+| z_p7603_l3 | 0 | 0.4 | 67 |
+| z_c075_l2 | 0 | 0.4 | 67 |
+| z_p070_l2 | 0 | 0.3 | 67 |
+| z_p070_l3 | 0 | 0.3 | 67 |
+| z_p085_l2 | 0 | 0.4 | 67 |
+| z_p085_l3 | 0 | 0.4 | 67 |
+| z_n1_l2 | 0 | 0.9 | 73 |
+| z_n1_l3 | 0 | 1.1 | 74 |
+| z_s1_l2 | 0 | 0.5 | 83 |
+| z_s1_l3 | 0 | 0.5 | 81 |
+| z_h1_l2 | 0 | 0.4 | 89 |
+| z_h1_l3 | 0 | 0.4 | 89 |
+| z_t1_z1 | 0 | 0.5 | 88 |
+| z_t1_z2 | 0 | 0.4 | 88 |
+| z_t2_z1 | 0 | 0.5 | 86 |
+| z_t2_z2 | 0 | 0.5 | 86 |
+| z_s2_l2 | 0 | 0.6 | 93 |
+| z_h2_l2 | 0 | 0.4 | 90 |
+| z_s3_l2 | 0 | 0.6 | 99 |
+| z_s3_l3 | 0 | 0.6 | 99 |
+| z_rep_l4 | 0 | 0.4 | 67 |
+| z_s1_l4 | 0 | 0.5 | 82 |
+| z_n1_l4 | 0 | 1.2 | 73 |
+| z_rep_l5 | 0 | 0.4 | 67 |
+| z_s1_l5 | 0 | 0.6 | 82 |
+| z_n1_l5 | 0 | 1.4 | 73 |
+| z_rep_l6 | 0 | 0.4 | 65 |
+| z_s1_l6 | 0 | 0.6 | 81 |
+| z_n1_l6 | 0 | 1.6 | 73 |
+
+30 jobs, 17.5 min = 0.29 h of process time
+
+## Controls
+
+| job | exit | wall (min) | evaluations |
+|---|---|---|---|
+| z_flat | 0 | 0.4 | 67 |
+| z_mut_reverse | 1 | 0.4 | 67 |
+| z_mut_nonorm | 1 | 0.5 | 65 |
+| z_mut_lshift | 1 | 0.4 | 67 |
+| w_mut_reverse | 1 | 1.6 | 116 |
+
+5 jobs, 3.2 min = 0.05 h of process time
+
+All 66 jobs: 12.06 h of process time; first start 2026-11-21 00:49, last end 2026-11-21 09:35, 8.77 h of wall time
+
+# Cache points before and after the run
+
+| cache | before | after | new |
+|---|---|---|---|
+| winding2_cache_eps+1_w0.75_l2_0.1_2.0_2.5 | 97 | 119 | 22 |
+| winding2_cache_eps-1_w0.7603_l2_-0.001_0.0001_0.23_y00.01 | 116 | 144 | 28 |
+| winding2_cache_eps-1_w0.7603_l2_0.0001_0.1_0.23 | 82 | 97 | 15 |
+| winding2_cache_eps-1_w0.7603_l2_0.01_0.03_2.5 | 155 | 245 | 90 |
+| winding2_cache_eps-1_w0.7603_l2_0.02_0.1_0.33_y00.15 | 93 | 108 | 15 |
+| winding2_cache_eps-1_w0.7603_l2_0.02_0.1_0.33_y00.15_rs80_z2 | 93 | 108 | 15 |
+| winding2_cache_eps-1_w0.7603_l2_0.02_0.1_1.84_y01.68 | 92 | 106 | 14 |
+| winding2_cache_eps-1_w0.7603_l2_0.02_0.1_1.84_y01.68_rs80_z2 | 92 | 106 | 14 |
+| winding2_cache_eps-1_w0.7603_l2_0.03_0.1_2.5 | 136 | 201 | 65 |
+| winding2_cache_eps-1_w0.7603_l2_0.03_0.1_6.0_y02.5 | 106 | 128 | 22 |
+| winding2_cache_eps-1_w0.7603_l2_0.1_2.0_10.0_y06.0 | 92 | 108 | 16 |
+| winding2_cache_eps-1_w0.7603_l2_0.1_2.0_2.5 | 118 | 147 | 29 |
+| winding2_cache_eps-1_w0.7603_l2_0.1_2.0_6.0_y02.5 | 108 | 126 | 18 |
+| winding2_cache_eps-1_w0.7603_l3_-0.001_0.0001_0.23_y00.01 | 124 | 152 | 28 |
+| winding2_cache_eps-1_w0.7603_l3_0.0001_0.1_0.23 | 108 | 125 | 17 |
+| winding2_cache_eps-1_w0.7603_l3_0.03_0.1_2.5 | 152 | 249 | 97 |
+| winding2_cache_eps-1_w0.7603_l3_0.03_0.1_6.0_y02.5 | 106 | 128 | 22 |
+| winding2_cache_eps-1_w0.7603_l3_0.1_2.0_2.5 | 139 | 209 | 70 |
+| winding2_cache_eps-1_w0.7603_l3_0.1_2.0_6.0_y02.5 | 124 | 148 | 24 |
+| winding2_cache_eps-1_w0.7603_l4_0.0001_0.1_0.23 | 112 | 131 | 19 |
+| winding2_cache_eps-1_w0.7603_l4_0.03_0.1_2.5 | 182 | 311 | 129 |
+| winding2_cache_eps-1_w0.7603_l4_0.1_2.0_2.5 | 161 | 279 | 118 |
+| winding2_cache_eps-1_w0.7603_l5_0.0001_0.1_0.23 | 115 | 145 | 30 |
+| winding2_cache_eps-1_w0.7603_l5_0.03_0.1_2.5 | 387 | 387 | 0 |
+| winding2_cache_eps-1_w0.7603_l5_0.1_2.0_2.5 | 190 | 349 | 159 |
+| winding2_cache_eps-1_w0.7603_l6_0.0001_0.1_0.23 | 119 | 157 | 38 |
+| winding2_cache_eps-1_w0.7603_l6_0.03_0.1_2.5 | 247 | 445 | 198 |
+| winding2_cache_eps-1_w0.7603_l6_0.1_2.0_2.5 | 220 | 425 | 205 |
+| winding2_cache_eps-1_w0.7_l2_0.1_2.0_2.5 | 114 | 149 | 35 |
+| winding2_cache_eps-1_w0.7_l3_0.1_2.0_2.5 | 146 | 223 | 77 |
+| winding2_cache_eps-1_w0.85_l2_0.1_2.0_2.5 | 109 | 141 | 32 |
+| winding2_cache_eps-1_w0.85_l3_0.1_2.0_2.5 | 147 | 221 | 74 |
+| zerilli_zeros_cache_eps+1_w0.75_l2_0.1_2.0_2.5 | 67 | 71 | 4 |
+| zerilli_zeros_cache_eps-1_w0.7603_l2_0.0001_0.1_0.23 | 73 | 85 | 12 |
+| zerilli_zeros_cache_eps-1_w0.7603_l2_0.01_0.03_2.5 | 88 | 119 | 31 |
+| zerilli_zeros_cache_eps-1_w0.7603_l2_0.02_0.1_0.33_y00.15 | 88 | 94 | 6 |
+| zerilli_zeros_cache_eps-1_w0.7603_l2_0.02_0.1_0.33_y00.15_z2 | 88 | 94 | 6 |
+| zerilli_zeros_cache_eps-1_w0.7603_l2_0.02_0.1_1.84_y01.68 | 86 | 92 | 6 |
+| zerilli_zeros_cache_eps-1_w0.7603_l2_0.02_0.1_1.84_y01.68_z2 | 86 | 92 | 6 |
+| zerilli_zeros_cache_eps-1_w0.7603_l2_0.03_0.1_2.5 | 81 | 103 | 22 |
+| zerilli_zeros_cache_eps-1_w0.7603_l2_0.03_0.1_6.0_y02.5 | 99 | 122 | 23 |
+| zerilli_zeros_cache_eps-1_w0.7603_l2_0.1_2.0_10.0_y06.0 | 90 | 100 | 10 |
+| zerilli_zeros_cache_eps-1_w0.7603_l2_0.1_2.0_2.5 | 67 | 71 | 4 |
+| zerilli_zeros_cache_eps-1_w0.7603_l2_0.1_2.0_2.5_flat | 67 | 71 | 4 |
+| zerilli_zeros_cache_eps-1_w0.7603_l2_0.1_2.0_2.5_mlshift | 67 | 71 | 4 |
+| zerilli_zeros_cache_eps-1_w0.7603_l2_0.1_2.0_2.5_mnonorm | 65 | 69 | 4 |
+| zerilli_zeros_cache_eps-1_w0.7603_l2_0.1_2.0_6.0_y02.5 | 89 | 98 | 9 |
+| zerilli_zeros_cache_eps-1_w0.7603_l3_0.0001_0.1_0.23 | 74 | 87 | 13 |
+| zerilli_zeros_cache_eps-1_w0.7603_l3_0.03_0.1_2.5 | 81 | 103 | 22 |
+| zerilli_zeros_cache_eps-1_w0.7603_l3_0.03_0.1_6.0_y02.5 | 99 | 122 | 23 |
+| zerilli_zeros_cache_eps-1_w0.7603_l3_0.1_2.0_2.5 | 67 | 71 | 4 |
+| zerilli_zeros_cache_eps-1_w0.7603_l3_0.1_2.0_6.0_y02.5 | 89 | 98 | 9 |
+| zerilli_zeros_cache_eps-1_w0.7603_l4_0.0001_0.1_0.23 | 73 | 85 | 12 |
+| zerilli_zeros_cache_eps-1_w0.7603_l4_0.03_0.1_2.5 | 81 | 101 | 20 |
+| zerilli_zeros_cache_eps-1_w0.7603_l4_0.1_2.0_2.5 | 67 | 71 | 4 |
+| zerilli_zeros_cache_eps-1_w0.7603_l5_0.0001_0.1_0.23 | 73 | 85 | 12 |
+| zerilli_zeros_cache_eps-1_w0.7603_l5_0.03_0.1_2.5 | 81 | 101 | 20 |
+| zerilli_zeros_cache_eps-1_w0.7603_l5_0.1_2.0_2.5 | 67 | 71 | 4 |
+| zerilli_zeros_cache_eps-1_w0.7603_l6_0.0001_0.1_0.23 | 73 | 85 | 12 |
+| zerilli_zeros_cache_eps-1_w0.7603_l6_0.03_0.1_2.5 | 81 | 101 | 20 |
+| zerilli_zeros_cache_eps-1_w0.7603_l6_0.1_2.0_2.5 | 65 | 69 | 4 |
+| zerilli_zeros_cache_eps-1_w0.7_l2_0.1_2.0_2.5 | 67 | 71 | 4 |
+| zerilli_zeros_cache_eps-1_w0.7_l3_0.1_2.0_2.5 | 67 | 71 | 4 |
+| zerilli_zeros_cache_eps-1_w0.85_l2_0.1_2.0_2.5 | 67 | 71 | 4 |
+| zerilli_zeros_cache_eps-1_w0.85_l3_0.1_2.0_2.5 | 67 | 71 | 4 |
+
+65 caches: 6922 points before, 9003 after, 2081 new

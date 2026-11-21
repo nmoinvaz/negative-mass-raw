@@ -33,7 +33,18 @@ its stored cache and with the planted zero of its first run:
   I115-rpi5): the order of the jobs, one name per line. Controls first, then the Z boxes, then the pilot alone, then the W boxes.
 - `launch_I126.sh LISTFILE`: queue worker. Exit status of each job in `done/<job>.rc`, start and end times in `queue.log`.
   `start_second.sh LISTFILE` starts a second worker once the 15-minute load is below 4. `memwatch.sh` writes `memwatch.log`
-  (load, available memory, cpu and rss of this task's processes; reports only).
+  (load, available memory, cpu and rss of this task's processes; reports only; stopped at the end of the run).
+- `launch_I126_gated.sh LISTFILE`: from 02:37 on, the worker for the W boxes. Before each job it counts this task's running
+  processes under a lock: none, it starts; one, it starts only while the 15-minute load is below 4 and logs "15-min load X < 4:
+  start <job>"; two, it waits and logs the wait. The first second-slot worker (`start_second.sh`) had started `w_s3_l3` at
+  02:03 without that test, with the load at about 6. At 02:37 `w_boxes.txt` was renamed `w_boxes.old` (so that worker stopped
+  after its box) and `w_boxes_g.txt` lists the 27 W boxes not yet started, in the order of `w_boxes.old`. Two gated workers
+  took them. The load stayed above 4 for most of the run, so the W boxes ran mostly on one process.
+- `summarize_i126.py` writes `summary.txt`: wall and evaluations per job, and cache points before and after per cache.
+  `collect_mutate_<name>.log`: the collector's five mutations. `diagnose_*.log`: four runs of `phase2/nonradial/diagnose_plant.py` that must
+  fail, on the 212-point cache of #115 before its guard-all rerun (`--mutate=sparse`, `--mutate=wrongexpect`, `--expect=none`,
+  and `--guard=all`, which asks for a point the cache lacks), each ending `exit 1`. The two passing replays are
+  `phase2/nonradial/i115_replay_output.txt`.
 - `cache/`: the per-evaluation caches (`winding2_cache_<tag>.pkl`, `zerilli_zeros_cache_<tag>.pkl`), restart-safe. Copies of
   every such file in the `cache/` of I5-rpi5, I54-rpi5, I115-rpi5, I121-win and I124-rpi5, so the source folders are never
   written. `cache_sources.sha256` has the sha256 and source path of each of the 65 copied files, and of four files not
@@ -52,4 +63,20 @@ difference ≤ 1.3e-12". They serve `z_p7603_l2`, `z_mut_reverse`, `z_flat`, `z_
 
 ## Result
 
-(Filled in at the end of the run.)
+`python collect_i126.py <this folder> > i126_guard_output.txt` exits 0 (`phase2/nonradial/i126_guard_output.txt`, code branch
+`wip/i126-guard-all`). Its last line: "RESULT: all rows complete, every planted check passed, no count changed, every control
+as required".
+
+| | |
+|---|---|
+| boxes recounted at `--guard=all` | 61 (31 `w_*`, 30 `z_*`) |
+| counts unchanged from guard 1 | 61 of 61 |
+| planted checks PASS | 61 of 61 |
+| largest phase step, `w_*` | 0.40 rad |
+| controls as required | 5 of 5 |
+| exit codes of the 66 jobs | 0, except `w_mut_reverse`, `z_mut_lshift`, `z_mut_nonorm`, `z_mut_reverse` (1, as the controls require) |
+| process time, all jobs | 12.06 h in 8.77 h of wall time, 2026-11-21 00:49 to 2026-11-21 09:35 |
+| cache points | 6922 before, 9003 after, 2081 new in 65 files (`summary.txt`) |
+
+Walls, evaluations and new cache points per job and per cache: `summary.txt`, from `summarize_i126.py` (run from this
+folder with the venv's python). Collector mutations (`noplant`, `shift`, `changed`, `noguard`, `control`), each into `collect_mutate_<name>.log`: exit codes 1, 1, 1, 1, 1.
