@@ -1,0 +1,9 @@
+eps-1_w0.7603_l6_0.0001_0.1_0.23: r_m = 24.11, Mext = -0.014580, R_z = 1600074.1 (|s|_min = 0.0001)
+RESULT eps-1_w0.7603_l6_0.0001_0.1_0.23: zeros of Z(r_m; s) in Re s∈[0.0001,0.1], |Im s|≤0.23: winding = +0.0000  (max phase step 0.11 rad, min|Z| 1.94e+00, 73 evaluations, 0 s)
+   Z(x0) = +2.3012e+00, Z(x1) = +1.9422e+00 (real, one sign)
+  [PASS] count: winding +0.0000, max step 0.11 rad
+  [PASS] holo: Cauchy-Riemann defect 1.1e-08, 3.2e-09, 2.8e-09
+   q against zerilli_q: s = 0.1+0.05599i: 1.3e-14, s = 0.05005+0.23i: 9.9e-14, s = 0.0001+0.05599i: 1.9e-13
+  [PASS] column: relative difference where Re s >= 0.03
+  [PASS] plant: s0 = (0.0005+0.12j), expected 2, counted +2.0000 (max step 0.38 rad)
+all checks passed  (75 s)
