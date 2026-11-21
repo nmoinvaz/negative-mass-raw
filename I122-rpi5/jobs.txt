@@ -26,4 +26,17 @@ pole_mut_nophase|--part=pole --plant=z --mutate=nophase --maxeval=300 --stop=108
 pole_mut_nogauge|--part=pole --plant=z --mutate=nogauge --maxeval=300 --stop=10800
 pole_mut_reverse|--part=pole --plant=z --mutate=reverse --stop=10800
 axis_mut_reverse|--part=axis --boxes=w_n3_l2 --mutate=reverse
-axis_mut_wrongq|--part=axis --boxes=w_n3_l2 --mutate=wrongq
+axis_mut_wrongq|--part=axis --boxes=w_n3_l2 --mutate=wrongq --maxeval=3
+harm_diag_p7603_l2_rtol1e-10|--part=factors --skip=static --boxes=w_p7603_l2 --rtol=1e-10
+harm_diag_p7603_l2_rtol1e-12|--part=factors --skip=static --boxes=w_p7603_l2 --rtol=1e-12
+mean_p7603_l2|--part=mean --boxes=w_p7603_l2
+mean_p7603_l3|--part=mean --boxes=w_p7603_l3
+mean_c075_l2|--part=mean --boxes=w_c075_l2
+mean_p085_l3|--part=mean --boxes=w_p085_l3
+mean_n1_l4|--part=mean --boxes=w_n1_l4
+mean_n3_l2|--part=mean --boxes=w_n3_l2
+mean_mut_nonholo|--part=mean --boxes=w_n1_l4 --mutate=nonholo
+mean_rho0.05_p7603_l2|--part=mean --boxes=w_p7603_l2 --rho=0.05
+mean_rho0.05_p085_l3|--part=mean --boxes=w_p085_l3 --rho=0.05
+mean_rho0.025_p7603_l2|--part=mean --boxes=w_p7603_l2 --rho=0.025
+mean_rho0.025_p085_l3|--part=mean --boxes=w_p085_l3 --rho=0.025

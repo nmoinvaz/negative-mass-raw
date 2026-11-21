@@ -1,0 +1,24 @@
+d_factors.py parts axis, RTOL 1e-08, raw /home/nathan/Source/negative-mass-raw/I122-rpi5, mutate=reverse
+
+===== part axis
+# w_n3_l2: Re s in [-0.001, 0.0001], Im s in [0.01, 0.23], l = 2
+  [PASS] axis_q: q from the copied --axis function against the I123 log's 6 values (R_z 8074.1): largest relative difference 0.00e+00 (limit 1e-10)  [mutate=reverse]
+   D_axis at the 144 cached points: 0 new evaluations, 0 s
+   cached points on the contour: 148 on edges (corners twice), 0 on none; min |D| on the contour 2.750e-03
+   right Re s = x1: 53 points, largest |D_axis - D| / |D| 4.118e-06, largest |D_axis - D| 8.030e-07 (2.920e-04 of min |D|)
+   top Im s = y1: 21 points, largest |D_axis - D| / |D| 2.207e-06, largest |D_axis - D| 6.071e-09 (2.207e-06 of min |D|)
+   left Re s = x0: 53 points, largest |D_axis - D| / |D| 7.864e-05, largest |D_axis - D| 4.221e-06 (1.535e-03 of min |D|)
+   bottom Im s = y0: 21 points, largest |D_axis - D| / |D| 7.864e-05, largest |D_axis - D| 4.221e-06 (1.535e-03 of min |D|)
+  [PASS] axis_ref: dense-chain winding of the cached D -0.0000 (#126: 0), planted -1.0000 of +1, largest increment 0.210 rad (limit 1)  [mutate=reverse]
+  [PASS] axis_wind: dense-chain winding of D_axis -0.0000 (expected 0), largest increment 0.209 rad (limit 1)  [mutate=reverse]
+  [FAIL] axis_plant: with the planted zero s0 = (-0.0005+0.12j): winding -1.0000, change -1.0000 of +1, largest increment 0.210 rad (limit 1)  [mutate=reverse]
+    D s = -0.0005+0.076i: |grad phi| 19.2, |lap phi| L^2 6.87e-01 against 5.22e-06: EXCEEDS (L^2 times the Laplacian at h +7.01e-01, at h/2 +6.91e-01)
+    D s = +0+0.142i: |grad phi| 7.96, |lap phi| L^2 2.11e-01 against 2.75e-06: EXCEEDS (L^2 times the Laplacian at h -2.13e-01, at h/2 -2.12e-01)
+    D s = +5e-05+0.208i: |grad phi| 19.8, |lap phi| L^2 4.51e-03 against 5.37e-06: EXCEEDS (L^2 times the Laplacian at h -4.50e-03, at h/2 -4.51e-03)
+  [FAIL] harm_n3 (reported, the check of harm): D in w_n3_l2: worst |lap phi| L^2 / limit 1.316e+05
+    D_axis s = -0.0005+0.076i: |grad phi| 19.2, |lap phi| L^2 4.16e-08 against 5.22e-06: ok (L^2 times the Laplacian at h -5.17e-05, at h/2 -1.29e-05)
+    D_axis s = +0+0.142i: |grad phi| 7.96, |lap phi| L^2 4.50e-08 against 2.75e-06: ok (L^2 times the Laplacian at h +1.05e-05, at h/2 +2.66e-06)
+    D_axis s = +5e-05+0.208i: |grad phi| 19.8, |lap phi| L^2 2.24e-07 against 5.37e-06: ok (L^2 times the Laplacian at h -1.37e-05, at h/2 -3.60e-06)
+  [PASS] axisharm: D_axis in w_n3_l2: worst |lap phi| L^2 / limit 4.177e-02  [mutate=reverse]
+
+FAILED: axis_plant  (26 s)

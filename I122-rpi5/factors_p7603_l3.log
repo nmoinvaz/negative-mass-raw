@@ -1,0 +1,36 @@
+d_factors.py parts factors, RTOL 1e-08, raw /home/nathan/Source/negative-mass-raw/I122-rpi5
+
+===== part factors
+# D's factors, in the order of polar_solver.D (D = det[Y, Z] py pz exp(-i Im Theta))
+| # | factor | holomorphic in a box? | zero-free? | checked by |
+|---|---|---|---|---|
+| 1 | interior start data Y0 (regular_plane) | constant, real, s-independent | 3 independent columns | structure |
+| 2 | J(r; s^2), interior and vacuum | polynomial in s^2 (entire); singularities in r only | - | jpoly |
+| 3 | interior flow Phi(r_m, r0; s), DOP853 in chunks | entire: linear ODE with entire coefficients | Phi invertible, so the plane keeps rank 3 | harm (numerical) |
+| 4 | QR of the regular plane: Q, phase of R's diagonal | D = det[Y, Z] / prod abs(R_ii), a positive divisor; arg D = arg det | abs(R_ii) > 0 | pole (the factor enters as c / abs(c)), structure |
+| 5 | Moncrief map T(r_m) | constant in s (poles in r at 2 M_ext and -3 M_ext/lam, not at r_m) | det T != 0 | moncrief |
+| 6 | Zerilli column zv = (1, q/f), q = f Z'/Z | meromorphic; poles at the zeros of Z(r_m; s) (the pole source, none in the 61 boxes: #121, #123, #124) | first entry 1 | axis (D_axis against D), harm at n3_l2 |
+| 7 | scalar block Js = Jvac(R_s, s)[2:, 2:], R_s fixed per box | entire (factor 2) | - | jpoly |
+| 8 | eig(Js), the two eigenvalues of smallest real part | eigenvectors carry arbitrary normalisations and the choice is by real part: neither is holomorphic by itself | - | norm, order |
+| 9 | projector P = V_sel V^-1_sel | holomorphic while the selected pair stays apart from the other two (Riesz projector); independent of the eigenvector normalisation | - | gap, norm |
+| 10 | start columns P[:, 0], P[:, 2] | holomorphic | independent iff P e0 and P e2 are | cols |
+| 11 | scalar plane flow R_s -> r_m and its QR phases | as 3 and 4 | as 3 | harm, pole_s |
+| 12 | decaying plane Z = [m, S] and its QR | m = T zv and S as above; positive divisor as 4 | m != 0 (T invertible, zv[0] = 1); S rank 2 (sigma_min(S) reported in norm) | pole_z, norm |
+| 13 | det[Y, Z] times the QR phases | holomorphic matching determinant divided by a positive function | zeros are the modes | harm |
+| 14 | winding2.py's exp(-i Im Theta), Theta = (k+ + k-)(R_s - r_m) + (k+ + k- + s) r_m | a pure phase, not holomorphic; arg = -Im Theta = arg exp(-Theta), and exp(-Theta) is holomorphic and zero-free where k+- = sqrt(1 + (s -+ i w)^2) (principal) is, i.e. off the cut on Re s = 0, abs(Im s -+ w) >= 1 | never zero | harm, gap |
+
+# harm: phi = arg D harmonic, Richardson Laplacian at three interior points per box
+    planted holomorphic s = +0.575+0.75i: |grad phi| 1.17, |lap phi| L^2 5.09e-10 against 3.92e-06: ok
+    planted holomorphic s = +1.05+1.5i: |grad phi| 1, |lap phi| L^2 1.69e-09 against 3.50e-06: ok
+    planted holomorphic s = +1.525+2.25i: |grad phi| 0.842, |lap phi| L^2 2.69e-09 against 3.10e-06: ok
+    planted non-harmonic s = +0.575+0.75i: |grad phi| 1.17, |lap phi| L^2 2.00e-03 against 3.92e-06: EXCEEDS
+    planted non-harmonic s = +1.05+1.5i: |grad phi| 1, |lap phi| L^2 2.00e-03 against 3.50e-06: EXCEEDS
+    planted non-harmonic s = +1.525+2.25i: |grad phi| 0.842, |lap phi| L^2 2.00e-03 against 3.10e-06: EXCEEDS
+  w_p7603_l3: L = 2.5, h = 0.0025; planted holomorphic passes (worst 8.66e-04 of the limit), planted non-harmonic fails as required (6.44e+02)
+    D s = +0.575+0.75i: |grad phi| 5.92, |lap phi| L^2 9.02e-05 against 1.58e-05: EXCEEDS
+    D s = +1.05+1.5i: |grad phi| 4.3, |lap phi| L^2 6.10e-06 against 1.17e-05: ok
+    D s = +1.525+2.25i: |grad phi| 3.36, |lap phi| L^2 3.63e-05 against 9.40e-06: EXCEEDS
+  w_p7603_l3: D FAILS, worst |lap phi| L^2 / limit = 5.709e+00 (27 new evaluations, 27 stored)
+  [FAIL] harm: Delta arg D = 0 in the boxes w_p7603_l3; worst ratio to the limit 5.709e+00
+
+FAILED: harm  (344 s)

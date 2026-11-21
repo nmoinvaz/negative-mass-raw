@@ -1,0 +1,10 @@
+d_factors.py parts pole, RTOL 1e-08, raw /home/nathan/Source/negative-mass-raw/I122-rpi5
+
+===== part pole
+  [PASS] counter: copied counter on the cached D: winding -0.0000 (#126 -0.0000), max step 0.33 (0.33), min|D| 2.82e-03 (2.82e-03), 71 distinct points (the log's cache held 84 after the count), the planted pair at (0.0005+0.12j) on the cache gives +2.0000 of +2
+  [PASS] clone: the copied scalar_plane and decaying_plane reproduce the cached D at 3 points to 0.0e+00 (limit 1e-12)
+# plant in the scalar plane first column: s0 = (0.05+0.1j), factor 1/((s - s0)(s - conj s0)), guard all
+   count -2.0000, max step 0.40 rad, min |D| 2.82e-03, 81 points (81 new evaluations, 395 s); identity D_pole / D = c / |c| at 63 cached points: largest deviation 4.30e-14
+  [PASS] pole_s: winding -2.0000, change -2.0000 of -2, max step 0.40 (limit 0.45), identity deviation 4.30e-14 (limit 1e-8)
+
+all checks passed  (417 s)
