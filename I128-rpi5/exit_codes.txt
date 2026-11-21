@@ -1,0 +1,7 @@
+replay_i126.py exit 0
+replay_i126.py --mutate=sparse exit 1
+replay_i126.py --mutate=noy0 exit 1
+replay_i126.py --mutate=misplant exit 1
+replay_i126.py --mutate=nocache exit 1
+replay_i126.py --mutate=nojobs exit 1
+collect_i126.py --mutate=nolog exit 1
