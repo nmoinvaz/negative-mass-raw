@@ -1,0 +1,8 @@
+# control of diagnose_plant.py --y0 on synthetic caches; zeros minus poles inside the upper box (0.1, 2.0, 2.5, 6.0): 1  [mutate=wrongcount]
+  U1: exit 0, count of F +1.0000 (expected +2.0000), with the factor +2.0000 (expected +2.0000), chain counts +1.0000 and +2.0000  FAIL
+  U2: exit 0, count of F +1.0000 (expected +1.0000), with the factor +1.0000 (expected +1.0000), chain counts +1.0000 and +1.0000  PASS
+  S1: exit 0, count of F +2.0000 (expected +2.0000), with the factor +4.0000 (expected +4.0000), chain counts +2.0000 and +4.0000  PASS
+  U1n: without --y0 exit 1, stops on a missing point  PASS
+  A1: exit 1, difference/2pi per edge for F then F times the factor: -40.0000 +40.0000 +40.0000 -40.0000 -40.0000 +40.0000 +36.0000 -36.0000  PASS
+RESULT: FAILED: U1  [mutate=wrongcount]
+exit 1
