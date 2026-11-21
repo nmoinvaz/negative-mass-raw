@@ -1,0 +1,12 @@
+eps-1_w0.7603_l3_-0.001_0.0001_0.23_y00.01_mprincipal_axis: r_m = 24.11, Mext = -0.014580, R_z = 10074.1 (|s|_min = 0.01)  [axis: y = (Z, f Z') exp(s r*) along r = r_m - i p]  [mutate=principal]
+RESULT eps-1_w0.7603_l3_-0.001_0.0001_0.23_y00.01_mprincipal_axis: zeros of Z(r_m; s) in Re s∈[-0.001,0.0001], Im s∈[0.01,0.23]: winding = -0.0000  (max phase step 0.39 rad, min|Z| 2.70e-10, 98 evaluations, 154 s)
+  [PASS] count: winding -0.0000, max step 0.39 rad
+  [FAIL] holo: Cauchy-Riemann defect 1.2e-05, 1.2e+00, 1.2e+00
+   q against zerilli_q: s = 0.0001+0.05422i: 2.8e-08, s = -0.001+0.23i: 1.0e-05, s = -0.001+0.05312i: 1.8e-06
+  [PASS] column: relative difference where Re s >= 0.03 (0 of 3 points)
+   q against zerilli_q at the holo points: s = -0.0005+0.076i: 1.4e-06, s = 0+0.142i: 4.0e-06, s = 5e-05+0.208i: 3.7e-06
+   y1 at the three points: -7.72476208356432714e+00+2.06292063676317516e+00j, 1.18410303551113253e-10-2.42460632512959163e-10j, -1.49154879828283713e-07+6.39024793346178008e-08j
+   q at the contour points: (0.0001+0.054220000000000004j) -1.08305914280172277e-01-9.00624745401043666e-04j, (-0.0009999999999999898+0.23j) -9.23413926255657949e-03-1.83757740484789156e-01j, (-0.001+0.05312j) -1.08945767476421942e-01-7.72213855218547538e-05j
+   q at the holo points: (-0.0005+0.076j) -8.98833109035940964e-02-5.47633410096553738e-03j, 0.14200000000000002j -3.33320181650284264e-02-7.16788893297101160e-02j, (5e-05+0.20800000000000002j) -1.33700252107612078e-02-1.57050342338080740e-01j
+  [PASS] plant: s0 = (-0.0005+0.12j), expected 1, counted +1.0000 (max step 0.36 rad)
+FAILED: holo  (294 s)

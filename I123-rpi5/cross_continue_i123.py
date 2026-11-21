@@ -5,7 +5,7 @@ Reference: the decaying solution integrated on the real axis for Re s > 0 only, 
 stable (Z exp(Psi), principal k, WKB start, Radau; a copy of zerilli_zeros.py's Zrm without --axis), then continued
 analytically across Re s = 0 by a Taylor series fitted on a circle in Re s > 0. For a target s_t the circle has
 centre 0.002 + i Im s_t and radius 0.0018 (Re s in [0.0002, 0.0038], clear of the poles of q, which lie 0.1 or more
-away), N = 16 points, Taylor order K = 9. It shares with the --axis code only the potential V, r_m and Mext (from
+away), N = 12 points, Taylor order K = 8. It shares with the --axis code only the potential V, r_m and Mext (from
 background.solve_star); it shares neither the Jost start nor the rotated path.
 
 Usage: python cross_continue_i123.py LOG [--flat] [--mutate=shift]
@@ -56,7 +56,7 @@ def q_real_axis(s, Rz):
     return p / z
 
 
-def q_continued(st_, Rz, N=16, K=9, c0=0.002, rho=0.0018):
+def q_continued(st_, Rz, N=12, K=8, c0=0.002, rho=0.0018):
     sc = complex(c0, st_.imag)
     th = 2 * np.pi * np.arange(N) / N
     vals = np.array([q_real_axis(sc + rho * np.exp(1j * t), Rz) for t in th])
@@ -77,9 +77,8 @@ for name in ('contour', 'holo'):
         rows.append((name, complex(sm), complex(qm)))
 worst = 0.0
 for name, s, qlog in rows:
-    # R_z of the log's box: the box's smallest |s| (the log's header), the same start radius for every circle point
-    Rz = float(re.search(r"R_z = ([\d.]+)", tagline).group(1))
-    qc = q_exact_flat(s) if flat and False else q_continued(s, Rz)
+    Rz = float(re.search(r"R_z = ([\d.]+)", tagline).group(1))  # the box's R_z, the same for every circle point
+    qc = q_continued(s, Rz)
     d = abs(qlog - qc) / abs(qc)
     worst = max(worst, d)
     extra = f", exact flat {abs(qlog - q_exact_flat(s)) / abs(q_exact_flat(s)):.1e}, continued vs exact flat " \
