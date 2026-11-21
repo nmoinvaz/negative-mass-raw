@@ -37,3 +37,30 @@ processes at a time. A second one starts only while choptuik-large-d's processes
 3. The other 20 box jobs.
 4. `python collect_i121.py <this folder> > i121_zeros_output.txt` (exit status as it comes), then `--mutate=box` and
    `--mutate=control` into `collect-mutate-box.log` and `collect-mutate-control.log` here (each must exit 1).
+
+## Result
+
+All 21 boxes count 0 zeros of Z(r_m; s) with the planted zero returned and `all checks passed` (exit 0), so the zeros of
+D equal the winding of D, 0, in each. The controls ended as required: `flat` passes, `mut_reverse` fails `plant`,
+`mut_nonorm` fails `holo`, `mut_lshift` fails `column`. `collect_i121.py` on this folder exits 0 and its output is
+`phase2/nonradial/i121_zeros_output.txt` of the code branch; `--mutate=box` and `--mutate=control` exit 1
+(`collect-mutate-box.log`, `collect-mutate-control.log`, with their exit lines in `*.log.exit`).
+
+| step | jobs | started | ended |
+|---|---|---|---|
+| controls | `flat`, `mut_reverse`, `mut_nonorm`, `mut_lshift` | 18:00:21 | 18:02:32 |
+| pilot | `n1_l3` (R_z = 1.0e6), 225 s, 146 s of it the count | 18:02:38 | 18:06:59 |
+| boxes | the other 20, two at a time | 18:07:08 | 18:20:15 |
+
+Times are the machine's local time on 2026-11-20. No process died (no `*.died*.log`), and the queue never waited on
+choptuik-large-d. Readings in `cores.log` (taken before each start): choptuik-large-d at most 1.78 cores, our one
+running process at most 81 MiB of working set, free memory at least 25.3 GiB.
+
+## Notes
+
+- `mut_reverse` and `p7603_l2` share one cache file (the reversed contour of the same box), and `mut_reverse` ran
+  first. So `p7603_l2`'s log shows 67 evaluations and 0 s: 63 of its points were already in the cache, and the 10 s it
+  took belongs to `mut_reverse`.
+- `queue.ps1` leaves its loop when no job is running any more, so it never checks the log of a job that ends after the
+  last one started. Those jobs (`mut_nonorm`, `mut_lshift`, `n1_l3`, `s3_l3`) were checked by hand: `n1_l3` and `s3_l3`
+  end `all checks passed` with exit 0, the two mutations end `FAILED:` with exit 1, as the collector requires.
