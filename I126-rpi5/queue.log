@@ -108,3 +108,27 @@
 2026-11-21T07:53:58-08:00 15-min load 3.97 < 4: start w_rep_l5: winding2.py -1 0.7603 5 0.1 2.0 2.5 --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
 2026-11-21T08:18:41-08:00 end w_rep_l4 rc=0
 2026-11-21T08:18:41-08:00 waiting to start w_p7603_l3: 1 of this task's processes running, 15-min load 4.70 (needs one process and load < 4)
+2026-11-21T08:29:22-08:00 end w_rep_l5 rc=0
+2026-11-21T08:29:22-08:00 start w_c075_l2: winding2.py 1 0.75 2 0.1 2.0 2.5 --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T08:32:37-08:00 end w_c075_l2 rc=0
+2026-11-21T08:32:37-08:00 start w_t1_r80: winding2.py -1 0.7603 2 0.02 0.1 0.33 --y0=0.15 --rsmult=80 --zfac=2 --plant=0.03,0.25 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T08:35:42-08:00 15-min load 3.98 < 4: start w_p7603_l3: winding2.py -1 0.7603 3 0.1 2.0 2.5 --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T08:38:07-08:00 end w_t1_r80 rc=0
+2026-11-21T08:38:07-08:00 waiting to start w_p085_l3: 1 of this task's processes running, 15-min load 4.12 (needs one process and load < 4)
+2026-11-21T08:45:08-08:00 15-min load 3.94 < 4: start w_p085_l3: winding2.py -1 0.85 3 0.1 2.0 2.5 --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T08:48:28-08:00 end w_p7603_l3 rc=0
+2026-11-21T08:48:28-08:00 waiting to start w_t1_r40: 1 of this task's processes running, 15-min load 4.14 (needs one process and load < 4)
+2026-11-21T08:53:28-08:00 15-min load 3.98 < 4: start w_t1_r40: winding2.py -1 0.7603 2 0.02 0.1 0.33 --y0=0.15 --plant=0.03,0.25 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T08:56:40-08:00 end w_t1_r40 rc=0
+2026-11-21T08:56:40-08:00 waiting to start w_p085_l2: 1 of this task's processes running, 15-min load 4.08 (needs one process and load < 4)
+2026-11-21T08:58:19-08:00 end w_p085_l3 rc=0
+2026-11-21T08:58:19-08:00 start w_p070_l3: winding2.py -1 0.70 3 0.1 2.0 2.5 --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T08:58:40-08:00 15-min load 3.94 < 4: start w_p085_l2: winding2.py -1 0.85 2 0.1 2.0 2.5 --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T09:05:44-08:00 end w_p085_l2 rc=0
+2026-11-21T09:05:44-08:00 waiting to start w_p070_l2: 1 of this task's processes running, 15-min load 4.47 (needs one process and load < 4)
+2026-11-21T09:15:20-08:00 end w_p070_l3 rc=0
+2026-11-21T09:15:20-08:00 start w_n1_l5: winding2.py -1 0.7603 5 0.0001 0.1 0.23 --plant=0.0005,0.12 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T09:18:12-08:00 end w_n1_l5 rc=0
+2026-11-21T09:18:12-08:00 start w_n1_l4: winding2.py -1 0.7603 4 0.0001 0.1 0.23 --plant=0.0005,0.12 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T09:18:33-08:00 end w_n1_l4 rc=0
+2026-11-21T09:18:33-08:00 start w_n1_l6: winding2.py -1 0.7603 6 0.0001 0.1 0.23 --plant=0.0005,0.12 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
