@@ -42,3 +42,29 @@ for L = 4, 5, 6. The four controls are on #121's stored box (l = 2): `flat` must
 
 `python collect_i121.py <this folder> --only=3a > i124_zeros_output.txt` in `phase2/nonradial` builds the table of RESULTS.md
 §5.3. Its `--mutate=box` and `--mutate=control` logs (`collect_mutate_box.log`, `collect_mutate_control.log`) are here too.
+
+## Result
+
+Run on 2026-11-21 (first start 00:16:02, last end 00:26:51, local time). Order: the four controls (two processes), then the
+pilot `n1_l6` alone, then the other eight boxes (two processes). Each job ran once and none died. The collector
+(`collect_i121.py <this folder> --only=3a`) exits 0 and writes `i124_zeros_output.txt` in the code repository. Its
+`--mutate=box` and `--mutate=control` each exit 1 (`collect_mutate_box.log`, `collect_mutate_control.log`).
+
+| job | exit | ends | winding of Z(r_m; s) | wall (queue.log) | script time |
+|---|---|---|---|---|---|
+| `flat` | 0 | all checks passed | +0.0000 | 0 min 30 s | 12 s |
+| `mut_reverse` | 1 | FAILED: plant | +0.0000 | 0 min 31 s | 12 s |
+| `mut_nonorm` | 1 | FAILED: holo | -0.0000 | 0 min 58 s | 38 s |
+| `mut_lshift` | 1 | FAILED: column | +0.0000 | 0 min 32 s | 13 s |
+| `n1_l6` | 0 | all checks passed | +0.0000 | 3 min 35 s | 197 s |
+| `n1_l4` | 0 | all checks passed | +0.0000 | 2 min 52 s | 154 s |
+| `n1_l5` | 0 | all checks passed | -0.0000 | 3 min 16 s | 177 s |
+| `rep_l4` | 0 | all checks passed | +0.0000 | 0 min 35 s | 15 s |
+| `rep_l5` | 0 | all checks passed | -0.0000 | 0 min 34 s | 16 s |
+| `rep_l6` | 0 | all checks passed | +0.0000 | 0 min 36 s | 17 s |
+| `s1_l4` | 0 | all checks passed | +0.0000 | 0 min 45 s | 27 s |
+| `s1_l5` | 0 | all checks passed | +0.0000 | 0 min 48 s | 30 s |
+| `s1_l6` | 0 | all checks passed | +0.0000 | 0 min 52 s | 33 s |
+
+Wall includes the start of the star and the imports. Script time is the last line of the log. Peak rss 87 MB, available
+memory at least 5.3 GB, one-minute load 1.2 to 3.2 and 15-minute load 1.4 to 2.1 in `memwatch.log` (reports only).
