@@ -8,3 +8,4 @@ rep_l5|$PY -u winding2.py -1 0.7603 5 0.1 2.0 2.5 --cachedir=$RAW/cache --plant=
 s1_l5|$PY -u winding2.py -1 0.7603 5 0.03 0.1 2.5 --cachedir=$RAW/cache --plant=0.04,0.25
 n1_l6|$PY -u winding2.py -1 0.7603 6 0.0001 0.1 0.23 --cachedir=$RAW/cache --plant=0.0005,0.12
 rep_l6|$PY -u winding2.py -1 0.7603 6 0.1 2.0 2.5 --cachedir=$RAW/cache --plant=0.3,1.76
+s1_l5_guardall|$PY -u winding2.py -1 0.7603 5 0.03 0.1 2.5 --cachedir=$RAW/cache --plant=0.04,0.25 --guard=all
