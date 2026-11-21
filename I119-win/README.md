@@ -51,3 +51,9 @@ n = 102414 (B, m = 21/2).
 - `queue.ps1 <job> ...`: starts the jobs in order under the thread rule, restarts a dead one (at most 3 times).
 - `sample.ps1`: the memory sampler. `memory-sampler.log`: working set, peak and cpu of each solve, and free memory.
 - `cores.log`: choptuik-large-d's cores at each launch of a second process, with our working set and the free memory.
+
+## Run order
+
+The pilot ran alone (51.6 min, k = 256, 9.06 GiB). Then one `queue.ps1` ran `stage1-s2-A-m4.5 stage1-s2-B-m4.5
+solve-s4-B solve-s2-B solve-s4-A solve-s2-A`: stage 1 on both slots, then (4, B) and (2, B) when the stage-1 jobs
+exited, so no two processes solve the same sector, then (4, A) and (2, A). (4, B) reuses the pilot's m = 21/2 file.
