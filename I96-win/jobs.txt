@@ -1,1 +1,3 @@
 conv-s8-p160-n160|tanh_spectrum.py|--part=conv --sigmas=8 --p=8:160 --npan=160 --convtol=1e-8 --procs=1
+conv-s8-p200-n160|tanh_spectrum.py|--part=conv --sigmas=8 --p=8:200 --npan=160 --convtol=1e-8 --procs=1
+pilot-s16|tanh_spectrum.py|--part=vc,planted,tanh --sigmas=16 --ms=0.5 --p=16:320 --npan=320 --procs=1 --raw=%~dp0eig

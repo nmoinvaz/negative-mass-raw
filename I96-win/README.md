@@ -45,4 +45,14 @@ Sizes are written in the job lines of `jobs.txt`. `--raw` writes one `tanh_sigma
 
 ## Results
 
-None yet. This section is filled in at each post.
+Filled in at each post.
+
+### Sizes at sigma R = 8 (`convmax.py` reads the logs)
+
+| attempt | P | N | largest move of the leading \|mu\| v_c (relative) | wall | peak working set | exit |
+|---|---|---|---|---|---|---|
+| `conv-s8-p160-n160` | 160 | 160 | 5.2e-8 (Lmap = 4, m = 3/2); next 2.5e-8 (p = 140) | 2073 s | 2.54 GiB (2599 MiB) | 1, `conv` fails |
+| `conv-s8-p200-n160` | 200 | 160 | 1.1e-9 (Lmap = 4, m = 1/2) | 4160 s | 3.90 GiB (3991 MiB) | 0 |
+
+The 320-panel variant moves the leading eigenvalue by 6e-14 at P = 160, so the panels are not the limit; the failing
+variants (Lmap = 4, p = 140) point to the radial size. Peaks are the sampler's, once a minute.
