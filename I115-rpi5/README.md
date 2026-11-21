@@ -30,3 +30,9 @@ Also here: `launch_I115.sh` (queue workers), `start_second.sh` (starts the secon
 (`s1_l5`), `diagnose_plant.py` with its outputs `diagnose_s1.log` (s1 at l = 4, 5, 6) and `diagnose_all.log` (all nine boxes). `diagnose_plant.py` reads only a box's cache, replays
 `winding2.py`'s adaptive counter on D and on D times the planted factor, and compares each accepted step with the dense
 chain of all cached points on the edge. It is a diagnostic, not a check, and is not in the code repository.
+
+The planted check of `s1_l5` failed at the default guard (`s1_l5.log`, exit 1, kept as it is). The coordinator's rerun
+`s1_l5_guardall` is `winding2.py -1 0.7603 5 0.03 0.1 2.5 --plant=0.04,0.25 --guard=all` (the `--guard` option of
+706b4c4, the half-step guard at every bisection level) on the same cache, log `s1_l5_guardall.log`. It adds 175 points
+to that cache and changes none (212 to 387). `cache_before_guard/` and `cache_before_guard.sha256` hold the cache as it
+was before that run. The other eight boxes were counted with guard 1.

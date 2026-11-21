@@ -1,0 +1,73 @@
+2026-11-21T00:49:12-08:00 start w_mut_reverse: winding2.py -1 0.7603 4 0.0001 0.1 0.23 --mutate=reverse --plant=0.0005,0.12 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:49:15-08:00 15-min load 1.34 < 4: starting a second worker on controls.txt
+2026-11-21T00:49:15-08:00 start z_flat: zerilli_zeros.py -1 0.7603 2 0.1 2.0 2.5 --flat --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:49:37-08:00 end z_flat rc=0
+2026-11-21T00:49:37-08:00 start z_mut_reverse: zerilli_zeros.py -1 0.7603 2 0.1 2.0 2.5 --mutate=reverse --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:49:59-08:00 end z_mut_reverse rc=1
+2026-11-21T00:49:59-08:00 start z_mut_nonorm: zerilli_zeros.py -1 0.7603 2 0.1 2.0 2.5 --mutate=nonorm --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:50:29-08:00 end z_mut_nonorm rc=1
+2026-11-21T00:50:29-08:00 start z_mut_lshift: zerilli_zeros.py -1 0.7603 2 0.1 2.0 2.5 --mutate=lshift --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:50:49-08:00 end w_mut_reverse rc=1
+2026-11-21T00:50:53-08:00 end z_mut_lshift rc=1
+2026-11-21T00:51:16-08:00 start z_n1_l6: zerilli_zeros.py -1 0.7603 6 0.0001 0.1 0.23 --plant=0.0005,0.12 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:51:18-08:00 15-min load 1.52 < 4: starting a second worker on z_boxes.txt
+2026-11-21T00:51:18-08:00 start z_p7603_l2: zerilli_zeros.py -1 0.7603 2 0.1 2.0 2.5 --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:51:40-08:00 end z_p7603_l2 rc=0
+2026-11-21T00:51:40-08:00 start z_p7603_l3: zerilli_zeros.py -1 0.7603 3 0.1 2.0 2.5 --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:52:04-08:00 end z_p7603_l3 rc=0
+2026-11-21T00:52:04-08:00 start z_c075_l2: zerilli_zeros.py 1 0.75 2 0.1 2.0 2.5 --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:52:26-08:00 end z_c075_l2 rc=0
+2026-11-21T00:52:26-08:00 start z_p070_l2: zerilli_zeros.py -1 0.70 2 0.1 2.0 2.5 --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:52:47-08:00 end z_p070_l2 rc=0
+2026-11-21T00:52:48-08:00 start z_p070_l3: zerilli_zeros.py -1 0.70 3 0.1 2.0 2.5 --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:52:50-08:00 end z_n1_l6 rc=0
+2026-11-21T00:52:50-08:00 start z_p085_l2: zerilli_zeros.py -1 0.85 2 0.1 2.0 2.5 --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:53:09-08:00 end z_p070_l3 rc=0
+2026-11-21T00:53:09-08:00 start z_p085_l3: zerilli_zeros.py -1 0.85 3 0.1 2.0 2.5 --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:53:14-08:00 end z_p085_l2 rc=0
+2026-11-21T00:53:14-08:00 start z_n1_l2: zerilli_zeros.py -1 0.7603 2 0.0001 0.1 0.23 --plant=0.0005,0.12 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:53:34-08:00 end z_p085_l3 rc=0
+2026-11-21T00:53:34-08:00 start z_n1_l3: zerilli_zeros.py -1 0.7603 3 0.0001 0.1 0.23 --plant=0.0005,0.12 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:54:08-08:00 end z_n1_l2 rc=0
+2026-11-21T00:54:08-08:00 start z_s1_l2: zerilli_zeros.py -1 0.7603 2 0.03 0.1 2.5 --plant=0.04,0.25 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:54:37-08:00 end z_s1_l2 rc=0
+2026-11-21T00:54:37-08:00 start z_s1_l3: zerilli_zeros.py -1 0.7603 3 0.03 0.1 2.5 --plant=0.04,0.25 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:54:43-08:00 end z_n1_l3 rc=0
+2026-11-21T00:54:43-08:00 start z_h1_l2: zerilli_zeros.py -1 0.7603 2 0.1 2.0 6.0 --y0=2.5 --plant=0.3,2.7 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:55:05-08:00 end z_h1_l2 rc=0
+2026-11-21T00:55:05-08:00 start z_h1_l3: zerilli_zeros.py -1 0.7603 3 0.1 2.0 6.0 --y0=2.5 --plant=0.3,2.7 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:55:07-08:00 end z_s1_l3 rc=0
+2026-11-21T00:55:07-08:00 start z_t1_z1: zerilli_zeros.py -1 0.7603 2 0.02 0.1 0.33 --y0=0.15 --plant=0.03,0.25 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:55:28-08:00 end z_h1_l3 rc=0
+2026-11-21T00:55:28-08:00 start z_t1_z2: zerilli_zeros.py -1 0.7603 2 0.02 0.1 0.33 --y0=0.15 --zfac=2 --plant=0.03,0.25 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:55:34-08:00 end z_t1_z1 rc=0
+2026-11-21T00:55:34-08:00 start z_t2_z1: zerilli_zeros.py -1 0.7603 2 0.02 0.1 1.84 --y0=1.68 --plant=0.03,1.77 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:55:54-08:00 end z_t1_z2 rc=0
+2026-11-21T00:55:54-08:00 start z_t2_z2: zerilli_zeros.py -1 0.7603 2 0.02 0.1 1.84 --y0=1.68 --zfac=2 --plant=0.03,1.77 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:56:04-08:00 end z_t2_z1 rc=0
+2026-11-21T00:56:04-08:00 start z_s2_l2: zerilli_zeros.py -1 0.7603 2 0.01 0.03 2.5 --plant=0.015,0.25 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:56:23-08:00 end z_t2_z2 rc=0
+2026-11-21T00:56:23-08:00 start z_h2_l2: zerilli_zeros.py -1 0.7603 2 0.1 2.0 10.0 --y0=6.0 --plant=0.3,6.2 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:56:39-08:00 end z_s2_l2 rc=0
+2026-11-21T00:56:39-08:00 start z_s3_l2: zerilli_zeros.py -1 0.7603 2 0.03 0.1 6.0 --y0=2.5 --plant=0.05,3.0 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:56:46-08:00 end z_h2_l2 rc=0
+2026-11-21T00:56:46-08:00 start z_s3_l3: zerilli_zeros.py -1 0.7603 3 0.03 0.1 6.0 --y0=2.5 --plant=0.05,3.0 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:57:14-08:00 end z_s3_l2 rc=0
+2026-11-21T00:57:14-08:00 start z_rep_l4: zerilli_zeros.py -1 0.7603 4 0.1 2.0 2.5 --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:57:24-08:00 end z_s3_l3 rc=0
+2026-11-21T00:57:24-08:00 start z_s1_l4: zerilli_zeros.py -1 0.7603 4 0.03 0.1 2.5 --plant=0.04,0.25 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:57:38-08:00 end z_rep_l4 rc=0
+2026-11-21T00:57:38-08:00 start z_n1_l4: zerilli_zeros.py -1 0.7603 4 0.0001 0.1 0.23 --plant=0.0005,0.12 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:57:56-08:00 end z_s1_l4 rc=0
+2026-11-21T00:57:56-08:00 start z_rep_l5: zerilli_zeros.py -1 0.7603 5 0.1 2.0 2.5 --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:58:19-08:00 end z_rep_l5 rc=0
+2026-11-21T00:58:19-08:00 start z_s1_l5: zerilli_zeros.py -1 0.7603 5 0.03 0.1 2.5 --plant=0.04,0.25 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:58:53-08:00 end z_n1_l4 rc=0
+2026-11-21T00:58:53-08:00 end z_s1_l5 rc=0
+2026-11-21T00:58:53-08:00 start z_n1_l5: zerilli_zeros.py -1 0.7603 5 0.0001 0.1 0.23 --plant=0.0005,0.12 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:58:53-08:00 start z_rep_l6: zerilli_zeros.py -1 0.7603 6 0.1 2.0 2.5 --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:59:17-08:00 end z_rep_l6 rc=0
+2026-11-21T00:59:17-08:00 start z_s1_l6: zerilli_zeros.py -1 0.7603 6 0.03 0.1 2.5 --plant=0.04,0.25 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:59:52-08:00 end z_s1_l6 rc=0
+2026-11-21T01:00:15-08:00 end z_n1_l5 rc=0
+2026-11-21T01:00:51-08:00 start w_s2_l2: winding2.py -1 0.7603 2 0.01 0.03 2.5 --plant=0.015,0.25 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache (timeout 28800 s)
