@@ -1,0 +1,13 @@
+eps-1_w0.7603_l3_-0.001_0.0001_0.23_y00.01_flat_axis: r_m = 24.11, Mext = +0.000000, R_z = 10074.1 (|s|_min = 0.01)  [axis: y = (Z, f Z') exp(s r*) along r = r_m - i p]
+RESULT eps-1_w0.7603_l3_-0.001_0.0001_0.23_y00.01_flat_axis: zeros of Z(r_m; s) in Re s∈[-0.001,0.0001], Im s∈[0.01,0.23]: winding = +0.0000  (max phase step 0.39 rad, min|Z| 1.11e+00, 98 evaluations, 200 s)
+  [PASS] count: winding +0.0000, max step 0.39 rad
+  [PASS] flat: flat space has 0 root(s) of the reverse Bessel polynomial in the box (of -0.09632-0i, -0.07627-0.07277i, -0.07627+0.07277i), counted +0.0000
+  [PASS] holo: Cauchy-Riemann defect 7.7e-12, 2.1e-11, 6.6e-11
+   q against r k_l(s r): s = 0.0001+0.05422i: 2.0e-13, s = -0.001+0.23i: 8.6e-13, s = -0.001+0.05312i: 2.2e-13
+  [PASS] flatq: relative difference from the exact flat-space value
+   q against r k_l(s r) at the holo points: s = -0.0005+0.076i: 1.6e-13, s = 0+0.142i: 8.1e-14, s = 5e-05+0.208i: 7.4e-14
+   y1 at the three points: -7.80638169231423706e+00+2.09243354853194052e+00j, 5.08663480603782636e-01-9.89785653560017686e-01j, -7.82073480778749008e+00+2.78629446411202553e+00j
+   q at the contour points: (0.0001+0.054220000000000004j) -1.08214272214643178e-01-9.01076272030001718e-04j, (-0.0009999999999999898+0.23j) -9.19776101531333441e-03-1.83825602641412261e-01j, (-0.001+0.05312j) -1.08854524777345571e-01-7.71194130012793394e-05j
+   q at the holo points: (-0.0005+0.076j) -8.97790136711892894e-02-5.48300070146591403e-03j, 0.14200000000000002j -3.32413162967037518e-02-7.17466001974213508e-02j, (5e-05+0.20800000000000002j) -1.33245673043119548e-02-1.57121752985437957e-01j
+  [PASS] plant: s0 = (-0.0005+0.12j), expected 1, counted +1.0000 (max step 0.34 rad)
+all checks passed  (367 s)
