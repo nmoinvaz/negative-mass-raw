@@ -1,0 +1,16 @@
+2026-11-21T00:49:12-08:00 start w_mut_reverse: winding2.py -1 0.7603 4 0.0001 0.1 0.23 --mutate=reverse --plant=0.0005,0.12 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:49:15-08:00 15-min load 1.34 < 4: starting a second worker on controls.txt
+2026-11-21T00:49:15-08:00 start z_flat: zerilli_zeros.py -1 0.7603 2 0.1 2.0 2.5 --flat --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:49:37-08:00 end z_flat rc=0
+2026-11-21T00:49:37-08:00 start z_mut_reverse: zerilli_zeros.py -1 0.7603 2 0.1 2.0 2.5 --mutate=reverse --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:49:59-08:00 end z_mut_reverse rc=1
+2026-11-21T00:49:59-08:00 start z_mut_nonorm: zerilli_zeros.py -1 0.7603 2 0.1 2.0 2.5 --mutate=nonorm --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:50:29-08:00 end z_mut_nonorm rc=1
+2026-11-21T00:50:29-08:00 start z_mut_lshift: zerilli_zeros.py -1 0.7603 2 0.1 2.0 2.5 --mutate=lshift --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:50:49-08:00 end w_mut_reverse rc=1
+2026-11-21T00:50:53-08:00 end z_mut_lshift rc=1
+2026-11-21T00:51:16-08:00 start z_n1_l6: zerilli_zeros.py -1 0.7603 6 0.0001 0.1 0.23 --plant=0.0005,0.12 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:51:18-08:00 15-min load 1.52 < 4: starting a second worker on z_boxes.txt
+2026-11-21T00:51:18-08:00 start z_p7603_l2: zerilli_zeros.py -1 0.7603 2 0.1 2.0 2.5 --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache
+2026-11-21T00:51:40-08:00 end z_p7603_l2 rc=0
+2026-11-21T00:51:40-08:00 start z_p7603_l3: zerilli_zeros.py -1 0.7603 3 0.1 2.0 2.5 --plant=0.3,1.76 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I126-rpi5/cache

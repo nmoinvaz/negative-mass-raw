@@ -1,0 +1,10 @@
+eps-1_w0.7603_l2_0.1_2.0_2.5_flat: r_m = 24.11, Mext = +0.000000, R_z = 874.1 (|s|_min = 0.1)
+RESULT eps-1_w0.7603_l2_0.1_2.0_2.5_flat: zeros of Z(r_m; s) in Re s∈[0.1,2.0], |Im s|≤2.5: winding = +0.0000  (max phase step 0.36 rad, min|Z| 5.59e-01, 67 evaluations, 0 s)
+   Z(x0) = +2.7352e+00, Z(x1) = +7.0666e-01 (real, one sign)
+  [PASS] count: winding +0.0000, max step 0.36 rad
+  [PASS] flat: flat space has no zero with Re s > 0, counted +0.0000
+  [PASS] holo: Cauchy-Riemann defect 7.4e-12, 1.8e-10, 4.5e-10
+   q against r k_l(s r): s = 2+0.69i: 1.3e-13, s = 1.05+2.5i: 4.6e-13, s = 0.1+0.69i: 1.2e-13
+  [PASS] flatq: relative difference from the exact flat-space value
+  [PASS] plant: s0 = (0.3+1.76j), expected 2, counted +2.0000 (max step 0.38 rad)
+all checks passed  (4 s)
