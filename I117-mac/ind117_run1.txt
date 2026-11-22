@@ -1,0 +1,8 @@
+# ind117 b25_l2 (eps -1, w 0.7603, l 2), full rectangle Re s in [2.0, 5.0], Im s in [-10.0, 10.0], R_s = 44.03, r_m = 24.11
+C1 winding of D -0.0000, max step 0.292 rad, 265 segments, unresolved False: PASS
+C2 guard: max |step - (half1 + half2)| = 1.11e-16 rad: PASS
+C3 planted zeros (3.7+6.3j), (3-3.1j): winding +2.0000 (expect +2): PASS
+C4 planted pole (4+8j): winding -1.0000 (expect -1): PASS
+reported: min |D| 1.946e-05; D(2) = -1.7729e-03+1.6133e-19j (runner -1.773e-03), D(5) = -1.8954e-04-6.3350e-21j (runner -1.895e-04); mirror defect max 6.51e-14 over 235 pairs; 530 cached points, 530 new, 680 s
+RESULT PASS
+exit 0
