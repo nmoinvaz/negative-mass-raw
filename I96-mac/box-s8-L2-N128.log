@@ -1,0 +1,30 @@
+== krylov: sigma R = 8.0, L = 2.0, v_c = 1.56243, sqrt3 v_c = 2.70621
+  N = 128: rho(T1) v_c = 0.29732 (FL: <= 1/sqrt3 = 0.57735), ||T1|| v_c = 0.54238 (contraction: <= 1), 47 s
+    top eigenvalues of T1 times v_c: -0.0020-0.2973i, +0.0020-0.2973i, -0.0020+0.2973i, +0.0020+0.2973i, +0.0008+0.2526i, +0.0008-0.2526i, -0.0008-0.2526i, -0.0008+0.2526i
+    no real eigenvalue among the top 8: any real zero-mode speed is above 6.1860
+     v    | v/v_c | v rho(T1) | GMRES its | r_pre    | r_phys   | k=0 part | k!=0 part | s_min(D~D^-1) | G           | rel. identity | |eps|^2 range   | Picard its
+     0.50 | 0.320 |    0.0951 |        10 | 2.73e-14 | 1.64e-09 | 1.64e-09 | 9.80e-14  |      0.928652 | 5.59878e-02 |      2.32e-08 | 0.9768-1.0087 | 10 (4e-12)   [55 s, peak 4.75 GB]
+  [FAIL] gmres: largest residual at the finest grid 1.6e-09 (target 1e-10)
+  [PASS] identity: worst relative |G + int T| at the finest grid 2.3e-08
+  [PASS] fl_bound: rho(T1) sqrt3 v_c = 0.5150 at the finest grid (FL: <= 1)
+peak resident memory 4.75 GB
+FAILED: gmres
+      103.10 real        94.21 user         4.69 sys
+          5098553344  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              968738  page reclaims
+                  55  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                 917  voluntary context switches
+              192206  involuntary context switches
+        646967077851  instructions retired
+        262668402485  cycles elapsed
+          5286596880  peak memory footprint
+exit 1
