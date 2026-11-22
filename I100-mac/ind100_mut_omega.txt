@@ -1,0 +1,9 @@
+# ind100: boundary term of item 6's identity on psi^4 delta, float64 flux at R = 100..4800 extrapolated, mutate=omega
+  C0 Schwarzschild, eps = eps_0: B = -1.498417836448, target 1.498417836448, diff -3.00e+00, spread 2.4e-15: FAIL  [0 s]
+  C1 psi with dipole and r^-3 terms, K = 0: B = -1.498417836448, target 1.498417836448, diff -3.00e+00, spread 1.8e-15: FAIL  [0 s]
+  C2 ADM: E = 0.700000000000 (m = 0.7), P = (0.300000000000, -0.500000000000, 0.400000000000), spreads 1.6e-15: PASS
+  C3 general: B = -0.332673257151, target 2.664162415744, diff -3.00e+00, spread 1.1e-16: FAIL  [1 s]
+     (|eps_0|^2 = 2.140597, xi_0 = [-0.665589  1.701922 -0.287768], P.xi_0 = -1.165745)
+  C4 aligned eps_0 (xi_0 = P/|P|): B = -1.407106781187, target -0.007106781187, diff -1.40e+00, spread 6.7e-16: FAIL  [2 s]
+RESULT FAIL: C0, C1, C3, C4 [2 s]
+exit 1
