@@ -1,0 +1,5 @@
+he_type3.py: python 3.14.10, sympy 1.14.0, mpmath 1.3.0
+control jets-sign: the sign of f'' in the own jets; targets ['tanh_jets']
+[FAIL] tanh_jets: Le (sigma = 8.0, R_b = 1.0): max |own - he_type.tanh_jets| = 2.0 over 12 radii, max |own - mp.diff| = 2.0 for f', f'', f'''; Rodal (sigma = 4.0, R_b = 5.0): max |own - he_type.tanh_jets| = 0.84 over 12 radii, max |own - mp.diff| = 0.84 for f', f'', f'''
+control jets-sign: failed ['tanh_jets'] of targets ['tanh_jets'] -> FIRED
+wall 0.0 s

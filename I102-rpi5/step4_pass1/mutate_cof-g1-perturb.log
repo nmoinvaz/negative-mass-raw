@@ -1,0 +1,5 @@
+he_type3.py: python 3.14.10, sympy 1.14.0, mpmath 1.3.0
+control cof-g1-perturb: g1 plus 1; targets ['cert_T0']
+[FAIL] cert_T0: chi(x) at T = 0 minus (x - l*)[(x - l*)(x - l* - Theta) + K]: 0; chi - target = T H: True; E1 - (Theta^2 - 3K) = T g1: False (g1 has 10 terms); E2 - (Theta^3 + 9 l* (Theta^2 - 3K)) = T g2: True (g2 has 26 terms); c2 + 3 l* + Theta = T h2: True; Theta^3 = E2 - 9 l* E1 + T (9 l* g1 - g2): False; 3K = Theta^2 - E1 + T g1: False; the six minors m_k(lam) = T A_k + (lam - l*) B_k - K Gamma_k, Gamma = (c^2, cs, 0, s^2, 0, 0): True, and their remainders at l* are -K Gamma_k: True; at lam0 = -c2/3, m_k(lam0) = T (A_k - h2 B_k / 3) + (Theta / 3) B_k - K Gamma_k: True. Hence at T = 0 and E1 = E2 = 0: Theta^3 = 0, K = 0, lam0 = l*, every m_k(lam0) = 0, rank(M - lam0) <= 1. l* = -v^2 a s^2 (a + 2Fu)/2, Theta = v^2 a (2a + (1 + c^2) F u), K = v^2 a^2 Pu, Pu = v^2 (a + Fu)(a + c^2 F u) + c^2 u^2
+control cof-g1-perturb: failed ['cert_T0'] of targets ['cert_T0'] -> FIRED
+wall 2.1 s

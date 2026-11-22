@@ -107,3 +107,18 @@ below were written before any control run and are not changed; `CONTROLS` in the
 
 Row 28 and the check `lab_ricci` (an independent route to the frame Ricci tensor of the six tanh points, from second differences of
 the lab metric) were added after the table above was pushed (a36dc26) and before any control was run. Rows 1 to 27 are unchanged.
+
+## What is here
+
+| file | what |
+|---|---|
+| `step2.log`, `step2.time` | the algebra checks at code 1dbe6d3 (17.5 s, rss 137 MiB) |
+| `step3.log`, `step3.time`, `step3.sh` | `type2_failures` to `lab_ricci` at code 3e228be (107 s, rss 127 MiB), exit 0 |
+| `step4_pass1/` | the 28 controls on code 3e228be: all exit 1 on their frozen targets; kept because the code changed afterwards (messages only: the effective forms, the shadow factorization, the exact phi, the enclosure of T) |
+| `mutate_<name>.log`, `.time`, `done/mutate_<name>.rc` | the 28 controls on the final code f073061, each exit 1 on exactly its frozen targets; `check_step4.py` compares them with the table above |
+| `final.log`, `final.time`, `final.err` | the full run, stdout also at `notes/warp/he_type3_output.txt`: 16 checks pass, 28 controls fire, exit 0, 236 s, rss 162 MiB. `final.err` holds the tracebacks of controls that make a check raise (3 of them), caught by the harness |
+| `nocontrols.log`, `nocontrols.time` | `--no-controls`: 121 s, rss 141 MiB, its check lines equal those of `final.log` |
+| `search_seeds.log`, `search_seeds.time` | `--search-seeds`: 1024 seeds, 350 fields Q(sqrt d), no rational phi (8 s) |
+| `check_controls.py`, `check_step4.py` | the table against `CONTROLS`, the logs against the table |
+
+Code commit for the logs: f073061 on `wip/i102-type3`. The note `he_type3.md` and the output are at 3bfabb6.
