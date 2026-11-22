@@ -1,0 +1,27 @@
+weitzenbock_boundary.py, issue #100. sympy 1.14.0, python 3.14.10. mutation: none
+
+== 1. The gammas and the inner product of weitzenbock_conf.py ==
+[PASS] clifford: {g^a, g^b} = 2 eta^ab, g^0 anti-Hermitian, g^j Hermitian: the note's gammas
+[PASS] dagger: <a, b> = a^dagger b: |eps|^2 = sum u^2 + v^2 and xi^j = <eps, g^0 g^j eps> real
+
+== 2. The machinery: derivative, sphere moments, spin connection, flux formula ==
+[PASS] planted_derivation: D_i f = s (d_ni f - n_i (n.d_n f + s d_s f)) equals d/dx_i of f(x/r, y/r, z/r, 1/r), once and twice, for three polynomials at three exact points on the sphere
+[PASS] planted_sphere: (a-1)!!(b-1)!!(c-1)!!/(a+b+c+1)!! is (1/4 pi) of the integral of nx^a ny^b nz^c, against sympy's integral in theta and phi for 15 monomials
+[PASS] omega_vs_conf: Om_i = (1/4) psi^-2 (g^i phislash - phislash g^i), phi = 2 d ln psi, equals weitzenbock_conf's Geo(psi).Om_i computed from the Christoffel symbols, for arbitrary psi(x, y, z)
+[PASS] div_formula: psi^-6 d_a(psi^4 V^a) equals the covariant divergence d_a U^a + Gamma^a_ak U^k of U = psi^-2 V, for arbitrary psi and V; so the flux of V through a coordinate sphere is the integral of psi^4 V^a n_a r^2 dOmega by Gauss's theorem in flat R^3
+
+== 3. Planted boundary values: Schwarzschild, a dipole in psi, Bowen-York ==
+    [schwarzschild: 9 symbols, flux, E and P series in 1.1 s]
+[PASS] planted_E: psi = 1 + m/2r, K = 0: the ADM integral of g = psi^4 delta is m (1 + m/2r)^3, E = m at order 0 and 3*m**2/2 at order 1/r
+[PASS] planted_B_schwarzschild: psi = 1 + m/2r, K = 0, eps = eps_0: V^i = -2 psi^-3 d_i psi |eps_0|^2 by hand, flux m (1 + m/2r) |eps_0|^2, so the boundary term is m |eps_0|^2 = E |eps_0|^2
+    [dipole: 12 symbols, flux, E and P series in 3.4 s]
+[PASS] planted_dipole: psi = 1 + m/2r + (d.n)/r^2: E and the boundary term are still m and m |eps_0|^2, with no terms of order r^2 or r
+    [BY: 12 symbols, flux, E and P series in 3.5 s]
+[PASS] planted_P: psi = 1 + m/2r, K = psi^-6 Bowen-York: the ADM momentum integral is P_j (1 + m/2r)^-2, P_j = [Px, Py, Pz] at order 0, -m P_j at order 1/r
+[PASS] planted_BY: same data: the flux is m (1 + m/2r) |eps_0|^2 - (1 + m/2r)^-2 P.xi_0 by hand (the Bowen-York form has tr K = 0 and the mean of n_i K_ij n... gives 2 P_j), so the boundary term is m |eps_0|^2 - P.xi_0
+
+== 4. The boundary term of the general data against E |eps_0|^2 - P.xi_0 ==
+
+== 5. V against the pointwise identity, on the same data, at exact points ==
+
+checks: 11 passed, 0 failed []. 10 s
