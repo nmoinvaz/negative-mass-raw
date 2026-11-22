@@ -26,4 +26,13 @@ Written as they happen, one log per step (`<step>.log` stdout, `<step>.err` stde
 
 | step | what | log |
 |---|---|---|
-| 1 | `he_type.py --no-controls` on the unchanged code, for the run time | `s1_base_nocontrols.log` |
+| 1 | `he_type.py --no-controls` on the unchanged code (1 m 49 s wall, 102 s user, peak rss 1.5 GB, exit 0), diff against the committed output in `s1_diff_vs_committed.txt` | `s1_base_nocontrols.log` |
+| 2 | `exact_sign` against sympy's `evalf(400)` on random algebraic expressions, 400 each at seeds 103 and 104 (`fuzz_sign.py`; 320 and 322 outside the rational branch; exit 0, 0 mismatches). With the old rounding restored the same run fails (147 mismatches, exit 1) | `s3_fuzz_sign.log`, `s3_fuzz_sign2.log`, `s3_fuzz_sign_mutate_nsimplify.log` |
+| 3 | new code, `he_type.py --no-controls` (exit 0, 8 of 8, 1 m 52 s), `--mutate=nsimplify` (exit 1, `planted` fails, as targeted), `--mutate=disc-sign` (exit 1, `planted` fails) | `s3_nocontrols.log`, `s3_mutate_nsimplify.log`, `s3_mutate_disc-sign.log` |
+| 4 | `he_type.py > notes/warp/he_type_output.txt` on the new code (exit 0, 8 of 8 checks, 8 of 8 controls fired, 23 m 02 s wall, peak rss 1.5 GB); the stored output is the repository's, the diff against the committed one is `s4_diff_vs_committed.txt` | `s4_full.time`, `s4_diff_vs_committed.txt` |
+| 5 | `he_surface.py` on the new code (exit 0, 14 checks, 17 of 17 controls fired, 3 m 36 s wall, peak rss 124 MB); diff against the committed `he_surface_output.txt` is one line (the NSIMP count 1 of 356 became 0) | `s5_surface.log`, `s5_diff_vs_committed.txt` |
+| 6 | the old `he_type_exact` (main 29e395d) on the three tiny-D tensors (`support/probe_old_code.py`): radical Type I and Type IV give Type II in 0.1 s, the rational Type I (D = 10^-60, irreducible cubic) did not finish in 300 s (exit 124) | `s6_old_Irad.log`, `s6_old_IVrad.log`, `s6_old_Irat.log` |
+
+Scripts: `run_step.sh` and `run_any.sh` (run one step and write `<step>.time` from `/usr/bin/time -v`, `<step>.err`, `done/<step>.rc`),
+`step3.sh`, `step4.sh`, `step5.sh`, `step6.sh`. Support: `support/search_tridiagonal_R0.py`, `support/search_symmetric_R0.py` and
+`support/search_elliptic_points.py` (the search for rational tensors with D = +-j^6), `support/probe_old_code.py`.

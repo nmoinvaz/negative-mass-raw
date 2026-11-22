@@ -1,0 +1,12 @@
+1c1
+< he_type.py, issue #64. sympy 1.14.0, numpy 2.5.4, mpmath 1.3.0, python 3.14.10. mutation: none
+---
+> he_type.py, issue #64. sympy 1.14.0, numpy 2.5.4, mpmath 1.3.0, python 3.14.7. mutation: none
+51c51
+< [PASS] numN: route N's G(n, n)/8pi equals -(v^2/32pi)(rho^2/r_s^2) f'^2 at 40 points (relative error 8.5e-16), and its R^a_b on the axis has eigenvalues 0, 0, -R_00 +- i R_01 (v^2 (f'^2 - (1 - f) f'') +- i v f'/r_s, phantom_source's 16 +- 4i to 6 digits; relative error 5.6e-17)
+---
+> [PASS] numN: route N's G(n, n)/8pi equals -(v^2/32pi)(rho^2/r_s^2) f'^2 at 40 points (relative error 8.1e-16), and its R^a_b on the axis has eigenvalues 0, 0, -R_00 +- i R_01 (v^2 (f'^2 - (1 - f) f'') +- i v f'/r_s, phantom_source's 16 +- 4i to 6 digits; relative error 5.6e-17)
+90c90
+< checks: 8 passed, 0 failed []. 107 s
+---
+> checks: 8 passed, 0 failed []. 40 s

@@ -1,0 +1,4 @@
+17d16
+< note: he_type_exact applies sp.nsimplify to the exact D. At 1 of 356 points it returned a value different from the exact D (a nearby radical), with the sign and zero-ness unchanged; sp.nsimplify(Rational(1, 10**60)) = 0. Not fixed here.
+32a32
+> [FIRED] --mutate=nsimplify-back: he_type_exact returns sp.nsimplify(D), as before #103, which changed D at the axis point v = 7/4, F = 1/8, a = -3/2, u = 2/3 (#72); exit 1; checks that fail: axis
