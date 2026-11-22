@@ -1,0 +1,71 @@
+Traceback (most recent call last):
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/wt102/notes/warp/review_he_surface_lib.py", line 359, in run
+    self.checks[nm](self)
+    ~~~~~~~~~~~~~~~^^^^^^
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/wt102/notes/warp/he_type3.py", line 309, in planted_types
+    t_fld = type_own(M_)["type"]
+            ~~~~~~~~^^^^
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/wt102/notes/warp/he_type3.py", line 157, in type_own
+    lm, mult = (9 * c0 - c2 * c1) / (2 * (c2**2 - 3 * c1)), 2
+               ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+  File "/Users/nathan/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/fractions.py", line 699, in forward
+    return monomorphic_operator(a, b)
+  File "/Users/nathan/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/fractions.py", line 847, in _div
+    raise ZeroDivisionError('Fraction(%s, 0)' % db)
+ZeroDivisionError: Fraction(1, 0)
+Traceback (most recent call last):
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/wt102/notes/warp/review_he_surface_lib.py", line 359, in run
+    self.checks[nm](self)
+    ~~~~~~~~~~~~~~~^^^^^^
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/wt102/notes/warp/he_type3.py", line 814, in exact_points
+    inv = point_invariants(pt)
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/wt102/notes/warp/he_type3.py", line 724, in point_invariants
+    out = type_own(M_)
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/wt102/notes/warp/he_type3.py", line 157, in type_own
+    lm, mult = (9 * c0 - c2 * c1) / (2 * (c2**2 - 3 * c1)), 2
+               ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/wt102/notes/warp/review_he_surface_lib.py", line 290, in __truediv__
+    return self * o.inv()
+                  ~~~~~^^
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/wt102/notes/warp/review_he_surface_lib.py", line 286, in inv
+    return QS(self.p / den, -self.q / den)
+              ~~~~~~~^~~~~
+  File "/Users/nathan/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/fractions.py", line 699, in forward
+    return monomorphic_operator(a, b)
+  File "/Users/nathan/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/fractions.py", line 847, in _div
+    raise ZeroDivisionError('Fraction(%s, 0)' % db)
+ZeroDivisionError: Fraction(1, 0)
+Traceback (most recent call last):
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/wt102/notes/warp/review_he_surface_lib.py", line 359, in run
+    self.checks[nm](self)
+    ~~~~~~~~~~~~~~~^^^^^^
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/wt102/notes/warp/he_type3.py", line 845, in exact_points
+    fmt_num(pt[4]), fmt_num(inv["T"]), fmt_num(inv["lam"]), inv["rank"], rJ, mp.nstr(sv[0], 5), mp.nstr(sv[1], 5),
+                                       ~~~~~~~^^^^^^^^^^^^
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/wt102/notes/warp/he_type3.py", line 799, in fmt_num
+    return mp.nstr(to_mp(z, 30), dps)
+                   ~~~~~^^^^^^^
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/wt102/notes/warp/he_type3.py", line 736, in to_mp
+    z = Fr(z)
+  File "/Users/nathan/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/fractions.py", line 286, in __new__
+    raise TypeError("argument should be a string or a Rational "
+                    "instance or have the as_integer_ratio() method")
+TypeError: argument should be a string or a Rational instance or have the as_integer_ratio() method
+       69.62 real        68.80 user         0.29 sys
+           176553984  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               12490  page reclaims
+                 764  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                 730  voluntary context switches
+                7693  involuntary context switches
+       1448243073609  instructions retired
+        298382597157  cycles elapsed
+           152683144  peak memory footprint
