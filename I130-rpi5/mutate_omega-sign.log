@@ -1,0 +1,66 @@
+weitzenbock_conf.py, issues #87, #99 and #130. sympy 1.14.0, python 3.14.10. mutation: omega-sign
+
+== 1. The gammas, the conjugation and the causal vector ==
+[PASS] clifford: {g^a, g^b} = 2 eta^ab; g^0 anti-Hermitian and unitary, g^j Hermitian
+[PASS] gammas_match: the gammas typed here are conventions.note_gammas() entry by entry
+[PASS] causal: g^0 g^j Hermitian with {a_i, a_j} = 2 delta_ij (so |xi| <= |eps|^2), g^j g^0 = -g^0 g^j, g^0 g^0 = -1
+[PASS] dagger: |eps|^2 = sum_a (u_a^2 + v_a^2) and <eps, g^0 g^j eps>, <eps, g^j g^0 eps> are real
+
+== 2. The slice psi^4 delta: planted R, omega and Clifford parallelism ==
+[PASS] inverse: g_ab g^bc = delta, with g = psi^4 delta and the inverse typed in
+[PASS] orthonormal: g(e_i, e_j) = delta_ij for e_i = psi^-2 d_i
+[PASS] planted_R: R = -8 psi^-5 Laplace psi, the Ricci scalar of psi^4 delta by hand
+[PASS] planted_omega: omega_jk(e_i) = g(e_j, nabla_{e_i} e_k) = psi^-2 (delta_ij phi_k - delta_ik phi_j), phi = 2 ln psi
+[FAIL] clifford_parallel: [(1/4) omega_jk g^j g^k, g^l] = omega_jl g^j: Clifford multiplication is parallel
+[PASS] dirac: g^i (the stated K term)_i = (1/2)(tr K) g^0, so D~ = D + (1/2)(tr K) g^0, with the stated sign
+
+== 3. Planted truth for mu and J_i from the constraints ==
+[PASS] planted_alcubierre: flat slice, K = Alcubierre's, arbitrary f: mu = -(v^2/32 pi)(f_y^2 + f_z^2), J_i = (v/16 pi)(d_x d_i f - delta_ix Laplace f)
+[PASS] planted_K0: K = 0: mu = -psi^-5 Laplace psi / 2 pi, J = 0
+[PASS] planted_trace: K_ij = f delta_ij: mu = -psi^-5 Laplace psi / 2 pi + 3 f^2 / 8 pi, J_i = -psi^-2 d_i f / 4 pi
+[PASS] planted_TT: K_ij = psi^-6 H_ij, H the Hessian of a harmonic polynomial: J = 0, 16 pi mu = R - psi^-12 H_ij H_ij
+[PASS] planted_schwarzschild: psi = 1 + m1/2|x| + m2/2|x - c|, K = 0: mu = 0 (vacuum) at 4 exact points, for symbolic m1, m2
+
+== 4. The constraints against G_ab of the 4-metric ==
+[PASS] constraints_4d: the constraints' mu and J_i equal G_tt / 8 pi and -G_ti / 8 pi of -dt^2 + psi^4 (delta - 2 t K) dx dx at t = 0, for arbitrary psi and K_ij
+
+== 5. The identity |nabla~ eps|^2 - |D~ eps|^2 + 4 pi (mu |eps|^2 - J.xi) = div V ==
+    V^i = Re<eps, nabla^i eps - g^i D eps> - (1/2) P_ij xi^j, P_ij = K_ij - delta_ij tr K, div V = psi^-6 d_a(psi^4 V^a)
+  Planted first: the flat Weitzenbock identity, with V written out for the arbitrary spinor
+[PASS] identity_flat_K0: psi = 1, K = 0, so mu = J = 0 and V^i = -sum_{j != i} Re<eps, g^i g^j d_j eps>; 24 terms on the left, 24 in div V, 0 in the difference
+    V^x = u0(x, y, z)*Derivative(u1(x, y, z), z) + u0(x, y, z)*Derivative(v0(x, y, z), y) - u1(x, y, z)*Derivative(u0(x, y, z), z) - u1(x, y, z)*Derivative(v1(x, y, z), y) + u2(x, y, z)*Derivative(u3(x, y, z), z) + u2(x, y, z)*Derivative(v2(x, y, z), y) - u3(x, y, z)*Derivative(u2(x, y, z), z) - u3(x, y, z)*Derivative(v3(x, y, z), y) - v0(x, y, z)*Derivative(u0(x, y, z), y) + v0(x, y, z)*Derivative(v1(x, y, z), z) + v1(x, y, z)*Derivative(u1(x, y, z), y) - v1(x, y, z)*Derivative(v0(x, y, z), z) - v2(x, y, z)*Derivative(u2(x, y, z), y) + v2(x, y, z)*Derivative(v3(x, y, z), z) + v3(x, y, z)*Derivative(u3(x, y, z), y) - v3(x, y, z)*Derivative(v2(x, y, z), z)
+    V^y = -u0(x, y, z)*Derivative(v0(x, y, z), x) + u0(x, y, z)*Derivative(v1(x, y, z), z) + u1(x, y, z)*Derivative(v0(x, y, z), z) + u1(x, y, z)*Derivative(v1(x, y, z), x) - u2(x, y, z)*Derivative(v2(x, y, z), x) + u2(x, y, z)*Derivative(v3(x, y, z), z) + u3(x, y, z)*Derivative(v2(x, y, z), z) + u3(x, y, z)*Derivative(v3(x, y, z), x) + v0(x, y, z)*Derivative(u0(x, y, z), x) - v0(x, y, z)*Derivative(u1(x, y, z), z) - v1(x, y, z)*Derivative(u0(x, y, z), z) - v1(x, y, z)*Derivative(u1(x, y, z), x) + v2(x, y, z)*Derivative(u2(x, y, z), x) - v2(x, y, z)*Derivative(u3(x, y, z), z) - v3(x, y, z)*Derivative(u2(x, y, z), z) - v3(x, y, z)*Derivative(u3(x, y, z), x)
+    V^z = -u0(x, y, z)*Derivative(u1(x, y, z), x) - u0(x, y, z)*Derivative(v1(x, y, z), y) + u1(x, y, z)*Derivative(u0(x, y, z), x) - u1(x, y, z)*Derivative(v0(x, y, z), y) - u2(x, y, z)*Derivative(u3(x, y, z), x) - u2(x, y, z)*Derivative(v3(x, y, z), y) + u3(x, y, z)*Derivative(u2(x, y, z), x) - u3(x, y, z)*Derivative(v2(x, y, z), y) + v0(x, y, z)*Derivative(u1(x, y, z), y) - v0(x, y, z)*Derivative(v1(x, y, z), x) + v1(x, y, z)*Derivative(u0(x, y, z), y) + v1(x, y, z)*Derivative(v0(x, y, z), x) + v2(x, y, z)*Derivative(u3(x, y, z), y) - v2(x, y, z)*Derivative(v3(x, y, z), x) + v3(x, y, z)*Derivative(u2(x, y, z), y) + v3(x, y, z)*Derivative(v2(x, y, z), x)
+[FAIL] identity_lichnerowicz: psi arbitrary, K = 0, mu = R/16 pi, J = 0: Lichnerowicz; 144 terms on the left, 144 in div V, 96 in the difference
+[PASS] identity_flat_K: psi = 1, K_ij arbitrary: mu = ((tr K)^2 - K_ij K_ij)/16 pi, J_i = (d_j K_ij - d_i tr K)/8 pi; 168 terms on the left, 168 in div V, 0 in the difference
+[PASS] identity_alcubierre: psi = 1, K = Alcubierre's with b = (-v f, 0, 0), f(x, y, z) arbitrary: #59's weitzenbock, pointwise; 88 terms on the left, 88 in div V, 0 in the difference
+[FAIL] identity_general: psi, K_ij and eps arbitrary; 324 terms on the left, 336 in div V, 156 in the difference
+[PASS] V_reduced: V^i = -sum_{j != i} Re<eps, g^i g^j nabla_j eps> - (1/2) P_ij xi^j, the j = i term having cancelled
+
+== 6. The diagonal slice diag(A^2, B^2, C^2): planted R, omega and Clifford parallelism ==
+[FAIL] clifford_parallel_diag: [(1/4) omega_jk g^j g^k, g^l] = omega_jl g^j on the diagonal slice
+
+== 9. The identity |nabla~ eps|^2 - |D~ eps|^2 + 4 pi (mu |eps|^2 - J.xi) = div V on diag(A^2, B^2, C^2) ==
+    V^i as in section 5, div V = (1/ABC) d_a(ABC V^a / A_a)
+  Planted first: A = B = C = 1, then K = 0, through the code of the general case
+[FAIL] identity_diag_lichnerowicz: A, B, C arbitrary, K = 0, mu = R/16 pi, J = 0: Lichnerowicz; 240 terms on the left, 240 in div V, 168 in the difference
+[FAIL] identity_diag_conf: A = B = C = psi^2, K_ij and eps arbitrary: #87's identity_general through the diagonal code; 324 terms on the left, 336 in div V, 156 in the difference
+[FAIL] identity_diag_Kdiag: A, B, C arbitrary, K_ij = diag(k1, k2, k3) arbitrary functions, eps arbitrary; 384 terms on the left, 360 in div V, 216 in the difference
+[FAIL] identity_diag_general: A, B, C, K_ij and eps arbitrary; 504 terms on the left, 480 in div V, 240 in the difference
+
+== 10. The diagonal slice in the frame rotated about z: omega', Clifford parallelism, alpha = 0 ==
+[FAIL] clifford_parallel_rot: [(1/4) omega'_jk g^j g^k, g^l] = omega'_jl g^j in the rotated frame
+
+== 13. The identity |nabla~ eps|^2 - |D~ eps|^2 + 4 pi (mu |eps|^2 - J.xi) = div V in the frame rotated about z ==
+    V = V'^a e'_a, div V = (1/ABC) d_m(ABC V^m) with V^m = V'^a e'^m_a, everything reduced modulo c^2 + s^2 = 1
+  Planted first: alpha = 0 against identity_diag_general, then A = B = C = 1 and K = 0 in the rotated frame
+[FAIL] identity_rot_alpha0: alpha = 0, A, B, C, K_ij and eps arbitrary; 504 terms on the left, 480 in div V, the difference 0, and the left side, div V and V equal identity_diag_general's term for term
+[FAIL] identity_rot_flat_K0: A = B = C = 1, K = 0, alpha arbitrary: the flat identity; 120 terms on the left, 120 in div V, 64 in the difference
+[FAIL] identity_rot_lichnerowicz: A, B, C, alpha arbitrary, K = 0: Lichnerowicz; 384 terms on the left, 384 in div V, 280 in the difference
+[FAIL] identity_rot_flat_K: A = B = C = 1, K'_ij and alpha arbitrary; 448 terms on the left, 424 in div V, 120 in the difference
+[FAIL] identity_rot_alcubierre: A = B = C = 1, K' = R K R^T with K Alcubierre's with b = (-v f, 0, 0), f and alpha arbitrary; 260 terms on the left, 260 in div V, 96 in the difference
+[FAIL] identity_rot_Kdiag: A, B, C, alpha arbitrary, K'_ij = diag(k1, k2, k3) arbitrary functions, eps arbitrary; 688 terms on the left, 616 in div V, 408 in the difference
+[FAIL] identity_rot_general: alpha, A, B, C, K'_ij and eps all arbitrary; 968 terms on the left, 848 in div V, 512 in the difference
+
+checks: 19 passed, 16 failed ['clifford_parallel', 'identity_lichnerowicz', 'identity_general', 'clifford_parallel_diag', 'identity_diag_lichnerowicz', 'identity_diag_conf', 'identity_diag_Kdiag', 'identity_diag_general', 'clifford_parallel_rot', 'identity_rot_alpha0', 'identity_rot_flat_K0', 'identity_rot_lichnerowicz', 'identity_rot_flat_K', 'identity_rot_alcubierre', 'identity_rot_Kdiag', 'identity_rot_general']. 97 s
+control omega-sign: targets ['clifford_parallel', 'identity_lichnerowicz', 'identity_general', 'clifford_parallel_diag', 'identity_diag_lichnerowicz', 'identity_diag_conf', 'identity_diag_Kdiag', 'identity_diag_general', 'clifford_parallel_rot', 'identity_rot_alpha0', 'identity_rot_flat_K0', 'identity_rot_lichnerowicz', 'identity_rot_flat_K', 'identity_rot_alcubierre', 'identity_rot_Kdiag', 'identity_rot_general'] FIRED

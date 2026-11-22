@@ -24,6 +24,8 @@ is touched.
 |---|---|---|---|
 | 2 | planted parts first: omega' against the closed form and against #86's `slice_data`, orthonormality, Clifford parallelism, mu and J' with hand values, alpha = 0 against `identity_diag_general`, then the flat and Lichnerowicz identities rotated by arbitrary alpha | `step2_*.log` | none |
 | 3 | `--no-controls --only=identity_rot_Kdiag,identity_rot_general,V_reduced_rot` | 792fd1d | 0 | 1 min 2 s | 87.6 MiB | `identity_rot_Kdiag` (616 terms a side) and `identity_rot_general` (alpha, A, B, C, K'_ij and eps arbitrary, 848 terms a side) have difference 0 modulo c^2 + s^2 = 1, 25 s and 21 s of sympy; `V_reduced_rot` passes. The 8 h stop condition never applied |
+| 4 | `--mutate=NAME` for each of the 35 controls, one after the other (`step4.sh`, `mutations.txt`, one `mutate_NAME.log` each) | 792fd1d | all 35 exit 1 | 55 min 50 s in all, longest 329 s (`inv-typo`) | not timed per run | 35 FIRED, 0 SILENT. 27 old controls (their targets extended by the rotated checks) and 8 new: `rot-dalpha`, `rot-reverse`, `rot-swap`, `rot-ortho`, `rot-k`, `rot-J-frame`, `rot-div`, `rot-reduce`. `sign` fails 14 checks, `Jsign` 13, `rot-dalpha` 8. The target lists were written before the first run and not changed. Failures outside a control's targets: only #87's checks under `psi-frame`, `inv-typo` and `ricci-sign` |
+| 5 | `python notes/warp/weitzenbock_conf.py` (stdout stored as `notes/warp/weitzenbock_conf_output.txt`, commit 2157a36) | 317e20d | 0 | 58 min 13 s | 168.2 MiB (the `inv-typo` control; the checks 111 MiB) | 61 checks pass, 0 fail, 35 controls FIRED, 0 SILENT. #87's and #99's 42 check lines and all 27 old control lines are unchanged apart from longer `failed [...]` lists |
 | 3 | the general rotated identity, alpha, A, B, C, K'_ij and eps arbitrary, as a systemd unit | `step3_*.log` | 8 h wall; then stop it and report the largest case that finished |
 | 4 | every mutation, old and new, each must exit 1 and fire on its targets | `mutate_<name>.log`, `step4.time` | none |
 | 5 | `python notes/warp/weitzenbock_conf.py > notes/warp/weitzenbock_conf_output.txt`, must exit 0 | `final.log` | none |
@@ -32,10 +34,16 @@ The pass criteria and the controls' target lists are in the script (`CONTROLS`) 
 
 ## Results
 
-Code commits on `wip/i130-rot` of nmoinvaz/negative-mass: the rotated-frame checks and controls at 792fd1d.
+Code commits on `wip/i130-rot` of nmoinvaz/negative-mass: the rotated-frame checks and controls at 792fd1d (steps 2, 3 and 4 ran here), the docstring at 317e20d (step 5 ran here, and steps 4's code is the same apart from the docstring), the output at 2157a36, and the run time and memory in the docstring at fdc208f.
 
 | step | command (args to `weitzenbock_conf.py`) | commit | exit | wall | peak rss | result |
 |---|---|---|---|---|---|---|
 | 2 | `--no-controls --skip=identity_rot_Kdiag,identity_rot_general,V_reduced_rot` | 792fd1d | 0 | 2 min 56 s | 102.6 MiB | 58 checks pass, 0 fail: #87's and #99's 42, and 16 rotated ones (planted omega', orthonormality, Clifford, mu and J' with hand values, 4-metric route, alpha = 0 against `identity_diag_general` term for term, and the identities flat, Lichnerowicz, flat with K', Alcubierre rotated) |
 
-Logs: `step2.log`, `step3.log` (stdout), `step2.err` (timings), `step2.time` (`/usr/bin/time -v`), `step2.cmd`, `memwatch.log` (report only).
+Logs: `step2.log`, `step3.log`, `final.log` (stdout), `step2.err` (timings), `step2.time` (`/usr/bin/time -v`), `step2.cmd`, `memwatch.log` (report only).
+
+## Notes
+
+`memwatch.log` (121 samples, report only): lowest available memory 5285 MiB, highest 15-minute load 3.78, highest sampled rss 168 MiB (`--mutate=inv-typo`). No process was limited by memory. Nothing of choptuik-large-d was touched.
+
+The development before step 2, run from a scratch driver (not in this folder): the first version of `trig_reduce` returned reduced results in fresh dummy symbols, so stored reduced values did not cancel against each other, and then `sp.collect` rejected mixed derivatives such as f_xy. Both were fixed before the first official run (792fd1d); no check or criterion was changed.

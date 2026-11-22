@@ -1,0 +1,15 @@
+# ind130: item 6's identity on diag(A^2, B^2, C^2) in the frame rotated about z by alpha = 2 atan t, exact at random rational points, mutate=Jsign
+  C0 flat, K = 0, point 0 (13/23, 7/23, -3/23), t = -78/5819: lhs - rhs = 0, R = 0: PASS  [13 s]
+    C4 planted omega'_21(e'_i) = e'_i(alpha), others 0: PASS
+  C0 flat, K = 0, point 1 (8/23, 9/23, -19/23), t = 4289/5819: lhs - rhs = 0, R = 0: PASS  [13 s]
+    C4 planted omega'_21(e'_i) = e'_i(alpha), others 0: PASS
+  C1 diagonal, K = 0, point 0 (6/23, 0, 10/23), t = 4009/5819: lhs - rhs = 0: PASS  [47 s]
+  C1 diagonal, K = 0, point 1 (9/23, 15/23, -15/23), t = 6228/5819: lhs - rhs = 0: PASS  [47 s]
+  C2 general, point 0 (-20/23, -3/23, -19/23), t = -10316/5819: lhs - rhs = -8242239443655379537061645623246009380/364209886786458022503974185296398507: FAIL  [84 s]
+    C3 Koszul omega' = Christoffel omega' (27 components): PASS
+  C2 general, point 1 (-1/23, -17/23, 10/23), t = -8480/5819: lhs - rhs = 4033945677383682903811462790240972892/1575322381341598793515007120698944575: FAIL  [84 s]
+    C3 Koszul omega' = Christoffel omega' (27 components): PASS
+  C2 general, point 2 (15/23, 9/23, -1/23), t = 1574/5819: lhs - rhs = 61655741037261269228651222531011828/15546259469078922523629147860111853: FAIL  [84 s]
+    C3 Koszul omega' = Christoffel omega' (27 components): PASS
+RESULT FAIL: C2 at point 0; C2 at point 1; C2 at point 2
+exit 1
