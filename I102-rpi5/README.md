@@ -103,3 +103,7 @@ below were written before any control run and are not changed; `CONTROLS` in the
 | 25 | `tanh-off-root` | r shifted by 1e-6 before the 60-digit rank test of each point | tanh_points |
 | 26 | `enclosure-shift` | the Krawczyk box moved by 20 half-widths off the root | tanh_enclosure |
 | 27 | `eq-end-typo` | the equator end solved from r a + 3F = 0, not r a + 2F = 0 | tanh_curve |
+| 28 | `lab-sign` | the sign of the shift in the lab metric of `lab_ricci` | lab_ricci |
+
+Row 28 and the check `lab_ricci` (an independent route to the frame Ricci tensor of the six tanh points, from second differences of
+the lab metric) were added after the table above was pushed (a36dc26) and before any control was run. Rows 1 to 27 are unchanged.
