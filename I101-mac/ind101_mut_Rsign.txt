@@ -1,0 +1,13 @@
+# ind101: coordinate Ricci built in 0 s, mutate=Rsign
+  C0 flat and trace: R = 0 at v = 0: True; R00 + Rxx + 2 Rrr = 0 at 2 points: True: PASS  [0 s]
+  C1 certificate: 6 random rational points, as polynomials in lam: FAIL  [1 s]
+  C2 D on T1: 4 random rational points: FAIL  [2 s]
+     F = 3/5, c = 3/5, r a = -63/125, v^2 = 625/48: D = -129635157244779/457954406738281250, multiplicity 1, rank None
+     F = 4/5, c = -20/29, r a = -2188/4205, v^2 = 525625/43218: D = -1389016935139446968107519875600000000000000/49996586969934189160873327496145934849, multiplicity 1, rank None
+     F = -3/5, c = 19/181, r a = 25383/163805, v^2 = 11826721/70858800: D = -418773754511856993489901917918717343215220312702951/204612929445473129304493159969630267434428751200941050612700019531250, multiplicity 1, rank None
+     F = -4/5, c = -15/17, r a = 2956/4335, v^2 = 14630625/131072: D = -16961500946147008376930127657268131225/4363935243731850245375775918260224, multiplicity 1, rank None
+  C3 Type I on T1, T2, T3: 4 points, 2 with F < 0: FAIL  [2 s]
+     reported, at the F < 0 points (-F < r a < -c^2 F, v F s^2 >= 2|c|): [(False, False), (False, False)]
+  C4 T3 = 0 is not Type I: D = -509181139156842134668939415071720026855702528/12712146469502631615520443202629489097690582275390625, multiplicity 1, rank None: FAIL  [2 s]
+RESULT FAIL: C1 certificate, C2 D on T1, C3 Type I on T1, T2, T3, C4 T3 = 0 is not Type I [2 s]
+exit 1
