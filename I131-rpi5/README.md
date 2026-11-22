@@ -41,3 +41,16 @@ sign of the changed point is unchanged (D < 0, Type IV), and `ht.MUT = "nsimplif
 | step | what | log |
 |---|---|---|
 | s0 | locate the point #72 found (`support/locate_nsimp_point.py`, exit 0, 13 s) | `s0_locate.log` |
+| s2 | `he_surface.py --no-controls` on the new code (exit 0, 14 of 14 checks, 11 s) and `--mutate=nsimplify-back` alone (exit 0, 14 of 14 checks pass: the control does not fire, target `["axis"]`) | `s2_nocontrols.log`, `s2_control_nsimplify-back.log` |
+| s3 | probes, not controls of the repository. `support/probe_mut_returns_D.py`: at the #72 point, `he_type_exact` returns the exact D under both `ht.MUT = None` and `"nsimplify"` (exit 0). `support/probe_old_return.py`: `he_type_exact` wrapped to return `sp.nsimplify(D)`, the return value before #103, makes exactly `axis` fail, at that one point (exit 1) | `s3_probe_mut_returns_D.log`, `s3_probe_old_return.log` |
+
+## Why `nsimplify-back` as specified does not fire
+
+`he_type.exact_sign` under `MUT == "nsimplify"` rebinds a local D to `sp.nsimplify(D)` and returns only the sign.
+`he_type_exact` returns the D that `disc` gave. So `ht.MUT = "nsimplify"` changes the type only when the rounded D has
+another sign or is 0, and at the 356 points of he_surface.py it never does (the old assert held at all 356). The
+equality `Dsp == Dq` cannot fail under it. Prediction above, confirmed by s2 and s3.
+
+Not changed since: the target list `["axis"]`, and the criterion (exit 1 and `axis` fails). A mutation that restores
+the old return value, `sp.nsimplify(D)` itself, does make `axis` fail (s3), and needs a decision of the coordinator
+(a wrapper of `ht.he_type_exact` in he_surface.py, or a change to `he_type.py`'s `MUT`).
