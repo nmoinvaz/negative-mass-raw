@@ -52,6 +52,7 @@ Mutations `nonholo` and `half` must each exit 1.
 |---|---|
 | `jobs.txt`, `make_launchers.py` | one line per job (`<job>\|<arguments>`) and the writer of `job_*.cmd` and `go_*.cmd` |
 | `queue.ps1`, `queue.log`, `cores.log` | the gated queue, its log, and one reading of choptuik-large-d's cores per second start |
+| `keepawake.ps1` | holds `SetThreadExecutionState(ES_CONTINUOUS \| ES_SYSTEM_REQUIRED)` until the queue process exits; started 2026-11-22 13:03 after the laptop was in Modern Standby from 09:41 to 10:01 and 10:47 to 12:51, which suspended the runs; no power setting or plan is changed; start and end are in `queue.log` |
 | `sample.ps1`, `memory-sampler.log` | working set, peak working set and CPU of the `harm_circles.py` processes once a minute, with the free memory |
 | `<job>.log`, `<job>.log.exit` | stdout and exit code of each job |
 | `harm_circles_<box>_<setting>.pkl` | the cache of D at every evaluated point |
