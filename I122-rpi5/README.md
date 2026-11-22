@@ -8,7 +8,7 @@ Issue: https://github.com/nmoinvaz/negative-mass/issues/122
 
 Code: worktree `~/Source/negative-mass-i122` on branch `wip/i122-factors`, `phase2/nonradial/d_factors.py` (new), run from
 `phase2/nonradial`. The jobs ran 9f34847 until 13:12, then the working tree that became 2222a98 (adds the rtol suffix of the
-store files, both stencil Laplacians in the `harm` lines and the `mean` part), and `final_output.log`'s run is 8fea3c8 (adds `--rho`). It imports `polar_solver.py`, `background.py` and `collect_i126.py` (for the job list) unmodified.
+store files, both stencil Laplacians in the `harm` lines and the `mean` part), and the last output run (`done/final_output.rc`, `final_output.err`) is 7ace97a (adds `--rho`, prints the raw folder as given). It imports `polar_solver.py`, `background.py` and `collect_i126.py` (for the job list) unmodified.
 
 Python: `~/Source/negative-mass-venv314/bin/python`. Every run is `nice -n 10` with `OMP_NUM_THREADS=1` and
 `OPENBLAS_NUM_THREADS=1` (single-threaded), detached with `setsid nohup`. At most two processes at a time, and a second one
