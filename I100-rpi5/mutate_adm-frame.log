@@ -1,0 +1,17 @@
+weitzenbock_boundary.py, issue #100. sympy 1.14.0, python 3.14.10. mutation: adm-frame
+
+== 1. The gammas and the inner product of weitzenbock_conf.py ==
+
+== 2. The machinery: derivative, sphere moments, spin connection, flux formula ==
+
+== 3. Planted boundary values: Schwarzschild, a dipole in psi, Bowen-York ==
+    [schwarzschild: 9 symbols, flux, E and P series in 1.1 s]
+    [BY: 12 symbols, flux, E and P series in 3.4 s]
+[FAIL] planted_P: psi = 1 + m/2r, K = psi^-6 Bowen-York: the ADM momentum integral is P_j (1 + m/2r)^-2, P_j = [Px, Py, Pz] at order 0, -m P_j at order 1/r
+
+== 4. The boundary term of the general data against E |eps_0|^2 - P.xi_0 ==
+
+== 5. V against the pointwise identity, on the same data, at exact points ==
+
+checks: 0 passed, 1 failed ['planted_P']. 5 s
+control adm-frame: targets ['planted_P'] FIRED

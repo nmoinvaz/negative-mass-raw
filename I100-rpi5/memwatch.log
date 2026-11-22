@@ -90,3 +90,853 @@
    pid 1742349 ni 10 cpu 0.0% rss_MB 1 etime 09:38 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/step3b.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py --no-controls
    pid 1742350 ni 10 cpu 99.7% rss_MB 293 etime 09:38 --no-controls --only=bdy_vs_adm,bdy_vs_adm_T,no_divergence,limit_exists,eps1_drops,eps1_hand,free_symbols,identity_points,flip_consistent,aligned_eps0   
 2026-11-22T06:04:16-08:00 load 0.92 1.01 0.99 mem_avail_MB 5985
+2026-11-22T06:05:16-08:00 load 0.87 0.97 0.98 mem_avail_MB 5938
+   pid 1744291 ni 10 cpu 99.7% rss_MB 72 etime 00:34 --mutate=gamma    
+2026-11-22T06:06:16-08:00 load 1.02 0.99 0.99 mem_avail_MB 5945
+   pid 1745195 ni 10 cpu 99.6% rss_MB 63 etime 00:05 --mutate=omega-sign    
+2026-11-22T06:07:16-08:00 load 1.01 1.00 1.00 mem_avail_MB 5960
+   pid 1745244 ni 10 cpu 99.7% rss_MB 71 etime 00:23 --mutate=weight    
+2026-11-22T06:08:16-08:00 load 1.04 1.01 1.00 mem_avail_MB 5918
+   pid 1745283 ni 10 cpu 99.7% rss_MB 99 etime 00:42 --mutate=Vsign    
+2026-11-22T06:09:16-08:00 load 1.01 1.00 1.00 mem_avail_MB 5861
+   pid 1745283 ni 10 cpu 99.7% rss_MB 172 etime 01:42 --mutate=Vsign    
+2026-11-22T06:10:16-08:00 load 1.06 1.02 1.00 mem_avail_MB 5817
+   pid 1745283 ni 10 cpu 99.7% rss_MB 225 etime 02:42 --mutate=Vsign    
+2026-11-22T06:11:16-08:00 load 1.02 1.01 1.00 mem_avail_MB 5800
+   pid 1745283 ni 10 cpu 99.7% rss_MB 252 etime 03:42 --mutate=Vsign    
+2026-11-22T06:12:16-08:00 load 1.00 1.00 1.00 mem_avail_MB 5791
+   pid 1745283 ni 10 cpu 99.7% rss_MB 241 etime 04:42 --mutate=Vsign    
+2026-11-22T06:13:16-08:00 load 1.07 1.02 1.00 mem_avail_MB 5783
+   pid 1745283 ni 10 cpu 99.7% rss_MB 273 etime 05:42 --mutate=Vsign    
+2026-11-22T06:14:16-08:00 load 1.02 1.01 1.00 mem_avail_MB 5788
+   pid 1745283 ni 10 cpu 99.7% rss_MB 265 etime 06:42 --mutate=Vsign    
+2026-11-22T06:15:16-08:00 load 1.08 1.02 1.00 mem_avail_MB 5773
+   pid 1745283 ni 10 cpu 99.7% rss_MB 290 etime 07:42 --mutate=Vsign    
+2026-11-22T06:16:16-08:00 load 1.08 1.03 1.00 mem_avail_MB 5740
+   pid 1745283 ni 10 cpu 99.7% rss_MB 291 etime 08:42 --mutate=Vsign    
+2026-11-22T06:17:16-08:00 load 1.50 1.14 1.04 mem_avail_MB 5973
+   pid 1745940 ni 10 cpu 99.7% rss_MB 68 etime 00:13 --mutate=sign    
+2026-11-22T06:18:16-08:00 load 1.39 1.18 1.06 mem_avail_MB 5871
+   pid 1745940 ni 10 cpu 99.7% rss_MB 141 etime 01:13 --mutate=sign    
+2026-11-22T06:19:16-08:00 load 1.44 1.23 1.08 mem_avail_MB 5873
+   pid 1745940 ni 10 cpu 99.7% rss_MB 176 etime 02:14 --mutate=sign    
+2026-11-22T06:20:16-08:00 load 1.22 1.20 1.08 mem_avail_MB 5846
+   pid 1745940 ni 10 cpu 99.7% rss_MB 213 etime 03:14 --mutate=sign    
+2026-11-22T06:21:16-08:00 load 1.12 1.17 1.08 mem_avail_MB 5827
+   pid 1745940 ni 10 cpu 99.7% rss_MB 225 etime 04:14 --mutate=sign    
+2026-11-22T06:22:16-08:00 load 1.04 1.14 1.08 mem_avail_MB 5790
+   pid 1745940 ni 10 cpu 99.7% rss_MB 240 etime 05:14 --mutate=sign    
+2026-11-22T06:23:16-08:00 load 1.39 1.22 1.11 mem_avail_MB 5769
+   pid 1745940 ni 10 cpu 99.7% rss_MB 260 etime 06:14 --mutate=sign    
+2026-11-22T06:24:16-08:00 load 1.14 1.18 1.09 mem_avail_MB 5757
+   pid 1745940 ni 10 cpu 99.7% rss_MB 285 etime 07:14 --mutate=sign    
+2026-11-22T06:25:16-08:00 load 1.10 1.16 1.09 mem_avail_MB 5749
+   pid 1745940 ni 10 cpu 99.7% rss_MB 292 etime 08:14 --mutate=sign    
+2026-11-22T06:26:17-08:00 load 2.02 1.37 1.16 mem_avail_MB 5896
+   pid 1746644 ni 10 cpu 99.7% rss_MB 61 etime 00:03 --mutate=Jsign    
+2026-11-22T06:27:17-08:00 load 1.37 1.30 1.15 mem_avail_MB 5924
+   pid 1746689 ni 10 cpu 99.7% rss_MB 74 etime 00:22 --mutate=Kdiv    
+2026-11-22T06:28:17-08:00 load 1.20 1.26 1.15 mem_avail_MB 5871
+   pid 1746689 ni 10 cpu 99.7% rss_MB 170 etime 01:22 --mutate=Kdiv    
+2026-11-22T06:29:17-08:00 load 1.07 1.21 1.13 mem_avail_MB 5870
+   pid 1746689 ni 10 cpu 99.7% rss_MB 176 etime 02:22 --mutate=Kdiv    
+2026-11-22T06:30:17-08:00 load 1.23 1.22 1.14 mem_avail_MB 5863
+   pid 1746689 ni 10 cpu 99.7% rss_MB 186 etime 03:22 --mutate=Kdiv    
+2026-11-22T06:31:17-08:00 load 1.08 1.17 1.13 mem_avail_MB 5865
+   pid 1746689 ni 10 cpu 99.7% rss_MB 186 etime 04:23 --mutate=Kdiv    
+2026-11-22T06:32:17-08:00 load 1.13 1.17 1.13 mem_avail_MB 5900
+   pid 1746911 ni 10 cpu 99.8% rss_MB 142 etime 00:43 --mutate=Vspin    
+2026-11-22T06:33:17-08:00 load 1.09 1.15 1.12 mem_avail_MB 5877
+   pid 1746911 ni 10 cpu 99.7% rss_MB 164 etime 01:43 --mutate=Vspin    
+2026-11-22T06:34:17-08:00 load 1.03 1.12 1.11 mem_avail_MB 5837
+   pid 1746911 ni 10 cpu 99.7% rss_MB 197 etime 02:43 --mutate=Vspin    
+2026-11-22T06:35:17-08:00 load 1.19 1.16 1.12 mem_avail_MB 5820
+   pid 1746911 ni 10 cpu 99.7% rss_MB 214 etime 03:43 --mutate=Vspin    
+2026-11-22T06:36:17-08:00 load 1.31 1.20 1.14 mem_avail_MB 5759
+   pid 1746911 ni 10 cpu 99.7% rss_MB 287 etime 04:43 --mutate=Vspin    
+2026-11-22T06:37:17-08:00 load 1.11 1.16 1.12 mem_avail_MB 5748
+   pid 1746911 ni 10 cpu 99.7% rss_MB 260 etime 05:43 --mutate=Vspin    
+2026-11-22T06:38:17-08:00 load 1.04 1.13 1.11 mem_avail_MB 5701
+   pid 1746911 ni 10 cpu 99.7% rss_MB 316 etime 06:43 --mutate=Vspin    
+2026-11-22T06:39:17-08:00 load 1.09 1.12 1.11 mem_avail_MB 5738
+   pid 1746911 ni 10 cpu 99.7% rss_MB 309 etime 07:43 --mutate=Vspin    
+2026-11-22T06:40:17-08:00 load 1.03 1.10 1.10 mem_avail_MB 5726
+   pid 1746911 ni 10 cpu 99.7% rss_MB 330 etime 08:43 --mutate=Vspin    
+2026-11-22T06:41:17-08:00 load 1.01 1.08 1.09 mem_avail_MB 5718
+   pid 1746911 ni 10 cpu 99.7% rss_MB 332 etime 09:43 --mutate=Vspin    
+2026-11-22T06:42:17-08:00 load 1.08 1.09 1.09 mem_avail_MB 5959
+   pid 1747751 ni 10 cpu 99.7% rss_MB 76 etime 00:32 --mutate=Dhalf    
+2026-11-22T06:43:17-08:00 load 1.03 1.07 1.08 mem_avail_MB 5888
+   pid 1747751 ni 10 cpu 99.7% rss_MB 170 etime 01:32 --mutate=Dhalf    
+2026-11-22T06:44:17-08:00 load 1.01 1.05 1.08 mem_avail_MB 5850
+   pid 1747751 ni 10 cpu 99.7% rss_MB 181 etime 02:32 --mutate=Dhalf    
+2026-11-22T06:45:17-08:00 load 1.00 1.04 1.07 mem_avail_MB 5749
+   pid 1747751 ni 10 cpu 99.7% rss_MB 311 etime 03:32 --mutate=Dhalf    
+2026-11-22T06:46:17-08:00 load 1.00 1.03 1.07 mem_avail_MB 5775
+   pid 1747751 ni 10 cpu 99.7% rss_MB 258 etime 04:32 --mutate=Dhalf    
+2026-11-22T06:47:17-08:00 load 1.07 1.04 1.07 mem_avail_MB 5714
+   pid 1747751 ni 10 cpu 99.7% rss_MB 287 etime 05:32 --mutate=Dhalf    
+2026-11-22T06:48:17-08:00 load 1.02 1.03 1.06 mem_avail_MB 5747
+   pid 1747751 ni 10 cpu 99.7% rss_MB 303 etime 06:32 --mutate=Dhalf    
+2026-11-22T06:49:17-08:00 load 1.12 1.05 1.07 mem_avail_MB 5745
+   pid 1747751 ni 10 cpu 99.7% rss_MB 300 etime 07:32 --mutate=Dhalf    
+2026-11-22T06:50:17-08:00 load 1.08 1.06 1.07 mem_avail_MB 5719
+   pid 1747751 ni 10 cpu 99.7% rss_MB 328 etime 08:32 --mutate=Dhalf    
+2026-11-22T06:51:17-08:00 load 1.09 1.06 1.07 mem_avail_MB 5656
+   pid 1747751 ni 10 cpu 99.7% rss_MB 399 etime 09:32 --mutate=Dhalf    
+2026-11-22T06:52:17-08:00 load 1.03 1.05 1.06 mem_avail_MB 5596
+   pid 1747751 ni 10 cpu 99.7% rss_MB 419 etime 10:32 --mutate=Dhalf    
+2026-11-22T06:53:17-08:00 load 1.07 1.05 1.06 mem_avail_MB 5683
+   pid 1747751 ni 10 cpu 99.7% rss_MB 373 etime 11:32 --mutate=Dhalf    
+2026-11-22T06:54:17-08:00 load 1.08 1.06 1.06 mem_avail_MB 5672
+   pid 1747751 ni 10 cpu 99.7% rss_MB 378 etime 12:32 --mutate=Dhalf    
+2026-11-22T06:55:17-08:00 load 1.09 1.06 1.06 mem_avail_MB 5623
+   pid 1747751 ni 10 cpu 99.7% rss_MB 436 etime 13:32 --mutate=Dhalf    
+2026-11-22T06:56:17-08:00 load 1.03 1.05 1.05 mem_avail_MB 5602
+   pid 1747751 ni 10 cpu 99.7% rss_MB 441 etime 14:32 --mutate=Dhalf    
+2026-11-22T06:57:17-08:00 load 1.01 1.04 1.05 mem_avail_MB 5573
+   pid 1747751 ni 10 cpu 99.7% rss_MB 441 etime 15:32 --mutate=Dhalf    
+2026-11-22T06:58:17-08:00 load 1.13 1.06 1.05 mem_avail_MB 5612
+   pid 1747751 ni 10 cpu 99.7% rss_MB 443 etime 16:32 --mutate=Dhalf    
+2026-11-22T06:59:17-08:00 load 1.09 1.06 1.05 mem_avail_MB 5572
+   pid 1747751 ni 10 cpu 99.7% rss_MB 457 etime 17:32 --mutate=Dhalf    
+2026-11-22T07:00:17-08:00 load 1.10 1.06 1.05 mem_avail_MB 5594
+   pid 1747751 ni 10 cpu 99.7% rss_MB 458 etime 18:32 --mutate=Dhalf    
+2026-11-22T07:01:17-08:00 load 1.11 1.07 1.05 mem_avail_MB 5561
+   pid 1747751 ni 10 cpu 99.7% rss_MB 459 etime 19:32 --mutate=Dhalf    
+2026-11-22T07:02:17-08:00 load 1.19 1.09 1.06 mem_avail_MB 5555
+   pid 1747751 ni 10 cpu 99.7% rss_MB 461 etime 20:32 --mutate=Dhalf    
+2026-11-22T07:03:17-08:00 load 1.17 1.10 1.07 mem_avail_MB 5570
+   pid 1747751 ni 10 cpu 99.7% rss_MB 460 etime 21:32 --mutate=Dhalf    
+2026-11-22T07:04:18-08:00 load 1.14 1.10 1.07 mem_avail_MB 5935
+   pid 1749106 ni 10 cpu 99.7% rss_MB 82 etime 00:42 --mutate=trace    
+2026-11-22T07:05:18-08:00 load 1.05 1.08 1.06 mem_avail_MB 5889
+   pid 1749149 ni 10 cpu 99.7% rss_MB 149 etime 00:48 --mutate=adm-E    
+2026-11-22T07:06:18-08:00 load 1.02 1.06 1.05 mem_avail_MB 5851
+   pid 1749149 ni 10 cpu 99.7% rss_MB 172 etime 01:48 --mutate=adm-E    
+2026-11-22T07:07:18-08:00 load 1.00 1.05 1.05 mem_avail_MB 5742
+   pid 1749149 ni 10 cpu 99.7% rss_MB 245 etime 02:48 --mutate=adm-E    
+2026-11-22T07:08:18-08:00 load 1.23 1.09 1.06 mem_avail_MB 5791
+   pid 1749149 ni 10 cpu 99.7% rss_MB 241 etime 03:48 --mutate=adm-E    
+2026-11-22T07:09:18-08:00 load 1.13 1.08 1.06 mem_avail_MB 5808
+   pid 1749149 ni 10 cpu 99.7% rss_MB 236 etime 04:48 --mutate=adm-E    
+2026-11-22T07:10:18-08:00 load 1.19 1.10 1.06 mem_avail_MB 5753
+   pid 1749149 ni 10 cpu 99.7% rss_MB 272 etime 05:48 --mutate=adm-E    
+2026-11-22T07:11:18-08:00 load 1.07 1.08 1.06 mem_avail_MB 5771
+   pid 1749149 ni 10 cpu 99.7% rss_MB 272 etime 06:48 --mutate=adm-E    
+2026-11-22T07:12:18-08:00 load 1.08 1.08 1.06 mem_avail_MB 5759
+   pid 1749149 ni 10 cpu 99.7% rss_MB 294 etime 07:48 --mutate=adm-E    
+2026-11-22T07:13:18-08:00 load 1.27 1.11 1.07 mem_avail_MB 5970
+   pid 1749778 ni 10 cpu 99.8% rss_MB 75 etime 00:30 --mutate=adm-P-sign    
+2026-11-22T07:14:18-08:00 load 1.10 1.09 1.06 mem_avail_MB 5872
+   pid 1749778 ni 10 cpu 99.7% rss_MB 177 etime 01:30 --mutate=adm-P-sign    
+2026-11-22T07:15:18-08:00 load 1.07 1.08 1.06 mem_avail_MB 5854
+   pid 1749778 ni 10 cpu 99.7% rss_MB 200 etime 02:30 --mutate=adm-P-sign    
+2026-11-22T07:16:18-08:00 load 1.06 1.08 1.06 mem_avail_MB 5814
+   pid 1749778 ni 10 cpu 99.7% rss_MB 223 etime 03:30 --mutate=adm-P-sign    
+2026-11-22T07:17:18-08:00 load 1.16 1.10 1.07 mem_avail_MB 5750
+   pid 1749778 ni 10 cpu 99.7% rss_MB 251 etime 04:30 --mutate=adm-P-sign    
+2026-11-22T07:18:18-08:00 load 1.06 1.08 1.06 mem_avail_MB 5791
+   pid 1749778 ni 10 cpu 99.7% rss_MB 257 etime 05:30 --mutate=adm-P-sign    
+2026-11-22T07:19:18-08:00 load 1.02 1.06 1.06 mem_avail_MB 5761
+   pid 1749778 ni 10 cpu 99.7% rss_MB 267 etime 06:30 --mutate=adm-P-sign    
+2026-11-22T07:20:18-08:00 load 1.00 1.05 1.05 mem_avail_MB 5760
+   pid 1749778 ni 10 cpu 99.7% rss_MB 288 etime 07:30 --mutate=adm-P-sign    
+2026-11-22T07:21:18-08:00 load 1.00 1.04 1.05 mem_avail_MB 5942
+   pid 1750413 ni 10 cpu 99.7% rss_MB 62 etime 00:03 --mutate=adm-frame    
+2026-11-22T07:22:18-08:00 load 1.00 1.03 1.04 mem_avail_MB 5929
+   pid 1750438 ni 10 cpu 99.7% rss_MB 100 etime 00:45 --mutate=eps-O1    
+2026-11-22T07:23:18-08:00 load 1.00 1.02 1.03 mem_avail_MB 5931
+   pid 1750438 ni 10 cpu 99.8% rss_MB 111 etime 01:45 --mutate=eps-O1    
+2026-11-22T07:24:18-08:00 load 1.00 1.01 1.03 mem_avail_MB 5768
+   pid 1750438 ni 10 cpu 99.8% rss_MB 280 etime 02:45 --mutate=eps-O1    
+2026-11-22T07:25:18-08:00 load 1.39 1.10 1.06 mem_avail_MB 5651
+   pid 1750438 ni 10 cpu 99.7% rss_MB 401 etime 03:45 --mutate=eps-O1    
+2026-11-22T07:26:18-08:00 load 1.14 1.08 1.05 mem_avail_MB 5576
+   pid 1750438 ni 10 cpu 99.7% rss_MB 448 etime 04:45 --mutate=eps-O1    
+2026-11-22T07:27:18-08:00 load 1.09 1.08 1.05 mem_avail_MB 5487
+   pid 1750438 ni 10 cpu 99.7% rss_MB 508 etime 05:45 --mutate=eps-O1    
+2026-11-22T07:28:18-08:00 load 1.11 1.09 1.06 mem_avail_MB 5444
+   pid 1750438 ni 10 cpu 99.7% rss_MB 601 etime 06:45 --mutate=eps-O1    
+2026-11-22T07:29:18-08:00 load 1.04 1.07 1.05 mem_avail_MB 5419
+   pid 1750438 ni 10 cpu 99.7% rss_MB 613 etime 07:45 --mutate=eps-O1    
+2026-11-22T07:30:18-08:00 load 1.01 1.06 1.04 mem_avail_MB 5355
+   pid 1750438 ni 10 cpu 99.7% rss_MB 669 etime 08:46 --mutate=eps-O1    
+2026-11-22T07:31:18-08:00 load 1.00 1.04 1.04 mem_avail_MB 5353
+   pid 1750438 ni 10 cpu 99.7% rss_MB 689 etime 09:46 --mutate=eps-O1    
+2026-11-22T07:32:18-08:00 load 1.00 1.03 1.03 mem_avail_MB 5323
+   pid 1750438 ni 10 cpu 99.7% rss_MB 706 etime 10:46 --mutate=eps-O1    
+2026-11-22T07:33:18-08:00 load 1.00 1.03 1.03 mem_avail_MB 5283
+   pid 1750438 ni 10 cpu 99.7% rss_MB 744 etime 11:46 --mutate=eps-O1    
+2026-11-22T07:34:18-08:00 load 1.05 1.03 1.03 mem_avail_MB 5274
+   pid 1750438 ni 10 cpu 99.7% rss_MB 782 etime 12:46 --mutate=eps-O1    
+2026-11-22T07:35:18-08:00 load 1.02 1.03 1.02 mem_avail_MB 5086
+   pid 1750438 ni 10 cpu 99.7% rss_MB 952 etime 13:46 --mutate=eps-O1    
+2026-11-22T07:36:18-08:00 load 1.05 1.03 1.02 mem_avail_MB 5042
+   pid 1750438 ni 10 cpu 99.7% rss_MB 994 etime 14:46 --mutate=eps-O1    
+2026-11-22T07:37:18-08:00 load 1.14 1.06 1.03 mem_avail_MB 5597
+   pid 1750438 ni 10 cpu 99.7% rss_MB 445 etime 15:46 --mutate=eps-O1    
+2026-11-22T07:38:18-08:00 load 1.05 1.04 1.02 mem_avail_MB 5578
+   pid 1750438 ni 10 cpu 99.7% rss_MB 448 etime 16:46 --mutate=eps-O1    
+2026-11-22T07:39:18-08:00 load 1.06 1.05 1.02 mem_avail_MB 5597
+   pid 1750438 ni 10 cpu 99.7% rss_MB 456 etime 17:46 --mutate=eps-O1    
+2026-11-22T07:40:19-08:00 load 1.11 1.07 1.03 mem_avail_MB 5556
+   pid 1750438 ni 10 cpu 99.7% rss_MB 477 etime 18:46 --mutate=eps-O1    
+2026-11-22T07:41:19-08:00 load 1.04 1.05 1.02 mem_avail_MB 5512
+   pid 1750438 ni 10 cpu 99.7% rss_MB 517 etime 19:46 --mutate=eps-O1    
+2026-11-22T07:42:19-08:00 load 1.01 1.04 1.01 mem_avail_MB 5413
+   pid 1750438 ni 10 cpu 99.7% rss_MB 637 etime 20:46 --mutate=eps-O1    
+2026-11-22T07:43:19-08:00 load 1.00 1.03 1.01 mem_avail_MB 5400
+   pid 1750438 ni 10 cpu 99.7% rss_MB 636 etime 21:46 --mutate=eps-O1    
+2026-11-22T07:44:19-08:00 load 1.16 1.06 1.01 mem_avail_MB 5356
+   pid 1750438 ni 10 cpu 99.7% rss_MB 677 etime 22:46 --mutate=eps-O1    
+2026-11-22T07:45:19-08:00 load 1.24 1.09 1.02 mem_avail_MB 5277
+   pid 1750438 ni 10 cpu 99.7% rss_MB 739 etime 23:46 --mutate=eps-O1    
+2026-11-22T07:46:19-08:00 load 1.13 1.09 1.02 mem_avail_MB 5202
+   pid 1750438 ni 10 cpu 99.7% rss_MB 788 etime 24:46 --mutate=eps-O1    
+2026-11-22T07:47:19-08:00 load 1.16 1.10 1.03 mem_avail_MB 5242
+   pid 1750438 ni 10 cpu 99.7% rss_MB 793 etime 25:46 --mutate=eps-O1    
+2026-11-22T07:48:19-08:00 load 1.21 1.12 1.04 mem_avail_MB 5205
+   pid 1750438 ni 10 cpu 99.7% rss_MB 822 etime 26:46 --mutate=eps-O1    
+2026-11-22T07:49:19-08:00 load 1.27 1.16 1.06 mem_avail_MB 5057
+   pid 1750438 ni 10 cpu 99.7% rss_MB 990 etime 27:46 --mutate=eps-O1    
+2026-11-22T07:50:19-08:00 load 1.20 1.16 1.06 mem_avail_MB 5303
+   pid 1750438 ni 10 cpu 99.7% rss_MB 697 etime 28:46 --mutate=eps-O1    
+2026-11-22T07:51:19-08:00 load 1.07 1.13 1.06 mem_avail_MB 5457
+   pid 1750438 ni 10 cpu 99.7% rss_MB 572 etime 29:46 --mutate=eps-O1    
+2026-11-22T07:52:19-08:00 load 1.02 1.10 1.05 mem_avail_MB 5480
+   pid 1750438 ni 10 cpu 99.7% rss_MB 575 etime 30:46 --mutate=eps-O1    
+2026-11-22T07:53:19-08:00 load 1.25 1.16 1.08 mem_avail_MB 5463
+   pid 1750438 ni 10 cpu 99.7% rss_MB 582 etime 31:46 --mutate=eps-O1    
+2026-11-22T07:54:19-08:00 load 1.09 1.13 1.07 mem_avail_MB 5455
+   pid 1750438 ni 10 cpu 99.7% rss_MB 584 etime 32:46 --mutate=eps-O1    
+2026-11-22T07:55:19-08:00 load 1.03 1.10 1.06 mem_avail_MB 5431
+   pid 1750438 ni 10 cpu 99.7% rss_MB 586 etime 33:46 --mutate=eps-O1    
+2026-11-22T07:56:19-08:00 load 1.06 1.10 1.06 mem_avail_MB 5349
+   pid 1750438 ni 10 cpu 99.7% rss_MB 661 etime 34:46 --mutate=eps-O1    
+2026-11-22T07:57:19-08:00 load 1.08 1.09 1.06 mem_avail_MB 5361
+   pid 1750438 ni 10 cpu 99.7% rss_MB 674 etime 35:46 --mutate=eps-O1    
+2026-11-22T07:58:19-08:00 load 1.08 1.09 1.06 mem_avail_MB 5299
+   pid 1750438 ni 10 cpu 99.7% rss_MB 719 etime 36:46 --mutate=eps-O1    
+2026-11-22T07:59:19-08:00 load 1.03 1.07 1.06 mem_avail_MB 5260
+   pid 1750438 ni 10 cpu 99.7% rss_MB 763 etime 37:46 --mutate=eps-O1    
+2026-11-22T08:00:19-08:00 load 1.08 1.07 1.06 mem_avail_MB 5226
+   pid 1750438 ni 10 cpu 99.7% rss_MB 812 etime 38:46 --mutate=eps-O1    
+2026-11-22T08:01:19-08:00 load 1.09 1.07 1.06 mem_avail_MB 5203
+   pid 1750438 ni 10 cpu 99.7% rss_MB 830 etime 39:46 --mutate=eps-O1    
+2026-11-22T08:02:19-08:00 load 1.14 1.09 1.06 mem_avail_MB 5195
+   pid 1750438 ni 10 cpu 99.7% rss_MB 854 etime 40:46 --mutate=eps-O1    
+2026-11-22T08:03:19-08:00 load 1.09 1.08 1.06 mem_avail_MB 5003
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1023 etime 41:46 --mutate=eps-O1    
+2026-11-22T08:04:19-08:00 load 1.03 1.07 1.06 mem_avail_MB 5352
+   pid 1750438 ni 10 cpu 99.7% rss_MB 662 etime 42:46 --mutate=eps-O1    
+2026-11-22T08:05:19-08:00 load 1.01 1.05 1.05 mem_avail_MB 5354
+   pid 1750438 ni 10 cpu 99.7% rss_MB 655 etime 43:47 --mutate=eps-O1    
+2026-11-22T08:06:19-08:00 load 1.18 1.09 1.06 mem_avail_MB 5331
+   pid 1750438 ni 10 cpu 99.7% rss_MB 660 etime 44:47 --mutate=eps-O1    
+2026-11-22T08:07:19-08:00 load 1.06 1.07 1.06 mem_avail_MB 5368
+   pid 1750438 ni 10 cpu 99.7% rss_MB 664 etime 45:47 --mutate=eps-O1    
+2026-11-22T08:08:19-08:00 load 1.10 1.08 1.06 mem_avail_MB 5363
+   pid 1750438 ni 10 cpu 99.7% rss_MB 668 etime 46:47 --mutate=eps-O1    
+2026-11-22T08:09:19-08:00 load 1.03 1.07 1.06 mem_avail_MB 5352
+   pid 1750438 ni 10 cpu 99.7% rss_MB 669 etime 47:47 --mutate=eps-O1    
+2026-11-22T08:10:19-08:00 load 1.16 1.10 1.07 mem_avail_MB 5348
+   pid 1750438 ni 10 cpu 99.7% rss_MB 686 etime 48:47 --mutate=eps-O1    
+2026-11-22T08:11:19-08:00 load 1.14 1.09 1.07 mem_avail_MB 5335
+   pid 1750438 ni 10 cpu 99.7% rss_MB 688 etime 49:47 --mutate=eps-O1    
+2026-11-22T08:12:19-08:00 load 1.05 1.07 1.06 mem_avail_MB 5304
+   pid 1750438 ni 10 cpu 99.7% rss_MB 715 etime 50:47 --mutate=eps-O1    
+2026-11-22T08:13:19-08:00 load 1.02 1.06 1.06 mem_avail_MB 5282
+   pid 1750438 ni 10 cpu 99.7% rss_MB 756 etime 51:47 --mutate=eps-O1    
+2026-11-22T08:14:19-08:00 load 1.00 1.05 1.05 mem_avail_MB 5200
+   pid 1750438 ni 10 cpu 99.7% rss_MB 811 etime 52:47 --mutate=eps-O1    
+2026-11-22T08:15:19-08:00 load 1.00 1.03 1.05 mem_avail_MB 5160
+   pid 1750438 ni 10 cpu 99.7% rss_MB 833 etime 53:47 --mutate=eps-O1    
+2026-11-22T08:16:20-08:00 load 1.00 1.03 1.04 mem_avail_MB 5133
+   pid 1750438 ni 10 cpu 99.7% rss_MB 850 etime 54:47 --mutate=eps-O1    
+2026-11-22T08:17:20-08:00 load 1.18 1.07 1.05 mem_avail_MB 5122
+   pid 1750438 ni 10 cpu 99.7% rss_MB 884 etime 55:47 --mutate=eps-O1    
+2026-11-22T08:18:20-08:00 load 1.06 1.05 1.04 mem_avail_MB 5147
+   pid 1750438 ni 10 cpu 99.7% rss_MB 884 etime 56:47 --mutate=eps-O1    
+2026-11-22T08:19:20-08:00 load 1.10 1.07 1.05 mem_avail_MB 5131
+   pid 1750438 ni 10 cpu 99.7% rss_MB 884 etime 57:47 --mutate=eps-O1    
+2026-11-22T08:20:20-08:00 load 1.04 1.05 1.04 mem_avail_MB 5086
+   pid 1750438 ni 10 cpu 99.7% rss_MB 928 etime 58:47 --mutate=eps-O1    
+2026-11-22T08:21:20-08:00 load 1.01 1.04 1.04 mem_avail_MB 4962
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1078 etime 59:47 --mutate=eps-O1    
+2026-11-22T08:22:20-08:00 load 1.00 1.03 1.03 mem_avail_MB 4893
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1130 etime 01:00:47 --mutate=eps-O1    
+2026-11-22T08:23:20-08:00 load 1.26 1.10 1.06 mem_avail_MB 4923
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1123 etime 01:01:47 --mutate=eps-O1    
+2026-11-22T08:24:20-08:00 load 1.09 1.08 1.05 mem_avail_MB 4918
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1123 etime 01:02:47 --mutate=eps-O1    
+2026-11-22T08:25:20-08:00 load 1.06 1.08 1.05 mem_avail_MB 4896
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1122 etime 01:03:47 --mutate=eps-O1    
+2026-11-22T08:26:20-08:00 load 1.08 1.08 1.05 mem_avail_MB 4888
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1120 etime 01:04:47 --mutate=eps-O1    
+2026-11-22T08:27:20-08:00 load 1.03 1.06 1.04 mem_avail_MB 4875
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1123 etime 01:05:47 --mutate=eps-O1    
+2026-11-22T08:28:20-08:00 load 1.01 1.05 1.04 mem_avail_MB 4918
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1117 etime 01:06:47 --mutate=eps-O1    
+2026-11-22T08:29:20-08:00 load 1.04 1.05 1.04 mem_avail_MB 4842
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1189 etime 01:07:47 --mutate=eps-O1    
+2026-11-22T08:30:20-08:00 load 1.01 1.04 1.03 mem_avail_MB 4862
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1184 etime 01:08:47 --mutate=eps-O1    
+2026-11-22T08:31:20-08:00 load 1.08 1.05 1.03 mem_avail_MB 4811
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1222 etime 01:09:47 --mutate=eps-O1    
+2026-11-22T08:32:20-08:00 load 1.13 1.06 1.04 mem_avail_MB 4799
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1220 etime 01:10:47 --mutate=eps-O1    
+2026-11-22T08:33:20-08:00 load 1.17 1.09 1.05 mem_avail_MB 4779
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1267 etime 01:11:47 --mutate=eps-O1    
+2026-11-22T08:34:20-08:00 load 1.19 1.11 1.05 mem_avail_MB 4739
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1266 etime 01:12:47 --mutate=eps-O1    
+2026-11-22T08:35:20-08:00 load 1.15 1.10 1.05 mem_avail_MB 4548
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1469 etime 01:13:47 --mutate=eps-O1    
+2026-11-22T08:36:20-08:00 load 1.05 1.08 1.05 mem_avail_MB 4510
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1483 etime 01:14:47 --mutate=eps-O1    
+2026-11-22T08:37:20-08:00 load 1.10 1.08 1.05 mem_avail_MB 5013
+   pid 1750438 ni 10 cpu 99.7% rss_MB 953 etime 01:15:47 --mutate=eps-O1    
+2026-11-22T08:38:20-08:00 load 1.03 1.06 1.04 mem_avail_MB 5085
+   pid 1750438 ni 10 cpu 99.7% rss_MB 947 etime 01:16:48 --mutate=eps-O1    
+2026-11-22T08:39:20-08:00 load 1.12 1.08 1.05 mem_avail_MB 5098
+   pid 1750438 ni 10 cpu 99.7% rss_MB 947 etime 01:17:48 --mutate=eps-O1    
+2026-11-22T08:40:20-08:00 load 1.17 1.11 1.06 mem_avail_MB 5093
+   pid 1750438 ni 10 cpu 99.7% rss_MB 947 etime 01:18:48 --mutate=eps-O1    
+2026-11-22T08:41:20-08:00 load 1.11 1.10 1.06 mem_avail_MB 5086
+   pid 1750438 ni 10 cpu 99.7% rss_MB 946 etime 01:19:48 --mutate=eps-O1    
+2026-11-22T08:42:20-08:00 load 1.08 1.09 1.06 mem_avail_MB 5096
+   pid 1750438 ni 10 cpu 99.7% rss_MB 946 etime 01:20:48 --mutate=eps-O1    
+2026-11-22T08:43:20-08:00 load 1.14 1.11 1.07 mem_avail_MB 5087
+   pid 1750438 ni 10 cpu 99.7% rss_MB 946 etime 01:21:48 --mutate=eps-O1    
+2026-11-22T08:44:20-08:00 load 1.09 1.10 1.07 mem_avail_MB 5078
+   pid 1750438 ni 10 cpu 99.7% rss_MB 946 etime 01:22:48 --mutate=eps-O1    
+2026-11-22T08:45:20-08:00 load 1.10 1.10 1.07 mem_avail_MB 5079
+   pid 1750438 ni 10 cpu 99.7% rss_MB 946 etime 01:23:48 --mutate=eps-O1    
+2026-11-22T08:46:20-08:00 load 1.04 1.08 1.06 mem_avail_MB 5051
+   pid 1750438 ni 10 cpu 99.7% rss_MB 945 etime 01:24:48 --mutate=eps-O1    
+2026-11-22T08:47:20-08:00 load 1.14 1.09 1.07 mem_avail_MB 5038
+   pid 1750438 ni 10 cpu 99.7% rss_MB 944 etime 01:25:48 --mutate=eps-O1    
+2026-11-22T08:48:20-08:00 load 1.41 1.17 1.09 mem_avail_MB 5068
+   pid 1750438 ni 10 cpu 99.7% rss_MB 944 etime 01:26:48 --mutate=eps-O1    
+2026-11-22T08:49:21-08:00 load 1.15 1.13 1.09 mem_avail_MB 5100
+   pid 1750438 ni 10 cpu 99.7% rss_MB 944 etime 01:27:48 --mutate=eps-O1    
+2026-11-22T08:50:21-08:00 load 1.24 1.16 1.10 mem_avail_MB 5096
+   pid 1750438 ni 10 cpu 99.7% rss_MB 946 etime 01:28:48 --mutate=eps-O1    
+2026-11-22T08:51:21-08:00 load 1.17 1.16 1.10 mem_avail_MB 5088
+   pid 1750438 ni 10 cpu 99.7% rss_MB 946 etime 01:29:48 --mutate=eps-O1    
+2026-11-22T08:52:21-08:00 load 1.27 1.19 1.11 mem_avail_MB 5079
+   pid 1750438 ni 10 cpu 99.7% rss_MB 946 etime 01:30:48 --mutate=eps-O1    
+2026-11-22T08:53:21-08:00 load 1.18 1.18 1.11 mem_avail_MB 5086
+   pid 1750438 ni 10 cpu 99.7% rss_MB 946 etime 01:31:48 --mutate=eps-O1    
+2026-11-22T08:54:21-08:00 load 1.14 1.16 1.10 mem_avail_MB 4951
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1082 etime 01:32:48 --mutate=eps-O1    
+2026-11-22T08:55:21-08:00 load 1.10 1.14 1.10 mem_avail_MB 4878
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1144 etime 01:33:48 --mutate=eps-O1    
+2026-11-22T08:56:21-08:00 load 1.17 1.17 1.11 mem_avail_MB 4852
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1140 etime 01:34:48 --mutate=eps-O1    
+2026-11-22T08:57:21-08:00 load 1.06 1.14 1.10 mem_avail_MB 4876
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1134 etime 01:35:48 --mutate=eps-O1    
+2026-11-22T08:58:21-08:00 load 1.21 1.16 1.10 mem_avail_MB 4897
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1135 etime 01:36:48 --mutate=eps-O1    
+2026-11-22T08:59:21-08:00 load 1.14 1.14 1.10 mem_avail_MB 4899
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1134 etime 01:37:48 --mutate=eps-O1    
+2026-11-22T09:00:21-08:00 load 1.23 1.16 1.10 mem_avail_MB 4890
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1140 etime 01:38:48 --mutate=eps-O1    
+2026-11-22T09:01:21-08:00 load 1.28 1.18 1.11 mem_avail_MB 4883
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1139 etime 01:39:48 --mutate=eps-O1    
+2026-11-22T09:02:21-08:00 load 1.18 1.16 1.10 mem_avail_MB 4872
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1158 etime 01:40:48 --mutate=eps-O1    
+2026-11-22T09:03:21-08:00 load 1.06 1.13 1.09 mem_avail_MB 4870
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1159 etime 01:41:48 --mutate=eps-O1    
+2026-11-22T09:04:21-08:00 load 1.02 1.10 1.08 mem_avail_MB 4821
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1197 etime 01:42:48 --mutate=eps-O1    
+2026-11-22T09:05:21-08:00 load 1.01 1.08 1.08 mem_avail_MB 4824
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1206 etime 01:43:48 --mutate=eps-O1    
+2026-11-22T09:06:21-08:00 load 1.11 1.10 1.08 mem_avail_MB 4749
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1244 etime 01:44:48 --mutate=eps-O1    
+2026-11-22T09:07:21-08:00 load 1.04 1.08 1.08 mem_avail_MB 4764
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1256 etime 01:45:48 --mutate=eps-O1    
+2026-11-22T09:08:21-08:00 load 1.10 1.09 1.08 mem_avail_MB 4565
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1474 etime 01:46:48 --mutate=eps-O1    
+2026-11-22T09:09:21-08:00 load 1.07 1.08 1.08 mem_avail_MB 4547
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1495 etime 01:47:48 --mutate=eps-O1    
+2026-11-22T09:10:21-08:00 load 1.19 1.11 1.09 mem_avail_MB 4938
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1096 etime 01:48:48 --mutate=eps-O1    
+2026-11-22T09:11:21-08:00 load 1.07 1.09 1.09 mem_avail_MB 4914
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1092 etime 01:49:48 --mutate=eps-O1    
+2026-11-22T09:12:21-08:00 load 1.02 1.07 1.08 mem_avail_MB 4953
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1092 etime 01:50:48 --mutate=eps-O1    
+2026-11-22T09:13:21-08:00 load 1.04 1.07 1.08 mem_avail_MB 4930
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1092 etime 01:51:48 --mutate=eps-O1    
+2026-11-22T09:14:21-08:00 load 1.01 1.06 1.07 mem_avail_MB 4948
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1092 etime 01:52:49 --mutate=eps-O1    
+2026-11-22T09:15:21-08:00 load 1.07 1.06 1.07 mem_avail_MB 4942
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1092 etime 01:53:49 --mutate=eps-O1    
+2026-11-22T09:16:21-08:00 load 1.11 1.08 1.08 mem_avail_MB 4905
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1091 etime 01:54:49 --mutate=eps-O1    
+2026-11-22T09:17:21-08:00 load 1.04 1.06 1.07 mem_avail_MB 4905
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1091 etime 01:55:49 --mutate=eps-O1    
+2026-11-22T09:18:21-08:00 load 1.01 1.05 1.07 mem_avail_MB 4939
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1091 etime 01:56:49 --mutate=eps-O1    
+2026-11-22T09:19:21-08:00 load 1.00 1.04 1.06 mem_avail_MB 4954
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1091 etime 01:57:49 --mutate=eps-O1    
+2026-11-22T09:20:21-08:00 load 1.00 1.03 1.06 mem_avail_MB 4930
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1091 etime 01:58:49 --mutate=eps-O1    
+2026-11-22T09:21:21-08:00 load 1.00 1.02 1.05 mem_avail_MB 4951
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1090 etime 01:59:49 --mutate=eps-O1    
+2026-11-22T09:22:21-08:00 load 1.00 1.02 1.04 mem_avail_MB 4949
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1090 etime 02:00:49 --mutate=eps-O1    
+2026-11-22T09:23:21-08:00 load 1.00 1.01 1.04 mem_avail_MB 4933
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1090 etime 02:01:49 --mutate=eps-O1    
+2026-11-22T09:24:22-08:00 load 1.00 1.00 1.03 mem_avail_MB 4946
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1090 etime 02:02:49 --mutate=eps-O1    
+2026-11-22T09:25:22-08:00 load 1.00 1.00 1.03 mem_avail_MB 4940
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1090 etime 02:03:49 --mutate=eps-O1    
+2026-11-22T09:26:22-08:00 load 1.24 1.06 1.04 mem_avail_MB 4903
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1093 etime 02:04:49 --mutate=eps-O1    
+2026-11-22T09:27:22-08:00 load 1.14 1.06 1.04 mem_avail_MB 4889
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1102 etime 02:05:49 --mutate=eps-O1    
+2026-11-22T09:28:22-08:00 load 1.05 1.05 1.04 mem_avail_MB 4868
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1159 etime 02:06:49 --mutate=eps-O1    
+2026-11-22T09:29:22-08:00 load 1.12 1.07 1.04 mem_avail_MB 4883
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1157 etime 02:07:49 --mutate=eps-O1    
+2026-11-22T09:30:22-08:00 load 1.04 1.05 1.04 mem_avail_MB 4879
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1156 etime 02:08:49 --mutate=eps-O1    
+2026-11-22T09:31:22-08:00 load 1.01 1.04 1.03 mem_avail_MB 4870
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1157 etime 02:09:49 --mutate=eps-O1    
+2026-11-22T09:32:22-08:00 load 1.17 1.08 1.04 mem_avail_MB 4871
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1151 etime 02:10:49 --mutate=eps-O1    
+2026-11-22T09:33:22-08:00 load 1.10 1.08 1.04 mem_avail_MB 4869
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1160 etime 02:11:49 --mutate=eps-O1    
+2026-11-22T09:34:22-08:00 load 1.04 1.06 1.04 mem_avail_MB 4876
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1159 etime 02:12:49 --mutate=eps-O1    
+2026-11-22T09:35:22-08:00 load 1.24 1.11 1.05 mem_avail_MB 4835
+   pid 1750438 ni 10 cpu 99.7% rss_MB 1201 etime 02:13:49 --mutate=eps-O1    
+2026-11-22T09:36:22-08:00 load 1.07 1.09 1.05 mem_avail_MB 5782
+   pid 1760714 ni 10 cpu 0.0% rss_MB 1 etime 00:33 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/step4b.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py --mutate=eps-O1
+   pid 1760716 ni 10 cpu 99.8% rss_MB 198 etime 00:33 --mutate=eps-O1    
+2026-11-22T09:37:22-08:00 load 1.12 1.10 1.05 mem_avail_MB 5815
+   pid 1760714 ni 10 cpu 0.0% rss_MB 1 etime 01:33 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/step4b.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py --mutate=eps-O1
+   pid 1760716 ni 10 cpu 99.7% rss_MB 170 etime 01:33 --mutate=eps-O1    
+2026-11-22T09:38:22-08:00 load 1.12 1.10 1.05 mem_avail_MB 5816
+   pid 1760714 ni 10 cpu 0.0% rss_MB 1 etime 02:33 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/step4b.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py --mutate=eps-O1
+   pid 1760716 ni 10 cpu 99.7% rss_MB 185 etime 02:33 --mutate=eps-O1    
+2026-11-22T09:39:22-08:00 load 1.16 1.11 1.06 mem_avail_MB 5785
+   pid 1760714 ni 10 cpu 0.0% rss_MB 1 etime 03:33 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/step4b.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py --mutate=eps-O1
+   pid 1760716 ni 10 cpu 99.7% rss_MB 203 etime 03:33 --mutate=eps-O1    
+2026-11-22T09:40:22-08:00 load 1.19 1.12 1.07 mem_avail_MB 5788
+   pid 1760714 ni 10 cpu 0.0% rss_MB 1 etime 04:33 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/step4b.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py --mutate=eps-O1
+   pid 1760716 ni 10 cpu 99.7% rss_MB 220 etime 04:33 --mutate=eps-O1    
+2026-11-22T09:41:22-08:00 load 1.19 1.13 1.07 mem_avail_MB 5764
+   pid 1760714 ni 10 cpu 0.0% rss_MB 1 etime 05:33 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/step4b.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py --mutate=eps-O1
+   pid 1760716 ni 10 cpu 99.7% rss_MB 227 etime 05:33 --mutate=eps-O1    
+2026-11-22T09:42:22-08:00 load 1.07 1.10 1.07 mem_avail_MB 5799
+   pid 1760714 ni 10 cpu 0.0% rss_MB 1 etime 06:33 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/step4b.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py --mutate=eps-O1
+   pid 1760716 ni 10 cpu 99.7% rss_MB 232 etime 06:33 --mutate=eps-O1    
+2026-11-22T09:43:22-08:00 load 1.09 1.10 1.07 mem_avail_MB 5778
+   pid 1760714 ni 10 cpu 0.0% rss_MB 1 etime 07:33 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/step4b.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py --mutate=eps-O1
+   pid 1760716 ni 10 cpu 99.7% rss_MB 245 etime 07:33 --mutate=eps-O1    
+2026-11-22T09:44:22-08:00 load 0.87 1.04 1.05 mem_avail_MB 5910
+   pid 1761578 ni 10 cpu 0.0% rss_MB 1 etime 00:04 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1761579 ni 10 cpu 97.3% rss_MB 64 etime 00:04     
+2026-11-22T09:45:22-08:00 load 1.02 1.06 1.05 mem_avail_MB 5805
+   pid 1761578 ni 10 cpu 0.0% rss_MB 1 etime 01:04 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1761579 ni 10 cpu 99.5% rss_MB 166 etime 01:04     
+2026-11-22T09:46:22-08:00 load 1.36 1.13 1.08 mem_avail_MB 5821
+   pid 1761578 ni 10 cpu 0.0% rss_MB 1 etime 02:04 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1761579 ni 10 cpu 99.6% rss_MB 177 etime 02:04     
+2026-11-22T09:47:22-08:00 load 1.16 1.12 1.08 mem_avail_MB 5749
+   pid 1761578 ni 10 cpu 0.0% rss_MB 1 etime 03:04 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1761579 ni 10 cpu 99.6% rss_MB 242 etime 03:04     
+2026-11-22T09:48:22-08:00 load 1.11 1.11 1.08 mem_avail_MB 5765
+   pid 1761578 ni 10 cpu 0.0% rss_MB 1 etime 04:04 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1761579 ni 10 cpu 99.7% rss_MB 226 etime 04:04     
+2026-11-22T09:49:22-08:00 load 1.11 1.12 1.08 mem_avail_MB 5776
+   pid 1761578 ni 10 cpu 0.0% rss_MB 1 etime 05:04 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1761579 ni 10 cpu 99.7% rss_MB 243 etime 05:04     
+2026-11-22T09:50:22-08:00 load 1.04 1.09 1.08 mem_avail_MB 5744
+   pid 1761578 ni 10 cpu 0.0% rss_MB 1 etime 06:04 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1761579 ni 10 cpu 99.7% rss_MB 263 etime 06:04     
+2026-11-22T09:51:22-08:00 load 1.08 1.09 1.08 mem_avail_MB 5730
+   pid 1761578 ni 10 cpu 0.0% rss_MB 1 etime 07:04 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1761579 ni 10 cpu 99.7% rss_MB 281 etime 07:04     
+2026-11-22T09:52:22-08:00 load 1.03 1.07 1.07 mem_avail_MB 5734
+   pid 1761578 ni 10 cpu 0.0% rss_MB 1 etime 08:04 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1761579 ni 10 cpu 99.7% rss_MB 294 etime 08:04     
+2026-11-22T09:53:22-08:00 load 1.01 1.06 1.07 mem_avail_MB 5719
+   pid 1761578 ni 10 cpu 0.0% rss_MB 1 etime 09:04 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1761579 ni 10 cpu 99.7% rss_MB 300 etime 09:04     
+2026-11-22T09:54:22-08:00 load 1.05 1.06 1.07 mem_avail_MB 5718
+   pid 1761578 ni 10 cpu 0.0% rss_MB 1 etime 10:04 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1761579 ni 10 cpu 99.7% rss_MB 298 etime 10:04     
+2026-11-22T09:55:22-08:00 load 1.02 1.05 1.06 mem_avail_MB 5885
+2026-11-22T09:56:22-08:00 load 1.12 1.06 1.06 mem_avail_MB 5883
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 00:22 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 99.5% rss_MB 74 etime 00:22     
+2026-11-22T09:57:22-08:00 load 1.08 1.06 1.06 mem_avail_MB 5818
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:22 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 99.7% rss_MB 159 etime 01:22     
+2026-11-22T09:58:22-08:00 load 1.10 1.07 1.07 mem_avail_MB 5833
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 02:22 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 99.7% rss_MB 180 etime 02:22     
+2026-11-22T09:59:22-08:00 load 1.07 1.07 1.07 mem_avail_MB 5796
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 03:22 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 99.7% rss_MB 216 etime 03:22     
+2026-11-22T10:00:23-08:00 load 1.08 1.08 1.07 mem_avail_MB 5796
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 04:22 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 99.7% rss_MB 231 etime 04:22     
+2026-11-22T10:01:23-08:00 load 1.06 1.08 1.07 mem_avail_MB 5769
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 05:22 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 99.7% rss_MB 244 etime 05:22     
+2026-11-22T10:02:23-08:00 load 1.02 1.06 1.07 mem_avail_MB 5747
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 06:22 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 99.7% rss_MB 262 etime 06:22     
+2026-11-22T10:03:23-08:00 load 1.01 1.05 1.06 mem_avail_MB 5736
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 07:22 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 99.7% rss_MB 287 etime 07:22     
+2026-11-22T10:04:23-08:00 load 1.08 1.06 1.06 mem_avail_MB 5708
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 08:22 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 99.7% rss_MB 294 etime 08:22     
+2026-11-22T10:05:23-08:00 load 1.86 1.28 1.14 mem_avail_MB 5706
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 09:22 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 99.7% rss_MB 301 etime 09:22     
+2026-11-22T10:06:23-08:00 load 1.83 1.38 1.18 mem_avail_MB 5699
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 10:22 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 99.7% rss_MB 300 etime 10:22     
+2026-11-22T10:07:23-08:00 load 1.30 1.31 1.17 mem_avail_MB 5632
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 11:22 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 94.7% rss_MB 300 etime 11:22     
+   pid 1765135 ni 10 cpu 99.7% rss_MB 72 etime 00:34 --mutate=gamma    
+2026-11-22T10:08:23-08:00 load 1.22 1.28 1.17 mem_avail_MB 5644
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 12:22 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 87.1% rss_MB 300 etime 12:22     
+   pid 1765200 ni 10 cpu 99.6% rss_MB 62 etime 00:05 --mutate=omega-sign    
+2026-11-22T10:09:23-08:00 load 1.46 1.32 1.19 mem_avail_MB 5661
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 13:22 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 80.5% rss_MB 300 etime 13:22     
+   pid 1765241 ni 10 cpu 99.7% rss_MB 71 etime 00:23 --mutate=weight    
+2026-11-22T10:10:23-08:00 load 1.17 1.26 1.18 mem_avail_MB 5639
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 14:22 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 74.9% rss_MB 300 etime 14:22     
+   pid 1765271 ni 10 cpu 99.8% rss_MB 98 etime 00:42 --mutate=Vsign    
+2026-11-22T10:11:23-08:00 load 1.06 1.21 1.17 mem_avail_MB 5552
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 15:22 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 70.1% rss_MB 300 etime 15:22     
+   pid 1765271 ni 10 cpu 99.7% rss_MB 172 etime 01:42 --mutate=Vsign    
+2026-11-22T10:12:23-08:00 load 1.09 1.19 1.16 mem_avail_MB 5501
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 16:22 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 65.8% rss_MB 300 etime 16:22     
+   pid 1765271 ni 10 cpu 99.7% rss_MB 226 etime 02:42 --mutate=Vsign    
+2026-11-22T10:13:23-08:00 load 1.03 1.15 1.15 mem_avail_MB 5475
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 17:22 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 62.0% rss_MB 300 etime 17:22     
+   pid 1765271 ni 10 cpu 99.7% rss_MB 253 etime 03:42 --mutate=Vsign    
+2026-11-22T10:14:23-08:00 load 1.08 1.14 1.14 mem_avail_MB 5505
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 18:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 58.6% rss_MB 300 etime 18:23     
+   pid 1765271 ni 10 cpu 99.7% rss_MB 235 etime 04:42 --mutate=Vsign    
+2026-11-22T10:15:23-08:00 load 1.10 1.13 1.14 mem_avail_MB 5476
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 19:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 55.6% rss_MB 300 etime 19:23     
+   pid 1765271 ni 10 cpu 99.7% rss_MB 276 etime 05:42 --mutate=Vsign    
+2026-11-22T10:16:23-08:00 load 1.11 1.12 1.13 mem_avail_MB 5435
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 20:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 52.9% rss_MB 300 etime 20:23     
+   pid 1765271 ni 10 cpu 99.7% rss_MB 267 etime 06:42 --mutate=Vsign    
+2026-11-22T10:17:23-08:00 load 1.04 1.09 1.12 mem_avail_MB 5415
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 21:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 50.4% rss_MB 300 etime 21:23     
+   pid 1765271 ni 10 cpu 99.7% rss_MB 291 etime 07:42 --mutate=Vsign    
+2026-11-22T10:18:23-08:00 load 1.01 1.07 1.11 mem_avail_MB 5442
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 22:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 48.1% rss_MB 300 etime 22:23     
+   pid 1765271 ni 10 cpu 99.7% rss_MB 287 etime 08:42 --mutate=Vsign    
+2026-11-22T10:19:23-08:00 load 1.04 1.07 1.10 mem_avail_MB 5651
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 23:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 46.1% rss_MB 300 etime 23:23     
+   pid 1765896 ni 10 cpu 99.7% rss_MB 69 etime 00:16 --mutate=sign    
+2026-11-22T10:20:23-08:00 load 1.20 1.11 1.11 mem_avail_MB 5590
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 24:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 44.2% rss_MB 300 etime 24:23     
+   pid 1765896 ni 10 cpu 99.8% rss_MB 147 etime 01:16 --mutate=sign    
+2026-11-22T10:21:23-08:00 load 1.19 1.12 1.11 mem_avail_MB 5553
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 25:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 42.4% rss_MB 300 etime 25:23     
+   pid 1765896 ni 10 cpu 99.7% rss_MB 179 etime 02:16 --mutate=sign    
+2026-11-22T10:22:23-08:00 load 1.07 1.09 1.09 mem_avail_MB 5523
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 26:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 40.8% rss_MB 300 etime 26:23     
+   pid 1765896 ni 10 cpu 99.7% rss_MB 214 etime 03:16 --mutate=sign    
+2026-11-22T10:23:23-08:00 load 1.02 1.07 1.09 mem_avail_MB 5508
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 27:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 39.3% rss_MB 300 etime 27:23     
+   pid 1765896 ni 10 cpu 99.7% rss_MB 229 etime 04:17 --mutate=sign    
+2026-11-22T10:24:23-08:00 load 1.08 1.09 1.09 mem_avail_MB 5489
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 28:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 37.9% rss_MB 300 etime 28:23     
+   pid 1765896 ni 10 cpu 99.7% rss_MB 238 etime 05:17 --mutate=sign    
+2026-11-22T10:25:23-08:00 load 1.11 1.08 1.09 mem_avail_MB 5483
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 29:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 36.6% rss_MB 300 etime 29:23     
+   pid 1765896 ni 10 cpu 99.7% rss_MB 261 etime 06:17 --mutate=sign    
+2026-11-22T10:26:23-08:00 load 1.11 1.08 1.09 mem_avail_MB 5414
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 30:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 35.4% rss_MB 300 etime 30:23     
+   pid 1765896 ni 10 cpu 99.7% rss_MB 287 etime 07:17 --mutate=sign    
+2026-11-22T10:27:23-08:00 load 1.04 1.07 1.08 mem_avail_MB 5382
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 31:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 34.3% rss_MB 300 etime 31:23     
+   pid 1765896 ni 10 cpu 99.7% rss_MB 294 etime 08:17 --mutate=sign    
+2026-11-22T10:28:23-08:00 load 1.17 1.11 1.10 mem_avail_MB 5655
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 32:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 33.2% rss_MB 300 etime 32:23     
+   pid 1766477 ni 10 cpu 99.8% rss_MB 66 etime 00:11 --mutate=Jsign    
+2026-11-22T10:29:23-08:00 load 1.06 1.09 1.09 mem_avail_MB 5658
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 33:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 32.3% rss_MB 300 etime 33:23     
+   pid 1766509 ni 10 cpu 99.8% rss_MB 81 etime 00:30 --mutate=Kdiv    
+2026-11-22T10:30:23-08:00 load 1.07 1.08 1.09 mem_avail_MB 5557
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 34:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 31.3% rss_MB 300 etime 34:23     
+   pid 1766509 ni 10 cpu 99.7% rss_MB 174 etime 01:30 --mutate=Kdiv    
+2026-11-22T10:31:23-08:00 load 1.02 1.07 1.08 mem_avail_MB 5561
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 35:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 30.4% rss_MB 300 etime 35:23     
+   pid 1766509 ni 10 cpu 99.7% rss_MB 177 etime 02:30 --mutate=Kdiv    
+2026-11-22T10:32:23-08:00 load 1.01 1.05 1.08 mem_avail_MB 5544
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 36:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 29.6% rss_MB 300 etime 36:23     
+   pid 1766509 ni 10 cpu 99.7% rss_MB 187 etime 03:30 --mutate=Kdiv    
+2026-11-22T10:33:23-08:00 load 1.00 1.04 1.07 mem_avail_MB 5541
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 37:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 28.8% rss_MB 300 etime 37:23     
+   pid 1766509 ni 10 cpu 99.7% rss_MB 185 etime 04:30 --mutate=Kdiv    
+2026-11-22T10:34:23-08:00 load 1.00 1.03 1.06 mem_avail_MB 5560
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 38:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 28.0% rss_MB 300 etime 38:23     
+   pid 1766731 ni 10 cpu 99.8% rss_MB 158 etime 00:46 --mutate=Vspin    
+2026-11-22T10:35:23-08:00 load 1.00 1.02 1.06 mem_avail_MB 5558
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 39:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 27.3% rss_MB 300 etime 39:23     
+   pid 1766731 ni 10 cpu 99.7% rss_MB 163 etime 01:46 --mutate=Vspin    
+2026-11-22T10:36:23-08:00 load 1.37 1.14 1.10 mem_avail_MB 5503
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 40:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 26.7% rss_MB 300 etime 40:23     
+   pid 1766731 ni 10 cpu 99.7% rss_MB 202 etime 02:46 --mutate=Vspin    
+2026-11-22T10:37:23-08:00 load 1.13 1.11 1.09 mem_avail_MB 5475
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 41:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 26.0% rss_MB 300 etime 41:23     
+   pid 1766731 ni 10 cpu 99.7% rss_MB 218 etime 03:46 --mutate=Vspin    
+2026-11-22T10:38:23-08:00 load 1.09 1.10 1.09 mem_avail_MB 5404
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 42:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 25.4% rss_MB 300 etime 42:23     
+   pid 1766731 ni 10 cpu 99.7% rss_MB 286 etime 04:46 --mutate=Vspin    
+2026-11-22T10:39:24-08:00 load 1.08 1.10 1.09 mem_avail_MB 5444
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 43:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 24.8% rss_MB 300 etime 43:23     
+   pid 1766731 ni 10 cpu 99.7% rss_MB 270 etime 05:46 --mutate=Vspin    
+2026-11-22T10:40:24-08:00 load 1.03 1.08 1.08 mem_avail_MB 5424
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 44:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 24.2% rss_MB 300 etime 44:23     
+   pid 1766731 ni 10 cpu 99.7% rss_MB 316 etime 06:46 --mutate=Vspin    
+2026-11-22T10:41:24-08:00 load 1.14 1.10 1.09 mem_avail_MB 5411
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 45:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 23.7% rss_MB 300 etime 45:23     
+   pid 1766731 ni 10 cpu 99.7% rss_MB 318 etime 07:46 --mutate=Vspin    
+2026-11-22T10:42:24-08:00 load 1.13 1.10 1.09 mem_avail_MB 5391
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 46:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 23.2% rss_MB 300 etime 46:23     
+   pid 1766731 ni 10 cpu 99.7% rss_MB 332 etime 08:46 --mutate=Vspin    
+2026-11-22T10:43:24-08:00 load 1.79 1.30 1.16 mem_avail_MB 5389
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 47:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 22.7% rss_MB 300 etime 47:23     
+   pid 1766731 ni 10 cpu 99.7% rss_MB 332 etime 09:46 --mutate=Vspin    
+2026-11-22T10:44:24-08:00 load 1.54 1.33 1.18 mem_avail_MB 5642
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 48:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 22.2% rss_MB 300 etime 48:23     
+   pid 1767393 ni 10 cpu 99.7% rss_MB 90 etime 00:34 --mutate=Dhalf    
+2026-11-22T10:45:24-08:00 load 1.23 1.28 1.17 mem_avail_MB 5552
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 49:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 21.8% rss_MB 300 etime 49:23     
+   pid 1767393 ni 10 cpu 99.7% rss_MB 178 etime 01:34 --mutate=Dhalf    
+2026-11-22T10:46:24-08:00 load 1.16 1.24 1.17 mem_avail_MB 5502
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 50:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 21.4% rss_MB 300 etime 50:23     
+   pid 1767393 ni 10 cpu 99.7% rss_MB 189 etime 02:34 --mutate=Dhalf    
+2026-11-22T10:47:24-08:00 load 1.06 1.20 1.16 mem_avail_MB 5365
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 51:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 20.9% rss_MB 300 etime 51:23     
+   pid 1767393 ni 10 cpu 99.7% rss_MB 320 etime 03:34 --mutate=Dhalf    
+2026-11-22T10:48:24-08:00 load 1.02 1.16 1.14 mem_avail_MB 5424
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 52:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 20.5% rss_MB 300 etime 52:23     
+   pid 1767393 ni 10 cpu 99.7% rss_MB 265 etime 04:34 --mutate=Dhalf    
+2026-11-22T10:49:24-08:00 load 1.04 1.14 1.14 mem_avail_MB 5429
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 53:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 20.1% rss_MB 300 etime 53:23     
+   pid 1767393 ni 10 cpu 99.7% rss_MB 287 etime 05:34 --mutate=Dhalf    
+2026-11-22T10:50:24-08:00 load 1.01 1.11 1.13 mem_avail_MB 5424
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 54:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 19.8% rss_MB 300 etime 54:23     
+   pid 1767393 ni 10 cpu 99.7% rss_MB 327 etime 06:34 --mutate=Dhalf    
+2026-11-22T10:51:24-08:00 load 1.11 1.12 1.13 mem_avail_MB 5441
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 55:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 19.4% rss_MB 300 etime 55:23     
+   pid 1767393 ni 10 cpu 99.7% rss_MB 302 etime 07:34 --mutate=Dhalf    
+2026-11-22T10:52:24-08:00 load 1.04 1.10 1.12 mem_avail_MB 5369
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 56:23 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 19.1% rss_MB 300 etime 56:23     
+   pid 1767393 ni 10 cpu 99.7% rss_MB 363 etime 08:34 --mutate=Dhalf    
+2026-11-22T10:53:24-08:00 load 1.13 1.11 1.12 mem_avail_MB 5291
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 57:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 18.7% rss_MB 300 etime 57:24     
+   pid 1767393 ni 10 cpu 99.7% rss_MB 426 etime 09:34 --mutate=Dhalf    
+2026-11-22T10:54:24-08:00 load 1.08 1.10 1.11 mem_avail_MB 5330
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 58:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 18.4% rss_MB 300 etime 58:24     
+   pid 1767393 ni 10 cpu 99.7% rss_MB 376 etime 10:34 --mutate=Dhalf    
+2026-11-22T10:55:24-08:00 load 1.15 1.11 1.11 mem_avail_MB 5360
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 59:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 18.1% rss_MB 300 etime 59:24     
+   pid 1767393 ni 10 cpu 99.7% rss_MB 382 etime 11:34 --mutate=Dhalf    
+2026-11-22T10:56:24-08:00 load 1.17 1.12 1.11 mem_avail_MB 5304
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:00:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 17.8% rss_MB 300 etime 01:00:24     
+   pid 1767393 ni 10 cpu 99.7% rss_MB 395 etime 12:34 --mutate=Dhalf    
+2026-11-22T10:57:24-08:00 load 1.17 1.13 1.11 mem_avail_MB 5238
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:01:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 17.5% rss_MB 300 etime 01:01:24     
+   pid 1767393 ni 10 cpu 99.7% rss_MB 450 etime 13:34 --mutate=Dhalf    
+2026-11-22T10:58:24-08:00 load 1.06 1.10 1.10 mem_avail_MB 5299
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:02:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 17.2% rss_MB 300 etime 01:02:24     
+   pid 1767393 ni 10 cpu 99.7% rss_MB 437 etime 14:34 --mutate=Dhalf    
+2026-11-22T10:59:24-08:00 load 1.07 1.10 1.09 mem_avail_MB 5293
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:03:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 17.0% rss_MB 300 etime 01:03:24     
+   pid 1767393 ni 10 cpu 99.7% rss_MB 442 etime 15:34 --mutate=Dhalf    
+2026-11-22T11:00:24-08:00 load 1.13 1.11 1.09 mem_avail_MB 5290
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:04:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 16.7% rss_MB 300 etime 01:04:24     
+   pid 1767393 ni 10 cpu 99.7% rss_MB 446 etime 16:34 --mutate=Dhalf    
+2026-11-22T11:01:24-08:00 load 1.08 1.10 1.09 mem_avail_MB 5266
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:05:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 16.4% rss_MB 300 etime 01:05:24     
+   pid 1767393 ni 10 cpu 99.7% rss_MB 461 etime 17:34 --mutate=Dhalf    
+2026-11-22T11:02:24-08:00 load 1.03 1.08 1.08 mem_avail_MB 5258
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:06:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 16.2% rss_MB 300 etime 01:06:24     
+   pid 1767393 ni 10 cpu 99.7% rss_MB 461 etime 18:34 --mutate=Dhalf    
+2026-11-22T11:03:24-08:00 load 1.28 1.13 1.10 mem_avail_MB 5271
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:07:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 16.0% rss_MB 300 etime 01:07:24     
+   pid 1767393 ni 10 cpu 99.7% rss_MB 462 etime 19:35 --mutate=Dhalf    
+2026-11-22T11:04:24-08:00 load 1.20 1.14 1.10 mem_avail_MB 5239
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:08:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 15.7% rss_MB 300 etime 01:08:24     
+   pid 1767393 ni 10 cpu 99.7% rss_MB 461 etime 20:35 --mutate=Dhalf    
+2026-11-22T11:05:24-08:00 load 1.07 1.12 1.09 mem_avail_MB 5645
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:09:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 15.5% rss_MB 300 etime 01:09:24     
+   pid 1768786 ni 10 cpu 99.8% rss_MB 82 etime 00:35 --mutate=trace    
+2026-11-22T11:06:24-08:00 load 1.18 1.13 1.10 mem_avail_MB 5586
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:10:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 15.3% rss_MB 300 etime 01:10:24     
+   pid 1768831 ni 10 cpu 99.7% rss_MB 101 etime 00:42 --mutate=adm-E    
+2026-11-22T11:07:24-08:00 load 1.57 1.27 1.15 mem_avail_MB 5517
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:11:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 15.1% rss_MB 300 etime 01:11:24     
+   pid 1768831 ni 10 cpu 99.7% rss_MB 171 etime 01:42 --mutate=adm-E    
+2026-11-22T11:08:24-08:00 load 1.21 1.22 1.14 mem_avail_MB 5503
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:12:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 14.8% rss_MB 300 etime 01:12:24     
+   pid 1768831 ni 10 cpu 99.7% rss_MB 226 etime 02:42 --mutate=adm-E    
+2026-11-22T11:09:24-08:00 load 1.08 1.17 1.13 mem_avail_MB 5482
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:13:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 14.6% rss_MB 300 etime 01:13:24     
+   pid 1768831 ni 10 cpu 99.7% rss_MB 253 etime 03:42 --mutate=adm-E    
+2026-11-22T11:10:24-08:00 load 1.15 1.17 1.13 mem_avail_MB 5477
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:14:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 14.4% rss_MB 300 etime 01:14:24     
+   pid 1768831 ni 10 cpu 99.7% rss_MB 237 etime 04:42 --mutate=adm-E    
+2026-11-22T11:11:24-08:00 load 1.05 1.14 1.11 mem_avail_MB 5453
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:15:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 14.3% rss_MB 300 etime 01:15:24     
+   pid 1768831 ni 10 cpu 99.7% rss_MB 277 etime 05:42 --mutate=adm-E    
+2026-11-22T11:12:24-08:00 load 1.19 1.16 1.12 mem_avail_MB 5468
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:16:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 14.1% rss_MB 300 etime 01:16:24     
+   pid 1768831 ni 10 cpu 99.7% rss_MB 265 etime 06:42 --mutate=adm-E    
+2026-11-22T11:13:24-08:00 load 1.07 1.13 1.11 mem_avail_MB 5431
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:17:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 13.9% rss_MB 300 etime 01:17:24     
+   pid 1768831 ni 10 cpu 99.7% rss_MB 292 etime 07:42 --mutate=adm-E    
+2026-11-22T11:14:24-08:00 load 1.02 1.10 1.10 mem_avail_MB 5650
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:18:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 13.7% rss_MB 300 etime 01:18:24     
+   pid 1769393 ni 10 cpu 99.7% rss_MB 75 etime 00:23 --mutate=adm-P-sign    
+2026-11-22T11:15:24-08:00 load 1.01 1.08 1.09 mem_avail_MB 5568
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:19:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 13.5% rss_MB 300 etime 01:19:24     
+   pid 1769393 ni 10 cpu 99.7% rss_MB 156 etime 01:23 --mutate=adm-P-sign    
+2026-11-22T11:16:24-08:00 load 1.03 1.08 1.09 mem_avail_MB 5527
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:20:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 13.4% rss_MB 300 etime 01:20:24     
+   pid 1769393 ni 10 cpu 99.7% rss_MB 182 etime 02:23 --mutate=adm-P-sign    
+2026-11-22T11:17:25-08:00 load 1.04 1.08 1.09 mem_avail_MB 5491
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:21:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 13.2% rss_MB 300 etime 01:21:24     
+   pid 1769393 ni 10 cpu 99.7% rss_MB 212 etime 03:23 --mutate=adm-P-sign    
+2026-11-22T11:18:25-08:00 load 1.18 1.11 1.10 mem_avail_MB 5493
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:22:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 13.0% rss_MB 300 etime 01:22:24     
+   pid 1769393 ni 10 cpu 99.7% rss_MB 234 etime 04:23 --mutate=adm-P-sign    
+2026-11-22T11:19:25-08:00 load 1.07 1.08 1.09 mem_avail_MB 5480
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:23:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 12.9% rss_MB 300 etime 01:23:24     
+   pid 1769393 ni 10 cpu 99.7% rss_MB 245 etime 05:24 --mutate=adm-P-sign    
+2026-11-22T11:20:25-08:00 load 1.02 1.07 1.08 mem_avail_MB 5453
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:24:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 12.7% rss_MB 300 etime 01:24:24     
+   pid 1769393 ni 10 cpu 99.7% rss_MB 265 etime 06:24 --mutate=adm-P-sign    
+2026-11-22T11:21:25-08:00 load 1.01 1.05 1.08 mem_avail_MB 5445
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:25:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 12.6% rss_MB 300 etime 01:25:24     
+   pid 1769393 ni 10 cpu 99.7% rss_MB 286 etime 07:24 --mutate=adm-P-sign    
+2026-11-22T11:22:25-08:00 load 1.00 1.04 1.07 mem_avail_MB 5437
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:26:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 12.4% rss_MB 300 etime 01:26:24     
+   pid 1769393 ni 10 cpu 99.7% rss_MB 297 etime 08:24 --mutate=adm-P-sign    
+2026-11-22T11:23:25-08:00 load 1.08 1.05 1.07 mem_avail_MB 5517
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:27:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 12.3% rss_MB 300 etime 01:27:24     
+   pid 1769972 ni 10 cpu 99.7% rss_MB 198 etime 00:38 --mutate=eps-O1    
+2026-11-22T11:24:25-08:00 load 1.49 1.16 1.11 mem_avail_MB 5555
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:28:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 12.1% rss_MB 300 etime 01:28:24     
+   pid 1769972 ni 10 cpu 99.7% rss_MB 167 etime 01:38 --mutate=eps-O1    
+2026-11-22T11:25:25-08:00 load 1.90 1.35 1.18 mem_avail_MB 5552
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:29:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 12.0% rss_MB 300 etime 01:29:24     
+   pid 1769972 ni 10 cpu 99.7% rss_MB 185 etime 02:38 --mutate=eps-O1    
+2026-11-22T11:26:25-08:00 load 1.70 1.40 1.21 mem_avail_MB 5481
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:30:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 11.9% rss_MB 300 etime 01:30:24     
+   pid 1769972 ni 10 cpu 99.7% rss_MB 207 etime 03:38 --mutate=eps-O1    
+2026-11-22T11:27:25-08:00 load 1.39 1.37 1.21 mem_avail_MB 5465
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:31:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 11.7% rss_MB 300 etime 01:31:24     
+   pid 1769972 ni 10 cpu 99.7% rss_MB 217 etime 04:38 --mutate=eps-O1    
+2026-11-22T11:28:25-08:00 load 1.14 1.30 1.19 mem_avail_MB 5450
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:32:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 11.6% rss_MB 300 etime 01:32:24     
+   pid 1769972 ni 10 cpu 99.7% rss_MB 223 etime 05:38 --mutate=eps-O1    
+2026-11-22T11:29:25-08:00 load 1.05 1.24 1.18 mem_avail_MB 5472
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:33:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 11.5% rss_MB 300 etime 01:33:24     
+   pid 1769972 ni 10 cpu 99.7% rss_MB 230 etime 06:38 --mutate=eps-O1    
+2026-11-22T11:30:25-08:00 load 1.10 1.21 1.17 mem_avail_MB 5503
+   pid 1764061 ni 10 cpu 0.0% rss_MB 1 etime 01:34:24 -o /home/nathan/Source/negative-mass-raw/I100-rpi5/final.time /home/nathan/Source/negative-mass-venv314/bin/python notes/warp/weitzenbock_boundary.py 
+   pid 1764062 ni 10 cpu 11.4% rss_MB 300 etime 01:34:24     
+   pid 1769972 ni 10 cpu 99.7% rss_MB 238 etime 07:38 --mutate=eps-O1    
+2026-11-22T11:31:25-08:00 load 0.69 1.09 1.13 mem_avail_MB 5973
