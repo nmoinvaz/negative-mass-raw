@@ -50,10 +50,11 @@ All times are UTC−8 (`queue.log`). Every job exited 0 (`done/<job>.rc`); `coll
   20:05, 3 h 55 min against the 8 h stop, 120 evaluations when the count ended.
 - The other seven jobs (`rest.txt`) while the runner session waited for a usage reset, started by the coordinator with two
   workers of `launch_I117.sh`. The first start, 20:33, died by 20:33:31 with no exit status (killed when the `hc exec` that
-  started it returned) after `w_b25_l2` and `w_b25_l3` had cached 20 and 18 points, and their logs were empty. The
-  coordinator reset `qpos.rest.txt` and restarted both workers at 21:36 as systemd user units `nm-i117-rest1` and
-  `nm-i117-rest2`, same command and same cache, so the two b25 W boxes resumed from those points and every other job
-  ran once. All seven ended with rc 0, the last (`w_h2_l3`) at 23:24. The second process started only while the
+  started it returned) and left empty logs and no cached point: raw 13360d3, committed before the first start, has no
+  b25 cache, and the 20 and 18 points in raw 705847e were committed at 21:37:58, after the restart, so they are the
+  restart's. The coordinator reset `qpos.rest.txt` and restarted both workers at 21:36 as systemd user units
+  `nm-i117-rest1` and `nm-i117-rest2`, same command, so the two b25 W boxes began from an empty cache and every other
+  job ran once. All seven ended with rc 0, the last (`w_h2_l3`) at 23:24. The second process started only while the
   15-minute load was below 4 (the start lines of `queue.log` give it: 2.33, 1.26, 3.95, 3.94 to 3.96).
 - The runner session stopped `memwatch.sh` at 23:35 (`memwatch.log` has the load, free memory and rss every minute).
 - Collector: `python collect_i117.py ../../../negative-mass-raw/I117-rpi5 > i117_boxes_output.txt` from `phase2/nonradial`
