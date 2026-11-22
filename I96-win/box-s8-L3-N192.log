@@ -1,0 +1,11 @@
+== krylov: sigma R = 8.0, L = 3.0, v_c = 1.56243, sqrt3 v_c = 2.70621
+  N = 192: rho(T1) v_c = 0.29890 (FL: <= 1/sqrt3 = 0.57735), ||T1|| v_c = 0.60621 (contraction: <= 1), 439 s
+    top eigenvalues of T1 times v_c: -0.0060+0.2988i, -0.0060-0.2988i, +0.0060+0.2988i, +0.0060-0.2988i, +0.0011-0.2525i, -0.0011-0.2525i, -0.0011+0.2525i, +0.0011+0.2525i
+    no real eigenvalue among the top 8: any real zero-mode speed is above 6.1874
+     v    | v/v_c | v rho(T1) | GMRES its | r_pre    | r_phys   | k=0 part | k!=0 part | s_min(D~D^-1) | G           | rel. identity | |eps|^2 range   | Picard its
+     0.50 | 0.320 |    0.0957 |        10 | 5.17e-14 | 1.26e-13 | 1.51e-16 | 1.26e-13  |      0.915714 | 5.60173e-02 |      2.48e-16 | 0.9763-1.0093 | 10 (2e-12)   [392 s, peak nan GB]
+  [PASS] gmres: largest residual at the finest grid 1.3e-13 (target 1e-10)
+  [PASS] identity: worst relative |G + int T| at the finest grid 2.5e-16
+  [PASS] fl_bound: rho(T1) sqrt3 v_c = 0.5177 at the finest grid (FL: <= 1)
+peak resident memory nan GB
+all checks passed
