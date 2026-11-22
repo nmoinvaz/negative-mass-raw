@@ -13,3 +13,70 @@
 2026-11-21T12:32:59-08:00 start factors_mut_jnonlin: d_factors.py --part=factors --skip=harm --mutate=jnonlin --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
 2026-11-21T12:34:15-08:00 end factors_mut_jnonlin rc=1
 2026-11-21T12:34:19-08:00 start pole_z: d_factors.py --part=pole --plant=z --stop=10800 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T12:40:40-08:00 end pole_z rc=0
+2026-11-21T12:40:40-08:00 start pole_s: d_factors.py --part=pole --plant=s --stop=10800 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T12:40:54-08:00 15-min load 3.89 < 4: start pole_mut_nophase: d_factors.py --part=pole --plant=z --mutate=nophase --maxeval=300 --stop=10800 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T12:47:37-08:00 end pole_s rc=0
+2026-11-21T12:47:38-08:00 waiting to start factors_p7603_l2: 1 of this task's processes running, 15-min load 4.21 (needs one process and load < 4)
+2026-11-21T12:53:38-08:00 15-min load 3.97 < 4: start factors_p7603_l2: d_factors.py --part=factors --skip=static --boxes=w_p7603_l2 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T12:59:20-08:00 end factors_p7603_l2 rc=1
+2026-11-21T12:59:20-08:00 15-min load 3.56 < 4: start factors_p7603_l3: d_factors.py --part=factors --skip=static --boxes=w_p7603_l3 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T13:02:41-08:00 end pole_mut_nophase rc=1
+2026-11-21T13:02:41-08:00 15-min load 3.27 < 4: start pole_mut_nogauge: d_factors.py --part=pole --plant=z --mutate=nogauge --maxeval=300 --stop=10800 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T13:05:05-08:00 end factors_p7603_l3 rc=1
+2026-11-21T13:05:05-08:00 15-min load 3.12 < 4: start factors_c075_l2: d_factors.py --part=factors --skip=static --boxes=w_c075_l2 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T13:11:32-08:00 end factors_c075_l2 rc=1
+2026-11-21T13:11:33-08:00 15-min load 3.27 < 4: start factors_p085_l3: d_factors.py --part=factors --skip=static --boxes=w_p085_l3 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T13:21:33-08:00 end factors_p085_l3 rc=1
+2026-11-21T13:21:33-08:00 waiting to start factors_n1_l4: 1 of this task's processes running, 15-min load 4.63 (needs one process and load < 4)
+2026-11-21T13:30:39-08:00 end pole_mut_nogauge rc=1
+2026-11-21T13:30:39-08:00 start pole_mut_reverse: d_factors.py --part=pole --plant=z --mutate=reverse --stop=10800 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T13:38:33-08:00 end pole_mut_reverse rc=1
+2026-11-21T13:38:33-08:00 start harm_diag_p7603_l2_rtol1e-10: d_factors.py --part=factors --skip=static --boxes=w_p7603_l2 --rtol=1e-10 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T13:49:56-08:00 end harm_diag_p7603_l2_rtol1e-10 rc=1
+2026-11-21T13:50:36-08:00 start factors_n1_l4: d_factors.py --part=factors --skip=static --boxes=w_n1_l4 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T13:51:26-08:00 waiting to start mean_n1_l4: 1 of this task's processes running, 15-min load 4.97 (needs one process and load < 4)
+2026-11-21T13:53:29-08:00 end factors_n1_l4 rc=0
+2026-11-21T13:53:29-08:00 start factors_n3_l2: d_factors.py --part=factors --skip=static --boxes=w_n3_l2 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T13:56:28-08:00 end factors_n3_l2 rc=1
+2026-11-21T13:56:28-08:00 start norm_p7603_l2: d_factors.py --part=norm --boxes=w_p7603_l2 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T13:59:21-08:00 end norm_p7603_l2 rc=0
+2026-11-21T13:59:21-08:00 start norm_p7603_l3: d_factors.py --part=norm --boxes=w_p7603_l3 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T14:02:08-08:00 end norm_p7603_l3 rc=0
+2026-11-21T14:02:08-08:00 start norm_c075_l2: d_factors.py --part=norm --boxes=w_c075_l2 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T14:05:02-08:00 end norm_c075_l2 rc=0
+2026-11-21T14:05:02-08:00 start norm_p085_l3: d_factors.py --part=norm --boxes=w_p085_l3 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T14:08:09-08:00 end norm_p085_l3 rc=0
+2026-11-21T14:08:09-08:00 start norm_n1_l4: d_factors.py --part=norm --boxes=w_n1_l4 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T14:09:30-08:00 end norm_n1_l4 rc=0
+2026-11-21T14:09:31-08:00 start norm_n3_l2: d_factors.py --part=norm --boxes=w_n3_l2 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T14:10:45-08:00 end norm_n3_l2 rc=0
+2026-11-21T14:10:45-08:00 start axis_n3_l2: d_factors.py --part=axis --boxes=w_n3_l2 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T14:34:01-08:00 end axis_n3_l2 rc=0
+2026-11-21T14:34:01-08:00 start axis_n3_l3: d_factors.py --part=axis --boxes=w_n3_l3 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T14:59:38-08:00 end axis_n3_l3 rc=0
+2026-11-21T14:59:51-08:00 start factors_mut_nonholo: d_factors.py --part=factors --skip=static --boxes=w_n1_l4 --mutate=nonholo --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T14:59:54-08:00 end factors_mut_nonholo rc=1
+2026-11-21T14:59:54-08:00 start norm_mut_noproj: d_factors.py --part=norm --boxes=w_n1_l4,w_c075_l2 --mutate=noproj --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T15:04:03-08:00 end norm_mut_noproj rc=1
+2026-11-21T15:04:03-08:00 start axis_mut_reverse: d_factors.py --part=axis --boxes=w_n3_l2 --mutate=reverse --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T15:04:30-08:00 end axis_mut_reverse rc=1
+2026-11-21T15:04:30-08:00 start axis_mut_wrongq: d_factors.py --part=axis --boxes=w_n3_l2 --mutate=wrongq --maxeval=3 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T15:05:09-08:00 end axis_mut_wrongq rc=1
+2026-11-21T15:05:28-08:00 start mean_n1_l4: d_factors.py --part=mean --boxes=w_n1_l4 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T15:07:08-08:00 end mean_n1_l4 rc=0
+2026-11-21T15:07:08-08:00 start mean_p7603_l2: d_factors.py --part=mean --boxes=w_p7603_l2 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T15:11:25-08:00 end mean_p7603_l2 rc=0
+2026-11-21T15:11:25-08:00 start mean_c075_l2: d_factors.py --part=mean --boxes=w_c075_l2 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T15:15:32-08:00 end mean_c075_l2 rc=0
+2026-11-21T15:15:32-08:00 start mean_p7603_l3: d_factors.py --part=mean --boxes=w_p7603_l3 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T15:19:50-08:00 end mean_p7603_l3 rc=0
+2026-11-21T15:19:50-08:00 start mean_p085_l3: d_factors.py --part=mean --boxes=w_p085_l3 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T15:24:12-08:00 end mean_p085_l3 rc=1
+2026-11-21T15:24:12-08:00 start mean_n3_l2: d_factors.py --part=mean --boxes=w_n3_l2 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T15:25:53-08:00 end mean_n3_l2 rc=1
+2026-11-21T15:25:53-08:00 start mean_mut_nonholo: d_factors.py --part=mean --boxes=w_n1_l4 --mutate=nonholo --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T15:25:56-08:00 end mean_mut_nonholo rc=1
+2026-11-21T15:25:57-08:00 start harm_diag_p7603_l2_rtol1e-12: d_factors.py --part=factors --skip=static --boxes=w_p7603_l2 --rtol=1e-12 --raw=/home/nathan/Source/negative-mass-raw/I122-rpi5
+2026-11-21T15:26:50-08:00 waiting to start mean_rho0.05_p085_l3: 1 of this task's processes running, 15-min load 5.01 (needs one process and load < 4)
+2026-11-21T15:45:15-08:00 end harm_diag_p7603_l2_rtol1e-12 rc=1

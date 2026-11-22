@@ -1,0 +1,8 @@
+d_factors.py parts mean, RTOL 1e-08, raw /home/nathan/Source/negative-mass-raw/I122-rpi5
+
+===== part mean
+# mean: phi = arg D has the mean value property (16 points on a circle of radius rho around the middle point)
+  w_p085_l3: s = +1.05+1.5i, rho = 0.25: |grad phi| 4.12, |lap phi| L^2 2.22e-05 against 1.13e-05: EXCEEDS (ratio 1.97e+00); planted holomorphic 4.0e-14 passes, planted non-harmonic 2.0e-03 fails as required (17 new evaluations)
+  [FAIL] mean: mean value property of arg D in w_p085_l3; worst ratio to the limit 1.969e+00
+
+FAILED: mean  (261 s)

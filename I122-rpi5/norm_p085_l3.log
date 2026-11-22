@@ -1,0 +1,14 @@
+d_factors.py parts norm, RTOL 1e-08, raw /home/nathan/Source/negative-mass-raw/I122-rpi5
+
+===== part norm
+# norm: D with each eigenvector of np.linalg.eig in scalar_plane scaled by a random nonzero complex factor
+    w_p085_l3 s = +0.575+0.75i: |D| 1.243e-02, relative difference 7.41e-15, sigma_min(S) 1.0000
+    w_p085_l3 s = +1.05+1.5i: |D| 4.320e-03, relative difference 1.78e-14, sigma_min(S) 1.0000
+    w_p085_l3 s = +1.525+2.25i: |D| 1.873e-03, relative difference 1.17e-14, sigma_min(S) 1.0000
+    w_p085_l3 s = +0.29+0.375i: |D| 2.228e-02, relative difference 1.52e-14, sigma_min(S) 1.0000
+    w_p085_l3 s = +1.81+1.25i: |D| 2.784e-03, relative difference 2.85e-14, sigma_min(S) 1.0000
+  w_p085_l3: worst 2.85e-14 (10 new evaluations)
+  [PASS] norm: largest relative difference of D 2.85e-14 (limit 1e-10) at 5 points in 1 boxes
+   smallest sigma_min(S) of the scalar plane's block at these points (reported, no criterion): 1.0000
+
+all checks passed  (186 s)
