@@ -29,7 +29,7 @@ choptuik-large-d is touched.
 
 Code commits (branch `wip/i8-polar-exact` of nmoinvaz/negative-mass): script `verify_polar_exact.py` at 62b62df, its output
 file at 9031363, `RESULTS.md` at f42f9b9. Step 2: 3 min 25 s wall, peak rss 80 MB, exit 0. Step 3: both equations, and the six
-planted ones, are exactly 0, symbolically in twelve variables (gcd-free engine, 4 s) and at 20 rational points (21 s); the
+planted ones, are exactly 0, symbolically in twelve variables (gcd-free engine, 4 s) and at 20 rational points (23 s); the
 first attempt with sympy's gcd-based field did not get past J' in 5 min 48 s (`probe/`). Step 4: `matter_sv.py` ran for the four
 stars, exit 0, 60 to 90 s each, peak rss 93 MB; sv2/sv1 stays between 0.58 and 0.96. Memory: the highest rss sampled by
 `memwatch.log` is 121 MB, the lowest available memory 5057 MB; no process was limited by it.
