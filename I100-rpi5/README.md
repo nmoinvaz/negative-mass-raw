@@ -38,9 +38,10 @@ The pass criteria and the controls' target lists are in the script (`CONTROLS`) 
 
 ## Results
 
-Code commits on `wip/i100-boundary` of nmoinvaz/negative-mass: dd91e9a (the first draft, step 2 ran on 6f2d7c2's predecessor 5f002b2 for step 3),
-746ed46 (the checks and the controls' target lists, frozen before the first control run), d74edc7 (the `eps-O1` control on
-lighter data) and 3d15e19 (the final script).
+Code commits on `wip/i100-boundary` of nmoinvaz/negative-mass: dd91e9a (step 2), 5f002b2 (step 3), 6f2d7c2 (step 3b),
+746ed46 (the checks and the controls' target lists, frozen before the first control run, step 4), d74edc7 (the `eps-O1`
+control on lighter data, step 4b), f557b9d (the script that produced the final output, step 5), c816cc9 (the output file) and
+fd55c4e (the run time in the docstring, which changes no output line).
 
 | step | command (args to `weitzenbock_boundary.py`) | commit | exit | wall | peak rss | result |
 |---|---|---|---|---|---|---|
@@ -76,3 +77,14 @@ changed; `failed` is the set of checks that failed, and only a control's targets
 | `eps-O1` | FIRED | ['no_divergence', 'limit_exists'] | 8 min 9 s (step 4b) |
 
 `memwatch.log` has the load and free memory once a minute (report only, nothing stopped).
+
+Step 5: `python notes/warp/weitzenbock_boundary.py > notes/warp/weitzenbock_boundary_output.txt` at f557b9d, exit 0, 1 h 34 min
+53 s, peak rss 480 MiB (`final.time`), 21 checks pass, 0 fail, 18 controls FIRED, 0 SILENT; `final.log` is the output file
+byte for byte. A first launch of step 5 at 3d15e19 was stopped after 12 min, before any control, because the symbol count that
+`free_symbols` printed depended on which data families the process had built earlier (150 in a staged run, 153 in the full one);
+f557b9d takes the symbol sets from the general data, and no check or criterion changed. The step 3 and 3b logs came from the
+staged runs of the earlier commits and are kept as they are.
+
+`memwatch.log` (report only, nothing was stopped): lowest available memory 4510 MiB, highest 1-minute load 2.02, which includes
+choptuik-large-d's work. The 4 h stop condition for a single sphere integral never applied: the longest sphere integral took
+seconds, the series build of the general data 7 min.
