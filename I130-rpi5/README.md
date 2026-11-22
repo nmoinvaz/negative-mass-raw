@@ -23,6 +23,7 @@ is touched.
 | step | what | log | stop condition |
 |---|---|---|---|
 | 2 | planted parts first: omega' against the closed form and against #86's `slice_data`, orthonormality, Clifford parallelism, mu and J' with hand values, alpha = 0 against `identity_diag_general`, then the flat and Lichnerowicz identities rotated by arbitrary alpha | `step2_*.log` | none |
+| 3 | `--no-controls --only=identity_rot_Kdiag,identity_rot_general,V_reduced_rot` | 792fd1d | 0 | 1 min 2 s | 87.6 MiB | `identity_rot_Kdiag` (616 terms a side) and `identity_rot_general` (alpha, A, B, C, K'_ij and eps arbitrary, 848 terms a side) have difference 0 modulo c^2 + s^2 = 1, 25 s and 21 s of sympy; `V_reduced_rot` passes. The 8 h stop condition never applied |
 | 3 | the general rotated identity, alpha, A, B, C, K'_ij and eps arbitrary, as a systemd unit | `step3_*.log` | 8 h wall; then stop it and report the largest case that finished |
 | 4 | every mutation, old and new, each must exit 1 and fire on its targets | `mutate_<name>.log`, `step4.time` | none |
 | 5 | `python notes/warp/weitzenbock_conf.py > notes/warp/weitzenbock_conf_output.txt`, must exit 0 | `final.log` | none |
@@ -37,4 +38,4 @@ Code commits on `wip/i130-rot` of nmoinvaz/negative-mass: the rotated-frame chec
 |---|---|---|---|---|---|---|
 | 2 | `--no-controls --skip=identity_rot_Kdiag,identity_rot_general,V_reduced_rot` | 792fd1d | 0 | 2 min 56 s | 102.6 MiB | 58 checks pass, 0 fail: #87's and #99's 42, and 16 rotated ones (planted omega', orthonormality, Clifford, mu and J' with hand values, 4-metric route, alpha = 0 against `identity_diag_general` term for term, and the identities flat, Lichnerowicz, flat with K', Alcubierre rotated) |
 
-Logs: `step2.log` (stdout), `step2.err` (timings), `step2.time` (`/usr/bin/time -v`), `step2.cmd`, `memwatch.log` (report only).
+Logs: `step2.log`, `step3.log` (stdout), `step2.err` (timings), `step2.time` (`/usr/bin/time -v`), `step2.cmd`, `memwatch.log` (report only).
