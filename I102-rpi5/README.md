@@ -67,3 +67,39 @@ and Rodal (sigma = 4, R_b = 5, v = 1), from the resultant of E1 and E2 in c^2, w
   point is known; then the curve of Type III points on the tanh wall at sigma R_b = 8 and 20, solved at 60 digits, each point
   checked by singular values of M - lam (two nonzero, one below 1e-45) and |N^3| < 1e-40; the points at v = 1/2 (Le) and
   v = 1 (Rodal), or the statement that the set is empty there and how that was decided. Status word: numerical evidence.
+
+## Controls, frozen before the first control run
+
+Each control is `he_type3.py --mutate=NAME`. It runs only its target checks and must exit 1 with every target failing. The lists
+below were written before any control run and are not changed; `CONTROLS` in the script must match them name for name (checked by
+`check_controls.py` in this folder).
+
+| # | control | what it changes | targets |
+|---|---|---|---|
+| 1 | `no-rank` | the type test (`classify`, `he_type_exact`) calls every D = 0 tensor Type II | planted_types, exact_points, description |
+| 2 | `disc-sign` | the sign of D in `classify` and `he_type_exact` | planted_types, type2_failures, description |
+| 3 | `E2-typo` | E2 = 27 c0 + c2^3 | planted_types, polynomials, cert_T0, cert_disc, ray_family, exact_points |
+| 4 | `E1-typo` | E1 = c2^2 - 4 c1 | planted_types, polynomials, cert_T0, cert_disc, ray_family, exact_points |
+| 5 | `table-typo` | the sign of R_0x in the typed table of he_surface.md section 1 | polynomials |
+| 6 | `weight-typo` | the weight of E1 under (A, B, u) -> (l A, l^2 B, l u) taken as 5 | polynomials |
+| 7 | `cof-rank-perturb` | the first cofactor of the rank certificate plus 1 | cert_rank |
+| 8 | `cof-rank-drop` | the cofactor of m02,12 set to 0 | cert_rank |
+| 9 | `cof-g1-perturb` | the cofactor g1 of E1 plus 1 | cert_T0 |
+| 10 | `cof-g2-drop` | the cofactor g2 of E2 set to 0 | cert_T0 |
+| 11 | `cof-B-perturb` | the cofactor B_0 of the first minor plus 1 | cert_T0 |
+| 12 | `theta-typo` | Theta with (1 + c) in place of (1 + c^2) | cert_T0 |
+| 13 | `disc27` | 26 D + E2^2 in place of 27 D + E2^2 | cert_disc |
+| 14 | `cof-disc-perturb` | G plus c2 | cert_disc |
+| 15 | `axis-typo` | the vanishing of M[0,2], M[1,2] tested at c = 1/2 and 1/3, not at c = 0 and s = 0 | equator_axis |
+| 16 | `ray-typo` | the cofactor n_X of the null ray plus 1 | ray_family, exact_points |
+| 17 | `nf-radicand` | the radicand of Q(sqrt d) plus 1 when a point is built | exact_points, description |
+| 18 | `phi-off` | phi shifted by 1/1000 when a point is built | exact_points, description |
+| 19 | `loosen-E1` | the description without E1 = 0 | type2_failures, description |
+| 20 | `loosen-E2` | the description without E2 = 0 | type2_failures, description |
+| 21 | `loosen-T` | the description without T != 0 | type2_failures, description |
+| 22 | `jets-sign` | the sign of f'' in the own tanh jets | tanh_jets |
+| 23 | `P-term` | the first term of the shadow polynomial P dropped | tanh_planted |
+| 24 | `T-filter-off` | the T != 0 test of `admit` skipped | tanh_planted |
+| 25 | `tanh-off-root` | r shifted by 1e-6 before the 60-digit rank test of each point | tanh_points |
+| 26 | `enclosure-shift` | the Krawczyk box moved by 20 half-widths off the root | tanh_enclosure |
+| 27 | `eq-end-typo` | the equator end solved from r a + 3F = 0, not r a + 2F = 0 | tanh_curve |
