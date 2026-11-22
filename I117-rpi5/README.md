@@ -7,7 +7,8 @@ Issue: https://github.com/nmoinvaz/negative-mass/issues/117
 ## Code and environment
 
 Code: worktree `~/Source/negative-mass-i117` on branch `wip/i117-boxes` at a05cd0b, `phase2/nonradial/winding2.py` and
-`zerilli_zeros.py`, unmodified, run from `phase2/nonradial`. The collector `collect_i117.py` is written after the runs.
+`zerilli_zeros.py`, unmodified, run from `phase2/nonradial`. The collector `collect_i117.py` and its output
+`i117_boxes_output.txt` are in the same branch at 55fbb9e (written after the runs).
 
 Python: `~/Source/negative-mass-venv314/bin/python`. Every run is `nice -n 10` with `OMP_NUM_THREADS=1` and
 `OPENBLAS_NUM_THREADS=1` (both scripts are single-threaded), detached with `setsid nohup`. At most two processes at a
@@ -41,15 +42,37 @@ box (a pair in the symmetric boxes, one zero in the upper boxes).
 - Stop condition of the pilot `w_h3_l2`: it runs alone and is stopped at 8 h (`LIMIT=28800`, exit 124), and then reported
   before anything else starts.
 
+## What ran
+
+All times are UTC−8 (`queue.log`). Every job exited 0 (`done/<job>.rc`); `collect_i117.py` reads them.
+
+- Pilot `w_h3_l2` (`pilot.txt`, `LIMIT=28800`), alone, started by the runner session at 16:10 on 2026-11-21 and ended
+  20:05, 3 h 55 min against the 8 h stop, 120 evaluations when the count ended.
+- The other seven jobs (`rest.txt`) while the runner session waited for a usage reset, started by the coordinator with two
+  workers of `launch_I117.sh`. The first start, 20:33, died by 20:33:31 with no exit status (killed when the `hc exec` that
+  started it returned) after `w_b25_l2` and `w_b25_l3` had cached 20 and 18 points, and their logs were empty. The
+  coordinator reset `qpos.rest.txt` and restarted both workers at 21:36 as systemd user units `nm-i117-rest1` and
+  `nm-i117-rest2`, same command and same cache, so the two b25 W boxes resumed from those points and every other job
+  ran once. All seven ended with rc 0, the last (`w_h2_l3`) at 23:24. The second process started only while the
+  15-minute load was below 4 (the start lines of `queue.log` give it: 2.33, 1.26, 3.95, 3.94 to 3.96).
+- The runner session stopped `memwatch.sh` at 23:35 (`memwatch.log` has the load, free memory and rss every minute).
+- Collector: `python collect_i117.py ../../../negative-mass-raw/I117-rpi5 > i117_boxes_output.txt` from `phase2/nonradial`
+  exits 0. Its eight mutations (`noplant`, `shift`, `nolog`, `badbox`, `rc`, `zcheck`, `signs`, `noguard`) each exit 1,
+  logged in `collect_mutate_<name>.log` (the last line is the exit status).
+
 ## Files
 
 - `jobs.txt`: one line `job|script|arguments` per job. Job `<job>` runs as `python -u <script> <arguments>
   --cachedir=<this folder>/cache`, with stdout and stderr in `<job>.log` and its exit status in `done/<job>.rc`.
   `w_*` jobs are `winding2.py`, `z_*` jobs `zerilli_zeros.py`.
-- `pilot.txt` (the pilot `w_h3_l2`), and the list files of the later stages.
+- `pilot.txt` (the pilot `w_h3_l2`) and `rest.txt` (the other seven jobs), the list files; `qpos.<list>` is the next line of each.
 - `launch_I117.sh LIST`: the gated queue worker (`LIMIT=SECONDS` is a timeout). It tests the gate before it takes a job,
   so a waiting worker holds no job. `queue.log` has the start, wait and end lines, `qpos.<list>` the next line of a list.
 - `memwatch.sh` and `memwatch.log`: once a minute the load, the free memory and the cpu and rss of the task's processes. It
   reports only and stops nothing.
-- `cache/`: the per-evaluation caches of the eight jobs (pickles, written in place while a job runs). No cache was copied in:
-  the eight boxes are new.
+- `cache/`: the per-evaluation caches of the eight jobs (pickles, written in place, 80 KB in all). No cache was copied in:
+  the eight boxes are new. Points in each at the end: `winding2` 144 (`h3_l2`), 195 (`b25_l2`), 245 (`b25_l3`), 110
+  (`h2_l3`); `zerilli_zeros` 98 (`h3_l2`), 83 (`b25_l2`), 83 (`b25_l3`), 100 (`h2_l3`). The planted pass adds points after
+  the count, so these exceed the evaluations in the logs.
+- `collect_mutate_<name>.log`: the eight mutations of `collect_i117.py` on these logs, each ending `exit 1`.
+- `launcher_*.out`, `gate.lock`: empty launcher output and the gate's lock file.
