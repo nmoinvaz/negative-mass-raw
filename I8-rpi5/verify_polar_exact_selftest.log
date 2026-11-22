@@ -1,0 +1,17 @@
+# /home/nathan/Source/negative-mass-venv314/bin/python -I verify_polar_exact.py --selftest
+verify_polar_exact.py  --selftest
+commit e595ec2  python 3.14.10  sympy 1.14.0
+polar_matrix_generated.py sha256 46b68ab9fd06541b: 5 float exponents turned into ints, 1 int/int quotients into Rational; exp, sqrt, log used in the program: none
+  E[tth   ] jets: G, H0, H1, H1', K
+  E[tr    ] jets: F, G, G', H0, H1, K, K'
+  E[rth   ] jets: F, H0, H0', H1, K'
+  E[rr    ] jets: F, F', H0, H0', H0'', H1, H1', K', K''
+  E[KGR   ] jets: F, F', F'', G, H0, H0', H1, K'
+  E[KGI   ] jets: F, G, G', G'', H0, H1, H1', K
+  E[tt    ] jets: F, G, H0, H0', H0'', H1, H1', K, K'
+  E[ang_tr] jets: F, H0, H0', H1, K, K', K''
+selftest: symbolic J, h from the program with sympy symbols; D = d/dr + sum (q' d/dq), q' = the flow
+  symbolic derivatives built 12s
+  point 1: J 36/36 equal  J' 36/36 equal  h 6/6 equal  h' 6/6 equal  h'' 6/6 equal   [17s]
+  point 2: J 36/36 equal  J' 36/36 equal  h 6/6 equal  h' 6/6 equal  h'' 6/6 equal   [20s]
+RESULT selftest PASS: series and sympy chain rule agree exactly
