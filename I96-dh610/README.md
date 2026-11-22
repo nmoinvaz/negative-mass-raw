@@ -15,3 +15,7 @@ Code: negative-mass `wip/i96-thin` (c5fd40d), from the worktree root, one thread
 - `sectors-s16-p340.log` and `.exit`: the run's output and exit code.
 - `eig/`: the eigenvalue files per sector.
 - `memwatch.log`: the run's RSS and the machine's MemAvailable once a minute (report only; nothing is stopped over memory).
+
+**Attempt 1 (2026-11-22 04:34 UTC) was killed** about a minute after it started, when the `hc exec` that launched it
+with `setsid nohup` returned; nothing in it failed. Its log and memory log are kept as `attempt1-killed-*.log`.
+Attempt 2 runs the same `run.sh` and `memwatch.sh` as systemd user units `nm-i96-s16` and `nm-i96-s16-mem`.
