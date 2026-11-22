@@ -40,7 +40,10 @@ Sizes are written in the job lines of `jobs.txt`. `--raw` writes one `tanh_sigma
    beside a sigma R = 16 solve; once the rule above changed, `conv-s16-p320-n320` started beside it at 14:53): `--part=vc,planted,shift,tanh --sigmas=8 --p=8:200 --npan=160 --procs=1 --raw=eig`,
    all 11 sectors m = 1/2 to 21/2, alone. A process that dies restarts with the same command (the dead log kept as
    `<job>.died<N>.log`, `queue.ps1`).
-4. `conv-s16-*`: as step 1 at sigma R = 16, from the pilot's P and N. At most 4 attempts.
+4. `conv-s16-*`: as step 1 at sigma R = 16, from the pilot's P and N. At most 4 attempts. Attempt 1 (P = N = 320) failed
+   at 2.4e-8. The task's rule (P + 40) would give P = 360 for attempt 2; the coordinator changed the step to +20 here
+   (attempt 2: P = 340, N = 320, tolerance still 1e-8), because sigma R = 16 sectors at P = 360 would peak near 31 GiB
+   (scaled) and cannot run on this laptop, and ordered that no run be made at P = 360.
 5. `sectors-s16`: `--part=vc,planted,shift,tanh --sigmas=16 --p=16:P --npan=N --procs=1 --raw=eig`, all 11 sectors.
 6. `box-*`: `frank_loss.py --part=krylov --sigmas=S --Ns=N --L=L --vs=0.5` at two or three L at one fixed spacing per
    sigma R, as tanh_spectrum.md section 6.
@@ -84,3 +87,19 @@ A: dK = 28, p = 320, Lmap = 2, 320 panels. B: dK = 38, p = 330, Lmap = 3, 480 pa
 | planted | rho = 1 to 7.3e-15; `real_identity` 2.3e-16 |
 
 `sectors-s8` started at 14:41 (the pilot's exit), alone, as the coordinator ordered.
+
+### Sizes at sigma R = 16
+
+| attempt | P | N | largest move of the leading \|mu\| v_c (relative) | wall | peak working set | exit |
+|---|---|---|---|---|---|---|
+| `conv-s16-p320-n320` | 320 | 320 | 2.4e-8 (Lmap = 4, m = 3/2); next 1.9e-8 (Lmap = 4, m = 1/2); then p = 300 at 2.4e-9 | 12635 s | 9.78 GiB (10018 MiB), estimate was 10 GiB | 1, `conv` fails |
+
+Only the Lmap = 4 variant fails (as at sigma R = 8, P = 160); the 160 and 640 panel variants move the base by 6.7e-10 and
+3.7e-10 at most, so the failing variants point to the radial size. Attempt 2 started 18:27 (P = 340, N = 320), beside
+the sigma R = 8 sectors (expected peaks about 11 and 10 GiB, under 24 GiB).
+
+### Box probe
+
+`box-s8-L1-N64`: `frank_loss.py --part=krylov --sigmas=8 --Ns=64 --L=1 --vs=0.5` (dx = 0.03125, 4 points across the
+wall 1/8 wide), exit 1 (`gmres` residual 1.1e-2 and `identity` 2.4e-1 fail, as the script's own checks report), 43 s,
+rho(T1) v_c = 0.21589. The sampler saw no process over 100 MB, so no peak was recorded; the probe is too small to tell.

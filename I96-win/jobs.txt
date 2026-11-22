@@ -3,3 +3,5 @@ conv-s8-p200-n160|tanh_spectrum.py|--part=conv --sigmas=8 --p=8:200 --npan=160 -
 pilot-s16|tanh_spectrum.py|--part=vc,planted,tanh --sigmas=16 --ms=0.5 --p=16:320 --npan=320 --procs=1 --raw=%~dp0eig
 sectors-s8|tanh_spectrum.py|--part=vc,planted,shift,tanh --sigmas=8 --p=8:200 --npan=160 --procs=1 --raw=%~dp0eig
 conv-s16-p320-n320|tanh_spectrum.py|--part=conv --sigmas=16 --p=16:320 --npan=320 --convtol=1e-8 --procs=1
+box-s8-L1-N64|frank_loss.py|--part=krylov --sigmas=8 --Ns=64 --L=1 --vs=0.5
+conv-s16-p340-n320|tanh_spectrum.py|--part=conv --sigmas=16 --p=16:340 --npan=320 --convtol=1e-8 --procs=1
