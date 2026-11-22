@@ -105,4 +105,19 @@ Under `--mutate=NAME` only the control's targets run, and each target must fail,
 
 ## Results
 
-(filled in at each post)
+Code commits on `wip/i101-review-surface` of nmoinvaz/negative-mass: 93e3a0b (step 2), 622cad8 and ce38d51 (step 3), af4e293 (the
+scripts that produced the step 4b and step 5 results; the three controls lists of the scripts equal the frozen lists above),
+5a2db26 (the review and the output files).
+
+| step | command (args to the script in `notes/warp/`) | commit | exit | wall | peak rss | result |
+|---|---|---|---|---|---|---|
+| 2 | `review_he_surface_ricci.py --no-controls` | 93e3a0b | 0 | 1.7 s | not measured | 4 checks pass (`step2.log`) |
+| 3 | `review_he_surface_typeI.py --no-controls`, `review_he_surface_points.py --no-controls` | ce38d51 | 0, 0 | 5.8 s, 1 min 50 s | not measured | 6 and 6 checks pass (`step3_typeI.log`, `step3_points.log`) |
+| 3 | `review_he_surface_typeI.py --derive` | 622cad8 | 0 | 43 s | not measured | nullspace dimension 4, the typed cofactors lie in its span (`derive_T1.log`) |
+| 4 | `--mutate=NAME` for 25 controls, `step4.sh`, `step4.list` | ce38d51 | all 1 | 2 to 111 s, longest `tanh-sign` | 61 MiB | 25 FIRED on exactly their frozen targets (`step4.summary`) |
+| 4b | the 8 `typeI` controls again after an edit of `T3_multiplicity`, the old logs in `step4_typeI_before_T3_edit/` | af4e293 | all 1 | 3 s each | 58 MiB | 8 FIRED (`step4b.summary`) |
+| 5 | the three scripts with no arguments, `final.sh`, stdout to `notes/warp/review_he_surface_*_output.txt` | af4e293 | 0, 0, 0 | 5.1 s, 10.3 s, 3 min 41 s | 58, 60, 62 MiB | 4 + 6 + 6 checks pass, 8 + 8 + 9 controls fire (`final_*.time`, `final_*.err` empty) |
+
+The controls, each of which must fail its frozen target list and exit 1, are in `step4.summary`, `step4b.summary` and the
+`mutate_<script>_<control>.log` files. The `.time` lines were taken with `/usr/bin/time -f "%e %M"` (seconds, KiB).
+

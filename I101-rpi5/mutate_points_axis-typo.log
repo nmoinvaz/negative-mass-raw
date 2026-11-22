@@ -1,0 +1,5 @@
+review_he_surface_points.py: sympy 1.14.0, mpmath 1.3.0
+control axis-typo: the axis check expects the diagonal with the sign of b flipped; targets ['axis_points']
+[FAIL] axis_points: a = 0 (6 points): M = diag(-v^2 F b, -v^2 F b, 0), D = 0, Type I; a != 0 (20 random exact points): D = -4 a^2 v^6 Q_ax^2 u^6 < 0, Type IV (20 of 20)
+control axis-typo: failed ['axis_points'] of targets ['axis_points'] -> FIRED
+exit 1

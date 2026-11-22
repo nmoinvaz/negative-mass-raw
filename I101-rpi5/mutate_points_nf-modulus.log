@@ -1,0 +1,6 @@
+review_he_surface_points.py: sympy 1.14.0, mpmath 1.3.0
+control nf-modulus: the modulus of Q(sqrt 113) is changed to 112; targets ['type3_exact']
+   Q(sqrt 112): F = 0.0495, a = -1.2943, b = -3.8121, r = 1.3365, b + a u = -4.7806, lam = 2.58585
+[FAIL] type3_exact: e null, kernel of Sigma(lam) e: True, consistent effective variables: True, D = 0: True, triple root (c2^2 = 3 c1, 27 c0 = c2^3): False, N^2 != 0: True, N^3 = 0: False, rank N = 3, b + a u != 0: True, r > 0: True, 8 phi^2 + 9 phi - 1 = 0: False
+control nf-modulus: failed ['type3_exact'] of targets ['type3_exact'] -> FIRED
+exit 1

@@ -1,0 +1,5 @@
+review_he_surface_ricci.py: sympy 1.14.0, mpmath 1.3.0
+control axis-typo: Q_ax: (F b - a^2)^2 -> (F b + a^2)^2; targets ['equator_axis']
+[FAIL] equator_axis: D of my 3x3 block equals he_type.md's closed forms: equator yes, axis NO
+control axis-typo: failed ['equator_axis'] of targets ['equator_axis'] -> FIRED
+exit 1

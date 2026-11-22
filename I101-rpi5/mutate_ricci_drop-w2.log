@@ -1,0 +1,8 @@
+review_he_surface_ricci.py: sympy 1.14.0, mpmath 1.3.0
+control drop-w2: the lab-frame metric loses the shift's square in g_tt; targets ['ricci_numeric']
+   v = 0.7 r = 1.3 c = 0.6: max rel. deviation 0.543, max |R(e_phi, .)| 0.158, R_rr^numeric = -0.281243082402
+   v = 1.4 r = 0.9 c = -0.3: max rel. deviation 6.05, max |R(e_phi, .)| 0.577, R_rr^numeric = 1.58369546655
+   v = 2.2 r = 2.1 c = 0.8: max rel. deviation 0.0254, max |R(e_phi, .)| 0.00139, R_rr^numeric = -0.00683772249465
+[FAIL] ricci_numeric: symbolic frame Ricci equals 50-digit second differences of the lab metric at 3 points, worst 6.05 (tol 1e-30)
+control drop-w2: failed ['ricci_numeric'] of targets ['ricci_numeric'] -> FIRED
+exit 1
