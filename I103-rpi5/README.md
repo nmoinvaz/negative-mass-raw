@@ -27,3 +27,9 @@ Written as they happen, one log per step (`<step>.log` stdout, `<step>.err` stde
 | step | what | log |
 |---|---|---|
 | 1 | `he_type.py --no-controls` on the unchanged code (1 m 49 s wall, 102 s user, peak rss 1.5 GB, exit 0), diff against the committed output in `s1_diff_vs_committed.txt` | `s1_base_nocontrols.log` |
+| 2 | `exact_sign` against sympy's `evalf(400)` on random algebraic expressions, 400 each at seeds 103 and 104 (`fuzz_sign.py`; 320 and 322 outside the rational branch; exit 0, 0 mismatches). With the old rounding restored the same run fails (147 mismatches, exit 1) | `s3_fuzz_sign.log`, `s3_fuzz_sign2.log`, `s3_fuzz_sign_mutate_nsimplify.log` |
+| 3 | new code, `he_type.py --no-controls` (exit 0, 8 of 8, 1 m 52 s), `--mutate=nsimplify` (exit 1, `planted` fails, as targeted), `--mutate=disc-sign` (exit 1, `planted` fails) | `s3_nocontrols.log`, `s3_mutate_nsimplify.log`, `s3_mutate_disc-sign.log` |
+
+Scripts: `run_step.sh` and `run_any.sh` (run one step and write `<step>.time` from `/usr/bin/time -v`, `<step>.err`, `done/<step>.rc`),
+`step3.sh`, `step4.sh`. Support: `support/search_tridiagonal_R0.py`, `support/search_symmetric_R0.py` and
+`support/search_elliptic_points.py` (the search for rational tensors with D = +-j^6), `support/probe_old_code.py`.
