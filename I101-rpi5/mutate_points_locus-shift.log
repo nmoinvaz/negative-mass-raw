@@ -1,0 +1,9 @@
+review_he_surface_points.py: sympy 1.14.0, mpmath 1.3.0
+control locus-shift: v on the Type I points is scaled by 101/100; targets ['exact_points']
+   T3 fails: conditions (T1, T2, T3) = ('0', '0', '0'), in the description False, not Type I as required True type II m 3 rank 1
+   T2 fails: conditions (T1, T2, T3) = ('0', '3249/6400', '19/25'), in the description False, not Type I as required True type II m 2 rank 2
+   T1 fails: conditions (T1, T2, T3) = ('-23.0028', '0', '24/125'), in the description False, not Type I as required True b = -22.7588486305 (-a u = 0.244), D-gap 8.85e-29, singular values of M - lam: ['3.21e-60', '38.9', '140.0']
+   Type I points with F < 0 (where -F < r a < -c^2 F fails and v F s^2 >= 2|c| fails): 6, with v F s^2 < 0: 6
+[FAIL] exact_points: 24 points on T1, T2, T3 have D = 0 exactly, a double root, rank 1, (v F s^2)^2 >= 4 c^2 and independent T1, T2 (Type I 0 of 24; 6 with F < 0); the three points failing exactly one condition are not Type I and lie outside the description: True; 6 real roots of D(b) off T1 at six generic parameter sets, 0 of them Type I
+control locus-shift: failed ['exact_points'] of targets ['exact_points'] -> FIRED
+exit 1

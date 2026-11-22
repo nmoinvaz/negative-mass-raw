@@ -1,0 +1,5 @@
+review_he_surface_typeI.py: sympy 1.14.0
+control tgt-DT1: 4 c^2 -> 3 c^2 in the factor of D on T1; targets ['D_on_T1']
+[FAIL] D_on_T1: D(b = -a u) - v^6 a^6 u^6 (v^2 F^2 s^4 - 3c^2) P2^2 = -F**4*a**6*c**6*u**6*v**10 - 2*F**3*a**7*c**6*u**5*v**10 - 2*F**3*a**7*c**4*u**5*v**10 - F**2*a**8*c**6*u**4*v**10 - 4*F**2*a**8*c**4*u**4*v**10 - F**2*a**8*c**2*u**4*v**10 - 2*F**2*a**6*c**6*u**6*v**8 - 2*F*a**9*c**4*u**3*v**10 - 2*F*a**9*c**2*u**3*v**10 - 2*F*a**7*c**6*u**5*v**8 - 2*F*a**7*c**4*u**5*v**8 - a**10*c**2*u**2*v**10 - 2*a**8*c**4*u**4*v**8 - a**6*c**6*u**6*v**6; Theta^2 - 4 v^2 a^2 Pu - v^2 a^2 u^2 (v^2 F^2 s^4 - 3c^2) = -a**2*c**2*u**2*v**2; D - disc(chi_2) chi_2(lam*)^2 = 0
+control tgt-DT1: failed ['D_on_T1'] of targets ['D_on_T1'] -> FIRED
+exit 1

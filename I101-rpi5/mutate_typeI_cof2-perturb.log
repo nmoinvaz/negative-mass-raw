@@ -1,0 +1,5 @@
+review_he_surface_typeI.py: sympy 1.14.0
+control cof2-perturb: one cofactor of the T2 certificate gets +1; targets ['cert_T2']
+[FAIL] cert_T2: lam certificate yes; P2 certificate yes; converse minors in <b + a u, lam - lam*, Pu> NO; per-minor converse [True, True, False, True, True, True]
+control cof2-perturb: failed ['cert_T2'] of targets ['cert_T2'] -> FIRED
+exit 1

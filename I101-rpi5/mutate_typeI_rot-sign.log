@@ -1,0 +1,5 @@
+review_he_surface_typeI.py: sympy 1.14.0
+control rot-sign: the rotation is by -theta, r^ = (c, -s); targets ['rotated_quantities']
+[FAIL] rotated_quantities: j_r, j_theta, R'_r,theta = -c v F j_theta, R'_00, R'_rr, R'_theta,theta agree with he_surface.md section 1 (no restriction to T1); mismatches: ['j_r', 'j_theta', "R'_r,theta", 'tau + c v F j_theta', "R'_rr", "R'_theta,theta"]
+control rot-sign: failed ['rotated_quantities'] of targets ['rotated_quantities'] -> FIRED
+exit 1

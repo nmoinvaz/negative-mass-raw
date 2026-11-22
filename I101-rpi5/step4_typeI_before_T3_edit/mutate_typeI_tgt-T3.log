@@ -1,0 +1,5 @@
+review_he_surface_typeI.py: sympy 1.14.0
+control tgt-T3: 1 + c^2 -> 1 + c in the T3 offset; targets ['T3_multiplicity']
+[FAIL] T3_multiplicity: chi|T1 - (x - lam*)[(x - lam*)(x - lam* - Theta) + v^2 a^2 Pu] = -F**3*a**3*c**6*u**3*v**6 + F**3*a**3*c**5*u**3*v**6 + 2*F**3*a**3*c**4*u**3*v**6 - 2*F**3*a**3*c**3*u**3*v**6 - F**3*a**3*c**2*u**3*v**6 + F**3*a**3*c*u**3*v**6 - F**2*a**4*c**6*u**2*v**6 + F**2*a**4*c**5*u**2*v**6 + 2*F**2*a**4*c**4*u**2*v**6 - 2*F**2*a**4*c**3*u**2*v**6 - F**2*a**4*c**2*u**2*v**6 + F**2*a**4*c*u**2*v**6 + 2*F**2*a**2*c**4*u**2*v**4*x - 2*F**2*a**2*c**3*u**2*v**4*x - 2*F**2*a**2*c**2*u**2*v**4*x + 2*F**2*a**2*c*u**2*v**4*x - F*a**5*c**6*u*v**6/4 + F*a**5*c**5*u*v**6/4 + F*a**5*c**4*u*v**6/2 - F*a**5*c**3*u*v**6/2 - F*a**5*c**2*u*v**6/4 + F*a**5*c*u*v**6/4 + F*a**3*c**4*u*v**4*x - F*a**3*c**3*u*v**4*x - F*a**3*c**2*u*v**4*x + F*a**3*c*u*v**4*x - F*a*c**2*u*v**2*x**2 + F*a*c*u*v**2*x**2; Sigma(lam*) theta^ on T1 = [0, 0, 0]; chi_2(lam*) - v^2 a^2 Pu = 0; chi_2'(lam*) + Theta = 0; Theta - v^2 a u (2 r a + (1 + c^2) F) = -F*a*c**2*u*v**2 + F*a*c*u*v**2
+control tgt-T3: failed ['T3_multiplicity'] of targets ['T3_multiplicity'] -> FIRED
+exit 1

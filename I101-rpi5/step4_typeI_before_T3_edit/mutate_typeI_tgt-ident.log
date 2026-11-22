@@ -1,0 +1,5 @@
+review_he_surface_typeI.py: sympy 1.14.0
+control tgt-ident: 1 + v^2 F^2 -> 1 + v F^2 in the necessity identity; targets ['identity_necessity']
+[FAIL] identity_necessity: j_theta v c a u (1 + v^2 F^2) + m_e + c v F m_d reduces to F**2*a**2*c*s*u**2*v**4/2 - F**2*a**2*c*s*u**2*v**3/2 + F**2*a*b*c*s*u*v**4/2 - F**2*a*b*c*s*u*v**3/2 for symbolic lam; m_d = -j_theta (B' + c v F j_r): True; m_e = -j_theta (c v F A + j_r): True; A + B' = v^2 F a u s^2: True; at a = 0: m_a + A^2, j_r and j_theta^4 + m_a C'^2 + 2 A C' m_b - m_b^2 reduce to [0, 0, 0]
+control tgt-ident: failed ['identity_necessity'] of targets ['identity_necessity'] -> FIRED
+exit 1
