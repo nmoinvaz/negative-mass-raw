@@ -26,4 +26,4 @@ Written as they happen, one log per step (`<step>.log` stdout, `<step>.err` stde
 
 | step | what | log |
 |---|---|---|
-| 1 | `he_type.py --no-controls` on the unchanged code, for the run time | `s1_base_nocontrols.log` |
+| 1 | `he_type.py --no-controls` on the unchanged code (1 m 49 s wall, 102 s user, peak rss 1.5 GB, exit 0), diff against the committed output in `s1_diff_vs_committed.txt` | `s1_base_nocontrols.log` |
