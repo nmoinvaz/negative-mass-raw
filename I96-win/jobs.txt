@@ -5,3 +5,4 @@ sectors-s8|tanh_spectrum.py|--part=vc,planted,shift,tanh --sigmas=8 --p=8:200 --
 conv-s16-p320-n320|tanh_spectrum.py|--part=conv --sigmas=16 --p=16:320 --npan=320 --convtol=1e-8 --procs=1
 box-s8-L1-N64|frank_loss.py|--part=krylov --sigmas=8 --Ns=64 --L=1 --vs=0.5
 conv-s16-p340-n320|tanh_spectrum.py|--part=conv --sigmas=16 --p=16:340 --npan=320 --convtol=1e-8 --procs=1
+box-s8-L3.5-N224|frank_loss.py|--part=krylov --sigmas=8 --Ns=224 --L=3.5 --vs=0.5
