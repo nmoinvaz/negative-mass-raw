@@ -120,3 +120,11 @@ Four sizes at the fixed spacing dx = 2L/N = 1/32 (4 points across the wall 1/8 w
 `box-s8-L3.5-N224` was added to `jobs.txt` by a new runner session after the first one ended at its account's limit. The
 peak is the sampler's `peak=` for `frank_loss.py --part=krylov ... --Ns=224` in `memory-sampler.log`, here every 10 s
 (the script itself prints `peak nan GB` on Windows).
+
+Result of `box-s8-L3.5-N224` (exit 0, `box-s8-L3.5-N224.log.exit` holds 0): rho(T1) v_c = 0.29912, `gmres` 1.3e-13 (k = 0 part
+1.4e-19), `identity` 1.4e-15, all checks passed. Started 23:38:31, ended 00:01:12 (1361 s; the log's 725 s + 633 s).
+Peak working set 21,189 MiB = 20.69 GiB (sampler every 10 s, 133 lines; the estimate from N^3 growth of L = 3 was 20.3
+GiB). The machine's free memory fell to 3.7 GiB at the lowest. Nothing was stopped. `box_extrap.py` prints the increments
+with L, their ratios and the extrapolated gap to the sectors' 0.29951080; `reals_check.py 8` counts the sigma R = 8 real
+eigenvalues two ways and lists the one that B reproduces (the identity check's eigenfunction floor is in unscaled mu).
+The sampler was stopped after the run.
