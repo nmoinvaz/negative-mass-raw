@@ -1,0 +1,26 @@
+weitzenbock_boundary.py, issue #100. sympy 1.14.0, python 3.14.10. mutation: Vsign
+
+== 1. The gammas and the inner product of weitzenbock_conf.py ==
+
+== 2. The machinery: derivative, sphere moments, spin connection, flux formula ==
+
+== 3. Planted boundary values: Schwarzschild, a dipole in psi, Bowen-York ==
+    [schwarzschild: 9 symbols, flux, E and P series in 1.1 s]
+    [BY: 12 symbols, flux, E and P series in 3.4 s]
+[FAIL] planted_BY: same data: the flux is m (1 + m/2r) |eps_0|^2 - (1 + m/2r)^-2 P.xi_0 by hand (tr K-hat = 0 and the sphere mean of n_i K-hat_ij r^2 is 2 P_j), so the boundary term is m |eps_0|^2 - P.xi_0
+
+== 3b. The eps_0 that gives E - |P| ==
+[FAIL] aligned_eps0: P = (1, 2, 2), |P| = 3, eps_0 = sqrt(2) times a column of (1 +- P.alpha/|P|)/2: xi_0 = +P/|P|: |eps_0|^2 = 1, xi_0 = [1/3, 2/3, 2/3], boundary term m + 3; xi_0 = -P/|P|: |eps_0|^2 = 1, xi_0 = [-1/3, -2/3, -2/3], boundary term m - 3. So E - |P| is the boundary term of the eps_0 with xi_0 = +P/|P|, and E + |P| that of xi_0 = -P/|P|
+
+== 4. The boundary term of the general data against E |eps_0|^2 - P.xi_0 ==
+    [general: 162 symbols, flux, E and P series in 425.2 s]
+[FAIL] bdy_vs_adm: B = (1/4 pi) lim flux of V = E |eps_0|^2 - P.xi_0 with E = m, P_ADM = [Px, Py, Pz], xi_0^j = <eps_0, g^0 g^j eps_0> from the same data; 20 terms in B, 12 in B - (E |eps_0|^2 - P.xi_0)
+    [T: 39 symbols, flux, E and P series in 12.5 s]
+[FAIL] bdy_vs_adm_T: with an added r^-2 term T_ij(n) in K-hat that has a trace (not Bowen-York), the boundary term is still E |eps_0|^2 - P.xi_0, P_ADM = P + [T01_010/6 + T02_001/6 - T11_100/6 - T22_100/6]... so the trace term of the ADM integral and of V is exercised
+
+== 5. V against the pointwise identity, on the same data, at exact points ==
+[FAIL] identity_points: |nabla~ eps|^2 - |D~ eps|^2 + 4 pi (mu |eps|^2 - J.xi) = psi^-6 d_a(psi^4 V^a), with V as used in the flux, on data with every symbol group (psi_2, psi_3, T, K3, eps_0, eta, eps_1, eps_2) at exact rational values: (1, 2, 2): lhs -0.0049782464, rhs 0.098234825, lhs - rhs -0.103; (-2, 3, 6): lhs -0.0093793281, rhs -0.0054191330, lhs - rhs -0.00396; (4, -4, 7): lhs 0.0018725872, rhs 0.0021540590, lhs - rhs -0.000281 (40 s)
+[FAIL] flip_consistent: with nabla~ = nabla - (1/2) K g g^0 the identity holds with +J.xi and V_K = +(1/2) P_ij xi^j (residual 531649136389386166959375/5150986493779304187416576 at (1, 2, 2)), and the boundary term is m |eps_0|^2 + P.xi_0: the sign of P.xi_0 follows nabla~
+
+checks: 0 passed, 6 failed ['planted_BY', 'aligned_eps0', 'bdy_vs_adm', 'bdy_vs_adm_T', 'identity_points', 'flip_consistent']. 568 s
+control Vsign: targets ['identity_points', 'planted_BY', 'bdy_vs_adm', 'bdy_vs_adm_T', 'flip_consistent', 'aligned_eps0'] FIRED

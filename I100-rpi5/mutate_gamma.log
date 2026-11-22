@@ -1,0 +1,16 @@
+weitzenbock_boundary.py, issue #100. sympy 1.14.0, python 3.14.10. mutation: gamma
+
+== 1. The gammas and the inner product of weitzenbock_conf.py ==
+[FAIL] clifford: {g^a, g^b} = 2 eta^ab, g^0 anti-Hermitian, g^j Hermitian: the note's gammas
+
+== 2. The machinery: derivative, sphere moments, spin connection, flux formula ==
+
+== 3. Planted boundary values: Schwarzschild, a dipole in psi, Bowen-York ==
+
+== 4. The boundary term of the general data against E |eps_0|^2 - P.xi_0 ==
+
+== 5. V against the pointwise identity, on the same data, at exact points ==
+[FAIL] identity_points: |nabla~ eps|^2 - |D~ eps|^2 + 4 pi (mu |eps|^2 - J.xi) = psi^-6 d_a(psi^4 V^a), with V as used in the flux, on data with every symbol group (psi_2, psi_3, T, K3, eps_0, eta, eps_1, eps_2) at exact rational values: (1, 2, 2): lhs -0.011273114, rhs -0.0099217511, lhs - rhs -0.00135; (-2, 3, 6): lhs -0.012650835, rhs -0.012325167, lhs - rhs -0.000326; (4, -4, 7): lhs 0.0016281258, rhs 0.0030439496, lhs - rhs -0.00142 (41 s)
+
+checks: 0 passed, 2 failed ['clifford', 'identity_points']. 41 s
+control gamma: targets ['clifford', 'identity_points'] FIRED

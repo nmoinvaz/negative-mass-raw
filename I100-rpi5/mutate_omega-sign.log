@@ -1,0 +1,18 @@
+weitzenbock_boundary.py, issue #100. sympy 1.14.0, python 3.14.10. mutation: omega-sign
+
+== 1. The gammas and the inner product of weitzenbock_conf.py ==
+
+== 2. The machinery: derivative, sphere moments, spin connection, flux formula ==
+[FAIL] omega_vs_conf: Om_i = (1/4) psi^-2 (g^i phislash - phislash g^i), phi = 2 d ln psi, equals weitzenbock_conf's Geo(psi).Om_i computed from the Christoffel symbols, for arbitrary psi(x, y, z)
+
+== 3. Planted boundary values: Schwarzschild, a dipole in psi, Bowen-York ==
+    [schwarzschild: 9 symbols, flux, E and P series in 1.1 s]
+[FAIL] planted_B_schwarzschild: psi = 1 + m/2r, K = 0, eps = eps_0: V^i = -2 psi^-3 d_i psi |eps_0|^2 by hand, flux m (1 + m/2r) |eps_0|^2, so the boundary term is m |eps_0|^2 = E |eps_0|^2
+
+== 4. The boundary term of the general data against E |eps_0|^2 - P.xi_0 ==
+
+== 5. V against the pointwise identity, on the same data, at exact points ==
+[FAIL] identity_points: |nabla~ eps|^2 - |D~ eps|^2 + 4 pi (mu |eps|^2 - J.xi) = psi^-6 d_a(psi^4 V^a), with V as used in the flux, on data with every symbol group (psi_2, psi_3, T, K3, eps_0, eta, eps_1, eps_2) at exact rational values: (1, 2, 2): lhs -0.0049782464, rhs 0.056816920, lhs - rhs -0.0618; (-2, 3, 6): lhs -0.0093793281, rhs -0.0064586894, lhs - rhs -0.00292; (4, -4, 7): lhs 0.0018725872, rhs 0.0014140085, lhs - rhs 0.000459 (40 s)
+
+checks: 0 passed, 3 failed ['omega_vs_conf', 'planted_B_schwarzschild', 'identity_points']. 41 s
+control omega-sign: targets ['omega_vs_conf', 'planted_B_schwarzschild', 'identity_points'] FIRED
