@@ -1,0 +1,24 @@
+weitzenbock_boundary.py, issue #100. sympy 1.14.0, python 3.14.10. mutation: Dhalf
+
+== 1. The gammas and the inner product of weitzenbock_conf.py ==
+
+== 2. The machinery: derivative, sphere moments, spin connection, flux formula ==
+
+== 3. Planted boundary values: Schwarzschild, a dipole in psi, Bowen-York ==
+    [schwarzschild: 9 symbols, flux, E and P series in 1.0 s]
+[FAIL] planted_B_schwarzschild: psi = 1 + m/2r, K = 0, eps = eps_0: V^i = -2 psi^-3 d_i psi |eps_0|^2 by hand, flux m (1 + m/2r) |eps_0|^2, so the boundary term is m |eps_0|^2 = E |eps_0|^2
+    [dipole: 12 symbols, flux, E and P series in 3.1 s]
+[FAIL] planted_dipole: psi = 1 + m/2r + (d.n)/r^2: E and the boundary term are still m and m |eps_0|^2, with no terms of order r^2 or r
+
+== 4. The boundary term of the general data against E |eps_0|^2 - P.xi_0 ==
+    [general: 162 symbols, flux, E and P series in 845.9 s]
+[FAIL] bdy_vs_adm: B = (1/4 pi) lim flux of V = E |eps_0|^2 - P.xi_0 with E = m, P_ADM = [Px, Py, Pz], xi_0^j = <eps_0, g^0 g^j eps_0> from the same data; 52 terms in B, 40 in B - (E |eps_0|^2 - P.xi_0)
+[FAIL] eps1_drops: the eps_1 and eps_2 coefficients enter the order r^0 integrand (pointwise it has 588 terms) but not its sphere integral: the spin part's eps_1 term is -Re<eps_0, nslash dslash_tan eps_1> (eps1_hand), a rotation derivative with antisymmetric g^i g^k whose sphere integral is 0
+[FAIL] eps1_hand: the 504 terms of the order r^0 integrand that contain eps_1 equal -Re<eps_0, nslash dslash_tan eps_1> modulo n^2 = 1, with dslash_tan = g^k (d_nk - n_k n.d_n): nslash dslash_tan = sum_{i<k} g^i g^k (n_i d_k - n_k d_i) is a sum of rotation generators with antisymmetric g^i g^k, whose sphere integral is 0
+[FAIL] free_symbols: the boundary term depends on m, P and eps_0 only: not on the angular parts of psi, the r^-3 terms of K-hat, or eps_1 and eps_2 (153 symbols)
+
+== 5. V against the pointwise identity, on the same data, at exact points ==
+[FAIL] identity_points: |nabla~ eps|^2 - |D~ eps|^2 + 4 pi (mu |eps|^2 - J.xi) = psi^-6 d_a(psi^4 V^a), with V as used in the flux, on data with every symbol group (psi_2, psi_3, T, K3, eps_0, eta, eps_1, eps_2) at exact rational values: (1, 2, 2): lhs -0.0049782464, rhs 0.034087384, lhs - rhs -0.0391; (-2, 3, 6): lhs -0.0093793281, rhs 0.015686840, lhs - rhs -0.0251; (4, -4, 7): lhs 0.0018725872, rhs -0.0063248301, lhs - rhs 0.00820 (41 s)
+
+checks: 0 passed, 7 failed ['planted_B_schwarzschild', 'planted_dipole', 'bdy_vs_adm', 'eps1_drops', 'eps1_hand', 'free_symbols', 'identity_points']. 1310 s
+control Dhalf: targets ['identity_points', 'planted_B_schwarzschild', 'planted_dipole', 'bdy_vs_adm', 'eps1_drops', 'eps1_hand', 'free_symbols'] FIRED

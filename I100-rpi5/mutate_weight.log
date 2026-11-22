@@ -1,0 +1,18 @@
+weitzenbock_boundary.py, issue #100. sympy 1.14.0, python 3.14.10. mutation: weight
+
+== 1. The gammas and the inner product of weitzenbock_conf.py ==
+
+== 2. The machinery: derivative, sphere moments, spin connection, flux formula ==
+[FAIL] div_formula: psi^-6 d_a(psi^4 V^a) equals the covariant divergence d_a U^a + Gamma^a_ak U^k of U = psi^-2 V, for arbitrary psi and V; so the flux of V through a coordinate sphere is the integral of psi^4 V^a n_a r^2 dOmega by Gauss's theorem in flat R^3
+
+== 3. Planted boundary values: Schwarzschild, a dipole in psi, Bowen-York ==
+    [schwarzschild: 9 symbols, flux, E and P series in 1.0 s]
+[FAIL] planted_B_schwarzschild: psi = 1 + m/2r, K = 0, eps = eps_0: V^i = -2 psi^-3 d_i psi |eps_0|^2 by hand, flux m (1 + m/2r) |eps_0|^2, so the boundary term is m |eps_0|^2 = E |eps_0|^2
+
+== 4. The boundary term of the general data against E |eps_0|^2 - P.xi_0 ==
+
+== 5. V against the pointwise identity, on the same data, at exact points ==
+[FAIL] identity_points: |nabla~ eps|^2 - |D~ eps|^2 + 4 pi (mu |eps|^2 - J.xi) = psi^-6 d_a(psi^4 V^a), with V as used in the flux, on data with every symbol group (psi_2, psi_3, T, K3, eps_0, eta, eps_1, eps_2) at exact rational values: (1, 2, 2): lhs -0.0049782464, rhs -0.032826639, lhs - rhs 0.0278; (-2, 3, 6): lhs -0.0093793281, rhs -0.012712286, lhs - rhs 0.00333; (4, -4, 7): lhs 0.0018725872, rhs 0.0019270488, lhs - rhs -0.0000545 (39 s)
+
+checks: 0 passed, 3 failed ['div_formula', 'planted_B_schwarzschild', 'identity_points']. 40 s
+control weight: targets ['div_formula', 'planted_B_schwarzschild', 'identity_points'] FIRED

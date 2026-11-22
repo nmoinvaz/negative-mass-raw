@@ -1,0 +1,15 @@
+weitzenbock_boundary.py, issue #100. sympy 1.14.0, python 3.14.10. mutation: Jsign
+
+== 1. The gammas and the inner product of weitzenbock_conf.py ==
+
+== 2. The machinery: derivative, sphere moments, spin connection, flux formula ==
+
+== 3. Planted boundary values: Schwarzschild, a dipole in psi, Bowen-York ==
+
+== 4. The boundary term of the general data against E |eps_0|^2 - P.xi_0 ==
+
+== 5. V against the pointwise identity, on the same data, at exact points ==
+[FAIL] identity_points: |nabla~ eps|^2 - |D~ eps|^2 + 4 pi (mu |eps|^2 - J.xi) = psi^-6 d_a(psi^4 V^a), with V as used in the flux, on data with every symbol group (psi_2, psi_3, T, K3, eps_0, eta, eps_1, eps_2) at exact rational values: (1, 2, 2): lhs 0.055395439, rhs -0.0049782464, lhs - rhs 0.0604; (-2, 3, 6): lhs -0.0083496159, rhs -0.0093793281, lhs - rhs 0.00103; (4, -4, 7): lhs 0.0020212792, rhs 0.0018725872, lhs - rhs 0.000149 (40 s)
+
+checks: 0 passed, 1 failed ['identity_points']. 40 s
+control Jsign: targets ['identity_points'] FIRED

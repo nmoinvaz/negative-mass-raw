@@ -1,0 +1,19 @@
+weitzenbock_boundary.py, issue #100. sympy 1.14.0, python 3.14.10. mutation: sphere
+
+== 1. The gammas and the inner product of weitzenbock_conf.py ==
+
+== 2. The machinery: derivative, sphere moments, spin connection, flux formula ==
+[FAIL] planted_sphere: (a-1)!!(b-1)!!(c-1)!!/(a+b+c+1)!! is (1/4 pi) of the integral of nx^a ny^b nz^c, against sympy's integral in theta and phi for 15 monomials
+
+== 3. Planted boundary values: Schwarzschild, a dipole in psi, Bowen-York ==
+    [schwarzschild: 9 symbols, flux, E and P series in 1.1 s]
+    [BY: 12 symbols, flux, E and P series in 3.4 s]
+[FAIL] planted_P: psi = 1 + m/2r, K = psi^-6 Bowen-York: the ADM momentum integral is P_j (1 + m/2r)^-2, P_j = [3*Px, 3*Py, 3*Pz] at order 0, -m P_j at order 1/r
+[FAIL] planted_BY: same data: the flux is m (1 + m/2r) |eps_0|^2 - (1 + m/2r)^-2 P.xi_0 by hand (tr K-hat = 0 and the sphere mean of n_i K-hat_ij r^2 is 2 P_j), so the boundary term is m |eps_0|^2 - P.xi_0
+
+== 4. The boundary term of the general data against E |eps_0|^2 - P.xi_0 ==
+
+== 5. V against the pointwise identity, on the same data, at exact points ==
+
+checks: 0 passed, 3 failed ['planted_sphere', 'planted_P', 'planted_BY']. 5 s
+control sphere: targets ['planted_sphere', 'planted_BY', 'planted_P'] FIRED

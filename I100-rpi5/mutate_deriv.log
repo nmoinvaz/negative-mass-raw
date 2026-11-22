@@ -1,0 +1,18 @@
+weitzenbock_boundary.py, issue #100. sympy 1.14.0, python 3.14.10. mutation: deriv
+
+== 1. The gammas and the inner product of weitzenbock_conf.py ==
+
+== 2. The machinery: derivative, sphere moments, spin connection, flux formula ==
+[FAIL] planted_derivation: D_i f = s (d_ni f - n_i (n.d_n f + s d_s f)) equals d/dx_i of f(x/r, y/r, z/r, 1/r), once and twice, for three polynomials at three exact points on the sphere
+
+== 3. Planted boundary values: Schwarzschild, a dipole in psi, Bowen-York ==
+    [schwarzschild: 9 symbols, flux, E and P series in 0.1 s]
+[FAIL] planted_E: psi = 1 + m/2r, K = 0: the ADM integral of g = psi^4 delta is m (1 + m/2r)^3, E = None at order 0 and None at order 1/r
+[FAIL] planted_B_schwarzschild: psi = 1 + m/2r, K = 0, eps = eps_0: V^i = -2 psi^-3 d_i psi |eps_0|^2 by hand, flux m (1 + m/2r) |eps_0|^2, so the boundary term is m |eps_0|^2 = E |eps_0|^2
+
+== 4. The boundary term of the general data against E |eps_0|^2 - P.xi_0 ==
+
+== 5. V against the pointwise identity, on the same data, at exact points ==
+
+checks: 0 passed, 3 failed ['planted_derivation', 'planted_E', 'planted_B_schwarzschild']. 1 s
+control deriv: targets ['planted_derivation', 'planted_E', 'planted_B_schwarzschild'] FIRED

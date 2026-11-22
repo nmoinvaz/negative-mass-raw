@@ -1,0 +1,16 @@
+weitzenbock_boundary.py, issue #100. sympy 1.14.0, python 3.14.10. mutation: no-conj
+
+== 1. The gammas and the inner product of weitzenbock_conf.py ==
+[FAIL] dagger: <a, b> = a^dagger b: |eps|^2 = sum u^2 + v^2 and xi^j = <eps, g^0 g^j eps> real
+
+== 2. The machinery: derivative, sphere moments, spin connection, flux formula ==
+
+== 3. Planted boundary values: Schwarzschild, a dipole in psi, Bowen-York ==
+
+== 4. The boundary term of the general data against E |eps_0|^2 - P.xi_0 ==
+
+== 5. V against the pointwise identity, on the same data, at exact points ==
+[FAIL] identity_points: |nabla~ eps|^2 - |D~ eps|^2 + 4 pi (mu |eps|^2 - J.xi) = psi^-6 d_a(psi^4 V^a), with V as used in the flux, on data with every symbol group (psi_2, psi_3, T, K3, eps_0, eta, eps_1, eps_2) at exact rational values: (1, 2, 2): lhs 0.071838417 + 0.062458374*I, rhs -0.029509442 + 0.042546159*I, lhs - rhs 0.101 + 0.0199*I; (-2, 3, 6): lhs -0.015535215 + 0.032811489*I, rhs -0.014486755 - 0.0036073275*I, lhs - rhs -0.00105 + 0.0364*I; (4, -4, 7): lhs 0.00091648546 - 0.00016332234*I, rhs 0.0016783849 - 0.0012118411*I, lhs - rhs -0.000762 + 0.00105*I (39 s)
+
+checks: 0 passed, 2 failed ['dagger', 'identity_points']. 39 s
+control no-conj: targets ['dagger', 'identity_points'] FIRED
