@@ -48,7 +48,7 @@ fd55c4e (the run time in the docstring, which changes no output line).
 | 2 | `--no-controls --only=clifford,dagger,planted_derivation,planted_sphere,omega_vs_conf,div_formula,planted_E,planted_B_schwarzschild,planted_dipole,planted_P,planted_BY` | dd91e9a | 0 | 10 s | 70 MiB | 11 checks pass |
 | 3 | `--no-controls --only=bdy_vs_adm,bdy_vs_adm_T,no_divergence,limit_exists,eps1_drops,free_symbols,identity_points,flip_consistent` | 5f002b2 | 0 | 9 min 24 s | 302 MiB | 8 checks pass |
 | 3b | the same plus `eps1_hand,aligned_eps0` | 6f2d7c2 | 0 | 10 min 31 s | 305 MiB | 10 checks pass (the general-data series alone 420 s) |
-| 4 | `--mutate=NAME` for 17 controls, `step4.sh`, `mutations.txt`, one `mutate_NAME.log` each | 746ed46 | all 1 | 71 min, longest 1310 s (`Dhalf`) | not timed per run | 17 FIRED, 0 SILENT |
+| 4 | `--mutate=NAME` for 17 controls, `step4.sh`, `mutations.txt`, one `mutate_NAME.log` each | 746ed46 | all 1 | 77 min, longest 1310 s (`Dhalf`) | not timed per run | 17 FIRED, 0 SILENT |
 | 4 (`eps-O1`, first try) | `--mutate=eps-O1` with every symbol group and the O(1) term | 746ed46 | stopped | 2 h 14 min | 1.2 GiB | flux series not finished, stopped by the runner for run time, not memory (`mutate_eps-O1.stopped`) |
 | 4b | `--mutate=eps-O1` on lighter data (Bowen-York K, eps = eps_0 + eta(n)), the target list unchanged | d74edc7 | 1 | 8 min 9 s | 268 MiB | FIRED |
 
