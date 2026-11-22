@@ -54,3 +54,15 @@ equality `Dsp == Dq` cannot fail under it. Prediction above, confirmed by s2 and
 Not changed since: the target list `["axis"]`, and the criterion (exit 1 and `axis` fails). A mutation that restores
 the old return value, `sp.nsimplify(D)` itself, does make `axis` fail (s3), and needs a decision of the coordinator
 (a wrapper of `ht.he_type_exact` in he_surface.py, or a change to `he_type.py`'s `MUT`).
+
+## Decision of the coordinator, and the final runs
+
+The coordinator chose a wrapper: `nsimplify-back` replaces `ht.he_type_exact` by a function that returns the type it
+gave and `sp.nsimplify(D)`, the return value before #103. The first version (`ht.MUT = "nsimplify"`, steps s2 and s3)
+was silent for the reason above. The target list `["axis"]` and the criterion did not change. `he_surface.md` line 187
+counts 18 controls.
+
+| step | what | log |
+|---|---|---|
+| s4 | new code, `--no-controls` (exit 0, 14 of 14, 11 s) and `--mutate=nsimplify-back` alone (exit 1, only `axis` fails, at the point v = 7/4, F = 1/8, a = -3/2, u = 2/3: exact D = -2100108180625/67108864, returned a radical) | `s4_nocontrols.log`, `s4_control_nsimplify-back.log` |
+| s5 | `he_surface.py > notes/warp/he_surface_output.txt` as systemd unit `nm-i131-s5-full` (exit 0, 14 of 14 checks, 18 of 18 controls fired, 3 m 47 s wall, peak rss 121 MB); the stored output is the repository's, the diff against the committed one is `s5_diff_vs_committed.txt` (2 lines: the note line removed, the `nsimplify-back` line added) | `s5_stored_he_surface_output.txt` (a copy of the stdout, which went to the repository file), `s5_full.time`, `s5_diff_vs_committed.txt`, `committed_he_surface_output.txt` |
