@@ -1,0 +1,32 @@
+# python verify_polar_exact.py --method=symbolic --mutate=coef --deadline=28800
+verify_polar_exact.py  --method=symbolic --mutate=coef --deadline=28800
+commit 62b62df  python 3.14.10  sympy 1.14.0
+polar_matrix_generated.py sha256 46b68ab9fd06541b: 5 float exponents turned into ints, 1 int/int quotients into Rational; exp, sqrt, log used in the program: none
+  E[tth   ] jets: G, H0, H1, H1', K
+  E[tr    ] jets: F, G, G', H0, H1, K, K'
+  E[rth   ] jets: F, H0, H0', H1, K'
+  E[rr    ] jets: F, F', H0, H0', H0'', H1, H1', K', K''
+  E[KGR   ] jets: F, F', F'', G, H0, H0', H1, K'
+  E[KGI   ] jets: F, G, G', G'', H0, H1, H1', K
+  E[tt    ] jets: F, G, H0, H0', H0'', H1, H1', K, K'
+  E[ang_tr] jets: F, H0, H0', H1, K, K', K''
+engine: gcd-free: Laurent polynomial numerators, inverted polynomials as denominator atoms
+MUTATION coef
+symbolic: all twelve variables free, no base point, deadline 28800 s
+  program run on the series (lazy): 2s
+  J:    2s  terms of numerator / denominator (atoms): max 176 / 1, total 718
+  J':   2s  terms of numerator / denominator (atoms): max 1832 / 1, total 9312
+  h, h': 2s
+  h'':  2s  terms of numerator / denominator (atoms): max 3283 / 1, total 11480
+  atoms (inverted polynomials): 1
+    atom 0 (8 terms, monic): -3*LL*a**2*alpha**2/4 - 3*Lambda*PI*a**2*alpha**2*epsilon*phi0**4*r**2/2 + PI*a**2*alpha**2*epsilon*mu*phi0**6*r**2 + 3*PI*a**2*alpha**2*epsilon*phi0**2*r**2 + 3*PI*a**2*epsilon*omega**2*phi0**2*r**2 - 9*PI*alpha**2*epsilon*phi0**2*r**2*u**2 - 3*a**2*alpha**2/4 + 9*alpha**2/4
+  rows of y, y', y'' for H0, H1, K, F, G: 3s
+  tth     residual NONZERO  (1 of 6 coefficients nonzero)  0s, total 3s
+  tr      residual = 0 exactly  (0 of 6 coefficients nonzero)  0s, total 3s
+  rth     residual NONZERO  (1 of 6 coefficients nonzero)  0s, total 3s
+  rr      residual NONZERO  (6 of 6 coefficients nonzero)  0s, total 3s
+  KGR     residual NONZERO  (1 of 6 coefficients nonzero)  0s, total 3s
+  KGI     residual NONZERO  (1 of 6 coefficients nonzero)  0s, total 3s
+  tt      residual NONZERO  (6 of 6 coefficients nonzero)  0s, total 4s
+  ang_tr  residual NONZERO  (1 of 6 coefficients nonzero)  0s, total 4s
+MUTATION coef: (tt) or the angular trace has a nonzero residual at 1/1 base points -> DETECTED
