@@ -1,0 +1,4 @@
+17c17
+< note: he_type_exact applies sp.nsimplify to the exact D. At 1 of 356 points it returned a value different from the exact D (a nearby radical), with the sign and zero-ness unchanged; sp.nsimplify(Rational(1, 10**60)) = 0. Not fixed here.
+---
+> note: he_type_exact applies sp.nsimplify to the exact D. At 0 of 356 points it returned a value different from the exact D (a nearby radical), with the sign and zero-ness unchanged; sp.nsimplify(Rational(1, 10**60)) = 0. Not fixed here.

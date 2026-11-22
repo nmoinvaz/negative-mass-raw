@@ -1,0 +1,21 @@
+weitzenbock_boundary.py, issue #100. sympy 1.14.0, python 3.14.10. mutation: adm-P-sign
+
+== 1. The gammas and the inner product of weitzenbock_conf.py ==
+
+== 2. The machinery: derivative, sphere moments, spin connection, flux formula ==
+
+== 3. Planted boundary values: Schwarzschild, a dipole in psi, Bowen-York ==
+    [schwarzschild: 9 symbols, flux, E and P series in 1.1 s]
+    [BY: 12 symbols, flux, E and P series in 3.4 s]
+[FAIL] planted_P: psi = 1 + m/2r, K = psi^-6 Bowen-York: the ADM momentum integral is P_j (1 + m/2r)^-2, P_j = [-Px, -Py, -Pz] at order 0, -m P_j at order 1/r
+
+== 4. The boundary term of the general data against E |eps_0|^2 - P.xi_0 ==
+    [general: 162 symbols, flux, E and P series in 420.7 s]
+[FAIL] bdy_vs_adm: B = (1/4 pi) lim flux of V = E |eps_0|^2 - P.xi_0 with E = m, P_ADM = [-Px, -Py, -Pz], xi_0^j = <eps_0, g^0 g^j eps_0> from the same data; 20 terms in B, 12 in B - (E |eps_0|^2 - P.xi_0)
+    [T: 39 symbols, flux, E and P series in 12.1 s]
+[FAIL] bdy_vs_adm_T: with an added r^-2 term T_ij(n) in K-hat that has a trace (not Bowen-York), the boundary term is still E |eps_0|^2 - P.xi_0, P_ADM = P + [-2*Px - T01_010/6 - T02_001/6 + T11_100/6 + T22_100/6]... so the trace term of the ADM integral and of V is exercised
+
+== 5. V against the pointwise identity, on the same data, at exact points ==
+
+checks: 0 passed, 3 failed ['planted_P', 'bdy_vs_adm', 'bdy_vs_adm_T']. 506 s
+control adm-P-sign: targets ['planted_P', 'bdy_vs_adm', 'bdy_vs_adm_T'] FIRED

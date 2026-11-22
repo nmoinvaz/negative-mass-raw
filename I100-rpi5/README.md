@@ -38,4 +38,53 @@ The pass criteria and the controls' target lists are in the script (`CONTROLS`) 
 
 ## Results
 
-(filled in as the steps finish)
+Code commits on `wip/i100-boundary` of nmoinvaz/negative-mass: dd91e9a (step 2), 5f002b2 (step 3), 6f2d7c2 (step 3b),
+746ed46 (the checks and the controls' target lists, frozen before the first control run, step 4), d74edc7 (the `eps-O1`
+control on lighter data, step 4b), f557b9d (the script that produced the final output, step 5), c816cc9 (the output file) and
+fd55c4e (the run time in the docstring, which changes no output line).
+
+| step | command (args to `weitzenbock_boundary.py`) | commit | exit | wall | peak rss | result |
+|---|---|---|---|---|---|---|
+| 2 | `--no-controls --only=clifford,dagger,planted_derivation,planted_sphere,omega_vs_conf,div_formula,planted_E,planted_B_schwarzschild,planted_dipole,planted_P,planted_BY` | dd91e9a | 0 | 10 s | 70 MiB | 11 checks pass |
+| 3 | `--no-controls --only=bdy_vs_adm,bdy_vs_adm_T,no_divergence,limit_exists,eps1_drops,free_symbols,identity_points,flip_consistent` | 5f002b2 | 0 | 9 min 24 s | 302 MiB | 8 checks pass |
+| 3b | the same plus `eps1_hand,aligned_eps0` | 6f2d7c2 | 0 | 10 min 31 s | 305 MiB | 10 checks pass (the general-data series alone 420 s) |
+| 4 | `--mutate=NAME` for 17 controls, `step4.sh`, `mutations.txt`, one `mutate_NAME.log` each | 746ed46 | all 1 | 77 min, longest 1310 s (`Dhalf`) | not timed per run | 17 FIRED, 0 SILENT |
+| 4 (`eps-O1`, first try) | `--mutate=eps-O1` with every symbol group and the O(1) term | 746ed46 | stopped | 2 h 14 min | 1.2 GiB | flux series not finished, stopped by the runner for run time, not memory (`mutate_eps-O1.stopped`) |
+| 4b | `--mutate=eps-O1` on lighter data (Bowen-York K, eps = eps_0 + eta(n)), the target list unchanged | d74edc7 | 1 | 8 min 9 s | 268 MiB | FIRED |
+
+The controls, each of which must fail its target list and exit 1 (the target lists were committed before the first run and not
+changed; `failed` is the set of checks that failed, and only a control's targets run under it):
+
+| control | verdict | failed | wall |
+|---|---|---|---|
+| `gamma` | FIRED | ['clifford', 'identity_points'] | 42 s |
+| `no-conj` | FIRED | ['dagger', 'identity_points'] | 40 s |
+| `deriv` | FIRED | ['planted_derivation', 'planted_E', 'planted_B_schwarzschild'] | 2 s |
+| `sphere` | FIRED | ['planted_sphere', 'planted_P', 'planted_BY'] | 5 s |
+| `omega-sign` | FIRED | ['omega_vs_conf', 'planted_B_schwarzschild', 'identity_points'] | 42 s |
+| `weight` | FIRED | ['div_formula', 'planted_B_schwarzschild', 'identity_points'] | 42 s |
+| `Vsign` | FIRED | ['planted_BY', 'aligned_eps0', 'bdy_vs_adm', 'bdy_vs_adm_T', 'identity_points', 'flip_consistent'] | 568 s |
+| `sign` | FIRED | ['planted_BY', 'aligned_eps0', 'bdy_vs_adm', 'bdy_vs_adm_T', 'identity_points'] | 551 s |
+| `Jsign` | FIRED | ['identity_points'] | 41 s |
+| `Kdiv` | FIRED | ['planted_BY', 'aligned_eps0', 'bdy_vs_adm', 'bdy_vs_adm_T', 'identity_points', 'flip_consistent'] | 280 s |
+| `Vspin` | FIRED | ['planted_B_schwarzschild', 'planted_dipole', 'bdy_vs_adm', 'eps1_drops', 'eps1_hand', 'free_symbols', 'identity_points'] | 611 s |
+| `Dhalf` | FIRED | ['planted_B_schwarzschild', 'planted_dipole', 'bdy_vs_adm', 'eps1_drops', 'eps1_hand', 'free_symbols', 'identity_points'] | 1310 s |
+| `trace` | FIRED | ['bdy_vs_adm_T', 'identity_points'] | 54 s |
+| `adm-E` | FIRED | ['planted_E', 'planted_dipole', 'bdy_vs_adm'] | 499 s |
+| `adm-P-sign` | FIRED | ['planted_P', 'bdy_vs_adm', 'bdy_vs_adm_T'] | 507 s |
+| `adm-frame` | FIRED | ['planted_P'] | 5 s |
+| `adm-trace` | FIRED | ['bdy_vs_adm_T'] | 12 s |
+| `eps-O1` | FIRED | ['no_divergence', 'limit_exists'] | 8 min 9 s (step 4b) |
+
+`memwatch.log` has the load and free memory once a minute (report only, nothing stopped).
+
+Step 5: `python notes/warp/weitzenbock_boundary.py > notes/warp/weitzenbock_boundary_output.txt` at f557b9d, exit 0, 1 h 34 min
+53 s, peak rss 480 MiB (`final.time`), 21 checks pass, 0 fail, 18 controls FIRED, 0 SILENT; `final.log` is the output file
+byte for byte. A first launch of step 5 at 3d15e19 was stopped after 12 min, before any control, because the symbol count that
+`free_symbols` printed depended on which data families the process had built earlier (150 in a staged run, 153 in the full one);
+f557b9d takes the symbol sets from the general data, and no check or criterion changed. The step 3 and 3b logs came from the
+staged runs of the earlier commits and are kept as they are.
+
+`memwatch.log` (report only, nothing was stopped): lowest available memory 4510 MiB, highest 1-minute load 2.02, which includes
+choptuik-large-d's work. The 4 h stop condition for a single sphere integral never applied: the longest sphere integral took
+seconds, the series build of the general data 7 min.

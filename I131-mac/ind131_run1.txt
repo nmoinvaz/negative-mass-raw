@@ -1,0 +1,7 @@
+# ind131: he_surface.py's D equality against wrappers that change only D
+  C1 unchanged D: 14 checks, failing []: PASS
+  C2 D + 1e-80 where D != 0 (24 calls): failing ['axis']: PASS
+  C3 D + 1e-80 where D = 0 (340 calls): failing ['axis', 'locus_points', 'null_points', 'outside_description']: PASS
+  C4 together: ['axis', 'locus_points', 'null_points', 'outside_description'] against ['axis', 'locus_points', 'null_points', 'outside_description']: PASS
+RESULT PASS
+exit 0

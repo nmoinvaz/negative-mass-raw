@@ -1,0 +1,17 @@
+weitzenbock_boundary.py, issue #100. sympy 1.14.0, python 3.14.10. mutation: eps-O1
+
+== 1. The gammas and the inner product of weitzenbock_conf.py ==
+
+== 2. The machinery: derivative, sphere moments, spin connection, flux formula ==
+
+== 3. Planted boundary values: Schwarzschild, a dipole in psi, Bowen-York ==
+
+== 4. The boundary term of the general data against E |eps_0|^2 - P.xi_0 ==
+    [general: 44 symbols, flux, E and P series in 433.7 s]
+[FAIL] no_divergence: pointwise, psi^4 V^a n_a r^2 has no term of order r^2 or r: its first term is the order r^0 one, which has 2052 terms in n
+[FAIL] limit_exists: the sphere integrals of the r^2 and r terms vanish: the limit r -> infinity of the boundary term exists
+
+== 5. V against the pointwise identity, on the same data, at exact points ==
+
+checks: 0 passed, 2 failed ['no_divergence', 'limit_exists']. 487 s
+control eps-O1: targets ['no_divergence', 'limit_exists'] FIRED

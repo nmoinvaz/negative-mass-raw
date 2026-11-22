@@ -1,0 +1,10 @@
+# ind103: exact sign of D for he_type_exact (#103), mutate=nsimp
+  C1 Type I: D = 1/1000000000000000000000000000000000000000000000000000000000000 untransformed, 1/1000000000000000000000000000000000000000000000000000000000000 transformed, target 1/1000000000000000000000000000000000000000000000000000000000000: PASS  [0 s]
+  C2 Type I: max |Im lambda| = 0.0 at 300 digits: PASS  [0 s]
+  C1 Type IV: D = -1/1000000000000000000000000000000000000000000000000000000000000 untransformed, -1/1000000000000000000000000000000000000000000000000000000000000 transformed, target -1/1000000000000000000000000000000000000000000000000000000000000: PASS  [0 s]
+  C2 Type IV: max |Im lambda| = 7.937e-11 at 300 digits: PASS  [0 s]
+  C3 exact_sign battery: 14 signs and 2 raises; wrong: ['zA + 10^-100: got 0, want 1', 'zA - 10^-100: got 0, want -1', 'zB + 10^-100: got 0, want 1', 'zB - 10^-100: got 0, want -1', 'zC + 10^-1000: got 0, want 1', 'zC - 10^-1000: got 0, want -1', 'sqrt(10^200 + 1) - 10^100: got 0, want 1', '10^100 - sqrt(10^200 + 1): got 0, want -1', 'D with a Float: returned 1, should raise']: FAIL  [0 s]
+     (premise: sp.nsimplify(10^-60) = 0)
+  C4 he_type_exact: types ['I', 'IV'], expected ['I', 'IV']: PASS  [0 s]
+RESULT FAIL: C3 exact_sign battery [0 s]
+exit 1

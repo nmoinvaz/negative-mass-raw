@@ -1,0 +1,7 @@
+# ind131: he_surface.py's D equality against wrappers that change only D, mutate=identity
+  C1 unchanged D: 14 checks, failing []: PASS
+  C2 D + 1e-80 where D != 0 (24 calls): failing []: FAIL
+  C3 D + 1e-80 where D = 0 (340 calls): failing []: FAIL
+  C4 together: [] against ['axis', 'locus_points', 'null_points', 'outside_description']: FAIL
+RESULT FAIL: C2, C3, C4
+exit 1
