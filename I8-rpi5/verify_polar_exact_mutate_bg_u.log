@@ -1,6 +1,6 @@
-# /home/nathan/Source/negative-mass-venv314/bin/python -I verify_polar_exact.py --method=points --npoints=20 --mutate=bg:u
+# python verify_polar_exact.py --method=points --npoints=20 --mutate=bg:u
 verify_polar_exact.py  --method=points --npoints=20 --mutate=bg:u
-commit e595ec2  python 3.14.10  sympy 1.14.0
+commit 62b62df  python 3.14.10  sympy 1.14.0
 polar_matrix_generated.py sha256 46b68ab9fd06541b: 5 float exponents turned into ints, 1 int/int quotients into Rational; exp, sqrt, log used in the program: none
   E[tth   ] jets: G, H0, H1, H1', K
   E[tr    ] jets: F, G, G', H0, H1, K, K'
@@ -10,6 +10,7 @@ polar_matrix_generated.py sha256 46b68ab9fd06541b: 5 float exponents turned into
   E[KGI   ] jets: F, G, G', G'', H0, H1, H1', K
   E[tt    ] jets: F, G, H0, H0', H0'', H1, H1', K, K'
   E[ang_tr] jets: F, H0, H0', H1, K, K', K''
+engine: sympy rational function field (gcd after every operation)
 MUTATION bg:u
 points (seed 8), epsilon alternates +1, -1:
    1  r=3/2 alpha=1 a=5/3 phi0=26/21 u=-16/7 omega=7/17 epsilon=1 s=-1/8 LL=30 Lambda=1 mu=16/9
@@ -32,7 +33,7 @@ points (seed 8), epsilon alternates +1, -1:
   18  r=5/11 alpha=3/4 a=8/3 phi0=3/5 u=17/7 omega=9/17 epsilon=-1 s=2/3 LL=20 Lambda=1/5 mu=8/5
   19  r=8 alpha=8/3 a=5/11 phi0=13/14 u=-3 omega=6/31 epsilon=1 s=-11/12 LL=20 Lambda=29/10 mu=24/19
   20  r=9/5 alpha=2 a=5/3 phi0=3/5 u=6/13 omega=5/29 epsilon=-1 s=-29/3 LL=6 Lambda=19/12 mu=7/8
-point  1  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [2s]
+point  1  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [3s]
 point  2  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [4s]
 point  3  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [5s]
 point  4  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [6s]
@@ -40,18 +41,18 @@ point  5  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 
 point  6  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [8s]
 point  7  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [9s]
 point  8  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [10s]
-point  9  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [12s]
-point 10  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [13s]
-point 11  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [14s]
-point 12  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [16s]
-point 13  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [17s]
-point 14  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [18s]
-point 15  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [19s]
-point 16  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [20s]
-point 17  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [21s]
-point 18  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [22s]
-point 19  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [23s]
-point 20  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [24s]
+point  9  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [11s]
+point 10  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [12s]
+point 11  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [13s]
+point 12  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [14s]
+point 13  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [15s]
+point 14  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [16s]
+point 15  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [17s]
+point 16  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [18s]
+point 17  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [19s]
+point 18  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [20s]
+point 19  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [21s]
+point 20  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [22s]
 
 summary: residual vector (six coefficients of y) exactly zero, and residual at a random rational y exactly 0
   tth     zero at 20/20 points, residual at random y exactly 0 at 20/20   -> PASS

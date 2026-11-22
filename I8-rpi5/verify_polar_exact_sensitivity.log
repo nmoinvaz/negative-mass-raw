@@ -1,6 +1,6 @@
-# /home/nathan/Source/negative-mass-venv314/bin/python -I verify_polar_exact.py --sensitivity
+# python verify_polar_exact.py --sensitivity
 verify_polar_exact.py  --sensitivity
-commit e595ec2  python 3.14.10  sympy 1.14.0
+commit 62b62df  python 3.14.10  sympy 1.14.0
 polar_matrix_generated.py sha256 46b68ab9fd06541b: 5 float exponents turned into ints, 1 int/int quotients into Rational; exp, sqrt, log used in the program: none
   E[tth   ] jets: G, H0, H1, H1', K
   E[tr    ] jets: F, G, G', H0, H1, K, K'
@@ -10,6 +10,7 @@ polar_matrix_generated.py sha256 46b68ab9fd06541b: 5 float exponents turned into
   E[KGI   ] jets: F, G, G', G'', H0, H1, H1', K
   E[tt    ] jets: F, G, H0, H0', H0'', H1, H1', K, K'
   E[ang_tr] jets: F, H0, H0', H1, K, K', K''
+engine: sympy rational function field (gcd after every operation)
 sensitivity at point 1: scale J[i, j] by 8/7 and recompute the residual
   rows i = 0..5, columns j = 0..5; per equation, '#' nonzero, '.' zero, '-' J[i, j] is 0
   equation tth
