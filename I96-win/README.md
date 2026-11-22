@@ -103,3 +103,28 @@ the sigma R = 8 sectors (expected peaks about 11 and 10 GiB, under 24 GiB).
 `box-s8-L1-N64`: `frank_loss.py --part=krylov --sigmas=8 --Ns=64 --L=1 --vs=0.5` (dx = 0.03125, 4 points across the
 wall 1/8 wide), exit 1 (`gmres` residual 1.1e-2 and `identity` 2.4e-1 fail, as the script's own checks report), 43 s,
 rho(T1) v_c = 0.21589. The sampler saw no process over 100 MB, so no peak was recorded; the probe is too small to tell.
+
+### Box comparison, sigma R = 8, dx = 1/32 (step 6)
+
+Four sizes at the fixed spacing dx = 2L/N = 1/32 (4 points across the wall 1/8 wide), `frank_loss.py --part=krylov
+--sigmas=8 --vs=0.5`, one thread each, at c5fd40d:
+
+| L | N | where | log |
+|---|---|---|---|
+| 1 | 64 | win and Mac | `box-s8-L1-N64.log` here, `../I96-mac/box-s8-L1-N64.log` |
+| 2 | 128 | Mac | `../I96-mac/box-s8-L2-N128.log` |
+| 2.5 | 160 | Mac | `../I96-mac/box-s8-L2.5-N160.log` |
+| 3 | 192 | win, started by the coordinator (exit code not captured) | `box-s8-L3-N192.log`, `.err` |
+| 3.5 | 224 | win, this runner, detached with `go_box-s8-L3.5-N224.cmd`, alone | `box-s8-L3.5-N224.log`, `.log.exit` |
+
+`box-s8-L3.5-N224` was added to `jobs.txt` by a new runner session after the first one ended at its account's limit. The
+peak is the sampler's `peak=` for `frank_loss.py --part=krylov ... --Ns=224` in `memory-sampler.log`, here every 10 s
+(the script itself prints `peak nan GB` on Windows).
+
+Result of `box-s8-L3.5-N224` (exit 0, `box-s8-L3.5-N224.log.exit` holds 0): rho(T1) v_c = 0.29912, `gmres` 1.3e-13 (k = 0 part
+1.4e-19), `identity` 1.4e-15, all checks passed. Started 23:38:31, ended 00:01:12 (1361 s; the log's 725 s + 633 s).
+Peak working set 21,189 MiB = 20.69 GiB (sampler every 10 s, 133 lines; the estimate from N^3 growth of L = 3 was 20.3
+GiB). The machine's free memory fell to 3.7 GiB at the lowest. Nothing was stopped. `box_extrap.py` prints the increments
+with L, their ratios and the extrapolated gap to the sectors' 0.29951080; `reals_check.py 8` counts the sigma R = 8 real
+eigenvalues two ways and lists the one that B reproduces (the identity check's eigenfunction floor is in unscaled mu).
+The sampler was stopped after the run.

@@ -1,0 +1,10 @@
+# ind99: item 6's identity on diag(A^2, B^2, C^2), exact at random rational points, mutate=Jsign
+  C0 flat, K = 0, point 0 (5/23, 4/23, -8/23): lhs - rhs = 0  (|eps|^2 = 81652685/33860761): PASS  [0 s]
+  C0 flat, K = 0, point 1 (1/23, -12/23, 13/23): lhs - rhs = 0  (|eps|^2 = 129028363/33860761): PASS  [0 s]
+  C1 diagonal, K = 0, point 0 (6/23, -4/23, -16/23): lhs - rhs = 0  (|eps|^2 = 90963272/33860761): PASS  [2 s]
+  C1 diagonal, K = 0, point 1 (16/23, 4/23, -9/23): lhs - rhs = 0  (|eps|^2 = 178415256/33860761): PASS  [4 s]
+  C1 diagonal, K = 0, point 2 (3/23, -4/23, 0): lhs - rhs = 0  (|eps|^2 = 121771192/33860761): PASS  [5 s]
+  C2 general, point 0 (-5/23, -5/23, 13/23): lhs - rhs = -207346687258694584/156319685600022945  (|eps|^2 = 85838859/33860761): FAIL  [7 s]
+  C2 general, point 1 (-2/23, -9/23, 6/23): lhs - rhs = -41397758900142136696/36313155124161477375  (|eps|^2 = 100508741/33860761): FAIL  [9 s]
+  C2 general, point 2 (-14/23, -7/23, 2/23): lhs - rhs = 39204673435077228968/86004954589212802143  (|eps|^2 = 174391916/33860761): FAIL  [11 s]
+RESULT FAIL: C2 at point 0; C2 at point 1; C2 at point 2

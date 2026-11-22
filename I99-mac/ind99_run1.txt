@@ -1,0 +1,9 @@
+# ind99: item 6's identity on diag(A^2, B^2, C^2), exact at random rational points
+Traceback (most recent call last):
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/r99/ind99.py", line 121, in <module>
+    d, n2 = case(flat, withK, pt)
+            ~~~~^^^^^^^^^^^^^^^^^
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/r99/ind99.py", line 91, in case
+    nab = [e(i, eps) + sum((om[i][j][k] / 4) * gs[j] * gs[k] * eps for j in range(3) for k in range(3)) for i in range(3)]
+                       ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported operand type(s) for +: 'int' and 'MutableDenseMatrix'

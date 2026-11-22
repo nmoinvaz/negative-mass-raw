@@ -1,0 +1,42 @@
+linearizing polar ...
+  done 1s
+background Einstein residual (all zero?): True  KG: 0
+  cleaned (0, 0) 7s
+  cleaned (0, 1) 9s
+  cleaned (1, 1) 13s
+  cleaned (0, 2) 13s
+  cleaned (1, 2) 13s
+  cleaned (2, 2) 15s
+  cleaned (3, 3) 19s
+  cleaned KG0 23s
+  cleaned KG1 25s
+trace part free of Y'?  True
+  E[tt] has theta? False
+  E[tr] has theta? False
+  E[rr] has theta? False
+  E[tth] has theta? False
+  E[rth] has theta? False
+  E[KGR] has theta? False
+  E[KGI] has theta? False
+  E[ang_tl] has theta? False
+  E[ang_tr] has theta? False
+
+traceless angular eq: -H0(r) + H2(r)
+  => H2 = [H0(r)]
+
+derivative content:
+  tth: H1'=True K'=False H0'=False K''=False H0''=False H1''=False F''=False G''=False
+  tr: H1'=False K'=True H0'=False K''=False H0''=False H1''=False F''=False G''=False
+  rth: H1'=False K'=True H0'=True K''=False H0''=False H1''=False F''=False G''=False
+  rr: H1'=True K'=True H0'=True K''=True H0''=True H1''=False F''=False G''=False
+  tt: H1'=True K'=True H0'=True K''=False H0''=True H1''=False F''=False G''=False
+  ang_tr: H1'=False K'=True H0'=True K''=True H0''=False H1''=False F''=False G''=False
+  KGR: H1'=False K'=True H0'=True K''=False H0''=False H1''=False F''=True G''=False
+  KGI: H1'=True K'=False H0'=False K''=False H0''=False H1''=False F''=False G''=True
+  solved (t th),(t r),(r th) for H1', K', H0'  30s
+
+(rr) after substitution: contains H0? True   derivatives? False
+  algebraic H0 obtained  36s
+  reduced system built  47s
+saved polar_eqs.pkl  47s
+nice -n 10 $PY -u derive_nonradial.py  47.42s user 0.21s system 99% cpu 47.758 total

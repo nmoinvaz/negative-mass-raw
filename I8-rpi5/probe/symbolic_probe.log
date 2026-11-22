@@ -1,0 +1,17 @@
+# python verify_polar_exact.py --method=symbolic --deadline=300
+verify_polar_exact.py  --method=symbolic --deadline=300
+commit 7db1e15  python 3.14.10  sympy 1.14.0
+polar_matrix_generated.py sha256 46b68ab9fd06541b: 5 float exponents turned into ints, 1 int/int quotients into Rational; exp, sqrt, log used in the program: none
+  E[tth   ] jets: G, H0, H1, H1', K
+  E[tr    ] jets: F, G, G', H0, H1, K, K'
+  E[rth   ] jets: F, H0, H0', H1, K'
+  E[rr    ] jets: F, F', H0, H0', H0'', H1, H1', K', K''
+  E[KGR   ] jets: F, F', F'', G, H0, H0', H1, K'
+  E[KGI   ] jets: F, G, G', G'', H0, H1, H1', K
+  E[tt    ] jets: F, G, H0, H0', H0'', H1, H1', K, K'
+  E[ang_tr] jets: F, H0, H0', H1, K, K', K''
+symbolic: all twelve variables free, deadline 300 s
+  program run on the series: 3s
+  J:    3s  terms of numerator / denominator: max 176 / 8, total 850
+
+NOT FINISHED: deadline of 300 s reached in stage 'program'; finished: []

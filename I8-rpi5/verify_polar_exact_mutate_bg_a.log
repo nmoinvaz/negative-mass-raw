@@ -1,0 +1,67 @@
+# python verify_polar_exact.py --method=points --npoints=20 --mutate=bg:a
+verify_polar_exact.py  --method=points --npoints=20 --mutate=bg:a
+commit 62b62df  python 3.14.10  sympy 1.14.0
+polar_matrix_generated.py sha256 46b68ab9fd06541b: 5 float exponents turned into ints, 1 int/int quotients into Rational; exp, sqrt, log used in the program: none
+  E[tth   ] jets: G, H0, H1, H1', K
+  E[tr    ] jets: F, G, G', H0, H1, K, K'
+  E[rth   ] jets: F, H0, H0', H1, K'
+  E[rr    ] jets: F, F', H0, H0', H0'', H1, H1', K', K''
+  E[KGR   ] jets: F, F', F'', G, H0, H0', H1, K'
+  E[KGI   ] jets: F, G, G', G'', H0, H1, H1', K
+  E[tt    ] jets: F, G, H0, H0', H0'', H1, H1', K, K'
+  E[ang_tr] jets: F, H0, H0', H1, K, K', K''
+engine: sympy rational function field (gcd after every operation)
+MUTATION bg:a
+points (seed 8), epsilon alternates +1, -1:
+   1  r=3/2 alpha=1 a=5/3 phi0=26/21 u=-16/7 omega=7/17 epsilon=1 s=-1/8 LL=30 Lambda=1 mu=16/9
+   2  r=16/3 alpha=3/7 a=35/9 phi0=16/17 u=27/8 omega=3 epsilon=-1 s=17/5 LL=6 Lambda=13/15 mu=1
+   3  r=3/5 alpha=35/6 a=39/5 phi0=20/7 u=-9/5 omega=3 epsilon=1 s=4 LL=56 Lambda=28/17 mu=24/17
+   4  r=55/9 alpha=2 a=10 phi0=2/3 u=-6/5 omega=11/27 epsilon=-1 s=23/17 LL=20 Lambda=10/7 mu=12/19
+   5  r=5/11 alpha=6 a=4 phi0=6 u=-6/5 omega=2/3 epsilon=1 s=3/2 LL=56 Lambda=14/11 mu=13/12
+   6  r=4/3 alpha=9/5 a=1/2 phi0=5/2 u=23/13 omega=5/4 epsilon=-1 s=-1/14 LL=30 Lambda=27/8 mu=19/16
+   7  r=27/10 alpha=28/9 a=7/12 phi0=3/14 u=27/5 omega=23/8 epsilon=1 s=3/4 LL=12 Lambda=25/19 mu=17/14
+   8  r=46/5 alpha=10 a=14/3 phi0=10/3 u=-21/10 omega=11/17 epsilon=-1 s=-37/5 LL=30 Lambda=12/13 mu=4
+   9  r=4/3 alpha=39/5 a=13/8 phi0=14/19 u=11/9 omega=4/7 epsilon=1 s=-13/9 LL=12 Lambda=13/9 mu=26/7
+  10  r=19/5 alpha=1 a=17/2 phi0=23/20 u=-2 omega=19/17 epsilon=-1 s=3/2 LL=6 Lambda=2/9 mu=2/17
+  11  r=47/3 alpha=10/3 a=3/13 phi0=12/31 u=-23/3 omega=2/3 epsilon=1 s=3/4 LL=12 Lambda=11/19 mu=13/19
+  12  r=19/7 alpha=7/8 a=9/2 phi0=3/2 u=11/5 omega=3/22 epsilon=-1 s=-27/13 LL=6 Lambda=17/12 mu=3/2
+  13  r=55/4 alpha=7/5 a=25/9 phi0=19/14 u=10/3 omega=1/2 epsilon=1 s=-13/7 LL=56 Lambda=27/14 mu=11/8
+  14  r=34/11 alpha=1 a=3 phi0=4/7 u=-2 omega=28/13 epsilon=-1 s=-27/5 LL=72 Lambda=10/11 mu=26/19
+  15  r=9/2 alpha=25/6 a=17/11 phi0=24/19 u=-13/6 omega=2/3 epsilon=1 s=-39/8 LL=56 Lambda=8/3 mu=13/3
+  16  r=11/9 alpha=4/5 a=1/4 phi0=7/26 u=-2 omega=9/7 epsilon=-1 s=-7/16 LL=56 Lambda=7/3 mu=6
+  17  r=14 alpha=22/3 a=7/5 phi0=7/10 u=-2 omega=12/31 epsilon=1 s=5/9 LL=20 Lambda=20/13 mu=2/3
+  18  r=5/11 alpha=3/4 a=8/3 phi0=3/5 u=17/7 omega=9/17 epsilon=-1 s=2/3 LL=20 Lambda=1/5 mu=8/5
+  19  r=8 alpha=8/3 a=5/11 phi0=13/14 u=-3 omega=6/31 epsilon=1 s=-11/12 LL=20 Lambda=29/10 mu=24/19
+  20  r=9/5 alpha=2 a=5/3 phi0=3/5 u=6/13 omega=5/29 epsilon=-1 s=-29/3 LL=6 Lambda=19/12 mu=7/8
+point  1  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [3s]
+point  2  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [4s]
+point  3  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [5s]
+point  4  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [6s]
+point  5  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [7s]
+point  6  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [8s]
+point  7  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [9s]
+point  8  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [10s]
+point  9  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [11s]
+point 10  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [12s]
+point 11  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [13s]
+point 12  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [14s]
+point 13  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [15s]
+point 14  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [16s]
+point 15  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [17s]
+point 16  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [18s]
+point 17  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [19s]
+point 18  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [20s]
+point 19  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [21s]
+point 20  tth 0  tr 0  rth NONZERO(6/6)  rr NONZERO(6/6)  KGR NONZERO(6/6)  KGI 0  tt NONZERO(6/6)  ang_tr NONZERO(6/6)   [22s]
+
+summary: residual vector (six coefficients of y) exactly zero, and residual at a random rational y exactly 0
+  tth     zero at 20/20 points, residual at random y exactly 0 at 20/20   -> PASS
+  tr      zero at 20/20 points, residual at random y exactly 0 at 20/20   -> PASS
+  rth     zero at  0/20 points, residual at random y exactly 0 at  0/20   -> FAIL (nonzero at 20 points)
+  rr      zero at  0/20 points, residual at random y exactly 0 at  0/20   -> FAIL (nonzero at 20 points)
+  KGR     zero at  0/20 points, residual at random y exactly 0 at  0/20   -> FAIL (nonzero at 20 points)
+  KGI     zero at 20/20 points, residual at random y exactly 0 at 20/20   -> PASS
+  tt      zero at  0/20 points, residual at random y exactly 0 at  0/20   -> FAIL (nonzero at 20 points)
+  ang_tr  zero at  0/20 points, residual at random y exactly 0 at  0/20   -> FAIL (nonzero at 20 points)
+
+MUTATION bg:a: (tt) or the angular trace has a nonzero residual at 20/20 points -> DETECTED

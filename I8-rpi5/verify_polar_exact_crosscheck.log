@@ -1,0 +1,20 @@
+# python verify_polar_exact.py --crosscheck --npoints=5
+verify_polar_exact.py  --crosscheck --npoints=5
+commit 62b62df  python 3.14.10  sympy 1.14.0
+polar_matrix_generated.py sha256 46b68ab9fd06541b: 5 float exponents turned into ints, 1 int/int quotients into Rational; exp, sqrt, log used in the program: none
+  E[tth   ] jets: G, H0, H1, H1', K
+  E[tr    ] jets: F, G, G', H0, H1, K, K'
+  E[rth   ] jets: F, H0, H0', H1, K'
+  E[rr    ] jets: F, F', H0, H0', H0'', H1, H1', K', K''
+  E[KGR   ] jets: F, F', F'', G, H0, H0', H1, K'
+  E[KGI   ] jets: F, G, G', G'', H0, H1, H1', K
+  E[tt    ] jets: F, G, H0, H0', H0'', H1, H1', K, K'
+  E[ang_tr] jets: F, H0, H0', H1, K, K', K''
+engine: sympy rational function field (gcd after every operation)
+crosscheck: symbolic objects built 3s; atoms 1
+  point 1 (PI = 37/2): J 36/36  Jp 36/36  h 6/6  hp 6/6  hpp 6/6  rows 90/90  coefficients 58/58   [5s]
+  point 2 (PI = 7/4): J 36/36  Jp 36/36  h 6/6  hp 6/6  hpp 6/6  rows 90/90  coefficients 58/58   [7s]
+  point 3 (PI = 37): J 36/36  Jp 36/36  h 6/6  hp 6/6  hpp 6/6  rows 90/90  coefficients 58/58   [9s]
+  point 4 (PI = 14/15): J 36/36  Jp 36/36  h 6/6  hp 6/6  hpp 6/6  rows 90/90  coefficients 58/58   [10s]
+  point 5 (PI = 53/16): J 36/36  Jp 36/36  h 6/6  hp 6/6  hpp 6/6  rows 90/90  coefficients 58/58   [12s]
+RESULT crosscheck PASS: symbolic objects agree with the field engine at every point

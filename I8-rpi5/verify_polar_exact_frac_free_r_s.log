@@ -1,0 +1,32 @@
+# python verify_polar_exact.py --method=symbolic --engine=frac --free=r,s --npoints=1
+verify_polar_exact.py  --method=symbolic --engine=frac --free=r,s --npoints=1
+commit 62b62df  python 3.14.10  sympy 1.14.0
+polar_matrix_generated.py sha256 46b68ab9fd06541b: 5 float exponents turned into ints, 1 int/int quotients into Rational; exp, sqrt, log used in the program: none
+  E[tth   ] jets: G, H0, H1, H1', K
+  E[tr    ] jets: F, G, G', H0, H1, K, K'
+  E[rth   ] jets: F, H0, H0', H1, K'
+  E[rr    ] jets: F, F', H0, H0', H0'', H1, H1', K', K''
+  E[KGR   ] jets: F, F', F'', G, H0, H0', H1, K'
+  E[KGI   ] jets: F, G, G', G'', H0, H1, H1', K
+  E[tt    ] jets: F, G, H0, H0', H0'', H1, H1', K, K'
+  E[ang_tr] jets: F, H0, H0', H1, K, K', K''
+engine: sympy rational function field (gcd after every operation)
+symbolic: r, s, PI free, the others at the 1 points of seed 8, deadline none
+base point 1: alpha=1 a=5/3 phi0=26/21 u=-16/7 omega=7/17 epsilon=1 LL=30 Lambda=1 mu=16/9
+  program run on the series (lazy): 2s
+  J:    2s  terms of numerator / denominator: max 10 / 2, total 138
+  J':   2s  terms of numerator / denominator: max 24 / 3, total 310
+  h, h': 2s
+  h'':  3s  terms of numerator / denominator: max 27 / 4, total 148
+  rows of y, y', y'' for H0, H1, K, F, G: 3s
+  tth     residual = 0 exactly  (0 of 6 coefficients nonzero)  0s, total 3s
+  tr      residual = 0 exactly  (0 of 6 coefficients nonzero)  0s, total 3s
+  rth     residual = 0 exactly  (0 of 6 coefficients nonzero)  0s, total 3s
+  rr      residual = 0 exactly  (0 of 6 coefficients nonzero)  0s, total 3s
+  KGR     residual = 0 exactly  (0 of 6 coefficients nonzero)  0s, total 3s
+  KGI     residual = 0 exactly  (0 of 6 coefficients nonzero)  0s, total 3s
+  tt      residual = 0 exactly  (0 of 6 coefficients nonzero)  0s, total 3s
+  ang_tr  residual = 0 exactly  (0 of 6 coefficients nonzero)  0s, total 3s
+
+method: exact, free variables r,s,PI, the others at the base points: an identity test in the other variables, not a full symbolic proof
+RESULT all residuals exactly zero at the base points
