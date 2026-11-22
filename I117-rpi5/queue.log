@@ -1,0 +1,8 @@
+2026-11-21T16:10:23-08:00 start w_h3_l2: winding2.py -1 0.7603 2 0.1 2.0 20.0 --y0=10.0 --plant=0.3,10.5 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I117-rpi5/cache (timeout 28800 s)
+2026-11-21T20:05:24-08:00 end w_h3_l2 rc=0
+2026-11-21T20:33:12-08:00 coordinator: started two workers on rest.txt (the 7 jobs after the pilot) while the runner waits for the usage reset
+2026-11-21T20:33:12-08:00 start w_b25_l2: winding2.py -1 0.7603 2 2.0 5.0 10.0 --plant=2.5,1.0 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I117-rpi5/cache
+2026-11-21T20:33:17-08:00 15-min load 2.33 < 4: start w_b25_l3: winding2.py -1 0.7603 3 2.0 5.0 10.0 --plant=2.5,1.0 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I117-rpi5/cache
+2026-11-21T21:36:18-08:00 coordinator: the two workers started at 20:33 died by 20:33:31 with no rc (killed when the hc exec that started them returned); w_b25_l2.log and w_b25_l3.log are empty. qpos.rest.txt reset from 2 to 0; both workers restarted as systemd user units nm-i117-rest1/2
+2026-11-21T21:36:18-08:00 start w_b25_l2: winding2.py -1 0.7603 2 2.0 5.0 10.0 --plant=2.5,1.0 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I117-rpi5/cache
+2026-11-21T21:36:26-08:00 15-min load 1.26 < 4: start w_b25_l3: winding2.py -1 0.7603 3 2.0 5.0 10.0 --plant=2.5,1.0 --guard=all --cachedir=/home/nathan/Source/negative-mass-raw/I117-rpi5/cache
