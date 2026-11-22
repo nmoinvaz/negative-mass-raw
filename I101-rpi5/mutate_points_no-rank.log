@@ -1,0 +1,22 @@
+review_he_surface_points.py: sympy 1.14.0, mpmath 1.3.0
+control no-rank: the type test returns II at every D = 0; targets ['planted_types', 'exact_points']
+   perfect fluid (3/2, 1/5) 3x3: got II want I; deformed copy IV  <-- FAIL
+   perfect fluid (3/2, 1/5) 4x4: got II want I; deformed copy II  <-- FAIL
+   three distinct real roots 3x3: got I want I; deformed copy IV
+   three distinct real roots 4x4: got I want I; deformed copy IV
+   Jordan 2x2 plus simple root 3x3: got II want II; deformed copy I
+   Jordan 2x2 plus simple root 4x4: got II want II; deformed copy II  <-- FAIL
+   null dust plus pressure 3x3: got II want II; deformed copy I
+   null dust plus pressure 4x4: got II want II; deformed copy I
+   3x3 Jordan block 3x3: got II want III; deformed copy IV  <-- FAIL
+   3x3 Jordan block 4x4: got II want III; deformed copy IV  <-- FAIL
+   complex pair 3x3: got IV want IV
+   complex pair 4x4: got II want IV  <-- FAIL
+[FAIL] planted_types: six planted tensors, 3x3 and 4x4, each boosted, rotated, boosted; deformed copies change type
+   T3 fails: conditions (T1, T2, T3) = ('0', '0', '0'), in the description False, not Type I as required True type II m 3 rank 1
+   T2 fails: conditions (T1, T2, T3) = ('0', '3249/6400', '19/25'), in the description False, not Type I as required True type II m 2 rank 2
+   T1 fails: conditions (T1, T2, T3) = ('-23.0028', '0', '24/125'), in the description False, not Type I as required True b = -22.7588486305 (-a u = 0.244), D-gap 8.85e-29, singular values of M - lam: ['3.21e-60', '38.9', '140.0']
+   Type I points with F < 0 (where -F < r a < -c^2 F fails and v F s^2 >= 2|c| fails): 6, with v F s^2 < 0: 6
+[FAIL] exact_points: 24 points on T1, T2, T3 have D = 0 exactly, a double root, rank 1, (v F s^2)^2 >= 4 c^2 and independent T1, T2 (Type I 0 of 24; 6 with F < 0); the three points failing exactly one condition are not Type I and lie outside the description: True; 6 real roots of D(b) off T1 at six generic parameter sets, 0 of them Type I
+control no-rank: failed ['planted_types', 'exact_points'] of targets ['planted_types', 'exact_points'] -> FIRED
+exit 1

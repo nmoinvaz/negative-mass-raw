@@ -1,0 +1,13 @@
+# ind102: frame Ricci block built in 2 s, mutate=gamma
+  C0 planted types: lam eta + k e + e k: III (mult 3, rank 2); lam eta + k e + e k boosted: III (mult 3, rank 2); lam eta + k k: II (mult 3, rank 1); lam eta + k k boosted: II (mult 3, rank 1); diag(rho, p, p): I (mult 2, rank 1); diag(rho, p, p) boosted: I (mult 2, rank 1): PASS  [2 s]
+  C1 frame table: B - table mod: 9 nonzero entries; B = 0 at v = 0: True: FAIL  [2 s]
+  C2 E1, c2, terms: E1 = printed form: False; c2 = printed: False; s-free: True; even in c: True; terms 23, 48: FAIL  [2 s]
+  C3 27 D + E2^2 = 27 E1 G: identity: True; own D = sympy discriminant: True: PASS  [2 s]
+  C4 rank certificate: K1 T = combination of minors, in lam: False; a = 0 facts: True: FAIL  [2 s]
+  C5 T = 0 chain: chi factors: False; c2 = -3 lam* - Theta: False; E1, E2 at T = 0: False; m_k(lam*) = -K Gamma_k: False; point (a, b) = (-17/40, 17/40): type IV, D = -211835324168897467072700697646437/10737418240000000000000000000000, mult 1, rank None, (Theta, K, E1, E2, T) = [0, 0, 452336063121/102400000000, 39250588447692657/512000000000000, 0]: FAIL  [2 s]
+  C6 #72's point in Q(sqrt 113): E1 = 0: False, E2 = 0: False, D = 0: True, T = 3287639/7002896 - 773415*sqrt(113)/7002896 = -0.70454784, N^3 = 0: False, N^2 != 0: True, a 2x2 minor != 0: True; (F, b, u, T, lam0) = ['0.0509420566', '-0.870329025', '-0.331562378', '-0.704547836', '0.481483029'], max rel. diff. from the note 2.2e+00: FAIL  [2 s]
+     E1 has degree 2 and E2 degree 3 in w = c^2
+  C7 re-solved tanh points: jets vs mp.diff 1.07e-50; Le: findroot raised ValueError: Could not find root within given tolerance. (13478.661969377484722280954984919349934803437196572192612 > 9.9999999999999999999999999999999999999999999999999963954e-46)
+Try another starting point or tweak arguments.; Rodal: findroot raised TypeError: '<' not supported between instances of 'mpc' and 'int': FAIL  [4 s]
+  C8 own scan at fixed v: Le: 5 sign changes over 7901 radii, 1 accepted at r = ['1.06953712313'] (cos = ['0.97981306']), rejected ['r = 0.06926371107: w = 3.4077', 'r = 0.9901807219: w = -0.188765', 'r = 1.044113588: w = 1.02028', 'r = 1.05444357: w = -1.92762']; Rodal: 6 sign changes over 11001 radii, 3 accepted at r = ['4.70416429527', '4.83995822681', '5.24495013901'] (cos = ['0.98077257', '0.84235846', '0.80826241']), rejected ['r = 4.952154754: w = -0.247019', 'r = 5.083305024: w = 1.52715', 'r = 5.121087266: w = -0.62923']: FAIL  [14 s]
+RESULT FAIL: C1 frame table, C2 E1, c2, terms, C4 rank certificate, C5 T = 0 chain, C6 #72's point in Q(sqrt 113), C7 re-solved tanh points, C8 own scan at fixed v [14 s]

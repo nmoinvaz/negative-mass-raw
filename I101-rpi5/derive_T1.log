@@ -1,0 +1,12 @@
+review_he_surface_typeI.py: sympy 1.14.0
+derive: 144 unknowns, 480 equations, nullspace dimension 4, 41 s
+  solution 0: lam-free True, kappa = a*c*s*u*v**2*(F**2*v**2 + 1)/2
+  solution 1: lam-free True, kappa = -c*v**2*(c - 1)*(c + 1)*(F**2*v**2 + 1)*(a*u - b)/4
+  solution 2: lam-free True, kappa = -c*s*v**2*(c - 1)*(c + 1)*(F**2*v**2 + 1)*(a*u - b)/4
+  solution 3: lam-free True, kappa = -c**2*v**2*(c - 1)*(c + 1)*(F**2*v**2 + 1)*(a*u - b)/4
+derive: the typed cofactors lie in the span of the solutions: True
+
+real	0m42.868s
+user	0m42.141s
+sys	0m0.187s
+exit 0

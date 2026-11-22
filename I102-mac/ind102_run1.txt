@@ -1,0 +1,12 @@
+# ind102: frame Ricci block built in 2 s
+  C0 planted types: lam eta + k e + e k: III (mult 3, rank 2); lam eta + k e + e k boosted: III (mult 3, rank 2); lam eta + k k: II (mult 3, rank 1); lam eta + k k boosted: II (mult 3, rank 1); diag(rho, p, p): I (mult 2, rank 1); diag(rho, p, p) boosted: I (mult 2, rank 1): PASS  [2 s]
+  C1 frame table: B - table mod: 0 nonzero entries; B = 0 at v = 0: True: PASS  [2 s]
+  C2 E1, c2, terms: E1 = printed form: True; c2 = printed: True; s-free: True; even in c: True; terms 17, 42: PASS  [2 s]
+  C3 27 D + E2^2 = 27 E1 G: identity: True; own D = sympy discriminant: True: PASS  [2 s]
+  C4 rank certificate: K1 T = combination of minors, in lam: True; a = 0 facts: True: PASS  [2 s]
+  C5 T = 0 chain: chi factors: True; c2 = -3 lam* - Theta: True; E1, E2 at T = 0: True; m_k(lam*) = -K Gamma_k: True; point (a, b) = (-17/40, 17/40): type II, D = 0, mult 3, rank 1, (Theta, K, E1, E2, T) = [0, 0, 0, 0, 0]: PASS  [2 s]
+  C6 #72's point in Q(sqrt 113): E1 = 0: True, E2 = 0: True, D = 0: True, T = -1521175/1750724 + 25425*sqrt(113)/1750724 = -0.71450642, N^3 = 0: True, N^2 != 0: True, a 2x2 minor != 0: True; (F, b, u, T, lam0) = ['0.0509420566', '-0.570424033', '0.28816478', '-0.714506423', '0.38708958'], max rel. diff. from the note 6.9e-09: PASS  [2 s]
+     E1 has degree 2 and E2 degree 3 in w = c^2
+  C7 re-solved tanh points: jets vs mp.diff 1.07e-50; Le: r = 0.990567889805557, cos = 0.245054615703268 (moved 4.4e-13, 2.7e-13), eigenvalue spread 3.8e-17, singular values ['4.1995', '1.25', '1.1216e-50'], T = -8.80794; Rodal: r = 5.07106634302184, cos = 0.533635342002813 (moved 1.8e-12, 1.9e-13), eigenvalue spread 1.9e-17, singular values ['2.9811', '1.0924', '1.0904e-51'], T = 3.7259: PASS  [2 s]
+  C8 own scan at fixed v: Le: 5 sign changes over 7901 radii, 3 accepted at r = ['0.990567889806', '1.02393326111', '1.09466230932'] (cos = ['0.24505462', '0.20245217', '0.95544057']), rejected ['r = 0.9921149667: w = -0.358483', 'r = 1.006345187: w = 58.4591']; Rodal: 7 sign changes over 11001 radii, 3 accepted at r = ['4.71448517823', '5.07106634302', '5.10338056385'] (cos = ['0.97859051', '0.53363534', '0.98844825']), rejected ['r = 4.993740859: w = -6.30241', 'r = 5.020434866: w = 4.10065', 'r = 5.033740947: w = 8.71726', 'r = 5.076353993: w = 1.03']: PASS  [11 s]
+RESULT PASS [11 s]

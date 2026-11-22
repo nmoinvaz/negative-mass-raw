@@ -1,0 +1,5 @@
+review_he_surface_typeI.py: sympy 1.14.0
+control cof-drop: one term of one cofactor of the T1 certificate is dropped; targets ['cert_T1']
+[FAIL] cert_T1: -cs m01,01 + (c^2 - s^2) m01,02 + vF c^2 m01,12 + cs m02,02 + vF cs m02,12 - K1 (b + a u) reduces to F**2*a**2*c**5*s*u**2*v**4/2 - F**2*a**2*c**3*s*u**2*v**4 + F**2*a**2*c*s*u**2*v**4/2 - F**2*a*b*c**5*s*u*v**4 + 3*F**2*a*b*c**3*s*u*v**4/2 - F**2*a*b*c*s*u*v**4/2 + F**2*b**2*c**5*s*v**4/2 - F**2*b**2*c**3*s*v**4/2 + 5*F*a**3*c**5*s*u*v**4/4 - 2*F*a**3*c**3*s*u*v**4 + 3*F*a**3*c*s*u*v**4/4 - 5*F*a**2*b*c**5*s*v**4/4 + F*a**2*b*c**3*s*v**4 + F*a**2*b*c*s*v**4/4 - F*a*c**3*lam*s*u*v**2/2 + F*a*c*lam*s*u*v**2/2 + F*b*c**3*lam*s*v**2/2 - F*b*c*lam*s*v**2/2 + a**4*c**5*s*v**4/2 - a**4*c*s*v**4/2 + a**2*c**5*s*u**2*v**2/4 - a**2*c**3*lam*s*v**2 + a**2*c*lam*s*v**2 - a**2*c*s*u**2*v**2/4 - a*b*c**5*s*u*v**2/2 + a*b*c**3*s*u*v**2/2 + b**2*c**5*s*v**2/4 - b**2*c**3*s*v**2/2 + b**2*c*s*v**2/4 for symbolic lam; at a = 0: m01,01 + Sigma_00^2 + Sigma_01^2 reduces to 0; K1 = a*c*s*u*v**2*(F**2*v**2 + 1)/2
+control cof-drop: failed ['cert_T1'] of targets ['cert_T1'] -> FIRED
+exit 1

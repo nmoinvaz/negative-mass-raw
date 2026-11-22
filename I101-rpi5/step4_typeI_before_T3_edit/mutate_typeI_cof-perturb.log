@@ -1,0 +1,5 @@
+review_he_surface_typeI.py: sympy 1.14.0
+control cof-perturb: one cofactor of the T1 certificate gets +1; targets ['cert_T1']
+[FAIL] cert_T1: -cs m01,01 + (c^2 - s^2) m01,02 + vF c^2 m01,12 + cs m02,02 + vF cs m02,12 - K1 (b + a u) reduces to -F**2*a**2*c**4*u**2*v**4 + 2*F**2*a**2*c**2*u**2*v**4 - F**2*a**2*u**2*v**4 + 2*F**2*a*b*c**4*u*v**4 - 2*F**2*a*b*c**2*u*v**4 - F**2*b**2*c**4*v**4 - 2*F*a**3*c**4*u*v**4 + 2*F*a**3*c**2*u*v**4 + 2*F*a**2*b*c**4*v**4 + 2*F*a*c**2*lam*u*v**2 - 2*F*a*lam*u*v**2 - 2*F*b*c**2*lam*v**2 - 3*a**4*c**4*v**4/4 - a**4*c**2*v**4/2 + a**4*v**4/4 - a**2*c**4*u**2*v**2/4 + 2*a**2*c**2*lam*v**2 - a**2*c**2*u**2*v**2/2 - a**2*u**2*v**2/4 + a*b*c**4*u*v**2/2 - a*b*u*v**2/2 - b**2*c**4*v**2/4 + b**2*c**2*v**2/2 - b**2*v**2/4 - lam**2 for symbolic lam; at a = 0: m01,01 + Sigma_00^2 + Sigma_01^2 reduces to 0; K1 = a*c*s*u*v**2*(F**2*v**2 + 1)/2
+control cof-perturb: failed ['cert_T1'] of targets ['cert_T1'] -> FIRED
+exit 1

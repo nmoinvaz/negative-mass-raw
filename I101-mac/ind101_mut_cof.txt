@@ -1,0 +1,13 @@
+# ind101: coordinate Ricci built in 0 s, mutate=cof
+  C0 flat and trace: R = 0 at v = 0: True; R00 + Rxx + 2 Rrr = 0 at 2 points: True: PASS  [0 s]
+  C1 certificate: 6 random rational points, as polynomials in lam: FAIL  [1 s]
+  C2 D on T1: 4 random rational points: PASS  [2 s]
+     F = 3/5, c = 3/5, r a = -63/125, v^2 = 625/48: D = 0, multiplicity 2, rank 1
+     F = 4/5, c = -20/29, r a = -2188/4205, v^2 = 525625/43218: D = 0, multiplicity 2, rank 1
+     F = -3/5, c = 19/181, r a = 25383/163805, v^2 = 11826721/70858800: D = 0, multiplicity 2, rank 1
+     F = -4/5, c = -15/17, r a = 2956/4335, v^2 = 14630625/131072: D = 0, multiplicity 2, rank 1
+  C3 Type I on T1, T2, T3: 4 points, 2 with F < 0: PASS  [2 s]
+     reported, at the F < 0 points (-F < r a < -c^2 F, v F s^2 >= 2|c|): [(False, False), (False, False)]
+  C4 T3 = 0 is not Type I: D = 0, multiplicity 3, rank 1: PASS  [3 s]
+RESULT FAIL: C1 certificate [3 s]
+exit 1

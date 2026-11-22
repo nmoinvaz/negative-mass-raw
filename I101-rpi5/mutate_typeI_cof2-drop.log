@@ -1,0 +1,5 @@
+review_he_surface_typeI.py: sympy 1.14.0
+control cof2-drop: one term of one cofactor of the T2 certificate is dropped; targets ['cert_T2']
+[FAIL] cert_T2: lam certificate NO; P2 certificate yes; converse minors in <b + a u, lam - lam*, Pu> yes; per-minor converse [True, True, True, True, True, True]
+control cof2-drop: failed ['cert_T2'] of targets ['cert_T2'] -> FIRED
+exit 1

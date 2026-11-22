@@ -1,0 +1,5 @@
+he_type3.py: python 3.14.10, sympy 1.14.0, mpmath 1.3.0
+control disc27: 26 D + E2^2; targets ['cert_disc']
+[FAIL] cert_disc: 27 D + E2^2 - 27 E1 G = -2187*C0**2*C1/(81*C1 - 27*C2**2) + 729*C0**2*C2**2/(81*C1 - 27*C2**2) + 27*C0**2 - 37908*C0*C1**2*C2/(81*C1 - 27*C2**2) + 25434*C0*C1*C2**3/(81*C1 - 27*C2**2) + 468*C0*C1*C2 - 4266*C0*C2**5/(81*C1 - 27*C2**2) - 158*C0*C2**3 + 8424*C1**4/(81*C1 - 27*C2**2) - 4914*C1**3*C2**2/(81*C1 - 27*C2**2) - 104*C1**3 + 702*C1**2*C2**4/(81*C1 - 27*C2**2) + 26*C1**2*C2**2 - 81*C1*C2**6/(81*C1 - 27*C2**2) + 27*C2**8/(81*C1 - 27*C2**2) + C2**6 with G = n/a (polynomial: False); on E1 = 0, D + E2^2/27 = 0. So E1 = 0 and D = 0 give E2 = 0, and E1 = E2 = 0 give D = 0
+control disc27: failed ['cert_disc'] of targets ['cert_disc'] -> FIRED
+wall 0.0 s

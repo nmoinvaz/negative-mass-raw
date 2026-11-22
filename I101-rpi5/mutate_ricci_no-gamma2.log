@@ -1,0 +1,8 @@
+review_he_surface_ricci.py: sympy 1.14.0, mpmath 1.3.0
+control no-gamma2: the numeric Ricci drops the Gamma Gamma terms; targets ['ricci_numeric']
+   v = 0.7 r = 1.3 c = 0.6: max rel. deviation 0.219, max |R(e_phi, .)| 3.72e-45, R_rr^numeric = 4.13814709998e-45
+   v = 1.4 r = 0.9 c = -0.3: max rel. deviation 0.501, max |R(e_phi, .)| 3.93e-45, R_rr^numeric = 3.86103368935e-45
+   v = 2.2 r = 2.1 c = 0.8: max rel. deviation 0.0201, max |R(e_phi, .)| 3.38e-45, R_rr^numeric = 2.15644533866e-45
+[FAIL] ricci_numeric: symbolic frame Ricci equals 50-digit second differences of the lab metric at 3 points, worst 0.501 (tol 1e-30)
+control no-gamma2: failed ['ricci_numeric'] of targets ['ricci_numeric'] -> FIRED
+exit 1

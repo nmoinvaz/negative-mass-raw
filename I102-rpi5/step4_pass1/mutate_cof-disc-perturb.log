@@ -1,0 +1,5 @@
+he_type3.py: python 3.14.10, sympy 1.14.0, mpmath 1.3.0
+control cof-disc-perturb: G plus c2; targets ['cert_disc']
+[FAIL] cert_disc: 27 D + E2^2 - 27 E1 G = 81*C1*C2 - 27*C2**3 with G = -(162*C0*C2 - 36*C1**2 - 3*C1*C2**2 - C2**4 - 27*C2)/27 (polynomial: True); on E1 = 0, D + E2^2/27 = 0. So E1 = 0 and D = 0 give E2 = 0, and E1 = E2 = 0 give D = 0
+control cof-disc-perturb: failed ['cert_disc'] of targets ['cert_disc'] -> FIRED
+wall 0.0 s
