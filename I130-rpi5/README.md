@@ -31,4 +31,10 @@ The pass criteria and the controls' target lists are in the script (`CONTROLS`) 
 
 ## Results
 
-Filled in at each post and at the end.
+Code commits on `wip/i130-rot` of nmoinvaz/negative-mass: the rotated-frame checks and controls at 792fd1d.
+
+| step | command (args to `weitzenbock_conf.py`) | commit | exit | wall | peak rss | result |
+|---|---|---|---|---|---|---|
+| 2 | `--no-controls --skip=identity_rot_Kdiag,identity_rot_general,V_reduced_rot` | 792fd1d | 0 | 2 min 56 s | 102.6 MiB | 58 checks pass, 0 fail: #87's and #99's 42, and 16 rotated ones (planted omega', orthonormality, Clifford, mu and J' with hand values, 4-metric route, alpha = 0 against `identity_diag_general` term for term, and the identities flat, Lichnerowicz, flat with K', Alcubierre rotated) |
+
+Logs: `step2.log` (stdout), `step2.err` (timings), `step2.time` (`/usr/bin/time -v`), `step2.cmd`, `memwatch.log` (report only).
