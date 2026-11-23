@@ -1,0 +1,22 @@
+# review_lemma_a3_ends: L2, L3 (ends of V-hat, Frobenius exponents)
+# mutations on: cn_n4to3
+PASS PLE.1a
+PASS PLE.1b
+PASS PLE.1c
+PASS PLE.1d
+PASS PLE.1e
+PASS PLE.3a
+PASS PLE.3b
+PASS PLE.3c
+PASS PLE.4a
+PASS PLE.4b
+PASS PLE.2[n=1]
+PASS PLE.2[n=2]
+PASS PLE.2[n=3]
+PASS PLE.2[n=5]
+PASS PLE.2[n=3, shifted]
+PASS E2.1
+# r^2 coefficient of r^4 V-hat, with c3 = -K/32: l*(l + 1)  (generic: (c**2 + 5*c + 32*h2 + 6)/3)
+# V-hat built for l = 2..30 (46.0 s)
+FAIL E2.2[l=2]: pole order 4; r^4 V-hat series [12, 18, 20]; want [12, 18, 6]
+# summary: 16 PASS, 1 FAIL, 0 DIFFERS

@@ -1,0 +1,12 @@
+# review_lemma_a3_v: the Zerilli V of RESULTS 4.2 against the published forms
+# mutations on: v_x
+PASS PLV.1a
+PASS PLV.1b
+PASS PLV.2
+PASS V1.1[DG06]
+PASS V1.1[DG09]
+PASS V1.1[KS]
+PASS V1.1[BCS]
+PASS V1.2
+FAIL V1.3: dx/dr = 1/(1-2M/r): DG06 0, DG09 0; equal to RESULTS x at M = -1: False, False; RESULTS: False
+# summary: 8 PASS, 1 FAIL, 0 DIFFERS
