@@ -151,3 +151,20 @@ Controls runner: `zerilli_certificate_controls.py` (baseline `--part=all` unmuta
   A result at L = 6 is a statement at L = 6: no solution at L = 6 does not by itself show there is none at symbolic L, and a solution at L = 6 does not show one at symbolic L.
 - Part 3 (after the final run): `drop_traceless` at symbolic L alone, cap 3000 s.
 
+2026-11-23, step 4, written after control part 2 and before any further run.
+- **Correction of the part-1 bullet.** I wrote that `drop_traceless` at symbolic L was slow because the inconsistent elimination swelled. That is wrong. Its stopped log
+  (`controls_part1_logs/drop_traceless.log`) shows the attempts: O1 found a solution in 4.5 s, reversed-within-k in 1.4 s, both with "denominators NOT allowed", and `k-descending`
+  took 451 s, also NOT allowed; I stopped the run in the search over the remaining column orders, not in a solve. So without the traceless equation **E.cert passes and E.den fails**.
+  The pre-registered target of `drop_traceless` (E.cert, "with confidence") was wrong: it is a MISS. Reason (a reading, to be checked by the run below): the x-component of the
+  linearized Bianchi identity gives the traceless equation from the other equations with a division by L − 2.
+- **Part 2** (`controls_part2.log`, at `--L=6`, cap 900 s): `drop_traceless` exit 0 (certificate exists, denominators allowed: L − 2 is the number 4 at L = 6, so E.den cannot see it);
+  `drop_tt`, `drop_tr`, `drop_rr`, `drop_tx`, `drop_rx` exit 0 (not needed at L = 6; for `drop_tt` the O1 solution had a forbidden denominator and the second column order passed);
+  `drop_trace` exit 1 at E.1: **name collision**. `drop_trace` is also a mutation of #143's library (it drops the first-order part of a Ricci term), so `--mutate=drop_trace`
+  switched on that one, not mine. Not a result about the trace equation. The equation drop for trace is renamed `dropeq_trace`; the other names stay.
+- **New pre-registered controls** (written before they are run; added to the runner):
+  `drop_second` = the three second-order equations tt, rr and trace removed from the span, `--L=6`: target E.cert, exit 1, with confidence: the first-order equations
+  traceless, tr, tx, rx leave a 3-dimensional solution space (K, H1, H) on which Z does not vanish (Z is a multiple of the algebraic relation A of #143 E.2 on the flow), so Z is not in their span at any L.
+  `drop_traceless` with `--attempts=2`, symbolic L: the pre-registered target E.cert stays and will be reported as a MISS if E.den fires; the expectation after part 1 is: exit 1, first FAIL E.den,
+  with a forbidden denominator factor L − 2. The final control run is a single complete run of the runner on the final code, so that the controls output is one coherent file;
+  its exploratory family (drop_tt, drop_tr, drop_rr, drop_tx, drop_rx, dropeq_trace) runs at `--L=6`, acceptance rule as before.
+
