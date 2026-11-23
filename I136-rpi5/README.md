@@ -115,3 +115,4 @@ Estimate (before measuring): 3 to 5 h. The first trial cover (scratch, not logge
 - step3_le: the first run (`step3_le_first.log`) passed `small_z:le`, `tail:le`, `cover:le`, `spurious:le` and raised a
   TypeError in `points:le` (mpmath candidates were not converted to Fractions, a bug in the script). Fixed
   (`fr_of_mp`), `cover:le,points:le,spurious:le` rerun in `step3_le.log`: pass, 147 s, 75 MB.
+- step4_rodal (`small_z:rodal`, `tail:rodal`, `cover:rodal`, `points:rodal`, `spurious:rodal`): pass on the first run, 250 s, 6 roots of P, 1 of y.

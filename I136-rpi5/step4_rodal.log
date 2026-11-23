@@ -16,3 +16,24 @@ check tail:rodal
   the enclosure of S contains the true S (mpmath, 120 digits) at z = 1, 2, 3, 5 times 60: 0 misses
   -> PASS (1 s)
 check cover:rodal
+  P on [1/4, 60]: 2735 leaves {'excl': 2723, 'mono': 6, 'root': 6}; tiling True; 6 roots (statement: 6); 210 s
+     tanh-form function (mpmath, 80 digits): sign at a point of every leaf vs the leaf sign: 0 disagreements
+     refined root enclosures (width <= 3.04e-31) contain the mpmath root of the tanh form: 0 misses; r = ['4.714485178', '5.020434866', '5.033740947', '5.071066343', '5.076353993', '5.103380564']
+  y on [1/4, 60]: 58 leaves {'excl': 53, 'mono': 4, 'root': 1}; tiling True; 1 roots (statement: 1); 1 s
+     tanh-form function (mpmath, 80 digits): sign at a point of every leaf vs the leaf sign: 0 disagreements
+     refined root enclosures (width <= 1.05e-48) contain the mpmath root of the tanh form: 0 misses; r = ['4.993740859']
+  -> PASS (226 s)
+check points:rodal
+  rodal: 6 P roots, 6 Krawczyk boxes in (z, w) (K(X) inside X), every other point of z in the root cell x w in [-1e4, 1e4] excluded: True; 18 s
+  admissible (0 < w < 1, T != 0): 3 (statement: 3)
+     r = 4.71448517823 (statement 4.71448517823, |diff| 1.4e-12), w in [0.9576393947, 0.9576393947], T = -4.51919; box half-widths z 1.0e-26, w 1.0e-20 -> ok
+     r = 5.07106634302 (statement 5.07106634302, |diff| 1.8e-12), w in [0.2847666782, 0.2847666782], T = 3.7259; box half-widths z 1.0e-26, w 1.0e-20 -> ok
+     r = 5.10338056385 (statement 5.10338056385, |diff| 3.3e-12), w in [0.9770299367, 0.9770299367], T = 4.97171; box half-widths z 1.0e-26, w 1.0e-20 -> ok
+  the other P roots have their common root at w = ['1.030003', '4.1006549', '8.7172638'] (statement: ['103/100', '41007/10000', '87173/10000'])
+  -> PASS (18 s)
+check spurious:rodal
+  the root of y at r = 4.9937409 (statement 4.9937): leading coefficient of E1 in w, phi^2 y^2 / 4, encloses 0.0 .. 1.13e-92
+  common roots with z in the root cell and |w| <= 1e4: 0 (complete True)
+  -> PASS (0 s)
+
+summary: 5 checks run, 0 failed [], 250 s
