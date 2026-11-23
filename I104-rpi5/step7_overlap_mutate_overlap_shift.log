@@ -1,0 +1,4 @@
+review_large_l_overlap, mutation=overlap_shift: 16 rows of #2's table E, l = [2, 3, 5, 10, 20, 40, 80, 81, 100, 150, 200, 300, 500, 1000, 2000, 3000]
+PASS parsed 16 rows of #2's table E
+FAIL printing convention of #2's table: 0 <= (middle of my bracket) - (printed value) < 1.2e-12 for all 32 values (truncation to 12 decimals) range [-9.999e-10, -9.989e-10]
+STOP first failure under mutation: printing convention of #2's table: 0 <= (middle of my bracket) - (printed value) < 1.2e-12 for all 32 values (truncation to 12 decimals)

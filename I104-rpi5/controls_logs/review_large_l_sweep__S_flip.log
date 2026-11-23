@@ -1,0 +1,11 @@
+review_large_l_sweep, mutation=S_flip, l = 2..3000
+PASS planted: one root near a verdict=CERTIFIED (certified)
+PASS planted: one root near b verdict=CERTIFIED (certified)
+PASS planted: two roots a, b = a + 1e-10 in one bracket verdict=REFUSED (no sign change)
+PASS planted: three roots in one bracket verdict=REFUSED (derivative enclosure contains 0)
+PASS planted: endpoint exactly on a root verdict=REFUSED (enclosure of F at an end contains 0)
+PASS planted: no root in the bracket verdict=REFUSED (no sign change)
+PASS planted: double root at a verdict=REFUSED (no sign change)
+rho_* = 8.485700967373530340931  rho_neg = 9.635989442586144020696
+FAIL S shows the same sign change (-,+) on the Psi bracket (does not use (Z)), l=2 S signs (1, -1)
+STOP first failure under mutation: S shows the same sign change (-,+) on the Psi bracket (does not use (Z)), l=2

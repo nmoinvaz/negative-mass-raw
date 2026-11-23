@@ -1,0 +1,39 @@
+review_large_l_overlap, mutation=None: 16 rows of #2's table E, l = [2, 3, 5, 10, 20, 40, 80, 81, 100, 150, 200, 300, 500, 1000, 2000, 3000]
+PASS parsed 16 rows of #2's table E
+FAIL l=2: my bracket of c r_* overlaps #2's printed bracket mine [9.11512170184980, 9.11512170184982], #2 printed lo 9.115121701849
+PASS l=2: my bracket of c r_neg overlaps #2's printed bracket mine [10.69628593566438, 10.69628593566440], #2 printed lo 10.696285935664
+FAIL l=3: my bracket of c r_* overlaps #2's printed bracket mine [8.78904126969286, 8.78904126969288], #2 printed lo 8.789041269692
+PASS l=3: my bracket of c r_neg overlaps #2's printed bracket mine [10.14351892096024, 10.14351892096026], #2 printed lo 10.143518920960
+PASS l=5: my bracket of c r_* overlaps #2's printed bracket mine [8.60450330863712, 8.60450330863714], #2 printed lo 8.604503308637
+FAIL l=5: my bracket of c r_neg overlaps #2's printed bracket mine [9.83390991170773, 9.83390991170775], #2 printed lo 9.833909911707
+PASS l=10: my bracket of c r_* overlaps #2's printed bracket mine [8.51777897248944, 8.51777897248946], #2 printed lo 8.517778972489
+PASS l=10: my bracket of c r_neg overlaps #2's printed bracket mine [9.68931591938724, 9.68931591938726], #2 printed lo 9.689315919387
+FAIL l=20: my bracket of c r_* overlaps #2's printed bracket mine [8.49407931125000, 8.49407931125002], #2 printed lo 8.494079311249
+PASS l=20: my bracket of c r_neg overlaps #2's printed bracket mine [9.64990925067327, 9.64990925067329], #2 printed lo 9.649909250673
+FAIL l=40: my bracket of c r_* overlaps #2's printed bracket mine [8.48784508969193, 8.48784508969194], #2 printed lo 8.487845089691
+PASS l=40: my bracket of c r_neg overlaps #2's printed bracket mine [9.63955112874542, 9.63955112874544], #2 printed lo 9.639551128745
+PASS l=80: my bracket of c r_* overlaps #2's printed bracket mine [8.48624351477945, 8.48624351477947], #2 printed lo 8.486243514779
+FAIL l=80: my bracket of c r_neg overlaps #2's printed bracket mine [9.63689065264775, 9.63689065264777], #2 printed lo 9.636890652647
+FAIL l=81: my bracket of c r_* overlaps #2's printed bracket mine [8.48623028110304, 8.48623028110306], #2 printed lo 8.486230281102
+PASS l=81: my bracket of c r_neg overlaps #2's printed bracket mine [9.63686867026730, 9.63686867026732], #2 printed lo 9.636868670267
+PASS l=100: my bracket of c r_* overlaps #2's printed bracket mine [8.48604904933936, 8.48604904933938], #2 printed lo 8.486049049339
+FAIL l=100: my bracket of c r_neg overlaps #2's printed bracket mine [9.63656762876679, 9.63656762876681], #2 printed lo 9.636567628766
+PASS l=150: my bracket of c r_* overlaps #2's printed bracket mine [8.48585617925745, 8.48585617925747], #2 printed lo 8.485856179257
+PASS l=150: my bracket of c r_neg overlaps #2's printed bracket mine [9.63624725808145, 9.63624725808147], #2 printed lo 9.636247258081
+FAIL l=200: my bracket of c r_* overlaps #2's printed bracket mine [8.48578841815777, 8.48578841815780], #2 printed lo 8.485788418157
+PASS l=200: my bracket of c r_neg overlaps #2's printed bracket mine [9.63613470290820, 9.63613470290822], #2 printed lo 9.636134702908
+PASS l=300: my bracket of c r_* overlaps #2's printed bracket mine [8.48573989873269, 8.48573989873271], #2 printed lo 8.485739898732
+FAIL l=300: my bracket of c r_neg overlaps #2's printed bracket mine [9.63605410952781, 9.63605410952783], #2 printed lo 9.636054109527
+FAIL l=500: my bracket of c r_* overlaps #2's printed bracket mine [8.48571500127203, 8.48571500127205], #2 printed lo 8.485715001271
+PASS l=500: my bracket of c r_neg overlaps #2's printed bracket mine [9.63601275358114, 9.63601275358116], #2 printed lo 9.636012753581
+FAIL l=1000: my bracket of c r_* overlaps #2's printed bracket mine [8.48570447934883, 8.48570447934885], #2 printed lo 8.485704479348
+PASS l=1000: my bracket of c r_neg overlaps #2's printed bracket mine [9.63599527614812, 9.63599527614814], #2 printed lo 9.635995276148
+FAIL l=2000: my bracket of c r_* overlaps #2's printed bracket mine [8.48570184580586, 8.48570184580588], #2 printed lo 8.485701845805
+FAIL l=2000: my bracket of c r_neg overlaps #2's printed bracket mine [9.63599090170492, 9.63599090170494], #2 printed lo 9.635990901704
+FAIL l=3000: my bracket of c r_* overlaps #2's printed bracket mine [8.48570135785292, 8.48570135785294], #2 printed lo 8.485701357852
+PASS l=3000: my bracket of c r_neg overlaps #2's printed bracket mine [9.63599009119137, 9.63599009119139], #2 printed lo 9.635990091191
+  of #2's printed l, [1000, 2000] are among my 200 random l; the others come from my sweep of every l = 2..3000
+  #2's Theorem L: l >= 138, K_* = 183009/2000, K_neg = 57467/250; Theorem M: l >= 500, s_N = 3709/1000, s_P = 6101/1000
+PASS my 200 brackets satisfy #2's Theorem L bound for the 185 sampled l >= 138 0 violations
+PASS my 200 brackets satisfy #2's Theorem M bound 0 < c r - rho <= s/c for the 157 sampled l >= 500 0 violations
+SUMMARY checks=35 failed=15 ["l=2: my bracket of c r_* overlaps #2's printed bracket", "l=3: my bracket of c r_* overlaps #2's printed bracket", "l=5: my bracket of c r_neg overlaps #2's printed bracket", "l=20: my bracket of c r_* overlaps #2's printed bracket", "l=40: my bracket of c r_* overlaps #2's printed bracket", "l=80: my bracket of c r_neg overlaps #2's printed bracket", "l=81: my bracket of c r_* overlaps #2's printed bracket", "l=100: my bracket of c r_neg overlaps #2's printed bracket", "l=200: my bracket of c r_* overlaps #2's printed bracket", "l=300: my bracket of c r_neg overlaps #2's printed bracket", "l=500: my bracket of c r_* overlaps #2's printed bracket", "l=1000: my bracket of c r_* overlaps #2's printed bracket", "l=2000: my bracket of c r_* overlaps #2's printed bracket", "l=2000: my bracket of c r_neg overlaps #2's printed bracket", "l=3000: my bracket of c r_* overlaps #2's printed bracket"]

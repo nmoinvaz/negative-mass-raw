@@ -1,0 +1,28 @@
+review_large_l_theorem3, mutation=mut_Vhat
+PASS planted: one root near a verdict=CERTIFIED (certified)
+PASS planted: one root near b verdict=CERTIFIED (certified)
+PASS planted: two roots a, b = a + 1e-10 in one bracket verdict=REFUSED (no sign change)
+PASS planted: three roots in one bracket verdict=REFUSED (derivative enclosure contains 0)
+PASS planted: endpoint exactly on a root verdict=REFUSED (enclosure of F at an end contains 0)
+PASS planted: no root in the bracket verdict=REFUSED (no sign change)
+PASS planted: double root at a verdict=REFUSED (no sign change)
+PASS (Z) psi_0,xx = V psi_0 exactly, l=2
+PASS (Z) psi_0,xx = V psi_0 exactly, l=3
+PASS (Z) psi_0,xx = V psi_0 exactly, l=4
+PASS (Z) psi_0,xx = V psi_0 exactly, l=5
+PASS (Z) psi_0,xx = V psi_0 exactly, l=6
+PASS (Z) psi_0,xx = V psi_0 exactly, l=7
+PASS (Z) psi_0,xx = V psi_0 exactly, l=8
+PASS (Z) psi_0,xx = V psi_0 exactly, l=9
+PASS (Z) psi_0,xx = V psi_0 exactly, l=10
+PASS (Z) psi_0,xx = V psi_0 exactly, l=11
+PASS (Z) psi_0,xx = V psi_0 exactly, l=12
+PASS (Z) psi_0,xx = V psi_0 exactly, l=13
+PASS (Z) psi_0,xx = V psi_0 exactly, l=14
+PASS V(r = rho/c, lambda = c/2) = 8c^4 (2+eps rho) N_Z / (rho^4 (rho-6)^2), symbolic in c
+PASS g = psi_0'/psi_0 equals -c f N/((rho-6) X) for generic X
+PASS Vhat = g^2 - g' = 2 g^2 - psi_xx/psi_0 for generic X
+PASS Vhat = S c^3 (2c + rho)/(rho^3 (rho-6) X^2) for generic X (S of RESULTS 4.3) ratio=c**3*(2*c + rho)/(rho**3*(rho - 6)*X(rho)**2)
+  so sign(Vhat) = sign(S) for rho > 6 where X > 0
+FAIL 2 g^2 - V = 2c^4 (2+eps rho) Psi / (rho^4 (rho-6)^2 X^2), generic X, symbolic in c
+STOP first failure under mutation: 2 g^2 - V = 2c^4 (2+eps rho) Psi / (rho^4 (rho-6)^2 X^2), generic X, symbolic in c

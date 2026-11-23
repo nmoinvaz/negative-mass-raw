@@ -1,0 +1,27 @@
+review_large_l_thm_m, mutation=window_narrow
+PASS planted: one root near a verdict=CERTIFIED (certified)
+PASS planted: one root near b verdict=CERTIFIED (certified)
+PASS planted: two roots a, b = a + 1e-10 in one bracket verdict=REFUSED (no sign change)
+PASS planted: three roots in one bracket verdict=REFUSED (derivative enclosure contains 0)
+PASS planted: endpoint exactly on a root verdict=REFUSED (enclosure of F at an end contains 0)
+PASS planted: no root in the bracket verdict=REFUSED (no sign change)
+PASS planted: double root at a verdict=REFUSED (no sign change)
+PASS Psi_l = Psi_inf + eps Psi_1 + eps^2 E(eps) with the typed Psi_1 and E (symbolic)
+PASS (l+1)^2 c(l) - l^2 c(l+1) = l^2 - 3l - 2 (symbolic)
+PASS c(l+1) - c(l) = 2l + 2 (symbolic)
+PASS (l^2 - 3l - 2)/(l+1)^2 is increasing for l >= 1: derivative has the sign of 5l + 1 > 0 (symbolic)
+PASS C2: majorant polynomial for Omega_a has all coefficients >= 0 in n = 5 + t (eps_max <= 1/1000)
+PASS C2: majorant polynomial for Omega_b has all coefficients >= 0 in n = 5 + t (eps_max <= 1/1000)
+PASS C2: majorant polynomial for alpha^1 has all coefficients >= 0 in n = 5 + t (eps_max <= 1/1000)
+PASS first order Theorem L (own constants) re-derived with every check passing K_* = 23.8182, K_neg = 172.034
+PASS C2: Omega_n <= n^8 g_n and |alpha^1_n| <= n^5 g_n for 3 <= n <= 400 (iv)
+
+=== configuration L2: l >= 138 ===
+PASS L2: window radii K' = 46, 339 are at least Theorem L's own constants K_*, K_neg 23.8182, 172.034
+  windows: N [8.48567698406, 8.48572495069], Psi [9.63581269598, 9.6361661892], eps_max = 5.21376e-5
+  Z (N window) <= 1487.18;  Z, Theta (Psi window) <= 5744.02, 3914.44
+  nu in [19.692606, 19.694194]  nu(rho_*) in [19.6934, 19.6934]  -N_inf' >= 5.6017583
+PASS L2: -N_inf' >= mu_N > 0 on the N window and nu_min > 0 mu_N = 5.6017583, nu_min = 19.692606
+PASS L2: nu(rho_*) - eps_max Z > 0, so N_l(rho_*) > 0 and c r_* > rho_*
+FAIL L2: s_N eps_max <= window radius, so rho_* + s_N eps lies in the N window
+STOP first failure under mutation: L2: s_N eps_max <= window radius, so rho_* + s_N eps lies in the N window
