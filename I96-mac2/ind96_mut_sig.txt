@@ -1,0 +1,31 @@
+ind96 mutation=sig
+== solve sigma R = 8.1, disc A (q = 1.15, Rout = 800, fnth = 1, fh = 1), v_c = 1.549587
+      m = 0.5: h = 0.0247, nth = 24, n = 11648, arpack (64 eigenvalues to |mu| v_c = 0.0713, residual 1e-14), leading mu v_c = 0.007117+0.298088j, 2 s
+    wall 2 s
+    all checks passed [3 s, exit 0]
+== solve sigma R = 8.1, disc B (q = 1.13, Rout = 1200, fnth = 1, fh = 1), v_c = 1.549587
+      m = 0.5: h = 0.0222, nth = 28, n = 15240, arpack (64 eigenvalues to |mu| v_c = 0.0744, residual 1e-14), leading mu v_c = 0.007117+0.298088j, 6 s
+    wall 6 s
+    all checks passed [6 s, exit 0]
+FAIL G1 sR=8 m=0.5 v_c  1.5495867 against #96 1.562434
+PASS G2 sR=8 m=0.5 A and B agree on the leading |mu| v_c  A 0.29817282, B 0.29817287, rel 1.7e-07
+FAIL G3 sR=8 m=0.5 leading and second |mu| v_c against #96  lead 0.29817282 vs 0.2995108 (rel 4.5e-03), next 0.224308 vs 0.22493 (rel 2.8e-03)
+== solve sigma R = 8.1, disc A (q = 1.15, Rout = 800, fnth = 1, fh = 1), v_c = 1.549587
+      m = 10.5: h = 0.0247, nth = 36, n = 16576, arpack (64 eigenvalues to |mu| v_c = 0.0502, residual 1e-14), leading mu v_c = 0.000000+0.102870j, 6 s
+    wall 6 s
+    all checks passed [7 s, exit 0]
+== solve sigma R = 8.1, disc B (q = 1.13, Rout = 1200, fnth = 1, fh = 1), v_c = 1.549587
+      m = 10.5: h = 0.0222, nth = 42, n = 21844, arpack (64 eigenvalues to |mu| v_c = 0.0513, residual 1e-14), leading mu v_c = -0.000000+0.102870j, 10 s
+    wall 10 s
+    all checks passed [10 s, exit 0]
+FAIL G1 sR=8 m=10.5 v_c  1.5495867 against #96 1.562434
+PASS G2 sR=8 m=10.5 A and B agree on the leading |mu| v_c  A 0.10286970, B 0.10286984, rel 1.4e-06
+FAIL G3 sR=8 m=10.5 leading and second |mu| v_c against #96  lead 0.10286970 vs 0.102782 (rel 8.5e-04), next 0.093758 vs 0.093657 (rel 1.1e-03)
+FAIL G1 sR=16 m=0.5 v_c  0.9850202 against #96 0.98503
+PASS G2 sR=16 m=0.5 A and B agree on the leading |mu| v_c  A 0.22508094, B 0.22508104, rel 4.3e-07
+PASS G3 sR=16 m=0.5 leading and second |mu| v_c against #96  lead 0.22508094 vs 0.2250833 (rel 1.0e-05), next 0.184358 vs 0.184364 (rel 3.4e-05)
+FAIL G1 sR=16 m=10.5 v_c  0.9850202 against #96 0.98503
+PASS G2 sR=16 m=10.5 A and B agree on the leading |mu| v_c  A 0.10291624, B 0.10291644, rel 2.0e-06
+PASS G3 sR=16 m=10.5 leading and second |mu| v_c against #96  lead 0.10291624 vs 0.102918 (rel 1.7e-05), next 0.095274 vs 0.095278 (rel 4.6e-05)
+FAILED: ['G1', 'G3'] (26 s)
+rc=1
