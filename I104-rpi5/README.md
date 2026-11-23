@@ -59,3 +59,21 @@ A6. Each check has `--mutate=NAME` that exits non-zero, and fires at the check n
 
 One process, nice 10, `OMP_NUM_THREADS=1`. Any run over 3 h of wall time is stopped and what finished is reported. Memory is reported only.
 Runs longer than a few minutes are systemd user units `nm-i104-<step>`, with the exit code written to `<step>.rc`.
+
+## Added before the sweep run (2026-11-23)
+
+Design parameters of Theorems L and M (own constants; chosen before their final runs):
+- Theorem L (first order): eps0 = 1/(140*137) (l >= 138), windows rho_* +- 0.01 and rho_neg +- 0.03, 40 subintervals, 60 explicit terms then a tail
+  majorant n^D g_n rho_hi^n (g_n = 1/(2^n (n-1)!^2)), coefficient bound B_n of the hand lemma C1.
+- Theorem M and the second order refinement of L: a_n = alpha_n + eps alpha^1_n + eps^2 omega_n, windows rho +- K' eps_max with K' = 46 (N) and 339 (Psi),
+  eps_max = 1/c(500) for M and 1/c(138) for the refinement ("L2").
+- A first attempt took the maximum of the two coefficient regimes (n <= l+2 and n >= l+3) for every n, which gave Z = 12169 and E_max = 4.06e8, and the M
+  comparison failed (2l+2) nu_min > 2.004 Z by a factor 1.2 (N) and 4.2 (Psi). The regimes are exclusive: the 60 explicit terms satisfy n <= l+2 for
+  every l >= 138, so they use the n <= l+2 bound, and the tail (n > 60) uses the uniform majorant n^8 g_n. This changes the proof's bookkeeping, not an inequality
+  under review. Logs: `step4_thm_m_try1.log` (first attempt) and `step4_thm_m_try2.log`.
+- The coefficient bound |a_n - alpha_n| <= eps B_n is an equality at n = 4 for l = 138 (eps = eps0), so its iv test is "not definitely violated"
+  (the enclosure of |a_n - alpha_n| - eps B_n does not lie above 0).
+
+Supplementary sweep `review_large_l_sweep.py`: the brackets of the 200-bracket code for every l = 2..3000 (full table in `sweep_brackets.csv`), with the criteria
+every bracket certified; hi(l+1) < lo(l) for both c r_* and c r_neg for every consecutive l; lo above the limits; l^2 r_* and l^2 r_neg increase for every
+consecutive l >= 5; lo(c r_neg) > hi(c r_*). It is not part of the acceptance count.
