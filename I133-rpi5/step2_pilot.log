@@ -1,0 +1,10 @@
+he_type3_count.py: python 3.14.10, sympy 1.14.0, mpmath 1.3.0
+[PASS] cover: Le: 961 leaves tile [1/4, 40]: True, 0 unresolved, 4 root leaves, tanh-form P changes sign 4 times at the leaf ends (agreement True), 3599 evaluations, 32 s
+    (cover: 42 s)
+[PASS] spurious: Le: 26 leaves tile: True, 0 unresolved, 1 root leaves, tanh-form y changes sign 1 times (agreement True); y = 0 at z in [15.87383947, 15.87383947] (r = 0.9921149667), common roots 0, w in []; admissible points at y-roots 0, unresolved boxes 0, cells disjoint from the P cells True
+    (spurious: 6 s)
+[PASS] points: Le (sigma = 8.0, R_b = 1, v = 1/2): 4 P-root cells, 3 admissible points (table radii within 5e-7: True), 1 with w outside [0, 1]: w = ['58.45906'], unresolved boxes 0, boxes disjoint True; r = 0.990567889806, cos(theta) = 0.245054615703, T in [-4.32128, -4.32128]; r = 1.02393326111, cos(theta) = 0.202452166569, T in [4.14466, 4.14466]; r = 1.09466230932, cos(theta) = 0.955440566739, T in [13.1994, 13.1994]
+    (points: 0 s)
+[PASS] cross: Le: radii and cos(theta) of the 3 admissible points within 3.58e-12 of he_type3_output.txt (limit 1e-11)
+    (cross: 0 s)
+checks failed: none; wall 47.6 s

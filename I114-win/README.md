@@ -92,3 +92,7 @@ largest working set was 84 MB.
   2026-11-22 21:41:49. The cap falls at 2026-11-27 21:41; the coordinator's estimate is about 89 h (about 2026-11-26 14:40).
 - The keep-awake of `run_l5` ended at 21:42:02 with its queue, which I replaced by a queue `+run_l5 run_l6` and its own
   keep-awake (started 21:40:55) so one holds until the last run ends.
+- `status.ps1`: elapsed wall time since each run's `start` record, the worker's cpu seconds and their ratio (below 1 or
+  gaps in `memory-sampler.log` show a suspended laptop). The one sampler gap so far, 19:46:38 to 20:02:30, is the sampler
+  stopped between the controls and `run_l5`, not a standby. cpu counts from the worker's creation, so it exceeds the wall
+  time since the start record by the problem setup (about 40 s) at the start of a run.
