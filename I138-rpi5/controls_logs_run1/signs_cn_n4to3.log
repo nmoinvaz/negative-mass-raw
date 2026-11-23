@@ -1,0 +1,15 @@
+review_lemma_a_signs (mutation: cn_n4to3)
+FAIL A1.1 c_1 = 3/2: got 1
+PASS A1.1 c_2 = 0
+FAIL A1.1 c_3 = -l*(l - 1)*(l + 1)*(l + 2)/32: got l*(l + 1)/16
+FAIL A1.1 c_4 = l*(l - 1)*(l + 1)*(l + 2)/96: got l*(l - 1)*(l + 1)*(l + 2)*(l**2 + l + 3)/288
+PASS A1.2 (n-2) > 0 for n >= 4, l >= 2: all 2 coefficients positive
+PASS A1.2 (n-4)L+n-1 > 0 for n >= 4, l >= 2: all 4 coefficients positive
+PASS A1.3 (l-n+3)_{2n-4} > 0 for 3 <= n <= l+2, = 0 for n >= l+3 [l=2..300]
+FAIL A1.4 signs of c_n (c_1 = 3/2, c_2 = 0, c_3 = -K/32 < 0, c_n > 0 for 4..l+2, 0 beyond, c_{l+2} > 0)[l=2]: c_1 = 1
+FAIL A1.4 signs of c_n (c_1 = 3/2, c_2 = 0, c_3 = -K/32 < 0, c_n > 0 for 4..l+2, 0 beyond, c_{l+2} > 0)[l=3]: c_1 = 1
+FAIL A1.4 signs of c_n (c_1 = 3/2, c_2 = 0, c_3 = -K/32 < 0, c_n > 0 for 4..l+2, 0 beyond, c_{l+2} > 0)[l=4]: c_1 = 1
+FAIL A1.4 signs of c_n (c_1 = 3/2, c_2 = 0, c_3 = -K/32 < 0, c_n > 0 for 4..l+2, 0 beyond, c_{l+2} > 0): 296 more failing l, last l=300
+FAILED: 6 failing check(s), first A1.1 c_1 = 3/2
+
+exit 1

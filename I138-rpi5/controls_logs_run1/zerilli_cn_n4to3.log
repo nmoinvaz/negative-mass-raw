@@ -1,0 +1,49 @@
+review_lemma_a_zerilli (mutation: cn_n4to3)
+PASS PL7 psi=r^2 residual 0
+PASS PL7 perturbed V has nonzero residual
+  l=2: degree of chi 4, residual NONZERO (0.1 s)
+  l=3: degree of chi 5, residual NONZERO (0.1 s)
+  l=4: degree of chi 6, residual NONZERO (0.1 s)
+  l=5: degree of chi 7, residual NONZERO (0.1 s)
+  l=6: degree of chi 8, residual NONZERO (0.1 s)
+  l=7: degree of chi 9, residual NONZERO (0.1 s)
+  l=8: degree of chi 10, residual NONZERO (0.1 s)
+  l=9: degree of chi 11, residual NONZERO (0.1 s)
+  l=10: degree of chi 12, residual NONZERO (0.1 s)
+  l=11: degree of chi 13, residual NONZERO (0.2 s)
+  l=12: degree of chi 14, residual NONZERO (0.2 s)
+  l=13: degree of chi 15, residual NONZERO (0.2 s)
+  l=14: degree of chi 16, residual NONZERO (0.2 s)
+  l=15: degree of chi 17, residual NONZERO (0.2 s)
+  l=16: degree of chi 18, residual NONZERO (0.2 s)
+  l=17: degree of chi 19, residual NONZERO (0.2 s)
+  l=18: degree of chi 20, residual NONZERO (0.2 s)
+  l=19: degree of chi 21, residual NONZERO (0.2 s)
+  l=20: degree of chi 22, residual NONZERO (0.3 s)
+  l=21: degree of chi 23, residual NONZERO (0.3 s)
+  l=22: degree of chi 24, residual NONZERO (0.3 s)
+  l=23: degree of chi 25, residual NONZERO (0.3 s)
+  l=24: degree of chi 26, residual NONZERO (0.3 s)
+  l=25: degree of chi 27, residual NONZERO (0.3 s)
+  l=26: degree of chi 28, residual NONZERO (0.3 s)
+  l=27: degree of chi 29, residual NONZERO (0.3 s)
+  l=28: degree of chi 30, residual NONZERO (0.3 s)
+  l=29: degree of chi 31, residual NONZERO (0.3 s)
+  l=30: degree of chi 32, residual NONZERO (0.4 s)
+  l=31: degree of chi 33, residual NONZERO (0.4 s)
+  l=32: degree of chi 34, residual NONZERO (0.4 s)
+  l=33: degree of chi 35, residual NONZERO (0.4 s)
+  l=34: degree of chi 36, residual NONZERO (0.4 s)
+  l=35: degree of chi 37, residual NONZERO (0.4 s)
+  l=36: degree of chi 38, residual NONZERO (0.4 s)
+  l=37: degree of chi 39, residual NONZERO (0.4 s)
+  l=38: degree of chi 40, residual NONZERO (0.4 s)
+  l=39: degree of chi 41, residual NONZERO (0.5 s)
+  l=40: degree of chi 42, residual NONZERO (0.5 s)
+FAIL Z1 psi_0,xx = V psi_0 exactly (rational functions over Q)[l=2]: residual numerator of degree 3
+FAIL Z1 psi_0,xx = V psi_0 exactly (rational functions over Q)[l=3]: residual numerator of degree 4
+FAIL Z1 psi_0,xx = V psi_0 exactly (rational functions over Q)[l=4]: residual numerator of degree 5
+FAIL Z1 psi_0,xx = V psi_0 exactly (rational functions over Q): 36 more failing l, last l=40
+FAILED: 3 failing check(s), first Z1 psi_0,xx = V psi_0 exactly (rational functions over Q)[l=2]
+
+exit 1
