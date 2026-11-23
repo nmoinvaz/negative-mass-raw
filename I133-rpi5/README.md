@@ -85,6 +85,7 @@ the resultant in w, 167 terms) or of the spurious factor y = B' - A' (phi > 0 fo
 | `krawczyk-nocorr` | the Krawczyk operator drops its (I - Y J)(X - m) term | `planted`, `points` |
 | `double-root` | the planted close pair becomes a double root | `planted` |
 | `skip-y` | the roots of the spurious factor y are not classified | `planted`, `spurious`, `assembly` |
+| `drop-P-term-low` | the last term of P's table (total degree 10) is dropped everywhere | `tables`, `small_z`, `points`, `cross`, `assembly` |
 
 A control that fires on other checks than its targets, or on fewer, is reported as a result and not adjusted.
 
@@ -103,3 +104,26 @@ A control that fires on other checks than its targets, or on fewer, is reported 
   excluded leaf, and `--dump-cells` exists. Step 4 and step 5 run on the commit after these changes.
 - The step 3 log (`step3.log`) is from commit e154b77, before those changes; it is kept as the first full run.
 - Pilot (`step2_pilot.log`): run on the working tree just before e154b77.
+- Step 4, pass 1 (commit 666e0c5; logs in `step4_pass1/`): all 11 controls exit 1. Observed failures against the frozen targets:
+
+| control | frozen targets | failed | difference |
+|---|---|---|---|
+| `sigma-1e-3` | points, cross | points, cross | none |
+| `drop-P-term` | tables, small_z, points, cross, assembly | tables, points, cross | `small_z`, `assembly` silent. My prediction was wrong: the first table term has total degree 18, so weight at least 36 in (phi, psi, delta), and cannot touch the weight-24 part or create a term of weight below 24 |
+| `no-tail-large` | tail_z, planted, assembly | tail_z, planted, assembly | none |
+| `no-tail-small` | small_z, assembly | small_z, assembly | none |
+| `cell-gap` | cover, assembly | cover, assembly | none |
+| `eps-typo` | identity, cover, spurious, points, cross, assembly | identity, cover, points, cross, assembly | `spurious` silent. The check was too weak: its tanh-form sign test is at leaf ends and midpoints, and the mutated y-root (z = 15.907 for 15.874) fell inside one leaf |
+| `T-off` | planted | planted | none |
+| `w-range` | planted, points | planted, points, cross | `cross` also fails (it needs 3 points), which I did not predict |
+| `krawczyk-nocorr` | planted, points | planted | `points` silent: at the real walls each root cell holds exactly one common root, and an unsound Newton-like box finds it anyway; the planted cells with two candidate roots expose the unsoundness |
+| `double-root` | planted | planted | none |
+| `skip-y` | planted, spurious, assembly | planted, spurious, assembly | none |
+
+  Not adjusted: the frozen table above stays. Two follow-ups, decided after reading pass 1: the `cover` and `spurious` checks now
+  also require the tanh-form function to change sign across every shrunk root cell (commit after 666e0c5), which a mutated profile
+  cannot satisfy; and `drop-P-term-low` is a new control, added after reading pass 1, with its own prediction (dropping the last
+  table term, of total degree 10, creates weight 20 in (phi, psi, delta), so `tables` and `small_z` must fire). Pass 2 reruns all
+  12 controls on the final commit. The final run of the script reports a control as firing when at least one frozen target
+  fails, and prints the silent targets and the extra failures.
+
