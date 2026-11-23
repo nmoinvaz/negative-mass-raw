@@ -33,3 +33,38 @@ of 1/r; X0), `h1c` (L/(2r²) → L/r² in X1's coefficient; X1), `vz` (9M² → 
 A run that has not finished after 2 hours is stopped and reported as not completed.
 
 ## Results
+
+| file | what |
+|---|---|
+| `rerun/` | `zerilli_static.py` (exit 0, 35 PASS, 0 FAIL) and `zerilli_static_controls.py` (40 OK, 0 MISS, exit 0) on the Mac at nice 10, with the per-run control logs |
+| `ind145_run1.py`, `.txt`, `.stderr.txt` | the independent check, run 1 (`ind145.py` is the same version) |
+| `ind145_mut_*.txt` | its 6 mutations |
+
+**Rerun.** Both outputs equal #145's apart from the timing lines.
+
+**ind145 run 1** (exit 0, 65 s):
+
+| criterion | run 1 |
+|---|---|
+| X0 | (a) h0 = 1/r and h0 = r² give δR = 0; h0 = 1/r² is nonzero in tφ; (b) static even pure gauge gives δR = 0 |
+| X1 | δR_tr = +L H1 P/(2r²) and δR_tx = +(F H1)′P′/2 for l = 2, 3, 4 (σ = σ′ = +1); the other 8 components 0 |
+| X2 | all 10 components vanish for l = 2, 3, 4 |
+| X3 | (i) H1 and H0 − H2 in the span (rank 7) for l = 2, 3, 4, M symbolic and M = 0. (ii) Z0 in the span (rank 15), certificate exact. Denominators with M symbolic: 3r²(2r + 3M)², 1386r²(5r + 3M)², 225r²(3r + M)² (l = 2, 3, 4), that is r²(λr + 3M)² up to a constant; at M = 0: 3r, 6930r, 675r |
+| X4 | (a) all 10 components vanish on the flow, l = 2, 3, 4. (b) both flow equations in the span, rank 11; denominators M r(r − 2M) up to a constant |
+| X5 | K − K₃(ψ) and H2 − H₃(ψ) in the span, rank 15, l = 2, 3; denominators (λr + 3M) and (r − 2M)(λr + 3M)² up to a constant |
+
+Re-solve, the l = 2 forward case of X3 with M symbolic: Z0 = ψ,ₓₓ − Vψ is a combination of the static radial forms and
+their first two r-derivatives with no denominator but r²(2r + 3M)².
+
+**Finding.** The forward certificates (X3) have no M in their denominators for l = 2, 3, 4, and X3 passes at M = 0
+directly. So for those l the forward direction holds at M = 0, which #145 left open: its flow divides by M (X4's
+certificates carry M too), but the forward direction does not need the flow.
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `lich` | 1 | X0 ((b) fails) | yes |
+| `kerr` | 1 | X0 ((a) fails) | yes |
+| `h1c` | 1 | X1 (no tr sign fits) | yes |
+| `vz` | 1 | X2, X3 | yes |
+| `flowc` | 1 | X4 ((a) and (b)) | yes |
+| `psi9` | 1 | X3, X5 | yes |

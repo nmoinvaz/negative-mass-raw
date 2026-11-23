@@ -1,0 +1,10 @@
+# zerilli_static: static even-parity equation and master variable from the linearized Einstein equations (part=all)
+# mutations on: leg_sign
+PASS PL.0a
+# [   0.1 s] PL.0a
+PASS PL.0b
+# [   0.1 s] PL.0b
+PASS PL.0c
+# [   0.1 s] PL.0c
+FAIL PL.0d: Legendre reduction differs from the explicit derivative of P_l
+# planted check failed: stop before any real data

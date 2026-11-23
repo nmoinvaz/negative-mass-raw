@@ -1,0 +1,33 @@
+[PASS] X0: (a) l = 1 odd static: h0 = 1/r gives 0 True; h0 = r^2 gives 0 True; h0 = 1/r^2 nonzero in [(0, 3)]; (b) static even pure gauge, l = 2: delta R = 0 True  (1 s)
+[PASS] X1: H1 only: delta R_tr = s L H1 P/(2r^2), delta R_tx = s' (F H1)' P'/2, the rest 0: l = 2: tr sign [1], tx sign [1], other nonzero []; l = 3: tr sign [1], tx sign [1], other nonzero []; l = 4: tr sign [1], tx sign [1], other nonzero []  (1 s)
+[PASS] X2: DG06 (3)-(4) at s = 0, H1 = 0, H0 = H2, psi_xx = V psi: all 10 components vanish: l = 2: nonzero []; l = 3: nonzero []; l = 4: nonzero []  (28 s)
+  M = M, l = 2 (i) H1: rank 7 of 19 forms, certificate of 7 coefficients exact True, denominators 3
+  M = M, l = 2 (i) H0 - H2: rank 7 of 19 forms, certificate of 7 coefficients exact True, denominators 3
+  M = M, l = 2 (ii) Z0: rank 15 of 57 forms, certificate of 15 coefficients exact True, denominators 3*r**2*(3*M + 2*r)**2
+  M = M, l = 3 (i) H1: rank 7 of 16 forms, certificate of 7 coefficients exact True, denominators 22
+  M = M, l = 3 (i) H0 - H2: rank 7 of 16 forms, certificate of 7 coefficients exact True, denominators 63
+  M = M, l = 3 (ii) Z0: rank 15 of 48 forms, certificate of 15 coefficients exact True, denominators 1386*r**2*(3*M + 5*r)**2
+  M = M, l = 4 (i) H1: rank 7 of 19 forms, certificate of 7 coefficients exact True, denominators 15
+  M = M, l = 4 (i) H0 - H2: rank 7 of 19 forms, certificate of 7 coefficients exact True, denominators 75
+  M = M, l = 4 (ii) Z0: rank 15 of 57 forms, certificate of 15 coefficients exact True, denominators 225*r**2*(M + 3*r)**2
+  M = 0, l = 2 (i) H1: rank 7 of 19 forms, certificate of 7 coefficients exact True, denominators 3
+  M = 0, l = 2 (i) H0 - H2: rank 7 of 19 forms, certificate of 7 coefficients exact True, denominators 3
+  M = 0, l = 2 (ii) Z0: rank 15 of 57 forms, certificate of 15 coefficients exact True, denominators 3*r
+  M = 0, l = 3 (i) H1: rank 7 of 16 forms, certificate of 7 coefficients exact True, denominators 22
+  M = 0, l = 3 (i) H0 - H2: rank 7 of 16 forms, certificate of 7 coefficients exact True, denominators 63
+  M = 0, l = 3 (ii) Z0: rank 15 of 48 forms, certificate of 15 coefficients exact True, denominators 6930*r
+  M = 0, l = 4 (i) H1: rank 7 of 19 forms, certificate of 7 coefficients exact True, denominators 15
+  M = 0, l = 4 (i) H0 - H2: rank 7 of 19 forms, certificate of 7 coefficients exact True, denominators 75
+  M = 0, l = 4 (ii) Z0: rank 15 of 57 forms, certificate of 15 coefficients exact True, denominators 675*r
+[PASS] X3: M = M, l = 2 (i) H1: rank 7 of 19 forms, certificate of 7 coefficients exact True, denominators 3; M = M, l = 2 (i) H0 - H2: rank 7 of 19 forms, certificate of 7 coefficients exact True, denominators 3; M = M, l = 2 (ii) Z0: rank 15 of 57 forms, certificate of 15 coefficients exact True, denominators 3*r**2*(3*M + 2*r)**2; M = M, l = 3 (i) H1: rank 7 of 16 forms, certificate of 7 coefficients exact True, denominators 22; M = M, l = 3 (i) H0 - H2: rank 7 of 16 forms, certificate of 7 coefficients exact True, denominators 63; M = M, l = 3 (ii) Z0: rank 15 of 48 forms, certificate of 15 coefficients exact True, denominators 1386*r**2*(3*M + 5*r)**2; M = M, l = 4 (i) H1: rank 7 of 19 forms, certificate of 7 coefficients exact True, denominators 15; M = M, l = 4 (i) H0 - H2: rank 7 of 19 forms, certificate of 7 coefficients exact True, denominators 75; M = M, l = 4 (ii) Z0: rank 15 of 57 forms, certificate of 15 coefficients exact True, denominators 225*r**2*(M + 3*r)**2; M = 0, l = 2 (i) H1: rank 7 of 19 forms, certificate of 7 coefficients exact True, denominators 3; M = 0, l = 2 (i) H0 - H2: rank 7 of 19 forms, certificate of 7 coefficients exact True, denominators 3; M = 0, l = 2 (ii) Z0: rank 15 of 57 forms, certificate of 15 coefficients exact True, denominators 3*r; M = 0, l = 3 (i) H1: rank 7 of 16 forms, certificate of 7 coefficients exact True, denominators 22; M = 0, l = 3 (i) H0 - H2: rank 7 of 16 forms, certificate of 7 coefficients exact True, denominators 63; M = 0, l = 3 (ii) Z0: rank 15 of 48 forms, certificate of 15 coefficients exact True, denominators 6930*r; M = 0, l = 4 (i) H1: rank 7 of 19 forms, certificate of 7 coefficients exact True, denominators 15; M = 0, l = 4 (i) H0 - H2: rank 7 of 19 forms, certificate of 7 coefficients exact True, denominators 75; M = 0, l = 4 (ii) Z0: rank 15 of 57 forms, certificate of 15 coefficients exact True, denominators 675*r  (46 s)
+  (b) l = 2 K' flow: rank 11 of 38 forms, certificate of 11 coefficients exact True, denominators 3*M*r*(-2*M + r)
+  (b) l = 2 H' flow: rank 11 of 38 forms, certificate of 11 coefficients exact True, denominators 3*M*r*(-2*M + r)
+  (b) l = 3 K' flow: rank 11 of 32 forms, certificate of 11 coefficients exact True, denominators 1386*M*r*(-2*M + r)
+  (b) l = 3 H' flow: rank 11 of 32 forms, certificate of 11 coefficients exact True, denominators 13860*M*r*(-2*M + r)
+[PASS] X4: (a) l = 2: nonzero []; (a) l = 3: nonzero []; (a) l = 4: nonzero []; (b) l = 2 K' flow: rank 11 of 38 forms, certificate of 11 coefficients exact True, denominators 3*M*r*(-2*M + r); (b) l = 2 H' flow: rank 11 of 38 forms, certificate of 11 coefficients exact True, denominators 3*M*r*(-2*M + r); (b) l = 3 K' flow: rank 11 of 32 forms, certificate of 11 coefficients exact True, denominators 1386*M*r*(-2*M + r); (b) l = 3 H' flow: rank 11 of 32 forms, certificate of 11 coefficients exact True, denominators 13860*M*r*(-2*M + r)  (56 s)
+  l = 2 K - K_3(psi): rank 15 of 57 forms, certificate of 15 coefficients exact True, denominators 3*(3*M + 2*r)
+  l = 2 H2 - H2_3(psi): rank 15 of 57 forms, certificate of 15 coefficients exact True, denominators 3*(-2*M + r)*(3*M + 2*r)**2
+  l = 3 K - K_3(psi): rank 15 of 48 forms, certificate of 15 coefficients exact True, denominators 2772*(3*M + 5*r)
+  l = 3 H2 - H2_3(psi): rank 15 of 48 forms, certificate of 15 coefficients exact True, denominators 2772*(-2*M + r)*(3*M + 5*r)**2
+[PASS] X5: l = 2 K - K_3(psi): rank 15 of 57 forms, certificate of 15 coefficients exact True, denominators 3*(3*M + 2*r); l = 2 H2 - H2_3(psi): rank 15 of 57 forms, certificate of 15 coefficients exact True, denominators 3*(-2*M + r)*(3*M + 2*r)**2; l = 3 K - K_3(psi): rank 15 of 48 forms, certificate of 15 coefficients exact True, denominators 2772*(3*M + 5*r); l = 3 H2 - H2_3(psi): rank 15 of 48 forms, certificate of 15 coefficients exact True, denominators 2772*(-2*M + r)*(3*M + 5*r)**2  (65 s)
+ALL PASS (65 s)
