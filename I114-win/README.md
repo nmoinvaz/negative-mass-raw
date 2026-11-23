@@ -86,3 +86,9 @@ largest working set was 84 MB.
   (`queue.log`). Its only new `start` record is `rtol 1e-12` at gamma = 6000, pid 4940, at 20:03:12 (about 40 s of problem
   setup after the launch). The cap falls at 2026-11-24 08:03; the coordinator's estimate is about 25 h.
 - `run_l6`: not started; it waits for the coordinator's decision (estimate about 89 h).
+- `run_l6`: `CAP_S=432000` (5 days, the coordinator's CAP6) `GAMS=<G6> PARTIAL_DIR=. NPROC=1 python convergence.py 6`, on a copy
+  of `../I4-win/convergence_l6_w0.7603.partial.csv` (65 results, identical hash). Started beside `run_l5` after a gate reading
+  of 1.77 cores for choptuik-large-d (`cores.log`). Its only new `start` record is `rtol 1e-12` at gamma = 12000, pid 880, at
+  2026-11-22 21:41:49. The cap falls at 2026-11-27 21:41; the coordinator's estimate is about 89 h (about 2026-11-26 14:40).
+- The keep-awake of `run_l5` ended at 21:42:02 with its queue, which I replaced by a queue `+run_l5 run_l6` and its own
+  keep-awake (started 21:40:55) so one holds until the last run ends.
