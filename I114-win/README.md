@@ -78,3 +78,11 @@ largest working set was 84 MB.
   hold each control's partial file.
 
 (the two evaluations and the regeneration are added when they finish)
+
+## Runs (step 3)
+
+- `run_l5`: `CAP_S=129600` (36 h, the coordinator's CAP5) `GAMS=<G5> PARTIAL_DIR=. NPROC=1 python convergence.py 5`, on a
+  copy of `../I4-win/convergence_l5_w0.7603.partial.csv` (65 results, identical hash). Queue started 2026-11-22 20:02:30
+  (`queue.log`). Its only new `start` record is `rtol 1e-12` at gamma = 6000, pid 4940, at 20:03:12 (about 40 s of problem
+  setup after the launch). The cap falls at 2026-11-24 08:03; the coordinator's estimate is about 25 h.
+- `run_l6`: not started; it waits for the coordinator's decision (estimate about 89 h).
