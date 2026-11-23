@@ -46,7 +46,7 @@ Planted checks exit 2 at once. Real checks are counted, exit 1 at the end. Ids i
 |---|---|---|
 | PL.0c | background | Ricci of g_Schw(M) is 0, M symbolic (as #143 PL.0c) |
 | PL.0d | Legendre reduction | `leg_red` of P⁽ⁿ⁾, n = 2, 3, 4, equals the explicit derivative of P_l for l = 2..6 (as #143 PL.0d) |
-| PL.D.1 | planted self-test of the denominator classifier | the classifier gives these verdicts on constructed denominators. Even rule, pass: r²((L−2)r+6M)²; r L (L+1); r³((L−2)r+6M)(L−5). Even rule, fail: r(r−2M); s r; M r; (L−2) r; (L−6) r (root L = 6, l = 2); (L−12) r (l = 3). Odd rule, pass: r²(r−2M); fail: s r. 10 cases in all |
+| PL.D.1 | planted self-test of the denominator classifier | the classifier gives these verdicts on constructed denominators. Even rule, pass: r²((L−2)r+6M)²; r L (L+1); r³((L−2)r+6M)(L−5). Even rule, fail: r(r−2M); s r; M r; (L−2) r; (L−6) r (root L = 6, l = 2); (L−12) r (l = 3). Odd rule, pass: r²(r−2M); fail: s r. 11 cases in all |
 | PL.O.1 | odd forms | each odd component has its expected angular form (`coef_eqs` ok) and xφ(P) + (L/2) xφ(xP′) = 0 |
 | PL.O.2 | odd span test | the linear system for Z_odd has a solution (k ≤ 2) |
 | PL.O.3 | odd identity | E.id for the odd certificate: exact in F and at 3 random points |
@@ -116,4 +116,17 @@ no H0.
 
 ## Added after the first run
 
-(nothing yet)
+2026-11-23, steps 2 and 3. Nothing below changes a criterion, a threshold or a control target.
+- PL.D.1 has 11 cases (3 even pass, 6 even fail, 1 odd pass, 1 odd fail), not 10 as the row said before; the script has the 11.
+- First pilot run (`step2_pilot_L6_stopped_in_kdescending.log`, stopped by me after 3 min 21 s): the classifier compared the factor of
+  the denominators with the symbolic L while the run had L = 6, so the O1 solution was called "NOT allowed" although its denominators were r^2 and
+  (2r+3M)^2. The attempt `k-descending` (D^2 E columns first) ran over 2 minutes without a result, which O1 needs 1.3 s for.
+  The classifier now takes the L of the solve (`classify_den(..., Lp)`). The first run is kept as that log. The search procedure beyond O1 was not
+  needed in either run (O1 passed), so the question whether `k-descending` finishes is open and unimportant here.
+- The solver returned zero coefficients for pivot columns solved to 0; they are now left out of the listing (cosmetic, `step2_odd` was rerun for it).
+- `--part=even` also runs the planted checks and builds the odd equations (the script runs them before the even part); `--part=planted` stops after PL.D.1.
+- Controls `flow_target` and `odd_den` run with `--attempts=1`: every equation has coefficients polynomial in s and these targets have 1/s, so no
+  s-free certificate exists and the further attempts cannot pass.
+
+Step 2 and 3 results are in `step2_odd.log`, `step2_pilot_L6.log` and `step3_even.log` (exit codes in the `.rc` files, wall seconds in `.time`, peak rss in `.rss`).
+The certificates are in `cert_L6.json` and `cert_Lsym.json`.
