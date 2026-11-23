@@ -46,7 +46,7 @@ Planted checks exit 2 at once. Real checks are counted, exit 1 at the end. Ids i
 |---|---|---|
 | PL.0c | background | Ricci of g_Schw(M) is 0, M symbolic (as #143 PL.0c) |
 | PL.0d | Legendre reduction | `leg_red` of P⁽ⁿ⁾, n = 2, 3, 4, equals the explicit derivative of P_l for l = 2..6 (as #143 PL.0d) |
-| PL.D.1 | planted self-test of the denominator classifier | on 9 constructed denominators the classifier gives the stated verdicts: r²((L−2)r+6M)² pass; r L pass; r−2M·r fail; s·r fail; M·r fail; (L−2)·r fail; (L−6)·r fail (root at l = 2); (L−12)·r fail (l = 3); r²(r+1)... see script, 9 cases fixed in the script before the first run |
+| PL.D.1 | planted self-test of the denominator classifier | the classifier gives these verdicts on constructed denominators. Even rule, pass: r²((L−2)r+6M)²; r L (L+1); r³((L−2)r+6M)(L−5). Even rule, fail: r(r−2M); s r; M r; (L−2) r; (L−6) r (root L = 6, l = 2); (L−12) r (l = 3). Odd rule, pass: r²(r−2M); fail: s r. 10 cases in all |
 | PL.O.1 | odd forms | each odd component has its expected angular form (`coef_eqs` ok) and xφ(P) + (L/2) xφ(xP′) = 0 |
 | PL.O.2 | odd span test | the linear system for Z_odd has a solution (k ≤ 2) |
 | PL.O.3 | odd identity | E.id for the odd certificate: exact in F and at 3 random points |
