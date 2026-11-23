@@ -130,3 +130,12 @@ no H0.
 
 Step 2 and 3 results are in `step2_odd.log`, `step2_pilot_L6.log` and `step3_even.log` (exit codes in the `.rc` files, wall seconds in `.time`, peak rss in `.rss`).
 The certificates are in `cert_L6.json` and `cert_Lsym.json`.
+
+Written after step 3 and before any control run: the certificate found with the column order O1 uses the equations traceless, tr, tt, rr and
+trace (k = 0 for all, k = 1 for tt and rr) and not tx or rx. Predictions for the exploratory `drop_*` family, from that and not from a run of
+the dropped variants: `drop_tx` and `drop_rx` exit 0 (not needed). For `drop_tt`, `drop_tr`, `drop_rr`, `drop_trace` I do not know which equation
+another certificate can replace; each is accepted as exit 0 (not needed), or exit 1 at E.cert, or exit 1 at E.den; any other first FAIL is reported as unexpected.
+The required controls are the 17 rows of the table above; the exploratory ones are reported separately and do not count toward them.
+Controls runner: `zerilli_certificate_controls.py` (baseline `--part=all` unmutated, then `--mutate=NAME --failfast` with the args the table lists:
+`--part=planted` for `leg_sign` and `den_allow_M`, `--part=odd` for the odd rows, `--part=even` for the even rows).
+
