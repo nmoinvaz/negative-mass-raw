@@ -79,8 +79,30 @@ not show. After step 2 the two widths at l = 1500 are read from the two csv file
 that is reported and the size is not changed. `swap` at l = 2000 moves c·r_* ≈ 8.4857 onto c·r_neg ≈ 9.636, a gap of 1.15. `drop` at
 l = 777 removes a row nothing else depends on.
 
-## Run notes (filled after the runs)
+## Results (written after the runs; the sections above are as written before them)
 
-Steps: 1 this README; 2 `--csv` run (about 12 min, 1 h stop); 3 planted, real comparison, controls (seconds); 4 final run into
-`phase2/dg_proof/compare_brackets_output.txt`. Launcher: `run_step.sh`. Stop condition: a run still going after 1 h of wall time is stopped.
-Memory is only reported.
+Code: worktree `~/Source/negative-mass-i139`, branch `wip/i139-bracket-csv`: `threshold_isolation.py --csv` at 8e71dea,
+`compare_brackets.py` and its output at 901dd70. All runs one process, nice 10, one thread, rpi5-ubuntu. `run_step.sh` starts a systemd user unit
+(1 h stop, not reached). Exit codes in `done/*.rc`, `step3/*.rc`, `final_compare.rc`.
+
+| id | verdict | evidence |
+|---|---|---|
+| A1 | pass | `brackets_i2.csv` has 3000 lines (header and l = 2..3000), C1 passes; 720.91 s, peak rss 136012 KB, exit 0 (`csv.time`, `done/csv.rc`) |
+| A2 | pass | `diff` of `threshold_isolation_csv_run.txt` against `phase2/dg_proof/threshold_isolation_output.txt`: 7 lines differ, the six `... l = N done, Ns` and the last `N s`. `--lmax 60`, old script (850785b) against new without `--csv` (`oldnew/`): identical but the last timing line (`61 s` against `60 s`); new with `--csv` identical to new without (timing lines removed by `grep -v`) |
+| A3 | pass | C1 to C5 pass on all 2999 rows (`step3/real.log`, `compare_brackets_output.txt`): largest width ours 2.000000e-13, theirs 2.000001e-14, smallest overlap 2.000001e-14 (c r_*, l = 2, equal to theirs' whole width), largest midpoint gap 4.592673e-15 (c r_neg, l = 2497) |
+| A4 | pass | `--mutate=shift` exits 1; C4 and C5 fail at l = 1500 only, overlaps -8.898928e-13 and -8.910331e-13 |
+
+Planted cases (`step3/P*.log`, `verdicts_planted.md`): all six exit codes, FAIL lines and the four numbers equal the predictions of the table above.
+Controls (`step3/mutate_*.log`, `verdicts_controls.md`): `shift`, `drop`, `swap` each exit 1 with exactly the predicted FAIL lines, first line on target.
+`shift_widths.log`: at l = 1500 the widths are 2.0000e-13 (ours) and 2.0000e-14 (theirs) in each column, so 1e-12 exceeds their sum 2.2e-13 by a factor 4.55.
+`check_predictions.py` first checks that every predicted string occurs in this README, then compares it with the logs.
+
+Misses: none. The only difference from the README is that `compare_brackets.py` got a two-line run command in its docstring after the controls, and the
+final output was produced again with that command (identical output, `compare_final.time`: 0.48 s, peak rss 28444 KB).
+
+## Files
+
+`brackets_i2.csv` (#2's brackets, 2999 rows), `threshold_isolation_csv_run.txt` (stdout of step 2), `csv.time`, `csv.err` (empty), `oldnew/` and `oldnew.sh`, `run_old.py`
+(A2 without `--csv`), `planted/` (hand-written inputs), `step3.sh`, `step3/` (logs of the planted cases, the real comparison and the controls),
+`check_predictions.py`, `verdicts_planted.md`, `verdicts_controls.md`, `shift_widths.py` and `.log`, `compare_brackets_output.txt` (copy of the committed output),
+`run_step.sh`.

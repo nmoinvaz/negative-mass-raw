@@ -1,0 +1,16 @@
+ours   ours_p1.csv  sha256 12fcbeaeccb7a6ae0e8f5ff2790e4f9c97a2f8f3d3b005b14b439ebe34245ad0
+theirs theirs_a.csv  sha256 a7ad743629910781406c1a2cc8c3ca5b54278fd2ed8c7e3a1af51155e72542ab
+PASS  C1: l = 2..4 once each in both files (ours 3 rows, theirs 3 rows)
+PASS  C2: c = (l+2)(l-1) in every row of ours
+PASS  C2: c = (l+2)(l-1) in every row of theirs
+PASS  C3: lo < hi in both brackets of every row of ours
+PASS  C3: lo < hi in both brackets of every row of theirs
+PASS  C4: c r_* brackets intersect for every l (3 l)
+PASS  C5: c r_neg brackets intersect for every l (3 l)
+
+largest bracket width, ours:      3.000000e-01  (c r_*, l = 2)
+largest bracket width, theirs:    2.000000e-01  (c r_*, l = 2)
+smallest overlap:                 1.000000e-02  (c r_*, l = 4)
+largest midpoint gap:             1.500000e-01  (c r_*, l = 2)
+
+all checks pass

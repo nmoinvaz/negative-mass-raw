@@ -1,0 +1,19 @@
+ours   brackets_i2.csv  sha256 32cc6b61df502e6a0f3e7e4bf5862b0b40959d1eabdbbe12f00a3a93ede79c84
+theirs sweep_brackets.csv  sha256 451734cfdd080e0dbfbfa675b1f95f0a97e9bd4f0cce4e4c1aeb7148c69dffb2
+mutation: swap at l = 2000
+PASS  C1: l = 2..3000 once each in both files (ours 2999 rows, theirs 2999 rows)
+PASS  C2: c = (l+2)(l-1) in every row of ours
+PASS  C2: c = (l+2)(l-1) in every row of theirs
+PASS  C3: lo < hi in both brackets of every row of ours
+PASS  C3: lo < hi in both brackets of every row of theirs
+FAIL  C4: c r_* brackets do not intersect: fails at 1 of 2999 l: l = 2000
+      l = 2000: ours [9.6359909017048290014256, 9.6359909017050290014256]  theirs [8.4857018458058564076200, 8.4857018458058764076300]  overlap -1.150289e+00
+FAIL  C5: c r_neg brackets do not intersect: fails at 1 of 2999 l: l = 2000
+      l = 2000: ours [8.4857018458057668386456, 8.4857018458059668386456]  theirs [9.6359909017049179451000, 9.6359909017049379451100]  overlap -1.150289e+00
+
+largest bracket width, ours:      2.000000e-13  (c r_*, l = 2)
+largest bracket width, theirs:    2.000001e-14  (c r_*, l = 2)
+smallest overlap:                 -1.150289e+00  (c r_*, l = 2000)
+largest midpoint gap:             1.150289e+00  (c r_*, l = 2000)
+
+2 check(s) FAIL: C4 C5
