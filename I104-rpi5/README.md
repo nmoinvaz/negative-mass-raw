@@ -150,3 +150,11 @@ Added before the first control run (six more mutations, for check families that 
 
 Check families without a mutation (reported, not hidden): "X > 0 at both ends of the Psi bracket" (cannot be provoked without breaking the series), "lo(c r_neg) > hi(c r_*)",
 "count of coefficients = 64", and the printed comparisons with RESULTS' constants (informational, not criteria).
+
+## Contents (added at the end)
+
+- `step3_brackets.log`, `step4_thm_*_try*.log`: exploratory runs before the final outputs (`step4_thm_m_try1.log` is the first, failed bookkeeping of Theorem M).
+- `step4b_sweep.log`, `sweep_brackets.csv`: the sweep of every l = 2..3000 (2999 certified brackets, 20-digit decimal ends), exit 0 in 2437 s.
+- `controls_logs/`: one log per mutation of `review_large_l_controls.py`; `chain.log`: exit codes and times of the controls and the final runs; `final_*_stderr.txt` are empty.
+- `step7_overlap_*`: the step 7 runs, including the two scripts' slips (`..._try1_wrong_rounding_guess.log`, `..._try2_window_missing_bracket_width.log`) and the two mutations.
+- Result of the controls: 47 of 52 pre-registered mutations on target; `coef_q` fires at l = 3 (common, sweep; predicted l = 2), `accept_zero_enclosure` silent in common, roots and brackets.
