@@ -1,0 +1,38 @@
+Traceback (most recent call last):
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/r143/ind143_run2.py", line 268, in <module>
+    okz, mz = member(base + d1 + d2, Z, used, field, pt, f"l = {l} (ii) Z")
+              ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/r143/ind143_run2.py", line 224, in member
+    A0 = DomainMatrix.from_list_sympy(len(A), len(cols), [[sp.nsimplify(a.subs(pt)) for a in row] for row in A]).convert_to(sp.QQ)
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/sympy/polys/matrices/domainmatrix.py", line 548, in convert_to
+    rep_K = rep.convert_to(K)
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/sympy/polys/matrices/ddm.py", line 569, in convert_to
+    rows = [[K.convert_from(e, Kold) for e in row] for row in self]
+             ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/sympy/polys/domains/domain.py", line 396, in convert_from
+    result = _convert(element, base)
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/sympy/polys/domains/domain.py", line 664, in from_ExpressionDomain
+    return K1.from_sympy(a.ex)
+           ~~~~~~~~~~~~~^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/sympy/polys/domains/rationalfield.py", line 76, in from_sympy
+    raise CoercionFailed("expected `Rational` object, got %s" % a)
+sympy.polys.polyerrors.CoercionFailed: expected `Rational` object, got 2**(236/435)*3**(104/435)*5**(71/87)*7**(80/87)/4900
+       61.76 real        61.63 user         0.11 sys
+           105889792  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                7457  page reclaims
+                   2  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   1  signals received
+                   4  voluntary context switches
+                1664  involuntary context switches
+            27631431  instructions retired
+            10851480  cycles elapsed
+             1393024  peak memory footprint
+exit 1
