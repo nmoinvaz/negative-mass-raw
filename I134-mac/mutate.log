@@ -1,0 +1,8 @@
+baseline: exit 0 (compiles)
+FIRED  m-plus3: m_pos with + 3 sinh w: a true claim; fails only because the proof no longer fits (issue's control); exit 1; <copy>:53:2: error: Type mismatch
+FIRED  m-minus4: m_pos with - 4 sinh w: false (about -w near 0); exit 1; <copy>:53:2: error: Type mismatch
+FIRED  profile-two: profile_cosh with 2 + cosh 2p in the numerator: false; exit 1; <copy>:113:14: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+FIRED  root-positive: sign_at_root claiming 0 < F + g: false; exit 1; <copy>:91:4: error: Type mismatch
+FIRED  wall-positive: tanh_wall_no_typeI claiming 0 < 1 - f r + r f' r: false; exit 1; <copy>:192:49: error: Type mismatch
+RESULT PASS
+python3 scripts/mutate.py  11.57s user 5.53s system 119% cpu 14.348 total
