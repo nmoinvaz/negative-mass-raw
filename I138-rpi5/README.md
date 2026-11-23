@@ -124,3 +124,11 @@ The criterion "every check has a `--mutate` that fires" passes only if every row
 
 1 this README. 2 planted problems, signs, recur. 3 l1, zerilli. 4 t1, t2. 5 controls. 6 final runs (`review_lemma_a*_output.txt` in the repository).
 Exploratory runs log to this folder as `step<N>_<script>.log`. Step 7 compares with `chi_lemma.py`, `lemmas_all_l.py`, `threshold_lemmas.py` and their outputs.
+
+## Addendum written before the first control run (2026-11-23, after step 4; targets above are unchanged)
+
+- Matching rule of `review_lemma_a_controls.py`: the first `FAIL` line of the mutated run gives a token (the id up to the first space or colon).
+  A target `X` matches a token `X`, `X[...]`, or `X` plus one trailing letter (sub-items: T1.3 = T1.3a..f, A2.3 = A2.3a, A2.3b); a target with brackets must match exactly.
+- A run that exits 0 (silent) or dies with a traceback (crash) counts as a miss, not a fire. Exit 2 (planted check failed) counts as a fire when the target is a PL id.
+- Step 2 and 3 incidents so far: the first `recur` run failed A2.3a on zero-valued shift keys of the extractor (bookkeeping, fixed in `three_term`; log kept as
+  `step2_recur_run1_FAILED_A2.3a_zero_shift_keys.log`); the first `common` run crashed in `sign_changes` on a sympy boolean (fixed; no criterion changed).
