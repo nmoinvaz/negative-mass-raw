@@ -113,3 +113,46 @@ Written 2026-11-23 after the exploratory runs of steps 2 and 3 and before the fi
 - The even section was developed with runs that stop after the section being written (not logged as results); the step 2 log came from the script before the
   even section existed. `slips.md` lists my slips.
 - The claim "PL.O.* still pass under `drop_trace`" is shown by one run with `--mutate=drop_trace --part=odd --skip=PL.G,PL.X`, logged as `ctrl_drop_trace_odd.log`.
+
+## After the first control run (2026-11-23)
+
+First control run (`controls.log`, `controls_logs/`, 1051 s, one process nice 10): baseline exit 0 with 32 PASS; **16 of the 17 pairs fired on their target**.
+**One miss, `fsign_bg`**: target PL.0c (exit 2), actual first FAIL PL.O.3 (exit 2). My prediction was wrong. The background metric with f = 1 + 2M/r is the
+Schwarzschild solution of mass -M, so its Ricci tensor is 0 and PL.0c cannot see the flip. The mismatch with the ansatz (which keeps f = 1 - 2M/r) shows at PL.O.3,
+where the derived potential and the master variable no longer agree with f(L/r² - 6M/r³): coefficient of Psi_x = 12M/(r(r+2M)) is not 0. The control fired (exit 2, at a
+planted id), not on the id I named. The target stays as written and the line stays in the final controls output as a MISS.
+
+Added before its first run: `fsign_ans` = the wrong sign of M in f in the ansatz, the master variable and the tortoise factor, with the background correct (the `fM()` of the
+library). Predicted first FAIL: PL.O.3 (exit 2); PL.0a-d, PL.G, PL.X and PL.O.1, PL.O.2 pass (the ansatz does not enter them in a way they test).
+
+The final run and the final controls come after two edits that do not touch any check: the seven radial equations (before H0 = H2) are printed in the output, and
+`fsign_ans` is added. Peak rss is recorded with `/usr/bin/time -v` from the final runs on (`*.rss`).
+
+## Final run, first attempt stopped (2026-11-23)
+
+The first final run (`final_before_masterreduce_fields_output.txt`: 32 PASS, exit 0, 211 s, peak rss 106 MB) was followed by the final controls. The control `mv_coef` took 282 s in the
+first control run and was still running after 27 minutes in the second (same code and inputs; the run time of sympy's `cancel` depends on the hash seed), so I stopped the unit
+(`controls_aborted_output.txt`, `controls_logs_aborted/`: the 11 pairs before `mv_coef` had fired as in the first run). Cause: `master_reduce` used expression-tree `cancel` on a wrong master variable whose
+ψ,ₓ coefficient does not vanish. I replaced its arithmetic by the rational function field Q(r, M, s, L) (`sympy.polys.fields`), exact and cancelled at every step; no check, target or
+threshold changed. `mv_coef` now fails at E.5b in a few seconds. The final run and the final controls are rerun with the new code.
+
+## Correction to "Independence" (2026-11-23)
+
+The Independence section above says no script of phase2 was opened. That was wrong. Before writing code I opened #142's `review_lemma_a3_common.py` (the PASS/FAIL harness, copied in form),
+`review_lemma_a3_controls.py` (the control-runner format) and the first 80 lines of `review_lemma_a3_v.py`, which contain the Zerilli form typed from DG06, DG09, KS and BCS. The
+comparison target `V_Z` of E.5d is typed in the same form (DG06 (6) expanded), so it is not independent of that file; it is also the form in DG06 (6) itself, which I read in the TeX.
+The derivation does not use any of these as input: V comes out of the metric and the definition of ψ (DG06 (9)).
+
+## Final results (2026-11-23)
+
+Code and note: `wip/i143-zerilli-derivation` at 47dfd88 (`phase2/dg_proof/zerilli_derivation*.py`, `zerilli_derivation.md`, outputs).
+
+| run | exit | result | wall | peak rss |
+|---|---|---|---|---|
+| final run (`final_output.txt`, copy of `zerilli_derivation_output.txt`) | 0 | 32 PASS, 0 FAIL | 208 s | 104 MB |
+| controls (`controls_output.txt`, `controls_logs/`) | 1 | baseline OK (32 PASS), 17 of 18 pairs on target, 1 MISS (`fsign_bg`, see above) | 742 s | 120 MB |
+| step 2, step 3 (exploratory) | 0 | 13 PASS (odd); 32 PASS | 217 s; 209 s | not recorded |
+
+Earlier logs kept: `controls_first.log` and `controls_logs_first/` (first control run, `master_reduce` with expression-tree `cancel`, 16 of 17 on target and the `fsign_bg` miss),
+`controls_aborted_output.txt` and `controls_logs_aborted/` (second control run, stopped inside `mv_coef`), `final_before_masterreduce_fields_output.txt` (first final run, 32 PASS).
+`run_step.sh`, `run_controls.sh` and `run_final.sh` are the launchers (systemd user units `nm-i143-*`).

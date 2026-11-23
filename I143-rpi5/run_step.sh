@@ -6,6 +6,6 @@ name=$1; shift
 cd $D
 export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
 start=$(date +%s)
-timeout 3600 /home/nathan/Source/negative-mass-venv314/bin/python $D/zerilli_derivation.py "$@" > $RAW/$name.log 2> $RAW/$name.err
+timeout 3600 /usr/bin/time -v -o $RAW/$name.rss /home/nathan/Source/negative-mass-venv314/bin/python $D/zerilli_derivation.py "$@" > $RAW/$name.log 2> $RAW/$name.err
 echo $? > $RAW/$name.rc
 echo $(( $(date +%s) - start )) > $RAW/$name.time
