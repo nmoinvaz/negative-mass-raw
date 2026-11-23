@@ -1,0 +1,8 @@
+review_lemma_a_recur (mutation: plant_recur)
+FAIL PL1 numeric C(7,k) k=0..12: residual not 0
+FAIL PL1 numeric C(4,k) k=0..12: residual not 0
+FAIL PL1 symbolic (N,M,k): residual -M*N
+PASS PL2 wrong sequence has nonzero residual
+STOP: planted check(s) failed: PL1 numeric C(7,k) k=0..12, PL1 numeric C(4,k) k=0..12, PL1 symbolic (N,M,k); no real data was examined
+
+exit 2

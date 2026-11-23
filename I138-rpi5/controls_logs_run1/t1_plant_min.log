@@ -1,0 +1,7 @@
+review_lemma_a_t1 (mutation: plant_min)
+PASS PL6 min on [0,3]
+FAIL PL6 min on [2,3]: error min() iterable argument is empty
+FAIL PL6 min on [-3,0]: got (4, -1), want (-16, -3)
+STOP: planted check(s) failed: PL6 min on [2,3], PL6 min on [-3,0]; no real data was examined
+
+exit 2

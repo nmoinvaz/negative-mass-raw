@@ -1,0 +1,20 @@
+review_lemma_a_l1 (mutation: P0_12to13)
+PASS PL3 exponents E2
+PASS PL3 exponents E3
+PASS PL3 exponents E4
+PASS PL3 exponents E5
+PASS PL4 E2 y'/y = 2, y''/y = 10
+PASS PL4 E2 resonance (coef 0, rest 0)
+PASS PL4 E3 y'/y = 0, y''/y = 2
+PASS PL4 E4 y'/y = 2, y''/y = 4/3
+PASS L1.1a exponents of the chi-ODE at r_s are {0, 3}
+FAIL L1.1b local values p, q, P0(r_s), P2(r_s): P0(r_s) = 12: difference 1
+FAIL L1.2 chi'(r_s)/chi(r_s) = -1/(r_s (r_s+2)): ODE gives -13*c**2/(144*c + 432)
+FAIL L1.3 chi''(r_s) = 0: ODE gives chi''/chi = c**3*(85*c + 216)/(10368*(c + 3)**2)
+FAIL L1.4 resonance: coefficient of chi''' is 2p+q = 0 and the remainder vanishes: coefficient 0, remainder c**2*(5497*c**2 + 26352*c + 31104)/(10368*(c**2 + 6*c + 9))
+FAIL L1.5a residue of psi_0^2 dx/dr at r_s is 0: residue -Y0**2/(24*c**2 + 144*c + 216)
+FAIL L1.5b phi_0,xx(r_s) = 0: value c**3*(c + 3)/(648*Y0)
+PASS L1.6 actual chi: chi(r_s) > 0, chi'/chi = -1/(r_s(r_s+2)), chi''(r_s) = 0 (exact) [l=2..40]
+FAILED: 6 failing check(s), first L1.1b local values p, q, P0(r_s), P2(r_s)
+
+exit 1
