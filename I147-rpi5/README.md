@@ -75,4 +75,39 @@ and `d5_zero` are the same kind of control but #145 split the division out of it
 
 ## Added after the first run
 
-(none yet)
+No mutation, target, exit code or skip argument above was changed after any run. Everything below was produced by the commands named.
+
+Step 2 (`run_step.sh step2_unmutated`, 2026-11-23): unmutated `zerilli_derivation.py` exit 0, 32 PASS, 0 FAIL, 206 s, peak rss 104 MB, empty
+stderr; `cmp` of its output and the committed `zerilli_derivation_output.txt` after dropping the `# [ n s]` timing lines: equal; the timing
+lines carry the same labels. Probe (`probe_psi_zero.log`): `master_reduce` with ψ = 0 raises ZeroDivisionError, as predicted, so E.5a and D.5
+cannot be reached by an input mutation (their pairs set the value the check reads to 0).
+
+Step 3 (`run_controls.sh controls`, systemd unit `nm-i147-controls`): `controls.log` (copied to `zerilli_derivation_controls_output.txt`), per-run
+logs in `controls_logs/`, exit 1 because of the old `fsign_bg` MISS only, 1118 s, peak rss 120 MB, empty stderr. Baseline OK (exit 0, 32 PASS).
+34 OK, 1 MISS of 1 baseline + 34 pairs. The 18 old pairs reproduce #143's results (17 on target, `fsign_bg` MISS with first FAIL PL.O.3).
+
+All 16 new pairs are on target (exit as listed, first FAIL id = target). What each one printed (from `controls_logs/<name>.log`):
+
+| mutation | target | first FAIL line (shortened) |
+|---|---|---|
+| `ds_sign` | PL.0b | Ricci of static de Sitter is not (3/a²) g |
+| `gauge_odd` | PL.G.odd | δR ≠ 0 at components (0,3), (1,3), (2,3) |
+| `x_odd` | PL.X.odd | routes differ at (0,3), (1,3), (2,3) |
+| `x_gauge` | PL.X.gauge_even | routes differ at (0,0), (1,1), (1,2), (2,2), (3,3) |
+| `odd_norm` | PL.O.1 | tphi: P1 coefficient depends on x |
+| `odd_flow` | PL.O.2 | h0 algebraic True; the t-φ equation on the h1 flow is nonzero |
+| `same_m0` | PL.O.4 | comparison routine mis-reports a planted pair |
+| `grr_trace` | E.2 | no second derivatives in tr, tx, rx: True; in δG_rr: False; det and A's free symbols as in the baseline |
+| `hexpr_sign` | E.3b | dH/dr along the (K, H1) flow differs from the r-θ equation |
+| `e4_drop` | E.4 | equations not multiples of A: ['tt'] |
+| `e5a_det0` | E.5a | the map (K, H1) → (ψ, ψ_x) is singular (det = 0) |
+| `v_s2` | E.5c | a − s² depends on s: d/ds = 2s |
+| `back_coef` | E.6b | (9) ∘ (3) ≠ id |
+| `d3_s1` | D.3 | no step divides by s |
+| `d4_l2` | D.4 | steps dividing by L − 2 = 2λ: the appended one |
+| `d5_ah0` | D.5 | a determinant or the coefficient of H in A is identically 0 |
+
+The per-row "passes before" counts in each log agree with the script's order (for example `x_gauge` has 6 PASS before its FAIL: PL.0a to PL.0d,
+PL.X.even, PL.X.odd).
+
+Final run to `zerilli_derivation_output.txt`: not made, since the unmutated output did not change (step 2).
