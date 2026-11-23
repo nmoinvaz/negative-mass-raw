@@ -149,3 +149,7 @@ Estimate (before measuring): 3 to 5 h. The first trial cover (scratch, not logge
   of the first batch (`sigma` also fires `spurious:le`; `exp-ulp` leaves `profile`, `frame`, `small_z`, `tail` silent) are unchanged.
   The script is frozen at b2c4ac7 from here on (coordinator, step 7).
 - step7: `run_compare.sh` runs `notes/warp/review_he_type3_count_compare.py` (opens #133's files on purpose) and its two controls.
+- step7 (`compare.rc`, `compare.time`, `compare_output.txt`, `P_table.tsv`, `compare_mutate_*.log`): 15 comparisons pass (353 s, rss 139 MB), none
+  fail; the two controls `compare-drop-term` (`tables` fires) and `compare-shift-leaf` (`roots` fires) exit 1. The first compare run
+  (`compare_first.time`) printed the absolute path of the dump file; the script now prints its file name and the run was repeated, same result.
+  `P_table.tsv` has the exact tables of P (167 terms), E1 (17) and E2 (42) for the Lean work of #135.
