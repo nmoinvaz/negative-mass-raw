@@ -1,0 +1,6 @@
+he_type3_count.py: python 3.14.10, sympy 1.14.0, mpmath 1.3.0
+control sigma-1e-3: sigma + 1e-3 at both walls (C and the radii; v fixed); targets ['points', 'cross']
+[PASS] identity: Le: jets within 8.55e-50 of the tanh form, derivatives within 1.62e-50 of mp.diff, series within 1.43e-50; Rodal: jets within 7.4e-50 of the tanh form, derivatives within 3.53e-50 of mp.diff, series within 3.85e-50
+    (identity: 0 s)
+[PASS] tables: Res = (27/256) phi^3 (A' - B')^3 P exactly: True (167 terms of P); Sylvester determinant in fractions equals the same product at 5 rational points: True; E1, E2 equal c2^2 - 3 c1 and 27 c0 - c2^3 of the printed frame table (u = 1): True; (A', B') degrees 9 to 15, total degrees [10, 12, 14, 16, 18]: True; weighted expansion in (phi, psi, delta): minimum weight 24, leading part {(8, 0, 2): '774144'}: True
+    (tables: 9 s)

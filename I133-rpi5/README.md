@@ -84,6 +84,7 @@ the resultant in w, 167 terms) or of the spurious factor y = B' - A' (phi > 0 fo
 | `w-range` | admissible w in (0, 1) becomes (-10^4, 10^4) | `planted`, `points` |
 | `krawczyk-nocorr` | the Krawczyk operator drops its (I - Y J)(X - m) term | `planted`, `points` |
 | `double-root` | the planted close pair becomes a double root | `planted` |
+| `skip-y` | the roots of the spurious factor y are not classified | `planted`, `spurious`, `assembly` |
 
 A control that fires on other checks than its targets, or on fewer, is reported as a result and not adjusted.
 
@@ -94,4 +95,11 @@ A control that fires on other checks than its targets, or on fewer, is reported 
   relative eps^2 (1e-14 at Le's wall, 1e-35 at Rodal's), so only `identity` would see it. The second moves the wall by ln 2.
 - The Le pilot (`step2_pilot.log`, commit of the script 'warp: add he_type3_count.py ...') ran `--checks=cover,spurious,points,cross
   --walls=Le`, one check more than the README's step 2 (`cross`); it took 49 s, not hours.
-
+- Step 4 was started once (commit 01acf50) and stopped by me after `sigma-1e-3` had begun, before any control result was read
+  (`aborted/`). Reason: three changes to the script that every control must see. (1) The planted problem now also has a spurious
+  factor: P_pl omits the factor z - 11/5 that a planted y_pl carries, so one admissible point sits at a root of y_pl, and the new
+  control `skip-y` (row added above, before any control ran) must lose it. (2) `tables` checks the resultant identity exactly on
+  three random lines as well as at five points. (3) `cover` and `spurious` also check the tanh-form sign at the midpoint of each
+  excluded leaf, and `--dump-cells` exists. Step 4 and step 5 run on the commit after these changes.
+- The step 3 log (`step3.log`) is from commit e154b77, before those changes; it is kept as the first full run.
+- Pilot (`step2_pilot.log`): run on the working tree just before e154b77.
