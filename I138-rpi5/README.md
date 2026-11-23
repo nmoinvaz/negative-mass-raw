@@ -132,3 +132,12 @@ Exploratory runs log to this folder as `step<N>_<script>.log`. Step 7 compares w
 - A run that exits 0 (silent) or dies with a traceback (crash) counts as a miss, not a fire. Exit 2 (planted check failed) counts as a fire when the target is a PL id.
 - Step 2 and 3 incidents so far: the first `recur` run failed A2.3a on zero-valued shift keys of the extractor (bookkeeping, fixed in `three_term`; log kept as
   `step2_recur_run1_FAILED_A2.3a_zero_shift_keys.log`); the first `common` run crashed in `sign_changes` on a sympy boolean (fixed; no criterion changed).
+
+## Results (step 6 and 7)
+
+- Final runs, all exit 0 (`final.rc`): common, signs, recur, zerilli, l1, t1, t2; controls exit 0 with 40 of 40 mutated pairs on target after the parser fix.
+  Logs: `step2_*`, `step3_*`, `step4_*`, `step5_controls*.log`, `controls_logs/` (final rerun), `controls_logs_run1/` and `step5_controls_run1_PARSE_DEFECT_29of40.log` (first run).
+- Incidents kept: `step2_recur_run1_FAILED_A2.3a_zero_shift_keys.log` (extractor bookkeeping), the first `common` crash (sign counter on a sympy boolean, log overwritten),
+  the controls parser defect (above). No criterion or target changed.
+- Verdicts in `phase2/dg_proof/review_lemma_a.md` (branch `wip/i138-lemma-a`, commit cf80583): Lemma A(i), A(ii), L1, T1, T2 all **confirmed**; six wording notes W1-W6.
+- `run_final.sh` is the launcher of step 6 (systemd user unit `nm-i138-final`). Peak rss of any script 76 MB; `step*.time` hold `/usr/bin/time -v` for zerilli, l1, t1, t2.
