@@ -195,3 +195,11 @@ A target is the id of the first `FAIL` line of the mutated run (`--mutate=NAME -
 | v | v_m2 | caption value 0.861 | V1.9 |
 
 54 (mutation, script) pairs, 6 unmutated baselines.
+
+## Result (2026-11-23)
+
+Code and note: branch `wip/i142-lemma-a3` at c2f4bd0 of negative-mass (`phase2/dg_proof/review_lemma_a3*.py`, `review_lemma_a3*_output.txt`, `review_lemma_a3.md`).
+Final runs (`run_final.sh`, one process, nice 10, systemd unit `nm-i142-final`): a3 114 PASS, ends 204 PASS, dg61 6 PASS + 1 DIFFERS (the DG09 (61) line), l6 74 PASS, l4 43 PASS, v 15 PASS, all exit 0;
+controls 60 OK, 0 MISS (6 baselines + 54 pairs), exit 0 (`final.rc`; the step 5 run, `step5_controls.log`, has identical rows). Final outputs are copied here as `final_<script>_output.txt`.
+Verdicts in `review_lemma_a3.md`: Lemma A(iii), L2, L3, L4, L6 and V confirmed, no gap and no error; one disagreement with a source (DG09 (61)); eight wording points.
+Step 7 (opening #2's `chi_lemma.py`, `lemmas_all_l.py`, `verify_small_l.py` and outputs) came after the final runs; no number of #2 disagrees with mine. My slips are in `slips.md`.
