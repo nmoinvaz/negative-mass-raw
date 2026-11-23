@@ -155,4 +155,42 @@ value, one ulp above that array value, is at or below the pair's exact modulus, 
 array-modulus window leaves it out. (`abs(scalar)` is `hypot` here and equals the array value plus one ulp.) With the unmutated helper
 the pair is inside the window by construction, and window, position and exact counts agree in all 22 sectors.
 
-## Files (filled in below as they are made)
+## Results, step 3: v_c (code: `wip/i140-window-vc` at 000c3a2, outputs at 93ed6d1)
+
+| check | verdict | numbers |
+|---|---|---|
+| V0 `vc96.py` rerun | pass | `vc96_rerun_rpi5.txt` is identical to `I96-mac2/vc96.txt` (0.6 s) |
+| V1 split v_c, 20 nodes, \|j\| <= 6, end at 1 + 14/σ | pass | difference from mpmath +8.9e-16, 0, +4.7e-15, +2.2e-16 at σR = 2, 4, 8, 16 (limit 1e-9) (`vc_split.log`, exit 0) |
+| V2 `--mutate=nosplit` (one panel on [0, 15], 400 nodes) | as predicted | v_c(16) = 0.985020182373, 9.7e-6 low; `v_c sR=16` fails, exit 1 (`vc_nosplit.log`). At σR = 2, 4, 8 it passes at 2.6e-14, 2.5e-14, 3.6e-13: the previous rule was accurate up to σR = 8 |
+| V3 what changes in the checker's output | | `--part=report --out=I94-win/eig` run with the previous script (main 87279bd) and the new one gives the same output line for line (`report_old_vs_new.diff` is empty): the `v_c sR=` check (σR = 2 and 4 against #75's printed 3.7449 and 2.470971, limit 1e-5) passes as before, the new values differing from the old by 2.7e-14 and 2.5e-14, below the six digits printed. σR = 8 and 16 appear only in `--part=solve`: the stored `vc`, the `v_c =` header and the ARPACK floor `--floor / v_c`. New − old is +3.6e-13 at σR = 8 and +9.7e-6 at σR = 16 (printed 0.985020 → 0.985030, and every \|μ\|v_c of a σR = 16 run is 9.8e-6 larger relative) |
+
+Runs and exit codes (each stdout in this folder; `.exit` holds the code):
+
+| file | command (from the worktree root) | exit |
+|---|---|---|
+| `window_plant.log` | `python notes/warp/tanh_spectrum.py --part=window` | 0 |
+| `window_plant_abscut.log` | the same with `--mutate=abscut` | 1 (`window_scalar`) |
+| `retab_rpi5.txt` (= `notes/warp/tanh_spectrum_windows_output.txt`) | `python -X utf8 ../negative-mass-raw/I140-rpi5/retab.py --tag=rpi5 --ts=notes/warp` | 0 |
+| `retab_rpi5_abscut.txt`, `_nearcut`, `_notie` | the same with `--mutate=...` | 1, 1, 1 |
+| `drive_part_tanh.txt`, `drive_part_tanh_abscut.txt` | `python -X utf8 ../negative-mass-raw/I140-rpi5/drive_part_tanh.py --ts=notes/warp [--mutate=abscut]` | 0, 1 |
+| `vc_split.log` (= `notes/warp/tanh_spectrum_check_vc_output.txt`) | `python notes/warp/tanh_spectrum_check.py --part=vc` | 0 |
+| `vc_nosplit.log` | the same with `--mutate=nosplit` | 1 (`v_c sR=16`) |
+| `vc96_rerun_rpi5.txt` | `python ../negative-mass-raw/I96-mac2/vc96.py` | 0 |
+| `report_old_v_c.log`, `report_new_v_c.log` | `tanh_spectrum_check.py --part=report --out=../negative-mass-raw/I94-win/eig` with the script of 87279bd and of 000c3a2 | 1, 1 (the same `own75` failures in both; these arrays are #94's first ones) |
+
+Memory and time. Every run is one process on one thread under `nice -n 10`, each under 2 s of wall time and 125 MB resident
+(`retab.py` 1.6 s, 123 MB; `vc96.py` 0.6 s, 21 MB). Nothing came near a limit, and nothing was stopped.
+
+The earlier logs of `window_plant*.log` and `vc_split.log` had a header line naming an uncommitted tree. They were rerun from the
+committed code (`000c3a2`) with the stdout unchanged, and the notes' two output files are those stdouts.
+
+Cross-machine rerun on the Mac (the coordinator's): from the raw clone, `python -X utf8 I140-rpi5/retab.py --tag=mac
+--ts=<worktree>/notes/warp`, then `diff I140-rpi5/retab_rpi5.csv I140-rpi5/retab_mac.csv`. The csv holds counts, the cut to four
+digits and the symmetry value to two, so a difference is a machine dependence. `retab.py` runs the planted checks first and
+then reads `I96-win/eig`, `I96-dh610/eig` and (supplementary) `I75-dh170`.
+
+## Files
+
+`retab.py` (re-tabulation, imports `tanh_spectrum.window`), `drive_part_tanh.py` (runs `part_tanh` on the stored arrays),
+`retab_rpi5.csv` and the three mutated csv, the logs in the tables above, `report_old_vs_new.diff`, `vc96_rerun_rpi5.err` (its
+`time -f` line).

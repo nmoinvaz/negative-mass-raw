@@ -1,5 +1,5 @@
-# retab.py --tag=rpi5
-# machine rpi5-ubuntu aarch64, Python 3.14.10, numpy 2.5.4; tanh_spectrum.py from /home/nathan/Source/negative-mass-i140/notes/warp at 87279bd (with uncommitted changes)
+# retab.py --tag=rpi5 --ts=notes/warp
+# machine rpi5-ubuntu aarch64, Python 3.14.10, numpy 2.5.4; tanh_spectrum.py from notes/warp at 000c3a2
 == planted truth: tanh_spectrum.py part_window, unmutated, before any stored array
 == window: the cut and the window of A from one np.abs array, on hand-made arrays (A, B) of known cut
   [PASS] window_planted: cut 0.625, k 10, window of A 12, of B 12, by position 12, symmetry 0.292617 (planted: 0.625, 10, 12, 12, 12, 0.292617)
@@ -69,4 +69,3 @@
   σR = 4: window totals A / B: new 406 / 424, #75's log 396 / 424; largest symmetry value new 4.7e-07, #75's log 4.7e-07; sectors that differ: m = 1.5: A 48→50; m = 3.5: A 44→46; m = 6.5: A 32→34; m = 7.5: A 32→34; m = 8.5: A 24→26
 
 all checks passed
-exit 0

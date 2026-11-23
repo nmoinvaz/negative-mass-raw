@@ -153,7 +153,7 @@ def fmt_change(r, old):
 # ------------------------------------------------------------------------------------------------ main
 print(f"# retab.py {' '.join(sys.argv[1:])}")
 print(f"# machine {platform.node()} {platform.machine()}, Python {platform.python_version()}, numpy {np.__version__}; "
-      f"tanh_spectrum.py from {args.ts} at {git('rev-parse', '--short', 'HEAD')}"
+      f"tanh_spectrum.py from {args.ts.replace(os.path.expanduser('~'), '~')} at {git('rev-parse', '--short', 'HEAD')}"
       f"{' (with uncommitted changes)' if git('status', '--porcelain', '--', 'tanh_spectrum.py') else ''}")
 print("== planted truth: tanh_spectrum.py part_window, unmutated, before any stored array")
 ts.MUT = ""

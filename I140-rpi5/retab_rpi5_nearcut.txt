@@ -1,5 +1,5 @@
-# retab.py --tag=rpi5 --mutate=nearcut
-# machine rpi5-ubuntu aarch64, Python 3.14.10, numpy 2.5.4; tanh_spectrum.py from /home/nathan/Source/negative-mass-i140/notes/warp at 87279bd (with uncommitted changes)
+# retab.py --tag=rpi5 --ts=notes/warp --mutate=nearcut
+# machine rpi5-ubuntu aarch64, Python 3.14.10, numpy 2.5.4; tanh_spectrum.py from notes/warp at 000c3a2
 == planted truth: tanh_spectrum.py part_window, unmutated, before any stored array
 == window: the cut and the window of A from one np.abs array, on hand-made arrays (A, B) of known cut
   [PASS] window_planted: cut 0.625, k 10, window of A 12, of B 12, by position 12, symmetry 0.292617 (planted: 0.625, 10, 12, 12, 12, 0.292617)
@@ -79,4 +79,3 @@
   machine-independent columns written to retab_rpi5_nearcut.csv
 
 FAILED: A4 sigma R = 8, A3 sigma R = 16, A4 sigma R = 16, A5
-exit 1
