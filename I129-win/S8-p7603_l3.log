@@ -1,0 +1,11 @@
+# harm_circles p7603_l3 (eps -1, w 0.7603, l 3) S8 (1e-08, False, None), N = 64, L = 2.5, R_s = 404.9, r_m = 24.11
+  point 0 s0 = 0.575+0.75i rho = 0.05 L: D |lap| L^2 8.985e-05, limit 1.580e-05, ratio 5.685e+00, |grad| 5.92: FAIL; planted holo 7.0e-14 PASS; planted non-harmonic 2.0e-03 PASS
+  point 0 s0 = 0.575+0.75i rho = 0.025 L: D |lap| L^2 8.871e-05, limit 1.580e-05, ratio 5.613e+00, |grad| 5.92: FAIL; planted holo 4.3e-13 PASS; planted non-harmonic 2.0e-03 PASS
+  point 0: 129 new evaluations, 8.2 s each
+  point 1 s0 = 1.05+1.5i rho = 0.05 L: D |lap| L^2 5.901e-06, limit 1.175e-05, ratio 5.023e-01, |grad| 4.3: PASS; planted holo 1.0e-13 PASS; planted non-harmonic 2.0e-03 PASS
+  point 1 s0 = 1.05+1.5i rho = 0.025 L: D |lap| L^2 4.762e-06, limit 1.175e-05, ratio 4.054e-01, |grad| 4.3: PASS; planted holo 4.2e-13 PASS; planted non-harmonic 2.0e-03 PASS
+  point 1: 129 new evaluations, 15.0 s each
+  point 2 s0 = 1.525+2.25i rho = 0.05 L: D |lap| L^2 1.010e-05, limit 9.404e-06, ratio 1.074e+00, |grad| 3.36: FAIL; planted holo 1.2e-13 PASS; planted non-harmonic 2.0e-03 PASS
+  point 2 s0 = 1.525+2.25i rho = 0.025 L: D |lap| L^2 1.018e-05, limit 9.404e-06, ratio 1.083e+00, |grad| 3.36: FAIL; planted holo 4.3e-13 PASS; planted non-harmonic 2.0e-03 PASS
+  point 2: 129 new evaluations, 16.7 s each
+RESULT FAIL: D at point 0, rho 0.05 L; D at point 0, rho 0.025 L; D at point 2, rho 0.05 L; D at point 2, rho 0.025 L

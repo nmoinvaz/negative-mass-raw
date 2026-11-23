@@ -56,3 +56,34 @@ Mutations `nonholo` and `half` must each exit 1.
 | `sample.ps1`, `memory-sampler.log` | working set, peak working set and CPU of the `harm_circles.py` processes once a minute, with the free memory |
 | `<job>.log`, `<job>.log.exit` | stdout and exit code of each job |
 | `harm_circles_<box>_<setting>.pkl` | the cache of D at every evaluated point |
+| `job_mutate.cmd`, `go_mutate.cmd`, `mutate-nonholo.log`, `mutate-half.log` (+ `.exit`) | the two mutations on the cached S12 data of `c075_l2`, one after the other, no new evaluation |
+| `collect.log`, `collect.log.exit` | `--collect` from every cache; the same text is `phase2/nonradial/harm_circles_output.txt` |
+| `results_table.py`, `results_table.txt` | the pivot of `harm_circles_output.txt` (ratio per point, setting and radius; first passing setting; worst ratio and smallest explaining point error per setting) quoted in RESULTS.md §5.5 |
+
+## Results (2026-11-22)
+
+Code commit with the output and RESULTS.md §5.5 / §8: `wip/i129-circles` at fb7d97a (script unchanged from 4636e5c).
+
+| step | exit | note |
+|---|---|---|
+| pilot `c075_l2` S12 point 2 | 0 | 43 s per evaluation (the Mac: 9.7 s) |
+| S12 `p7603_l2`, `p7603_l3`, `c075_l2`, `p085_l3` | 0, 0, 0, 0 | all 24 rows pass, ratios 5.0e-6 to 2.5e-3 |
+| S10 `p7603_l2`, `p7603_l3`, `c075_l2`, `p085_l3` | 0, 0, 0, 0 | all 24 rows pass, ratios 3.4e-3 to 0.102 |
+| S8 `p7603_l2`, `p7603_l3`, `c075_l2`, `p085_l3` | 1, 1, 1, 1 | 16 of 24 rows fail (8 points), ratios 1.07 to 11.8; a failed check, a result |
+| `--mutate=nonholo`, `--mutate=half` on `c075_l2` S12 | 1, 1 | as required |
+| `--collect` | 0 | `RESULT PASS` |
+
+Queue: 2026-11-22 01:47 to 19:02 (`queue.log`), two runs at a time, choptuik-large-d at 0.06 to 1.94 cores at every
+start (`cores.log`). Cost per evaluation on one thread: S12 17.6 to 45.2 s, S8 7.0 to 19.2 s; the S10 values in the logs
+(10.7 to 103.3 s) include the slow stretches below.
+
+Episodes that cost time and changed no result:
+- The laptop was in Modern Standby from 09:41 to 10:01 and from 10:47 to 12:51 (brief wakes at 12:20 and 12:36), which
+  suspended the S10 runs without killing them (gaps in `memory-sampler.log` before 12:20:16, 12:51:18 and 12:59:10).
+  `keepawake.ps1` (pid 25836, 13:03:52 to 19:02:29, held `ES_CONTINUOUS | ES_SYSTEM_REQUIRED`; no power setting or plan
+  changed) followed the coordinator's go-ahead. No gap in the sampler after 12:59.
+- From about 08:48 the S10 evaluations ran 2.3 to 3.3 times slower than the first S10 run, at the time of power-source
+  changes (Kernel-Power events). Battery power is the likely cause; not tested.
+- The first capture of the mutations' exit codes (PowerShell `Start-Process`) lost them, so both were rerun through
+  `job_mutate.cmd` (no new evaluation; the cache of `c075_l2` S12 is byte-identical to before, `git` shows no change). The logs here are
+  those of the second run.
