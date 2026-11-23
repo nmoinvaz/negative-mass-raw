@@ -79,7 +79,7 @@ the resultant in w, 167 terms) or of the spurious factor y = B' - A' (phi > 0 fo
 | `no-tail-large` | the proof on [z_t, infinity) is removed | `tail_z`, `planted`, `assembly` |
 | `no-tail-small` | the proof on (0, z_s] is removed | `small_z`, `assembly` |
 | `cell-gap` | one leaf is removed from the tiling of each wall's cover | `cover`, `assembly` |
-| `eps-typo` | a~ = (1 - eps^2)/D^2 becomes (1 + eps^2)/D^2 in the jets | `identity`, `cover`, `spurious`, `points`, `cross`, `assembly` |
+| `eps-typo` | D = 1 + 2 C eps + eps^2 becomes 1 + C eps + eps^2 in the jets | `identity`, `cover`, `spurious`, `points`, `cross`, `assembly` |
 | `T-off` | the T != 0 condition is dropped from admissibility | `planted` |
 | `w-range` | admissible w in (0, 1) becomes (-10^4, 10^4) | `planted`, `points` |
 | `krawczyk-nocorr` | the Krawczyk operator drops its (I - Y J)(X - m) term | `planted`, `points` |
@@ -88,3 +88,10 @@ the resultant in w, 167 terms) or of the spurious factor y = B' - A' (phi > 0 fo
 A control that fires on other checks than its targets, or on fewer, is reported as a result and not adjusted.
 
 ## Run notes
+
+- Before any control run, the `eps-typo` row was changed from a~ = (1 - eps^2)/D^2 -> (1 + eps^2)/D^2 to D = 1 + 2 C eps + eps^2
+  -> 1 + C eps + eps^2, with the same targets. Reason, from analysis and not from a run: the first typo changes every jet by a
+  relative eps^2 (1e-14 at Le's wall, 1e-35 at Rodal's), so only `identity` would see it. The second moves the wall by ln 2.
+- The Le pilot (`step2_pilot.log`, commit of the script 'warp: add he_type3_count.py ...') ran `--checks=cover,spurious,points,cross
+  --walls=Le`, one check more than the README's step 2 (`cross`); it took 49 s, not hours.
+
