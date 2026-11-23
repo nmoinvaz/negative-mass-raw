@@ -9,3 +9,7 @@
 3. l6, first run: L6.6 FAILED for l = 17..30 ("positive roots of den: 1", the root being r_s to 12 digits). Cause: my helper `k_of` used Python float division, k = c(c+2)/6 became a float,
    and sympy `cancel` with floats left the (cr-6) factor uncancelled for l >= 17 (for l < 17 the floats happened to be exact). Fixed with `sp.Rational(1, 6) * c * (c + 2)`; all later
    runs exact. The first run's output is in `step3_l6_run1_FLOAT_K.log`. No criterion changed.
+4. v, first run: V1.3 FAILED because `sp.simplify` choked on `Abs` of a complex symbol (my code: M was a generic symbol), V1.7 FAILED because I applied `.subs` after `cancel`
+   (my typing slip: an unreduced `lam` vs `c/2`), and V1.8 FAILED at (l, n) = (7, 7) because I wrapped an exact rational in `sp.nsimplify`, which changed the value (my code, not DG's formula
+   and not RESULTS). A rerun with `simplify` replaced by `cancel` on explicit M < 0 forms hung for 10 min in `sp.simplify` (stopped by me, no output lost); the final form uses the
+   explicit signs |M| = -M and |(r-2M)/(2M)| = (r-2M)/(-2M) and no simplify of Abs. The three checks then PASS. No criterion changed.
