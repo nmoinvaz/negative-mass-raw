@@ -21,3 +21,18 @@ and V̂ from the terminating χ, no rescaled series, no intervals) is neither #2
 Mutations, each must exit 1 with its target failing: `shift` (#2's c·r_* bracket at l = 2222 moved up by 10⁻¹²; K1),
 `mono` (#2's rows l = 1000 and 1001 exchanged; K3:#2), `bytes` (one digit of the Mac csv changed; K2), `rho` (ρ_* taken as
 8.4858; K3), `chi` (c₃ scaled by 1 + 10⁻⁶; K4).
+
+## Run 1 and the change for run 2 (written before run 2)
+
+Run 1 (`ind139_run1.py`, `ind139_run1_console.txt`) exits 1. K1, K3:#2 and K3:#104 pass. Two criteria fail:
+- **K4**, through a defect of ind139: its `poch` returned 1 for a negative length, so c₁ = 3l(l+1)/2 in place of 3/2 and
+  the roots came out wrong (12.59 against 9.115 at l = 2). Lemma A's (a)₋ₘ = 1/((a−1)…(a−m)) was dropped. Run 2 restores
+  it. The criterion is unchanged.
+- **K2**, a finding: #2's csv is not the same on the two machines. 35 of 2999 rows differ (`diag_k2.py`, written after
+  the failure): l = 216, 280, …, 2900, in both columns. Each differing pair of brackets overlaps (smallest overlap
+  1.96e-13 of widths 2.0e-13). `rescaled.locate` seeds each bracket with a scipy `brentq` float, whose last bits differ
+  between the machines, so the certified ends differ while both are valid. AGENTS.md "Say what an error bar is" covers
+  this case. K2 stays failed in run 2: the criterion is not changed.
+
+The run-1 mutations (`run1_mutations/`) ran with K2 and K4 already failing, so they show nothing for those targets.
+They are rerun on the run-2 version.

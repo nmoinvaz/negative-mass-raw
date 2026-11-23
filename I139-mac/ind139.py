@@ -111,7 +111,12 @@ for nm, T in (('#2', A), ('#104', B)):
 mp.mp.dps = 80
 
 
-def poch(a, m):
+def poch(a, m):  # run 2: (a)_m for m < 0 is 1/((a-1)...(a-m)) (run 1 returned 1, so c_1 was wrong)
+    if m < 0:
+        p = 1
+        for j in range(1, -m + 1):
+            p *= a - j
+        return Fr(1, p)
     p = 1
     for j in range(m):
         p *= a + j
