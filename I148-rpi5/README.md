@@ -139,3 +139,15 @@ The required controls are the 17 rows of the table above; the exploratory ones a
 Controls runner: `zerilli_certificate_controls.py` (baseline `--part=all` unmutated, then `--mutate=NAME --failfast` with the args the table lists:
 `--part=planted` for `leg_sign` and `den_allow_M`, `--part=odd` for the odd rows, `--part=even` for the even rows).
 
+2026-11-23, step 4, written after control part 1 and before part 2.
+- Part 1 (`controls_part1.log`, per-run logs in `controls_part1_logs/`, runner started with the whole list): baseline exit 0 with 16 PASS; 16 of the 17 required pairs
+  exit as listed with the first FAIL at the pre-registered target. The 12th pair, `drop_traceless` at symbolic L, had not finished after 13 min 59 s
+  (rss 157 MB, no output); I stopped that one run by its PID, so it is logged as `exit -15 ... MISS`. This is not a result about the control: the elimination
+  for an inconsistent system in four variables was slow (`v_coef` 89 s, `psi_coef` 264 s, `drop_traceless` > 839 s). The batch went on. After `s0_s1` I stopped
+  the batch (the exploratory family had just started at symbolic L, where the same slowness is expected); the runner printed no closing summary.
+- The runner `zerilli_certificate_controls.py` got options `--only`, `--no-baseline`, `--extra`, `--cap` after part 1 started (the running process had already read the file).
+- Part 2: `drop_traceless` and the six `drop_*` of the exploratory family at `--L=6` (the pilot's substitution, L = 6 before the solve, so 3 variables), cap 900 s per run.
+  The target of `drop_traceless` is unchanged (E.cert, exit 1); the exploratory acceptance rule is unchanged (exit 0, or exit 1 at E.cert or E.den); a run past the cap is reported as stopped.
+  A result at L = 6 is a statement at L = 6: no solution at L = 6 does not by itself show there is none at symbolic L, and a solution at L = 6 does not show one at symbolic L.
+- Part 3 (after the final run): `drop_traceless` at symbolic L alone, cap 3000 s.
+
