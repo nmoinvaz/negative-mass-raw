@@ -35,3 +35,36 @@ place of −r²G/2; Q1), `nv1k` ((λr − μ) → (λr + μ) in (nv1)'s K; Q3), 
 A run that has not finished after 2 hours is stopped and reported as not completed.
 
 ## Results
+
+| file | what |
+|---|---|
+| `rerun/` | `zerilli_gauge_rs.py` (exit 0, 34 PASS, 0 FAIL) and `zerilli_gauge_rs_controls.py` (38 OK, 0 MISS, exit 0) on the Mac at nice 10, with the per-run control logs |
+| `ind146_run1.py`, `.txt`, `.stderr.txt` | the independent check, run 1 (`ind146.py` is the same version) |
+| `ind146_mut_*.txt` | its 5 mutations |
+
+**Rerun.** Both outputs equal #146's apart from the timing lines.
+
+**ind146 run 1** (exit 0, 3 s):
+
+| criterion | run 1 |
+|---|---|
+| Q0 | pure gauge: the note's (a, b, c) are (−α, −β, −γ) and h′ = 0, l = 2, 3, 4, e^{st} and static |
+| Q1 | general h: J_t′ = J_r′ = G′ = 0, and K′, H0′, H1′, H2′ equal the note's, l = 2, 3, 4, e^{st} and static |
+| Q2 | the seven Δ formulas equal the note's, l = 2, 3, 4; at l = 1, T_ab ≡ 0 and the c-family is pure gauge in RW form |
+| Q3 | (a) K of (nv1) = K of (3); (b) H1 of (nv1) = (2/r) × H1 of (3); (c) H2 of (3) = (nv1)'s H2 with its ζ term reversed |
+| Q4 | (a) and (b) both give ζ′/ζ(r_s) = −2λ²/(3μ(2λ+3)), the (RW17) value for every s; (c) the printed (cz) is +2λ²/(3μ(2λ+3)); (d) at μ = 2, c* = −1/(r_s(r_s+2)) |
+| Q5 | (RW17) holds identically for ζ = (2λr − 3μ)ψ with the Zerilli equation |
+
+Re-solve, the condition at r_s from DG06's (RW17) alone: ζ′/ζ = −2λ²/(3μ(2λ+3)) at r = 3μ/(2λ), independent of s.
+
+**Finding.** #146's three discrepancies with DG06's arXiv TeX hold, from DG06's own equations: (cz)'s sign, (nv1)'s
+H1 factor 2/r, and (nv1)'s H2 ζ-term sign. (RW17), (3)–(4), (6) and the K of (nv1) are mutually consistent. The project's
+L1 (χ′/χ(r_s) = −1/(r_s(r_s+2)), with χ = ζ at M = −1) has the derived sign. No project text uses the printed (cz).
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `lie` | 1 | Q0 | yes |
+| `gform` | 1 | Q1 | yes |
+| `nv1k` | 1 | Q3 ((a) fails) | yes |
+| `czs` | 1 | Q4 | yes |
+| `rw17` | 1 | Q4 ((b) fails), Q5 | yes |
