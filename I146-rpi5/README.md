@@ -177,7 +177,10 @@ A run not finished in 1 h of wall time is stopped and reported. Nothing is stopp
 
 ## Edited before the first run of `zerilli_gauge_rs.py`
 
-(none yet)
+The first runs were development runs (`dev1.log` planted part, `dev2.log` through the static part, `dev3.log` through R.S.2; all with `--skip=PL.G,PL.X`).
+`dev2` had one FAIL, GS.3, a bug in my check and not in the criterion: the expected divisor set was compared as the string `r - 2*M`, which sympy prints as `-2*M + r`.
+The divisors it found were exactly {r, r−2M}. The comparison now uses `str(r - 2*M)`; the criterion (the divisors met are exactly {r, r−2M}) is unchanged. `dev3` then had 0 FAIL.
+Nothing else was changed in a criterion or a control target after these runs.
 
 ## Added after the first run
 
