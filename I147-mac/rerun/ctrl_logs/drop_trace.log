@@ -1,0 +1,12 @@
+# zerilli_derivation: Zerilli potential from the linearized Einstein equations (part=all)
+# mutations on: drop_trace
+PASS PL.0a
+# [   0.1 s] PL.0a
+PASS PL.0b
+# [   0.1 s] PL.0b
+PASS PL.0c
+# [   0.1 s] PL.0c
+PASS PL.0d
+# [   0.3 s] PL.0d
+FAIL PL.G.even: pure-gauge h (even) does not give dR = 0: [(0, 0), (0, 1), (0, 2), (1, 1), (1, 2), (2, 2)]
+# planted check failed: stop before any real data

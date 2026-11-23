@@ -25,3 +25,38 @@ pre-registered target changed in memory; N2), `drop_pair` (one new pair removed 
 bare occurrence of `ds_sign` added to the scanned source in memory; N5).
 
 ## Results
+
+| file | what |
+|---|---|
+| `rerun/` | `zerilli_derivation.py` (exit 0, 32 PASS) and `zerilli_derivation_controls.py` (34 OK, 1 MISS, exit 1) at 990ae7c on the Mac at nice 10, with the per-run control logs |
+| `ind147_run1.py`, `.txt` | the independent check, run 1 (`ind147.py` is the same version) |
+| `ind147_mut_*.txt` | its 4 mutations |
+
+**Rerun.** The unmutated output equals the committed one apart from timing lines. The controls rows equal rpi5's apart
+from timings: 33 of 34 pairs on target, `fsign_bg` the one MISS (first FAIL PL.O.3).
+
+**Code review of the diff 3400e74..990ae7c.** Every new behavior is behind `mut('NAME')`. The unmutated path changes by
+an identity wrapper (`route2_h` returns h unless `x_odd` or `x_gauge` is on) and one renamed variable in E.4. `e5a_det0`
+and `d5_ah0` override the value their checks read, as #147 says; the other 14 break the quantity their check tests.
+Example: `grr_trace` fails E.2 on the "no second derivative in δG_rr" conjunct alone.
+
+**ind147 run 1** (exit 0):
+
+| criterion | run 1 |
+|---|---|
+| N1 | baseline OK with 32 PASS; 34 pairs, 33 OK; the one MISS is `fsign_bg` at PL.O.3 |
+| N2 | #143's 18 pairs unchanged; the 16 new pairs equal the table at 5e9657b |
+| N3 | all 32 PASS ids are targets; the 16 new pairs' first FAIL on the Mac is their target |
+| N4 | 5e9657b (14:20:33 −08:00) precedes 7a44d73 (14:24:55) and the raw commits bea1290 and c75b6ea |
+| N5 | no bare use of the 16 names; `mut` is `name in _MUT`, filled only from `--mutate=` |
+| N6 | 105 non-timing lines equal |
+
+Re-solve, one pair by hand: `grr_trace` on the Mac fails E.2 with "no second derivatives in tr, tx, rx True and in
+delta G_rr False", the conjunct it targets.
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `miss2` | 1 | N1 | yes |
+| `retarget` | 1 | N2 | yes |
+| `drop_pair` | 1 | N3 | yes |
+| `leak` | 1 | N5 | yes |
