@@ -95,6 +95,14 @@ control passes if every must-fire check fails. Other checks that also fail are r
 | `w-range` | admissible window 0 < w < 100 instead of 0 < w < 1 | `points:le`, `points:rodal` | both (4 and 6 admissible instead of 3) | |
 | `spurious-on-P-root` | the no-common-root test is run at the first root of P | `spurious:le`, `spurious:rodal` | both (a common root exists there) | |
 | `planted-double` | g gets a factor (cosh z - c_0)^2 | `planted` | `planted` (an open leaf) | |
+| `profile-typo` | the constant 2 of B' typed as 3 in the code of (phi, A', B') | `profile` | `profile` (the tanh-definition comparison) | the exact identity items of `profile` use closed forms typed separately and stay silent |
+| `printed-typo` | the printed E1 coefficient (phi^2 - 3) gamma^2 typed as (phi^2 - 2) gamma^2 in the comparison | `frame` | `frame` (E1 minus printed is not 0) | everything else is built from the frame table and is unchanged |
+
+The last two rows were added after the first batch of 11 controls, because `profile` had no control that fires it and
+`frame-typo` fired through a construction error instead of the printed-E1 comparison. In the second revision of the script
+(next to the two new hooks) a quotient that is not a polynomial is reported by `frame` instead of raised in the
+construction, so `frame-typo` now reaches the E1 comparison. The first batch and the first full run are kept in `batch1/`
+(script `3c7df24`); the final full run and all 13 controls are rerun on the second revision.
 
 ## Run plan
 
@@ -116,3 +124,19 @@ Estimate (before measuring): 3 to 5 h. The first trial cover (scratch, not logge
   TypeError in `points:le` (mpmath candidates were not converted to Fractions, a bug in the script). Fixed
   (`fr_of_mp`), `cover:le,points:le,spurious:le` rerun in `step3_le.log`: pass, 147 s, 75 MB.
 - step4_rodal (`small_z:rodal`, `tail:rodal`, `cover:rodal`, `points:rodal`, `spurious:rodal`): pass on the first run, 250 s, 6 roots of P, 1 of y.
+- First launch of the controls queue (`systemd-run ... ./controls.sh`) did nothing: the unit starts in `~`, so the relative
+  path was not found, no log was written. Relaunched with absolute paths. No control ran twice.
+- step5 (controls, script `3c7df24`, one process at a time): `controls_table.md` (made by `controls_table.py` from the logs and
+  the targets frozen above). All 11 exit 1 and every frozen target fired. Mispredictions in the "expected silent" columns
+  and in the stated mechanism, left as they are:
+  - `sigma`: `spurious:le` also fired. I expected a shift of about 1e-6; the y root moved to r = 0.99211696 (statement
+    0.99211), a difference 7e-6 above the 5e-6 tolerance of that check. The radii of the P roots moved by 1.5e-7 to 3e-5.
+  - `exp-ulp`: only `exp` is a target and it fired. I wrote that every check building C would raise a ValueError.
+    Actually `profile`, `frame`, `small_z:*` and `tail:*` stayed silent: cosh and sinh are sums of two exp enclosures
+    that are rounded outward again, which absorbs a one-ulp inward move at the sizes involved, and those checks have
+    wide margins. `planted`, `cover:*`, `points:*` and `spurious:*` raised ValueError (empty interval).
+  - `frame-typo`: `frame` fired, but through a sympy PolynomialError while building P (with the typo the resultant is no
+    longer divisible by (27/256) phi^3 (A' - B')^3), not through the E1-against-printed comparison, which was never reached.
+  - `drop-P-term`: `cover:le` stayed silent (P still has 4 roots, at other radii), `cover:rodal` fired (4 roots, not 6).
+  - `spurious-on-P-root`: fired through `complete False` (no candidate is given, so the real common root at the first root
+    of P is not covered), not through a found box.
