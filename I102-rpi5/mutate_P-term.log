@@ -1,0 +1,5 @@
+he_type3.py: python 3.14.10, sympy 1.14.0, mpmath 1.3.0
+control P-term: the first term of P dropped; targets ['tanh_planted']
+[FAIL] tanh_planted: planted Type III point in Q(sqrt 113), (v, c^2) = (2, 9/25): the solver returns 1 point(s) at r = 3.4702367, recovers it to 1e-40; planted Type III point in Q(sqrt 463), (v, c^2) = (2, 16/25): the solver returns 2 point(s) at r = 2.1960199, recovers it to 1e-40; planted triple root of rank 1, (v, c^2) = (3/2, 9/25), T = 0: V = 9/4 is a root of the shadow quartic (relative residual 0.951, a triple root, so not returned by the root finder), Newton from (3/2, 9/25) converges without the T filter (True) and the T filter rejects it (True); the resultant of E1 and E2 in w has the factors [(1, 3), (2, 3), (167, 1)], so Res = (27/256) phi^3 (A' - B')^3 P with P of 167 terms, irreducible (True), whose degrees in (phi, A', B') are [10, 12, 14, 16, 18]
+control P-term: failed ['tanh_planted'] of targets ['tanh_planted'] -> FIRED
+wall 9.7 s
