@@ -1,0 +1,20 @@
+PASS K1a P2 proportional to -r^2 (r+2)(cr-6)  P2 = r**2*(r + 2)*(c*r - 6), ratio -1
+  P1 = -2*r*(c*r**2 + 3*c*r - 6)
+  P0 = -c**2*r**2 + 6*c*r - 12
+  coefficient of r^m = sum_k A_k(n = m - k) c_{m-k}, with k: [0, 1, 2]
+PASS K1a three-term: only c_m, c_(m-1), c_(m-2)
+PASS K1b recurrence identically 0 in (l, m), m >= 5  residual 0
+PASS K1b orders m = 1..4 vanish symbolically in l
+PASS K1c normalisation of RESULTS recurrence; middle coefficient  constant -1; middle / constant = -2*(m - 2)*(c*m - 4*c - 3*m + 3); equals -2(m-2)(c(m-4) - 3(m-1)): True
+Traceback (most recent call last):
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/r138/ind138.py", line 103, in <module>
+    lhs = sp.Poly(P2.subs(c, L_ * (L_ + 1) - 2), r) * chi_p.diff(r, 2) + sp.Poly(P1.subs(c, L_ * (L_ + 1) - 2), r) * chi_p.diff(r) \
+                                                      ~~~~~~~~~~^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/sympy/polys/polytools.py", line 2411, in diff
+    rep = rep.diff(int(m), f._gen_to_level(gen))
+                           ~~~~~~~~~~~~~~~^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/sympy/polys/polytools.py", line 1860, in _gen_to_level
+    raise PolynomialError("-%s <= gen < %s expected, got %s" %
+                          (length, length, gen))
+sympy.polys.polyerrors.PolynomialError: -1 <= gen < 1 expected, got 2
+rc=1
