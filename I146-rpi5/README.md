@@ -184,4 +184,26 @@ Nothing else was changed in a criterion or a control target after these runs.
 
 ## Added after the first run
 
-(none yet)
+Written after `dev1`–`dev4`, `step2`, `step3` and the first controls run (`controls.log`: baseline and 35 pairs, 36 OK, 0 MISS, 726 s; the script then had 32 PASS), and before the
+final run and the final controls run. No criterion or control target above was changed. Two checks and two mutations were added, and one bug of mine fixed:
+
+- **PL.R** (planted, exit 2): the Laurent / resonance routine of R.10 (`laurent_test`) on three planted flows with known answers: R = diag(0,1) with F1 = 0 (analytic, sympy's `dsolve` of u′ = u/x
+  has no logarithm), R = diag(0,1) with the coupling u₂′ = u₂/x + u₁ (`dsolve` returns a logarithm), and a residue with eigenvalues {0, 2}. Mutation `nolog_blind` (the routine ignores the next
+  Laurent coefficient) → PL.R. Added because R.10's routine had no planted case in the list above; R.10 calls the same routine.
+- **R.12**: M = −1, l = 2, explicit smooth ζ: with ζ′(r_s) = c* ζ(r_s) the corrected (nv1) gives (K, H1, H2) with no pole at r_s; ζ = 1 and a ζ with the typed (cz) constant give poles in all three.
+  Mutation `ex_typed` (the conforming ζ is built with the typed constant) → R.12. Added to have a concrete counterexample for the typed sign.
+- `laurent_test` raised an IndexError on the eigenvalue-{0,2} planted flow (no resonance, no left null vector); it now returns (False, False) there.
+
+## Results (written after the final controls run)
+
+| file | what | result |
+|---|---|---|
+| `dev1.log` … `dev4.log` | development runs of the planted part, through the static part, through R.S.2, and the final script with `--skip=PL.G,PL.X` | `dev2` had the GS.3 string-comparison FAIL (my check bug, see above); `dev1`, `dev3`, `dev4` 0 FAIL |
+| `step2.log` | `--part=gauge`, nothing skipped | 16 PASS, 0 FAIL, exit 0, 105 s |
+| `step3.log` | `--part=all` on the script before PL.R and R.12 | 32 PASS, 0 FAIL, exit 0, 123 s, rss 104 MB |
+| `controls.log`, `controls_logs/` | first controls run (baseline and 35 pairs) | 36 OK, 0 MISS, 726 s |
+| `final.log` | `--part=all`, nothing skipped = `phase2/dg_proof/zerilli_gauge_rs_output.txt` | 34 PASS, 0 FAIL, exit 0, 124 s (PL.G about 88 s), rss 104 MB |
+| `controls_final.log`, `controls_final_logs/` | final controls (baseline and 37 pairs) = `zerilli_gauge_rs_controls_output.txt` | 38 OK, 0 MISS, 762 s, rss 119 MB |
+
+Every target in the control table above was hit; the two added mutations (`nolog_blind`, `ex_typed`) were on target in their first run. The predictions resting on structure all held.
+`DG06` TeX: `dg06_src/` (copied from `I145-rpi5/dg06_src`, sha256 of `nakedsingularity2.tex` 4da32b56…). Launchers: `run_step.sh`, `run_controls.sh` (systemd user units `nm-i146-*`).

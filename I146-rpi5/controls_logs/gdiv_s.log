@@ -1,0 +1,49 @@
+# zerilli_gauge_rs: gauge attainability (e^{st} and static) and the flow at r_s against DG06 Lemma 1 (part=all)
+# mutations on: gdiv_s
+PASS PL.0a
+# [   0.2 s] PL.0a
+PASS PL.0b
+# [   0.3 s] PL.0b
+PASS PL.0c
+# [   0.4 s] PL.0c
+PASS PL.0d
+# [   0.9 s] PL.0d
+PASS PL.L
+# [   1.0 s] PL.L
+PASS PL.E
+# [   1.2 s] PL.E
+PASS PL.P
+# [   2.0 s] PL.P e^{st}
+PASS PL.P.static
+# [   2.6 s] PL.P static
+PASS GA.1
+# [   3.3 s] GA.1
+PASS GS.1
+# GS.1: L_xi g, e^{st}: the effect of xi = (a, b, c) on the seven functions, read off by extract (jets xa_n = d^n a/dr^n, ...):
+#   Delta Jt = (2*M*xa_0 + r*s*xc_0 - r*xa_0)/r
+#   Delta Jr = (-2*M*r*xc_1 + 4*M*xc_0 + r**2*xb_0 + r**2*xc_1 - 2*r*xc_0)/(r*(-2*M + r))
+#   Delta G = 2*xc_0/r**2
+#   Delta K = (-L*xc_0 + 2*r*xb_0)/r**2
+#   Delta H0 = 2*(2*M*r*s*xa_0 - M*xb_0 - r**2*s*xa_0)/(r*(-2*M + r))
+#   Delta H1 = (-4*M**2*xa_1 + 4*M*r*xa_1 + r**2*s*xb_0 - r**2*xa_1)/(r*(-2*M + r))
+#   Delta H2 = 2*(-2*M*r*xb_1 - M*xb_0 + r**2*xb_1)/(r*(-2*M + r))
+# GS.1: a = r*(-G_0*r**2*s + 2*Jt_0)/(2*(-2*M + r))
+# GS.1: b = (-2*G_1*M*r**2 + G_1*r**3 + 4*Jr_0*M - 2*Jr_0*r)/(2*r)
+# GS.1: c = -G_0*r**2/2
+# GS.1: H0' = (G_0*r**5*s**2 + 2*G_1*M**2*r**2 - G_1*M*r**3 - 2*H0_0*M*r**2 + H0_0*r**3 - 4*Jr_0*M**2 + 2*Jr_0*M*r - 2*Jt_0*r**3*s)/(r**2*(-2*M + r))
+# GS.1: H1' = (-3*G_0*M*r**2*s + G_0*r**3*s - 2*G_1*M*r**3*s + G_1*r**4*s - 2*H1_0*M*r + H1_0*r**2 + 2*Jr_0*M*r*s - Jr_0*r**2*s + 2*Jt_0*M + 2*Jt_1*M*r - Jt_1*r**2)/(r*(-2*M + r))
+# GS.1: H2' = (-3*G_1*M*r**2 + 2*G_1*r**3 - 2*G_2*M*r**3 + G_2*r**4 + H2_0*r**2 - 2*Jr_0*M + 4*Jr_1*M*r - 2*Jr_1*r**2)/r**2
+# GS.1: K' = (G_0*L*r**2 - 4*G_1*M*r**2 + 2*G_1*r**3 + 8*Jr_0*M - 4*Jr_0*r + 2*K_0*r**2)/(2*r**2)
+# [   4.3 s] GS.1
+PASS GS.2
+# [   4.5 s] GS.2
+# GS.3: a | denominator factor -2*M + r (multiplicity 1)
+# GS.3: b | denominator factor r (multiplicity 1)
+# GS.3: H0' | denominator factor r (multiplicity 2)
+# GS.3: H0' | denominator factor -2*M + r (multiplicity 1)
+# GS.3: H1' | denominator factor r (multiplicity 1)
+# GS.3: H1' | denominator factor -2*M + r (multiplicity 1)
+# GS.3: H2' | denominator factor r (multiplicity 2)
+# GS.3: K' | denominator factor r (multiplicity 2)
+FAIL GS.3: divisors met ['-2*M + r', 'r', 's']; expected exactly {r, -2*M + r} (no s, no L - 2, no M)
+# summary: 11 PASS, 1 FAIL
