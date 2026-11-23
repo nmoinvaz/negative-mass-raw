@@ -132,3 +132,21 @@ Each `--mutate=NAME` must exit non-zero, and its first failing check (the first 
 | sweep.py | l2r_reverse | the l^2 r comparison reversed | l^2 r increases (N), l=5 -> 6 |
 
 Predicted, not run: `nz_coef` in roots and brackets assumes the mutated Psi root finder still converges; `rho_limit` and `l2r_reverse` in brackets fire only after all 235 l (about 150 s); `rho_limit` in the sweep fires at the first l with c r_* below rho_* + 0.02 (an l between 10 and 20).
+
+Added before the first control run: `review_large_l_table.py --csv=<sweep_brackets.csv>` compares the rows of RESULTS 4.3's table with the sweep's brackets
+(each bracket must round to the printed digits). Control: `--mutate=table_digit` (one quoted digit of the l = 20 row changed to 8.494078) must exit non-zero and
+its first FAIL must contain "RESULTS table row l=20".
+
+Added before the first control run (six more mutations, for check families that had none; the list above is unchanged):
+
+| script | mutation | what it breaks | first FAIL must contain |
+|---|---|---|---|
+| common.py | psip_term | the last term of the Psi' formula dropped | Psi' formula equals sympy |
+| roots.py | bessel_coef | the typed Bessel coefficient -4 replaced by -3 | Bessel closed form: coefficient of s^n equals |
+| theorem3.py | mut_NZpos | the N_Z positivity check uses -3 rho^2 instead of -3 rho^2/4 | N_Z(6 + tau) has all coefficients positive |
+| thm_l.py | bracket_k | K_*, K_neg times 0.001 in the comparison with the certified brackets | Theorem L against the certified brackets, l=138 |
+| thm_l.py | eta_scale | E_N, eta times 0.001 in the sample check of step 2 | step 2 at 11 points of each window, l=138 |
+| thm_m.py | brk_s | s_N, s_P times 0.1 in the comparison with the certified brackets | Theorem M against my certified brackets, l=500 and 501 |
+
+Check families without a mutation (reported, not hidden): "X > 0 at both ends of the Psi bracket" (cannot be provoked without breaking the series), "lo(c r_neg) > hi(c r_*)",
+"count of coefficients = 64", and the printed comparisons with RESULTS' constants (informational, not criteria).
