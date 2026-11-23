@@ -1,0 +1,10 @@
+  C0 planted: (0.575+0.75j): holo 9.7e+07, non-harmonic min 4.16e+07; (1.05+1.5j): holo 9.7e+07, non-harmonic min 4.16e+07; (1.525+2.25j): holo 9.7e+07, non-harmonic min 4.16e+07: FAIL  [0 s]
+     S8: T1 max 7.57e+07 (24 of 24 fail), TR max 8.83e+07 (12 of 12 fail)
+     S10: T1 max 7.57e+07 (24 of 24 fail), TR max 8.83e+07 (12 of 12 fail)
+     S12: T1 max 7.57e+07 (24 of 24 fail), TR max 8.83e+07 (12 of 12 fail); T1 on log|D| max 6.48e+07, min 2.81e+07
+  C1 S12 T1: max 7.57e+07 over 24 rows: FAIL  [0 s]
+  C2 S12 TR: max 8.83e+07 over 12 rows: FAIL  [0 s]
+     max |arg(D_S8 / D_S12)| over all cached points: 6.806e-07 rad
+     max |arg(D_S10 / D_S12)| over all cached points: 6.340e-09 rad
+  C3 Mac re-solve of c075_l2 point 2: 129 points, max |arg(D_mac / D_laptop)| = 3.255e-12; T1, T1, TR = ['2.44e+07', '4.88e+07', '5.69e+07']: FAIL  [0 s]
+RESULT FAIL: C0 planted, C1 S12 T1, C2 S12 TR, C3 Mac re-solve of c075_l2 point 2 [0 s]

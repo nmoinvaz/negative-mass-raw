@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/r129/ind129.py", line 142, in <module>
+    t1, t2 = tests(Fcircle(cache, i, rho, name), rho)
+                   ~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/r129/ind129.py", line 127, in Fcircle
+    assert np.abs(np.angle(R)).max() < 2.5
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+       12.52 real        12.40 user         0.05 sys

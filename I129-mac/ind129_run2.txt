@@ -1,0 +1,11 @@
+  C0 planted: (0.575+0.75j) rho 0.05 L: holo 4.2e-08, 3.0e-11; modulus T1 359; harm-arg 2.6e-08, T2 89.9; (0.575+0.75j) rho 0.025 L: holo 1.8e-07, 3.4e-11; modulus T1 359; harm-arg 1.0e-07, T2 89.9; (1.05+1.5j) rho 0.05 L: holo 1.8e-09, 1.2e-10; modulus T1 359; harm-arg 3.2e-08, T2 89.9; (1.05+1.5j) rho 0.025 L: holo 3.0e-08, 1.3e-10; modulus T1 359; harm-arg 1.5e-07, T2 89.9; (1.525+2.25j) rho 0.05 L: holo 2.8e-08, 1.5e-10; modulus T1 359; harm-arg 5.7e-09, T2 89.9; (1.525+2.25j) rho 0.025 L: holo 8.6e-08, 5.9e-11; modulus T1 359; harm-arg 7.7e-08, T2 89.9: PASS  [0 s]
+     r_m, R_s: p7603_l2 24.109804, 404.850194 (laptop 24.11, 404.9); p7603_l3 24.109804, 404.850194 (laptop 24.11, 404.9); c075_l2 23.764792, 404.379944 (laptop 23.76, 404.4); p085_l3 27.940931, 409.722098 (laptop 27.94, 409.7)
+     S8: T1 max ratio 9.92e+03 (24 of 24 fail), T2 max ratio 1e+06 (24 of 24 fail)
+     S10: T1 max ratio 9.92e+03 (24 of 24 fail), T2 max ratio 1e+06 (24 of 24 fail)
+     S12: T1 max ratio 9.92e+03 (24 of 24 fail), T2 max ratio 1e+06 (24 of 24 fail)
+  C1 S12 mean value of log D: max ratio 9.92e+03 over 24 rows: FAIL  [14 s]
+  C2 S12 Cauchy-Riemann: r_m, R_s match the laptop: True; max ratio 1e+06 over 24 rows; worst ('p085_l3', 0, 0.025): FAIL  [14 s]
+     max |log(D_S8 / D_S12)| over all cached points: 6.806e-07
+     max |log(D_S10 / D_S12)| over all cached points: 6.340e-09
+  C3 Mac re-solve of c075_l2 point 2: 129 points, max |log(D_mac / D_laptop)| = 3.270e-12; T1, T2 ratios [('865', '1e+06'), ('864', '1e+06')]: FAIL  [14 s]
+RESULT FAIL: C1 S12 mean value of log D, C2 S12 Cauchy-Riemann, C3 Mac re-solve of c075_l2 point 2 [14 s]
