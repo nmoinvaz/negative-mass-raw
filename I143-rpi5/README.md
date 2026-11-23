@@ -97,4 +97,19 @@ Every stdout goes to a log in this folder. Any single run longer than 1 h of wal
 
 ## Added after the first run
 
-(nothing yet)
+Written 2026-11-23 after the exploratory runs of steps 2 and 3 and before the first control run. None of these changes a criterion above.
+
+- Check ids as implemented: PL.G and PL.X are split by case (PL.G.even, PL.G.odd; PL.X.even, PL.X.odd, PL.X.gauge_even). A.2 includes the two covariance
+  identities of the angular tensor harmonic (xx.xP1 + pp.xP1 = 0 and pp.P0 - xx.P0 = L xx.xP1). E.3b added: dH/dr along the two-dimensional flow equals the
+  r-theta equation (the same fact as E.3, in the other direction). E.5a is "the map (K, H1) -> (psi, psi_x) is nonsingular". D.1 is closure of the divisor
+  factors in the stated set {s, r, r-2M, l, l+1, l-1, l+2, lam r + 3M, M}; D.2 is the zero of lam r + 3M, the genuine double pole of V and the M = -1 value 6/c;
+  D.3-D.5 print the steps that divide by s, by r-2M and by the l-factors, and check that the determinants are nonzero.
+- Mutations added: `ans_rr` (g_rr = f^-1 + eps H2 P e^{st} in the ansatz, no 1/f on H2) target E.1; `ang_norm` (xx component read without the factor 1-x²) target A.2;
+  `d2_zero` (the zero of lam r + 2M instead of lam r + 3M) target D.2; `div_set` (the stated set typed with lam r + 7M) target D.1.
+- Controls run with `--skip=PL.G,PL.X` when the target lies after them (those two planted checks take about 3.5 minutes; the mutation acts later and does not touch
+  them); `drop_trace` runs without a skip (target PL.G.even), `route2_drop` with `--skip=PL.G` (target PL.X.even). The unmutated baseline runs everything.
+- Exact target ids: `fsign_bg` PL.0c, `drop_trace` PL.G.even, `route2_drop` PL.X.even, `rw_typo` PL.O.3, `skip_s` E.3, `mv_coef` and `fsign_mv` E.5b, `v_typo` E.5d,
+  `res_typo` E.5e, `dg3_typo` E.6a, `l1` A.1, `dual_inv` PL.0a, `leg_sign` PL.0d.
+- The even section was developed with runs that stop after the section being written (not logged as results); the step 2 log came from the script before the
+  even section existed. `slips.md` lists my slips.
+- The claim "PL.O.* still pass under `drop_trace`" is shown by one run with `--mutate=drop_trace --part=odd --skip=PL.G,PL.X`, logged as `ctrl_drop_trace_odd.log`.
