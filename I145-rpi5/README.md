@@ -67,7 +67,7 @@ First order in ε by #143's dual numbers (imported). The time-dependent e^{st} a
 | S.R1 | with H1 = s h̃1, (δR_tr / s) at s = 0 is a nonzero multiple of K' + (r−3M)/(r(r−2M)) K − H/r − L h̃1/(2r²), the tr line of `zerilli_derivation.md` §3 at H1/s = h̃1 |
 | S.R2 | define h̃1 from that equation (solved, not typed); then (δR_tx / s) at s = 0, i.e. (f h̃1)' − H − K, vanishes on the static flow: every static solution is the s → 0 limit of an e^{st} solution |
 | S.R3 | with that h̃1, DG06 (9) of the static solution equals ψ = [r²K − (r−2M) h̃1]/(λr+3M), #143's map with H1/s → h̃1 |
-| D.1 | every divisor met (the factors of the denominators of c_tr, c₀, the flow, p, q, a, V and of (9)) lies in {r, r−2M, L, L−2, λr+3M, M} |
+| D.1 | every divisor met (the factors of the denominators of c_tr, c₀, the flow, p, q, a, V and of (9)) lies in the vocabulary {s, r, r−2M, L, L−2, λr+3M, M}; D.3 and D.4 then check that s and L−2 are not among those met |
 | D.2 | λr + 3M = 0 at r = −3M/λ, positive iff M < 0; (λr+3M)²V there is (L−2)²(L+1)²/18 ≠ 0 (a genuine double pole); at M = −1 the zero is 6/c = r_s |
 | D.3 | no step divides by s |
 | D.4 | no step divides by L − 2 = 2λ; the steps that divide by L and by r − 2M are listed |
@@ -97,7 +97,7 @@ First order in ε by #143's dual numbers (imported). The time-dependent e^{st} a
 | `inj_h1` | an H1 term added to δR_rr after A.2 | H.3 |
 | `ans_rr` | g_rr = f⁻¹ + ε H2 P in the ansatz (no 1/f on H2) | E.1 |
 | `grr_drop` | the angular-trace term dropped from δG_rr, which should leave a second derivative (K'') in it | E.2 |
-| `tt_drop_K` | the undifferentiated K term dropped from δR_tt after A.2 (a dropped term of the linearized tensor), after which δG_rr stays first order and the determinant is unchanged | E.4 |
+| `tt_drop_H` | the undifferentiated H0 term (the angular-Laplacian term L H0/r²) dropped from δR_tt after A.2 (a dropped term of the linearized tensor), after which δG_rr stays first order and the determinant is unchanged | E.4 |
 | `psi_zero` | the master variable replaced by 0, so the (K, H) → (ψ, ψ,ₓ) determinant is 0 | E.5a |
 | `mv_coef` | (λ+1) → λ in the second term r K/(λ+1) of (9) | E.5b |
 | `fsign_mv` | r − 2M → r + 2M in the prefactor of (9) | E.5b |
@@ -117,7 +117,7 @@ First order in ε by #143's dual numbers (imported). The time-dependent e^{st} a
 | `d5_zero` | the determinant of E.2 replaced by 0 in the D.5 list | D.5 |
 
 Controls after PL.G / PL.X run with `--skip=PL.G,PL.X` (those planted checks act before the mutation); the baseline runs everything. Unmutated: exit 0, no FAIL.
-The prediction for `grr_drop` (E.2) rests on a structural argument (K'' enters δR_rr and the angular trace but not δR_tt); `tt_drop_K` (E.4) assumes the dropped term
+The prediction for `grr_drop` (E.2) rests on a structural argument (K'' enters δR_rr and the angular trace but not δR_tt); `tt_drop_H` (E.4) assumes the dropped term
 does not change the determinant. If either target is missed it is reported as a MISS and the target is not changed.
 
 ## Process
@@ -125,6 +125,10 @@ does not change the determinant. If either target is missed it is reported as a 
 Step 2: planted odd case and the H1 sector (exploratory run, `--part=odd` and `--part=h1`); step 3: even reductions; step 4: controls (one process, systemd unit `nm-i145-*`);
 step 5: final run and final controls. Every stdout goes to a log in this folder. A run not finished in 1 h of wall time is stopped and reported. Nothing is stopped for memory;
 peak rss is recorded with `/usr/bin/time -v`.
+
+## Edited before the first run of `zerilli_static.py`
+
+- `tt_drop_K` renamed `tt_drop_H`: δR_tt has no undifferentiated K term (K enters through K' only), so the first version would have been inert. D.1's vocabulary includes s so that `div_s` can fire at D.3.
 
 ## Added after the first run
 
