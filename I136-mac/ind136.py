@@ -277,10 +277,16 @@ for name, W in WALLS.items():
         r = zz / (2 * s0)
         Sv.append(Pr(r) / (tau * zz)**9)
         ypos = ypos and Yr(r) > 0
-    lim = 4 * v**3
-    check(f'J4b:{name}', min(Sv) >= mp.mpf(W['Sb']) and abs(Sv[-1] / lim - 1) < 1e-2 and ypos,
-          f"min S over 1000 points of [{zlo}, 300]: {mp.nstr(min(Sv), 9)} (bound {W['Sb']}); S(300) = {mp.nstr(Sv[-1], 9)} "
-          f"(4 v^3 = {mp.nstr(lim, 3)}); y > 0: {ypos}")
+    # run 2 (after run 1's failure of the limit test at z = 300): S = sum_n L_n z^-n + O(e^-z) with
+    # L_n = sum_i (-1)^n c_(i, n, 9 - n) v^i, exact from this script's P; L_0 must be 4 v^3 and S(300) must match the sum
+    vq = sp.Rational(W['v'])
+    Ln = [sum((-1)**n * c * vq**m[0] for m, c in PP.terms() if m[1] == n and m[2] == 9 - n) for n in range(10)]
+    ser = mp.fsum(mp.mpf(x.p) / x.q / mp.mpf(300)**n for n, x in enumerate(Ln))
+    dser = abs(Sv[-1] / ser - 1)
+    check(f'J4b:{name}', min(Sv) >= mp.mpf(W['Sb']) and Ln[0] == 4 * vq**3 and dser < 1e-6 and ypos,
+          f"min S over 1000 points of [{zlo}, 300]: {mp.nstr(min(Sv), 9)} (bound {W['Sb']}); L_0 = {Ln[0]} (4 v^3 = "
+          f"{4 * vq**3}), L_1 = {Ln[1]}; S(300) = {mp.nstr(Sv[-1], 12)} against sum L_n 300^-n = {mp.nstr(ser, 12)} "
+          f"(relative {mp.nstr(dser, 2)}); y > 0: {ypos}")
 
 print(f"{'ALL PASS' if not FAIL else 'FAILED: ' + ', '.join(FAIL)}  ({time.time() - t0:.0f} s)")
 sys.exit(1 if FAIL else 0)

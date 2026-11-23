@@ -34,3 +34,15 @@ from `notes/warp/he_type3_output.txt`, #102), the tanh profile, and the claims t
 Mutations, each must exit 1 with its target failing: `tab` (R₀ₓ = γ − (1 − w)y/2; J1a), `drop` (the term A′⁴B′⁶ of P
 removed; J1c, J1d, J4a), `sig` (σ + 10⁻³ in the profile; J2, J3a, J3b), `win` (admissible window (0, 100); J3a:le),
 `yatp` (J3c run at the first root of P; J3c), `zt` (the S scan starts at z = 4; J4b).
+
+## Run 1 and the change for run 2 (written before run 2)
+
+Run 1 (`ind136_run1.py`, `.txt`) exits 1: every criterion passes except J4b at both walls, on its limit half. S(300) =
+0.533204123 (Le) and 4.59001679 (Rodal) against 4v³ = 0.5 and 4 within 10⁻². The bound half passes (min S along the curve
+0.5332 ≥ 0.49998278, 4.590 ≥ 3.9999386). `diag_j4b.py` (written after the failure) expands S = Σ Lₙ z⁻ⁿ + O(e⁻ᶻ) from the
+P table: L₀ = 4v³ exactly, L₁ = 1323/128 (Le) and 180 (Rodal), and the sum at z = 300 is 0.533204123 and 4.590016795, the
+values of the scan. So #136's limit 4v³ is right, and the 10⁻² test at z = 300 was wrong because of the 1/z terms. A defect of
+ind136, not of the claim; run 1 stays failed.
+
+J4b for run 2: min S ≥ #136's bound and y > 0 as before; L₀ = 4v³ exactly, from ind136's own P; S(300) equal to Σₙ₌₀⁹ Lₙ 300⁻ⁿ to
+relative 10⁻⁶. The other criteria and the mutations are unchanged.
