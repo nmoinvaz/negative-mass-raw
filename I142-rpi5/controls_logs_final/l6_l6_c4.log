@@ -1,0 +1,18 @@
+# review_lemma_a3_l6: L6, Psi-hat = A* Psi_DG
+# mutations on: l6_c4
+PASS PLW.1
+PASS PLW.2
+PASS PLW.3
+PASS PLE.3a
+PASS PLE.3b
+PASS PLE.3c
+PASS PLS.1
+PASS PLS.2
+PASS PLS.3
+PASS PLS.4
+PASS PLS.5
+PASS PLS.6
+PASS L6.1
+PASS L6.2
+FAIL L6.3: Wronskian coefficients p=1..5: [0, 0, 0, -k/80, 3*k**2/128]; Psi-hat/2^k ~ -k/360 r^2 (want k^2/192 r^3)
+# summary: 14 PASS, 1 FAIL, 0 DIFFERS
