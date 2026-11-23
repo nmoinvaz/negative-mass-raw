@@ -67,6 +67,7 @@ First order in ε by #143's dual numbers (imported). The time-dependent e^{st} a
 | S.R1 | with H1 = s h̃1, (δR_tr / s) at s = 0 is a nonzero multiple of K' + (r−3M)/(r(r−2M)) K − H/r − L h̃1/(2r²), the tr line of `zerilli_derivation.md` §3 at H1/s = h̃1 |
 | S.R2 | define h̃1 from that equation (solved, not typed); then (δR_tx / s) at s = 0, i.e. (f h̃1)' − H − K, vanishes on the static flow: every static solution is the s → 0 limit of an e^{st} solution |
 | S.R3 | with that h̃1, DG06 (9) of the static solution equals ψ = [r²K − (r−2M) h̃1]/(λr+3M), #143's map with H1/s → h̃1 |
+| S.R4 | the O(s) part of DG06 (3)'s H1 = s (hψ + rψ') is hψ + rψ', and equals h̃1 as defined by S.R2 (the tr equation), on the static flow |
 | D.1 | every divisor met (the factors of the denominators of c_tr, c₀, the flow, p, q, a, V and of (9)) lies in the vocabulary {s, r, r−2M, L, L−2, λr+3M, M}; D.3 and D.4 then check that s and L−2 are not among those met |
 | D.2 | λr + 3M = 0 at r = −3M/λ, positive iff M < 0; (λr+3M)²V there is (L−2)²(L+1)²/18 ≠ 0 (a genuine double pole); at M = −1 the zero is 6/c = r_s |
 | D.3 | no step divides by s |
@@ -110,6 +111,7 @@ First order in ε by #143's dual numbers (imported). The time-dependent e^{st} a
 | `tr_typo` | the typed tr line of #143 has L/(2r²) → L/(3r²) | S.R1 |
 | `h1t_typo` | the solved h̃1 is multiplied by 3/2 | S.R2 |
 | `sr_typo` | the typed #143 map has λr + 3M → λr + 2M | S.R3 |
+| `h1p_typo` | the typed H1 of (3) has rψ' → 2rψ' | S.R4 |
 | `div_set` | the stated divisor set typed with λr + 7M | D.1 |
 | `d2_zero` | the zero of λr + 2M instead of λr + 3M | D.2 |
 | `div_s` | s appended to the divisors met | D.3 |
@@ -132,4 +134,25 @@ peak rss is recorded with `/usr/bin/time -v`.
 
 ## Added after the first run
 
-(empty)
+Written 2026-11-23 after the exploratory runs of steps 2 and 3 (logs `step2_odd`, `step2_h1`, `step3_even`, `step3_all`: 10, 14, 23 and 32 PASS, no FAIL, exit 0) and before the
+first control run. No criterion above was changed.
+
+- **Added check S.R4** and its mutation `h1p_typo` (target S.R4), after seeing that S.R1-S.R3 pass: the h̃1 defined by the tr equation equals the O(s) part h ψ + r ψ' of DG06 (3)'s H1.
+- **A result I had not predicted:** the static flow of (K, H) from δR_rx and δG_rr divides by **M** (its determinant is −M/(2r(r−2M))); so do p, q and h̃1. M is in D.1's vocabulary
+  and is met at several steps. At M = 0 the two equations are proportional in (K', H'); the flow is not defined there. The converse E.6a is an identity in M and does not divide by it.
+- All 32 checks passed on their first run. Because nothing failed, the controls are what shows the checks can fail.
+- Exploratory runs used `--skip=PL.G,PL.X` after the first full planted run of step 2 (`step2_odd`: PL.G 78 s, PL.X 82 s).
+
+## Final results (2026-11-23)
+
+Code and note: `wip/i145-zerilli-static` (`phase2/dg_proof/zerilli_static.py`, `zerilli_static_controls.py`, `zerilli_static.md`, the two output files). The script was not edited between the controls and the final run.
+
+| run | exit | result | wall | peak rss |
+|---|---|---|---|---|
+| final run (`final.log`, copy of `zerilli_static_output.txt`) | 0 | 35 PASS, 0 FAIL | 173 s | 100 MB |
+| controls (`controls.log`, `controls_logs/`, copy `zerilli_static_controls_output.txt`) | 0 | baseline OK (35 PASS), **39 of 39 pairs on target**, 0 MISS | 767 s | 116 MB |
+| step 2 (`step2_odd`, `step2_h1`; exploratory) | 0 | 10 PASS (planted incl. PL.G, PL.X); 14 PASS | 163 s; 8 s | in `*.rss` |
+| step 3 (`step3_even`, `step3_all`, `step3_all2`; exploratory) | 0 | 23, 32, 33 PASS | 10 s, 17 s, 17 s | in `*.rss` |
+
+Every check of the table passed on its first run; none of the pre-registered control targets was missed. `run_step.sh` and `run_controls.sh` are the launchers (systemd user units `nm-i145-*`).
+`dg06_src/` holds the DG06 TeX (data, not executed).
