@@ -43,7 +43,7 @@ Planted truth, before any stored array.
   the reals ±nextafter(5/8, 0) (one ulp below); the quadruple ±5/16 ± 21i/64 (29/64). B: each value above the cut times
   (1 + 1e-8), the cut pair times (1 + 1e-3) (no partner within 1e-5), the pair below times (1 − 1e-3), the last quadruple times
   (1 + 1e-8). Predicted: cut 0.625 exactly, k = 10, window of A 12 (the two quadruples, ±nextafter up, the pair; not the reals
-  one ulp below), window of B 12, count by position 12, count by exact modulus 12, symmetry value √137/40 = 0.292618 (the pair's
+  one ulp below), window of B 12, count by position 12, count by exact modulus 12, symmetry value √137/40 = 0.292617 (the pair's
   −z is missing from A; the nearest value is −5/16 − 21i/64, at distance √137/64). Fail: any of these differs.
 - A2. Plant P2, the same layout with the cut pair replaced by a pair found on this machine whose `np.abs(array)` is smaller than
   its `abs(scalar)` (seeded search, `default_rng(140)`; the reals one ulp above and below are taken from the array value).
@@ -101,5 +101,58 @@ and compared with `notes/warp/tanh_spectrum_output.txt` (which feeds §4's symme
   v_c ≈ 0.9850202 (9.7e-6 low, from I96-mac2's review). At σR = 2, 4, 8 it is the previous values, reported as data.
 - V3. What changes in `tanh_spectrum_check.py`'s printed outputs: the previous and the new v_c at the four σR. The report's
   `v_c sR=` check (σR = 2 and 4, against #75's printed values to 1e-5) is predicted to pass as before.
+
+## Results, step 2: the window helper (code: `wip/i140-window-vc` at 5cdf71a)
+
+Correction before any run: the text above had √137/40 = 0.292618; it is 0.2926175 and prints as 0.292617. The check compares
+with `math.sqrt(137) / 40` to 1e-12, so it was never affected.
+
+| check | verdict | numbers |
+|---|---|---|
+| A1 plant P1 | pass | cut 0.625, k 10, windows 12 / 12, by position 12, symmetry 0.292617 (`window_plant.log`) |
+| A2 plant P2 | pass | pair 0.455509+0.374953i, `np.abs(array)` 0.5899815219915627 below `abs(scalar)` 0.5899815219915628: k 10, windows 12 / 12 |
+| A3 | pass | window = position = exact modulus in 22 of 22; the cut's tie group is the eigenvalue and its conjugate in 22 of 22 |
+| A4 | pass | smallest margin 2.2e-11 (σR = 8), 1.9e-12 (σR = 16, m = 5/2); limit 1e-13 |
+| A5 | pass | pilot and P = 340: leading \|μ\|v_c differ by 9.1e-11 (A) and 1.4e-9 (B), cut 0.1128 in both, A window 22 and B 24 in both, pilot margin 1.7e-10 |
+| A6 | listed | 8 of 22 sectors differ from §7 (below); §7's tables equal the two logs where they print the same column |
+
+`retab_rpi5.txt` is the run (`retab.py --tag=rpi5`, exit 0, 1.6 s, 123 MB), `retab_rpi5.csv` its machine-independent columns.
+`drive_part_tanh.py` runs `part_tanh` itself on the stored arrays (no solve; `ts.sector_task` returns the stored eigenvalues)
+and compares the window table it prints with the csv: 22 of 22 equal (`drive_part_tanh.txt`), so the wiring of `window()` into
+`part_tanh` is exercised.
+
+Differences from §7 (old → new), all from `retab_rpi5.txt` A6. B's counts do not move in any sector.
+
+| σR | m | A window | symmetry |
+|---|---|---|---|
+| 8 | 7/2 | 24 → 26 | |
+| 8 | 13/2 | 16 → 18 | 2.5e-11 → 4.2e-11 |
+| 8 | 15/2 | 16 → 18 | 3.4e-11 → 5.5e-11 |
+| 8 | 17/2 | 16 → 18 | 4.6e-11 → 7.2e-11 |
+| 16 | 1/2 | 20 → 22 | 5.3e-10 → 5.5e-10 |
+| 16 | 7/2 | 16 → 18 | |
+| 16 | 11/2 | 16 → 18 | 2.6e-11 → 3.4e-11 |
+| 16 | 15/2 | 12 → 14 | 2.9e-11 → 4.0e-11 |
+
+Totals: σR = 8 A 254 → 262 (B 284), σR = 16 A 186 → 194 (B 216). These are the eight sectors predicted before the run, with the
+predicted +2 in each, the two predicted symmetry changes, and four more symmetry changes that "at least" allowed. The sectors
+changed are the ones where `np.abs(array) − abs(scalar)` at the cut is negative on the machine that wrote the log
+(`−` in the table of `retab_rpi5.txt` is this machine's sign; the laptop's and dh610's are inferred from their logs).
+
+Controls.
+
+| control | predicted | observed |
+|---|---|---|
+| C1 `tanh_spectrum.py --part=window --mutate=abscut` | exit 1, `window_scalar` fails (A window 10), `window_planted` passes | as predicted: exit 1, `window_scalar` fails with A window 10, `window_planted` passes (`window_plant_abscut.log`) |
+| C2 `retab.py --mutate=abscut` | A3 fails in σR = 8 m = 13/2, 17/2 and σR = 16 m = 1/2, 7/2, 11/2, 15/2, window 2 below position | as predicted, exactly those six, window 16/16/20/16/16/12 against position 18/18/22/18/18/14 (`retab_rpi5_abscut.txt`, exit 1) |
+| C3 `retab.py --mutate=nearcut` | A4 fails in 22 of 22 | as predicted (margins 1.3e-16 and 1.2e-16); A5 fails too (its pilot margin). Unpredicted: A3 also fails at σR = 16, m = 11/2: window 17 = position 17 but exact modulus 19 (`retab_rpi5_nearcut.txt`) |
+| C4 `retab.py --mutate=notie` | A3 fails in 22 of 22, position 1 below the window | as predicted (`retab_rpi5_notie.txt`, exit 1) |
+| `drive_part_tanh.py --mutate=abscut` | part_tanh prints the old values in the six C2 sectors | as predicted: 6 of 22 differ, and they are the logs' old values (`drive_part_tanh_abscut.txt`, exit 1) |
+
+The unpredicted A3 failure under `nearcut` is the exact-modulus count seeing the array's rounding. At σR = 16, m = 11/2 the cut
+pair's exact modulus is 1.04 ulp above its `np.abs(array)` value, so `np.abs(array)` here is not correctly rounded; the added real
+value, one ulp above that array value, is at or below the pair's exact modulus, and the exact count puts the pair inside while the
+array-modulus window leaves it out. (`abs(scalar)` is `hypot` here and equals the array value plus one ulp.) With the unmutated helper
+the pair is inside the window by construction, and window, position and exact counts agree in all 22 sectors.
 
 ## Files (filled in below as they are made)
