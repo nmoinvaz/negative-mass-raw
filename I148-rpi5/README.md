@@ -1,0 +1,119 @@
+# I148-rpi5: certificate of the Zerilli reduction's forward direction for every l, without dividing by M or s (#148)
+
+Machine: rpi5-ubuntu (Raspberry Pi 5, aarch64, 4 cores, shared with choptuik-large-d), one process at a time, nice 10, one thread.
+Issue: https://github.com/nmoinvaz/negative-mass/issues/148
+Worktree: `~/Source/negative-mass-i148`, branch `wip/i148-zerilli-certificate` (base main fd95d71).
+Python: `~/Source/negative-mass-venv314/bin/python` (sympy 1.14.0, mpmath 1.3.0).
+
+Written 2026-11-23, before the first run of `zerilli_certificate.py`. Criteria, the planted case, control names and targets below are
+fixed here. Anything added after seeing data is listed at the end under "Added after the first run".
+
+Before this README I built the seven even and the three odd radial equations interactively with #143's library (a scratch
+script outside the repository) and read them, to know which jets they contain and how they are normalized. I solved for no
+certificate and ran no check. I did not open `ind143.py`, `ind145.py` or `ind146.py`.
+
+## What is built
+
+- **Equations.** The radial equations are the coefficients of the angular structures in the first-order Ricci tensor δR_ab of
+  g_Schw(M) + ε h, h in Regge–Wheeler gauge (axisymmetric, e^{st}, P(x), x = cos θ), made with #143's library
+  `zerilli_derivation_lib.py`, imported unchanged: dual-number Ricci, Legendre reduction `leg_red` (P″ removed, L = l(l+1) one
+  symbol), `coef_eqs`. Even, H0, H1, H2, K all kept, seven equations: tt (P), tr (P), rr (P), tx (P′), rx (P′), trace
+  = xx(P) + pp(P), traceless = xx(xP′) = (H0 − H2)/2. Odd: tφ (P′), rφ (P′), xφ (xP′; its P coefficient is −(L/2) times that).
+  Each equation is used with the normalization #143's SPEC gives it (covariant components δR_ab, sphere factor of the angular
+  component removed). The certificate's denominators depend on that normalization: rescaling an equation by a function of r
+  rescales its coefficients. The normalization is part of the claim and is stated in the note.
+- **Targets.** Even: Z = ψ,ₓₓ − (V + s²)ψ with ψ = r(r−2M)/((λ+1)(λr+3M)) (H2 − r K′) + r K/(λ+1) (DG06 (9)),
+  d/dx = f d/dr, f = 1 − 2M/r, λ = (L−2)/2, V = 2f[λ²(λ+1)r³ + 3λ²M r² + 9λM² r + 9M³]/(r³(λr + 3M)²) (the issue's text, typed
+  in the script, not taken from #143's scripts). Odd (planted): Z = Ψ,ₓₓ − (V_RW + s²)Ψ, Ψ = f h1/r, V_RW = f(L/r² − 6M/r³).
+- **Certificate.** Z = Σ_{i,k} c_ik D^k E_i, D = d/dr on jets, k = 0, 1, 2, c_ik in F = Q(r, M, s, L). Finding it is a linear
+  system over F: unknowns c_ik, one row per jet monomial (H0_n, H1_n, H2_n, K_n). Solved by Gauss–Jordan elimination in the
+  rational function field of `sympy.polys.fields`, a particular solution with the free unknowns 0.
+  Column order O1: k ascending; within k: traceless, tx, tr, rx, tt, rr, trace.
+  The certificate is not unique (the equations satisfy Bianchi identities), so its denominators depend on the solution.
+  Procedure if the first solution's denominators fail E.den, fixed now: reversed order within k; k descending; permutations with
+  seeds 1 to 20. Every attempt and its denominators are reported. A solution that passes E.den is a certificate, because
+  E.id verifies it by a path that does not use the solver. If no certificate exists with k ≤ 2, k ≤ 3 is tried and reported.
+  The pilot is `--L=6` (the same script with L = 6 substituted before the solve).
+- **Independence of E.id from the solve.** E.id recomputes D^k E_i with sympy's `diff` on expressions in Function(r)
+  (the solver differentiates linear forms on jets), types Z from the sympy formulas for ψ and V, and compares in the
+  rational function field with exact canonical forms. It also evaluates the identity at 3 random rational points of (r, M, s, L).
+
+## Criteria, each can fail
+
+Planted checks exit 2 at once. Real checks are counted, exit 1 at the end. Ids in order of the run.
+
+| id | check | pass condition |
+|---|---|---|
+| PL.0c | background | Ricci of g_Schw(M) is 0, M symbolic (as #143 PL.0c) |
+| PL.0d | Legendre reduction | `leg_red` of P⁽ⁿ⁾, n = 2, 3, 4, equals the explicit derivative of P_l for l = 2..6 (as #143 PL.0d) |
+| PL.D.1 | planted self-test of the denominator classifier | on 9 constructed denominators the classifier gives the stated verdicts: r²((L−2)r+6M)² pass; r L pass; r−2M·r fail; s·r fail; M·r fail; (L−2)·r fail; (L−6)·r fail (root at l = 2); (L−12)·r fail (l = 3); r²(r+1)... see script, 9 cases fixed in the script before the first run |
+| PL.O.1 | odd forms | each odd component has its expected angular form (`coef_eqs` ok) and xφ(P) + (L/2) xφ(xP′) = 0 |
+| PL.O.2 | odd span test | the linear system for Z_odd has a solution (k ≤ 2) |
+| PL.O.3 | odd identity | E.id for the odd certificate: exact in F and at 3 random points |
+| PL.O.4 | odd denominators | every irreducible denominator factor is r, r − 2M, or a polynomial in L alone (rule below). Prediction: pass |
+| A.1 | P and xP′ independent | for L not in {0, 2} (as #143 A.1; each angular coefficient is its own equation) |
+| E.1 | even forms | all seven components have the expected angular form; xx(xP′) + pp(xP′) = 0 and pp(P) − xx(P) − L xx(xP′) = 0; traceless = (H0 − H2)/2 |
+| S.explicit | explicit l | for l = 2, 3, 4 δR_ab computed with the explicit P_l (no Legendre reduction, no coefficient extraction) equals the reconstruction from the coefficient forms at L = l(l+1), all 7 nonzero components, exact |
+| E.cert | even span test | the system for Z has a solution with k ≤ 2, L symbolic |
+| E.id | even identity | exact in F by the independent path, and at 3 random rational points |
+| E.den | even denominators | every irreducible factor of every c_ik's denominator is r, (L−2)r + 6M, or a polynomial in L alone (rule below); the list of factors and their highest exponents is printed |
+| E.L | specialization | for L = 6, 12, 20 (l = 2, 3, 4): Z retyped from λ = (l−1)(l+2)/2 (not by substituting L), certificate and equations at L = l(l+1), identity exact in Q(r, M, s) for every jet; no denominator of a c_ik vanishes identically at that L |
+| E.M0 | M = 0 | V at M = 0 equals L/r² exactly; Z retyped with f = 1 and V = L/r²; c_ik at M = 0 finite, identity exact with the equations at M = 0 |
+| E.S0 | s = 0 | Z retyped as ψ,ₓₓ − Vψ; c_ik at s = 0 finite, identity exact with the equations at s = 0 (the static equation) |
+
+**Denominator rule (E.den, PL.O.4).** Write each c_ik in lowest terms n/d and factor d over Q. A factor is allowed if it is r, or
+(even) (L−2)r + 6M = 2(λr + 3M), or (odd) r − 2M, or a polynomial in L alone. A polynomial in L alone is allowed only if it is
+not L − 2 and has no rational root l(l+1) with l an integer ≥ 2. Anything else fails: s, M, r − 2M (even), L − 2, an L-only factor with
+such a root, and any factor that mixes the variables otherwise. The issue's wording ("no M, no s, no L − 2") is met by this rule and
+is stricter than it, since r − 2M contains M. Not a criterion, a prediction: the coordinator's certificates at l = 2, 3, 4 have
+denominators r²(λr + 3M)² up to a constant, so the highest exponents are expected to be 2 and 2.
+
+**What is not checked here:** the converse (#143 E.6), the existence of Regge–Wheeler gauge (#146), r = r_s itself, and the
+independence of the seven equations beyond A.1. The three checks above those are #143's, #145's and #146's.
+
+## Controls
+
+Each is `--mutate=NAME`; the run must exit with the stated code and the first FAIL id equal to the target. Names common with
+#143's library: `leg_sign`, `l1` (the lib's `mut()` reads `--mutate=`). Written before the first run.
+
+| name | what it changes | target (first FAIL) | exit |
+|---|---|---|---|
+| leg_sign | Legendre reduction P″ = (2xP′ + LP)/(1−x²) (lib) | PL.0d | 2 |
+| den_allow_M | the classifier's allowed set also contains M | PL.D.1 | 2 |
+| odd_v | V_RW typed with −5M/r³ in place of −6M/r³ | PL.O.2 | 2 |
+| odd_psi | Ψ typed as h1/r in place of f h1/r | PL.O.2 | 2 |
+| odd_cert | one coefficient of the odd certificate changed by +r after the solve | PL.O.3 | 2 |
+| odd_den | the odd target replaced by the xφ equation scaled to leading coefficient 1 in h0 (needs 1/s) | PL.O.4 | 2 |
+| l1 | A.1 evaluated at L = 2 | A.1 | 1 |
+| expl_norm | S.explicit reconstructs the xx and pp components without the factor 1/(1−x²) resp. (1−x²) | S.explicit | 1 |
+| v_coef | V typed with 8λM²r in place of 9λM²r | E.cert | 1 |
+| psi_coef | (9) typed with r K/λ in place of r K/(λ+1) | E.cert | 1 |
+| v_s2 | Z typed as ψ,ₓₓ − Vψ (no s²) | E.cert | 1 |
+| drop_traceless | the traceless equation removed from the span | E.cert | 1 |
+| flow_target | Z replaced by the K′ form of #143's flow, K′ + (r−3M)/(r(r−2M)) K − L H1/(2s r²) − H2/r: in the span only with 1/s | E.den | 1 |
+| cert_coef | one coefficient of the even certificate changed by +r after the solve | E.id | 1 |
+| l_spec | the retyped Z of E.L uses λ = (l−1)(l+1)/2 | E.L | 1 |
+| m0_v | V at M = 0 typed as (L+2)/r² in E.M0 | E.M0 | 1 |
+| s0_s1 | the static target typed as ψ,ₓₓ − (V+1)ψ | E.S0 | 1 |
+
+An exploratory family, not part of the required set: `drop_tt`, `drop_tr`, `drop_rr`, `drop_tx`, `drop_rx`, `drop_trace`
+(one equation removed). Predicted first FAIL: E.cert if the equation is needed over F, E.den if it is replaceable only through a
+Bianchi identity that divides by s (the t-component of the linearized Bianchi identity relates s·E_tt to D E_tr and E_tx). I do not know
+which of the two fires for which equation. A drop that exits 0 is an equation the certificate does not need, reported as that, not as a
+missed control.
+
+`drop_traceless` is predicted to fire at E.cert with confidence: only the traceless equation gives H0 = H2, and the target has
+no H0.
+
+## Runs and limits
+
+1. Step 2: `--part=planted` (PL.*), then the odd certificate, then the pilot `--L=6 --part=even`. Post.
+2. Step 3: even certificate with L symbolic, E.den, E.L, E.M0, E.S0. Post.
+3. Step 4: `zerilli_certificate_controls.py` (baseline + the pairs above). Step 5: final run, stdout to `phase2/dg_proof/zerilli_certificate_output.txt`.
+- One process at a time, nice 10, `OMP_NUM_THREADS=1`, systemd user units `nm-i148-*`, exit codes in `*.rc`.
+- A run that has not finished in 1 h of wall time is stopped and what finished is reported. Memory is reported, never a stop condition.
+- A failed check is a result. Thresholds are not changed after seeing data.
+
+## Added after the first run
+
+(nothing yet)
