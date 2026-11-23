@@ -126,4 +126,15 @@ A control that fires on other checks than its targets, or on fewer, is reported 
   table term, of total degree 10, creates weight 20 in (phi, psi, delta), so `tables` and `small_z` must fire). Pass 2 reruns all
   12 controls on the final commit. The final run of the script reports a control as firing when at least one frozen target
   fails, and prints the silent targets and the extra failures.
+- Step 4, pass 2 (script commit c9148ff, `mutate_*.log` in this folder): all 12 controls exit 1. Nine fail exactly their frozen
+  targets (`sigma-1e-3`, `drop-P-term-low`, `no-tail-large`, `no-tail-small`, `cell-gap`, `eps-typo`, `T-off`, `double-root`,
+  `skip-y`). Three do not, as in pass 1: `drop-P-term` (`small_z`, `assembly` silent), `w-range` (also `cross`),
+  `krawczyk-nocorr` (`points` silent). `eps-typo` now fires `spurious` too, after the strengthened check.
+- Step 5 (script commit c9148ff, output committed in 5426fb0): `final.log` holds `exit 0`, `final_output.txt` is the stdout
+  (copied to `notes/warp/he_type3_count_output.txt`), `final.err` is empty. 10 checks pass, 12 controls fire (three with silent
+  targets, listed in the output), 1714.65 s wall, peak rss 127108 KB, one core at nice 10. The longest single run was the
+  final one, far below the 3 h stop.
+- `cells.tsv` (3381 leaves of the covers of g and Yn at both walls, from `--dump-cells`, run `cells.log`) is the certificate of
+  the cover: each leaf is an excluded leaf (x) or has exactly one root (r).
+- The step 3 log is from commit e154b77 (all 10 checks passed in 351 s); step 2 from e154b77.
 
