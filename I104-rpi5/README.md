@@ -77,3 +77,58 @@ Design parameters of Theorems L and M (own constants; chosen before their final 
 Supplementary sweep `review_large_l_sweep.py`: the brackets of the 200-bracket code for every l = 2..3000 (full table in `sweep_brackets.csv`), with the criteria
 every bracket certified; hi(l+1) < lo(l) for both c r_* and c r_neg for every consecutive l; lo above the limits; l^2 r_* and l^2 r_neg increase for every
 consecutive l >= 5; lo(c r_neg) > hi(c r_*). It is not part of the acceptance count.
+
+## Control targets (written before the first control run; not changed afterwards)
+
+Each `--mutate=NAME` must exit non-zero, and its first failing check (the first line starting with FAIL, or the planted-problem stop) must contain the text in the last column.
+`review_large_l_controls.py` runs all of them and reports OK / SILENT / OFF-TARGET for each. Mutations that touch only the sum or a typed polynomial of one check are listed under that check; shared ones (`coef_q`, `coef_lin`, `drop_last`, `nz_coef`, `alpha_n`, `no_deriv`, `accept_zero_enclosure`) live in `review_large_l_common.py`.
+
+| script | mutation | what it breaks | first FAIL must contain |
+|---|---|---|---|
+| common.py | coef_q | q_a = (a-1)(a+3) instead of (a-1)(a+2) in the coefficient recurrence | coefficients a_n(eps) in Lemma A's closed form, l=2 |
+| common.py | coef_lin | 2(n-3)eps instead of 3(n-3)eps in a_n | coefficients a_n(eps) in Lemma A's closed form, l=2 |
+| common.py | nz_coef | -rho^2 instead of -3rho^2/4 in N_Z (and N_Z') | NZ(rho, eps) matches sympy at a point |
+| common.py | accept_zero_enclosure | a sign test that accepts an enclosure with an end at 0 | planted: endpoint exactly on a root |
+| common.py | no_deriv | the derivative-excludes-0 test of certify_bracket removed | planted: three roots in one bracket |
+| common.py | alpha_n | (n-2)(n-5) instead of (n-2)(n-4) in alpha_n | alpha_1 = 3/2, alpha_2 = 0 |
+| common.py | drop_last | the coefficient a_{l+2} set to 0 | coefficients a_n(eps) in Lemma A's closed form, l=2 |
+| roots.py | alpha_n | (n-2)(n-5) instead of (n-2)(n-4) in alpha_n | series of X_inf = Bessel closed form at rho=3.3 |
+| roots.py | nz_coef | -rho^2 instead of -3rho^2/4 in N_Z (and N_Z') | rho_neg reproduces RESULTS.md's 9.635989442586144 |
+| roots.py | shift_enclosure | the iv enclosure of a root shifted off the root by 1e-28 | rho_*: iv enclosure |
+| roots.py | no_deriv | the derivative-excludes-0 test of certify_bracket removed | planted: three roots in one bracket |
+| roots.py | accept_zero_enclosure | a sign test that accepts an enclosure with an end at 0 | planted: endpoint exactly on a root |
+| theorem3.py | mut_Z | chi coefficient (n-4)l(l+1) + n instead of + n-1 | (Z) psi_0,xx = V psi_0 exactly, l=2 |
+| theorem3.py | mut_V_NZ | N_Z with -rho^2 instead of -3rho^2/4 in the V identity | V(r = rho/c, lambda = c/2) = 8c^4 |
+| theorem3.py | mut_Vhat | rho instead of rho^2 in Psi | 2 g^2 - V = 2c^4 (2+eps rho) Psi |
+| theorem3.py | mut_S | -eps N instead of +eps N in S | Vhat = S c^3 (2c + rho) |
+| theorem3.py | mut_P1 | -9(lambda r - 1) instead of +9(lambda r - 1) in the numerator of V | (P1) numerator of V |
+| theorem3.py | mut_P2 | the shift r = (6+tau)/c dropped (r = tau/c) | (P2) c^5 Q(tau, m) has all coefficients positive |
+| theorem3.py | mut_lead | (1+3eps)/2 instead of (1+2eps)/2 in the leading coefficient of Psi | lead coefficient of Psi |
+| theorem3.py | mut_count_psi | Psi roots counted from rho = 6 instead of from rho_* | l=2: Psi has exactly one root |
+| theorem3.py | mut_count_N | N roots counted beyond rho_* + 1 instead of beyond 6 | l=2: N has exactly one root in (6, oo) |
+| brackets.py | coef_q | q_a = (a-1)(a+3) instead of (a-1)(a+2) in the coefficient recurrence | coefficients a_n(eps), n <= 40, inside Lemma A's exact closed form, l=29 |
+| brackets.py | coef_lin | 2(n-3)eps instead of 3(n-3)eps in a_n | coefficients a_n(eps), n <= 40, inside Lemma A's exact closed form, l=29 |
+| brackets.py | drop_last | the coefficient a_{l+2} set to 0 | coefficients a_n(eps), n <= 40, inside Lemma A's exact closed form, l=29 |
+| brackets.py | nz_coef | -rho^2 instead of -3rho^2/4 in N_Z (and N_Z') | S shows the same sign change (-,+) on the Psi bracket (does not use (Z)), l=29 |
+| brackets.py | S_flip | S replaced by -S | S shows the same sign change (-,+) on the Psi bracket (does not use (Z)), l=29 |
+| brackets.py | accept_zero_enclosure | a sign test that accepts an enclosure with an end at 0 | planted: endpoint exactly on a root |
+| brackets.py | no_deriv | the derivative-excludes-0 test of certify_bracket removed | planted: three roots in one bracket |
+| brackets.py | shift_bracket | every bracket shifted by 1e-12 off its root | N: bracket of c r_* certified (signs, derivative), l=29 |
+| brackets.py | rho_limit | the limit rho_* replaced by rho_* + 0.02 | c r_* above its limit for every certified l |
+| brackets.py | l2r_reverse | the l^2 r comparison reversed | l^2 r with c r_*: increases along all sampled l >= 5 |
+| thm_l.py | beta_scale | B_n multiplied by 0.001 | step 1: |a_n - alpha_n| <= eps B_n for 3 <= n <= l+10, l=138 |
+| thm_l.py | slope_sign | +N_inf' used as the slope | step 3: -N_inf' >= mu_N > 0 on the N window |
+| thm_l.py | window_small | delta_N = 1e-4 instead of 0.01 | step 4: eps0 E_N < mu_N delta_N |
+| thm_l.py | psi_identity | the -4 N_Z^0 D_X (X_l + X_inf) term dropped from T | Psi_l - Psi_inf = eps [rho^3 N_l^2 |
+| thm_m.py | nu_scale | alpha^1_n multiplied by 1.01 | L2: expansions at 5 points of each window against the exact N_l and Psi_l, l=138 |
+| thm_m.py | omega_scale | Omega_n multiplied by 0.001 | L2: expansions at 5 points of each window against the exact N_l and Psi_l, l=138 |
+| thm_m.py | cmp_reverse | the comparison (2l+2) nu_min > ... reversed | M: (2l+2) nu_min > |
+| thm_m.py | l2r_s | s = 20 in the l^2 r criterion | M: l^2 r_* increases: s_N < rho_* |
+| thm_m.py | window_narrow | windows 100 times narrower | L2: s_N eps_max <= window radius |
+| sweep.py | coef_q | q_a = (a-1)(a+3) instead of (a-1)(a+2) in the coefficient recurrence | coefficients a_n(eps), n <= 40, inside Lemma A's exact closed form, l=2 |
+| sweep.py | shift_bracket | every bracket shifted by 1e-12 off its root | N: bracket of c r_* certified (signs, derivative), l=2 |
+| sweep.py | S_flip | S replaced by -S | S shows the same sign change (-,+) on the Psi bracket (does not use (Z)), l=2 |
+| sweep.py | rho_limit | the limit rho_* replaced by rho_* + 0.02 | bracket above its limit, l= |
+| sweep.py | l2r_reverse | the l^2 r comparison reversed | l^2 r increases (N), l=5 -> 6 |
+
+Predicted, not run: `nz_coef` in roots and brackets assumes the mutated Psi root finder still converges; `rho_limit` and `l2r_reverse` in brackets fire only after all 235 l (about 150 s); `rho_limit` in the sweep fires at the first l with c r_* below rho_* + 0.02 (an l between 10 and 20).
