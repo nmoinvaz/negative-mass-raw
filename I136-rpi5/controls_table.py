@@ -13,6 +13,8 @@ T = {  # frozen before the first run (README.md, "Controls")
     'w-range': ['points:le', 'points:rodal'],
     'spurious-on-P-root': ['spurious:le', 'spurious:rodal'],
     'planted-double': ['planted'],
+    'profile-typo': ['profile'],
+    'printed-typo': ['frame'],
 }
 print('| control | exit | checks run | targets fired | other checks that fired | seconds |')
 print('|---|---|---|---|---|---|')

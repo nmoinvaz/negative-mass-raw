@@ -1,0 +1,25 @@
+review_he_type3_count.py  mutation: frame-typo  bits: 160
+check frame
+  c2 and E1 from the frame table minus the printed c2 and E1 of he_type3.md section 1: 0, 6*A**3*phi*w**2 - 6*A**3*phi*w - 6*A**2*B*phi*w**2 + 6*A**2*B*phi*w
+  E1, E2 have 19 and 49 terms (printed: 17 and 42)
+  E2 in (X, gamma, y): total degrees [3], 10 monomials (printed: a cubic form with 10 terms)
+  double root p, third root q: E1 - (p-q)^2 and E2 - (p-q)^2 (8p + q) = (0, 0)
+  the quotient Res / ((27/256) phi^3 (A' - B')^3) is not a polynomial: PolynomialError: 1/(A*phi**2 - B*phi**2) contains an element of the set of generators.
+  -> FAIL (4 s)
+check planted
+  A: g has 7 roots in [1/4, 40] (exact: 7 of 9 rational c_i lie strictly between the enclosures of cosh(1/4) and cosh(40)); pair separation 1.0e-5
+  A: 52 leaves {'excl': 45, 'root': 7}, tiling True, 0 s
+  A: every root leaf holds exactly one known root: True
+  B: P_pl has 34 leaves {'excl': 17, 'root': 5, 'mono': 12}, 5 roots (exact: 5 at z = 3, 5, 5 + 1e-5, 7, 659/49)
+     root z = 3.0: enclosure contains it, boxes 1, complete True
+     root z = 5.0: enclosure contains it, boxes 1, complete True
+     root z = 5.00001: enclosure contains it, boxes 1, complete True
+     root z = 7.0: enclosure contains it, boxes 1, complete True
+     root z = 13.4489795918: enclosure contains it, boxes 1, complete True
+  B: admissible (0 < w < 1, T != 0) at z = 3, 5, 5 + 1e-5, 7, 659/49: [True, True, False, False, True]; exact expectation [True, True, False (T = 0), False (w = 7/2), True]
+  -> PASS (1 s)
+check cover:le
+  EXCEPTION AttributeError: 'NoneType' object has no attribute 'eval' (line 496)
+  -> FAIL (0 s)
+
+summary: 3 checks run, 2 failed ['frame', 'cover:le'], 5 s

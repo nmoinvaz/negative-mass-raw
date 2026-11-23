@@ -140,3 +140,12 @@ Estimate (before measuring): 3 to 5 h. The first trial cover (scratch, not logge
   - `drop-P-term`: `cover:le` stayed silent (P still has 4 roots, at other radii), `cover:rodal` fired (4 roots, not 6).
   - `spurious-on-P-root`: fired through `complete False` (no candidate is given, so the real common root at the first root
     of P is not covered), not through a found box.
+- Second revision of the script, b2c4ac7 (adds `profile-typo` and `printed-typo`, reports a non-polynomial P from `frame`, guards the
+  exp squaring): the final full run (`step6.time`, output `final_output.txt`, the repository's `review_he_type3_count_output.txt`: 14 checks
+  pass, 397.6 s, rss 92 MB, exit 0, identical to the first full run `batch1/step6_first_final_output.txt` except the timing lines) and all
+  13 controls were rerun on it: `controls_table.md`. Every control exits 1 and every frozen target fired. `frame-typo` now fires `frame`
+  through the E1-against-printed comparison (E1 minus printed is 6 phi A^2 w (w - 1)(A - B)) before the P quotient fails. `profile-typo`
+  fires `profile` (38 misses of the tanh comparison) and `printed-typo` fires `frame` (E1 minus printed is -A'^2). The two mispredictions
+  of the first batch (`sigma` also fires `spurious:le`; `exp-ulp` leaves `profile`, `frame`, `small_z`, `tail` silent) are unchanged.
+  The script is frozen at b2c4ac7 from here on (coordinator, step 7).
+- step7: `run_compare.sh` runs `notes/warp/review_he_type3_count_compare.py` (opens #133's files on purpose) and its two controls.
