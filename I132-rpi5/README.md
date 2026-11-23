@@ -80,3 +80,10 @@ A control that fires on other checks than its targets, or on fewer, is reported 
   the control `proof-typo` still fails it. Every other check passed in that run.
 - The README's `sup` line first had w_0 and F + r f' from a rough estimate (2.0189 and -0.053684). Corrected before any
   run to the 40-digit evaluation made while designing (2.0191131 and -0.05367560306).
+- The final run (step 5, `final.log`, exit code `done/final.rc` = 0) is `python notes/warp/he_tanh_bound.py` at code commit
+  ff81115, stdout only. It is byte-identical to `notes/warp/he_tanh_bound_output.txt`. All 7 checks passed in 950 s and
+  all 10 controls fired on exactly their targets, 8150 s in all (limit 3 h). Steps 3 and 4 had run the same checks in
+  372 s and the controls in about 44 min. The final run was about 3 times slower because the machine's load average was
+  4.0 (the other runner's job on the other cores); no result depends on the time.
+- Step 4's per-control logs (`mutate_<name>.log`) and the final run's control lines agree: each control failed exactly
+  its frozen targets, in both runs.
