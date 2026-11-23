@@ -1,0 +1,8 @@
+base (rtol1e-10, phi_cut1e-9, R60)    : r_m=24.11
+rtol 1e-12                            : r_m=24.11
+phi_cut 1e-12 (larger r_m)            : r_m=34.21
+background R=90                       : r_m=24.11
+r0 = 3e-3                             : r_m=24.11
+
+gamma=   0.001: D_base=-5.285431e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.1e-04  D(r_m~34)=-3.682e-02  q_int=+1.246227e-01 q_ext=-8.304551e-02  (13s)
+gamma=      40: D_base=n/a  signs=[]  rel.spread (same r_m)=n/a  D(r_m~34)=n/a  q_int=n/a q_ext=n/a  (0s)  [base (rtol1e-10, phi_cut1e-9, R60) not completed, stopped after 4s of wall time at the cap (CAP_S = 4s); rtol 1e-12 not completed, stopped after 4s of wall time at the cap (CAP_S = 4s); phi_cut 1e-12 (larger r_m) not completed, stopped after 4s of wall time at the cap (CAP_S = 4s); background R=90 not completed, stopped after 4s of wall time at the cap (CAP_S = 4s); r0 = 3e-3 not completed, stopped after 4s of wall time at the cap (CAP_S = 4s); q not completed, stopped after 4s of wall time at the cap (CAP_S = 4s); signs and spread are over 0 variants]

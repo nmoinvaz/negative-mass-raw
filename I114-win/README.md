@@ -56,6 +56,25 @@ the issue: both finish with D < 0, each within 2.1e-4 relative of its base value
 Then `convergence_l{5,6}_output.txt` in the code repository are regenerated from the partial files here (same GAMS and
 `CAP_S`, nothing evaluated) and diffed against the committed versions: only the top row may change.
 
+## Controls (step 2, 19:41 to 19:47, all four exit 0, stderr empty)
+
+| job | result |
+|---|---|
+| `ctl_cap` | gamma = 1e-3 row complete, no note, and equal to `convergence_l2_output.txt`'s row (time column aside). gamma = 40 row: all six tasks "not completed, stopped after 4s of wall time at the cap (CAP_S = 4s)", "signs and spread are over 0 variants". The partial file has 12 `start`, 6 `done`, 6 `capped` records, each capped one 4.04 to 4.05 s. Exit 0. **Passes.** |
+| `ctl_nocap` | `--mutate=nocap` with the same `CAP_S=4`: 0 rows carry "not completed", both rows equal `convergence_l2_output.txt`'s (time column aside), 12 `start` and 12 `done` records, no `capped`. Exit 0. **The check fires: the mark is gone when the cap is ignored.** |
+| `regen5` | stdout differs from the committed `convergence_l5_output.txt` in line 17 only, and only in the bracketed note (`[rtol 1e-12 not completed, stopped after 1s of wall time at the cap (CAP_S = 1s); signs and spread are over 4 variants]`). One new `start` and one `capped` record, both for `rtol 1e-12` at gamma = 6000 (wall 1.003 s). Exit 0. **Passes.** |
+| `regen6` | the same for l = 6, line 17 (gamma = 12000), `capped` wall 1.010 s. Exit 0. **Passes.** |
+
+The queue (`queue.log`) started `ctl_cap` at 19:41:37, `ctl_nocap` at 19:42:07 (choptuik-large-d 1.65 cores), `regen5` at
+19:45:38 (1.79) and `regen6` at 19:46:08 (1.72), and ended at 19:47:28. The keep-awake ended at 19:47:37. The sampler's
+largest working set was 84 MB.
+
 ## Files
 
-(filled in as the runs finish)
+- `jobs.txt`, `make_launchers.py`, `job_<job>.cmd`, `go_<job>.cmd`: the launchers. `queue.ps1`, `queue.log`,
+  `cores.log`: the queue and its core readings. `keepawake.ps1`, `sample.ps1`, `memory-sampler.log`: keep-awake and
+  memory sampler. `partial_records.py`: counts the records of a partial file and lists those after a given line.
+- `<job>.log` (stdout), `<job>.stderr`, `<job>.log.exit` for each job; `ctl_cap/`, `ctl_nocap/`, `regen5/`, `regen6/`
+  hold each control's partial file.
+
+(the two evaluations and the regeneration are added when they finish)
