@@ -122,6 +122,76 @@ Final runs (step 6): each `review_lemma_a3*.py > review_lemma_a3*_output.txt`, s
 One process, `nice -n 10`, one thread (`OMP_NUM_THREADS=1`); any run over a few minutes as a systemd user unit `nm-i142-<step>` with its exit code in a file here.
 A single run not finished in 2 h of wall time is stopped and reported. Nothing depends on memory (memory is reported only). choptuik-large-d's processes and files are not touched.
 
-## Targets
+## Changes after the exploratory runs (all before the first control run; no pass criterion changed)
 
-(To be written before the first control run; not changed after.)
+- E2.6 (V-hat in x against DG09 (61)) moved from the ends script to its own script `review_lemma_a3_dg61.py`: the printed 1/x coefficient disagrees with the exact one (see `slips.md`, item 2).
+  The comparison with the printed coefficients is kept as written, reported as `DIFFERS` (a printed-source difference), and E2.6b (exact: the 1/x coefficient is 0 and where DG's value comes from) and
+  E2.6c (numeric) were added after seeing the data. The ends script now exits 0 on its own.
+- Planted checks shared by several scripts moved into the common module and added where the routine is used without one: `planted_sturm` (PLS.1-6) now also in the l6 script,
+  `planted_lead` (PLE.3a-c) also in the l6 script, new `planted_taylor` (PLE.4a, PLE.4b: 1/(1+r) -> 1, -1, 1, -1; (1+r)²/(1-r) -> 1, 3, 4, 4) in the ends and dg61 scripts.
+- The control runs pass `--failfast` (exit 1 at the first FAIL); a target names the first FAIL id. Final runs do not use it.
+- The `ends` script's checks of E2.7 and E2.8 were not changed. See `slips.md` for my slips.
+
+## Targets (written 2026-11-23 before the first control run; not changed after)
+
+A target is the id of the first `FAIL` line of the mutated run (`--mutate=NAME --failfast`); a planted target exits 2, every other exits 1. An unmutated run of every script exits 0 with no FAIL line
+(dg61: exactly one `DIFFERS E2.6[x^-1]` line). The controls script reports each pair `OK` when the first FAIL id equals the target and the exit code is the stated one, else `MISS`.
+
+| script | mutation | what it changes | target |
+|---|---|---|---|
+| a3 | pl_crit_root | the critical-point routine takes the negative root | PLA.1 (exit 2) |
+| a3 | pl_sturm_sign | the Sturm counter reads the sign at -oo | PLS.1 (exit 2) |
+| a3 | a3_c5 | typed c5 = K(K-24)/6000 | A3.1 |
+| a3 | cn_n4to3 | (n-4) -> (n-3) in c_n | A3.1 |
+| a3 | a3_K120 | claims K ≥ 121 for l ≥ 3 | A3.2 |
+| a3 | a3_qsign | sign of q's cubic term flipped | A3.3[l=3] |
+| a3 | a3_s | s² = 6(K-17) | A3.4 |
+| a3 | a3_qclosed | 18(K-16) -> 18(K-15) in the closed form | A3.5 |
+| a3 | a3_ident | 6(K-24)³ -> 6(K-23)³ | A3.6 |
+| a3 | a3_l2_min | claims the l = 2 minimum is at r = 3 | A3.8 |
+| a3 | a3_sturm_neg | Sturm count of P(-r) | A3.9[l=2] |
+| ends | pl_indicial | sign of q0 in the indicial routine | PLE.1a (exit 2) |
+| ends | pl_order | power off by one in `lead` | PLE.3a (exit 2) |
+| ends | pl_taylor | Taylor routine drops the j = 1 term | PLE.4a (exit 2) |
+| ends | pl_vhat | V-hat = g² + g_x | PLE.2[n=1] (exit 2) |
+| ends | e_const12 | leading coefficient 14 | E2.1 |
+| ends | e_linear | l²+l+2 | E2.1 |
+| ends | cn_n4to3 | (n-4) -> (n-3) in c_n | E2.2[l=2] |
+| ends | e_den | claims den = r³(χ/r)² | E2.3[l=2] |
+| ends | e_exp | N(0) = 11 in the symbolic ODE | E2.4 |
+| ends | e_phi | claims φ₀ ~ -3/r | E2.7[l=2] |
+| ends | e_nn1 | n(n+2) instead of n(n+1) | E3.1 |
+| ends | e_lead_inf | (l+1)(l+3) instead of (l+1)(l+2) | E3.2[l=2] |
+| dg61 | pl_taylor | as above | PLE.4a (exit 2) |
+| dg61 | e_dg61b | claims the 1/x coefficient is DG's -l(l+1)/4 | E2.6b |
+| dg61 | cn_n4to3 | as above | E2.6c |
+| l6 | pl_wronsk | W'χ + Wχ' | PLW.1 (exit 2) |
+| l6 | pl_order | as above | PLE.3a (exit 2) |
+| l6 | pl_sturm_sign | as above | PLS.1 (exit 2) |
+| l6 | l6_gen | +f instead of -f in the generic formula | L6.1 |
+| l6 | l6_w | W's series with k/12 | L6.2 |
+| l6 | l6_c4 | c4 = K/90 | L6.3 |
+| l6 | cn_n4to3 | as above | L6.4[l=2] |
+| l6 | l6_k | k + 1 | L6.4[l=2] |
+| l6 | l6_rs | r_s = 5/c | L6.5 |
+| l6 | l6_chip | χ'/χ(r_s) = -1/(r_s(r_s+3)) | L6.6[l=2] |
+| l4 | pl_vhat | as above | PLL.1 (exit 2) |
+| l4 | pl_eig | eigenvalue term dropped in the residual | PLL.2 (exit 2) |
+| l4 | l4_alg | A* = -∂ - g | L4.1 |
+| l4 | v_typo | 9(λr-1) -> 9(λr-2) in V | L4.2 |
+| l4 | l4_k | k = c(c+2)/5 | L4.2 |
+| l4 | cn_n4to3 | as above | L4.4[l=2] |
+| l4 | l4_sign | eigenvalue +(k/2)² | L4.5[l=2] |
+| v | pl_cmp | comparison routine looks at r = 1 only | PLV.1b (exit 2) |
+| v | v_typo | as above | V1.1[DG06] |
+| v | v_dg06 | 9M²(λr+2M) in DG06 (6) | V1.1[DG06] |
+| v | v_ks | 18nMr in KS (24) | V1.1[KS] |
+| v | v_x | ln(1+r) in x | V1.3 |
+| v | v_chand | β = 5M in Chandrasekhar's relation | V1.4 |
+| v | v_dg54 | 3 instead of 4 in DG09 (54) | V1.5 |
+| v | v_dg53 | 5M² in DG09 (53) | V1.6 |
+| v | v_cn | (n-3) in DG09 (55) | V1.8 |
+| v | cn_n4to3 | as above | V1.8 |
+| v | v_m2 | caption value 0.861 | V1.9 |
+
+54 (mutation, script) pairs, 6 unmutated baselines.
