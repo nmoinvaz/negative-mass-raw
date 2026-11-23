@@ -1,0 +1,19 @@
+ours   brackets_i2_mac.csv  sha256 4ec1732f89d913a9ffab4aa8e75bcdafd967ab68226714243a278e660d436186
+theirs sweep_brackets.csv  sha256 451734cfdd080e0dbfbfa675b1f95f0a97e9bd4f0cce4e4c1aeb7148c69dffb2
+mutation: shift at l = 1500
+PASS  C1: l = 2..3000 once each in both files (ours 2999 rows, theirs 2999 rows)
+PASS  C2: c = (l+2)(l-1) in every row of ours
+PASS  C2: c = (l+2)(l-1) in every row of theirs
+PASS  C3: lo < hi in both brackets of every row of ours
+PASS  C3: lo < hi in both brackets of every row of theirs
+FAIL  C4: c r_* brackets do not intersect: fails at 1 of 2999 l: l = 1500
+      l = 1500: ours [8.4857025287719374783500, 8.4857025287721374783500]  theirs [8.4857025287710275855400, 8.4857025287710475855500]  overlap -8.898928e-13
+FAIL  C5: c r_neg brackets do not intersect: fails at 1 of 2999 l: l = 1500
+      l = 1500: ours [9.6359920361442015756347, 9.6359920361444015756347]  theirs [9.6359920361432905424800, 9.6359920361433105424900]  overlap -8.910331e-13
+
+largest bracket width, ours:      2.000000e-13  (c r_*, l = 2)
+largest bracket width, theirs:    2.000001e-14  (c r_*, l = 2)
+smallest overlap:                 -8.910331e-13  (c r_neg, l = 1500)
+largest midpoint gap:             1.001033e-12  (c r_neg, l = 1500)
+
+2 check(s) FAIL: C4 C5

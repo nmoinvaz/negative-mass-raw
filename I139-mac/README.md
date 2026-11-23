@@ -36,3 +36,38 @@ Run 1 (`ind139_run1.py`, `ind139_run1_console.txt`) exits 1. K1, K3:#2 and K3:#1
 
 The run-1 mutations (`run1_mutations/`) ran with K2 and K4 already failing, so they show nothing for those targets.
 They are rerun on the run-2 version.
+
+## Results
+
+| file | what |
+|---|---|
+| `rerun/` | `threshold_isolation.py --csv` (stdout, `brackets_i2_mac.csv`), `compare_brackets.py` on the Mac's csv against #104's and its 3 controls, at nice 10 (`runA.sh`, `runA.log`) |
+| `ind139.py`, `ind139_run{1,2}.py`, `.txt` | the independent check; `ind139.py` is the run-2 version |
+| `ind139_mut_*.txt` | its 5 mutations on the run-2 version (`run1_mutations/`: on run 1, not informative) |
+| `diag_k2.py`, `.txt` | the rows where #2's csv differs between the machines |
+
+**Reruns.** `threshold_isolation.py --csv` exits 0 in 198 s (rpi5: 721 s); its stdout equals
+`threshold_isolation_output.txt` apart from the 7 timing lines. Its csv differs from rpi5's in 35 rows (K2 below).
+`compare_brackets.py` on the Mac's csv against #104's exits 0. `--mutate=shift`, `drop` and `swap` exit 1 and fail C4 and C5 at
+l = 1500, C1 at l = 777, and C4 and C5 at l = 2000, as on rpi5.
+
+**ind139 run 2** (exit 1, K2):
+
+| criterion | run 2 |
+|---|---|
+| K1 | 2999 rows each, l = 2..3000, c and lo < hi correct; no disjoint pair; smallest overlap 2.000001e-14; widest 2.000000e-13 (#2), 2.000001e-14 (#104); largest midpoint gap 4.592673e-15, as #139 reports |
+| K2 | **FAIL**: 35 rows differ between the Mac and rpi5 (diagnosis above); each pair overlaps |
+| K3 | on both tables: r_* < r_neg, c·r decreasing and above ρ, l²·r increasing from l = 5 with its minimum 7.682592, 8.780277 there, below ρ for l ≥ 3 |
+| K4 | re-solve, mpmath at 80 digits: c·r_* = 9.115121701849806, 8.789041269692871, 8.517778972489448, 8.486049049339369, 8.485702528771038 and c·r_neg = 10.69628593566439, 10.14351892096025, 9.689315919387254, 9.636567628766799, 9.635992036143301 at l = 2, 3, 10, 100, 1500, one root each, every one inside #2's and #104's bracket |
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `shift` | 1 | K1, K2 | yes |
+| `mono` | 1 | K1, K2, K3:#2 | yes |
+| `bytes` | 1 | K2 | not informative: K2 fails without it |
+| `rho` | 1 | K2, K3 on both | yes |
+| `chi` | 1 | K2, K4 | yes |
+
+**Findings on #139.** No discrepancy with #139's numbers. #2's and #104's brackets overlap at every l, and the five
+re-solved roots lie in both. New: #2's bracket ends are machine-dependent (35 of 2999 rows differ between the Mac and rpi5),
+through the float seed of `rescaled.locate`; the brackets stay valid and overlap, and the printed table is unchanged.
