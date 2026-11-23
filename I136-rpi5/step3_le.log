@@ -1,0 +1,23 @@
+review_he_type3_count.py  mutation: None  bits: 160
+check cover:le
+  P on [1/4, 40]: 1562 leaves {'excl': 1554, 'mono': 4, 'root': 4}; tiling True; 4 roots (statement: 4); 126 s
+     tanh-form function (mpmath, 80 digits): sign at a point of every leaf vs the leaf sign: 0 disagreements
+     refined root enclosures (width <= 6.26e-46) contain the mpmath root of the tanh form: 0 misses; r = ['0.9905678898', '1.006345187', '1.023933261', '1.094662309']
+  y on [1/4, 40]: 46 leaves {'excl': 42, 'mono': 3, 'root': 1}; tiling True; 1 roots (statement: 1); 1 s
+     tanh-form function (mpmath, 80 digits): sign at a point of every leaf vs the leaf sign: 0 disagreements
+     refined root enclosures (width <= 2.69e-40) contain the mpmath root of the tanh form: 0 misses; r = ['0.9921149667']
+  -> PASS (136 s)
+check points:le
+  le: 4 P roots, 4 Krawczyk boxes in (z, w) (K(X) inside X), every other point of z in the root cell x w in [-1e4, 1e4] excluded: True; 10 s
+  admissible (0 < w < 1, T != 0): 3 (statement: 3)
+     r = 0.990567889806 (statement 0.990567889806, |diff| 4.4e-13), w in [0.06005176468, 0.06005176468], T = -8.80794; box half-widths z 1.0e-26, w 1.0e-20 -> ok
+     r = 1.02393326111 (statement 1.02393326111, |diff| 1.5e-12), w in [0.04098687975, 0.04098687975], T = 7.90635; box half-widths z 1.0e-26, w 1.0e-20 -> ok
+     r = 1.09466230932 (statement 1.09466230932, |diff| 3.6e-12), w in [0.9128666766, 0.9128666766], T = 22.0305; box half-widths z 1.0e-26, w 1.0e-20 -> ok
+  the other P roots have their common root at w = ['58.459064'] (statement: ['58459/1000'])
+  -> PASS (10 s)
+check spurious:le
+  the root of y at r = 0.99211497 (statement 0.99211): leading coefficient of E1 in w, phi^2 y^2 / 4, encloses 0.0 .. 7.01e-79
+  common roots with z in the root cell and |w| <= 1e4: 0 (complete True)
+  -> PASS (0 s)
+
+summary: 3 checks run, 0 failed [], 147 s

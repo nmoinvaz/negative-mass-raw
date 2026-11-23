@@ -1,0 +1,34 @@
+review_he_type3_count.py  mutation: None  bits: 160
+check small_z:le
+  P(phi, psi - 2 phi, delta + psi - 2 phi): 358 terms, least weight 24 (phi: 2, psi, delta: 4), weight-24 part {(8, 0, 2): 774144}
+  closed forms Phi, Psi, Delta of the weights (exact, sympy): z^2 Phi - phi, z^4 Psi - (A' + 2 phi), z^4 Delta - (B' - A') = [0, 0, 0]
+  series coefficients of K1, S, K2, K3 against the Taylor expansions of their closed forms (11 coefficients each): True
+  Phi, Psi, Delta enclosures against mpmath (100 digits) at z = 1/1000, 1/20, 1/8, 1/4: 0 misses
+  [0, 0.25]: 1 cells, G > 0 and Delta < 0 on each (smallest lower bound of G 1.0911e-67, largest upper bound of Delta -3.7453e-8); 0 cells fail; 0.0 s
+  so P = z^24 G > 0 and y = z^4 Delta < 0 on (0, 0.25]
+  -> PASS (5 s)
+check tail:le
+  with e = e^-z, cosh = (1 + e^2)/(2e), sinh = (1 - e^2)/(2e): phi - v phih, A' + tau alphah, B' - tau z betah (exact) = [0, 0, 0]
+  P(v phih, -tau alphah, tau z betah) = (tau z)^9 S(1/z, tau, phih, alphah, betah) at 5 random rational points (exact): 0 mismatches
+  z >= 40: e <= 4.248e-18, tau <= 7.55e-10, phih in [1.0, 1.0], betah in [1.0, 1.0]
+  S = P/(tau z)^9 over 64 cells of s = 1/z in (0, 1/40]: smallest lower bound 0.49998278 (leading term 4 v^3 = 0.5); 0.6 s
+  y = tau (z betah + alphah) > 0: betah, alphah lower bounds 1.0, 1.0 -> True
+  the enclosure of S contains the true S (mpmath, 120 digits) at z = 1, 2, 3, 5 times 40: 0 misses
+  -> PASS (1 s)
+check cover:le
+  P on [1/4, 40]: 1562 leaves {'excl': 1554, 'mono': 4, 'root': 4}; tiling True; 4 roots (statement: 4); 124 s
+     tanh-form function (mpmath, 80 digits): sign at a point of every leaf vs the leaf sign: 0 disagreements
+     refined root enclosures (width <= 6.26e-46) contain the mpmath root of the tanh form: 0 misses; r = ['0.9905678898', '1.006345187', '1.023933261', '1.094662309']
+  y on [1/4, 40]: 46 leaves {'excl': 42, 'mono': 3, 'root': 1}; tiling True; 1 roots (statement: 1); 1 s
+     tanh-form function (mpmath, 80 digits): sign at a point of every leaf vs the leaf sign: 0 disagreements
+     refined root enclosures (width <= 2.69e-40) contain the mpmath root of the tanh form: 0 misses; r = ['0.9921149667']
+  -> PASS (133 s)
+check points:le
+  EXCEPTION TypeError: argument should be a string or a Rational instance or have the as_integer_ratio() method (line 286)
+  -> FAIL (0 s)
+check spurious:le
+  the root of y at r = 0.99211497 (statement 0.99211): leading coefficient of E1 in w, phi^2 y^2 / 4, encloses 0.0 .. 7.01e-79
+  common roots with z in the root cell and |w| <= 1e4: 0 (complete True)
+  -> PASS (0 s)
+
+summary: 5 checks run, 1 failed ['points:le'], 140 s

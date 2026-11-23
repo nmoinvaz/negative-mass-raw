@@ -1,0 +1,18 @@
+review_he_type3_count.py  mutation: None  bits: 160
+check small_z:rodal
+  P(phi, psi - 2 phi, delta + psi - 2 phi): 358 terms, least weight 24 (phi: 2, psi, delta: 4), weight-24 part {(8, 0, 2): 774144}
+  closed forms Phi, Psi, Delta of the weights (exact, sympy): z^2 Phi - phi, z^4 Psi - (A' + 2 phi), z^4 Delta - (B' - A') = [0, 0, 0]
+  series coefficients of K1, S, K2, K3 against the Taylor expansions of their closed forms (11 coefficients each): True
+  Phi, Psi, Delta enclosures against mpmath (100 digits) at z = 1/1000, 1/20, 1/8, 1/4: 0 misses
+  [0, 0.25]: 1 cells, G > 0 and Delta < 0 on each (smallest lower bound of G 6.5688e-169, largest upper bound of Delta -2.8278e-18); 0 cells fail; 0.0 s
+  so P = z^24 G > 0 and y = z^4 Delta < 0 on (0, 0.25]
+  -> PASS (5 s)
+check tail:rodal
+  with e = e^-z, cosh = (1 + e^2)/(2e), sinh = (1 - e^2)/(2e): phi - v phih, A' + tau alphah, B' - tau z betah (exact) = [0, 0, 0]
+  P(v phih, -tau alphah, tau z betah) = (tau z)^9 S(1/z, tau, phih, alphah, betah) at 5 random rational points (exact): 0 mismatches
+  z >= 60: e <= 8.757e-27, tau <= 1.237e-7, phih in [1.0, 1.0], betah in [0.99999999, 1.0]
+  S = P/(tau z)^9 over 64 cells of s = 1/z in (0, 1/60]: smallest lower bound 3.9999386 (leading term 4 v^3 = 4.0); 0.6 s
+  y = tau (z betah + alphah) > 0: betah, alphah lower bounds 1.0, 1.0 -> True
+  the enclosure of S contains the true S (mpmath, 120 digits) at z = 1, 2, 3, 5 times 60: 0 misses
+  -> PASS (1 s)
+check cover:rodal

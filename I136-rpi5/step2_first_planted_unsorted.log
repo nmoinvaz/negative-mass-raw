@@ -1,0 +1,35 @@
+review_he_type3_count.py  mutation: None  bits: 160
+check exp
+  exp(x), 300 random x in [-70, 70]: 0 outside the 120-digit mpmath value; widest enclosure 1.0 ulp
+  exp(x) exp(-x) contains 1 and exp(x) exp(y) meets exp(x+y), 100 pairs: 0 failures
+  cosh^2 - sinh^2 contains 1 and cosh, sinh enclose the mpmath values on 100 random cells: 0 failures
+  -> PASS (1 s)
+check profile
+  tanh form = (1 + C)/(cosh z + C), exact rational identity in (q, k): difference simplifies to 0
+  f_z = -(1+C) sinh z / D^2 and f_zz = -(1+C)(-cosh^2 z + C cosh z + 2)/D^3 (D = cosh z + C): differences 0 0
+  (phi, A', B') and T from the tanh definition (sympy derivatives, mpmath 60 digits) against the enclosures at 2 x 12 radii: 0 misses
+  -> PASS (1 s)
+check frame
+  c2 and E1 from the frame table minus the printed c2 and E1 of he_type3.md section 1: 0, 0
+  E1, E2 have 17 and 42 terms (printed: 17 and 42)
+  E2 in (X, gamma, y): total degrees [3], 10 monomials (printed: a cubic form with 10 terms)
+  double root p, third root q: E1 - (p-q)^2 and E2 - (p-q)^2 (8p + q) = (0, 0)
+  P: 167 terms, total degrees [10, 12, 14, 16, 18], irreducible over Q: True (printed: 167, 10..18, irreducible)
+  Res_w(E1, E2) - (27/256) phi^3 (A' - B')^3 P = 0
+  leading coefficients in w: E1: phi**2*(A - B)**2/4 ; E2: phi**2*(A - B)**2*(9*A**2 + 10*A*phi - 10*B*phi)/8
+  exact 5 x 5 Sylvester determinant of the tables of E1, E2 against (27/256) phi^3 (A' - B')^3 P (table of the interval code) at 6 rational points: 0 mismatches
+  -> PASS (2 s)
+check planted
+  A: g has 7 roots in [1/4, 40] (exact: 7 of 9 rational c_i lie strictly between the enclosures of cosh(1/4) and cosh(40)); pair separation 1.0e-5
+  A: 52 leaves {'excl': 45, 'root': 7}, tiling True, 0 s
+  A: every root leaf holds exactly one known root: True
+  B: P_pl has 34 leaves {'excl': 17, 'root': 5, 'mono': 12}, 5 roots (exact: 5 at z = 3, 659/49, 5, 5 + 1e-5, 7)
+     root z = 3.0: enclosure contains it box found 1 complete True
+     root z = 13.4489795918: enclosure MISSES it box found 0 complete False
+     root z = 5.0: enclosure MISSES it box found 0 complete False
+     root z = 5.00001: enclosure MISSES it box found 0 complete False
+     root z = 7.0: enclosure MISSES it box found 0 complete False
+  B: admissible (0 < w < 1, T != 0): [True]; exact expectation [True, True, True, False (T = 0), False (w = 7/2)]
+  -> FAIL (1 s)
+
+summary: 4 checks run, 1 failed ['planted'], 5 s

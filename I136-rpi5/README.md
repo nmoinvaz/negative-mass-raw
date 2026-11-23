@@ -109,3 +109,9 @@ control passes if every must-fire check fails. Other checks that also fail are r
 Estimate (before measuring): 3 to 5 h. The first trial cover (scratch, not logged) of P over [1/4, 40] at Le took 2 min.
 
 ## Run notes
+- step2 (`exp`, `profile`, `frame`, `planted`): the first run (`step2_first_planted_unsorted.log`) failed `planted` part B
+  because my expected list of known roots was not sorted by z (659/49 was paired with the root at 5). The criterion
+  (admissible set exactly z = 3, 659/49, 5) was not changed; only the pairing. Rerun `step2.log`: 4 checks pass, 5 s, 71 MB.
+- step3_le: the first run (`step3_le_first.log`) passed `small_z:le`, `tail:le`, `cover:le`, `spurious:le` and raised a
+  TypeError in `points:le` (mpmath candidates were not converted to Fractions, a bug in the script). Fixed
+  (`fr_of_mp`), `cover:le,points:le,spurious:le` rerun in `step3_le.log`: pass, 147 s, 75 MB.
