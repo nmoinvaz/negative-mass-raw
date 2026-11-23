@@ -1,0 +1,9 @@
+[FAIL] W1: 22 sectors: window A, B and cut equal retab_rpi5.csv: False; differ [((16, 7.5), (13, 16, '0.0947'), ('14', '16', '0.0947'))]
+[FAIL] W2: totals A / B: sigma R = 8 (262, 284), 16 (193, 216) (claim 262 / 284, 194 / 216); the 8 changed rows as listed False
+[FAIL] W3: exact tie group at the cut = the eigenvalue and its conjugate in 21 of 22; smallest margin to a non-tied modulus 1.92e-13 (claim >= 1.9e-12)
+[FAIL] W4: the strict window |mu| > cut holds exactly 2 fewer in every sector: False
+[PASS] W5: symmetry value to 2 digits equals retab_rpi5.csv in 22 sectors: True; differ []
+[PASS] W6: supplement, I75-dh170: totals A / B sigma R = 2 (654, 676), 4 (406, 424) (claim 654 / 676, 406 / 424)
+re-solve, sigma R = 16, m = 15/2: cut 0.094693747166, window A 13, B 16, tie group 1, margin 2.51e-12, symmetry 4.00e-11
+FAILED: W1, W2, W3, W4
+rc=1
