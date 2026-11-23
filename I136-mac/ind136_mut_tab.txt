@@ -1,0 +1,21 @@
+ind136  mutation: tab
+[FAIL] J1a: cs odd powers vanish True, monic True, c2 = printed True, E1 = printed False, E2 = printed (he_type3_output.txt) False, E2 cubic form in (X, gamma, y) True with 10 monomials
+[FAIL] J1b: terms in (phi, A', B', w): E1 17, E2 53 (claim 17, 42)
+[FAIL] J1c: Res_w(E1, E2) / ((27/256) phi^3 (A' - B')^3) exact False, irreducible False, 83 terms, total degrees [14, 16, 18] (1 s)
+[FAIL] J1d: P equals I136-rpi5/P_table.tsv term by term: False (167 table rows)
+[FAIL] J1e: (A', B')-degrees j + k of P: [9, 10, 11, 12, 13, 14]; max B'-degree k = 9
+[FAIL] J1f: P-hat has 201 terms, weights 32..64, weight-24 part 0
+[FAIL] J2:le: 39751 radii, z step 1e-3: P 6 sign changes at r = ['0.18417339449', '0.22269045851', '0.95678555579', '0.99453100047', '1.000330082', '1.134215226'] (max |diff| +inf), y 1 at r = ['0.99211496671'] (|diff| 6.1e-12) (12 s)
+[FAIL] J3a:le: 4 admissible of 6 roots of P; r 0.18417339449: w 3.3636940304e+12 (rel |E2| 1.0, other root 1.0), T -0.0007358319; r 0.22269045851: w 4.7614794514e+11 (rel |E2| 1.0, other root 1.0), T -0.001301857; r 0.95678555579: w 0.15782629846 (rel |E2| 0.35, other root 1.0), T -22.64865; r 0.99453100047: w 0.21965431389 (rel |E2| 0.46, other root 1.0), T -6.807301; r 1.000330082: w 0.77930010131 (rel |E2| 0.16, other root 1.0), T -3.829653; r 1.134215226: w 0.89356069781 (rel |E2| 0.013, other root 1.0), T 17.63654
+[FAIL] J3b:le: r 0.9936229306659 (|diff| 0.0031), w 0.044910986513, residual 5.8e-80; r 0.9936229306659 (|diff| 0.03), w 0.044910986513, residual 9.3e-79; r 1.03616904859 (|diff| 0.058), w 1.0725273415, residual 6.6e-82
+[PASS] J3c:le: at r = 0.99211496671: leading coefficients relative 1.2e-83, 2.2e-81; roots of E1 with |w| <= 1e4: 1, min relative |E2| there 0.82
+[FAIL] J4a:le: P/z^24 at z = 1e-3: -1.912122e-119 against 1.09451e-67 (relative 1.0); P > 0 at 500 points of [1e-3, 1/4]: False; y < 0 there: True
+[FAIL] J4b:le: min S over 1000 points of [40, 300]: -2.81756755 (bound 0.49998278); L_0 = -27/16 (4 v^3 = 1/2), L_1 = -4917/128; S(300) = -1.81839488928 against sum L_n 300^-n = -1.81839488928 (relative 1.1e-81); y > 0: True
+[FAIL] J2:rodal: 59751 radii, z step 1e-3: P 10 sign changes at r = ['0.36834517004', '0.44537735203', '2.6941743521', '4.8301534852', '4.9349401911', '4.9848066043', '4.9986965458', '5.0081371215', '5.027968716', '5.2617305805'] (max |diff| +inf), y 1 at r = ['4.9937408588'] (|diff| 2.1e-10) (17 s)
+[FAIL] J3a:rodal: 3 admissible of 10 roots of P; r 0.36834517004: w 5.9006826221e+32 (rel |E2| 1.0, other root 1.0), T -6.944629e-15; r 0.44537735203: w 8.3529486378e+31 (rel |E2| 1.0, other root 1.0), T -1.228656e-14; r 2.6941743521: w 1.0117568066 (rel |E2| 0.0013, other root 1.0), T -6.525554e-7; r 4.8301534852: w 0.69002386643 (rel |E2| 0.022, other root 1.0), T -6.422488; r 4.9349401911: w -0.38220007902 (rel |E2| 0.86, other root 1.0), T -4.187524; r 4.9848066043: w -3.7520826822 (rel |E2| 0.5, other root 0.98), T -1.367345; r 4.9986965458: w -9.6721921546 (rel |E2| 0.97, other root 1.0), T -0.4835115; r 5.0081371215: w -3.4239518773 (rel |E2| 0.87, other root 0.87), T 0.1211135; r 5.027968716: w 0.30030222485 (rel |E2| 0.65, other root 0.65), T 1.367604; r 5.2617305805: w 0.63500101364 (rel |E2| 0.099, other root 1.0), T 4.730652
+[FAIL] J3b:rodal: r 4.630715360443 (|diff| 0.084), w 0.98776565908, residual 3.2e-79; r 5.049640363413 (|diff| 0.021), w 0.034591687733, residual 2.4e-79; r 5.079205825835 (|diff| 0.024), w 1.0158563168, residual 2.0e-81
+[PASS] J3c:rodal: at r = 4.9937408588: leading coefficients relative 0.0, 6.3e-83; roots of E1 with |w| <= 1e4: 1, min relative |E2| there 0.0459
+[FAIL] J4a:rodal: P/z^24 at z = 1e-3: -3.741039e-261 against 6.58941e-169 (relative 1.0); P > 0 at 500 points of [1e-3, 1/4]: False; y < 0 there: True
+[FAIL] J4b:rodal: min S over 1000 points of [60, 300]: -76.4631892 (bound 3.9999386); L_0 = -54 (4 v^3 = 4), L_1 = -1209; S(300) = -58.1192943845 against sum L_n 300^-n = -58.1192943845 (relative 1.3e-80); y > 0: True
+FAILED: J1a, J1b, J1c, J1d, J1e, J1f, J2:le, J3a:le, J3b:le, J4a:le, J4b:le, J2:rodal, J3a:rodal, J3b:rodal, J4a:rodal, J4b:rodal  (32 s)
+rc=1

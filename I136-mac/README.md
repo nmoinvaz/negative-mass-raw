@@ -46,3 +46,68 @@ ind136, not of the claim; run 1 stays failed.
 
 J4b for run 2: min S ≥ #136's bound and y > 0 as before; L₀ = 4v³ exactly, from ind136's own P; S(300) equal to Σₙ₌₀⁹ Lₙ 300⁻ⁿ to
 relative 10⁻⁶. The other criteria and the mutations are unchanged.
+
+## Results
+
+| file | what |
+|---|---|
+| `rerun/` | `review_he_type3_count.py` (full run), the comparison with #133 and its two controls (`runA.sh`), and the 13 controls (`runB.sh`), on the Mac at nice 10; exit codes and seconds in `runA.log`, `runB.log` |
+| `ind136.py`, `ind136_run{1,2,3}.{py,txt}` | the independent check above; `ind136.py` is the run-3 version |
+| `ind136_mut_*.txt` | its 6 mutations, on the run-3 version |
+| `run2_crashed_mutations/` | the mutations started with the run-2 version: each crashed at J4b (below) or was stopped; not results |
+| `diag_j4b.py`, `.txt` | the large-z expansion of S from the P table, written after run 1's failure |
+| `resolve136.py`, `.txt` | one case re-solved by hand: G(0) at both walls |
+
+**Reruns.** The full run exits 0 in 127 s (rpi5: 398 s); its output equals the committed one apart from timings. The
+comparison exits 0 in 117 s (rpi5: 350 s), equal apart from timings; its dump of P equals `I136-rpi5/P_table.tsv` byte for
+byte; its two controls exit 1. Each of the 13 controls exits 1 with the same failed checks as on rpi5, and every line of
+each log other than timings is identical.
+
+**Re-solve.** With K = 1 + C and u = cosh z − 1, f = K/(K + u) gives φ = v z²/(2K) + O(z⁴) and y = B′ − A′ = −v z⁴ (K − 6)/(3K²)
++ O(z⁶) (hand expansion of A′ = v z f_z, B′ = v z² f_zz). With #136's weight-24 part 774144 φ⁸δ², G(0) = 774144 (v/2K)⁸
+(v(K − 6)/(3K²))² = 1.0945107 × 10⁻⁶⁷ (Le) and 6.5894091 × 10⁻¹⁶⁹ (Rodal), the printed values to 6.6 × 10⁻⁷ and 1.3 × 10⁻⁷.
+y/z⁴ from the tanh form at z = 10⁻⁴ equals −v(K − 6)/(3K²) to 10⁻⁹ relative.
+
+**ind136.**
+
+| run | exit | result |
+|---|---|---|
+| 1 | 1 | all PASS except J4b at both walls, on the limit test (above) |
+| 2 | 1 | J1 to J4a PASS at Le, then a crash at J4b: `sp.Rational` of an mpmath float. A defect of ind136 |
+| 3 | 0 | v given to J4b as an exact rational, criterion unchanged: ALL PASS |
+
+| criterion | run 3 |
+|---|---|
+| J1a | det(λ − ηR) monic and even in cs; c₂, E1 and E2 equal the printed ones; E2 a cubic form with 10 monomials |
+| J1b | 17 and 42 terms in (φ, A′, B′, w) |
+| J1c | the resultant divides exactly; P irreducible, 167 terms, degrees 10, 12, …, 18 |
+| J1d | P equals `P_table.tsv` term by term |
+| J1e | j + k takes every value 9..15; k ≤ 9 |
+| J1f | P̂: 358 terms, weights 24..66, weight-24 part 774144 φ⁸δ² |
+| J2 | P: 4 sign changes (Le), 6 (Rodal); y: 1 each; within 4.7 × 10⁻¹⁰ of the printed roots |
+| J3a | one common w at every root of P (relative \|E2\| below 10⁻⁴⁴, the other root of E1 above 0.0077); w as printed (58.459064354; 4.1006548618, 8.71726377, 1.0300029568 outside (0, 1)); 3 admissible per wall, T as printed |
+| J3b | 2D Newton in (r, w): r within 4.4 × 10⁻¹³ to 3.6 × 10⁻¹² of the printed radii, residual below 10⁻⁷⁹ |
+| J3c | at y's root the leading coefficients are 10⁻⁸³ of the largest; E1's one root with \|w\| ≤ 10⁴ has relative \|E2\| 0.82 (Le), 0.046 (Rodal) |
+| J4a | P/z²⁴ at z = 10⁻³ within 2.9 × 10⁻⁶ and 2.1 × 10⁻⁶ of G(0); P > 0 and y < 0 at 500 points of [10⁻³, 1/4] |
+| J4b | min S along [z_t, 300] 0.533204 and 4.590017, above the bounds; L₀ = 4v³ = 1/2 and 4; S(300) equals Σ Lₙ 300⁻ⁿ to 10⁻⁸⁰ |
+
+**Mutations** (run-3 version).
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `tab` | 1 | every criterion | yes (J1a) |
+| `drop` | 1 | J1c, J1d, J1f, J2, J3a, J4a | yes |
+| `sig` | 1 | J2, J3a, J3b, J4a, J4b | yes |
+| `win` | 1 | J3a at both walls (Rodal's w = 1.030003 also enters) | yes |
+| `yatp` | 1 | J3c at both walls | yes |
+| `zt` | 1 | J4b at both walls | yes |
+
+**Findings on #136.**
+- No discrepancy in the count or in any number of #136 or #133.
+- #136's wording point 2 is wrong. Lemma 4 of he_type3_count.md does not need k ≤ 9. Π_n has degree at most n in z, so
+  for z ≥ 1, t^(n−9) |Π_n| ≤ M_n t^(n−9) zⁿ = z⁹ M_n (tz)^(n−9) with no condition on k. #136's own L9 needs k ≤ 9 (S is a
+  polynomial in s = 1/z only then). It holds: J1e.
+- The independence slips #136 disclosed are real. The runner's auto-memory on rpi5 held #133's method, because #133 ran on
+  the same machine, and it read 25 lines of `I133-rpi5/README.md`. The code is its own and every formula is checked by an
+  exact identity, so the confirmation stands. The shape of the method (the cosh form, the z²⁴ and (τz)⁹ factorizations) is
+  not independent of #133's.

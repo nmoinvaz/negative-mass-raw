@@ -279,7 +279,7 @@ for name, W in WALLS.items():
         ypos = ypos and Yr(r) > 0
     # run 2 (after run 1's failure of the limit test at z = 300): S = sum_n L_n z^-n + O(e^-z) with
     # L_n = sum_i (-1)^n c_(i, n, 9 - n) v^i, exact from this script's P; L_0 must be 4 v^3 and S(300) must match the sum
-    vq = sp.Rational(W['v'])
+    vq = sp.Rational(1, 2) if name == 'le' else sp.Rational(1)  # run 3: v as an exact rational (run 2 crashed here)
     Ln = [sum((-1)**n * c * vq**m[0] for m, c in PP.terms() if m[1] == n and m[2] == 9 - n) for n in range(10)]
     ser = mp.fsum(mp.mpf(x.p) / x.q / mp.mpf(300)**n for n, x in enumerate(Ln))
     dser = abs(Sv[-1] / ser - 1)

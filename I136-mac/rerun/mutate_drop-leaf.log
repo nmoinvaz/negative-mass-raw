@@ -1,0 +1,11 @@
+review_he_type3_count.py  mutation: drop-leaf  bits: 160
+check cover:le
+  P on [1/4, 40]: 1561 leaves {'excl': 1553, 'mono': 4, 'root': 4}; tiling False; 4 roots (statement: 4); 39 s
+     tanh-form function (mpmath, 80 digits): sign at a point of every leaf vs the leaf sign: 0 disagreements
+     refined root enclosures (width <= 6.26e-46) contain the mpmath root of the tanh form: 0 misses; r = ['0.9905678898', '1.006345187', '1.023933261', '1.094662309']
+  y on [1/4, 40]: 45 leaves {'excl': 41, 'mono': 3, 'root': 1}; tiling False; 1 roots (statement: 1); 0 s
+     tanh-form function (mpmath, 80 digits): sign at a point of every leaf vs the leaf sign: 0 disagreements
+     refined root enclosures (width <= 2.69e-40) contain the mpmath root of the tanh form: 0 misses; r = ['0.9921149667']
+  -> FAIL (42 s)
+
+summary: 1 checks run, 1 failed ['cover:le'], 42 s

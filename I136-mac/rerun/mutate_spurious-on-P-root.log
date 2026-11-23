@@ -1,0 +1,11 @@
+review_he_type3_count.py  mutation: spurious-on-P-root  bits: 160
+check spurious:le
+  the first root of P at r = 0.99056789 (statement 0.99211): leading coefficient of E1 in w, phi^2 y^2 / 4, encloses 0.00194 .. 0.00194
+  common roots with z in the root cell and |w| <= 1e4: 0 (complete False)
+  -> FAIL (46 s)
+check spurious:rodal
+  the first root of P at r = 4.7144852 (statement 4.9937): leading coefficient of E1 in w, phi^2 y^2 / 4, encloses 18.9 .. 18.9
+  common roots with z in the root cell and |w| <= 1e4: 0 (complete False)
+  -> FAIL (71 s)
+
+summary: 2 checks run, 2 failed ['spurious:le', 'spurious:rodal'], 117 s

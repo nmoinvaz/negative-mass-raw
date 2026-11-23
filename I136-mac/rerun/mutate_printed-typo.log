@@ -1,0 +1,13 @@
+review_he_type3_count.py  mutation: printed-typo  bits: 160
+check frame
+  c2 and E1 from the frame table minus the printed c2 and E1 of he_type3.md section 1: 0, -A**2
+  E1, E2 have 17 and 42 terms (printed: 17 and 42)
+  E2 in (X, gamma, y): total degrees [3], 10 monomials (printed: a cubic form with 10 terms)
+  double root p, third root q: E1 - (p-q)^2 and E2 - (p-q)^2 (8p + q) = (0, 0)
+  P: 167 terms, total degrees [10, 12, 14, 16, 18], irreducible over Q: True (printed: 167, 10..18, irreducible)
+  Res_w(E1, E2) - (27/256) phi^3 (A' - B')^3 P = 0
+  leading coefficients in w: E1: phi**2*(A - B)**2/4 ; E2: phi**2*(A - B)**2*(9*A**2 + 10*A*phi - 10*B*phi)/8
+  exact 5 x 5 Sylvester determinant of the tables of E1, E2 against (27/256) phi^3 (A' - B')^3 P (table of the interval code) at 6 rational points: 0 mismatches
+  -> FAIL (1 s)
+
+summary: 1 checks run, 1 failed ['frame'], 1 s

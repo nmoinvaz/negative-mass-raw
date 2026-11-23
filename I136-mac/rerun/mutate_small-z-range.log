@@ -1,0 +1,19 @@
+review_he_type3_count.py  mutation: small-z-range  bits: 160
+check small_z:le
+  P(phi, psi - 2 phi, delta + psi - 2 phi): 358 terms, least weight 24 (phi: 2, psi, delta: 4), weight-24 part {(8, 0, 2): 774144}
+  closed forms Phi, Psi, Delta of the weights (exact, sympy): z^2 Phi - phi, z^4 Psi - (A' + 2 phi), z^4 Delta - (B' - A') = [0, 0, 0]
+  series coefficients of K1, S, K2, K3 against the Taylor expansions of their closed forms (11 coefficients each): True
+  Phi, Psi, Delta enclosures against mpmath (100 digits) at z = 1/1000, 1/20, 1/8, 1/4: 0 misses
+  [0, 20.0]: 15 cells, G > 0 and Delta < 0 on each (smallest lower bound of G 7.3299e-68, largest upper bound of Delta -3.01e-8); 21 cells fail; 0.7 s
+  so P = z^24 G > 0 and y = z^4 Delta < 0 on (0, 20.0]
+  -> FAIL (2 s)
+check small_z:rodal
+  P(phi, psi - 2 phi, delta + psi - 2 phi): 358 terms, least weight 24 (phi: 2, psi, delta: 4), weight-24 part {(8, 0, 2): 774144}
+  closed forms Phi, Psi, Delta of the weights (exact, sympy): z^2 Phi - phi, z^4 Psi - (A' + 2 phi), z^4 Delta - (B' - A') = [0, 0, 0]
+  series coefficients of K1, S, K2, K3 against the Taylor expansions of their closed forms (11 coefficients each): True
+  Phi, Psi, Delta enclosures against mpmath (100 digits) at z = 1/1000, 1/20, 1/8, 1/4: 0 misses
+  [0, 45.0]: 20 cells, G > 0 and Delta < 0 on each (smallest lower bound of G 3.8121e-169, largest upper bound of Delta -1.5513e-18); 16 cells fail; 1.0 s
+  so P = z^24 G > 0 and y = z^4 Delta < 0 on (0, 45.0]
+  -> FAIL (1 s)
+
+summary: 2 checks run, 2 failed ['small_z:le', 'small_z:rodal'], 3 s
