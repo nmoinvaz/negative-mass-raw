@@ -51,4 +51,45 @@ Mutations, each must exit 1 with its target failing:
 
 ## Results
 
-(after the runs)
+| file | what |
+|---|---|
+| `rerun_run_controls.txt`, `rerun/` | the rerun of `run_controls.sh` at 7ef70af |
+| `fetch.txt` | the coordinator's fetch: URLs and sha256 |
+| `ind152_run1.py`, `.txt` | run 1: every criterion passes (`ind152.py` is the same version) |
+| `ind152_mut_*.txt` | its 7 mutations |
+
+**Rerun** (exit 1). `check_quotes.py` cannot run on the Mac: it calls `pdftotext` (poppler), which is not installed
+here, and crashes with FileNotFoundError. So `check_plain` fails, and its 10 mutation controls "exit 1" only by that
+crash; they are not fires. `jovera_check.py` reruns: exit 0, and its 4 mutations fire. The quote check (C1–C6) is
+therefore not reproduced on the Mac. ind152 checks the TeX half independently (P2–P4), but not the PDF half (C2).
+
+**ind152 run 1** (exit 0, under 0.1 s):
+
+| criterion | run 1 |
+|---|---|
+| P0 | the coordinator's fetch gives the same sha256 for all 4 TeX files and all 4 PDFs |
+| P1 | titles, author lists, [DFKKR13]'s journal reference, 2610.38659 v1 28 Oct 2026 and 2610.29941 v2 6 Nov 2026 as proposed |
+| P2 | 9 of 9 quoted strings found in their sources |
+| P3 | 16 of 16 numbers and 7 of 7 strings found, including `G=c=1` in [SN26b] v2 |
+| P4 | "no evidence of instability" and "addresses the four-dimensional stability question" are in v1 and not in v2 |
+| P5 | \|J\|/A = 0.10062757, 0.05475023, 0.4871686 at 4πG = 1, rounding to the printed values; λ → 4 gives 0.5; with G = 1 none rounds; no G-fixing statement in either 5D source |
+
+Re-solve: P5, the 4πG = 1 recompute, with the coordinator's own formula typed from [BGKKKN26]'s TeX. It agrees with
+#152's `jovera_run1.log` to all printed digits.
+
+Read by the coordinator in the TeX: [DFKKR13]'s abstract (lines 78–80) and Sec. V B (lines 1410–1432); [BGKKKN26]'s
+abstract, the EP values (Eqs. 27–28), the post-EP paragraph and the discussion; [SN26b] v2's results and conclusions.
+Each agrees with #152's answers. One point #152 leaves out of its proposal: [SN26b]'s conclusions say that above about
+29 % of the extremal angular momentum the throat's equator lies inside an ergoregion. Horizonless rotating objects with
+an ergoregion are "generically subject to a slow nonaxisymmetric instability", and the axisymmetric runs cannot show it.
+The note carries this as a coordinator sentence.
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `sha` | 1 | P0 | yes |
+| `author` | 1 | P1 | yes |
+| `date` | 1 | P1 | yes |
+| `quote` | 1 | P2 | yes |
+| `number` | 1 | P3 | yes |
+| `v1v2` | 1 | P4 | yes |
+| `G1` | 1 | P5 | yes |

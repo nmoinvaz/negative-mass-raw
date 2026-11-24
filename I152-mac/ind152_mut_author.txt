@@ -1,0 +1,19 @@
+== P0: sources ==
+[PASS] P0: 8 of 8 files match rpi5's sha256; differ: []  (0.0 s)
+
+== P1: arXiv metadata ==
+[FAIL] P1: 2610.38659: title True, authors False (Jose Luis Blázquez-Salcedo, Luis Manuel González-Romero, Fech Scen Khoo, Burkhard Kleihaus, Jutta Kunz, Pablo Navarro Moreno), journal True (), dates {'v1': '28 Oct 2026'} True; 2610.29941: title True, authors True (Nikita M. Shirokov, Ilya Nachevsky), journal True (), dates {'v1': '21 Oct 2026', 'v2': '6 Nov 2026'} True; 1309.2448: title True, authors True (Vladimir Dzhunushaliev, Vladimir Folomeev, Burkhard Kleihaus, Jutta Kunz, Eugen Radu), journal True (Phys. Rev. D 88, 124028 (2013)), dates {'v1': '10 Sep 2013'} True  (0.0 s)
+
+== P2: quoted strings ==
+[PASS] P2: 9 of 9 quoted strings found; missing: []  (0.0 s)
+
+== P3: numbers ==
+[PASS] P3: 16 of 16 numbers, 7 of 7 strings found; missing: []  (0.0 s)
+
+== P4: [SN26b] v1 against v2 ==
+[PASS] P4: (phrase, in v1, absent from v2): [('no evidence of instability', True, True), ('addresses the four-dimensional stability question', True, True)]  (0.0 s)
+
+== P5: |J|/A from the exact solution ==
+[PASS] P5: with G = 0.079577: [(2.190024, 0.10062757, True), (2.059523, 0.05475023, True), (3.948341, 0.4871686, True)]; lambda -> 4: 0.500000000; with G = 1.000000 none rounds: True; G-fixing statements in the 5D sources: []  (0.0 s)
+
+checks failed: ['P1']; 0.0 s; mutation: author
