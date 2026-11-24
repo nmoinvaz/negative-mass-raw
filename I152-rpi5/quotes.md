@@ -8,11 +8,16 @@ Source keys: A = arXiv:2610.38659 v1, S = arXiv:2610.29941 v2 (current), S1 = ar
 
 | question | quote ids |
 |---|---|
-| Q1 | A01, A02, A06, A07, A10, A11, A12, A18, A19, A20, A21, A22, A23, A42, A43, A44, D02, D08, D09, D10, D11, D21, D22, S01, S04, S07, S08, S09, S10, S11, S12, S13, S15, S16, S19, S20, S21, S38, S40 |
-| Q2 | A02, A03, A04, A05, A12, A13, A14, A15, A16, A17, A18, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A35, A36, A37, A38, A39, A41, A42, D03, D04, D05, D06, D07, D12, D13, D14, D15, D16, D17, D18, D19, D20, S04, S05, S06, S11, S12, S13, S34, S35, S36, S37, S39, V03, V04 |
+| Q1 | A45, A01, A02, A06, A07, A10, A11, A12, A18, A19, A20, A21, A22, A23, A42, A43, A44, D02, D08, D09, D10, D11, D21, D22, D24, D25, D26, S01, S04, S07, S08, S09, S10, S11, S12, S13, S15, S16, S19, S20, S21, S38, S42, S40 |
+| Q2 | A02, A03, A04, A05, A12, A13, A14, A15, A16, A17, A18, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A35, A36, A37, A38, A39, A41, A42, D03, D04, D05, D06, D07, D12, D13, D14, D15, D16, D17, D18, D19, D20, D23, S04, S05, S06, S11, S12, S13, S34, S35, S36, S37, S39, S41, V03, V04 |
 | Q3 | S02, S03, S14, S15, S16, S17, S18, S21, S22, S23, S24, S25, S26, S27, S28, S29, S30, S31, S32, S33, S38, S39, V01, V02 |
 | Q4 | A04, A08, A09, A30, A34, A40, A41, A43, D10, D11, D18, S06, S37, V03 |
 | Q5 | A07, A08, D01, D14, D17, D18, D20, S05, V05 |
+
+### A45: arXiv:2610.38659 v1, Abstract, sentence 4
+PDF p. 1; TeX line 61 of `src/2610.38659/main.tex`; Q1.
+
+> On this exact background we revisit the cohomogeneity-one perturbation problem.
 
 ### A01: arXiv:2610.38659 v1, Abstract, sentence 1
 PDF p. 1; TeX line 58 of `src/2610.38659/main.tex`; Q1.
@@ -360,6 +365,26 @@ PDF p. 14; TeX line 1327-1328 of `src/1309.2448/rotworm.tex`; Q1.
 
 > (b) the two unstable modes of the rotating wormhole at the angular momentum $J/A=0.05475$.
 
+### D23: arXiv:1309.2448 v1, Fig. 7, caption
+PDF p. 14; TeX line 1324-1326 of `src/1309.2448/rotworm.tex`; Q2.
+
+> (a) the single unstable mode of the static wormhole, and the single unstable mode of the rotating wormhole at the critical angular momentum of the bifurcation;
+
+### D24: arXiv:1309.2448 v1, Fig. 8, caption
+PDF p. 14; TeX line 1357-1359 of `src/1309.2448/rotworm.tex`; Q1.
+
+> The scaled eigenvalue $\Omega^2 e^{-a_{-\infty}}A^{2/3}$ is shown as a function of the scaled angular momentum $J/A$ for $a_{-\infty}=0,1,-1$.
+
+### D25: arXiv:1309.2448 v1, Sec. VI, paragraph 1
+PDF p. 15; TeX line 1449 of `src/1309.2448/rotworm.tex`; Q1.
+
+> The rotating solutions have been obtained by numerical integration.
+
+### D26: arXiv:1309.2448 v1, Abstract, sentence 3
+PDF p. 1; TeX line 70-72 of `src/1309.2448/rotworm.tex`; Q1.
+
+> For a given size of the throat, the angular momenta are bounded by the value of the corresponding extremal Myers-Perry black hole, which represents the limiting configuration.
+
 ### S01: arXiv:2610.29941 v2, Abstract, sentences 1-2
 PDF p. 1; TeX line 73 of `src/2610.29941v2/research.tex`; Q1.
 
@@ -562,6 +587,16 @@ PDF p. 9; TeX line 409 of `src/2610.29941v2/research.tex`; Q1, Q3.
 PDF p. 8; TeX line 403 of `src/2610.29941v2/research.tex`; Q2, Q3.
 
 > so at this spin the direction of departure depends on the numerical setup.
+
+### S41: arXiv:2610.29941 v2, Sec. V, "Against the perturbative prediction", paragraph 2
+PDF p. 9; TeX line 409 of `src/2610.29941v2/research.tex`; Q2.
+
+> The $28.8\%$ and $33\%$ models have expanding evolutions, with fitted times $\tau=12.1$ and 8.8.
+
+### S42: arXiv:2610.29941 v2, Sec. VI, paragraph 1
+PDF p. 9; TeX line 416 of `src/2610.29941v2/research.tex`; Q1.
+
+> We have constructed stationary rotating Ellis--Bronnikov wormholes in two families from slow rotation to $v_e\approx0.99$,
 
 ### S40: arXiv:2610.29941 v2, Sec. VII
 PDF p. 10; TeX line 431 of `src/2610.29941v2/research.tex`; Q1.

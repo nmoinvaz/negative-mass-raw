@@ -9,7 +9,9 @@ C2  every @pdf fragment occurs in its PDF (squashed to lower-case alphanumerics)
 C3  every sentence of every proposed row cites existing quote ids, and the row's table cell equals its sentences joined
 C4  sha256 of every file in sha256sums.txt equals the file on disk
 C5  every number in a proposed sentence occurs in a cited quote
-Mutations (each must exit 1): quote pdf cite dangling sha number absent cell
+C6  every double-quoted string in a proposed sentence occurs in a cited quote
+CALC1 is a pseudo-id for jovera_check.py (a recompute, valid only if jovera_run1.log passed)
+Mutations (each must exit 1): quote pdf cite dangling sha number absent cell quoted bullet
 """
 import hashlib
 import re
@@ -126,7 +128,10 @@ def check_quotes(quotes):
             continue
         tex = collapse(q.get("tex", ""))
         if MUT == "quote" and qid == quotes[0]["id"]:
-            tex = tex.replace("independent", "dependent", 1)
+            altered = re.sub(r"^\S+", "Xqzv", tex, count=1)
+            if altered == tex:
+                fail("mutation quote is inert")
+            tex = altered
         if not tex:
             fail(f"{qid}: empty @tex")
             continue
@@ -167,55 +172,88 @@ def check_quotes(quotes):
 # ---------------------------------------------------------------- proposal
 def parse_proposal(path, quotes):
     ids = {q["id"] for q in quotes}
-    text = (HERE / path).read_text(encoding="utf-8")
-    rows, sents = {}, {}
-    for line in text.splitlines():
+    lines = (HERE / path).read_text(encoding="utf-8").splitlines()
+    sents, types = {}, {}
+    for line in lines:
+        m = re.match(r"^### Row (R\d+) (table|bullets)\b", line)
+        if m:
+            types[m.group(1)] = m.group(2)
         m = re.match(r"^- (R\d+)\.(\d+) (.+) \{([^}]*)\}\s*$", line)
         if m:
             sents.setdefault(m.group(1), []).append((int(m.group(2)), m.group(3), [c.strip() for c in m.group(4).split(",") if c.strip()]))
-    plus = [ln[1:] for ln in text.splitlines() if ln.startswith("+|")]
-    return sents, plus, ids
+    plus = [ln[1:] for ln in lines if ln.startswith("+|")]
+    bullets, cur = [], None  # sentence bullets of the diff: "+" lines indented 4+ spaces then "- ", with continuation lines
+    for ln in lines:
+        m = re.match(r"^\+\s{4,}- (.*)$", ln)
+        if m:
+            cur = [m.group(1).strip()]
+            bullets.append(cur)
+        elif cur is not None and re.match(r"^\+\s{6,}\S", ln):
+            cur.append(ln[1:].strip())
+        else:
+            cur = None
+    bullets = [" ".join(b) for b in bullets]
+    return sents, types, plus, bullets, ids
 
 
 def check_proposal(quotes):
     if not (HERE / "proposal.md").exists():
-        print("proposal.md not present yet: C3 and C5 skipped")
+        print("proposal.md not present yet: C3, C5, C6 skipped")
         return
-    sents, plus, ids = parse_proposal("proposal.md", quotes)
+    sents, types, plus, bullets, ids = parse_proposal("proposal.md", quotes)
     qd = {q["id"]: q for q in quotes}
     if not sents:
         fail("C3 no sentences found in proposal.md")
-    for ri, (row, items) in enumerate(sorted(sents.items())):
+    ti = 0
+    for row, items in sorted(sents.items()):
         items.sort()
         for k, (n, s, cites) in enumerate(items):
             if MUT == "cite" and row == "R1" and n == 1:
                 cites = []
             if MUT == "dangling" and row == "R1" and n == 1:
                 cites = cites + ["Q99"]
-            if MUT == "number" and row == "R1" and n == 1:
-                s = re.sub(r"(\d)(?=\D*$)", lambda m: str((int(m.group(1)) + 1) % 10), s, count=1) if re.search(r"\d", s) else s
+            if MUT == "number" and row == "R1" and n == 2:
+                s = re.sub(r"0\.10063", "0.10064", s, count=1)
             if not cites:
                 fail(f"C3 {row}.{n}: sentence cites no quote")
             for c in cites:
-                if c not in ids:
+                if c == "CALC1":
+                    log = HERE / "jovera_run1.log"
+                    if not (log.exists() and log.read_text().strip().endswith("failures: 0")):
+                        fail(f"C3 {row}.{n}: CALC1 cited but jovera_run1.log is not a passing run")
+                elif c not in ids:
                     fail(f"C3 {row}.{n}: cited id {c} not in quotes.txt")
             pool = " ".join(collapse(qd[c]["tex"]) + " " + qd[c].get("pdf", "") + " " + qd[c].get("pdfnum", "") for c in cites if c in qd)
             pool = pool.replace("\\,", "").replace("~", "")
-            for num in re.findall(r"\d+\.\d+|\d{2,}", s):
+            if MUT == "quoted" and row == "R1" and n == 5:
+                s = s.replace("may stabilize", "will stabilize")
+            sp = squash(pool)
+            for qs_ in re.findall(r'"([^"]+)"', s):
+                if squash(qs_) not in sp:
+                    fail(f"C6 {row}.{n}: quoted string not in a cited quote: {qs_[:60]}")
+            for num in re.findall(r"\d+\.\d+|\d{2,}", re.sub(r"\[[A-Za-z0-9]+\]", "", s)):
                 if num not in pool:
                     fail(f"C5 {row}.{n}: number {num} not in a cited quote")
             items[k] = (n, s, cites)
-        if ri < len(plus):
-            cells = [c.strip() for c in re.split(r"(?<!\\)\|", plus[ri])]
-            cells = [c for c in cells if c != ""]
-            joined = " ".join(s for _, s, _ in items)
-            cell = cells[1] if len(cells) > 1 else ""
-            if MUT == "cell" and row == "R1":
-                cell += " extra."
-            if cell != joined:
-                fail(f"C3 {row}: table cell differs from the joined sentences")
+        joined = [s for _, s, _ in items]
+        typ = types.get(row)
+        if typ == "table":
+            if ti >= len(plus):
+                fail(f"C3 {row}: no '+|' diff row")
+            else:
+                cells = [c.strip() for c in re.split(r"(?<!\\)\|", plus[ti]) if c.strip() != ""]
+                cell = cells[1] if len(cells) > 1 else ""
+                if MUT == "cell" and row == "R1":
+                    cell += " extra."
+                if cell != " ".join(joined):
+                    fail(f"C3 {row}: table cell differs from the joined sentences")
+            ti += 1
+        elif typ == "bullets":
+            want = joined if MUT != "bullet" else joined[:-1] + [joined[-1] + " extra."]
+            if bullets != want:
+                fail(f"C3 {row}: diff bullets differ from the sentences ({len(bullets)} bullets, {len(want)} sentences)")
         else:
-            fail(f"C3 {row}: no '+|' diff row")
+            fail(f"C3 {row}: no '### Row {row} table|bullets' header")
 
 
 def write_md(quotes):

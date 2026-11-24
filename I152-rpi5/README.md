@@ -92,3 +92,77 @@ Unplanned recompute (labelled as such): neither 2610.38659 nor [DFKKR13] states 
 in 2610.38659 (Eqs. (8), (19)-(22)), |J|/A at the printed lambda values (2.190024, 2.059523, 3.948341) reproduces 0.100628, 0.05475,
 0.48717 and the limits 1/2 (lambda -> 4) and 0 (lambda -> 2) only with G = 1/(4 pi), that is 4 pi G = 1 (`jovera_run1.log`; with
 G = 1 every value is smaller by 4 pi, `jovera_G1.log`). So |J|/A in both papers is in units 4 pi G = 1.
+
+## Answers (quote ids are in `quotes.md`; `S` = 2610.29941 v2, `A` = 2610.38659, `D` = [DFKKR13], `V` = v1 only)
+
+**Q1. System, perturbations, method, range**
+
+| | [DFKKR13] arXiv:1309.2448 | [BGKKKN26] arXiv:2610.38659 | [SN26b] arXiv:2610.29941 v2 |
+|---|---|---|---|
+| system | 5D, Einstein + phantom field, equal angular momenta J₁ = J₂, cohomogeneity one (D02) | same (A11, A01, A07, A12) | 4D, Einstein + phantom scalar (S07, S08), stationary axisymmetric rotation (S09); drainhole family C = 1 evolved, symmetric family only for solver validation (S10, S33) |
+| perturbations | cohomogeneity-one, gauge H₁ = H₃ − H₂, H_φ = 0 for unstable modes (D08, D09, D10) | cohomogeneity-one gravitational sector, same gauge, φ and angular-velocity perturbations decoupled (A19, A43); reflection-symmetric family only (A01) | none added beyond discretization error, except ±10⁻³ radial at D21 (S21, S22); axisymmetric data (S33) |
+| method | linear eigenvalue problem for Ω², auxiliary ODE Ω²′ = 0 on a numerical background (D11, D25); time evolution left as future work (D21) | linear modes, Chebyshev collocation, on an exact (Toda) background (A21, A22, A45) | nonlinear 3+1 evolution, CCZ4, adaptive mesh (S20); τ is a fit of the nonlinear areal radius, not a linear-mode eigenvalue (S38) |
+| range | \|J\|/A from 0 up to the extremal Myers–Perry value (D26); symmetric and \|a₋∞\| = 1 (D24) | λ from 2 (static) to 4 (extremal Myers–Perry, \|J\|/A = 1/2) (A18, A17); followed to \|J\|/A ≃ 0.48717 (A38) | D0 to D90: v_e from 0 to 0.90, 8πJ/A from 0 to 80.8 % (S15, S16, S13); backgrounds to v_e ≈ 0.99 (S42) |
+
+**Q2. The unstable mode as J grows**
+
+- [DFKKR13]: for J > 0 a second unstable mode appears, descended from the static zero mode (D12, D23). The two get closer and merge at J_cr
+  (D14): (\|J\|/A)_cr = 0.10063 for symmetric wormholes and 0.1381 for \|a₋∞\| = 1 (D15, D16). No unstable mode is found beyond it "within
+  the type of modes investigated" (D17). Abstract: "vanishes" (D01); Sec. VI: "bifurcate and disappear" (D20); Sec. V B: "rotation may
+  stabilize wormholes" if "no new unstable modes of a different type appear" (D18).
+- [BGKKKN26]: the same two imaginary frequencies coalesce at \|J\|/A = 0.100628 (λ = 2.190024, ω_EP A^{1/3} = 2.429974 i), with the eigenvectors
+  (A03, A26, A27, A28, A29). Beyond it the pair is ω± = ±ω_R + iω_I, ω_I > 0 (A04, A30, A33, A35, A36). ω_I A^{1/3} falls to order 10⁻⁶ and
+  Re ω to zero near \|J\|/A ≃ 0.48717; the data are consistent with ω_I ∼ (\|J\|/A − 0.5)⁶ (A37, A38, A39).
+- Normalization, copied: J = J₁ = J₂ (A12, D03), read from the asymptotics of the rotation function (A16, D04), A the throat area, A_T(0) in
+  [BGKKKN26] (A14, A15) and the minimal-area surface A(0) in [DFKKR13] (D05, D06), with J and M scaled by A (D07). Neither paper states G.
+  Recomputed here from [BGKKKN26]'s exact solution: the printed values need 4πG = 1 (`jovera_run1.log`, controls in `controls/`).
+- [SN26b] has no mode-merger value. Its collapse rate extrapolates to zero at 32 % of the extremal J, against 33 % from second-order theory
+  (S34), an extrapolation not a measured endpoint (S35); the 28.8 % and 33 % models expand (S41); J is a percentage of A/8π (S13), G = c = 1 (S11).
+  v1 said the expansion was consistent with a second mode "rather than with the instability ending in a mode merger" (V03); v2 does not (S37).
+
+**Q3. What "no growth through t = 150 at the fastest spin" rests on (v2)**
+
+- Run: D90, 8πJ/A = 80.8 %, L = 128, N = 128/192/256, finest Δx = 0.0625 ("scaling as 1/N within a triplet"), σ = 0.4, final t = 150 (S15, S14),
+  Δt = 0.02 Δx (S20). 150/5.4 = 27.8 static e-folding times, with 5.4 from Table V (S17, S25): hand arithmetic, matches "about 28" (S02).
+- Evidence: the areal radius drifts by ≤ 7×10⁻⁵ at all three resolutions (S25, S18), constraint norms converge at every level over the run
+  (S28, S29). D75 and D80 show the same over shorter intervals (S26, S31).
+- Claim: "no growing departure" (S02); "prolonged absence of detected radial growth ... over finite times from initially axisymmetric data" (S03);
+  "evidence of prolonged radial stability under the numerical perturbations present" (S31). Not a claim of stability: growth is bounded "only over
+  that span; a slower mode could still emerge later" (S32), only axisymmetric growth is bounded and only C = 1 was evolved (S33), and
+  "no detected growth" is not "measured zero eigenvalues" (S30).
+- Not tested at D90: perturbations of both signs were added only at D21 (S22). The criteria of S22 (nonzero convergent e-fold time) do not apply when there is no growth.
+- v1 was stronger: "no evidence of instability" from 58 % upward (V01) and "addresses the four-dimensional stability question" (V02). v2 removes both.
+
+**Q4. Does 2610.38659 say [DFKKR13]'s "disappears" was wrong?** Refined, and about the same quantity. Same family and J-range, same merger: [DFKKR13]
+"correctly located the merger, but could not follow the modes once ω² left the real axis" (A34). The "apparent loss of the radial instability
+found in the original real-eigenvalue treatment is therefore not stabilization" (A04); "the merger previously interpreted as the disappearance
+of the instability is an exceptional point" (A09); [DFKKR13] "suggested a restoration of radial stability" (A40). Both use the same example
+\|J\|/A = 0.05475 (A23, D22) and the numbers agree (0.10063 is 0.100628 rounded, `jovera_run1.log`). "Real-eigenvalue" is [BGKKKN26]'s word; [DFKKR13]
+says only that for unstable modes −Ω² is positive (D10) and fixes Ω² by an auxiliary ODE (D11).
+
+**Q5. Where [DFKKR13] makes the claim.** In its own abstract (D01), hedged in Sec. V B (D17, D18) and restated in Sec. VI (D20). It is not
+from another paper. 2610.29941 describes it as the instability disappearing "as in five dimensions" (S05; v1: V05).
+
+## Final checks (run `bash run_controls.sh` from this folder; logs in `controls/`)
+
+| check | result |
+|---|---|
+| C1 118 quotes found in their TeX (comments removed, whitespace collapsed); 5 v1-only quotes absent from v2 | pass, exit 0 |
+| C2 each quote's PDF fragment found on one PDF page, numbers on that page | pass |
+| C3 each sentence of the two proposed rows cites existing ids, table cell and bullets equal the sentences | pass |
+| C4 sha256 of 8 committed files | pass |
+| C5 numbers and C6 double-quoted strings of the sentences occur in cited quotes | pass |
+| controls, each must exit 1 | `quote` 1 failure, `pdf` 1, `cite` 1, `dangling` 1, `sha` 8, `number` 2, `absent` 5, `cell` 1, `quoted` 2, `bullet` 1: all exit 1 |
+| `jovera_check.py` (recompute) | exit 0; `--mutate=G1`, `p0`, `exponent`, `lam` exit 1 |
+
+Run cost: `check_quotes.py` 0.85 s, 21 MB rss (`/usr/bin/time -v`), one process, nice 10, load average 0.3.
+
+## Slips and what they taught
+
+- A prediction was wrong (2 above): I expected the claim to come from another paper and did not check the abstract before the README. It is in the abstract.
+- My first milestone comment said "rss < 60 MB" before I had measured it; I measured (21 MB) and corrected the comment by its id.
+- Hash abbreviations typed by hand in this README's file table were wrong once (…a1da for …8da1); the table is now generated from `sha256sums.txt`.
+- The `quote` control went silent when I inserted a quote ahead of the one it altered (it replaced a word the new first quote lacked); `run_controls.sh` expected rc 1, caught it,
+  and the mutation now replaces the first word and fails if inert.
+- The first wrap of the proposal bullets broke "second-order" at its hyphen; the diff-equals-sentences check (C3) caught it.
+- A recompute (G = 1/(4π)) was not in the plan; it is labelled as a recompute here and in the proposal (R1.15).
