@@ -1,0 +1,23 @@
+controls: block-Y-sign travel-offset gauge-drop lemmaR-sign lemmaR-F brho-Q brho-pert brho-bracket planar-sign planar-constK planar-ode add-quad add-pert add-bracket mult-W conical-Q conical-Eb bubble-sign bubble-planted compat-Phi1 lin-claim
+block-Y-sign rc=1 2 s: [FAIL] block 
+travel-offset rc=1 2 s: [FAIL] travel 
+gauge-drop rc=1 2 s: [FAIL] travel 
+lemmaR-sign rc=1 2 s: [FAIL] lemmaR 
+lemmaR-F rc=1 2 s: [FAIL] lemmaR 
+brho-Q rc=1 3 s: [FAIL] brho_solve 
+brho-pert rc=1 3 s: [FAIL] brho_points 
+brho-bracket rc=1 3 s: [FAIL] brho_closure 
+planar-sign rc=1 4 s: [FAIL] planar_stage 
+planar-constK rc=1 4 s: [FAIL] planar_closure 
+planar-ode rc=1 4 s: [FAIL] planar_thm 
+add-quad rc=1 7 s: [FAIL] additive_solve 
+add-pert rc=1 7 s: [FAIL] additive_points 
+add-bracket rc=0 6 s: 
+mult-W rc=1 6 s: [FAIL] mult 
+conical-Q rc=1 8 s: [FAIL] conical_entries 
+conical-Eb rc=1 8 s: [FAIL] conical_solve 
+bubble-sign rc=1 8 s: [FAIL] bubble_F 
+bubble-planted rc=1 8 s: [FAIL] bubble_points 
+compat-Phi1 rc=1 28 s: [FAIL] static_system 
+lin-claim rc=1 28 s: [FAIL] linearized 
+done

@@ -141,3 +141,27 @@ a Python float 0.0 from an integer zero (sympy's `0.0 == 0` is False); the helpe
 dev_04 failed `conical_solve` because the positivity test looked at the coefficients of a polynomial in eta, whose odd
 ones are 0, instead of the polynomial in eta^2; fixed in dev_05. dev_06 crashed in `static_compat` on a draw with a zero
 coordinate (a pole); the draws are now positive rationals and a non-finite value is redrawn (dev_07).
+
+## Amendment A6 (2026-11-24, after control batch run 1): `add-bracket` was SILENT
+
+In `ctl_batch_run1` (logs `ctl_<name>.log`, `.rc`, `ctl_batch_run1.log`) 20 of 21 controls failed exactly their named target
+check and no other. **`add-bracket` was silent**: exit 0, no check failed (`ctl_add-bracket.log`). Reason: for the additive
+family the nonzero part of the kernel commutator is K_1(K_2^mu), not K_2(K_1^mu) (the opposite of #78's D3, where that term
+is the nonzero one), so dropping K_2(K_1^mu) leaves the plane non-integrable and `additive_closure` still passes. The
+original `brho-bracket` (target `brho_closure`, D3) fired. The control `add-bracket` is removed from the target list and
+replaced, after seeing the data, by `add-C0`: the two members with C != 0 in `additive_closure` are replaced by their C = 0
+member u = x, whose kernel is integrable, so "kernel not integrable" must fail. Target `additive_closure`. The silent result
+is recorded here, in the note and in the closing comment. No criterion of any check changed.
+
+## Run record
+
+| file | what | exit |
+|---|---|---|
+| `dev_01` to `dev_08` | development runs (sections 1-3, 1-5, 1-8, 1-10, the `add-C0` replacement), kept as run, never overwritten | see the logs |
+| `ctl_<name>.log`, `.rc` | control batch run 1: 21 controls, each its own process; `ctl_batch_run1.log` lists the failed checks per control | 20 fire on their named target only, `add-bracket` rc 0 (silent, A6) |
+| `ctl_add-C0.log`, `.rc` | the replacement control (copy of `dev_08_addC0.log`) | 1, fails `additive_closure` only |
+| `run_01.log` | the final run, stdout, as `notes/warp/one_sign_classify_output.txt` (checks, then every control) | 0 |
+| `run_01_time.txt`, `run_01_stderr.txt`, `run_01.rc` | `/usr/bin/time -v` of the final run, its stderr (empty), its exit code | 2:51 wall, 82 MB peak resident, 99% of one core, exit 0 |
+
+Final run: 21 of 21 checks pass (26 s), `controls: all fired` (21 of 21: the original 20 plus `add-C0`). Script commit on
+`wip/i158-one-sign`: see the closing comment on #158.
