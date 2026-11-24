@@ -134,7 +134,7 @@ peak resident (`mem_nocontrols.time`). `PYTHONHASHSEED` 1 and 42 give the same o
 |---|---|---|
 | C1 planted forms and failures | pass | 12 of 12 recovered with lam and pattern; 12 of 12 failures without an admissible root |
 | C2 lemma on 24 tensors | pass | 0 disagreements; `lemmaS-weight` makes 8 of 24 disagree |
-| C3 planted P1 (+,+), P2 (-,-) | pass | all four stages; Lambda(x) error below 1e-60, varies by 0.61 and 1.01 between points |
+| C3 planted P1 (+,+), P2 (-,-) | pass | all four stages; Lambda(x) max error 6.2e-61 (60 digits), differs between points by 1.89 (P1) and 0.929 (P2) |
 | C4 deformed D1, D2, D3 | pass | D1 quotient not flat; D2 L_X M != 0, K(lam) != 0; D3 kernel not integrable ([K_1, K_2] = (0, 2/rho, 0, 0)) |
 | C5 wall, general profile | pass | entries, F and the certificate exact; unit ideal (basis [1]); R indefinite at 25 of 25 off-axis points |
 | C6 32 exact points | pass | no admissible root at any; off axis the rank-<=2 locus has no real root, on axis only lam = 0 with inertia (1,1) |
