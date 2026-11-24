@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-raw/I79-mac/ind79_run1.py", line 138, in <module>
+    cc, deg = coeffs_in_c(R3)
+              ~~~~~~~~~~~^^^^
+  File "/Users/nathan/Source/negative-mass-raw/I79-mac/ind79_run1.py", line 133, in coeffs_in_c
+    assert not den.has(C) and not den.has(S) and not num.has(S), "16 r^3 D not a polynomial in c"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 16 r^3 D not a polynomial in c
+real 0.74
+user 0.71
+sys 0.02

@@ -1,0 +1,22 @@
+== H0: planted Ricci ==
+[PASS] H0: Painleve-Gullstrand Ricci-flat  (0 s)
+
+== H1: b(t, x, rho) generic: the block and D ==
+[PASS] H1: R(e_phi, .) = 0: True; block as printed: True; det = D: True  (0 s)
+
+== H2: constant speed: coefficients and the certificates ==
+[PASS] H2: degree 6 in c, odd powers 0: True; c_0, c_3 as printed: True; each c_k in (A, B^2): [True, True, True, True]; #79's cofactors ({'A': 39, 'B^2': 39} terms) give the targets: {'A': True, 'B^2': True}  (1 s)
+
+== H3: 2w = r w', w' + r w'' = 0 force w' = 0 ==
+[PASS] H3: w = C1*r**2; w' + r w'' = 4*C1*r; forces the constant to 0: True  (1 s)
+
+== H4: accelerating bubble: entries at 3 points (Cartesian), coefficients, #79's certificate ==
+[PASS] H4: entries at 3 points: [True, True, True]; degree 6 in c; odd coefficients divisible by 4 A r w': True; #79's 25 cofactors give 1: True  (2 s)
+
+== H5: omega = dm(K, M) k + iota_K dk ==
+[FAIL] H5: 6 instances: candidate = omega_0, rank 4, a random dk violated: [False, False, False, False, False, False]  (2 s)
+
+== H6: b(rho) with b'' + b'/rho = eps b'^2 ==
+[PASS] H6: R = h((d rho)^2 - nu'^2) and (nu ^ d nu)_(t x rho) = b' for eps = +1, -1: [True, True]  (2 s)
+
+checks failed: ['H5']; 2 s; mutation: omega

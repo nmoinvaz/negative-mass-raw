@@ -48,4 +48,55 @@ Mutations, each must exit 1 with its target failing:
 
 ## Results
 
-Written after the runs.
+| file | what |
+|---|---|
+| `rerun/*.txt`, `.err`, `.rc` | the five scripts at 7c6d2a7 with their controls, and `ideals --certs --no-controls` |
+| `rpi5_ideals_certs_output.txt` | `review_two_scalars_ideals_certs_output.txt` at 7c6d2a7, the cofactors ind79 reads |
+| `ind79_run1.*` | run 1: H0 and H1 pass, then the coordinator's own assertion stops H2 |
+| `ind79_run2.py`, `.txt` | run 2: every criterion passes (`ind79.py` is the same version) |
+| `ind79_mut_*.txt` | its 9 mutations, on run 2's version |
+
+**Rerun.** All six runs exit 0:
+
+| script | time |
+|---|---|
+| `cartan` | 30 s |
+| `lemma` | 27 s |
+| `ideals` | 47 s |
+| `omega` | 2 min 34 s |
+| `compare` | 3 s |
+| `ideals --certs --no-controls` | 5 s |
+
+All 32 controls fire. Each output equals the committed one line for line, apart from the timings and the Python
+version, including every residual printed in e-notation. The certificates file equals the committed one, so its
+command is `python3 notes/warp/review_two_scalars_ideals.py --certs --no-controls`, which the note does not state.
+
+**ind79 run 1** stopped at an assertion in the coordinator's code: the reduced 16r³D had the denominator sin²θ, which
+the reduction did not replace by 1 − c². Run 2 divides by 1 − c² there. The criteria did not change.
+
+**ind79 run 2** (exit 0, 2 s):
+
+| criterion | run 2 |
+|---|---|
+| H0 | Painlevé–Gullstrand Ricci-flat |
+| H1 | generic b(t, x, ρ): R(e_ϕ, ·) = 0, the block [[P − h, Q, Z], [Q, −P − h, Y], [Z, Y, h]] and det = D exactly |
+| H2 | 16r³D of degree 6 in c with no odd powers; c₀ and c₃ as printed; each c_k in (A, B²); #79's 39 + 39 cofactors give A and B² exactly |
+| H3 | w = C₁r², and w′ + rw″ = 4C₁r forces C₁ = 0 |
+| H4 | the accelerating entries at 3 exact points (Cartesian route); degree 6 in c; odd coefficients divisible by 4Arw′; #79's 25 cofactors give 1 exactly |
+| H5 | 6 instances: the candidate equals ω₀, rank 4, a random dk is violated |
+| H6 | R = h((dρ)² − ν′²) and (ν ∧ dν)_{txρ} = b′ for ε = ±1 |
+
+Re-solve: H1, #65's D for a generic b(t, x, ρ), fully symbolic. #79 did it in the Cartan jets of b = G(t, x, y² + z²)
+and at 9 exact points.
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `pg` | 1 | H0 | yes |
+| `qsign` | 1 | H1 | yes |
+| `c3` | 1 | H2 | yes |
+| `cof` | 1 | H2 | yes |
+| `ode` | 1 | H3 | yes |
+| `accY` | 1 | H4 | yes |
+| `acccof` | 1 | H4 | yes |
+| `omega` | 1 | H5 | yes |
+| `h2` | 1 | H6 | yes |
