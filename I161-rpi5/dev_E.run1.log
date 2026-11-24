@@ -1,0 +1,17 @@
+  [E main run: 601 geodesics, t in [0, 10], 6 s]
+[PASS] E_norm: max |2 e^(2 sigma) p' q' - 1| = 2.38e-11 over 11 stored times and 601 geodesics (<= 1e-8)
+  (6 s)
+[PASS] E_focus: min A = 1.000000000000 over all s and times (>= 1 - 1e-12); max_s A(10, s) = 109.595 (>= 2)
+  (0 s)
+[PASS] E_ext: max |A - 1| = 0.00e+00 for s in +-3..+-6 (<= 1e-12); A' != 0 (> 1e-9) only for s in [-0.60, 0.60] at t = 10
+  (0 s)
+[FAIL] E_hol: L'(t) = 0.00000, 0.98740, 4.49018, 4.50000, 4.50000, 4.50000 at t = 0, 2, .., 10; |L'(10) - 4.5| = 4.79e-06 (<= 1e-5); nondecreasing: True; b in [-4.50000, -0.0e+00] within [-2 h j, 0]: False
+  (0 s)
+[PASS] E_geo: A from the Jacobi ODE vs A = e^sigma sqrt(-2 p_s q_s) from neighboring geodesics (spacing 0.0001) at 5 s values and tau = 2, 3, 5, 8: max relative difference 3.04e-07 (<= 1e-5)
+  (3 s)
+
+checks: 4 passed, 1 failed ['E_hol']. 9 s
+
+real	0m9.313s
+user	0m9.463s
+sys	0m0.061s
