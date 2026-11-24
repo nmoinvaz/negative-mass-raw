@@ -96,3 +96,34 @@ Mutations: `sign` (the (crc) constant negated; A1 and A3's comparison fire), `h_
 Mutations: `exp_sign` (E1 fires), `rw24a_k` (the sign of (RW24a)'s K; X1 fires).
 (nv1) against (3)–(4) at the level of coefficients was done by #146 (R.7) and the coordinator (`I146-mac`, Q3) on the same file;
 it is not repeated here.
+
+## Run log (2026-11-23), what ran and in what order
+
+All scripts: `~/Source/negative-mass-venv314/bin/python -I`, nice 10, one process. Final runs (`*.time` hold /usr/bin/time -v):
+
+| script | exit | PASS | wall | peak rss | log |
+|---|---|---|---|---|---|
+| `lemma1_conversion.py` | 0 | 10 | 2.0 s | 60 MB | `lemma1_conversion.log` |
+| `lemma1_conversion.py --mutate=sign` | 1 | | | | `lemma1_conversion_mut_sign.log`: A3.K, A3.H1, C1, C1', C1'' FAIL |
+| `lemma1_conversion.py --mutate=h_typo` | 1 | | | | A4, A3.0, A3.H1 FAIL (A4 was not predicted; A3.H1 was) |
+| `lemma1_conversion.py --mutate=zm6` | 1 | | | | A2 FAIL |
+| `dg06_check.py` | 0 | 12 | 5.1 s | 62 MB | `dg06_check.log` |
+| `dg06_check.py --mutate=exp_sign` | 1 | | | | E1a FAIL |
+| `dg06_check.py --mutate=rw24a_k` | 1 | | | | X1.H1d, X1.H2d FAIL |
+| `make_quotes.py` | 0 | T1 x4 | 0.04 s | 19 MB | `make_quotes.log`, writes `quotes.md` |
+| `make_quotes.py --mutate=textual` | 1 | | | | T1.q FAIL |
+
+Mistakes, kept in the folder and not hidden:
+
+- `dg06_check_run1.log` (exit 1, 2 min 44 s): 8 FAIL and one vacuous PASS, all from my script. sympy did not cancel the symbolic
+  powers `(r+μ)^n` in X1, so equalities that hold were not recognized; and E1a read the residues with `.coeff(rho, -1)` on an
+  unexpanded expression, got 0, and compared 0 with 0 (a PASS that could not fail). Fixed by writing ζ = r u e^{kt} with
+  u′ = u(n/(r+μ) − k) (rational expressions only) and by taking the residues with `limit`, and by adding E1a0, which requires
+  the residues to equal 2 and 4λ²/(3μ(2λ+3)). No criterion or prediction was changed. Run 1 also printed `nan` for χ′/χ.
+- `make_quotes.py` first run: T1.inv FAIL because I sliced fixed line numbers that missed the equation. Replaced by extraction
+  from the `\label` line to `\end{equation}`. T1.q and T1.h passed in that run.
+- A4 of `lemma1_conversion.py` compares two expressions typed by me, so it can only fire under `--mutate=h_typo`; the real
+  check that DG06's and DG08's definitions are the same text is T1 of `make_quotes.py`.
+- The mutation `--mutate=textual` of `make_quotes.py` writes `quotes.md` before it exits 1; the file in the folder is from the
+  clean run that followed.
+- `make_index.py` ran once from the wrong directory (no effect).
