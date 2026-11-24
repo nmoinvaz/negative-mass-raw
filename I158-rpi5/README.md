@@ -119,3 +119,25 @@ are not classified.
 
 Every stdout goes to a log in this folder: `run_<n>.log` for the checks, `ctl_<mutation>.log` and `.rc` for each
 control. Reruns are numbered, never overwritten.
+
+## Amendments (2026-11-24, after the first development runs, before any run of record)
+
+No criterion or threshold changed. Wording that was looser than the code, now stated as coded:
+
+- **A1, C8 `planar_thm`.** The check holds the initial velocity beta = x_X'(t1) fixed and reads the coefficient of X in
+  x_X(t*) and x_X'(t*): cosh and kappa sinh of kappa (t* - t1) (resp. cos and -kappa sin). The by-hand Theorem P needs
+  beta(X) = -b(t1, X) bounded, which adds a bounded term to both; that step is by hand, not checked.
+- **A2, C19 `linearized`.** As coded: at eps = 0 (P, Q, Z, Y) = 0 and h = C^2/(2 rho^2); the three relations
+  Z v1^2 + Q Y, P v1^2 + Q^2 + Y^2, v1^4 - 2 h v1^2 + Q^2 lie in the radical of Lemma R's ideal saturated by v1; the O(eps)
+  parts of the first two (v1^2 a symbol s0 + eps s1) are (w_xrho/2) s0 and -u0 w_xx s0; the family w = c x + g(rho)
+  satisfies w_xrho = 0 and u0 w_xx = 0.
+- **A3, C16a.** "times 1" in the criterion is a typo; the claimed identity is 8 r^3 F = s^2 c^2 B with B the bracket.
+- **A4, C2 (d).** A generic draw with F = 0 is skipped (none occurred, 16 of 16 used).
+- **A5.** The note's Theorem P is for any time interval of positive length, by two times t1 < t* within the interval
+  (K0 < 0: t* - t1 < pi/(2 kappa)); the check covers the algebra, not the covering argument.
+
+Development runs are kept as `dev_NN_*.log` (never overwritten). dev_02 failed `additive_block` because `blocks()` made
+a Python float 0.0 from an integer zero (sympy's `0.0 == 0` is False); the helper now sympifies its arguments (dev_03).
+dev_04 failed `conical_solve` because the positivity test looked at the coefficients of a polynomial in eta, whose odd
+ones are 0, instead of the polynomial in eta^2; fixed in dev_05. dev_06 crashed in `static_compat` on a draw with a zero
+coordinate (a pole); the draws are now positive rationals and a non-finite value is redrawn (dev_07).
