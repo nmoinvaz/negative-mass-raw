@@ -46,7 +46,7 @@ changed; H5).
 | H4 | Maeda's (roberts1) is Brady's (8) with (C₁, C₂) = (α, β), and φ_B = +2√π φ_M + const |
 | H5 | 2610.13206v2: "do not establish the scaling" and "consistent with a type-I critical solution"; 2604.00071: "to force a clean collapse … we reduce the phantom stress-energy" by a factor 1/2; 2406.02466v2: "not a black hole"; INSPIRE's abstract of 2610.38659: "0.100628" and "not stabilization" |
 
-So p = −C₁C₂ and Φ_F = −2√π φ_M + const (Maeda's lower sign), as #50 states. Re-solve: H3, the map from the two papers'
+So p = −C₁C₂, and Φ_F = −φ_B = 2√π φ_M + const when φ_M takes the lower sign of Maeda's ±, as #50 states. Re-solve: H3, the map from the two papers'
 own printed formulas.
 
 | mutation | exit | failed | target met |
