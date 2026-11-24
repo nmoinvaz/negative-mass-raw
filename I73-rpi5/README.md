@@ -96,6 +96,19 @@ leave the route checks alone. `phantom_source.py --mutate=accel-static` is expec
 The surface D = 0 off the points that `he_type_exact` is run on (#72's results are for constant speed), the time evolution of the
 map along a journey, any lapse other than 1, Lean statements (#135). The lemma lists in `he_accel.md` are written for #135.
 
+## Changed before the first run of the script (2026-11-23, no run of `he_accel.py` exists yet)
+
+1. **`drop_detected`.** The criterion said the labels differ "at every slice with α ≠ 0 or u ≠ v". At v = 0 (P2, t = 0) that cannot
+   hold: with the acceleration dropped the block is the zero tensor, which is Type I, and with it the point is Type I too, so
+   the I/IV labels coincide. That is prediction 4, not a failure of the check. The criterion is now "at every slice with
+   v ≠ 0 and (α ≠ 0 or u ≠ v)"; the labels at P2 t = 0 are reported, and `rest` covers that slice.
+2. **Scratch derivation.** After writing this README and before the script I derived the closed form in scratch files (not in
+   the repository): route D's block at z = 0 equals R_00 = T_x − A, R_01 = j₁, R_0ρ = j_ρ, R_11 = A − q − T_x,
+   R_1ρ = B − T_ρ/2, R_ρρ = q/2, with T_x = ∂_t∂_x b, T_ρ = ∂_t∂_ρ b, and the cubic of M − M_00 I has the coefficients
+   c₂ = q − p, c₁ = j₁² + j_ρ² − pq − h², c₀ = 2 j₁j_ρh − p j₁² + q j_ρ², with p = R_ρρ + R_00, h = R_1ρ, q = 2R_ρρ. So predictions
+   1, 2 and 5 held in scratch and the script re-checks them as stated, with the controls above. `ht.route_C()` takes 17 s here, so
+   no cache of symbolic results is used.
+
 ## Added after the first run
 
 (nothing yet)
