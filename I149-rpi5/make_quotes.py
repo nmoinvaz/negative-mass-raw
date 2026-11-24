@@ -139,8 +139,8 @@ quote(F["g2"], 731, 735, ["\\label{RW24a}"], "(RW24a), the explicit unstable mod
 out.append("### 2.2 DG06 v1, quoted\n")
 out.append("v1 has the section \"A modified Regge-Wheeler-Zerilli formalism\" (lines 248-300) with (AppB1), (RW17) and (AppB2), "
            "and no (nv1), (im), Lemma 1 or (cz). The regularity of all solutions at r_s is argued in an appendix (lines 765-899). "
-           "A search of v1 for `cz`, `nv1`, `Lemma`, `im` and for λ² finds only the potential (line 188), (RW17) (line 274) and the "
-           "unrelated hits; its other text on r = 3μ/4 (lines 400-420, the ℓ = 2 solution of the earlier paper) states no condition "
+           "A grep of v1 for the labels and references `cz`, `nv1`, `im` and for the word Lemma finds nothing (0 lines; v2 has all three labels); "
+           "its other text on r = 3μ/4 (lines 400-420, the ℓ = 2 solution of the earlier paper) states no condition "
            "on ζ′.\n")
 quote(F["g1"], 252, 259, ["we define $\\mu = -2M$", "\\label{AppB1}"], "μ = −2M and ζ")
 quote(F["g1"], 276, 300, ["\\label{AppB2}", "regular around"], "(AppB2) and the sentence on r_s")
