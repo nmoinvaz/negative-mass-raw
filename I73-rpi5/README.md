@@ -162,3 +162,21 @@ The first run's other results are unchanged by these changes.
   and `decouple` failing, but it is not a result). `--mutate=accel-lapse` now stops after section 3, where both of its targets
   are decided, unless `--stop` is given. The output of that run says so. No other control or check changes.
 
+## Result and files (2026-11-23)
+
+Final run: `he_accel.py` at 79d7f00 (repository, branch `wip/i73-he-accel`; sha256 5611b27b…), stdout in the repository as
+`notes/warp/he_accel_output.txt` and copied here as `he_accel_output_final.txt`, exit 0 (`final.rc`), 40 min, 13 of 13 checks pass,
+13 of 13 controls fire, and `phantom_source.py --mutate=accel-static` fires.
+
+| file | what it is |
+|---|---|
+| `step2.log`, `he_accel_step2.py` | sections 1 to 7 at c7fe197, exit 0, 80 s, 10 checks pass |
+| `step3.log` | **run 1** of the grids at c7fe197, exit 1, `closed_vs_numeric` FAILS (see "Added after the first run") |
+| `step3b.log`, `he_accel_step3b.py` | run 2 at 7d4519a, exit 0, 13 of 13 pass, 188 s |
+| `ctl_<name>.log`, `.rc`, `.err`, `controls_queue.log`, `launch_controls.sh` | the 13 controls and phantom_source's control, one process each, at 79d7f00 (the first five at 7d4519a, which differs only by the guards listed above) |
+| `final.err` | stderr of the final run (empty) |
+| `aborted_vetoed_rule/`, `aborted_slow_controls/`, `aborted_lapse_structure/`, `aborted_lapse_axis/` | runs I stopped, each for the reason given above. Not results. |
+
+The control table of this README against the observed outcome: every control failed all of its listed targets. Failures besides the
+targets are in `he_accel.md` and `he_accel_output.txt`. No target was SILENT.
+
