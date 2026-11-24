@@ -50,4 +50,48 @@ Mutations, each must exit 1 with its target failing:
 
 ## Results
 
-(after the runs)
+| file | what |
+|---|---|
+| `rerun/one_sign_classify_full.*` | the rerun at 04a30d8: stdout, `/usr/bin/time -l`, exit code |
+| `ind158_run1.py`, `.txt`, `.time` | run 1 |
+| `ind158_mut_*.txt` (no suffix), `ind158_mut_conEb_run1.txt` | run 1's mutations |
+| `ind158_run2.py`, `.txt`, `.time` | run 2, after the K7 change below (`ind158.py` is the same version) |
+| `ind158_mut_*_run2.txt` | run 2's 9 mutations |
+
+**Rerun** (exit 0, 47 s, 97 MB peak): 21 of 21 checks pass and 23 of 23 controls fire. The output equals rpi5's apart
+from the timings and the Python version.
+
+**ind158 run 1** (exit 0, 2 s, 76 MB peak):
+
+| criterion | run 1 |
+|---|---|
+| K0 | Painlevé–Gullstrand Ricci-flat |
+| K1 | the own frame Ricci of an undefined b(t, x, ρ) equals the printed block, and R(e_φ, ·) = 0 |
+| K2 | N = −vvᵀ at λ = h + v₂²; the two identities with A and B; A = 0 forces QYZ < 0; 30 of 30 v-blocks have the single rank-1 root h + v₂², and 30 of 30 generic blocks have none |
+| K3 | b(ρ): P = Z = Y = 0; C ln ρ + b₀ has Q = 0; the kernel is 2-dimensional and not involutive |
+| K4 | planar diag(P, −P, 0); the gcd of the minors is λ + P; the growth coefficients as stated |
+| K5 | the additive block; v₀, S and uX″ in the radical; the kernel is not involutive at (C, c) = (2, 3/2) and (3, 1), and is involutive at C = 0 |
+| K6 | the F identity with W = 3XR + v; the unit ideal |
+| K7 | the scaled conical entries; E_a and E_b times the saturating product (k = 1) lie in the ideal; G = Cη/(η² + 1); the factorization of E_a; F′ − G as printed |
+| K8 | at 3 exact 2-jets with YZ ≠ 0: the third-order matrix is nonsingular, and the fourth-order system has rank 5 but augmented rank 6, so it is inconsistent. Planted: consistent (5, 5) and inconsistent (5, 6) as expected |
+
+Re-solve: K8, the claim that the static class with u_xρ ≠ 0 is not Frobenius closed. ind158 tests it by its own route,
+linear algebra on 3- and 4-jets at its own points, without #158's (s, σ, C).
+
+**K7 and run 2.** In run 1 the `conEb` mutation hung in K7's membership loop. That loop tries powers k = 0 … 6 of the
+saturating product ηGUwv₀ times E_b against the Gröbner basis. For a non-member it reaches products of degree ~30, and
+it ran 13 min before the coordinator stopped it. So `conEb` was **silent** in run 1 (`ind158_mut_conEb_run1.txt`).
+Change: the loop tries k ≤ 2. Membership found with k ≤ 2 is still membership in the saturation, so the change can only
+make K7 fail more often. Run 2 equals run 1 apart from the timings (the unmutated run needs k = 1).
+
+| mutation | run 1 | run 2 | target met (run 2) |
+|---|---|---|---|
+| `pg` | K0 | K0 | yes |
+| `Ysign` | K1, K6, K7 | K1, K6, K7 (K6 and K7 use the same block) | yes |
+| `lemR` | K2 | K2 | yes |
+| `brho` | K3 | K3 | yes |
+| `growth` | K4 | K4 | yes |
+| `addP` | K5 | K5 | yes |
+| `multW` | K6 | K6 | yes |
+| `conEb` | hung, stopped (silent) | K7 | yes |
+| `jet4` | K8 | K8 | yes |
