@@ -151,4 +151,10 @@ The first run's other results are unchanged by these changes.
 - The script also prints the list of monomials of 64 r⁶ D (section 5). No check changes.
 - The controls are the single runs of `launch_controls.sh`, one `--mutate=NAME` per process, log `ctl_NAME.log`, exit code
   `ctl_NAME.rc`. Their targets are the table above.
+- **Second stop, `accel-lapse`.** The control with the lapse 1 + b was still in `structure` after 6 min, doing symbolic algebra on a
+  block with rational entries that violates (I2). I stopped the queue (`aborted_lapse_structure/`, not a result). `structure` and
+  `parity` now fail at once, without computing, for a block that fails (I1) or (I2): the shifted form of D is not defined for it. For
+  the unmutated block nothing changes (a dev run of sections 1 to 7 gives the same output). `accel-lapse` and `alc-drop-w2` break
+  (I2), so `structure` and `parity` fire for them by this rule and not by their content. They are not targets of those two controls.
+  Controls already finished before this change: `disc-sign`, `no-rank`, `num-drop-w2`, `num-static`, `accel-static`; their blocks satisfy (I2).
 
