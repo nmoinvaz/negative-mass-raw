@@ -1,0 +1,16 @@
+== L0: planted Ricci ==
+[PASS] L0: Painleve-Gullstrand Ricci-flat  (0 s)
+
+== L1: generic b(t, x, y, z): the ten frame components ==
+[PASS] L1: own Ricci in the frame equals the printed closed forms: True  (0 s)
+
+== L2: the sheared shift b = -v F(q) ==
+[PASS] L2: cross = 2 v^2 F'^2 z: True; (I1) residues: True; (I2): True; identity: True; R(w, E_0): True  (1 s)
+
+== L3: case (B) algebra ==
+[PASS] L3: c3, c4, c5 among the minors: [True, True, True]; every minor vanishes on the solved forms: True  (1 s)
+
+== L4: the z-axis point ==
+[PASS] L4: F = 0.82584465013, F' = -0.089718748297, F'' = 0.1318569451; largest minor 9.638e-64, trace -0.0482967; with F'' + 1/10 largest minor 0.0378231  (1 s)
+
+checks failed: []; 1 s; mutation: none

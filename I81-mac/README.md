@@ -38,4 +38,35 @@ Mutations, each must exit 1 with its target failing:
 
 ## Results
 
-Written after the runs.
+| file | what |
+|---|---|
+| `rerun/sheared_full.*` | the rerun at 0219825: stdout, `/usr/bin/time -l`, exit code |
+| `ind81_run1.py`, `.txt` | run 1: every criterion passes (`ind81.py` is the same version) |
+| `ind81_mut_*.txt` | its 5 mutations |
+
+**Rerun** (exit 0, 96 s, 91 MB peak): 20 of 20 checks pass and 20 of 20 controls fire. The output equals rpi5's line
+for line apart from the timings and the Python version.
+
+**ind81 run 1** (exit 0, 1 s):
+
+| criterion | run 1 |
+|---|---|
+| L0 | Painlevé–Gullstrand Ricci-flat |
+| L1 | the own Ricci of a generic b(t, x, y, z) in the frame equals the ten printed closed forms |
+| L2 | the cross product, the (I1) residues, (I2), the identity, and R(w, E₀) for the sheared shift, exactly |
+| L3 | c3, c4, c5 are minors of N; every minor vanishes on the solved forms |
+| L4 | F = 0.82584465013, F′ = −0.089718748297, F″ = 0.1318569451; largest minor 9.6e-64, trace −0.0483 < 0; with F″ + 1/10 the largest minor is 0.0378231 |
+
+Re-solve: L4, the z-axis point, from the coordinator's own Ricci tensor. #81 reports 1.2344e-63 and 0.037823.
+
+The by-hand reduction and corollary of `sheared.md` were read and rederived step by step. The steps were case (A) and
+the lemma, case (B) giving u₂ = 0 and c1–c5, and r₀ ≠ 0 forcing (B). Then c1, c2 and the identity give q_X = 0, then
+q_y = 0, then X = y = 0. No gap was found.
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `pg` | 1 | L0 | yes |
+| `r1a` | 1 | L1, L2, L4 (both build on the closed forms) | yes |
+| `ident` | 1 | L2 | yes |
+| `c5` | 1 | L3 | yes |
+| `zoff` | 1 | L4 | yes |
