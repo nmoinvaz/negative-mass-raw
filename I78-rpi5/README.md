@@ -174,6 +174,6 @@ Two controls fire more checks than the README predicted: `acc-static` (the jets 
 `wall_lambda0` fails as well). They are reported, not adjusted. `d3-bracket` was run twice (`ctl_d3-bracket.log`,
 `ctl_d3-bracket_run2.log`): the second run follows a change of the check's message text only.
 
-Commands and exit codes: `--stop=2`, `--stop=3`, `--stop=5` and the full no-controls pilots exit 0, 0 (killed, 143),
-0, 1 (pilot_05, `brho_rank1`); the batch of 20 controls and `brho-q`, `d3-bracket` all exit 1 (a fired control); the final
+Commands and exit codes: pilot_01 (`--stop=2`) 0, pilot_02 (`--stop=3`) 143 (killed by hand), pilot_03 0, pilot_04
+(`--stop=5`) 0, pilot_05 (all sections, no controls) 1 (`brho_rank1`); the batch of 20 controls and `brho-q`, `d3-bracket` all exit 1 (a fired control); the final
 run exits 0.
