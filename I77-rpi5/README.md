@@ -83,3 +83,11 @@ Pilot logs: `pilot_full_nocontrols.log` (+ `.time`: 118 s, 86 MB peak) at b56280
   (a) to 1e-20, else the check fails. Control `lam-const`: takes d lam = 0 and L_K M = 0 at every root; target
   `wall_lam_potential`, which must then fail. (Coordinator's step 3, C7b, is added to this README only if L_K M = 0 at
   one of the 4 equator roots.)
+- **C7 as written: PASS** (pilot `pilot_c7_written.log`, b56280c + the OR test). L_K M != 0 at all 27 admissible
+  roots, including the 4 roots at c = 0 (relative sizes 1.5e+01, 3.5e+01, 3.6e+00, 1.0e+00); K(lam) alone != 0 at 23 and
+  = 0 at 4, all four at c = 0. The finite-difference K(lam) agrees with the implicit-function one to 5e-67. C7b is
+  therefore not written. The line "C7 as coded at b56280c: FAIL at 4 of 27 roots, all at c = 0" stays in the record.
+- Controls added: `lie-dk` (drops the dK terms of L_K M; target `wall_lam_potential`, which tests the identity
+  (L_K M)(K, .) = 0 inside its condition) and `acc-static` (target `acc_const_limit`); `lam-const` now takes d lam = 0
+  and L_K M = 0 at every root (target `wall_lam_potential`). Each control stops after the last section holding its
+  targets (`STOP_AT` in the script); the targets are unchanged.
