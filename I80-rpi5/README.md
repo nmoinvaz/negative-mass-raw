@@ -118,6 +118,40 @@ part of degree 3 in (F', F'') is 2 F w^2 (F^2 F'' - eta w), w = F' + eta F'' (ex
 -w^2 ((eta^2 + 1)(eta^2 + 2) F'^2 + 2 eta F w) (exact). Consequence (by hand, conditional on regular asymptotics, stated so in
 the note): no solution has a limit at eta -> +-inf with a power or exponential approach. Pass: the three identities.
 
+**C9 outcome (added 2026-11-24 after `dev_mid.run1.log`): parts (b) and (c) as written above FAILED, and that stands.**
+The script printed 2 F w^2 ((F^2 - 1) F'' - eta w) for the degree-3 part, and -w^2 ((eta^2 + 1)(eta^2 + 2) F'^2 + 2 F (eta w + F''))
+for the lowest part with F, F', F'' small. The hand formula of this README dropped the term -2 F F'' w^2 (and its
+partner in (c)). The wording of (b) and (c) above is kept unchanged as the record. Part (a) (the ODE identity) passed.
+The script's `conical` check keeps only (a); (b) and (c) are replaced by C9b below, by the coordinator's ruling.
+
+**C9b (written after C9 (b), (c) failed; added 2026-11-24 before the rerun).**
+(i) `conical_parts`: the corrected right-hand sides are re-derived by hand in the note from the jets of u = F(x/rho)
+(P = -(F'^2 + F F'')/rho^2, Q = -eta w/(2 rho^2), Z = -w/(2 rho^2), Y = -(eta F'^2 + F w/2)/rho^2, h = eta^2 F'^2/(2 rho^2),
+w = F' + eta F''), not read off the script's N. The note says the formula came from the script first. The check builds the
+degree-3 and degree-4 parts from those hand-derived entries (not from the typed N) and compares them with the parts of
+the typed N, and with the sympy jets of F(x/rho). Expected: degree 3 = 2 F w^2 ((F^2 - 1) F'' - eta w), and with F, F', F''
+all small, degree 4 = -w^2 ((eta^2 + 1)(eta^2 + 2) F'^2 + 2 F (eta w + F'')). Pass: both equalities and the entries equal
+sympy's jets of F(x/rho).
+(ii) `conical_limit`: the conclusion C9 was for, tested directly: no solution of N = 0 has a limit as eta -> +inf by a power
+law F = F_inf + c eta^(-k) (1 + o(1)), or by an exponential F = F_inf + c e^(-kappa eta) (1 + o(1)). Test, with the typed N
+(checked in (i) and C9 (a)): for k in {1/2, 1, 3/2, 2, 5/2, 3, 4, 5, 6}, kappa in {1/2, 1, 2} and F_inf in {0, 1/3, 1, -1, 2}:
+power law: the lowest order of N(F_inf + c eta^(-k)) in 1/eta exists (N is not identically zero) and its coefficient, a
+polynomial in c, has no real root c != 0 (a root would allow a leading-order solution; degrees 3 and 4 in c can meet at
+k = 2); exponential: the lowest order of N(F_inf + u, u = c e^(-kappa eta)) in u has a coefficient that is not the zero
+polynomial in eta (the powers e^(-j kappa eta) of different degrees j cannot cancel). This is written before the
+first run of C9b and is stronger than the first draft of this paragraph, which asked only for 'not identically zero'. Planted truth through
+the same code: for N_pow = F'' + 2 F'/eta (solutions F_inf + c/eta) the code finds the vanishing lowest order at k = 1 for
+every F_inf, and not at k = 2; for N_exp = F'' + F' (solutions F_inf + c e^(-eta)) it finds it at kappa = 1 and not at kappa = 2.
+Pass: all N tests as stated, all planted detections as stated. What this does not show: no asymptotic form other than these
+two (an oscillating or logarithmic approach is not tested).
+
+**C9b (iii) `conical_planted` (criterion and target written 2026-11-24, A3, before its first run of record).** The planted
+detections of C9b (ii) are their own check: the scan code applied to N_pow = F'' + 2 F'/eta finds a limit (the lowest order is
+identically zero) at k = 1 for every F_inf in {0, 1/3, 1, -1, 2} and at no other of k in {1, 2}; applied to N_exp = F'' + F' it
+finds one at kappa = 1 and not at kappa = 2, for every F_inf. Control `conical-plant` (N_pow -> F'' + F'/eta) must fail exactly
+this check. History: the same planted detections ran inside `conical_limit` in `dev_conical.run1.log` (all as stated) and the
+first run with the separate check is the checks-only development run `dev_all.run1.log`; both stay.
+
 **C10 `farfield`.** For u = u_inf + e w(x, rho): the e^3 coefficient of D is -u_inf Z^2 [(1 - u_inf^2) w_xx + Delta_perp w] with Z = w_x,rho/2,
 and the e^0, e^1, e^2 coefficients vanish (exact, undefined w). Pass: both.
 
@@ -143,7 +177,10 @@ generate the same ideal after inverting r w' (sympy Groebner with a saturation v
 | `add-drop` | `additive` | (X + R)^2 replaced by X^2 in E |
 | `add-quad` | `additive` | the elimination step keeps b3 free |
 | `mult-drop-v` | `multiplicative` | u = X R without + v in the expected polynomial |
-| `conical-term` | `conical` | one term (F^2 F''^3 eta^2 coefficient 2 -> 3) changed in N |
+| `conical-term` | `conical` | one term (F^3 F''^3 eta^2, coefficient 2 -> 3) changed in N |
+| `conical-hand` | `conical_parts` | the degree-3 right-hand side is the original wrong one of C9 (b): 2 F w^2 (F^2 F'' - eta w) |
+| `conical-limit` | `conical_limit` | N replaced by N_pow = F'' + 2 F'/eta, which has the limit solutions F_inf + c/eta. **DROPPED 2026-11-24 (A3): its target `conical_limit` already fails on the real N, so the control cannot be told apart from the baseline. Target kept here as first written.** |
+| `conical-plant` | `conical_limit` (as first written); now `conical_planted` (A3) | the planted N_pow replaced by F'' + F'/eta (solutions c ln eta + d, no limit), so the planted detection fails |
 | `far-sign` | `farfield` | the expected e^3 coefficient has + u_inf |
 | `bubble-w2` | `bubble` | the shift's square dropped (u u_xx -> w'' only) in P |
 | `bubble-ode` | `bubble` | the relation r w'' = +w' in place of r w'' = -w' in the ODE step |
@@ -162,4 +199,21 @@ as silent; any later change of the list is dated and recorded below.
 
 ## Amendments
 
-(none yet)
+- 2026-11-24, A2 (coordinator's ruling, hc): `bessel` part (b), perturbed psi + rho^2/10, |D| > 1e-3 at the same points FAILED in
+  `dev_bessel.run1.log`: smallest perturbed |D| = 9.06e-6. The threshold stays as written and gates the exit code. For the final
+  run the part is its own check `bessel_pert` (the rest of C6, including the first part of (b), D = 0 to 1e-50, stays in `bessel`),
+  and the script prints the smallest perturbed |D| with its (c, eps, rho) and all perturbed values, as an observation. No new
+  perturbation or threshold replaces it. The controls loop does not count a baseline failure as an 'extra' failure of a control.
+- 2026-11-24, A3 (coordinator's ruling, hc): C9b (ii) `conical_limit` FAILS on the real N in `dev_conical.run1.log`: at k = 2 the
+  lowest-order coefficient has a real root c = -2 F_inf for F_inf in {1/3, 1, -1, 2} (none at F_inf = 0, none at any other k, none
+  for the exponentials). It stays as written and gates the exit code. Verdict for the conical reduction: 'no limit at eta -> inf'
+  is not established; not decided. The control `conical-limit` is dropped (see the table). The planted detections are the check
+  `conical_planted` (C9b (iii)). Observation, not a criterion: a pure power series F_inf + sum a_j/eta^j with a2 = -2 F_inf fails at
+  the third order after the leading one (F_inf^4 (F_inf^2 + 7) = 0); logarithmic terms are not tested.
+- 2026-11-24, A1: `dev_mid.run1.log` (the first run of the `conical` check): C9 (b) and (c) as worded FAIL. Cause: my hand
+  algebra dropped -2 F F'' w^2 from the degree-3 part (and its partner from the degree-4 part). Ruling by the coordinator
+  (hc, 2026-11-24): the failure stands and is recorded here, in the note and in the closing comment; the wording is not changed;
+  C9b above (written after the failure) replaces (b), (c). The asymptotic conclusion of C9 is re-derived from the corrected
+  forms in the note and tested directly by C9b (ii); it is not carried over.
+- 2026-11-24, before the first run of `det_classify.py`: the `conical-term` row said F^2 F''^3; the term is F^3 F''^3 eta^2 (typo).
+  Development runs (checks one at a time, to fix bugs in the script) are kept as `dev.*.runN.log`; they are not final runs.

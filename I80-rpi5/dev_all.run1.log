@@ -1,0 +1,17 @@
+# cmd: python3 notes/warp/det_classify.py --no-controls  (run1, 2026-11-24T03:02:46-08:00)
+[PASS] d_block: coordinate Ricci of a generic b(t, x, rho), frame (n, d_x, d_rho, d_phi/rho): block = [[P-h, Q, Z], [Q, -P-h, Y], [Z, Y, h]], P = a_x, Y = (b_x b_rho - a_rho)/2, a = b_t - b b_x, R(e_phi, .) = 0, det = D; nonzero differences: none
+  (2 s)
+[PASS] travel: D of b = B(x - v t, rho) minus D of the static u = B + v: 0; D of b(t, x + c t, rho) + c minus D of b: 0. So a traveling shift is a static one, with u -> v at infinity for a bubble
+  (0 s)
+[PASS] planar: b(t, x): R_3 = diag(P, -P, 0), D = 0 symbolically: True; 8 of 8 exact points of 3 planar shifts have P != 0 and pass the algebraic stage with lam = 0; 8 of 8 points of the same shifts + rho^2/10 fail it with D != 0
+  (3 s)
+  sigma = sin(p) e^(q/2)/3: R = (a a - b b) True, closure True, criterion True, expected True
+  sigma = p q + p^2 q: R = (a a - b b) True, closure True, criterion True, expected True
+  sigma = (p + q)^2/5: R = (a a - b b) True, closure True, criterion True, expected True
+  sigma = p^2 q/2 + p q^2/2: R = (a a - b b) True, closure False, criterion False, expected False
+  sigma = e^(p q): R = (a a - b b) True, closure False, criterion False, expected False
+  sigma = p^3 q^2/6 + p q: R = (a a - b b) True, closure False, criterion False, expected False
+[PASS] planar_closure: (i) 3 planted passes and 3 planted failures of the null-coordinate criterion d_p d_q ln|R_pq| = 0 agree with `closure`: True; (ii) d omega_(t xi) = 1/2 Theta' for an undefined u: True; (iii) a jet with Theta'(0) = 0 has d omega_(t xi)(0) = 0: True; the 1+1 bubble u = (1/2)(1 - 1/(1 + xi^2)^2) has Theta' != 0 at 5 exact points: True
+  (13 s)
+[PASS] planar_traveling: for a static planar shift u(xi): the null coordinates p = t - A, q = t + B, A' = 1/(1 - u), B' = 1/(1 + u) give -(1 - u^2) dp dq = the metric: True; R_ab = (u u')' g_ab, so R_pq = -Phi/2 with Phi = (u u')' (1 - u^2): True; d_p d_q Lam(q - p) = -Lam'': True
+  (0 s)

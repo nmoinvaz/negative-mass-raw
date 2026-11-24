@@ -1,0 +1,6 @@
+# cmd: python3 notes/warp/det_classify.py --only=bessel  (run1, 2026-11-24T02:53:39-08:00)
+  closure at exact jets (c, eps, ok, why): [(2, 1, False, 'no chi: omega ^ k = '), (2, -1, False, 'no chi: omega ^ k = '), (6, 1, False, 'no chi: omega ^ k = '), (6, -1, False, 'no chi: omega ^ k = '), (0, 1, False, 'no chi: omega ^ k = '), (0, -1, False, 'no chi: omega ^ k = ')]
+[FAIL] bessel: (a) D = g'^2 (2c^2 + g'^2 - S)(2c^2 + g'^2 + S)/8 for u = c x + g(rho): True; (b) D = 0 to 1e-50 at 36 points (largest |D| 0.0), perturbed psi: smallest |D| 9.06e-6; (c) R = a a - b b on the ODE for eps = +-1: True; (d) the omega equations have no solution at 6 exact jets (c = 2, 6, 0): True
+  (251 s)
+
+checks: 0 passed, 1 failed ['bessel']. 251 s
