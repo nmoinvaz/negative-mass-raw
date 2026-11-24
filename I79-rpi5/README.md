@@ -159,4 +159,13 @@ use no /proc and no Linux-only path.
 
 ## Log
 
-(filled in as the work proceeds)
+2026-11-24, step 2 (D and the lemma). Logs: `cartan.run1_trial.log` (first run of `review_two_scalars_cartan.py --no-controls`,
+exit 0, 8 checks pass, 8 s; it was started from a scratch path and copied here unchanged), `cartan.mut_<NAME>.run1.log` (eight controls),
+`lemma.run1.log` (crashed: a format-string bug in the detail line of `search_planted`, nothing computed after section 3),
+`lemma.run2.log` (exit 0, 6 checks pass, 18 s), `lemma.mut_<NAME>.run1.log` (five controls).
+Controls: 12 of 13 fired on every named target. `nonaxi` exited 1 and fired `blocks_jets` and `planted_D`, but NOT its named target
+`D_cartan_jets` (SILENT in `cartan.mut_nonaxi.run1.log`). The prediction was wrong, not the check: D(printed) is the determinant of
+R(n, d_x, d_y) at z = 0 for every b(t, x, y, z), because review.md's formulas for R_00, R_0x, R_0A, R_xA, R_AB hold with no symmetry,
+so D_cartan_jets cannot see a loss of axisymmetry; what axisymmetry adds is R(e_phi, .) = 0, which `blocks_jets` tests.
+Amendment (made after seeing this run, listed for the coordinator to veto): the `nonaxi` targets in the script are now
+`blocks_jets`, `planted_D`. The README table above keeps the original prediction.
