@@ -140,3 +140,15 @@ the check as written; run 2 is `step3b.log`.
 
 The first run's other results are unchanged by these changes.
 
+## Added before the control runs (step 4), after run 2
+
+- **First control queue stopped.** The first `disc-sign` control, with the recheck cap of 1000, took about 11 min, because every grid
+  of a mutated run has tens of thousands of float64 disagreements and 1000 of them were rechecked at 50 digits. I stopped the queue
+  and set its files aside in `aborted_slow_controls/` (not a result).
+- **No recheck when more than 1000 points are in doubt.** Then the check fails whatever the first 1000 rechecks give, because
+  every point beyond the cap counts as unresolved, so the pass/fail result is unchanged and only the time is saved. A grid with at
+  most 1000 flagged points is rechecked in full, as in run 2. Every grid of run 2 was in that case.
+- The script also prints the list of monomials of 64 r⁶ D (section 5). No check changes.
+- The controls are the single runs of `launch_controls.sh`, one `--mutate=NAME` per process, log `ctl_NAME.log`, exit code
+  `ctl_NAME.rc`. Their targets are the table above.
+
