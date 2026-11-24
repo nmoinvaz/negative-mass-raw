@@ -61,3 +61,38 @@ If DG08's Lemma 1 has a form that does not equal c*, that is reported as a discr
 - `quotes.md`: every quote with its source file, line and sha256.
 - The proposed text for `notes/literature.md` goes in the closing comment on #149 (the coordinator edits the note).
 - The closing comment lists acceptance criteria with verdicts, what ran and its exit codes, this folder and its commit.
+
+## Added after fetching and reading the sources, before running any script (2026-11-23)
+
+What the fetch showed (details in `fetch.log` and `quotes.md`): DG06 has two arXiv versions, v1 (5 Apr 2006) and v2
+(29 May 2006, byte-equal to #146's file); v1 has no (cz), (nv1), (im) or Lemma 1. DG08 has three, v1 (21 Sep 2008),
+v2 (19 Jun 2009), v3 (17 Sep 2009); only v2 and v3 have a "Lemma 1" with the smoothness condition (v1's Lemma 1 is the
+intertwiner lemma, and it prints the condition as (crc) in its section 2, with a remark on DG06's eq. (16)). The journal
+DOIs answered 403 (Cloudflare challenge page); not bypassed. The second journal URL tried for DG06
+(`iopscience.iop.org/.../pdf`) was not in the list above and also answered 403.
+
+Two scripts, `~/Source/negative-mass-venv314/bin/python -I`, formulas typed from the quoted TeX lines (not read from the
+files), each check with a `--mutate=` that must make it fail. Predictions written now:
+
+`lemma1_conversion.py` (DG08)
+
+| id | check | prediction |
+|---|---|---|
+| A1 | substitution ζ = (2λr − 3μ)Ψ_z, μ = −2M, r_s = −3M/λ, DG08's (crc) c₀ = λ²c₋₁/(3M(3+2λ)) gives ζ′(r_s)/ζ(r_s) = −2λ²/(3μ(2λ+3)); only then compared with c* (#146) and with DG06's printed (cz) | equals c*, and is −1 times the printed (cz) |
+| A2 | DG08's (zm6) coefficient (ℓ+2)²(ℓ−1)²/(12M(ℓ²+ℓ+1)) equals λ²/(3M(3+2λ)) at λ = (ℓ−1)(ℓ+2)/2 | equal |
+| A3 | first principles from DG08's own (RW2), (RW2a): a Laurent Ψ_z = c₋₁/ρ + c₀ + c₁ρ + … makes K and H₁ pole-free iff c₀/c₋₁ = DG08's (crc) (both K and H₁ give the same ratio) | PASS, ratio equals (crc) |
+| A4 | DG06's (RW2)/(RW2a)/(RW3a) and DG08's (RW2)/(RW2a)/(zeri) are the same expressions for q (= f), h, so Ψ_z of DG08 is ψ_Z of DG06 | textual and symbolic equality |
+
+Mutations: `sign` (the (crc) constant negated; A1 and A3's comparison fire), `h_typo` (a sign in h's numerator; A3 fires),
+`zm6` (ℓ² + ℓ + 1 → ℓ² + ℓ + 2; A2 fires).
+
+`dg06_check.py` (DG06 v1/v2)
+
+| id | check | prediction |
+|---|---|---|
+| E1 | (AppB2), typed, has at r_s the residues A = 2/ρ and B = 4λ²/(3μ(2λ+3))/ρ, equal to the 1/ρ coefficients of the printed (exp) (v1 line 825–830, v2 line 364–369); an analytic χ then has χ′/χ = −2λ²/(3μ(2λ+3)) | PASS; the printed (cz) of v2 is −1 times this |
+| X1 | ζ = C r e^{−kr}(r+μ)^{kμ}e^{kt} of (AppC5), kμ = 2λ(λ+1)/3, put through the printed (nv1) and through the derived map (from (RW2), (RW2a), ψ = ζ/(2λr − 3μ), M = −μ/2): compared with (RW24a) | K printed = K derived = (RW24a) K for one C; H₁ and H₂ derived equal (RW24a), H₁ printed is 2/r times it, H₂ printed differs; a miss of this prediction is a discrepancy to report |
+
+Mutations: `exp_sign` (E1 fires), `rw24a_k` (the sign of (RW24a)'s K; X1 fires).
+(nv1) against (3)–(4) at the level of coefficients was done by #146 (R.7) and the coordinator (`I146-mac`, Q3) on the same file;
+it is not repeated here.

@@ -1,0 +1,935 @@
+                                        Instability of the negative mass Schwarzschild naked singularity
+                                                                   Reinaldo J. Gleiser and Gustavo Dotti
+
+                                              Facultad de Matemática, Astronomı́a y Fı́sica, Universidad Nacional de Córdoba,
+                                                            Ciudad Universitaria, (5000) Córdoba, Argentina∗
+
+                                                 We study the negative mass Schwarzschild spacetime, which has a naked singular-
+                                              ity, and show that it is perturbatively unstable. This is achieved by first introducing
+                                              a modification of the well known Regge - Wheeler - Zerilli approach to black hole
+                                              perturbations to allow for the presence of a “kinematic” singularity that arises for
+arXiv:gr-qc/0604021v2 29 May 2006
+
+
+
+
+                                              negative masses, and then exhibiting exact exponentially growing solutions to the lin-
+                                              earized Einstein’s equations. The perturbations are smooth everywhere and behave
+                                              nicely around the singularity and at infinity. In particular, the first order variation
+                                              of the scalar invariants can be made everywhere arbitrarily small as compared to the
+                                              zeroth order terms. Our approach is also compared to a recent analysis that leads
+                                              to a different conclusion regarding the stability of the negative mass Schwarzschild
+                                              spacetime. We also comment on the relevance of our results to the stability of more
+                                              general negative mass, nakedly singular spacetimes.
+
+                                              PACS numbers: 04.50.+h,04.20.-q,04.70.-s, 04.30.-w
+
+
+
+
+                                        I.   INTRODUCTION: THE NEGATIVE MASS SCHWARZSCHILD SOLUTION
+
+                                        The positive mass theorems of general relativity establish that, under plausible assump-
+                                    tions, asymptotically flat solutions of the Einstein equations with physically acceptable
+                                    matter sources cannot have negative total mass. Another well known feature of general
+                                    relativity, compatible with the positivity theorems, is the possibility of the presence, or
+                                    eventual formation, of singularities in the spacetime manifold. However, in the most rele-
+                                    vant examples where this happens, the singularity is surrounded by a horizon, so that it is
+                                    unobservable to an observer outside the horizon. That this should happen generically in all
+                                    physically relevant situations is the essential content of the versions of the Cosmic Censorship
+                                    hypothesis. On the other hand, from a strictly mathematical point of view, there is plenty of
+                                    solutions of the Einstein equations that are asymptotically flat and present a negative total
+                                    mass, but, in general, they are also nakedly singular, which would make them physically
+                                    unacceptable. A simple and particularly interesting example of this type of solutions is the
+                                    negative mass Schwarzschild spacetime. Nevertheless, for different reasons, these solutions
+                                    are not expected to arise from physically acceptable regular initial data. One should notice,
+                                    however, that what is physically acceptable may change as more data is available. What
+                                    we have in mind here is the recent suggestion of the existence of “phantom matter”, that
+                                    is some field that carries negative kinetic energy, as a possible explanation for the observed
+                                    acceleration of the scale factor of the Universe [1].
+                                        A different, but equally important consideration regarding negative masses is the manner
+
+                                    ∗
+                                        Electronic address: gdotti@famaf.unc.edu.ar
+                                                                                               2
+
+in which they interact with positive masses. This gives rise to different types of instabilities
+that have been analyzed in the literature. We refer to [2] for a recent review. It is rather
+remarkable, however, that until recently [2], the stability of the negative mass Schwarzschild
+solution, that, in a loose sense, may be considered as representing the field of an isolated
+negative mass source, had not been considered in the literature, although the essential
+machinery for this analysis, at least at the linear level, had been available for some time.
+The analysis carried out in [2] leads to the conclusion that if certain boundary conditions,
+assumed suitable for the problem, are imposed, the negative mass Schwarzschild singularity
+should be considered as stable under linear perturbations. However, as discussed in Section
+VII, the marginally stable solution of Zerilli’s equation used to prove stability in [2], is only
+a twice differentiable functions of the radial coordinate. As a consequence, the associated
+perturbed metric is not continuous and thus it is not a solution of the linearized vacuum
+Einstein’s equations (it actually satisfies the field equations of a singular distribution of
+sources). Given this situation, we undertake in this paper a new analysis of the linear
+stability of the negative mass Schwarzschild solution. This is based on a modification of
+the standard Regge-Wheeler-Zerilli formalism (reviewed in Section II) that simplifies and
+makes more transparent the analysis of the perturbative equations for negative mass. This
+is given in Section III. Next, we consider the existence of “zero modes”, i.e., static solutions
+of the perturbation equations. We give the general solution, that for each mode depends on
+two integration constants, and prove that there is no choice of these constants such that the
+solution can be considered as a “small” perturbation. We give also a physical interpretation
+for these solutions that supports our conclusions. In Section VI, based on this modified form
+of the formalism, and this is the main result presented in this paper, we prove that under
+quite general boundary conditions, all scalar perturbative modes are unstable. Our results
+and possible consequences are finally summarized in Section VIII.
+
+
+ II.   PERTURBATION EQUATIONS FOR THE SPHERICALLY SYMMETRIC
+                    SCHWARZSCHILD SOLUTION.
+
+  The vacuum solution of Einstein’s equations for the exterior of a bounded spherically
+symmetric source, first obtained by Schwarzschild, may be written in the form,
+                                            −1
+             2             2M     2        2M
+                                                    dr 2 + r 2 dθ2 + sin2 (θ)dφ2
+                                                                                 
+           ds = − 1 −           dt + 1 −                                            (1)
+                            r               r
+
+where θ and φ are standard coordinates on the unit sphere, and M is a real (positive or
+negative) constant, that can be identified with the Newtonian mass of the source. The
+range of r is limited by the singularities of the metric coefficients in (1). For M > 0 the
+singularity at r = 2M corresponds to a regular horizon, and the solution may be extended
+to r < 2M. The resulting space time is known as a “black hole”. The horizon hides a
+curvature singularity for r = 0, rendering the portion of space time outside the horizon
+globally hyperbolic. Similarly, for negative mass (M < 0) there is a singularity for r = 0,
+but in this case there is no horizon, the singularity is “naked”, and the resulting space time
+is not globally hyperbolic.
+    The rather strange properties of the spacetime described by (1) led to question the pos-
+sibility of their physical realization. Since the solution (at least for r > 2M) is static, a
+first step in this direction, carried out by Regge and Wheeler [3], and completed later by
+                                                                                                 3
+
+Zerilli [4], was aimed at establishing their stability, through an analysis of the behavior of
+linear perturbations. The Einstein equations lead in this case to a set of coupled linear
+partial differential equations for the functions representing the perturbations. Because of
+the spherical symmetry of (1) this functions may be grouped into “even” (or scalar) and
+“odd” (or vector) sets that do not couple to each other, and are characterized by their
+dependence on the angular coordinates (θ, φ). Still, the resulting perturbative equations
+contain, in general, some redundant information that can be eliminated through a choice
+of “gauge”. A particular choice, that keeps full generality, was selected in [3], [4] and is
+known as the ”Regge-Wheeler gauge”. Independently of the gauge issue, the linear stability
+of the Schwarzschild space time, well known for M > 0, was also established for vector
+perturbations for M < 0 in [2]. For this reason we shall restrict our analysis to the scalar
+perturbations. In the Regge-Wheeler gauge, the scalar (even) perturbations, for each angu-
+lar mode (ℓ, m), are fully described by four functions H0 (r, t), H1 (r, t), H2 (r, t) and K(r, t),
+in terms of which the perturbed metric takes the form,
+                                                                       −1
+    2              2M                     2                         2M
+ ds = − 1 −             (1 − ǫH0 Yℓ,m ) dt + 2 ǫ H1 Yℓ,m dtdr + 1 −           (1 + ǫH2 Yℓ,m ) dr 2
+                    r                                                 r
+          +r 2 (1 + ǫK Yℓ,m ) dθ2 + sin2 (θ)dφ2
+                                                
+                                                                                               (2)
+where ǫ is an auxiliary parameter, useful in keeping track of the order of the perturbation.
+Yℓ,m = Yℓ,m(θ, φ) are standard spherical harmonics on the sphere, and, on account of the
+spherical symmetry, we may restrict to m = 0 without loss of generality. The linearized Ein-
+stein equations for the metric (2) imply H0 (r, t) = H2 (r, t), and a set of coupled differential
+equations for H1 , H2 and K. This can be solved in terms of the Zerilli function ψZ (r, t), by
+the replacements,
+                                                 
+                                              2M ∂ψZ
+                       K = f (r)ψZ + 1 −
+                                               r     ∂r
+                                            2
+                                 ∂ψZ       ∂ ψZ
+                      H1 = h(r)       +r
+                                ∂t       ∂t∂r
+                                                                
+                              ∂        2M                    ∂ψZ
+                      H2 =          1−           h(r)ψZ + r          −K                      (3)
+                             ∂r          r                    ∂r
+where,
+                                     λ(λ + 1)r 2 + 3λMr + 6M 2
+                              f (r) =
+                                             r 2 (λr + 3M)
+                                     λr 2 − 3λrM − 3M 2
+                            h(r) =
+                                     (r − 2M)(λr + 3M)
+                                     (ℓ − 1)(ℓ + 2)
+                               λ =                                                             (4)
+                                            2
+provided ψZ is a solution of the Zerilli equation,
+                                  ∂ 2 ψZ   ∂ 2 ψZ
+                                         −        + V (r)ψz = 0                                (5)
+                                   ∂t2      ∂r∗2
+where,
+                               2M λ2 r 2 [(λ + 1)r + 3M] + 9M 2 (λr + M)
+                                 
+                 V (r) = 2 1 −                                           ,                     (6)
+                                r               r 3 (λr + 3M)2
+                                                                                              4
+
+and r∗ is the “tortoise” coordinate, related to r by,
+                                                     −1
+                                     dr∗          2M
+                                         = 1−                                               (7)
+                                     dr            r
+   In what follows, for simplicity, we choose the integration constant relating r and r∗ such
+that,
+                           r∗ = r + 2M [ln(r − 2M) − ln(2|M|)]                            (8)
+Therefore, for M < 0, we have r∗ = 0 for r = 0.
+  We notice that the relations (3) can be inverted, giving,
+                                                           
+                                 r(r − 2M)               ∂K      r
+                 ψZ (r, t) =                      H2 − r      +     K                       (9)
+                             (λ + 1)(λ r + 3 M)          ∂r     λ+1
+Therefore, there is a one to one correspondence between ψZ and the Regge-Wheeler gauge
+functions, H0 , H1 , H2 and K.
+   For the stability analysis one considers a time dependence of the form,
+
+                                       ψZ (t, r) = eiωt ψ(r)                               (10)
+
+which turns (5) into the Schrödinger-like form,
+
+                                       d2 ψZ
+                                   −         + V (r)ψ = ω 2 ψ                              (11)
+                                        dr∗2
+
+Very loosely speaking, stability is attained if (11) has no solutions with negative ω 2 . More
+rigorously, this statement must be supplemented with the imposition of appropriate bound-
+ary conditions on ψ(r). The resulting boundary value problem for M > 0 turns out to be
+quite different from that for M < 0.
+   The case M > 0 has been considered in detail in the literature (see, e.g. [5]). In this
+case we have −∞ < r∗ < +∞ and V (r) is positive definite in this range. Then, imposing
+boundary conditions that imply that the perturbed space time remains asymptotically flat,
+with a regular horizon, it can be shown that (11)is turned into a self adjoint boundary value
+problem, that admits only solutions with ω 2 > 0, and, therefore, the spacetime is linearly
+stable.
+   For M < 0 the problem is quite different. The domain in this case is 0 ≤ r∗ < +∞
+and, besides the singularity of V in (6)at r = r∗ = 0, there is another one at the interior
+point r = −3M/λ. Also, it is not at all clear what boundary conditions are physically
+adequate for r∗ = 0. Finally, Zerilli’s auxiliary function ψZ (t, r) is generically singular (at
+r = −3M/λ) for smooth metric perturbations. An attempt at an appropriate formulation of
+the problem was recently given in [2]. Unfortunately, for reasons explained below in Section
+VII, we consider that there are some difficulties in that analysis that require a revision of
+their conclusions.
+
+
+          III.   A MODIFIED REGGE-WHEELER-ZERILLI FORMALISM
+
+  In view of the difficulties indicated in the previous Section, we present here a slight
+modification of the Regge-Wheeler-Zerilli formalism that, as we shall show, allows for a
+                                                                                                   5
+
+simple analysis of the stability problem for M < 0, with the intriguing result that these
+solutions are unstable under arbitrarily small perturbations. Following [2], we define µ =
+−2M, but consider, instead of ψ, the function,
+
+                                 ζ(t, r) = (2λr − 3µ)ψZ (t, r).                              (12)
+
+ From (5) we easily find that ζ satisfies the equation,
+
+                                          ∂2ζ
+                                              = Oζ,                                          (13)
+                                          ∂t2
+where
+
+       (r + µ)2
+                   2 
+                   ∂ ζ    (4λr 2 + 6λµr − 3µ2 ) (r + µ) ∂ζ
+  Oζ ≡                  −
+          r2       ∂r 2           r 3 (2λr − 3µ)        ∂r
+                                                               (r + µ) (3µ2 − 6λµr + 4λ2 r 2 )
+                                                           −                                   ζ
+                                                                       r 4 (2λ r − 3 µ)
+   Note that ζ(t, r) is also simply related to H1 , H2 , and K:
+
+                           (µ + r)r ∂ζ
+                                          
+                                       ∂r
+                                            + (λr − µ)ζ
+                   K =               2
+                                   r (2λr − 3µ)
+                                        2 
+                                          ∂ ζ
+                                                + µ ∂ζ
+                                                         
+                           2r(µ + r) ∂t∂r             ∂t
+                   H1 =                                                                      (14)
+                               r(r + µ)(2λr − 3µ)
+                                          2 
+                                                     4λr 2 + 6λµr − 3µ2 ∂ζ
+                                                                        
+                             (r + µ)        ∂ ζ
+                   H2 =                           −
+                           (2λr − 3µ) ∂r 2               2r(2λr − 3µ)2  ∂r
+                                2                2 2
+                             3µ − 6λµr + 4λ r
+                           +                         ζ(t, r)
+                                2r 2 (2λr − 3µ)2
+and shares with ψZ (t, r) its uniqueness and gauge invariance properties. We may regard
+(14) as a map Ψ := ζ → (K, H1 , H2 ), a possible inverse map being
+                        2                                              
+                        2r (r + µ) ∂K        (2λr − 3µ)r          2r(r + µ)
+           ζ(t, r) = −                   +                  K+                H2   (15)
+                           λ+1       ∂r          λ+1                λ+1
+
+The following results follow straightforwardly from the definition of Ψ, eqn (14):
+
+Lemma 1: the metric perturbation given by Ψ(ζ(t, r)) is C ∞ (for r ∈ (0, ∞)) if and only if
+ζ(t, r) is C ∞ and satisfies the condition
+
+                        ∂ζ(t, r)            2λ2
+                                       =            ζ(t, r)                                  (16)
+                          ∂r r=3µ/(2λ)   3µ(2λ + 3)         r=3µ/(2λ)
+
+If (13) is solved for initial data ζ(t = to , r) and ∂ζ/∂t(t = to , r) both satisfying (16), the
+solution will satisfy (16) for all t where it is defined. In other words, (16) is preserved by
+the evolution equation (13)
+Proof: if the metric perturbation (K, H1 , H2 ) is C ∞ then so is ζ, as follows from (15), and
+we can use Taylor’s theorem in (14) to prove (16) is required to assure that (K, H1, H2 ) are
+                                                                                               6
+
+smooth at r = 3µ/(2λ). The preservation of this constraint by the evolution equation (13)
+follows from the fact that the operator O defined in (13) sends functions satisfying (16) to
+functions satisfying (16) 
+
+   Since the coefficients in (13) depend only on r, we may separate variables by setting
+ζ(t, r) = exp(iωt)χ(r), which gives
+
+                       d2 χ   (4λr 2 + 6λrµ − 3µ2 ) dχ
+                            =
+                       dr 2   (2λr − 3µ) (r + µ) r dr
+                                  (4λ2 r 2 − 6λrµ + 3µ2 )      r2
+                                                                       
+                                                                      2
+                              +                           −          ω χ                    (17)
+                                  (2λr − 3µ) (r + µ) r 2    (r + µ)2
+
+This ODE, obviously, does not have the Schrödinger like form of (11). Moreover, the
+coefficients of χ and dχ/dr are singular at r = 3µ/(2λ). However, the nature of this
+singularity is rather subtle, and, as shown below, all solutions of (17) are regular around
+r = 3µ/(2λ), irrespective of the boundary conditions for r = 0 and r = ∞.
+
+Lemma 2: For any λ, µ and ω, all solutions of (13) are regular at r = 3µ/(2λ).
+Proof: Let ρ = r − 3µ/(2λ), then expanding (17) around ρ = 0 we get
+
+     d2 χ                    4λ2         16 (3 + λ) λ3 ρ
+                                                                 
+                  −1                                            2   dχ
+  0 = 2 + −2 ρ −                      +                2 + O(ρ )
+     dρ                  3µ (3 + 2 λ)    9µ2 (3 + 2λ)                dρ
+               −4λ2          16 λ4 − 81 w 2µ2     8λ2 (4 λ3 + 27 w 2µ2 ) ρ
+                                                                                    
+                                                                                   2
+      +                   −                   +                            + O(ρ ) χ(ρ)
+           3µ (3 + 2 λ) ρ     9µ2 (3 + 2λ)2           9µ3 (3 + 2λ)3
+                                                          !                          !
+                                 d2 χ         X             dχ           X
+                              ≡ 2 + ρ−1           ak ρk−1      + ρ−1          bk ρk−1 χ(ρ) (18)
+                                 dρ           k≥1
+                                                            dρ            k≥1
+
+If χ is analytic around ρ = 0:                        X
+                                             χ(ρ) =         ck ρk ,                         (19)
+                                                      k≥0
+
+then (18) reduces to
+                                       s−1
+                                       X
+                s (s − 1 + a1 ) cs +         cl (l as+1−l + bs−l ) = 0, s = 1, 2, 3, ...    (20)
+                                       l=0
+
+In our case a1 = −2 so (20) splits into a system of three equations in the unknowns co , c1
+and c2 and an infinite system on the ck , k > 2. Since the determinant of the finite system is
+
+                                       b1    a1       0
+                                       b2 b1 + a2 2a1 + 2 = 0                               (21)
+                                       b3 a3 + b2 b1 + 2a2
+
+(for all µ, λ and ω), and the infinite system can be solved iteratively in terms of c3 , (20) has
+a solution for arbitrary values of co and c3 , i.e., two linearly independent solutions (for more
+details on this special case of singular point see e.g. [9], pp.205-215) 
+                                                                                           7
+
+                                 IV.   STATIC SOLUTIONS
+
+  Static solutions correspond to ω = 0. In this case (17) is reduced to,
+
+               d2 χ (4λr 2 + 6λrµ − 3µ2 ) dχ (4λ2 r 2 − 6λrµ + 3µ2 )
+                    −                         −                        χ=0              (22)
+               dr 2   (2λr − 3µ) (r + µ) r dr   (2λr − 3µ) (r + µ) r 2
+
+A straightforward computation shows that this equation has, in general, two independent
+solutions, one regular and the other with logarithmic divergences for r = 0, and for r = −µ.
+The regular solution is a polynomial of order ℓ + 2, given by,
+                                                  ℓ+2
+                                                  X
+                                         Q(r) =         qi r i                          (23)
+                                                  i=1
+
+with
+                            (i − 2) Γ (ℓ + i − 1) [(i − 4) ℓ (ℓ + 1) + i − 1]
+                     qi =                                                               (24)
+                                       3 Γ(ℓ − i + 3)µi−1 [Γ(i)]2
+The general solution of (22) may be written in the form,
+                                                Z r
+                                                     y(2λy − 3µ)
+                       χ(r) = C1 Q(r) + C2 Q(r)                 2
+                                                                  dy                    (25)
+                                                 C3 (y + µ)Q(y)
+
+where C1 , C2 and C3 are constants. Notice that this expression contains effectively only
+two arbitrary constants, because a change in C3 amounts only to a change in C1 . We also
+remark that, since all solution of (22) are regular for r ≥ 0, we must have Q(r) > 0 for
+r > 0, for otherwise a zero in Q(r) would introduce singularities in χ through the integral
+term in (25), which must be absent in the general solution of (22).
+
+
+                                  A.    Boundary conditions
+
+    Equations (24,25) provide the general time independent solutions for the perturbative
+zero mode, but we still need to specify boundary conditions. The question is then if these
+solutions, perhaps for some particular choices of C1 and C2 , are acceptable as perturbations
+of the negative mass Schwarzschild metric. As a possible criterion, we explore the change in
+a particular curvature invariant, which we choose to be the Kretschmann invariant K, given
+by,
+                                       K = Rabcd Rabcd                                   (26)
+where Rabcd is the Riemann curvature tensor. Replacing (24)-(25) in the appropriate ex-
+pression for K, linearized to first order in the perturbations, we find that, in the r ≃ 0
+limit
+
+       12µ2           36µ2
+                                      
+                                  ln(r)
+  K = 6 − ǫ C2             +O              Y(ℓ,m)
+        r               r7          r5
+                      2
+                       ℓ(ℓ − 1)(ℓ + 1)(ℓ + 2)(ℓ2 + ℓ + 4)(ℓ2 + ℓ − 1)
+                                                                          
+                                                                           1
+             − ǫ C1                            2 3
+                                                                      +O        Y(ℓ,m) (27)
+                                           9µ r                           r2
+                                                                                               8
+
+We must set C2 = 0 to ensure that the first order term does not grow faster than the zero
+order term as r → 0+ . On the other hand, if we compute K for large r, we obtain
+
+       12µ2
+                                                 
+                        2 Γ(2ℓ + 1)    ℓ−5      ℓ−4
+  K = 6 − ǫ C1                        r + O(r ) Y(ℓ,m)
+         r             µℓ Γ(ℓ − 1)2
+                                                                          
+                                                            Kℓ          1
+                                                  + ǫ C2         +O            Y(ℓ,m) , (28)
+                                                           r ℓ+7      r ℓ+8
+where                        √
+                            3 π Γ(ℓ)(3ℓ2 + 5ℓ + 8)(ℓ + 1)(ℓ + 2) µℓ+2
+                      Kℓ =                                             ,                  (29)
+                                       4ℓ Γ(ℓ + 1/2)(ℓ − 1)2
+then C1 must also be set to zero in order to keep the perturbation smaller than the
+zero order term at large r. We must, therefore, conclude that there is no (non trivial)
+choice of C1 and C2 for which a static perturbation will remain small in the entire range of r.
+
+
+
+                    B.   A physical interpretation for the zero modes
+
+   Even though there are problems in interpreting the zero modes given by (23)-(25) as
+perturbations of the negative mass Schwarzschild metric, they are static solutions of the
+linearized equations and, therefore, their physical interpretation is of interest. One way
+in which the problem may be analyzed is to consider the Schwarzschild metric in Weyl
+coordinates. The general form of the static axially symmetric vacuum metrics in Weyl
+coordinates is,
+                   ds2 = −e2U dt2 + e2k−2U dρ2 + ρ2 e−2U dφ2 + e2k−2U dz 2             (30)
+where U = U(ρ, z), k = k(ρ, z), and the Einstein equations imply,
+                                   ∂2U   1 ∂U   ∂2U
+                                       +      +      =0                                     (31)
+                                   ∂ρ2   r ∂ρ   ∂z 2
+and,
+                                  k,ρ = ρ (U,ρ )2 − ρ (U,z )2
+                                  k,z = 2ρU,ρ U,z                                           (32)
+where a comma indicates partial derivative. It can be checked that (31) is the integrability
+condition for the system (32), so that k is obtained by quadratures if U, satisfying (31) is
+given. The latter is the Laplace equation in flat cylindrical coordinates and, as is well known,
+allows for the construction of static vacuum solutions of the Einstein equations by taking
+for U different solutions of the Laplace equation corresponding to localized sources. The
+Schwarzschild space time is recovered by taking for U the Newtonian potential corresponding
+to uniform line source of finite length, centered at the origin, and laying along the z-axis.
+The explicit forms for U and k in this case are,
+                                                               
+                                         1      ρ+ + ρ− − 2M
+                             US (ρ, z) = ln
+                                         2      ρ+ + ρ− + 2M
+                                                (ρ+ + ρ− )2 − 4M
+                                                                 
+                                         1
+                             kS (ρ, z) = ln                                                  (33)
+                                         2            4ρ+ ρ−
+                                                                                            9
+
+            p
+where ρ± = ρ2 + (z ± M)2 . The constant M is identified with the Schwarzschild mass
+and can be positive or negative. Suppose now that instead of US we consider, e.g.,
+
+                               U(ρ, z) = US (ρ, z) + U1 (ρ, z; m)                        (34)
+
+where U1 (ρ, z; m) is a solution of (31) that depends smoothly on a real parameter m such
+that,
+                                        U1 (ρ, z; 0) = 0                             (35)
+This implies that U(ρ, z) given (34) satisfies also (31) and can be used to construct static
+vacuum solutions of the Einstein equations. But, in accordance with (35), these solutions,
+at least locally, can be made to approach the Schwarzschild metric arbitrarily closely, by
+taking m small enough. This may fail, and in general it does, when we approach the line
+source of US . This line source corresponds to the regular horizon for M > 0 and, therefore, a
+singularity in U1 destroys that regularity, and U1 cannot be considered globally as a “small”
+perturbation. Similarly, for M < 0, the line source corresponds to a naked singularity, and
+a singularity in U1 may modify its structure, and can make it even “harder”. To illustrate
+this discussion we consider for U1 the form,
+                                                       m
+                                   U1 (ρ, z; m) = p                                      (36)
+                                                      ρ2 + z 2
+
+This represents (in Weyl coordinates) a point source at the origin. The resulting equations
+for the modified k(ρ, z) may be solved explicitly, for any m, but we are only interested
+in the change to order m. Actually what we are interested in is the form of the metric
+in Schwarzschild, rather than Weyl coordinates. The coordinate change that accomplishes
+this is well known (see, e.g. [8], for details). Performing it we find that in Schwarzschild
+coordinates the modified metric, to first order in m, takes the form,
+
+                             2M            2m (r − 2M)
+                  gtt = −1 +       − √
+                               r    r M cos2 θ + r 2 − 2Mr
+                                          2
+                                                       √                  
+                          r        2mr 2r − 3M − 2 M 2 cos2 θ + r 2 − 2Mr
+               grr =             +               √
+                     r − 2M           (r − 2M) M 2 cos2 θ + r 2 − 2MrM
+                                                 √
+                            2mr 2 2r − 3M − 2 M 2 cos2 θ + r 2 − 2Mr
+                                                                     
+                       2
+               gθθ = r +                √
+                                     M M 2 cos2 θ + r 2 − 2Mr
+                                         2mr 2 sin2 θ
+               gφφ = r 2 sin2 θ − √                                                      (37)
+                                    M 2 cos2 θ + r 2 − 2Mr
+This metric may be expanded now in the Regge-Wheeler-Zerilli functions. For the metric in
+the form (37), in the notation of [3], the only non vanishing functions are H0 , H2 , K, and
+G, corresponding to even (scalar) perturbations for even ℓ, as the result of the symmetry
+of U1 (ρ, z; m) under z ↔ −z. This is not in the Regge-Wheeler gauge, but, from gauge
+invariance [10], the function ψ(r, t) is in this case given by,
+                    1
+      ψ(r, t) =          χ(r, t)
+                λr + 3M                                                  
+                2r (r − 2M)           ∂K   (r − 3M) K      2             ∂G
+      χ(r, t) =                H2 − r    −              + r K + (r − 2M)      (38)
+                  ℓ(ℓ + 1)            ∂r     r − 2M                      ∂r
+                                                                                              10
+
+Going back to (37), if we specialize to ℓ = 2, we find,
+      √                                                                      
+        5πm (2r − 3M)            2              2
+                                                          2M
+H2 =                        2 M − 6 Mr + 3 r ln 1 −               + 6 (r − M) M
+             2M 4                                           r
+      √                                                                                    
+        5πm         3      2            2         3
+                                                           2M             2      3       2
+K =              3 r − 15 r M + 16 rM − 2 M ln 1 −                 − 24 rM + 10 M + 6 r M
+       4M 4                                                   r
+      √                                                                              
+        5πm                    2            2
+                                                       2M                      2   2
+                                                                                      
+ G =            3 (M − r) 2M − 2Mr + r ln 1 −                  + 2M 6rM − 7M − 3r           (39)
+       12M 4                                             r
+
+and the corresponding expression for χ(r) results,
+              √
+                5πmr h      3      2        3
+                                                    µ        2       2         3
+                                                                                    i
+         χ=            3 4r   − 6r   µ + 3µ    ln 1 +    − 12µr   + 24µ   r − 13µ           (40)
+                6µ3                                   r
+
+which coincides with (23)-(25) for an appropriate choice of integration constants. Similar
+results hold for the other even values of ℓ. Non vanishing contributions for odd ℓ may be
+obtained starting from a different choice of U1 (ρ, z; m) that makes it odd under z ←→ −z,
+with analogous results regarding the corresponding zero modes. Therefore, the zero modes
+are the linearized expressions for the modifications that result in the Schwarzschild metric
+by the addition of different (static) multipoles. We stress again that these modifications ap-
+proach only locally the Schwarzschild metric, because they modify non trivially the structure
+of its singularity. We shall add more comments on this feature in Section VIII.
+
+
+                         V.   TIME DEPENDENT SOLUTIONS
+
+   Going back to (17), we consider now the general, time dependent case, with ω 6= 0. We
+are interested in solutions that are regular in 0 ≤ r ≤ ∞. Therefore, we need to consider
+the behavior of χ1 near the singular points r = 0, r = 3µ/(2λ) and r = ∞. First we find
+that near r = 0, any solution of (17), for any ω, is of the form,
+
+                                 χ(r) ≃ C1 r + C2 r ln(r) + . . .                           (41)
+
+where C1 and C2 are constants, and . . . indicates terms that vanish faster for r = 0. This
+implies that all solutions of (17) vanish for r = 0, but, in general, dχ/dr diverges as ln(r). On
+account of our previous discussion regarding acceptability of the perturbations, this means
+that we need to impose the condition that this divergence is absent, and therefore, only the
+regular solution associated with C1 can be considered for the stability analysis. This fixes
+our boundary condition for r = 0. The behavior at r = ∞ is also simple. For large r,
+the general solution of (17) is of the form (55) [11]. We remind the reader that, in view of
+Lemma 2 in Section III, χ(r) is analytic at r = 3µ/(2λ)
+   From the assumed time dependence, positive values for ω 2 correspond to an oscillating,
+and therefore stable, behavior for the perturbations. The interesting range for instability is,
+therefore, ω 2 < 0. On account of (13), the solutions for ω 2 < 0 will grow unboundedly for
+large r, unless we can eliminate the exponentially divergent terms. In the following section
+we analyze this problem in detail.
+                                                                                              11
+
+                                   VI.   UNSTABLE SOLUTIONS
+
+    Unstable modes, correspond to solutions of (17) with ω 2 = −k 2 , that satisfy the regularity
+condition for r = 0, and are exponentially decreasing for large r. Therefore, finding these
+solutions turns this equation into a boundary value problem, determining the appropriate
+value or values of k, if they exist.
+    As a first step, we considered a “shooting” approach, and, using a high precision numerical
+method, we found, for ℓ = 2, a numerical solution for k ≃ 4/µ. Since this value was so close
+to an integer times 1/µ, we replaced k = 4/µ, ℓ = 2 in (17), and found that indeed it has a
+rather simple solution for this value of k. Repeating the procedure for ℓ = 3, we found again
+a solution for k = 20/µ. This suggested the possibility that we could construct solutions for
+all ℓ, by a simple generalization of the results for ℓ = 2, and ℓ = 3. This was effectively the
+case, and we found that,
+                                          "                                     #
+                                                    Z r               2 2 ky
+                                                        (2 λ y − 3 µ)  e
+                    χ(r) = re−kr (r + µ)kµ C1 + C2                2 kµ+1
+                                                                             dy              (42)
+                                                      C3 (y + µ)         y
+where C1 , C2 , and C3 are arbitrary constants, is a solution of (17) with ω 2 = −k 2 , provided
+the constant k is given by
+                                  2λ(λ + 1)     (l − 1)l(l + 1)(l + 2)
+                             k=              =                                              (43)
+                                     3µ                   6µ
+and, therefore, kµ is an integer for all ℓ. Notice that (42) effectively contains only two
+arbitrary constants, because any change in C3 can be compensated by a corresponding
+change in C1 .
+   It is easy to see that the integral in (42) contributes logarithmic divergences for r = 0,
+and an exponentially increasing factor for r → ∞. Therefore if we choose C2 = 0, we find
+that
+                                 ζ(t, r) = C1 re−kr (r + µ)kµ ekt                           (44)
+with k given by (43), is a solution of (17), representing the general expression for the regular,
+bounded, unstable modes. Moreover, this result implies that all scalar modes (i.e. for all
+λ) of the Schwarzschild negative mass naked singularity are linearly unstable.
+   As a check of the consistency of our results, we replace (44) in (12), and this in(3), and
+obtain
+                       (λ + 1)(r + µ)kµ
+         K(t, r) = −                     exp[k(t − r)]                                      (45)
+                              3µ
+                                    λ(λ + 1)[2(λ + 1)r + 3µ] r(r + µ)kµ−1
+        H1 (r, t) = −H2 (t, r) = −                                         exp[k(t − r)]
+                                                      9µ2
+which shows explicitly the regularity of the solution of the perturbative equations in the
+range 0 ≤ r < +∞. The perturbations of the curvature are also well behaved. Replacing in
+the Kretschmann scalar, we find that it is unchanged from the unperturbed value, to order
+ǫ. Furthermore, a complete set of quadratic algebraic invariants of the Riemann tensor [6, 7]
+was computed to find that they are all invariant to first order in ǫ. However, we have found
+non trivial first order contributions to the differential invariants
+                        abcd;e     180µ2(r + µ)       5ℓ(ℓ − 1)(ℓ + 1)(ℓ + 2)
+            Rabcd;e R            =         9
+                                                 −ǫ                           Yℓm (θ, φ)    (46)
+                                         r                      r8
+                                   × [rℓ(ℓ + 1) + 3µ] (r + µ)kµ exp[k(t − r)]
+                                                                                                 12
+
+and
+
+                        90µ2(65µ2 + 120µr + 56r 2 )
+  Rabcd;ef Rabcd;ef =
+                                   r 12
+                                                      (r + µ)kµ exp[k(t − r)]
+                                            − 30ǫk                            Qℓ (r) Yℓm (θ, φ) (47)
+                                                                r 11
+
+
+  Qℓ (r) = l2 (l − 1) (l + 2) (l + 1)2 r 3 + 3 µ l (l + 1) l2 + l + 14 r 2
+                                                                      
+
+                                                        +3 µ2 17 l2 + 17 l + 56 r + 180 µ3 (48)
+                                                                                         
+
+and we may expect non trivial contributions in some of the many other differential invariants.
+Note that, both for (46) and (47), the O(ǫ) term grows slower than the O(ǫ0 ) term as r → 0+
+limit, and also as r → ∞.
+
+
+                  VII.     COMPARISON WITH PREVIOUS RESULTS
+
+   In [2], the Hilbert space
+                                          H = L2 (r ∗ , dr ∗)                                  (49)
+is introduced together with Zerilli’s equation (11). Since the LHS of (11) is a self adjoint
+operator in H, it admits a basis of eigenfunctions that allow to evolve any initial data
+(ψ, ∂t ψ)|t=0 ∈ H ⊗ H. It was also shown in [2] that (for ℓ = 2) there is a ω 2 = 0 solution
+ψ̂o ∈ H of (11). It is important to review at this point how ψ̂o is constructed. For negative
+M = −µ/2 the ℓ = 2 Schrödinger potential
+                               µ  4r 2 (3r − 3µ/2) + 49 µ2 (2r − µ/2)
+                        V =2 1+                            2           ,                      (50)
+                                r              r 3 2r − 3µ      2
+
+is singular at rc ≡ 3µ/4. The general solution of (11) for ω = 0 [2]
+
+            r(3µ3 − 6r 2 µ + 4r 3 )
+  ψo = C3
+                µ3 (4r − 3µ)
+                           r(13µ3 + 12r 2 µ − 24µ2 r) r(3µ3 − 6r 2µ + 4r 3 )
+                                                                                     
+                                                                                   r+µ
+                  + C4                               −                       log          (51)
+                                  3µ3 (4r − 3µ)           µ3 (4r − 3µ)              r
+
+lies outside H, however, for C3 /C4 = log(7/3) − 4/9 ≡ qo , both ψo and its first derivative
+vanish at rc [2], then ψo and can be matched at rc to the trivial ω = 0 solution giving
+                                          (
+                                           ψo (r) , 0 ≤ r < rc
+                                ψ̂o (r) =                                               (52)
+                                           0      , r > rc
+
+Note that ψ̂o is an ω = 0 solution in H, whose second derivative has a discontinuity at
+r = rc . The existence of such a solution signals a critical value of q ≡ C3 /C4 separating
+unstable (ω 2 < 0) from stable solutions for the Zerilli equation in H.
+In the previous section we exhibited a C ∞ perturbed metric which is an unstable solution of
+the linearized Einstein’s vacuum equation around a negative mass Schwarzschild spacetime,
+                                                                                             13
+
+and showed that it satisfies appropriate boundary conditions, both at the singularity and
+at infinity. However, we have not given a procedure to evolve arbitrary perturbations. The
+reason why we have not adopted the Hilbert space (49) is that, although (49) is a natural
+choice in other contexts, generic linear perturbations (2) of the metric of a negative mass
+Schwarzschild spacetime lye outside H, since the integral
+               Z ∞
+                              dr
+  (ψZ , ψZ ) =     |ψZ |2
+                0         (1 + µ/r)
+                                    Z ∞                                 2
+                                          r(r + µ)            ∂K     r          dr
+                                  =                   H2 − r       + K                 (53)
+                                     0  6(r − 3µ/4)           ∂r     3      (1 + µ/r)
+diverges due to the pole at r = rc = 3µ/4 (here we have specialized to ℓ = 2 and used (9) to
+write the L2 (r ∗ , dr ∗ ) norm of the perturbation in terms of the perturbed metric elements,
+which may be arbitrary C 2 functions for r ∈ (0, ∞)). Even compactly supported metric
+perturbations are excluded as initial data in the formalism developed in [2], unless they
+meet the rather artificial requirement that, for every ℓ ≥ 2, its ℓ − th harmonic projection
+satisfies
+                                             ∂K ℓ
+                                                 
+                                       ℓ
+                                      H2 − r                 3µ
+                                                     (r= 2(ℓ−1)(ℓ+2) ) =0
+                                              ∂r
+The Zerilli function ψZ is extremely useful because it reduces a complicated PDE system
+to a much simpler differential equation. However, care must be exercised when deciding
+what kind of solutions of this differential equation one is interested in, since ψZ has, for
+the negative mass Schwarzschild spacetime, a built in singularity, as seen, e.g., from (9).
+As an example, it follows from (2) and (3), that the perturbed metric from (52) has a
+discontinuity at r = rc . In particular, it will not give a linearized solution of the vacuum
+Einstein’s equations, in spite of being a solution of Zerilli’s equation. This implies that,
+although (52) gives a marginally stable solution for the Zerilli problem in H = L2 (r ∗ , dr ∗),
+it does not prove the existence of a marginally stable solution of the linearized Einstein’s
+equations we are dealing with, since only C 4 solutions to the Zerilli equation are relevant
+to the linearized gravity problem. Our choice of initial data set is that ζ|t=0 and ∂ζ/∂t|t=0
+be C ∞ functions subject to (16). As follows from Lemma 1 in Section III, this is equivalent
+to requiring that the metric perturbation be C ∞ . Equation (13) is a hyperbolic differential
+equation in (t, r) from which the evolution of given initial data for H1 , H2 and K can be
+computed. The singularities in the coefficients of ∂χ/∂r and χ, for 2λr = 3µ were shown to
+be irrelevant in Lemma 2 of Section III. The hyperbolicity of (13), (or the regularity and
+smoothness of the light cones for the background metric), imply that smooth initial data of
+compact support given at, say, time t = t0 , should evolve into initial data also of compact
+support for t = t1 , at least for sufficiently small t1 − t0 , then compactly supported smooth
+ζ|t=to and ∂ζ/∂t|t=to satisfying (16) evolves into a compactly supported ζ|t=t1
+The foregoing discussion shows that (45) can actually be excited without a fine tuning of
+the initial condition. We look at solutions of (13) corresponding to a time dependence of
+the form exp(iωt), with ω arbitrary complex, without the logarithm singularity (C2 = 0 in
+(41)). A higher order expansion around r = 0
+                                                                                
+                                          λ(1 + λ) 3 2λ(1 + λ) 4              5
+                          χ̃(r, ω) ∝ r −            r +                r + O(r )           (54)
+                                             3µ2              9µ3
+reveals that there is no term in r 2 , and only the coefficients of r 5 and higher order depend
+on λ and on (even) powers of ω. We have already shown in Section III (Lemma 2) that
+                                                                                                14
+
+all solutions of (13) for this type of time dependence are smooth at r = 3µ/(2λ). We may
+similarly obtain an asymptotic expansion for these solutions for r → ∞. These can be
+written in the form,
+                                                                                  
+                 [ik(r−µ ln(r+µ)]      2iλ(1 + λ) − 3kµ 2λ(1 + λ) + 3ikµ        2
+     χ̃(r, ω) ∝ e                   r−                 +                 + O(1/r )   (55)
+                                             2kλ              4ω 2r
+where k = ±ω, and the remaining coefficients depend only on even powers of ω. For real ω,
+and large r, these solutions represent (modulated) incoming and outgoing waves, depending
+on the sign of k/ω. Since (13) is linear, any linear superposition of solutions is also a solution.
+In particular, we may consider superpositions of the form,
+                                          Z +∞
+                               χ(r, t) =        K(ω)eiωt χ̃(r, ω)dω                            (56)
+                                          −∞
+
+which provide everywhere regular solutions (including 2λr = 3µ, for a wide variety of func-
+tions K(ω). An interesting choice is,
+                                                         2 2
+                                     K(ω) = Ce−(ω−ω0 ) q /4                                   (57)
+
+where C, ω0 , and q are constants. Then, for large q, we may use a steepest descent estimation
+of (56) to find that for K(ω) of the form (57), near r = 0 we have,
+                                                                              
+                             −t2 /q 2 iω0 t      λ(1 + λ) 3 2λ(1 + λ) 4      5
+               χ(r, t) ≃ K1 e        e        r−         r +         r + O(r )            (58)
+                                                   3µ2         9µ3
+
+where K1 is a constant, and terms of order r 5 or higher are polynomial in t. This result
+implies that the amplitude near r = 0 is strongly suppressed for large t. For large r, on the
+other hand, we find,
+
+            χ(r, t) ≃ K2 exp[iω0 u± ] exp[−(u± )2 /q 2 ]
+                                                                        
+                             2iλ(1 + λ) − 3kµ 2λ(1 + λ) + 3ikµ        2
+                      × r−                       +             + O(1/r )                      (59)
+                                      2kλ                4ω 2r
+where K2 is constant, and,
+
+                                 u± (r, t) = t ± [r − µ ln(r + µ)]                            (60)
+
+Since this expansion is valid only for large r, we find that solutions corresponding to
+u+ are strongly suppressed for all t, while those for u− represent an outgoing wave
+packet, roughly centered at t = [r − µ ln(r + µ), moving along a null geodesic of the
+unperturbed spacetime. All these solutions represent the evolution of some smooth initial
+data that can be obtained from (56), for t = 0. Clearly, these superpositions display a
+”stable” behaviour, since they do not contain modes that grow exponentially in time.
+We notice, however, that we may combine any of these solutions with an arbitrarily
+small, but nonzero contribution from the unstable mode given by eqs. (44)-(45), to
+obtain an equally smooth initial data at t = 0, whose evolution displays the exponentially
+growing mode. We thus find a very large set of smooth initial data leading to an equally
+smooth “unstable” behaviour, showing that such data need not be particularly “fine tuned”.
+                                                                                            15
+
+   Another issue discussed in [2] is that of the gravitational energy of the perturbation. Here
+again we find a number of subtleties, apparently peculiar to the negative mass case. The
+unstable solution (45) lies outside H in [2], and therefore outside the scope of ref [2]. To no
+surprise, its “Zerilli energy”
+                                                                   !
+                                            2          2
+                                       ∂ψZ       ∂ψZ
+                                Z
+                          EZ :=               +      ∗
+                                                         + V |ψZ |2 dr ∗                   (61)
+                                        ∂t        ∂r
+
+diverges. It is argued in [2] that EZ agrees with the notion of gravitational energy of a
+perturbation from second order perturbation theory, i.e.,
+                        1
+                           Z
+                               (2)
+                EG = −        Gab η a ζ bdΣ(3) , η = f −1/2 ∂/∂t, ζ = ∂/∂t,          (62)
+                       8π
+ (2)
+Gab being the second order correction to the Einstein tensor. However, from (45) we get,
+for the (ℓ, m = 0) mode,
+                                 "                                    2 #
+                                                             ∂Y
+                                                          
+                    (2)ℓ                       2               (ℓ,0)
+                   Gtt = exp(kt) A(r, ℓ) Y(ℓ,0) + B(r, ℓ)                           (63)
+                                                              ∂θ
+
+where A and B are C ∞ functions of r in (0, ∞), falling off exponentially as r → ∞, and
+behaving as c/r 3 for r ≃ 0. This implies that both
+                            Z ∞ 2                   Z ∞ 2
+                                r A                     r B
+                                    dr      and              dr
+                             0    f                  0   f
+converge, and thus EG is finite for the perturbation (45), showing that EZ 6= EG in the
+negative mass case.
+We may try to find an alternative Hilbert space and energy concept associated to a Zerilli-like
+equation
+                   ∂2φ                              ∂2          ∂
+                       +  O(φ)  = 0,      O  = A(r)      + B(r)    + C(r).                (64)
+                   ∂t2                              ∂r 2        ∂r
+Yet, is not hard to see that, for unstable spacetimes, all unstable modes will either be
+outside the Hilbert space, or have zero energy. To see this suppose we choose any hermitian
+product <, > in an appropriate function space under which O is self-adjoint: < φ1 , Oφ2 >=<
+Oφ1 , φ2 >. Note that the hermitian product may well involve φ and r−derivatives of φ.
+Adding 0 =< φt , φtt + Oφ > to its complex conjugated, and using the self adjointness of O,
+we arrive to a conserved “energy”
+                            dE      d
+                                ≡     [< φt , φt > + < φ, Oφ >] = 0                      (65)
+                            dt     dt
+This is essentially a generalization of the argument used in [5] to obtain the conserved
+energy (61) above. We would like to use it now to prove that, if the underlying spacetime is
+unstable, the unstable modes will either be non normalizable (and then E in (65) undefined,
+as happens with the energy EZ for (45)), or will trivially vanish. In fact, suppose there is a
+solution φ(t, r) = exp(κt)φo (r), κ > 0 and assume φo normalizable under <, >, so that the
+energy in (65) is well defined. Since
+                          E(t) = e2κt κ2 < φ0 , φ0 > + < φ0 , Oφ0 >
+                                                                   
+
+does not depend on t, it has to vanish.
+                                                                                             16
+
+                      VIII.   COMMENTS AND CONCLUSIONS
+
+    In this article we have shown that even if we only allow for the most restrictive boundary
+conditions, both as r → 0+ and r → ∞, the perturbation equations for the negative mass
+Schwarzschild metric contain, for every angular mode, solutions that grow exponentially in
+time. These solutions represent everywhere regular perturbations that can be made initially
+globally arbitrarily small and, therefore, imply that the metric is unstable at the perturba-
+tive level, for all angular modes. An interesting technical point of our derivations was the
+introduction of a modification of the standard Regge-Wheeler-Zerilli method, that led to
+equation (17) and its rather unusual properties. Our analysis of the zero modes indicates
+that rather than perturbations they should be considered as linearized approximations for
+exact static metrics that locally, but not globally approach the negative mass Schwarzschild
+metric. Although asymptotically flat, they actually contain a naked singularity where the
+curvature diverges even faster than for the Schwarzschild metric. From the perspective of
+the present analysis, these spacetimes should also be considered unstable, since, if they are
+considered as part of the unperturbed metric, one would be allowed to relax the boundary
+conditions at r = 0, and as can √ be seen from the derivations in Section VI, this would lead to
+unstable solutions for any k = −ω 2 . Our results also suggest that, even though the vector
+(linearized) perturbations have been shown to be stable [2], one would expect that these
+would also become unstable through the coupling to the scalar modes. Since vector modes
+are related to rotation, this again suggests that rotation would not make the singularity
+more stable, although going through this in detail would require higher order perturbation
+theory, or, perhaps, some application of the Teukolsky equation.
+    Finally, there is an obvious implication of our results to the cosmic censorship conjecture,
+since the linear instability would imply that the negative mass Schwarzschild cannot be the
+final stage of an evolving spacetime.
+
+
+                                     Acknowledgments
+
+    We acknowledge fruitful correspondence with and comments from G. Gibbons, A.
+Ishibashi and S. Hartnoll that helped us clarify the main differences between their approach
+in [2] and ours. G.D. thanks the KITP at UCSB, where part of this work was done, for
+hospitality. This work was supported in part by grants of CONICET (Argentina) and the
+Universidad Nacional de Córdoba. It was also supported in part by grant NSF-INT-0204937
+of the National Science Foundation of the US. The authors are supported by CONICET (Ar-
+gentina).
+
+
+
+ [1] Carroll S M (2003) Phys. Rev. C68 023509, astro-ph/0301273.
+     Gibbons G W (2003), hep-th/0302199.
+     Caldwell R R (2002) Phys. Lett. B545 23, astro-ph/9908168.
+ [2] Gibbons G W, Hartnoll D and Ishibashi A 2005 Prog.Theor.Phys. 113 963-978, hep-
+     th/0409307.
+ [3] Regge T and Wheeler J A 1957 Phys. Rev. 108, 1063.
+ [4] Zerilli F J 1970 Phys. Rev. Lett 24 737.
+                                                                                                17
+
+ [5] Chandasekhar S, The mathematical theory of black holes, Oxford University Press, 1992.
+ [6] Carminati J and McLenaghan R G 1991 Jour.Math.Phys 33, 3135.
+ [7] Zakhary E and McIntosh C B G 1997 Gen.Rel.Grav 29, 539.
+ [8] Stephani H, Kramer D, MacCallum M, Hoenselaers C and Herlt E Exact Solutions to Einstein’s
+     field equations 2nd ed (2003).
+ [9] Braun M Differential equations and their applications (fourth edition) Springer-Verlag 1993.
+[10] Moncrief V (1974) Ann. Phys3 88 323.
+[11] Notice that the leading term in r in (55) can be traced to the transformation (12), since, for
+     any sign of M , the Zerilli equation for ψ(t, r) approaches the one dimensional wave equation,
+     and ψ(t, r) → exp(iωt).
+
