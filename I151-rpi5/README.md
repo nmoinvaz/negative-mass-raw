@@ -160,3 +160,33 @@ No criterion, tolerance or target was changed. Process notes only:
   x = 0 is a grid point. Fix in `W_B_vec`: at 40 digits, when |x − γ₁| < 1e-14 the value is the mean of the two sides x ± 1e-8.
   P-A and P-B (ℓ = 0.9, 1.6 at γ₁ = 0) had passed in that run (`run1_gamma0.log`, first 15 lines).
 - `run2_gamma0.log` (rc 0): the rerun of step 2.
+- `run3_full.log` (rc 1, kept; 2:30, peak rss 128 MB): the first full run. Through G1 at γ₁ = 0 and 0.5, G0, G2 at 0 and 0.5, G3, G4 and G6 it
+  gave the values that run4 gives again (γ₁ = 1/2: β_A = 1.875127511869, T = 0.758357150). Three **code** defects, no criterion changed:
+  1. A's matching function was a product of unnormalized (χ, P) of size e^{βL}; for β ≳ 5 (γ₁ = 1.0 and the scan to √(−min W)) it overflowed
+     (RuntimeWarning, a spurious root β = 6.96 at γ₁ = 1.0 and `ValueError: NaN` at γ₁ = 1.2 in the table loop). Fix: renormalize the unit vector
+     (χ, P) every 2.5 in ρ̃ (the system is linear) and return the Wronskian of unit vectors, as §3 states.
+  2. C's scan was β ∈ [0.2, 4], below the root β = 5.04 at γ₁ = 1.0 (`IndexError`, no root). Fix: the scan covers [0.2, √(−min W) + 0.01], the
+     search-range bound A uses (a bound on where to look, not on the answer).
+  3. Resolution: T = e^{2γ₁ arctan γ₁}/(√(1+γ₁²) β) puts β at 8–60 for γ₁ = 1.2 … 2.0, so the ρ-space well is narrower than h = L/1500. Fix: methods A and B
+     work in ρ̃ = λρ, λ = e^{2γ₁ arctan γ₁} ([GGS09a]'s β̄ scaling, p. 9; β̃ = β/λ, W̃ = W/λ², T = 1/(√(1+γ₁²) β̃)). L = 30 and h = L/1500 now
+     refer to ρ̃. λ = 1 for γ₁ = 0 and for the planted potentials. Values are returned in the original units.
+  The fixes were made before seeing run4. `dev_smoke_large_gamma.log` is a short test of the repaired A, B (γ₁ = 1, 2) and C (γ₁ = 1) before run4.
+- `run4_full.log` (rc 0, 2:17, peak rss 127 MB): the full run, all 46 checks pass. Code commit a8c8c41 plus the fixes of the previous item.
+- Mutation runs (`run_mutations.sh`, logs `mut_<name>.log`, summary `mutations_summary.md` from `summarize_mutations.py`; every run executes all
+  checks, so a mutated run has the same cost as run4, 2–8 min):
+  - Batch 1 (script at 9033857): potential, printedW, matrix, planted, units, tfactor, count, deltaphi complete and fire on every target of §5.
+    Three ran differently: `xmap` and `domain` ended in a traceback in the table loop of G5 (`IndexError`: A found no root with the broken map or the
+    L = 4 box), before G5 (xmap) or D1 (domain) was reached, so those two checks never ran; the first-run verdict is **SILENT** on G5 and on D1.
+    `cpath` hung at 100 % CPU for 20 min in P-C (`solve_ivp` on a NaN right-hand side, because r = 0 puts the path on the singular point); I stopped
+    it with `systemctl --user stop nm-i151-mut` (rc file 143 written by me), and `background` was not started.
+  - Code change fcbad54 and f9e3cee: an exception inside a check, and a non-finite right-hand side in P-C and in method C, are reported as FAIL of
+    that check (`try/except` around each solver call). No criterion, tolerance or target list changed, and the unmutated path is the same code (the
+    final output equals run4's apart from the timing line; `final_vs_run4.diff`).
+  - Batch 2 (`run_mutations2.sh`, `_run2` logs): xmap and domain complete and now fire on their targets (G5, D1). `cpath` hung again after 11 min, in method C's
+    real-axis integration to the singular point (numpy float division by zero gives NaN, no exception); stopped by me (rc 143), fixed in f9e3cee.
+  - Batch 3 (`run_mutations3.sh`): `cpath` (`_run3`) and `background` (first run). Both fire on their targets.
+  - All 12 controls fire on every target after the reruns. Failures outside the target lists and not predicted either way are listed in the summary;
+    none of the ids the README predicted would not fail failed. The first runs of xmap, domain and cpath stay as the logs of the controls that were silent
+    or hung.
+- `final_output.txt` (copy of `notes/ellis_efold_output.txt`), `final.time`, `final.rc`: the final run at f9e3cee (step 4).
+
