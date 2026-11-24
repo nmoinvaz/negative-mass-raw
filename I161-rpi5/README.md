@@ -174,3 +174,16 @@ dt = 0.001|, both printed. Pass iff e_q <= 1e-11, e_t <= 1e-11, |L'(10) - 2 h j|
 L' nondecreasing over the stored times to 1e-12, and b at the panel boundaries (b = minus the cumulative integral of A')
 in [-2 h j - 1e-9, 1e-9] at every stored time (the README's own slack 1e-9). Control: `E-hol` (expects L'(10) = h j) now
 has target `E_hol_b`; effect computed by hand: |L' - h j| = 2.25 >> 1e-5, so it fails.
+
+**A7 (coordinator accepted E_hol_b, 2026-11-24; this rule replaces the panel layout of A6 before its first run).** Run time, not
+data, is the reason: 120 uniform panels would cost about 2.5 min per full script run, and the controls repeat it 19 times.
+Fixed rule of `E_hol_b`: composite Gauss-Legendre of order 10 in s on [-3, 3] with 48 panels: 9 of width 0.25 on
+[-3, -0.75], 30 of width 0.05 on [-0.75, 0.75], 9 of width 0.25 on [0.75, 3] (480 nodes); geodesics by RK4 at dt = 0.001
+to t = 10, stored at t = 0, 1, .., 10. The error estimate is max(e_q, e_t), printed, with e_q = |L'(10) with every panel
+halved (96 panels) - L'(10) with 48 panels| and e_t = |L'(10) at dt = 0.0005 - L'(10) at dt = 0.001|. It is a spread over
+two resolutions, not an enclosure; it says nothing about error that both resolutions share. Pass iff e_q <= 1e-11 and
+e_t <= 1e-11, |L'(10) - 2 h j| <= 1e-5 (the README's own tolerance, unchanged), L' nondecreasing over the stored times to
+1e-12, and b at the panel boundaries (b = minus the cumulative integral of A') in [-2 h j - 1e-9, 1e-9] at every stored time
+(the README's own slack 1e-9). E4 `E_hol` stays as worded and FAILED (coordinator ruling), and the run of record exits 1
+because of it and of C2 (iv). Control `E-hol` (expects L'(10) = h j) has target `E_hol_b`; effect computed by hand before
+the first run: |L'(10) - h j| = 2.25 against the tolerance 1e-5, so it fails, and the run will confirm it.
