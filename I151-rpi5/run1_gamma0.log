@@ -1,0 +1,45 @@
+ellis_efold.py --gamma=0  python 3.14.10 numpy 2.5.4 sympy 1.14.0 mpmath 1.3.0 on aarch64
+mutation: None
+PASS  U1: atan g + atan(1/g) = pi/2 True; identities (R_min, r_throat, lapse, mass, g_tt, g_rr, isotropic map, T) all 0: True
+PASS  U1: printed numbers: R_star(2,1) = 3.88955 (3.8895), alpha_th = 0.57489 (0.575), 5.13 alpha_th/R_star = 0.75823 (0.7584)
+PASS  U2: code T(beta, g) against [SN26]'s tau alpha_th/R_star, worst rel 3.40e-16
+PASS  W1: gamma_1 = 0.0: printed Eq. (32) against -V + 2(dPsi0/Psi0)^2, worst rel 6.26e-30
+PASS  W1: gamma_1 = 0.5: printed Eq. (32) against -V + 2(dPsi0/Psi0)^2, worst rel 9.06e-30
+PASS  W1: gamma_1 = 2.0: printed Eq. (32) against -V + 2(dPsi0/Psi0)^2, worst rel 6.44e-30
+PASS  W1: static V (p. 5) against Eq. (24) with the background, worst rel 9.38e-30
+PASS  W1: gamma_1 = 0: W = -3/(1+x^2)^2, worst rel 4.32e-30
+PASS  W1: W(gamma_1) closed form of p. 7, worst rel 1.25e-31
+PASS  W1: x^2 W -> 2 e^(+-2 pi g) at |x| = 1e6, worst rel 1.93e-05
+PASS  P-A: gamma_1 = 0.0, ell = 0.9: A beta = 0.900000000000 (exact 0.9), rel 4.1e-15, 1 bound states (exact 1)
+PASS  P-B: gamma_1 = 0.0, ell = 0.9: B beta = 0.900000000000, rel 1.1e-13, 1 negative eigenvalues (exact 1)
+PASS  P-A: gamma_1 = 0.0, ell = 1.6: A beta = 1.600000000000 (exact 1.6), rel 1.9e-15, 2 bound states (exact 2)
+PASS  P-B: gamma_1 = 0.0, ell = 1.6: B beta = 1.600000000003, rel 1.7e-12, 2 negative eigenvalues (exact 2)
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-i151/notes/ellis_efold.py", line 713, in <module>
+    main()
+    ~~~~^^
+  File "/home/nathan/Source/negative-mass-i151/notes/ellis_efold.py", line 700, in main
+    run_G(gset, L, full=not only0)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-i151/notes/ellis_efold.py", line 580, in run_G
+    bB, nB, evB = method_B(g, lambda xs, gg: W_B_vec(xs, gg), L=L)
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-i151/notes/ellis_efold.py", line 241, in method_B
+    Wi = Wvec(xi, g)
+  File "/home/nathan/Source/negative-mass-i151/notes/ellis_efold.py", line 580, in <lambda>
+    bB, nB, evB = method_B(g, lambda xs, gg: W_B_vec(xs, gg), L=L)
+                                             ~~~~~~~^^^^^^^^
+  File "/home/nathan/Source/negative-mass-i151/notes/ellis_efold.py", line 126, in W_B_vec
+    out = np.array([float(f(mp.mpf(float(v)), mp.mpf(g))) for v in xs])
+                          ~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<lambdifygenerated-2>", line 17, in _lambdifygenerated
+    x15 = 1/x8
+          ~^~~
+  File "/home/nathan/Source/negative-mass-venv314/lib/python3.14/site-packages/mpmath/ctx_mp_python.py", line 205, in __rdiv__
+    v._mpf_ = mpf_rdiv_int(t, s._mpf_, prec, rounding)
+              ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-venv314/lib/python3.14/site-packages/mpmath/libmp/libmpf.py", line 991, in mpf_rdiv_int
+    return mpf_div(from_int(n), t, prec, rnd)
+  File "/home/nathan/Source/negative-mass-venv314/lib/python3.14/site-packages/mpmath/libmp/libmpf.py", line 960, in mpf_div
+    raise ZeroDivisionError
+ZeroDivisionError

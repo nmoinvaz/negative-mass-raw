@@ -151,4 +151,12 @@ any run over a few minutes, exit code in `<step>.rc`.
 
 ## 7. Amendments
 
-(none yet)
+No criterion, tolerance or target was changed. Process notes only:
+
+- `dev_smoke_symbolic1.log`, `dev_smoke_symbolic2.log` (2026-11-24): the symbolic checks (U1, U2, S1, L1, W1) run alone before the first
+  full run; no eigenvalue was computed. After the first, the scalar equation was added to L1, so that L1 tests the five linearized
+  equations the table names (tt, tx, xx, θθ, scalar) and not four.
+- `run1_gamma0.log` (rc 1, kept): crashed in method B with `ZeroDivisionError`. The derived W is 0/0 at the throat, and for γ₁ = 0 the throat
+  x = 0 is a grid point. Fix in `W_B_vec`: at 40 digits, when |x − γ₁| < 1e-14 the value is the mean of the two sides x ± 1e-8.
+  P-A and P-B (ℓ = 0.9, 1.6 at γ₁ = 0) had passed in that run (`run1_gamma0.log`, first 15 lines).
+- `run2_gamma0.log` (rc 0): the rerun of step 2.
