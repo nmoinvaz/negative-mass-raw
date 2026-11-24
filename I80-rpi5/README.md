@@ -113,6 +113,17 @@ compatibility order gives one relation, not two. NOT claimed: a classification o
 reported as not decided by this issue unless C8 (e) below finds it.
 (e) numerical formal-series search (only if time allows; reported as numerical evidence with a planted control).
 
+**C8 (e) `mult_series` (criterion and target written 2026-11-24, before the first run of the search code).** Numerical evidence,
+not a proof. At the point (x, rho) = (0, 1) (WLOG: x-translation and the scaling (x, rho) -> s (x, rho) map separable shifts to
+separable shifts), unknowns X_0..X_7, R_0..R_7 (jets of X and R) and t_X, t_R; equations E_(m,n) = d_x^m d_rho^n E = 0 for
+m + n <= 5 with E = 8D/R'^2 of C8 (a), (S = R'' + R'/rho, d_rho (1/rho) = -1/rho^2), and t_X X_1 = 1, t_R R_1 = 1 (so X' R' != 0).
+Levenberg-Marquardt (numpy, finite-difference Jacobian), 60 random starts per equation (seed 80, entries uniform in [-2, 2],
+80 iterations), 'converged' = residual norm < 1e-10. Equations: u = X R + v for v in {0, 1/2, 1, 2}. Pass: for each v, no start
+converges (the smallest final residual is reported). Planted truth through the same code: for the additive-separable
+equation E_add = (R'^2/2 + X'^2)^2 - ((X + R) X'')^2 - (R'' + R'/rho)^2/4 of C7, which has the solutions u = c x + g(rho), at least
+one start converges. Control `mult-series-add` (target `mult_series`): the search for u = X R + v is run on E_add instead, so some
+start converges and the 'none converges' criterion fails. NOT shown by this check: that the full system has no solution.
+
 **C9 `conical`.** For b = F(x/rho): D = N(F, F', F''; eta)/(8 rho^6), N the polynomial printed by the script (exact); its
 part of degree 3 in (F', F'') is 2 F w^2 (F^2 F'' - eta w), w = F' + eta F'' (exact); with F -> 0 its part of degree 4 is
 -w^2 ((eta^2 + 1)(eta^2 + 2) F'^2 + 2 eta F w) (exact). Consequence (by hand, conditional on regular asymptotics, stated so in
@@ -177,6 +188,7 @@ generate the same ideal after inverting r w' (sympy Groebner with a saturation v
 | `add-drop` | `additive` | (X + R)^2 replaced by X^2 in E |
 | `add-quad` | `additive` | the elimination step keeps b3 free |
 | `mult-drop-v` | `multiplicative` | u = X R without + v in the expected polynomial |
+| `mult-series-add` | `mult_series` | the search for u = X R + v is run on E_add (which has solutions), so a start converges |
 | `conical-term` | `conical` | one term (F^3 F''^3 eta^2, coefficient 2 -> 3) changed in N |
 | `conical-hand` | `conical_parts` | the degree-3 right-hand side is the original wrong one of C9 (b): 2 F w^2 (F^2 F'' - eta w) |
 | `conical-limit` | `conical_limit` | N replaced by N_pow = F'' + 2 F'/eta, which has the limit solutions F_inf + c/eta. **DROPPED 2026-11-24 (A3): its target `conical_limit` already fails on the real N, so the control cannot be told apart from the baseline. Target kept here as first written.** |
@@ -217,3 +229,25 @@ as silent; any later change of the list is dated and recorded below.
   forms in the note and tested directly by C9b (ii); it is not carried over.
 - 2026-11-24, before the first run of `det_classify.py`: the `conical-term` row said F^2 F''^3; the term is F^3 F''^3 eta^2 (typo).
   Development runs (checks one at a time, to fix bugs in the script) are kept as `dev.*.runN.log`; they are not final runs.
+- 2026-11-24, A4: implementation of the numerical part of C6 (b) only, no threshold: `dev_b2` showed the sympy evaluation (`sp.N(..., 60)`,
+  adaptive precision, 250 s per run, largest unperturbed |D| 0.0 to 1e-160 in `dev_all.run1.log` and `dev_bessel.run1.log`) is too slow
+  for 17 control runs. My first speed-up (mpmath at 60 working digits, `dev_b3.run1.log`) left |D| up to 1.25e-46 > 1e-50 at some points,
+  which is cancellation error of the arithmetic, not a feature of D; at 130 working digits (`dev_b4.run1.log`) the largest |D| is 8.9e-117.
+  Both failed and passing logs are kept; the thresholds 1e-50 and 1e-3 are unchanged.
+- 2026-11-24, A5: C8 (e) `mult_series` and its control `mult-series-add` are WITHDRAWN before any run of record. The first dev run
+  (`dev_series.run1.log`) was stopped by me after 9 min with no output (it needed about 10 min). A batched rewrite then converged for
+  several starts of the multiplicative equation, and the converged starts have X, X' or R of order 1e-2 to 1e-4 with t_X up to 3e3
+  (`scratch_series_search.log`): the normalisation t_X X' = 1 does not bound the amplitude, and every part of D is of order 3 or higher in
+  the small shift u - v, so 'residual < 1e-10' is reached at tiny amplitude, also for the additive planted equation. The criterion as I wrote it
+  cannot separate a solution from a small amplitude. I did not change it and rerun; the check is dropped and the multiplicative reduction stays
+  *not classified*. A recommended task in the closing comment: a properly normalised search (relative residual, amplitude bounded below).
+
+## Final run of record (2026-11-24)
+
+`run_final.sh` (systemd unit `nm-i80-final`, nice 10, one process): `python3 notes/warp/det_classify.py --logdir=final_mut`, script at commit 00d7f4e (unchanged
+since), stdout in `notes/warp/det_classify_output.txt` of the repository, stderr empty (`final_stderr.txt`), exit code in `final.rc`: **1**.
+Reason: 13 of 15 checks pass; `bessel_pert` and `conical_limit` FAIL, as written, by the coordinator's rulings (A2, A3). All 19 controls fire on their
+targets and on no other check. Checks alone 43 s, whole run about 15 min. Each control's full stdout: `final_mut/mut_<name>.log`.
+Withdrawn or dropped: `mult_series`, `mult-series-add` (A5), `conical-limit` (A3).
+Development runs: `dev_fast.run1/2`, `dev_mid.run1` (the C9 (b), (c) failure), `dev_closure.run1`, `dev_bessel.run1` (the C6 (b) perturbed failure), `dev_conical.run1`, `dev_all.run1`,
+`dev_b2.run1`, `dev_b3.run1`, `dev_b4.run1`, `dev_series.run1` (stopped by me), `scratch_series_search.log`.

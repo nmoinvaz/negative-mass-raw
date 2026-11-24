@@ -1,0 +1,14 @@
+# Scratch runs of the withdrawn check `mult_series` (C8 (e)); not runs of record. Copied from the session, 2026-11-24.
+# s16 (loop over starts, timing): add v=0 build 1.0 s, 0.112 ms per residual call; mult v=0 build 6.1 s, 0.876 ms; mult v=2 build 8.9 s, 1.303 ms;
+#   2 starts of the mult v=2 system: 4.0 s, smallest residual 2.25e-08, converged 0. The first dev run (`dev_series.run1.log`) was stopped by me after
+#   9 min with no output, at the per-start cost of about 2 s x 60 starts x 5 systems it needed about 10 min.
+# s17 (all starts at once, numpy batch): add v=0: smallest residual 2.17e-19, 10 of 60 converged (2.3 s); mult v=0: 5.53e-11, 1 converged (18.6 s);
+#   mult v=2: 6.88e-13, 4 converged (27.1 s).
+# s18 (the converged starts, jets X0 X1 X2 | R0 R1 R2 | tX tR):
+#   mult v=0: X0..X2 = (-0.0026, 0.0059, 0.0117), R0..R2 = (1.0983, -1.2636, 1.2673), tX = 170, tR = -0.791
+#   mult v=2: X = (0.0097, 0.0003, -0.0), R = (-0.0, 0.3642, -0.3628), tX = 2.95e3 | X = (-0.0, 0.0009, -0.0), R = (-0.0, -0.1394, 0.1394), tX = 1.1e3 |
+#             X = (-0.0045, 0.012, -0.0062), R = (0.0023, 0.0039, 0.0054), tR = 257 | X = (0.0003, 0.0005, -0.0), R = (0.0006, 4.722, -4.7277), tX = 1.97e3
+#   add v=0 (the planted equation): the 10 converged starts also have |X1| between 0.0025 and 0.1.
+# Reading: every converged start has |X1| or |X0|, |R0| of order 1e-2 to 1e-4 (t_X up to 3e3). The normalisation t_X X_1 = 1 only keeps X_1 nonzero, and the
+# equations E are small whenever X is small (all of D is of order 3 or higher in the small shift u - v), so 'residual < 1e-10' is reached at
+# tiny amplitude. The criterion as written in the README cannot distinguish a solution from a small amplitude. See README A5.
