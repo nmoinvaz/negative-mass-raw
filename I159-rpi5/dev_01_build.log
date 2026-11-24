@@ -1,0 +1,10 @@
+[PASS] n_build: N = 8 rho^6 D from the jets of F(x/rho) equals det_classify.conical_N(): True; lowest part in (F', F'') is the printed degree-3 part 2 F w^2((F^2 - 1)F'' - eta w), lower parts 0: True; lowest part in (F, F', F'') is the printed degree-4 part -w^2((eta^2+1)(eta^2+2)F'^2 + 2F(eta w + F'')), lower parts 0: True; D from direct derivatives of F(x/rho) = (x/rho)^3 - 2x/rho + 1/3 equals N/(8 rho^6) at 5 exact points: True
+  (1 s)
+[PASS] theta_parity: N(G, p, q, nu) has the powers nu^[0, 2, 4] and equals A0 + nu^2 A1 + nu^4 A2 with A0 = p^2 (p^2 - q)(p^2 + q), A1 = G^2 p^2 q^2 + 4G p^4 q - 2G q^3 + 4p^6 - 3p^2 q^2, A2 = 2(G(q - p) + p^2)(G^2 q^2 + 2G p^3 + 2G p^2 q + 2p^4 - q^2): True; N(F0, -F1, F2; -eta) = N(F0, F1, F2; eta), so F(-eta) solves N = 0 when F(eta) does: True
+  (0 s)
+
+checks: 2 passed, 0 failed []. 1 s
+
+real	0m1.827s
+user	0m1.762s
+sys	0m0.060s
