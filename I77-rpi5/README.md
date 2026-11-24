@@ -76,3 +76,10 @@ Pilot logs: `pilot_full_nocontrols.log` (+ `.time`: 118 s, 86 MB peak) at b56280
   lab-route Ricci tensor of the accelerating block equals the comoving polar one only if the t-derivatives are kept;
   dropping them breaks `acc_const_limit`. `wall-flat-sub` has targets `wall_flat_points` and `wall_flat_explicit`
   (the explicit one is not substituted, so only `wall_flat_points` is predicted to fire).
+- **C7 as written, the test and its control.** At every admissible root lam != 0 the script computes (a) K(lam) from the
+  implicit-function theorem and (b) L_K M of M = R - lam g along its kernel K, as fields, at 120 digits, by central
+  differences (h = 1e-35) of lam, K and M on the Taylor polynomial of w with the point's jets W0..W3. C7 passes iff
+  (a) != 0 or (b) != 0 at every root (relative size > 1e-8). The independent finite-difference K(lam) must agree with
+  (a) to 1e-20, else the check fails. Control `lam-const`: takes d lam = 0 and L_K M = 0 at every root; target
+  `wall_lam_potential`, which must then fail. (Coordinator's step 3, C7b, is added to this README only if L_K M = 0 at
+  one of the 4 equator roots.)
