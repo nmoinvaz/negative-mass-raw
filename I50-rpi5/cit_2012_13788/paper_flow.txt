@@ -1,0 +1,554 @@
+Disintegration and expansion of wormholes
+I.D. Novikov
+Astro-Space Center of P.N. Lebedev Physical Institute, Profsoyusnaya 84/32, Moscow, Russia 117997,
+The Niels Bohr International Academy, The Niels Bohr Institute,
+Blegdamsvej 17, DK-2100, Copenhagen, Denmark and
+National Research Center Kurchatov Institute, 1,
+Akademika Kurchatova pl., Moscow, Russia 123182
+
+D.I. Novikov and S.V. Repin
+
+arXiv:2012.13788v1 [gr-qc] 26 Dec 2020
+
+Astro-Space Center of P.N. Lebedev Physical Institute, Profsoyusnaya 84/32, Moscow, Russia 117997
+We consider the process of catastrophic expansion of a spacelike wormhole after a violation of its
+equilibrium state. The dynamics of deformation of the comoving reference frame is investigated.
+We show that the deformation has a very specific anisotropic feature. The statement made earlier
+by other authors, that in the process of expanding the wormhole connecting two universes these
+universes ultimately unite into one universe, is not correct. We show that the transverse size of the
+wormhole (its throat) increases and the length of the corridor decreases which does not correspond
+to the de Sitter model.
+PACS numbers:
+Keywords: General Relativity, wormholes, black holes.
+
+I.
+
+INTRODUCTION
+
+At present the very fact of the existence of wormholes (WHs) is regarded as a purely theoretical hypothesis. However, there are very characteristic features that
+make it possible to distinguish wormholes from black
+holes. In particular the special shape of the magnetic
+field in the vicinity of the wormhole [1], the presence
+of the blueshift due to matter outflow and visible structures within the shadow of the wormhole are distinctive
+criteria of WHs. It should be noted that planned highresolution and high-sensitivity VLBI experiments such
+as the Origins Space Telescope [2], Millimetron [3] and
+the James Webb Space Telescope [4] can provide us (at
+least in principle) with the possibility of observing the
+features noted above which would indicate the existence
+of WHs. Therefore one can expect that in the foreseeable
+future the physics of wormholes from a purely theoretical
+science can become a part of observational astrophysics.
+One of the most important issues in the physics of
+wormholes is the problem of their evolution under the influence of certain circumstances and especially the problem of their final state. WHs are the topological tunnels
+connecting the distant regions of our Universe, or even
+different universes, with each other. These objects are
+of different types [5] and wormholes of different types
+evolve in different ways. In Ref. [1] we considered the
+catastrophic collapse of various types of WHs under the
+influence of a scalar field irradiation with radiation density ε > 0. In Ref. [1] we also considered the various final
+states the collapse of different types of WHs can lead to.
+The evolution in the opposite direction is also of great
+interest, i.e. the expansion and breakup of a WH due to
+instability or under the action of a small perturbation by
+exotic matter with negative energy density ε < 0, [6, 7].
+First of all, the classical spacelike WHs are of interest.
+
+In this article we study the process of wormhole expansion from the beginning to the final stage. The outline
+of our paper is the following: In Sec. II we consider the
+initial stage of WH evolution after the loss of equilibrium; in Sec. III we demonstrate the results of numerical
+analysis of the wormhole disintegration. In Sec. IV (Discussion) we discuss our results and compare them with
+some statements made earlier by other authors. Finally,
+in Sec. V we make our brief conclusions. In the Appendix
+we separately discuss the homogeneous approximation.
+II.
+
+THE INITIAL STAGE OF EXPANSION
+
+Let us consider the initial stages of the collapse of the
+Ellis-Bronnikov-Morris-Thorne WH (Ref. [7]) after the
+loss of the equilibrium. The spherical metric can be written as follows:
+ds2 = −dτ 2 + eλ dR2 + r2 dΩ2 , r2 = eη (R2 + Q2 ),
+(1)
+dΩ2 = dϑ2 + sin2 ϑ dϕ2 ,
+where R is the radial coordinate and Q is the throat size.
+Hereinafter we use c = 1, G = 1.
+The equations for the scalar field Ψ are
+
+h
+i
+i
+1 h
+
+Ψ,τ eη+λ/2
+= 2 Y 2 Ψ,R eη−λ/2
+,
+Y
+,τ
+,R
+(2)
+
+
+2
+2
+2
+Y =R +Q .
+For a static field:
+λ = 0,
+
+η = 0,
+
+Ψ,R = ±
+
+Q
+,
+Y2
+(3)
+
+Q2
+Tττ = −TRR = Tϑϑ =
+.
+8πY 4
+
+2
+We will consider the evolution of the WH at the stage
+when λ and η are small in absolute value. The perturbation equations for the linearized Einstein equations give
+for one of the solutions [7]:
+λ = −2η ,
+η,tt = η,xx +
+
+(4)
+6η
+6x
+η,x +
+,
+2
+1+x
+1 + x2
+
+(5)
+
+where x = R/Q and t = τ /Q.
+For η ∼ exp(iωt) we have
+λ
+f
+η=− =
+,
+2 (1 + x2 )3/2
+(6)
+"
+f,xx + ω 2 +
+
+#
+
+3
+2
+
+(1 + x2 )
+
+f = 0.
+
+The analysis in Ref. [7] shows that for |x|  1 the
+function f grows and the central region of the wormhole
+around the throat |R| < |xQ| is unstable:
+√
+
+f ∼ eαt sin x 3 − α2 + Φ,
+(7)
+ω 2 = −α2 ,
+
+α = const,
+
+Φ = const.
+
+For |R| ≥ |xQ| the function f is exponentially small.
+We emphasize that Eq. (4) shows that if the expansion
+occurs in the direction orthogonal to the radial one, then
+the contraction occurs in the radial direction. We did
+not find another possible beginning of expansion with a
+qualitatively different deformation of the reference frame
+like in Eq. (4).
+
+III. NUMERICAL ANALYSIS OF THE
+DISINTEGRATION OF A WORMHOLE
+
+Let us consider numerically the disintegration process
+of a spherically symmetric WH without any additional
+restrictions.
+Apparently, the first numerical simulation of nonlinear
+processes of the wormhole expansion was performed in
+Ref. [6]. As we will show below, the authors of this paper
+do not agree with the conclusions of Ref. [6] on the issue
+under consideration.
+We will consider an expansion of a WH with a scalar
+exotic field Ψ [7]. A spherically symmetric metric can be
+written in double zero coordinates as
+ds2 = −2e2b(u,v) du dv + r̃2 (u, v) dΩ2 ,
+(8)
+dΩ2 = dϑ2 + sin2 ϑ dϕ2 .
+The energy-momentum tensor for the field Ψ is written
+
+Figure 1: Catastrophic expansion of WHMT after imbalance
+due to its irradiation from the side of the v-coordinate by a
+short spherical pulse of a scalar field with ε < 0. See the text
+for designations. Results of a simulation with v1 = 9, v2 = 11
+and AΨ = −0.01. (a) Lines of constant r̃, from r̃ = 1 to
+r̃ = 5 with ∆r̃ = 0.5 between lines (the line a marks r̃ = 1.5
+and the line b marks r̃ = 11. T+ is an expanding T -region,
+R is the R-region. Dotted lines mark apparent horizons. (b)
+Ψ
+Ψ
+Lines of constant Tvv
+− Tuu
+. The region a is the region with
+Ψ
+Ψ
+Ψ
+Ψ
+Tvv − Tuu < 0, b marks the region with Tvv
+− Tuu
+> 0 and
+Ψ
+Ψ
+the thick dotted line marks Tvv − Tuu = 0.
+
+3
+as
+Ψ
+Tµν
+=−
+
+1
+×
+4π
+
+
+Ψ2,u 0
+0
+0
+
+ 0 Ψ2,v
+0
+0
+.
+×
+2 −2σ
+
+ 0
+0 r̃ e
+Ψ,u Ψ,v
+0
+2
+2
+−2σ
+0
+0
+0
+r̃ sin ϑe
+Ψ,u Ψ,v
+(9)
+
+
+The field Ψ satisfies the Klein-Gordon equation:
+∇µ ∇µ Ψ = 0 .
+
+(10)
+
+The Einstein equations corresponding to Eqs. (8)-(10)
+can be found in Ref.[7]. We have solved these equations
+numerically using specially constructed code [7]. Our
+goal is to study the expansion of the Ellis-BronnikovMorris-Thorne WH (hereinafter we denote it as the
+WHMT ) starting from the static state. This state is irradiated from one hole by a narrow spherical impulse of a
+scalar field Ψ.
+The static WHMT in (u, v) coordinates is written as
+s
+1
+r̃(u, v) = Q2 + (v − u)2 ,
+−guv = 2,
+(11)
+4
+
+Ψ = arctan
+
+
+v−u
+.
+2Q
+
+(12)
+
+We will study the nonlinear processes of expansion of the
+WH MT Eqs. (11) and (12), arising when the equilibrium
+of this model is disturbed by the irradiation from the vcoordinate side by a spherical impulse of the exotic scalar
+field Ψ with negative energy density. The numerical value
+of Q in Eqs. (11)-(12) is set equal to 1, Q = 1. The
+area of numerical simulation is limited by the values of
+the coordinates: v = [8, 28], u = [0, 20]. The unknown
+functions which are to be determined in the simulation
+are r̃(u, v), σ(u, v) and Ψ(u, v). The initial values of the
+impulse are set along u = u0 = 0.
+The full initial value Ψ(u0 , v) is given by the formula
+Ψ(u0 , v) = ΨMT (u0 , v) + Ψ̃(u0 , v) ,
+
+(13)
+
+where ΨMT (u0 , v) is determined by Eq. (12), and the
+impulses Ψ̃(u0 , v) are determined by the expression
+ 
+
+v − v2
+2
+Ψ
+Ψ̃,v (u0 , v) = A sin π
+.
+(14)
+v2 − v1
+AΨ is the impulse amplitude, AΨ > 0, and v2 − v1 is
+its width. Outside the segment [v1 , v2 ] the value Ψ̃,v is
+equal to zero. In the computations, the shape and the
+magnitude of the impulse have been varied.
+Figures 1(a) and 1(b) represent the results of numerical simulation. In Fig. 1(a) one can see the emergence
+
+of apparent horizons in the direction of the u- and vcoordinates, and the appearance of the corresponding
+T+ -region, which expands. The definition and description of the R- and T -regions one can find in Refs. [8–10].
+For numerical simulation v1 = 9, v2 = 11, AΨ = −0.01
+were chosen. The impulse first reaches the throat r̃ = 1
+at the moment u0 = v0 = 9. Such an impulse can be considered as a small initial perturbation of the equilibrium
+of WHMT . After this imbalance, the process develops in
+a nonlinear mode.
+Figure 1(a) shows also the world lines r̃ = const of
+those points of the reference frame, which are located
+along the radial coordinate. In the region R these lines
+are timelike. Their behavior over time characterizes the
+deformation of the reference frame along the radial coordinate. In Fig. 1(a) this behavior corresponds to compression along this coordinate.
+Ψ
+Ψ
+The lines of constant value Tvv
+− Tuu
+of the scalar field
+Ψ are shown in Fig. 1(b). This difference describes the
+flux of the field in and out of the WH. It is this difference
+which is important for dynamics. Figure 1(b) shows the
+scattering of the Ψ̃ flux on the space-time curvature and
+the Ψ field flux from the throat to the larger values of r̃.
+With the development of the process, the Ψ field takes
+up more and more volume and flows into empty space
+through both exits from the wormhole. In Ref. [1], we
+considered the collapse of a wormhole. In this model, the
+outflow of the Ψ field leads to an increase in the forces
+of attraction acting on the wormhole. As a result of this
+process, two black holes were formed with masses that
+were absent before the start of this process.
+IV.
+
+DISCUSSION
+
+Let us return to the question posed at the beginning of
+the article. How does the WH disintegration occur after
+the loss of its staticity? This issue has been covered in
+Ref.[6]. The authors carried out a numerical study of the
+formation of the apparent horizon and the evolution of
+the WH throat and came to the following conclusion:
+“This exponential expansion, combined with
+the horizon structure, indicates that the
+wormhole has exploded to an inflationary universe.”
+“The two universes connected by the wormhole have essentially been combined into one
+universe.”
+Similar conclusions were made in Ref. [11]:
+“We show that small initial perturbation do
+not decay to zero but grow in time and eventually kick the wormhole throat away from its
+equilibrium configuration.”
+We disagree with this. The dynamics of the apparent
+horizon and the throat are insufficient for such conclusions. Our numerical simulations show that the throat
+
+4
+swells but does not disappear. The “two universes” in the
+u- and v- directions, connected by a throat, are preserved.
+From the very beginning of the emergence of dynamics
+and in the course of the evolution, the deformation of the
+comoving space occurs in a cardinally anisotropic manner. The compression occurs along the radial direction,
+and expansion occurs in the directions which are perpendicular to the radial one. We emphasize this in Sec. II
+and in the Appendix, where the consideration was carried
+out in various approximations, and also in Sec. III. There
+is no any approximation to de Sitter’s solution cited by
+the authors of [6]. In inflationary cosmological models,
+the isotropic expansion occurs in all directions.
+Let us compare the two models: the expanding WH
+and the expanding de Sitter model. We will take the
+identical static states as the initial states and investigate
+how they will evolve in the future. The evolution of a
+WH is described in Sec. III. The evolution of the de Sitter model is well known. For the stationary reference
+frame at the initial moment t0 = 0 and later on reaching
+the state of the inflationary universe, see Ref. [12]. Correcting typos in Ref. [12] and using the − + ++ signature
+we have
+ds2 = −dt2 + a20 cosh2
+
+
+t
+dχ2 + sin2 χ dΩ2 ,
+a0
+
+(15)
+
+0 ≤ t < ∞.
+In the de Sitter universe, any point can be chosen as the
+center of spherical symmetry. In the reference frame Eq.
+15 the equations for the apparent horizons are written as
+
+
+1
+.
+(16)
+t = a0 arccosh
+a0 sin χ
+Let us compare the deformations of the space of the WH
+reference frame (see Fig. 1) and the reference frame in
+Eq. (15). We draw the lines of the constant Lagrangian
+radial coordinate. Such a coordinate can be a line of
+constant size of the WH radius at a given Lagrangian
+point, i.e. the line g22 = const in Eq. 15.
+We use the dimensionless expressions for the length
+equal to the ratio of the length ` to a0 , i.e. n = `/a0 . In
+this notation the expression g22 = const can be written
+as: cosh2 t sin2 χ = n2 or
+
+
+n
+t = arccosh
+,
+(17)
+sin χ
+and Eq. (16) can be rewritten in the form
+
+
+1
+t = arccosh
+.
+sin χ
+
+Figure 2: Reference frame Eq. (15) in de-Sitter’s universe.
+Chainlike lines show apparent horizons, solid lines correspond
+to world lines (g22 = const). R- and T+ -regions are shown.
+
+Fig. 1(a), drawn in (u, v)-coordinates, time t flows along
+the diagonal from bottom left to top right. In Fig. 2,
+represented in the coordinates (t, χ), time flows from bottom to top. For comparison, it is useful to rotate Fig. 1a
+counterclockwise by 45 deg.
+The location of the R− and T+ - regions and horizons
+in both figures are qualitatively similar. However, the
+dynamics of the deformation of the comoving spaces, described by the behavior of the world lines of the reference
+systems, are fundamentally different. In T+ -regions, the
+world lines (they are spacelike) are orthogonal to the time
+line. As t grows, the increasing values of n describe in
+both figures the expansion along the direction orthogonal to the radius. The behavior of world lines in the
+R-areas is different in both figures. In Fig. 2, as t increases, they deviate from the center line and from their
+neighbors. This corresponds to expansion along the radius. In Fig. 1(a), the lines deviate toward the center line
+and their neighbors are located closer to the center line.
+This corresponds to contraction along this direction.
+Thus, the transverse dimension of the wormhole corridor increases with time, while the length of the corridor
+decreases. This is completely different from the isotropic
+expansion of the de Sitter model.
+
+V.
+
+CONCLUSIONS
+
+(18)
+
+Figure 2 shows the graphs of functions (17) and (18) in
+coordinates t,χ. Figure 1(a) depicts the evolution of an
+expanding wormhole system, while Fig. 2 represents a
+similar evolution of the de Sitter model. When comparing Fig. 1(a) and Fig. 2, it should be remembered that in
+
+As we have shown in this work, the disintegration of
+a WH leads to an expansion of its transverse dimensions
+— an increase in the size of the throat (and an increase
+in volume) — but does not lead to an approach to the
+de Sitter model. The WH remains a WH, although it
+increases in size. The size of the throat also increases,
+
+5
+which is important for an outside observer. Thus, the
+described process can be considered as a toy model of a
+possible expansion of the WH from quantum dimensions
+in space-time foam, proposed by Wheeler [13], to macroscopic dimensions: a process considered in Refs. [14, 15].
+See also the note in Ref. [6].
+
+geneous space. In the course of expansion, the influence
+of the scalar field on the expansion dynamics decreases,
+and we can consider the asymptotic behavior of evolution
+as we do in an empty of matter model (see Ref. [16]).
+The metric is written as
+ds2 = −dt2 + a2 dx21 + b2 dx22 + dx23
+1
+
+The work is supported by the Project No. 41-2020 of
+LPI new scientific groups and the Foundation for the Development of Theoretical Physics and Mathematics “Basis”, Grant No. 19-1-1-46-1. S.R. thanks R.E. Beresneva,
+O.N. Sumenkova and O.A. Kosareva for the opportunity
+to work fruitfully on this problem.
+
+a = a0 t− 3 ,
+
+A small volume of space on the throat in the first approximation can be considered as a part of a flat homo-
+
+[1] I. D. Novikov and D. I. Novikov, Soviet Journal of Experimental and Theoretical Physics 129, 495 (2019).
+[2] C. Battersby, L. Armus, E. Bergin, T. Kataria,
+M. Meixner, A. Pope, K. B. Stevenson, A. Cooray,
+D. Leisawitz, D. Scott, et al., Nature Astronomy 2, 596
+(2018), 1809.07351.
+[3] N. S. Kardashev, I. D. Novikov, V. N. Lukash, S. V.
+Pilipenko, E. V. Mikheeva, D. V. Bisikalo, D. S. Wiebe,
+A. G. Doroshkevich, A. V. Zasov, I. I. Zinchenko, et al.,
+Physics Uspekhi 57, 1199-1228 (2014), 1502.06071.
+[4] J. Kalirai, Contemporary Physics 59, 251 (2018),
+1805.06941.
+[5] I. D. Novikov, Physics Uspekhi 61, 692 (2018).
+[6] H.-A. Shinkai and S. A. Hayward, Phys. Rev. D 66,
+044005 (2002), gr-qc/0205041.
+[7] A. Doroshkevich, J. Hansen, I. Novikov, and A. Shatskiy,
+International Journal of Modern Physics D 18, 1665
+(2009).
+[8] I. D. Novikov, Vestnik Moscow University III, 61 (1962).
+
+,
+
+(19)
+
+(20)
+
+The x1 axis is directed along the radial coordinate, the
+x2 and x3 axes are pointed in the perpendicular direction
+(a special case of Kasner’s solution; see Ref. [16]). The
+volume V variation law is
+V ∼ t.
+
+APPENDIX: HOMOGENEOUS
+APPROXIMATION
+
+2
+
+b = b0 t 3 .
+
+
+
+(21)
+
+Note that in this approximation, we see the compression in the radial direction and expansion in the directions perpendicular to it. See also Ref. [17] for the homogeneous approximation.
+
+[9] I. B. Zeldovich and I. D. Novikov, Relativistic astrophysics. (1967).
+[10] V. P. Frolov and I. D. Novikov, Black hole physics : basic
+concepts and new developments (1998).
+[11] J. A. González, F. S. Guzmán, and O. Sarbach, Classical
+and Quantum Gravity 26, 015010 (2009), 0806.0608.
+[12] V. Berezin, in Black Holes in General Relativity and
+String Theory (2008), p. 19, 0812.4515.
+[13] J. A. Wheeler, Annals of Physics 2, 604 (1957).
+[14] K. Thorne and C. Nolan, The Science of Interstellar.
+(2014).
+[15] M. S. Morris and K. S. Thorne, American Journal of
+Physics 56, 395 (1988).
+[16] I. B. Zeldovich and I. D. Novikov, Structure and evolution
+of the universe. (1975).
+[17] E. I. Novikova and I. D. Novikov, Phys. Rev. D 81,
+104034 (2010), 0907.1936.
+
+

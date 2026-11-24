@@ -75,3 +75,40 @@ side only is reported as that.
   edits the note). Wording follows AGENTS.md: no novelty claims, status words used as defined, references verified against
   arXiv or INSPIRE or marked *(unverified)*.
 - The closing comment lists acceptance criteria with verdicts, what ran and its exit codes, this folder and its commit.
+
+## Added after fetching and reading, before running `frolov_map.py` (2026-11-24)
+
+What the reading showed about the Frolov map (all sources fetched from arXiv, `fetch.log`):
+
+- [Fro97] (gr-qc/9704040v1, one version) writes `dS² = −2e^{2Σ} du dv + R² dΩ²` and the family `Σ = 0`, `R² = u² − uv − p v²`,
+  with `Φ = ½ ln[−(2pv + u(1 − √(1+4p)))/(2pv + u(1 + √(1+4p)))] + φ(p)`; p > 0 black hole, p < 0 dispersal, p = 0 critical;
+  region u < 0 < v; the family's own direction is the k = 0 mode.
+- [Mae09] (0811.2962v2, last version) writes `ds² = −2du dv + (−uv + C₁v² + C₂u²)dΩ²`, scalar normal for C₁C₂ < 1/4, flat at 1/4,
+  purely imaginary (ghost) above; `R^μ_ν = 8πε φ^{,μ}φ_{,ν}`.
+- Same `−2 du dv` in both, so the map is a coordinate rescaling that sets the u² coefficient to 1, plus a rename of the
+  v² coefficient. Prediction written now: **p = −C₁C₂** for C₂ > 0, with `U = √C₂ u`, `V = v/√C₂` (du dv is invariant,
+  uv is invariant, C₁v² → C₁C₂V², C₂u² → U²), and `Φ_F = ±2√π φ_M` up to a constant (Ricci normalization: Frolov's
+  (es:5) gives Ric_vv = 2Φ,v², Maeda's equation gives Ric_vv = 8πεφ,v²).
+
+`frolov_map.py` (sympy 1.14.0, mpmath 1.3.0, `-I`), checks (all must pass for the claimed map, each can fail):
+
+| id | check | prediction |
+|---|---|---|
+| R0 | Ricci code: flat case `R² = (u − v/2)²` has zero Ricci; reduced formulas `Ric_AB = −2R,AB/R` | PASS |
+| F1–F5 | typed [Fro97] solution solves typed (es:3)–(es:7) with Σ = 0 | PASS |
+| F6 | `Ric_AB = 2Φ,AΦ,B`, `Ric_θθ = 0` for [Fro97]'s R² | PASS |
+| M1 | `R_F²(U, V; p) = −uv + C₁v² + C₂u²` under the claimed map | PASS |
+| M2 | `Φ_F,u = σ·2√π φ_M,u` and v-derivative, σ = ±1 one sign only | PASS |
+| M3 | `Ric_AB = 8πε φ,Aφ,B` identically in t = √(1 − 4C₁C₂) | PASS |
+| M4 | `p(C₁ = 0) = 0`; `1 + 4p = 0` at `C₁ = 1/(4C₂)`; p decreases as C₁ rises | PASS |
+| M5 | `R_F,V = 0` maps to `u = 2C₁v` (the θ_v = 0 line of bh_to_wormhole.md §2) | PASS |
+| M6 | `M_F` from (es:mass) equals Maeda's printed `m_MS` (squares, and a value at one point) | PASS |
+| N1–N5 | numeric: Φ_F real at p = 0.3 and −0.1, purely imaginary at p = −0.9, Φ(v = 0) = 0, `d/du` against Maeda's atanh at C₂ = 2.25 | PASS |
+
+Mutations, each must exit 1: `p_sign` (p = +C₁C₂: M1, M2, M4, M5, N5 fire), `no_c2` (p = −C₁: M1, M2, M4, M5, N5 fire),
+`p_double` (p = −2C₁C₂: M1, M2, M4, M5), `p_shift` (p + 1/4: M1, M2, M4), `no_rescale` (U = u, V = v: M1, M2, M5, M6, N5),
+`swap_uv` (U = v, V = u: M1, M2, M5, M6, N5), `eps_sign` (ε → −ε: M3, N3).
+
+If any prediction misses, that is reported as a discrepancy and the script is not adjusted to pass.
+Not read: Brady 1994 (the note's [Fro97] text says Frolov's sign of p is opposite to Brady's), so what Brady's parameter is
+in terms of C₁C₂ is stated only as *(unverified)*.

@@ -1,0 +1,1710 @@
+Dynamical evolution and stability of quantum corrected
+Schwarzschild black holes in semiclassical gravity
+Ben Kain
+Department of Physics, College of the Holy Cross, Worcester, Massachusetts 01610, USA
+
+arXiv:2507.00109v1 [gr-qc] 30 Jun 2025
+
+The Schwarzschild solution describes a classical static black hole in general relativity. When general
+relativity is extended by including semiclassical corrections in the form of a renormalized energymomentum tensor, the horizon of the Schwarzschild black hole disappears and is replaced by a
+wormhole. We study the stability of this quantum corrected static Schwarzschild solution in semiclassical gravity by using it as the initial data of a dynamical evolution. We find that the quantum
+corrected solution is unstable and that the wormhole can expand or collapse when perturbed. In
+vacuum, the wormhole expands, but in the presence of even a small amount of classical matter, the
+wormhole collapses, forming a horizon and evolving to an evaporating black hole.
+
+I.
+
+INTRODUCTION
+
+The Schwarzschild solution is the prototypical black
+hole solution in general relativity. It contains a horizon
+and a central singularity. When semiclassical corrections
+are included—which are arguably the simplest quantum
+corrections for extending general relativity—the horizon
+disappears and is replaced by a wormhole [1–4]. A curvature singularity is located beyond the wormhole throat,
+but it is no longer centrally located. Similar phenomena
+occur for the quantum corrected Reissner-Nordström [5]
+and Einstein-Yang-Mills [6] black holes.
+Semiclassical corrections to general relativity are expected to remove the classical horizon for nonextremal
+static black holes [4, 7]. Static solutions are ubiquitous
+in the study of spherically symmetric gravity. However,
+it is important to remember that a static solution may be
+unstable with respect to time-dependent perturbations.
+If this is the case, then it is unlikely that the static solution will occur naturally and it certainly cannot occur as
+the final state in an evolving system. Whenever a static
+solution is found, an immediate and important question
+is whether or not it is stable.
+A common method for determining stability is to perturb the static fields with time-dependent perturbations
+and then to linearize the system of equations with respect to the perturbations. This method can determine
+the linear stability of the static solution. Alternatively,
+the nonlinear stability of the static solution can be determined by dynamically evolving the system with the
+static solution supplying the initial conditions. If the
+static solution is unstable, the nonlinear evolution has
+the advantage of also determining the final state to which
+the static solution will evolve. In this work, we study the
+stability of the quantum corrected Schwarzschild black
+hole by dynamically evolving the static solution.
+In semiclassical gravity [8], the field equations take the
+form
+
+
+Gµν = 8π Tµν + ⟨Tbµν ⟩ ,
+(1)
+where Gµν is the Einstein tensor, Tµν is the classical
+energy-momentum tensor, and ⟨Tbµν ⟩ is the semiclassical
+
+correction to general relativity, which is the expectation
+value of a renormalized energy-momentum tensor operator. We use the Polyakov approximation to compute
+⟨Tbµν ⟩ [9–11]. This approximation was used to compute
+the quantum corrected static Schwarzschild solutions [1–
+4] and has been used in dynamical evolutions [12–16].
+Moreover, the Polyakov approximation allows for black
+hole evaporation [12, 13].
+From our simulations, we find that the quantum corrected Schwarzschild black hole is unstable and that the
+wormhole can exhibit both expansion and collapse. In
+the case of collapse, which occurs when the system is
+perturbed through the inclusion of classical matter, a
+horizon and a central singularity form and the system
+evolves to an evaporating black hole.
+In dynamically evolving the quantum corrected
+Schwarzschild black hole, we are dynamically evolving
+a wormhole. As far as we are aware, very few wormholes
+have been studied dynamically. The Ellis-Bronnikov
+wormhole [17, 18] has been dynamically evolved by various groups [19–22] and, recently, the Einstein-DiracMaxwell wormhole [23, 24] has been dynamically evolved
+[25, 26]. We find similarities between the evolution of
+the quantum corrected Schwarzschild wormhole and the
+Ellis-Bronnikov wormhole. When relevant, we comment
+on these similarities.
+In Sec. II, we briefly review the static quantum corrected Schwarzschild black hole. In Sec. III, we describe
+our dynamical model and explain the numerical methods
+we use to solve it. In Sec. IV, we present our results and
+show that the static solution is unstable. We conclude
+in Sec. V. In the Appendix, we present tests of our code.
+Throughout we use units such that c = G = ℏ = 1.
+
+II.
+
+STATIC SOLUTIONS
+
+In this section, we review static quantum corrected
+Schwarzschild black holes in semiclassical gravity. Our
+main goal is to use these static solutions as initial data for
+the dynamical simulations we present in Sec. IV. Comprehensive studies of these static solutions are given in
+[1–4], to which we refer the reader for additional details.
+
+The quantum corrected solutions are found numerically. In computing solutions, different forms for the
+static spherically symmetric metric have been used, but
+a form we find convenient is
+ds2 = e2σ(x) (−dt2 + dx2 ) + r2 (x)dΩ2 ,
+
+dynamical simulations and we will comment on our interpretation of this divergence in the next section. For
+details on the derivation of (5) or (6), see, for example,
+[6, 27].
+One can show that as x → ∞, the renormalized energymomentum tensor drops off sufficiently quickly that the
+classical Schwarzschild spacetime, as parametrized by
+the ADM mass M , is a solution to (6). This allows
+us to use the classical Schwarzschild spacetime for the
+outer boundary values when solving (6). For classical
+Schwarzschild, with the metric in (2), x is the well-known
+tortoise coordinate. To solve for quantum corrected solutions, we proceed as follows. We choose a large value for
+r, which marks the outer boundary of the static solution,
+and a value for M . At the outer boundary, we have then
+
+
+ r
+
+2M
+1
+σ = ln 1 −
+,
+x = r + 2M ln
+−1 ,
+2
+r
+2M
+(7)
+and, upon taking x derivatives,
+
+(2)
+
+where x is the radial coordinate, σ(x) and r(x)
+parametrize the metric, r(x) is the areal radius, and
+dΩ ≡ dθ2 + sin2 θ dϕ2 .
+The semiclassical field equations are given in (1). In
+vacuum, the classical energy-momentum tensor vanishes,
+Tµν = 0. For the renormalized energy-momentum tensor, ⟨Tbµν ⟩, we use the Polyakov approximation and build
+it from the exact renormalized energy-momentum tensor computed in 1 + 1 dimensions [9–11]. As is common, and for simplicity, we will present the renormalized
+energy-momentum tensor for N massless scalar fields. In
+the Polyakov approximation, the renormalized energymomentum tensor in spherically symmetric 3 + 1 dimensions is taken to be
+3P
+⟨Tbab ⟩ = 2 ⟨Tbab ⟩(2D) ,
+r
+
+σ′ =
+(3)
+
+N 2
+ℓ ,
+12π P
+
+(4)
+
+where ℓP is the Planck length. In the units we are using,
+ℓP = 1. The choice of the multiplicative factor 3P/r2
+ensures that ⟨Tbµν ⟩ is conserved and that ⟨Tbθθ ⟩ = ⟨Tbϕϕ ⟩ =
+0.
+For the metric in (2), the renormalized energymomentum tensor works out to
+P
+(σ ′ 2 − 2σ ′′ )
+8πr2
+P ′2
+⟨Tbxx ⟩ = −
+σ
+8πr2
+
+r′ =
+
+r − 2M
+,
+r
+
+(8)
+
+which is the classical Schwarzschild solution. With these
+outer boundary values and given a value for P , we can
+integrate (6) inward to obtain the quantum corrected
+Schwarzschild solution.
+In Fig. 1(a), we show the areal radius, r, as a function
+of x for M = 1 and P = 0.1. Since we find a minimum for
+r, which is marked by the vertical dotted line, we have
+a wormhole structure. The value of r at the minimum
+is the wormhole throat radius, rth . For comparison, we
+show the classical solution, with P = 0, as the dashed
+line. In Fig. 1(b), we show eσ as a function of x. Since
+eσ is nonzero, there is no horizon at the wormhole throat.
+It can be shown that as x → −∞, there exists a null curvature singularity at a finite proper distance [1, 3, 4]. As
+suggested by Fig. 1(b), eσ continues to be nonzero and
+the classical horizon has completely disappeared in the
+quantum corrected solution. We refer to this as a wormhole, although we note that it may be more appropriate
+to refer to it as a “wormhole structure” since the region
+x → −∞ is not asymptotically flat. Quantum corrected
+solutions with different values of M and P are qualitatively similar to Fig. 1.
+Increasing the mass M increases the wormhole throat
+radius. Increasing P does as well, but not by as much
+as when increasing M . For example, in Fig. 1(a), rth =
+2.081, but for M = 5 and P = 0.1, the wormhole throat
+radius is 10.024 and for M = 5 and P = 1 it is 10.186.
+When we present dynamical evolutions of static solutions
+in Sec. IV, we cannot expect the relationship between the
+mass and wormhole throat radius that exists for the static
+solution to be maintained exactly during the evolution.
+However, we can assume an approximate relationship,
+with increasing (decreasing) mass corresponding to increasing (decreasing) radius. This will help us gain physical insight into how the radius increases or decreases.
+
+where a, b are nonangular components, ⟨Tbµν ⟩(2D) is the
+renormalized energy-momentum tensor in 1 + 1 dimensions, and
+P ≡
+
+M
+,
+r2
+
+⟨Tbtt ⟩ = −
+
+(5)
+
+and ⟨Tbθθ ⟩ = ⟨Tbϕϕ ⟩ = 0, where a prime denotes an x
+derivative. From the semiclassical field equations in (1),
+we can then derive the following second-order equations
+for the metric functions:
+
+
+−1
+1
+P
+P
+σ ′′ = −
+2r′ σ ′ + σ ′ 2
+1− 2
+r
+r
+r
+(6)
+
+−1
+
+P
+′′
+′ ′
+′2P
+r = 2r σ + σ
+1− 2
+.
+r
+r
+√
+Note that these equations are divergent for r → P .
+This divergence follows from the choice of the multiplicative factor in (3). This divergence will not play a role in
+this section because
+the static solutions we find will not
+√
+include r ≤ P . This divergence will play a role in our
+2
+
+III.
+
+5
+4
+
+We turn now to our main goal, which is to dynamically evolve the quantum corrected Schwarzschild black
+hole. A dynamical evolution can determine if the static
+solutions discussed in Sec. II are stable with respect to
+perturbations. If we find static solutions that are unstable, as will be the case, then a dynamical evolution can
+determine the final state to which the system will evolve.
+To perform the dynamical evolution we will develop a
+dynamical model and will use the static solutions found
+in Sec. II as initial data.
+For the dynamical model, we choose to work in double
+null coordinates and we parametrize the metric as
+
+3
+2
+1
+
+DYNAMICAL SOLUTIONS
+
+(a)
+
+0
+10 -1
+10 -3
+
+ds2 = −e2σ(u,v) dudv + r2 (u, v)dΩ2 .
+10
+
+-5
+
+-50
+
+(b)
+-40
+
+-30
+
+-20
+
+-10
+
+0
+
+(9)
+
+The metric fields σ and r are the same metric fields in
+(2), but of course now are no longer static, and the outgoing null coordinate u and the ingoing null coordinate
+v are defined with respect to the temporal and radial
+coordinates in (2) in the usual way,
+
+10
+
+FIG. 1. The solid lines of both plots display a quantum corrected Schwarzschild black hole with M = 1 and P = 0.1. (a)
+The areal radius, r, as a function of the radial coordinate, x.
+A minimum occurs at xth = −8.139, indicating a wormhole
+throat with radius rth = 2.081. The vertical dotted line indicates the position of the wormhole throat and the dashed
+line is the classical Schwarzschild solution, which is included
+for comparison. (b) The wormhole throat is horizonless since
+eσ is nonzero. It can be shown that the classical horizon has
+completely disappeared in the quantum corrected solution.
+
+u = t − x,
+
+v = t + x.
+
+(10)
+
+We choose to use double null coordinates for two important reasons. First, double null coordinates can
+straightforwardly incorporate the renormalized energymomentum tensor in the Polyakov approximation [12,
+13]. Second, if a horizon forms, double null coordinates
+are well suited for computing the spacetime behind the
+horizon. We mention also that double null coordinates
+have been used to dynamically evolve wormholes [19, 21].
+As mentioned in the Introduction, we will find similarities between the evolution of the quantum corrected
+Schwarzschild black hole and the evolution of the EllisBronnikov wormhole [19–22].
+When numerically evolving a static solution, discretization error inherent in any numerical code acts as a
+small perturbation. Additionally, we will include at times
+an explicit perturbation in the form of a pulse of classical
+matter. For simplicity, we will use a real massless scalar
+field, ϕ, for the pulse, described by the Lagrangian
+
+It will be useful to define some language for referencing different regions of the quantum corrected spacetime.
+We’ll refer to the region x > xth as “outside” the wormhole. This is the region where we reside. The region
+x < xth is reached by passing through the wormhole
+throat. For convenience, we will refer to this region as
+“inside” the wormhole, though more properly it is on the
+other side of the wormhole.
+That semiclassical corrections cause the classical horizon of a Schwarzschild black hole to disappear and to be
+replaced with an asymmetric wormhole was first found in
+[1] and subsequently confirmed in [2–4]. Similar results
+have been found for the classical Reissner-Nordström [5]
+and Einstein-Yang-Mills [6] black holes. The question we
+ask is whether these static solutions, and hence wormholes like that shown in Fig. 1, are stable with respect to
+time-dependent perturbations? If they are, then it may
+be possible for the wormhole to form naturally. On the
+other hand, if the static solutions are unstable, then it
+is impossible for the wormhole to form, at least as a final state. Further, if the static solutions are unstable, to
+what final state do they evolve?
+
+1
+L = − (∇µ ϕ)(∇µ ϕ),
+2
+
+(11)
+
+which
+we then minimally couple to gravity, L →
+p
+− det(gµν ) L.
+
+A.
+
+Equations
+
+For the renormalized energy-momentum tensor, we
+continue to use the Polyakov approximation in (3). For
+3
+
+which leads to
+
+the metric in (9), we have [12–16]
+P
+2
+(σ,uu − σ,u
+)
+4πr2
+P
+2
+⟨Tbvv ⟩ =
+(σ,vv − σ,v
+)
+4πr2
+P
+⟨Tbuv ⟩ = −
+σ,uv
+4πr2
+
+m=
+
+⟨Tbuu ⟩ =
+
+u → ũ = ũ(u)
+v → ṽ = ṽ(v)
+
+and r and ϕ unchanged. This is a coordinate gauge transformation and σ is a coordinate gauge field. In principle,
+we can use this gauge transformation to set σ to anything we would like. One of the numerical methods we
+use for solving the system of equations, which we outline below, will make heavy use of this gauge transformation. For this numerical method, the uu component of
+the renormalized energy-momentum tensor in (12) transforms nontrivially under the gauge transformation. As
+a consequence, the top constraint equation in (15) also
+transforms nontrivially. We do not use this constraint
+equation in solving for our dynamical solutions, but we
+do use it for testing our code. Additional details are given
+in the Appendix.
+
+(13)
+
+(14)
+
+Tuv = 0
+Tθθ = 2r2 e−2σ ϕ,u ϕ,v
+
+and Tϕϕ = Tθθ sin2 θ.
+Inserting the renormalized energy-momentum tensor
+into the semiclassical field equations in (1), we find two
+constraint equations,
+
+
+P
+2
+(σ,uu − σ,u )
+r,uu = 2σ,u r,u − 4πr Tuu +
+4πr2
+
+
+(15)
+P
+2
+r,vv = 2σ,v r,v − 4πr Tvv +
+(σ
+−
+σ
+)
+,
+,vv
+,v
+4πr2
+
+B.
+
+Note
+that the σ evolution equation is divergent for r →
+√
+P . As with the analogous divergence in the static equations, this divergence follows from the choice of the multiplicative factor in (3). This divergence will play a role
+in our simulations and we make the not uncommon interpretation that this divergence corresponds to the central
+singularity, which has been shifted from r = 0 by√semiclassical effects [14–16, 28]. We therefore require P to
+be small compared to any length scale in the system, such
+as the radius of a black hole horizon.
+The Misner-Sharp mass function, m(u, v), is defined
+by
+2m
+,
+r
+
+Initial data
+
+The computational domain is a two-dimensional grid of
+(u, v) values in the ranges ui ≤ u ≤ uf and vi ≤ v ≤ vf .
+We choose to set ui = 0 and vi = 0, but will continue
+to write ui and vi for completeness. u = ui and v = vi
+are the initial hypersurfaces, for which we must supply
+initial data.
+The initial data will be a static quantum corrected
+Schwarzschild black hole, as described in Sec. II, sometimes augmented with a pulse of scalar field. The static
+solutions are functions of x and contain a null curvature
+singularity at x → −∞. This singularity will not be
+included in the initial data, since we will not include
+x → −∞, which in our computational domain corresponds to u → ∞. Moreover, since the singularity is null,
+no additional boundary condition would be necessary on
+the null initial hypersurface.
+We are at liberty to choose the value of x at the origin of the computational domain, x0 ≡ x(ui , vi ). With
+this choice, the value of x at any point on either initial
+hypersurface is given by
+
+and two evolution equations,
+
+1 
+σ,uv = 2 4r,u r,v + e2σ − 8π 2r2 Tuv + e2σ Tθθ
+4r
+
+−1
+P
+× 1− 2
+(16)
+r
+
+
+
+P
+1
+4r,u r,v + e2σ − 16πr2 Tuv −
+σ,uv
+.
+r,uv = −
+4r
+4πr2
+
+g µν r,µ r,ν = 1 −
+
+(19)
+
+1
+1
+σ → σ̃ = σ − ln (∂u ũ) − ln (∂v ṽ)
+2
+2
+
+Tuu = ϕ2,u
+Tvv = ϕ2,v
+
+(18)
+
+which gives the total mass inside a sphere of radius
+r(u, v).
+The evolution equations and the mass function are invariant under transformations of the form
+
+(12)
+
+and ⟨Tbθθ ⟩ = ⟨Tbϕϕ ⟩ = 0, where we use the notation σ,µ =
+∂µ σ and similarly for other variables. Details on how
+these components are computed can be found in [27, 28].
+The only classical matter in the system is the scalar
+field described by the Lagrangian in (11). From this Lagrangian and the metric in (9), the equation of motion
+for the scalar field is the evolution equation
+1
+ϕ,uv = − (r,u ϕ,v + r,v ϕ,u )
+r
+and the classical energy momentum tensor is
+
+
+r
+1 + 4e−2σ r,u r,v ,
+2
+
+1
+x(u, vi ) = x0 − (u − ui )
+2
+1
+x(ui , v) = x0 + (v − vi ),
+2
+
+(20)
+
+which we use to determine, in the absence of a scalar field
+pulse, the values of σ and r on the initial hypersurfaces.
+
+(17)
+4
+
+the row is equal to zero. Since σ is a coordinate gauge
+field, this is perfectly consistent. Eilon and Ori refer to
+this as σ gauge. For our system, the maximum value
+always occurs at the edge of the computational domain
+at v = vf . Making this gauge choice has the effect of
+increasing the number of rows near the event horizon.
+In σ gauge, the u coordinates for the grid points are different than the u coordinates in the original gauge, where
+in the original gauge the values of σ(u, vi ) are equal to
+those from the static solution. Our code maintains a
+uniform grid of u coordinates in σ gauge. The u coordinates in the original gauge, for the same grid points, are
+nonuniform. In this way, many u coordinates are used
+near horizons. Indeed, for a uniform step size in σ gauge
+equal to ∆ũ = 0.01, the step size in the original gauge can
+become ∆u ∼ 10−10 or even smaller. The v coordinates
+of the grid points will always be uniform.
+The relationship between the u coordinates in σ gauge
+and in the original gauge follows from the bottom equation in (19). We have implemented a couple of different ways for computing the u coordinates in the original
+gauge. One way is to integrate (19), giving
+Z
+Z
+e2σ(u,vi ) du = e2σ̃(ũ,vi ) dũ,
+(22)
+
+We will always place the wormhole throat at the origin
+of the computational domain, so that x0 = xth . This is
+convenient, since then the u = ui initial hypersurface is
+outside the wormhole and the v = vi initial hypersurface
+is inside the wormhole.
+For the pulse of scalar field, we have in mind classical
+matter that we might try to fire into the wormhole. We
+will therefore place the pulse on the u = ui hypersurface, which is outside the wormhole, and ϕ will be zero
+everywhere along the v = vi hypersurface. A look at the
+equations in Sec. III A shows that they depend on derivatives of ϕ and not on ϕ itself. As such, we will define the
+pulse in terms of ϕ,v ,
+
+
+v − v1
+2
+ϕ,v (ui , v) = A sin π
+for v1 < v < v2 (21)
+v2 − v1
+and zero everywhere else on the initial hypersurfaces,
+where A is a constant. This form is commonly used because both ϕ,v and ϕ,vv are zero at v = v1 and v = v2 .
+When including a pulse, we choose to keep σ(ui , v)
+unchanged from the static solution, which we are at liberty to do since σ is a coordinate gauge field. σ and ϕ
+are then determined on the initial hypersurfaces and r is
+determined on the v = vi hypersurface, where it is unchanged from the static solution. It remains to determine
+r on the u = ui hypersurface. We can do this by solving
+the bottom constraint equation in (15). In this equation,
+σ,v and σ,vv are unchanged from the static solution as
+are r(ui , vi ) and r,v (ui , vi ). We can solve the constraint
+equation numerically by integrating outward from v = vi
+along the u = ui hypersurface.
+
+C.
+
+where ũ and σ̃ are the values in σ gauge. The right-hand
+side is computed as our code is running using the trapezoidal rule, which is second-order accurate. The left-hand
+side, for a range of u values, is computed beforehand for
+the initial data. Given the value of the right-hand side,
+we can determine the value of u that gives the left-hand
+side using a standard interpolation method (e.g. a spline).
+Another way is to write the integral as
+Z
+u = e2(σ̃−σ) dũ
+(23)
+
+Numerical methods
+
+To dynamically evolve the system, we solve numerically the evolution equations in (13) and (16) using a
+standard second-order predictor-corrector scheme (for a
+description of the scheme, see [29]). Our code solves for
+field values at all grid points on a u = constant “row,”
+starting at v = vi +∆v, where ∆v is the step size between
+grid points, and ending at v = vf , before moving to the
+next row.
+This method exhibits second-order convergence and is
+sufficient for determining the stability of the static solutions. As we will see, apparent horizons form and we will
+be interested in accurately computing an apparent horizon out to large values of v. Doing so requires improved
+numerical accuracy. We use Eilon and Ori’s adaptive
+gauge method, which we find to be highly efficient [29].
+
+1.
+
+and then to write down a formal solution using the trapezoidal rule. We then search for the value of u which solves
+the formal solution using the Newton-Raphson method.
+We find that both methods work well. The results presented in this paper make use of the first method.
+With the u coordinates in the original gauge we can
+compute the remaining fields on the v = vi initial hypersurface for σ gauge. For us, this is just r (since ϕ = 0
+on the v = vi hypersurface). r is gauge invariant, so the
+value of r we use in σ gauge is the value of r for the
+corresponding u coordinate in the original gauge.
+IV.
+
+RESULTS
+
+In Fig. 2(a), we show the dynamical evolution of a
+static solution with M = 1, P = 0.1, and no scalar field
+pulse. The perturbation in Fig. 2(a) is from discretization error alone. The thin gray lines are contour lines
+for the areal radius, r. The thick black and blue lines
+are apparent horizons, defined by r,u = 0 and r,v = 0,
+respectively.
+
+Adaptive gauge method
+
+The adaptive gauge method makes use of the coordinate gauge freedom of the system. In each row, the value
+of σ(u, vi ) is chosen such that the maximal value of σ on
+5
+
+2.
+
+3
+
+2.
+3
+
+2.
+3
+
+100
+
+2
+2.
+
+100
+
+2
+
+2.
+
+2.
+
+2
+
+100
+
+75
+
+75
+
+50
+
+50
+
+50
+
+0
+25
+
+50
+
+75
+
+100
+
+15
+
+10
+
+5
+
+40
+
+30
+35
+
+20
+
+25
+
+2.
+2
+
+1
+2.
+35
+40
+
+30
+
+25
+
+2.
+
+1
+2.
+
+35
+40
+
+30
+
+25
+
+1
+2.
+
+0
+0
+
+2.
+3
+3
+
+20
+
+15
+
+10
+
+25
+
+2
+
+25
+
+5
+
+2.
+3
+3
+
+20
+
+15
+
+5
+
+2.
+2
+
+2.
+
+25
+
+10
+
+1
+
+2.
+3
+3
+
+2.
+
+1
+
+2.
+1
+
+75
+
+0
+0
+
+25
+
+50
+
+75
+
+100
+
+0
+
+25
+
+50
+
+75
+
+100
+
+FIG. 2. Dynamical evolution of a static quantum corrected Schwarzschild black hole with M = 1 and P = 0.1. The gray lines
+are contours for the areal radius, r. The thick black line is an apparent horizon defined by r,u = 0 and the thick blue line
+is an apparent horizon defined by r,v = 0. There is no scalar field pulse included and the perturbation is from discretization
+error alone. We find that the wormhole is expanding. Each plot uses the same initial data, but evolves the system using a
+uniform grid with grid spacing ∆u = ∆v = 1/N , where (a) N = 100, (b) 200, and (c) 400. As N increases, the strength of
+the perturbation decreases and the static solution holds its configuration longer. This is the expected behavior for an unstable
+static solution.
+
+we find that the wormhole throat takes longer before expanding. In other words, if we decrease the strength of
+the perturbation, the static solution is able to hold its
+configuration longer. This is precisely the expected behavior for an unstable static solution. Indeed, the same
+behavior was seen for the Ellis-Bronnikov wormhole [19],
+which is known to be unstable [30]. We conclude that
+this static quantum corrected Schwarzschild black hole
+solution is unstable.
+
+We recall that the wormhole throat of the static solution is located at the origin, that the region to the right of
+the origin is outside the wormhole and is where we reside,
+and the region above the origin is inside the wormhole.
+The region above contains relatively few contour lines.
+We can understand why by looking at Fig. 1(a), where
+we see that the solid blue curve passes through a relatively small range of r values as we move left from the
+wormhole throat.
+Moving away from the lower left corner of Fig. 2(a),
+we find apparent horizons along the wormhole throat.
+This is expected, since from Fig. 1(a) we can see that
+the wormhole throat in the static solution is defined by
+∂x r = 0. From (10), the wormhole throat in the static
+solution is then also defined by r,u = r,v = 0.
+At around u ≈ 50, the two apparent horizons separate. It is at this point that the system begins evolving
+away from the static solution. In between the apparent
+horizons, timelike and null directions necessarily find increasing values of the areal radius: the wormhole throat is
+expanding. Given that the system is evolving away from
+the static solution, it is not surprising that we find expansion, since the only energy-momentum in the system
+is from the renormalized energy-momentum tensor. For
+comparison, the Ellis-Bronnikov wormhole can also exhibit expansion and the analogous diagram looks similar
+to Fig. 2(a) (cf. figure 7(a) in [21]).
+Since the only perturbation is from discretization error,
+we can decrease the size of the perturbation by decreasing the spacing between grid points. Figure 2(a) is made
+with a uniform grid with grid spacing ∆u = ∆v = 1/N
+and N = 100. Figures 2(b) and 2(c) are evolutions with
+the same initial data as Fig. 2(a), but with N = 200 and
+400 respectively. As the discretization error decreases,
+
+We now introduce a scalar field pulse as an explicit
+perturbation. As previously mentioned, we have in mind
+that we are firing into the wormhole some classical matter. We make use of a simple measure for the strength
+of the pulse, defined as follows. We compute the mass of
+the system along the u = ui hypersurface, m(ui , v), using
+(18). At large v, the mass approaches a constant value
+which, in general, is larger than the ADM mass M used
+for the static solution (and is equal to M in the absence
+of a pulse). We use the percent increase of the mass at
+large v, with respect to M , as a measure of the strength
+of the pulse.
+In Fig. 3, we show results for a static solution with
+M = 1, P = 0.1, and a pulse with parameters A =
+0.0035, v1 = 10, and v2 = 30. This pulse increases the
+mass by roughly 1%. As in Fig. 2, the gray lines are
+contour lines for r and the thick black and blues lines
+are apparent horizons. Starting in the lower left corner,
+we find similar behavior when compared to Fig. 2, in
+that the apparent horizons lie along the wormhole throat
+and the static solution is holding its configuration. At
+around u ≈ 17, the evolution moves away from the static
+configuration. In between the apparent horizons, timelike
+and null directions now find decreasing values of the areal
+radius: the wormhole throat is collapsing.
+6
+
+2.1
+
+2.2
+
+2.082
+
+2
+
+2.078
+
+2.08
+
+2
+1.85
+1.5
+
+40
+
+r
+
+2.076
+
+30
+
+0
+
+1.8
+
+5
+
+10
+
+15
+
+20
+
+25
+
+1.6
+(a)
+
+1.4
+
+20
+
+0
+
+50
+
+150
+
+200
+
+3
+
+1
+
+v
+2.
+
+2.
+
+100
+
+2.13
+
+3
+
+5
+
+10
+
+15
+
+10
+
+(b)
+25
+
+20
+
+2.12
+2.11
+
+0
+25
+
+50
+
+75
+
+r
+
+0
+
+2.1
+2.09
+
+FIG. 3. Dynamical evolution of a static quantum corrected
+Schwarzschild black hole with M = 1, P = 0.1, and a scalar
+field pulse as an explicit perturbation. The gray lines are
+contours for r and the thick black and blue lines are apparent
+horizons, just as in Fig. 2. The thick red line marks the central
+singularity and the region beyond the red line is not part of
+the spacetime. The inclusion of classical matter in the form
+of a scalar field pulse causes the wormhole to collapse and to
+form event horizons and a central singularity.
+
+2.08
+0
+
+50
+
+100
+
+150
+
+200
+
+v
+FIG. 4. (a) The same apparent horizon (defined by r,v = 0)
+shown as the blue curve in Fig. 3, but computed out to large
+v. (b) The apparent horizon computed using the same initial data as Fig. 3, but with evolution equations with P = 0.
+This is an inconsistent evolution and should not be taken too
+seriously, but it shows that with P = 0 the apparent horizon
+asymptotically approaches a constant value indicating the system evolves to a static black hole. This strongly suggests that
+the radius of the apparent horizon in (a) is decreasing at large
+v because of black hole evaporation.
+
+The contour lines and the apparent horizons show the
+formation of event horizons, one at around u ≈ 17.5 and
+another at around v ≈ 34. We therefore find that, as the
+wormhole collapses, black holes form over the mouths of
+the wormhole.
+Eventually the wormhole throat collapses
+√
+to rth ≈ P , at which point we reach the central singularity, which we have indicated with the red line. The
+region beyond the red line is not part of the spacetime.
+For comparison, the Ellis-Bronnikov wormhole also exhibits collapse and the analogous diagrams look similar
+to Fig. 3 (cf. figures 2(a) and 5(a) in [21]).
+To study the region outside the wormhole, we focus
+on the apparent horizon defined by r,v = 0, which is the
+thick blue line in Fig. 3. From (18), the mass inside an
+apparent horizon is always equal to r/2, where r is the
+radius of the horizon. Since the apparent horizon aligns
+with the event horizon at large v, the mass inside the
+event horizon at large v is equal to r/2.
+To compute the apparent horizon out to large values
+of v, we use the adaptive gauge method, as described in
+Sec. III C 1. In Fig. 4(a), we show the radius of the apparent horizon as a function of v. In the inset, we zoom into
+the small v region. We can see that the apparent horizon
+starts out at r = rth = 2.081. It holds its configuration
+until around v ≈ 15 and then starts decreasing. It continues to decrease out to large v. Typically, the radius
+of an apparent horizon cannot decrease. There are two
+reasons at play here, which allow the radius to decrease.
+
+The first reason is that wormholes, which violate the null
+energy condition, can have apparent horizons with decreasing radii when collapsing. Such behavior occurs for
+the Ellis-Bronnikov wormhole [20]. The second reason is
+that the renormalized energy-momentum tensor allows
+for black hole evaporation, during which the radius of
+the apparent horizon can decrease [12, 13].
+In the absence of the renormalized energy-momentum
+tensor, our expectation is that the outside of a collapsing wormhole will eventually settle down to a static
+Schwarzschild black hole. In this case, the radius of the
+apparent horizon would asymptotically approach a constant value, which would be the radius of the black hole.
+This is precisely what was found with the Ellis-Bronnikov
+wormhole [20]. With the inclusion of the renormalized
+energy-momentum tensor, this cannot happen because
+the black hole will evaporate and therefore cannot settle
+down to Schwarzschild.
+To gain some insight, we consider the following inconsistent evolution: We use the same initial data as used
+in Figs. 3 and 4(a), which are based on a static solution with P = 0.1 and an initial pulse computed using
+7
+
+and v2 = 20. This range of v values puts the initial pulse
+close to the interesting region where the wormhole throat
+is collapsing, which ends up leading to somewhat chaotic
+values for energy-momentum tensor in this region. Results are simplified for a pulse with v1 = 5, v2 = 10,
+and amplitude A = 0.0005. The contour diagram for r
+is shown in Fig. 6(a). We can see that it is very similar to Fig. 3, except that it takes longer for the wormhole to begin collapsing because the pulse is weaker. In
+Figs. 6(b) and 6(c), we show the uu and vv components
+of the energy-momentum tensor (the apparent horizons
+from Fig. 6(a) are shown in yellow). A horizon forms
+outside the wormhole at u ≈ 29. Outside this horizon
+(u > 29) and at large v, which approaches future null
+infinity, the uu component in Fig. 6(b) is positive, indicating outgoing energy-momentum, and the vv component in Fig. 6(c) is negative, also indicating outgoing
+energy-momentum. This net effect of outgoing energymomentum is consistent with decreasing mass and wormhole collapse.
+For a wormhole to exist, the energy-momentum tensor
+around the wormhole throat must violate the null energy
+condition [31]. In double null coordinates, the null energy
+condition is violated if Tuu +⟨Tbuu ⟩ < 0 or Tvv +⟨Tbvv ⟩ < 0.
+If the null energy condition is satisfied and the wormhole
+is collapsing, we should expect focusing of null geodesics
+and the formation of caustics, as follows from the Raychaudhuri equation and the focusing theorem [32]. This
+strongly suggests the formation of a singularity. Indeed,
+from Figs. 6(b) and 6(c) we can see that the null energy
+condition flips from being violated to being satisfied right
+about where the singularity forms at u ≈ 29 and v ≈ 45.
+
+P = 0.1. We then evolve the system, but we set P = 0
+in the evolution equations. Since the evolution equations
+and the initial data are inconsistent with one another, we
+should not take the results too seriously. Nevertheless,
+as shown in Fig. 4(b), the radius of the apparent horizon
+asymptotically approaches a constant value at large v.
+This strongly suggests that it is black hole evaporation,
+as caused by the renormalized energy-momentum tensor,
+which accounts for the decreasing radius at large v in
+Fig. 4(a).
+The collapse shown in Fig. 3 occurs for a scalar field
+pulse that increases the mass by approximately 1%. We
+continue to find that the system collapses as we lower
+the amplitude of the pulse down to A = 5 × 10−5 , which
+corresponds to a 0.001% increase in the mass. In general,
+we find that a relatively small amount of classical matter
+is needed to trigger collapse.
+As mentioned in Sec. II, increasing the mass M increases the wormhole throat radius of the static solution.
+As the wormhole throat radius increases, it requires more
+computational resources to dynamically evolve the system because the size of the computational grid must increase. We have dynamically evolved static solutions up
+to M = 5 and found that, in the absence of a scalar
+field pulse, they are unstable and the wormhole expands.
+For M = 5 and P = 0.1, using a uniform grid with
+∆u = ∆v = 1/100, the apparent horizons separate and
+the wormhole begins expanding at roughly u ≈ 300.
+Aside from this, the resulting diagram looks similar to
+Fig. 2. We also continue to find for static solutions with
+larger masses that a relatively small amount of classical
+matter triggers collapse and that the resulting diagrams
+look similar to Fig. 3.
+We can gain some insight as to why the wormhole in
+Fig. 2 expands and why the wormhole in Fig. 3 collapses
+by looking at components of the energy-momentum tensor. For the evolution shown in Fig. 2(a), contour diagrams for the uu and vv components of the energymomentum tensor are shown in Figs. 5(a) and 5(b)
+(the apparent horizons from Fig. 2(a) are shown in yellow). The uu component describes outgoing energymomentum and the vv component describes ingoing
+energy-momentum. As can be seen in Figs. 5(a) and
+5(b), both are negative. We therefore show in Fig. 5(c)
+their difference, ⟨Tbvv ⟩ − ⟨Tbuu ⟩. Since this difference
+is non-negative, we have a net flow of ingoing energymomentum. This is consistent with the mass increasing,
+which is easily seen to be the case along the apparent
+horizons in Fig. 2(a), since they move along increasing
+radii. From the relationship between mass and the wormhole throat radius we previously reviewed for static solutions, the net flow of ingoing energy-momentum is also
+consistent with the wormhole expanding.
+We could show analogous plots for the collapsing
+wormhole in Fig. 3. However, it is easier to see what
+is happening if we consider a slightly different evolution.
+The evolution shown in Fig. 3 makes use of an initial
+pulse that is nonzero for v1 < v < v2 , where v1 = 10
+
+V.
+
+CONCLUSION
+
+The classical static spherically symmetric vacuum solution is the Schwarzschild black hole. When extended
+to include semiclassical corrections in the form of a
+renormalized energy-momentum tensor, the horizon disappears and is replaced by a wormhole [1–4]. Since
+the renormalized energy-momentum tensor can describe
+black hole evaporation [12, 13], it is perhaps not surprising that one does not find a static black hole solution,
+since an evaporating black hole is not static.
+We have studied the stability of the quantum corrected
+static vacuum solution by using it as the initial data of
+a dynamical evolution. We have shown that the static
+solution is unstable and that the wormhole will expand
+or collapse.
+In the absence of classical matter, the wormhole expands since the only energy-momentum in the system is
+from the renormalized energy-momentum tensor. On the
+other hand, if there is even a small amount of classical
+matter present, our results indicate that the wormhole
+collapses, that it forms a horizon and a central singularity, and that it evolves to an evaporating black hole.
+Since only a small amount of classical matter is necessary
+8
+
+75
+
+06
+
+07
+1e-
+
+-
+
+08
+e-
+
+-06
+
+50
+1e
+
+50
+
+100
+
+25
+25
+
+-
+
+1e-08
+
+-08
+-1e
+
+25
+25
+
+50
+
+2e-06
+
+7
+
+5e-0
+
+-1
+
+50
+
+-2
+-2 .8e-05
+-1 .5e-0
+.5e
+5
+-5 -05
+e06
+-1
+e06
+-1
+e07
+
+.8
+
+-2
+
+-5e
+
+-1.5e-0
+
+05
+e-
+
+5
+
+-2.5e-05
+
+75
+
+1e-07
+
+-2
+.5
+
+e0
+
+5e-06
+
+75
+
+5
+
+100
+
+2e-06
+
+100
+
+1e-09
+
+100
+
+75
+
+100
+
+25
+25
+
+50
+
+75
+
+50
+
+75
+
+100
+
+FIG. 5. Contour diagrams for (a) the uu component and (b) the vv component of the energy-momentum tensor for the
+dynamical evolution shown in Fig. 2(a). The yellow curves are the apparent horizons shown in Fig. 2(a). The difference
+between the energy-momentum tensor components is displayed in (c). The region on the left side in (c) is very close to zero,
+with the precise values being difficult to compute numerically.
+
+50
+5
+e-0
+-2.
+
+76
+
+6e-2.7
+
+2
+
+e-05
+-2.88
+
+30
+05
+
+5e-06
+
+3
+
+.
+-2
+
+-5e
+
+-06
+
+5
+e-0
+76
+
+20
+
+-2.
+
+15
+
+10
+
+5
+
+2.1
+2.3
+
+10
+
+-05
+
+30
+
+20
+
+40
+
+-3.2e
+
+30
+
+-3.3e-05
+
+40
+
+0.0001
+
+1.5
+1.85
+
+40
+
+05
+
+50
+2.1
+
+50
+
+e-
+
+06
+
+e-
+
+76
+
+-1
+
+20
+
+1e-
+
+07
+
+0
+0
+
+25
+
+50
+
+25
+
+50
+
+75
+
+25
+
+50
+
+FIG. 6. Dynamical evolution of a static quantum corrected Schwarzschild black hole with M = 1, P = 0.1, and a scalar field
+pulse with v1 = 5, v2 = 10, and A = 0.0005. (a) Contour diagram for the areal radius, r. The black and blue lines are apparent
+horizons r,u = 0 and r,v = 0, respectively, and the red line is the central singularity. (b) Contour diagram for the uu component
+of the energy-momentum tensor. The apparent horizons are included for convenience as the yellow lines. (c) Contour diagram
+for the vv component of the energy-momentum tensor. Some of the contours are unlabeled: Starting at the upper left and
+moving to the right, the contour values are -2.76e-5, -2.88e-5, -3.2e-5, -2.88e-5, -2.76e-5, -1e-6, and +1e-4.
+
+evolution deserves further study.
+
+to trigger collapse, it appears unlikely for the expanding wormhole to form naturally. Instead, we expect an
+evaporating black hole to be the astrophysically relevant
+system.
+
+There may be some challenges in studying this region.
+We previously mentioned that only a small range of the
+areal radius, r, is probed for a relatively large range
+of the outgoing null coordinate, u. If we would like to
+evolve further into this region, this will require increased
+computational resources. However, it may be possible
+to compress this region using a coordinate gauge transformation. Additionally, the further we move into this
+region, the smaller the metric component eσ becomes, as
+can be seen from Fig. 1(b), which may cause numerical
+challenges. In terms of the apparent horizon that is inside the wormhole (the black curve in Fig. 3 defined by
+
+In our study of the collapsing dynamical solution, we
+purposely focused on the region outside the wormhole,
+which is where we reside. However, there is also the
+region reached by passing through the wormhole. This is
+properly the region on the other side of the wormhole, but
+for convenience we have referred to this region as inside
+the wormhole. This is the upper left region of Fig. 3
+and it is in this region that the static solution contains
+a null curvature singularity at u → ∞, whose dynamical
+9
+
+To present a test of convergence, we focus on the results shown in Fig. 3, which do not make use of the adaptive gauge method. Using the same initial data, we have
+computed the dynamical solution using three different
+uniform grids, defined by grid spacings ∆u = ∆v = 1/N
+with N = 100, 200, and 400. Using these results, we
+compute the convergence function
+
+Cr
+
+10-5
+10-7
+10-9
+
+(a)
+0
+
+25
+
+50
+
+75
+
+CfN1 ,N2 =
+
+v
+
+X
+
+|fiN1 − fiN2 |,
+
+(A1)
+
+i
+
+10-3
+
+Cr
+
+10
+
+where fiN is the value of field f computed at grid point
+i using grid spacing N . In (A1), fiN1 and fiN2 must be
+evaluated at the same grid points. In Fig. 7(a), we show
+results for f = r where the sum is performed over rows
+with constant u. The dashed black curves are for Cr100,200
+and the dashed yellow curves are for 4Cr200,400 . The lower
+set of curves is for u = 10 and the upper set of curves
+is for u = 30. Since Cr200,400 is multiplied by 4 and the
+curves overlap, we have second-order convergence [33].
+This continues to be the case for the upper curves as
+they approach the singularity, which is why the upper
+curves veer upward. Figure 7(b) is an analogous plot,
+but summing over columns with constant v. The lower
+set of curves is for v = 25 and the upper set of curves
+is for v = 60. We find similar results indicating secondorder convergence when using f = σ and f = ϕ.
+Our code primarily uses the evolution equations in (13)
+and (16). We have therefore confirmed that our dynamical results satisfy both constraint equations in (15), as
+required. When not using the adaptive gauge method,
+we use the constraint equations as written in (15). When
+using the adaptive gauge method, the upper constraint
+equation in (15) takes on a different form. For the coordinate transformation u → ũ = ũ(u), defined by
+
+-5
+
+10-7
+10-9
+
+(b)
+0
+
+10
+
+20
+
+30
+
+40
+
+u
+FIG. 7. The convergence function in (A1) is plotted for f =
+r and with grid spacing ∆u = ∆v = 1/N and N = 100,
+200, and 400 where the sum is performed over (a) rows and
+(b) columns. These curves indicate our code is second-order
+convergent. See the explanation given in the Appendix for
+details.
+
+r,u = 0), we expect that it can be studied similarly to
+how we studied the apparent horizon that is outside the
+wormhole. We would need to write code that solves the
+evolution equations along “columns” instead of rows so
+that we could use the adaptive gauge method applied to
+the v coordinate up until the r,u = 0 apparent horizon is
+computed.
+Another potential direction of study is to dynamically
+evolve the quantum corrected Reissner-Nordström [5] or
+Einstein-Yang-Mills [6] black holes. We expect nonextremal black holes of these types to also be unstable, but
+this remains to be confirmed. The quantum corrected
+Reissner-Nordström black hole has an extremal solution
+and it would be interesting to determine how this static
+solution evolves.
+
+∂u ũ = e2(σ−σ̃) ,
+
+(A2)
+
+the renormalized energy-momentum tensor component
+⟨Tbuu ⟩ in (12) undergoes a nontrivial transformation, so
+that the constraint equation becomes
+
+
+P
+2
+r,ũũ = 2σ̃,ũ r,ũ −4πr Tuu +
+(σ,ũũ + σ,ũ − 2σ,ũ σ̃,ũ ) ,
+4πr2
+(A3)
+where Tuu = ϕ2,ũ and where ũ and σ̃ are the values in σ
+gauge.
+For an example of our code satisfying the constraint
+equations, we focus on the results in Fig. 4(a), which are
+computed using the adaptive gauge method. In computing these results, we end the computation just after the
+apparent horizon is computed. As such, the computation
+does not reach the singularity. We solve the constraint
+equation in (A3) for r using second-order Runge-Kutta
+and second-order finite differencing for the derivatives.
+Note that all derivatives are in terms of ũ, which have
+uniform spacing, making the finite differencing straightforward. At each grid point, we compute the difference
+
+ACKNOWLEDGMENTS
+
+I am thankful to the referee, whose suggestions led to
+an improved paper.
+
+Appendix A: Code tests
+
+As a first basic test of our code, we have confirmed
+that if we use the static classical Schwarzschild solution
+for initial data, our code reproduces the static solution
+dynamically. This is the case when using the adaptive
+gauge method and when not using it.
+10
+
+between the result obtained from the constraint equation and the result from the dynamical evolution. We
+then compute the root-mean-square (rms) value,
+
+10 -5
+10 -6
+10 -7
+10 -8
+
+rms(rcon − rdyn ),
+0
+
+50
+
+100
+
+150
+
+(A4)
+
+200
+
+FIG. 8. Equation (A4), where rcon is computed from the
+constraint equation in (A3) and rdyn is from the dynamical
+evolution. From top to bottom, the curves are computed using grid spacing ∆ũ = ∆v = 1/N and N = 50, 100, and 200.
+That the curves drop by a factor of 4 when the grid spacing drops by a factor of 2 indicates second-order convergence.
+That the results are small indicates that the constraint equation in (A3) is satisfied by the dynamical evolution.
+
+along columns of constant v. The result is shown in Fig. 8
+for grid spacing ∆ũ = ∆v = 1/N and N = 50, 100, and
+200. That the curves drop by a factor of 4 when the
+grid spacing drops by a factor of 2 indicates second-order
+convergence. That the results are small indicates that
+the constraint equation is satisfied.
+
+[1] A. Fabbri, S. Farese, J. Navarro-Salas, G. J. Olmo,
+and H. Sanchis-Alepuz, Semiclassical zero-temperature
+corrections to Schwarzschild spacetime and holography,
+Phys. Rev. D 73, 104023 (2006), arXiv:hep-th/0512167.
+[2] P.-M. Ho and Y. Matsuo, Static Black Holes With Back
+Reaction From Vacuum Energy, Class. Quant. Grav. 35,
+065012 (2018), arXiv:1703.08662 [hep-th].
+[3] P.-M. Ho and Y. Matsuo, Static Black Hole and Vacuum
+Energy: Thin Shell and Incompressible Fluid, JHEP 03,
+096, arXiv:1710.10390 [hep-th].
+[4] J. Arrechea, C. Barceló, R. Carballo-Rubio, and L. J.
+Garay, Schwarzschild geometry counterpart in semiclassical gravity, Phys. Rev. D 101, 064059 (2020),
+arXiv:1911.03213 [gr-qc].
+[5] J. Arrechea, C. Barceló, R. Carballo-Rubio, and L. J.
+Garay, Reissner–nordström geometry counterpart in
+semiclassical gravity, Class. Quant. Grav. 38, 115014
+(2021), arXiv:2102.03544 [gr-qc].
+[6] B. Kain, Quantum corrected Einstein-Yang-Mills black
+holes in semiclassical gravity, Phys. Rev. D 111, 044033
+(2025), arXiv:2502.08278 [gr-qc].
+[7] C. Berthiere, D. Sarkar, and S. N. Solodukhin, The fate
+of black hole horizons in semiclassical gravity, Phys. Lett.
+B 786, 21 (2018), arXiv:1712.09914 [hep-th].
+[8] N. D. Birrell and P. C. W. Davies, Quantum Fields in
+Curved Space (Cambridge Univ. Press, Cambrdige, UK,
+1984).
+[9] P. C. W. Davies, S. A. Fulling, and W. G. Unruh, Energy Momentum Tensor Near an Evaporating Black Hole,
+Phys. Rev. D 13, 2720 (1976).
+[10] P. Davies and S. A. Fulling, Quantum vacuum energy in
+two dimensional space-times, in Proc R Soc London Ser
+A, Vol. 354 (1977) pp. 59–77, 1676th ed.
+[11] A. M. Polyakov, Quantum Geometry of Bosonic Strings,
+Phys. Lett. B 103, 207 (1981).
+[12] R. Parentani and T. Piran, The Internal geometry of an
+evaporating black hole, Phys. Rev. Lett. 73, 2805 (1994),
+
+arXiv:hep-th/9405007.
+[13] S. Ayal and T. Piran, Spherical collapse of a massless
+scalar field with semiclassical corrections, Phys. Rev. D
+56, 4768 (1997), arXiv:gr-qc/9704027.
+[14] E. Sorkin and T. Piran, Formation and evaporation of
+charged black holes, Phys. Rev. D 63, 124024 (2001),
+arXiv:gr-qc/0103090.
+[15] S. E. Hong, D.-i. Hwang, E. D. Stewart, and D.-h. Yeom,
+The Causal structure of dynamical charged black holes,
+Class. Quant. Grav. 27, 045014 (2010), arXiv:0808.1709
+[gr-qc].
+[16] D.-i. Hwang and D.-h. Yeom, Internal structure of
+charged black holes, Phys. Rev. D 84, 064020 (2011),
+arXiv:1010.2585 [gr-qc].
+[17] H. G. Ellis, Ether flow through a drainhole - a particle
+model in general relativity, J. Math. Phys. 14, 104 (1973).
+[18] K. A. Bronnikov, Scalar-tensor theory and scalar charge,
+Acta Phys. Polon. B 4, 251 (1973).
+[19] H.-a. Shinkai and S. A. Hayward, Fate of the first
+traversible wormhole: Black hole collapse or inflationary
+expansion, Phys. Rev. D 66, 044005 (2002), arXiv:grqc/0205041.
+[20] J. A. González, F. S. Guzmán, and O. Sarbach, Instability of wormholes supported by a ghost scalar field.
+II. Nonlinear evolution, Class. Quant. Grav. 26, 015011
+(2009), arXiv:0806.1370 [gr-qc].
+[21] A. Doroshkevich, J. Hansen, I. Novikov, and A. Shatskiy,
+Passage of radiation through wormholes, Int. J. Mod.
+Phys. D 18, 1665 (2009), arXiv:0812.0702 [gr-qc].
+[22] K. Calhoun, B. Fay, and B. Kain, Matter traveling
+through a wormhole, Phys. Rev. D 106, 104054 (2022),
+arXiv:2210.04905 [gr-qc].
+[23] J. L. Blázquez-Salcedo, C. Knoll, and E. Radu,
+Traversable wormholes in Einstein-Dirac-Maxwell theory,
+Phys. Rev. Lett. 126, 101102 (2021), arXiv:2010.07317
+[gr-qc].
+[24] R. A. Konoplya and A. Zhidenko, Traversable Worm-
+
+11
+
+holes in General Relativity, Phys. Rev. Lett. 128, 091104
+(2022), arXiv:2106.05034 [gr-qc].
+[25] B. Kain, Probing the Connection between Entangled Particles and Wormholes in General Relativity, Phys. Rev.
+Lett. 131, 101001 (2023), arXiv:2309.03314 [hep-th].
+[26] B. Kain, Are Einstein-Dirac-Maxwell wormholes
+traversable?, Phys. Rev. D 108, 044019 (2023),
+arXiv:2305.11217 [gr-qc].
+[27] C. Barcelo, R. Carballo, and L. J. Garay, Two formalisms, one renormalized stress-energy tensor, Phys.
+Rev. D 85, 084001 (2012), arXiv:1112.0489 [gr-qc].
+[28] A. Fabbri and J. Navarro-Salas, Modeling black hole evaporation (Imperial College Press, London and World Scientific Publishing, Singapore, 2005).
+[29] E. Eilon and A. Ori, Adaptive gauge method for
+long-time double-null simulations of spherical black-
+
+hole spacetimes, Phys. Rev. D 93, 024016 (2016),
+arXiv:1510.05273 [gr-qc].
+[30] J. A. González, F. S. Guzmán, and O. Sarbach, Instability of wormholes supported by a ghost scalar field. I.
+Linear stability analysis, Class. Quant. Grav. 26, 015010
+(2009), arXiv:0806.0608 [gr-qc].
+[31] M. S. Morris and K. S. Thorne, Wormholes in space-time
+and their use for interstellar travel: A tool for teaching
+general relativity, Am. J. Phys. 56, 395 (1988).
+[32] S. W. Hawking and G. F. R. Ellis, The Large Scale Structure of Space-Time, Cambridge Monographs on Mathematical Physics (Cambridge University Press, Cambridge, UK, 1975).
+[33] M. Alcubierre, Introduction to 3+1 numerical relativity
+(Oxford University Press, Oxford, UK, 2008).
+
+12
+
+

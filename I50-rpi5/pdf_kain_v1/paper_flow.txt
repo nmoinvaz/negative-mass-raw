@@ -1,0 +1,4498 @@
+Dynamical wormholes
+Ben Kain
+
+arXiv:2602.18231v1 [gr-qc] 20 Feb 2026
+
+Department of Physics
+College of the Holy Cross
+Worcester, Massachusetts 01610, USA
+Abstract. We numerically investigate the dynamical evolution of spherically symmetric
+charge free wormholes. We concentrate on two specific examples, both of which exhibit
+wormhole expansion and wormhole collapse: the Ellis-Bronnikov wormhole, which is sourced
+by a real massless ghost scalar field, and the quantum corrected Schwarzschild black hole in
+semiclassical gravity (which has a wormhole structure and is not a true black hole), which
+is sourced by a renormalized energy-momentum tensor. Despite their very different sources,
+we demonstrate that the dynamics of these two wormholes are remarkably similar. Our
+analysis focuses on diagrams for the areal radius and components of the energy-momentum
+tensor. This work also serves as a review, offering a detailed description of how to perform a
+spherically symmetric dynamical evolution using double null coordinates as well as a review
+of the static solutions for our two examples.
+
+Contents
+1 Introduction
+
+2
+
+2 Dynamical evolution framework
+2.1 Double null coordinates . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.2 Raychaudhuri equation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.3 Numerical methods . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.4 Initial data . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.5 Procedure . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+4
+4
+5
+6
+8
+9
+
+3 Ellis-Bronnikov wormholes
+3.1 Static solutions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.2 Dynamical equations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.3 Initial data . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.4 Dynamical evolution . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.4.1 Wormhole expansion . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.4.2 Wormhole collapse . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+10
+10
+13
+14
+17
+17
+21
+
+4 Quantum corrected Schwarzschild black holes
+4.1 Semiclassical gravity . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.2 Static equations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.3 Boundary conditions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.4 Static solutions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.5 Dynamical equations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.6 Initial data . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.7 Dynamical evolution . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.7.1 Wormhole expansion . . . . . . . . . . . . . . . . . . . . . . . . . . .
+4.7.2 Wormhole collapse . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+24
+25
+27
+28
+30
+32
+33
+35
+35
+38
+
+5 Comparison and conclusion
+
+39
+
+A Code tests
+
+41
+
+1. Introduction
+Wormholes are hypothetical tunnels connecting two distinct regions of spacetime [1]. They
+arise as solutions to the gravitational field equations and have attracted significant interest
+since the seminal work of Morris and Thorne [2], who showed that static spherically
+symmetric wormholes could be traversable when sourced with matter that violates the
+null energy condition. In this work, we investigate the dynamical evolution of spherically
+symmetric charge free wormholes. By dynamical evolution, we mean using a static wormhole
+solution as an initial configuration and numerically evolving the system in time.
+There are important reasons to study the dynamical evolution of static solutions. Static
+solutions can be unstable with respect to time dependent perturbations and a dynamical
+evolution can test the nonlinear stability. If a static solution is unstable, the dynamical
+evolution can reveal the system’s final state. Unstable static solutions are unlikely to form
+naturally and cannot exist as the final state of an evolution. One may think a particular
+static wormhole solution is traversable, but if it unstable it could collapse and form horizons,
+rendering it temporarily traversable at best. A dynamical evolution may therefore be
+necessary to determine if a wormhole solution is genuinely traversable.
+The dynamical evolution of a static solution is also interesting in its own right. We will
+focus on unstable static solutions which exhibit expansion or collapse and we will investigate
+how the evolution can be understood from diagrams of the areal radius and components of
+the energy-momentum tensor. In doing this, we concentrate on two specific examples. The
+first example is the Ellis-Bronnikov wormhole [3, 4], which has been extensively studied (for
+a sampling of work, see [5–20]). This wormhole is sourced by a real massless ghost scalar
+field, where a ghost field is one which has the opposite sign in front of its kinetic term in the
+Lagrangian compared to a regular field. The physicality of a ghost field is debatable, but
+an advantage of the Ellis-Bronnikov wormhole is its simplicity, as the wormhole solution can
+2
+
+be found analytically. The study of dynamically evolved wormholes was initiated by Shinkai
+and Hayward when they dynamically evolved the Ellis-Bronnikov wormhole [21], which has
+since been dynamically evolved by a number of groups using various numerical methods
+[22–29].
+Additional examples of dynamically evolved wormholes are scarce, underscoring that
+the dynamical evolution of wormholes remains an underexplored area of research. The
+Einstein-Dirac-Maxwell wormhole [30–32] has been dynamically evolved [33, 34], but this
+system is charged and the evolution did not exhibit expansion or collapse, and the quantum
+corrected Schwarzschild black hole [35–38] has been dynamically evolved [39], which did
+exhibit expansion and collapse. As our second example, we present the dynamical evolution
+of the quantum corrected Schwarzschild black hole. The static wormhole solution is found
+in semiclassical gravity [40], where the semiclassical correction is taken to be a renormalized
+energy-momentum tensor in the Polyakov approximation [41–43]. The static solution
+asymptotically matches the classical Schwarzschild solution, but the classical horizon has
+disappeared and is replaced with a wormhole structure.
+The Ellis-Bronnikov wormhole is sourced by a ghost field and the quantum corrected
+Schwarzschild black hole is sourced by a renormalized energy-momentum tensor. Despite
+these very different sources, their respective simulations are remarkably similar, as we will
+show. This leads us to speculate that these results are generic. If this is the case, it lends
+support to studying the Ellis-Bronnikov wormhole, notwithstanding its use of a ghost field,
+because of its particularly simple analytical static solutions.
+This article is partly a review. We give a detailed description of how to perform a
+dynamical evolution in spherical symmetry using double null coordinates. We also review the
+static solutions for Ellis-Bronnikov wormholes and quantum corrected Schwarzschild black
+holes. We hope by reviewing these ideas that we are encouraging further study of dynamical
+wormholes. Additionally, we present several novel results, most notably in our analysis of
+the energy-momentum tensor for Ellis-Bronnikov wormholes and in our comparison of the
+two systems.
+A note on our use of the term wormhole: Throughout this work, we shall use the term
+wormhole to describe a system whose areal radius has a nonzero minimum. This condition
+signifies the existence of a wormhole throat and such a system is more properly labeled as
+having a wormhole structure. The term wormhole typically implies well-behaved geometry
+on both sides of the throat, which will not always be the case in the examples we study.
+Nonetheless, for convenience, we will refer to such systems as wormholes.
+In section 2, we review our dynamical evolution framework. In sections 3 and 4, we study
+Ellis-Bronnikov wormholes and quantum corrected Schwarzschild black holes, respectively.
+In both cases, we review the static solutions, give details on how to dynamically evolve the
+static solutions, and analyze the simulations. For the quantum corrected Schwarzschild black
+hole, we also discuss semiclassical gravity and the renormalized energy-momentum tensor.
+In section 5, we compare results for our two examples and conclude. We set c = G = ℏ = 1
+3
+
+throughout.
+2. Dynamical evolution framework
+2.1. Double null coordinates
+We work in spherical symmetry and use double null coordinates. We write the metric as
+ds2 = −e2σ(u,v) dudv + r2 (u, v)dΩ2 ,
+
+(1)
+
+where u is the outgoing null coordinate, v is the ingoing null coordinate, σ(u, v) and r(u, v)
+parameterize the metric, where r is the areal radius, and dΩ2 = dθ2 + sin2 θ dϕ2 . Only a few
+different coordinate systems have been used in the dynamical evolution of wormholes, with
+double null coordinates being the most common choice. An advantage of using double null
+coordinates is that large portions of the spacetime can be computed and then displayed in
+a single diagram. Further, if the wormhole collapses and black holes form, the spacetime
+behind the horizons can be straightforwardly computed. For the specific case of the quantum
+corrected Schwarzschild black hole, double null coordinates are well-suited for the inclusion
+of the renormalized energy-momentum tensor.
+The Einstein field equations are
+1
+(2)
+Rµν − gµν R = 8πTµν ,
+2
+where Rµν is the Ricci tensor, R is the Ricci scalar, and Tµν is the energy-momentum tensor.
+For the metric in (1), the uu and vv components give the constraint equations
+r,uu = 2σ,u r,u − 4πrTuu
+r,vv = 2σ,v r,v − 4πrTvv ,
+
+(3)
+
+where a subscripted comma denotes a partial derivative, and the uv and θθ components lead
+to the evolution equations
+
+1
+σ,uv = 2 4r,u r,v + e2σ − 16πr2 Tuv − 8πe2σ Tθθ
+4r
+
+1
+r,uv = −
+4r,u r,v + e2σ − 16πr2 Tuv .
+(4)
+4r
+When we discuss the Ellis-Bronnikov wormhole and the quantum corrected Schwarzschild
+black hole, we will present the components of the energy-momentum tensor that are specific
+to these wormholes.
+The Misner-Sharp mass function, m(u, v), gives the total mass inside a radius r(u, v).
+It is defined by
+2m
+1−
+= g µν r,µ r,ν .
+(5)
+r
+Using the metric in (1), the mass function is given by
+
+r
+m=
+1 + 4e−2σ r,u r,v .
+(6)
+2
+4
+
+When evolving wormholes we will find apparent horizons, which are defined by r,u = 0 or
+r,v = 0. Along an apparent horizon, the mass is given by m = r/2. As we’ll see, when a
+wormhole expands, the apparent horizon evolves along increasing radii and the mass inside
+the horizon increases. Conversely, when a wormhole collapses, the apparent horizon evolves
+along decreasing radii and the mass decreases.
+2.2. Raychaudhuri equation
+The Raychaudhuri equation describes the evolution of a congruence, which is a bundle of
+curves such that every point in a region of spacetime lies on only one curve. In particular,
+we will be interested in the Raychaudhuri equation for a congruence of null geodesics, which
+is [44]
+1
+(7)
+k µ ∂µ θ = − θ2 − σµν σ µν + ωµν ω µν − Rµν k µ k ν ,
+2
+where
+θ = ∇µ k µ
+
+(8)
+
+is the expansion, which describes the fractional rate of change of the cross sectional area of
+the congruence, and k µ is a null vector field tangent to the geodesics. θµν and ωµν are the
+shear and rotation tensors, both of which vanish in spherical symmetry. Using the Einstein
+field equation in (2), we have Rµν k µ k ν = 8πTµν k µ k ν , since k µ is null. The Raychaudhuri
+equation reduces to
+1
+k µ ∂µ θ = − θ2 − 8πTµν k µ k ν .
+(9)
+2
+Since k µ is null and tangent to geodesics, it satisfies
+k µ kµ = 0,
+
+k µ ∇µ k ν = 0.
+
+(10)
+
+In double null coordinates, with the metric in (1), solutions to these equations are
+µ
+k(u)
+= e−2σ (1, 0, 0, 0),
+
+µ
+k(v)
+= e−2σ (0, 1, 0, 0).
+
+(11)
+
+Each of these vectors is defined up to an overall arbitrary constant, which we have set to 1
+by convention. With these k µ , we have two forms for the Raychaudhuri equation,
+1
+1
+2
+(v)
+2
+(u)
+θ,u
+= − e2σ θ(u)
+− 8πe−2σ Tuu ,
+θ,v
+= − e2σ θ(v)
+− 8πe−2σ Tvv .
+(12)
+2
+2
+where, from (8),
+2r,u
+2r,v
+θ(u) = e−2σ
+,
+θ(v) = e−2σ
+.
+(13)
+r
+r
+If we plug these forms for the expansion into (12), we find that (12) reproduces the constraint
+equations in (3), which shows that in spherical symmetry the Einstein field equations contain
+the Raychaudhuri equation.
+The Raychaudhuri equation plays a central role in the study of wormholes. For example,
+it can be used to derive that the existence of a wormhole implies violation of the null energy
+5
+
+condition [2]. By definition, a wormhole throat is located where the cross sectional area of
+the areal radius has a minimum, which occurs when θ = 0 and k µ ∂µ θ ≥ 0 [1]. It follows
+immediately from the Raychaudhuri equation in (9) that the presence of a wormhole throat
+requires
+Tµν k µ k ν ≤ 0.
+
+(14)
+
+The null energy condition is violated if Tµν k µ k ν < 0. The Raychaudhuri equation can also
+be used to derive that the existence of a wormhole requires violation of the averaged null
+energy condition, which is a stronger requirement [1], but we will only make use of the null
+energy condition.
+In double null coordinates, the null energy condition is violated if
+e−4σ Tuu < 0 or e−4σ Tvv < 0.
+
+(15)
+
+This reduces to Tuu < 0 or Tvv < 0. However, we should keep in mind that the null
+energy along null geodesics contains the factor of e−4σ . Intuitively, we might expect that an
+expanding wormhole, one for which the wormhole throat radius is increasing, would have
+negative null energy that decreases, evolving toward being more negative. Conversely, a
+collapsing wormhole, one for which the radius decreases, would have negative null energy
+that increases, evolving toward zero. We will find this to generally be the case for e−4σ Tuu
+and e−4σ Tvv , but not necessarily for Tuu and Tvv .
+2.3. Numerical methods
+To dynamically evolve a wormhole, we numerically solve some subset of the complete list of
+equations. We need only solve a subset since the equations are not all independent. Our
+numerical scheme, which we review below, is designed to solve evolution equations. These
+include the equations in (4) for the metric fields, but not the constraint equations in (3). If
+there is any matter in the system, there will be additional evolution equations which describe
+the matter. We use the constraint equations in (3) for computing initial data and for code
+testing.
+We use a two dimensional discrete grid of (u, v) values as our computational domain.
+The grid points have uniform spacing ∆u and ∆v and take values in the ranges ui ≤ u ≤ uf
+and vi ≤ v ≤ vf . u = ui and v = vi are the initial hypersurfaces. When plotting results, we
+set ui = vi = 0, but we keep ui and vi arbitrary in equations for completeness. We show a
+diagram for the grid in figure 1(a).
+In figure 1(b), we show a single grid cell. In general, we will know the values of all fields
+at the grid points labeled 1, 2, and 3 and will numerically solve for field values at the grid
+point labeled 4. To do this, we used a standard predictor-corrector scheme, which is second
+order accurate, to numerically solve the evolution equations. This scheme makes use of the
+intermediate point labeled 0, which is not a point on our grid.
+
+6
+
+4
+
+Δu
+
+Δv
+
+v
+
+u
+uf
+
+(a)
+
+ui
+
+0
+
+3
+
+vf
+
+(b)
+
+vi
+
+2
+
+1
+
+Figure 1. (a) A two dimensional discrete grid of (u, v) values is used as our computational
+domain, here illustrated as a 7 × 7 grid (in practice, each dimension will typically have
+thousands of grid points). The grid points have uniform spacing ∆u and ∆v and take
+values in the ranges ui ≤ u ≤ uf and vi ≤ v ≤ vf . (b) A single grid cell, where points 1,
+2, 3, and 4 are points on the grid, while point 0 is an intermediate point and is not on the
+grid. In general, we will know field values at points 1, 2, and 3 and will compute field values
+at point 4.
+
+We now briefly review the numerical scheme (for additional details, see, for example,
+[45]). The system of evolution equations takes the form
+f,uv = F (f, f,u , f,v ),
+
+(16)
+
+where f is a vector of fields to solve for and F is a vector of specified functions. Note that
+the highest derivative in F is first order. This will always be the case. We will be evaluating
+(i)
+(i)
+these quantities at the labeled points in the unit cell shown in figure 1(b): Let f,uv , f (i) , f,u ,
+(i)
+f,v be the quantities evaluated at points i = 0, 1, . . . , 4. As mentioned, we know the values
+at points 1, 2, and 3 and want to compute the values at point 4.
+In the first predictor step, we compute fields at point 0 using
+f (2) + f (3)
+f (3) − f (1)
+f (2) − f (1)
+(0)
+,
+f˜,u
+=
+,
+f˜,v(0) =
+.
+(17)
+2
+∆u
+∆v
+The last two formulas are finite differences which are only first order accurate, which is why
+we have included tildes. This is the predictor step, which will be corrected with a corrector
+step, yielding a fully second order accurate scheme. These quantities are then used in F to
+compute
+(18)
+f˜(0) = F (f (0) , f˜(0) , f˜(0) ),
+f (0) =
+
+,uv
+
+,u
+
+,v
+
+which is used in the formula
+f˜(4) = −f (1) + f (2) + f (3) + f˜(0) ∆u∆v.
+,uv
+
+(19)
+
+The use of the predictor has led to a linear equation for f˜(4) , but one that is only first order
+accurate, hence the tilde.
+7
+
+In the second corrector step, we compute
+f (2) − f (1) + f˜(4) − f (3)
+f (3) − f (1) + f˜(4) − f (2)
+(0)
+,
+f,v(0) =
+.
+f,u
+=
+2∆u
+2∆v
+These quantities are then used in F to compute
+(0)
+(0)
+, f,v(0) ),
+= F (f (0) , f,u
+fuv
+
+(20)
+
+(21)
+
+which, as before, is used in the formula
+(0)
+f (4) = −f (1) + f (2) + f (3) + f,uv
+∆u∆v.
+
+(22)
+
+This result is second order accurate.
+Our code begins by solving for the fields at grid point (ui +∆u, vi +∆v) and then proceeds
+to solve for the fields at each grid point along the “row” u = ui + ∆u before proceeding to
+the subsequent row, u = ui + 2∆u, and so on. In this way, our code computes the field
+values at each grid point in the computational domain. Of course, for this to be possible we
+must supply field values on the initial hypersurfaces u = ui and v = vi . As we explain in the
+next subsection, we place a static wormhole solution on the initial hypersurfaces. Our code
+therefore determines the dynamical evolution of a static solution subject to perturbations.
+We consider two types of perturbations. First, all code has an inherent discretization
+error which acts as a perturbation. By decreasing the grid spacing ∆u and ∆v, we can
+decrease the strength of this perturbation, but it will always be present. This type of
+perturbation can be used to check the stability of static solutions, as we will see. In the
+presence of an explicit perturbation, however, a perturbation from discretization error should
+be negligible. As the second type of perturbation, we will introduce a matter field to be used
+as an explicit perturbation. When we discus the Ellis-Bronnikov wormhole and the quantum
+corrected Schwarzschild black hole, we give details for the matter field.
+2.4. Initial data
+To dynamically evolve the system, we need the value of each field on the initial hypersurfaces.
+We refer to this set of values as initial data. For initial data, we use a static solution. More
+specifically, we will use a solution to the gravitational field equations that follow from a
+metric taking the form
+ds2 = −α2 (x)dt2 + a2 (x)dx2 + r2 (x)dΩ2 ,
+
+(23)
+
+where t is the time coordinate, x is the radial coordinate, α(x), a(x), and r(x) parameterize
+the metric, where r is the areal radius. Since this metric is time independent and spherically
+symmetric, it describes a static spacetime. We would like the metric to be capable of
+describing a wormhole. We therefore allow the radial coordinate to take values in the range
+−∞ < x < ∞.
+Once we find a solution, we will have to transform it to double null coordinates to use
+it as initial data. We begin by introducing a new radial coordinate, y, defined by
+α dy = a dx,
+
+(24)
+8
+
+so that the metric becomes
+
+ds2 = α2 −dt2 + dy 2 + r2 (x)dΩ2 .
+We can then transform to double null coordinates using
+v+u
+v−u
+t=
+,
+y=
+,
+2
+2
+for which
+ds2 = −α2 dudv + r2 dΩ2 .
+
+(25)
+
+(26)
+
+(27)
+
+Comparing to the metric in (1), we have σ = ln α and r is the same.
+The relationship between the radial coordinates x and y is obtained by integrating (24),
+Z
+a(x)
+y = dx
+.
+(28)
+α(x)
+From (26), note that y0 ≡ (vi − ui )/2 corresponds to the origin of the computational domain.
+We can always choose the integration constant in (28) such that y0 corresponds to a specific
+value of x.
+To construct the initial data, we proceed as follows. For any u, v values on an initial
+hypersurface, we have the corresponding value of y from (26). We then solve for the
+corresponding value of x from (28) for a specific static solution. With x, we can compute
+the value of any field for the static solution.
+2.5. Procedure
+We use the following procedure to dynamically evolve wormholes:
+• We derive the gravitational field equations and the equations of motion for any matter
+in the system using the static metric in (23).
+• We self-consistently solve the gravitational field equations and equations of motion for
+a static wormhole solution.
+• We transform the static solution to double null coordinates, using the method explained
+at the end of section 2.4. We use the transformed solution as our initial data.
+• We place the initial data on the initial hypersurfaces of our computational domain.
+More specifically, field values from the transformed static solution are used at the grid
+points on the initial hypersurfaces.
+• To dynamically evolve the system we use the equations of motion, written in double
+null coordinates, and the evolution equations in (4). We then self-consistently solve this
+system of equations using the numerical scheme described in section 2.3. The result is
+the dynamical evolution of the initial static solution.
+We have confirmed that the code we have written to perform the dynamical evolution exhibits
+second order convergence and convergence to a consistent solution. In appendix A, we review
+how this can be done and present some tests of our code.
+9
+
+3. Ellis-Bronnikov wormholes
+Ellis-Bronnikov wormholes are a family of static spherically symmetric wormhole solutions
+which can be found analytically [3, 4]. They are sourced by a real massless ghost scalar
+field. As mentioned in the introduction, a ghost field has the opposite sign in front of the
+kinetic term in the Lagrangian when compared to a regular field. We review the static
+wormhole solutions in section 3.1. In section 3.2, we list the dynamical equations which
+complement those given in section 2.1 before discussing how the static solutions are used
+as initial data in our simulations in section 3.3. We present results for the expansion and
+collapse of Ellis-Bronnikov wormholes in section 3.4.
+3.1. Static solutions
+Analytical static solutions may be found using the metric
+1
+ds2 = − 2 dt2 + a2 (x)dx2 + a2 (x)(x20 + x2 )dΩ2 ,
+a (x)
+which has the form of the general static metric in (23), where α(x) = 1/a(x),
+q
+r(x) = a(x) x20 + x2
+
+(29)
+
+(30)
+
+is the areal radius, and x0 is a constant. Using this metric in the Einstein field equations in
+(2), we find the field equations
+a′ 2
+x20
+2x
+− a′ 2
++ 4πa3 T tt
+−a
+2
+2
+2
+2a
+2(x0 + x )
+x0 + x 2
+x2
+a′ 2 = −a2 2 0 2 2 − 8πa4 T xx
+(x0 + x )
+′2
+
+a
+2x
+′
+3
+t
+x
+θ
+a′′ =
+− 2
+a
+−
+4πa
+−T
++
+T
++
+2T
+,
+t
+x
+θ
+a
+x0 + x 2
+a′′ =
+
+(31)
+
+where a prime denotes an x derivative.
+The real massless ghost scalar field has Lagrangian
+η
+L = − (∇µ ϕ)(∇µ ϕ),
+(32)
+2
+where ϕ is the scalar
+p field and η = −1 for a ghost field. The Lagrangian is minimally coupled
+to gravity, L → − det(gµν ) L. The equation of motion is
+∇µ ∇µ ϕ = 0,
+
+(33)
+
+which is the massless Klein-Gordon equation.
+nonvanishing components
+η
+T tt = −T xx = T θθ = T ϕϕ = − 2 ϕ′ 2 .
+2a
+
+10
+
+The energy-momentum tensor has
+(34)
+
+We now proceed to solve the field equations in (31) and the equation of motion in (33).
+From (34), we have −T tt + T xx + 2T θθ = 0, which allows the bottom equation in (31) to be
+written as
+
+
+′
+2
+2 a
+= 0.
+(35)
+∂x (x0 + x )
+a
+The solution is
+
+
+a(x) = a2 exp −a1 tan−1 (x/x0 ) ,
+
+(36)
+
+where a1 and a2 are integration constants. The equation of motion in (33) for the metric in
+(29) becomes
+
+
+(37)
+∂x (x20 + x2 )ϕ′ = 0.
+The solution is
+ϕ(x) = ϕ1 tan−1 (x/x0 ) + ϕ2 ,
+
+(38)
+
+where ϕ1 and ϕ2 are integration constants. There remains the top two equations in (31).
+Plugging the results into these equations, we find both are solved for
+1 + a21 + 4πηϕ21 = 0,
+
+(39)
+
+which relates the constants a1 and ϕ1 . We choose to solve for ϕ1 ,
+s
+1 + a21
+.
+ϕ1 =
+4π(−η)
+
+(40)
+
+As ϕ1 must be real, since ϕ is a real scalar field, we find that we only have a solution for
+η = −1, and hence for a ghost field.
+We have solved the field equations and the equation of motion analytically, with the
+solution given in (36), (38), and (40). To see that this solution describes a wormhole, we
+can show that the areal radius is nonzero at its minimum. The areal radius is given in (30).
+Setting the derivative equal to zero, we find that there is an extremum at
+xth = a1 x0 .
+
+(41)
+
+We’ll see shortly that this is the location of the wormhole throat. It is straightforward to
+show that the second derivative evaluated at x = xth is positive as long as a2 and x0 have
+the same sign. We shall assume as much and the extremum is a minimum. The areal radius
+at its minimum is equal to
+q
+−1
+rth = r(xth ) = a2 x0 1 + a21 e−a1 tan (a1 ) .
+(42)
+We find that the areal radius is nonzero and positive at its minimum and we have shown
+that we have a wormhole. We refer to the minimum value of the areal radius, rth , as the
+wormhole throat radius and the wormhole throat is located at x = xth .
+
+11
+
+The Misner-Sharp mass function, m(x), gives the total mass inside a radius r(x). It is
+defined in (5). Using the metric in (29), the areal radius in (30), and the solution for a(x)
+in (36), the mass function is
+
+
+
+
+a2 x 0
+2a1 x + x0 (1 − a1 )2 exp −a1 tan−1 (x/x0 ) .
+(43)
+m(x) = p 2
+2 x0 + x 2
+The ADM mass, M± , as viewed from either side of the wormhole, can be found by taking
+the limit x → ±∞ of m(x),
+M± = lim m(x) = ±a1 a2 x0 e∓a1 π/2 .
+x→±∞
+
+(44)
+
+We will comment on this result shortly.
+The Ellis-Bronnikov family of wormhole solutions is given by (36), (38), and (40). It is
+parameterized in terms of the constants a1 , a2 , ϕ1 , and ϕ2 . We can fix all but one of these
+constants. A look at the energy-momentum tensor in (34) and the equation of motion in
+(37) shows that it is only the derivative ϕ′ that shows up in the equations. As a consequence,
+ϕ2 does not play a role and we can set ϕ2 = 0 without loss of generality. To fix a2 , first note
+that we would like our wormhole solution to be asymptotically flat on both sides. A look at
+the metric in (29) suggests that this will be the case if a → 1 in the limits x → ±∞. Taking
+these limits of (36), we find
+lim a(x) = a2 e∓a1 π/2 .
+
+(45)
+
+x→±∞
+
+Now, the system has a symmetry. Under the scaling
+√
+x
+x0
+x→ √ ,
+x→ √ ,
+a → λa,
+(46)
+t → λt
+λ
+λ
+and ϕ unchanged, where λ is a positive constant, the metric, field equations, and equation
+of motion are invariant. Using λ = exp(±a1 π/2)/a2 , we can always transform the ± side
+such that a → 1. This shows that both sides of the wormhole are always asymptotically flat.
+Further, this scaling allows us to transform a2 to any nonzero value. We choose to fix
+a2 = 1
+
+(47)
+
+as our convention. With a positive value for a2 , we note that x0 is then positive. Finally, ϕ1
+is determined from a1 from (40). The family of solutions is now parameterized in terms of
+a1 alone.
+The Ellis-Bronnikov wormhole solutions are now
+
+
+a(x) = exp −a1 tan−1 (x/x0 )
+ϕ(x) = ϕ1 tan−1 (x/x0 )
+s
+1 + a21
+.
+ϕ1 =
+4π(−η)
+
+(48)
+
+Consider the wormhole with a1 = 0, for which a(x) = 1. Returning to the ADM
+p mass in
+(44), we find that this wormhole is massless. From (30), the areal radius is r(x) = x20 + x2 ,
+12
+
+6
+
+0.5
+(a)
+
+1
+
+(b)
+0
+
+0.8
+
+4
+
+(c)
+
+0.6
+
+-0.5
+
+0.4
+
+2
+
+-1
+0.2
+0
+
+-1.5
+
+0
+-2
+
+0
+
+2
+
+-2
+
+0
+
+2
+
+0
+
+1
+
+2
+
+3
+
+4
+
+Figure 2. These diagrams display static Ellis-Bronnikov wormhole solutions which are
+parametrized in terms of the constant a1 . (a) The areal radius, r, as a function of the radial
+coordinate, x, for (from darkest curve to lightest) a1 = 0, 0.25, 0.5, 0.75, and 1. (b) The
+wormhole throat radius, rth , as a function of a1 . (c) The ADM mass as viewed from the
+positive side, M+ , as a function of a1 .
+
+which is symmetric about xth = 0. The a1 = 0 solution is the symmetric massless wormhole.
+The other solutions are asymmetric and massive.
+In figure 2(a), we show the areal radius, r(x), for a1 = 0, 0.25, 0.5, 0.75, and 1. As
+a1 increases from zero, the wormhole becomes more asymmetric and the wormhole throat
+radius decreases. The areal radius for negative a1 can be found from r(x, a1 ) = r(−x, −a1 ).
+Figure 2(b) displays the wormhole throat radius, rth , as a function of a1 . We can see that
+rth is largest for a1 = 0. The ADM mass as viewed from the positive side, M+ , is displayed
+in figure 2(c) as a function of a1 . M+ is asymptotically zero in the limit a1 → ∞, in addition
+to equaling zero at a1 = 0. M− can be found from M− (a1 ) = M+ (−a1 ). M± have maximum
+values at a1 = ±2/π. In both cases, the maximum mass equals 2/πe.
+3.2. Dynamical equations
+To dynamically evolve the Ellis-Bronnikov wormhole, we use double null coordinates, as we
+discussed in section 2.1. We may therefore use the field equations in (3) and (4). Additionally,
+we need equations describing the matter sector.
+For the Ellis-Bronnikov wormhole, we have a real massless ghost scalar field, ϕ, which
+sources the wormhole geometry. We will also include a regular real massless scalar field, χ,
+which we will use to perturb the system. The Lagrangian describing the matter sector is
+then
+η
+1
+L = − (∇µ ϕ)(∇µ ϕ) − (∇µ χ)(∇µ χ),
+(49)
+2
+2
+where
+η = −1 so that ϕ is a ghost field. We minimally couple this to gravity, L →
+p
+− det(gµν ) L. The equations of motion are two copies of the massless Klein-Gordon
+
+13
+
+equation,
+∇µ ∇µ ϕ = 0,
+
+∇µ ∇µ χ = 0.
+
+(50)
+
+For the double null metric in (1), the equations of motion work out to
+1
+1
+χ,uv = − (r,u χ,v + r,v χ,u ) .
+ϕ,uv = − (r,u ϕ,v + r,v ϕ,u ) ,
+r
+r
+The energy-momentum tensor is given by
+
+(51)
+
+ϕ
+χ
+Tµν = Tµν
++ Tµν
+,
+
+(52)
+
+ϕ
+χ
+where Tµν
+is the contribution from the ghost field and Tµν
+is the contribution from the regular
+field. The components are
+ϕ
+= η ϕ2,u
+Tuu
+ϕ
+Tvv
+= η ϕ2,v
+ϕ
+Tuv
+=0
+ϕ
+Tθθ
+= η 2r2 e−2σ ϕ,u ϕ,v
+
+(53)
+
+and
+χ
+Tuu
+= χ2,u
+χ
+Tvv
+= χ2,v
+χ
+Tuv
+=0
+χ
+Tθθ
+= 2r2 e−2σ χ,u χ,v ,
+
+(54)
+
+ϕ
+ϕ
+χ
+χ
+along with Tϕϕ
+= Tθθ
+sin2 θ and Tϕϕ
+= Tθθ
+sin2 θ, with the rest of the components vanishing
+due to spherical symmetry.
+
+3.3. Initial data
+To construct initial data from a static wormhole solution, we follow the methods described
+in section 2.4. We note that the computation of the new radial coordinate in (28) becomes
+Z
+Z
+
+
+2
+y = dx a (x) = dx exp −2a1 tan−1 (x/x0 )
+(55)
+and that we choose the integration constant such that y = y0 = (vi − ui )/2 when x = xth .
+This places the wormhole throat at the origin of the computational domain.
+The initial data must be computed numerically, because of the integral in (55), except
+for the case of the symmetric massless wormhole with a1 = 0. For the symmetric massless
+wormhole, the initial data can be written down analytically and is
+σ(u, v) = 0
+q
+1
+r(u, v) =
+4x20 + (v − u)2
+2
+
+
+1
+v−u
+−1
+ϕ(u, v) = √ tan
+.
+2x0
+4π
+14
+
+(56)
+
+30
+
+30
+12
+
+10
+
+30
+10
+
+8
+
+6
+
+8
+
+8
+
+6
+
+6
+4
+
+4 3
+2 2
+1.
+
+20
+
+3
+
+4
+2 2
+1.
+
+20
+
+10
+
+10
+2
+1. 2
+
+3 4
+
+8
+
+10
+
+3 4
+
+2
+1. 2 3
+6
+
+8
+
+10
+15
+
+12
+
+0
+
+0
+0
+
+10
+
+20
+
+30
+
+2 2
+1.
+
+10
+2
+1. 2
+
+6
+
+3
+
+20
+
+4 6
+8 10
+
+15
+
+20
+
+25
+
+0
+0
+
+10
+
+20
+
+30
+
+0
+
+10
+
+20
+
+30
+
+Figure 3. Contour diagrams for the areal radius, r, in double null coordinates for static
+Ellis-Bronnikov wormholes defined by (a) a1 = 0, (b) 0.25, and (c) 0.5. In each diagram,
+the gray lines are contours with values of r as labeled and the thick black lines mark the
+wormhole throat with radii (a) rth /x0 = 1, (b) 0.970, and (c) 0.887.
+
+When dynamically evolving a system using double null coordinates, one of the most
+useful diagrams for understanding how the system evolves is the contour diagram for the
+areal radius. To get a sense for this diagram, we display it for various static solutions in
+figure 3. Figure 3 is therefore analogous to figure 2(a), but in double null coordinates.
+Figure 3(a) is for the symmetric massless wormhole with a1 = 0. The thick black line is the
+contour for r = rth = x0 . The two sides of the thick black line therefore plot the two sides
+of the wormhole. The gray lines are contours for various values of r as labeled. Note that
+they are symmetric about the wormhole throat. Figures 3(b) and 3(c) are for asymmetric
+wormholes with a1 = 0.25 and 0.5; the thick black lines are contours for r = rth = 0.970x0
+and 0.887x0 , respectively. Looking at the gray lines, we can get a sense of the asymmetry of
+these wormholes.
+It follows from (26) that lines of constant v − u are lines of constant y and hence lines
+of constant x. For this reason, static systems have straight contour lines with unit slope, as
+can be seen in figure 3. As a consequence, if we were to perform a dynamical evolution using
+the static solution as initial data and the dynamical evolution were to reproduce the straight
+contours in figure 3, we would conclude that the static solution is stable with respect to time
+dependent perturbations since the system would be maintaining the static configuration.
+As we’ll see, the dynamically evolved system will initially maintain the static configuration,
+before evolving away from it.
+For the dynamical evolution, the initial data is placed on the u = ui and v = vi
+hypersurfaces, which are the axes in figure 3. We can use a static solution as initial data or
+we can augment the static solution with a pulse of regular scalar field. The pulse acts as
+an explicit perturbation. Physically, we can imagine sending a pulse of scalar field into
+the wormhole. Pulses may be placed at a single or multiple locations on both initial
+hypersurfaces. To keep things simple, we consider a single pulse placed on the u = ui
+15
+
+hypersurface. Since the wormhole throat is placed at the origin of the computational domain,
+this corresponds to placing the pulse at x > xth .
+In the dynamical equations, only derivatives of χ show up. We therefore choose to define
+the pulse in terms of its derivative,
+
+
+v − v1
+A
+2
+sin π
+,
+(57)
+χ,v (ui , v) =
+x0
+v2 − v1
+for v1 < v < v2 and zero everywhere else on the initial hypersurfaces, where A, v1 , and v2
+are constants. This is a commonly used form for a pulse because χ,v and χ,vv are zero at
+v = v1 and v = v2 . Although only derivatives of χ show up in the dynamical equations, the
+numerical scheme we use to solve the equations makes use of χ, which is
+
+0
+for v < v1
+
+
+
+
+
+
+
+
+
+ A
+v − v1
+2π(v − v1 ) − (v2 − v1 ) sin 2π
+for v1 < v < v2 (58)
+χ(ui , v) =
+4πx0
+v2 − v1
+
+
+
+
+
+
+ A [2π(v2 − v1 )]
+for v > v2 .
+4πx0
+The factor of x0 is included for convenience, since it can be used to form the dimensionless
+variable v/x0 .
+If we include the pulse, the initial data on the v = vi hypersurface is unchanged from
+the static solution, but the initial data on the u = ui hypersurface is modified since the
+χ
+. More specifically, σ and r
+energy-momentum tensor now includes a contribution from Tµν
+may change and must be computed, while ϕ is unchanged. There are two standard options.
+In the first option, we keep σ(ui , v) unchanged from the static solution and compute r(ui , v)
+using the second constraint equation in (3). In the second option, we instead keep r(ui , v)
+unchanged and compute σ(ui , v) using the same constraint equation. Both options work well
+and both are allowed because of the coordinate gauge freedom in double null coordinates.
+We choose the first option.
+To solve the constraint equation on the u = ui initial hypersurface, we need σ,v (ui , v)
+and ϕ,v (ui , v), which are unchanged from the static solution, and r(ui , vi ) and r,v (ui , vi ) at
+the origin, which are also unchanged from the static solution since we will only consider
+pulses outside the origin. The derivatives can be computed analytically,
+a1 x 0
+x − a 1 x0
+ϕ1 x0
+p
+σ,v = 2
+,
+ϕ
+=
+,
+r
+=
+. (59)
+,v
+,v
+2
+2a (x)(x0 + x2 )
+2a2 (x)(x20 + x2 )
+2a(x) x20 + x2
+For the symmetric massless case, the derivatives can be transformed to double null
+coordinates analytically,
+2x0
+v−u
+1
+σ,v = 0,
+r,v = p 2
+,
+ϕ,v = √
+.
+(60)
+2
+2
+4π 4x0 + (v − u)2
+2 4x0 + (v − u)
+We can now integrate the constraint equation outward from v = vi to obtain the updated
+r(ui , v).
+16
+
+30
+
+30
+
+30
+12
+
+12
+
+10
+
+10
+
+10
+
+10
+
+12
+
+12
+
+10
+
+4
+.2
+
+1
+
+2
+1.
+
+3
+
+2
+
+10
+
+2
+
+8
+2
+
+1.
+10
+
+10
+
+20
+
+30
+
+2
+
+3
+
+10
+
+12
+
+0
+0
+
+6
+
+4
+
+3
+
+12
+
+0
+
+10
+
+6
+
+10
+
+6
+
+10
+
+20
+
+8
+
+8
+
+20
+
+4
+
+10
+
+20
+
+12
+
+0
+0
+
+10
+
+20
+
+30
+
+0
+
+10
+
+20
+
+30
+
+Figure 4. Contour diagrams for the areal radius, r, for the dynamical evolution of
+the symmetric massless Ellis-Bronnikov wormhole. Each diagram displays an expanding
+wormhole. The black curves display the apparent horizon r,u = 0 and the blue curves
+display the apparent horizon r,v = 0. Each diagram uses the same initial data, but evolves
+the system with grid spacing ∆u = ∆v = 1/N with (a) N = 100, (b) 200, and (c) 400. As
+the grid spacing decreases, the evolution maintains the static configuration longer. This is
+the expected behavior for a unstable static solution.
+
+3.4. Dynamical evolution
+We now present results for the dynamical evolution of Ellis-Bronnikov wormholes [21–29].
+We’ll find that the static solutions, when dynamically evolved, expand or collapse. We focus
+on examples of expansion first and then look at examples of collapse.
+The static solutions we use for initial data depend on the parameters x0 and a1 . We can
+absorb x0 into a redefinition of variables so that it does not have to be specified. Throughout
+this subsection, we use the scaled variables
+u
+v
+r
+u→ ,
+v→ ,
+r→ ,
+Tuu → x20 Tuu ,
+Tvv → x20 Tvv . (61)
+x0
+x0
+x0
+3.4.1. Wormhole expansion We begin with the simplest possibility: the evolution of the
+symmetric massless wormhole without a scalar field pulse. The contour diagram for the
+areal radius is shown in figure 4(a). The static solution is placed on the initial hypersurfaces,
+which are the axes in the figure, and the bulk of the diagram displays the evolution. The
+gray lines are contours for r, with the values for r as labeled, and the thick black and blue
+lines are apparent horizons defined by r,u = 0 and r,v = 0, respectively.
+One of the first things to notice is that the diagram looks different than the diagram
+for the static solution in figure 3(a), indicating that the system evolves away from the static
+solution. To understand the evolution, it helps to begin in the bottom left corner. Initially,
+as the system evolves away from this corner, figure 4(a) is identical to figure 3(a), indicating
+that the system is maintaining the static configuration. The apparent horizons are on top of
+one another and mark the wormhole throat, since for the static solution the wormhole throat
+is defined by r,x = 0, which transforms to r,y = r,u = r,v = 0. At around u ≈ 10, the apparent
+17
+
+horizons separate and the system evolves away from the static configuration. In between the
+apparent horizons, moving in the timelike direction necessarily moves across increasing radii.
+This signifies that the wormhole is expanding since the minimum radius is increasing. As we
+approach the top right corner, the wormhole appears to expand indefinitely. The apparent
+horizons evolve to being asymptotically vertical and horizontal, indicating the presence of
+cosmological horizons at roughly u/x0 ≈ 13 and v/x0 ≈ 13.
+The evolution in figure 4(a) does not contain a scalar field pulse. The only perturbation
+present is the discretization error inherent to the code. The discretization error can be
+reduced, which decreases the strength of the perturbation, by including more grid points so
+that the discrete grid better approximates the continuum. Figure 4(a) is made with N = 100
+grid points per unit interval, with the spacing between grid points equal to ∆u = ∆v = 1/N .
+Figures 4(b) and 4(c) use the same initial data, but evolve the system using N = 200 and
+400 grid points per unit interval. We find that as the strength of the perturbation is reduced,
+the system maintains the static configuration longer before eventually evolving away. This
+is the expected behavior when the static solution is unstable with respect to time dependent
+perturbations [21]. Indeed, static Ellis-Bronnikov wormholes have been shown to be unstable
+using a linear stability analysis [46].
+One can compute robust examples of wormhole expansion—examples which change
+negligibly when the grid spacing is reduced—by explicitly perturbing the system with a
+pulse of ghost scalar field (instead of a pulse of regular scalar field) [21–23, 28, 29]. We do
+not consider such perturbations here because the examples in figure 4 exhibit the properties
+of wormhole expansion well enough for our purposes. Further, we will not have the option
+to perturb with a pulse of ghost field when we study the quantum corrected Schwarzschild
+black hole in the next section, making figure 4 the relevant diagram for comparison.
+The metric in double null coordinates is parameterized by r(u, v) and σ(u, v). We show
+the contour diagram for σ in figure 5(a) for the same evolution shown in figure 4(c). The
+apparent horizons are included in yellow for convenience. Along the axes σ = 0, which is the
+value for the static solution. Note that near the axes the contours are not straight lines with
+unit slope. We explained in section 3.3 that we expect such contours when the dynamical
+evolution is maintaining the static configuration. We do not see them in figure 5(a) because
+σ = 0 in the static solution. We will show an example below of the dynamical evolution of
+an asymmetric static solution which has nonzero σ and we will find straight contours with
+unit slope near the axes, as expected.
+Since apparent horizons are defined by r,u = 0 and r,v = 0, the mass contained inside
+an apparent horizon of radius r is given by r/2, as follows from (6). Returning to figure
+4, we can see that once the system moves away from the static configuration, the apparent
+horizons evolve along increasing radii. We therefore find that for an expanding wormhole,
+the mass inside the apparent horizons is increasing. For this to happen, we would expect
+energy to flow inward. We can see if this occurs by looking at the energy-momentum tensor.
+Figures 5(b) and 5(c) display the energy-momentum tensor components Tuu and Tvv . Tuu
+18
+
+30
+
+1
+-0.00
+-1e-0
+
+-1e-08
+
+5
+06
+
+1e-08
+
+-2
+
+e-
+
+-1
+
+-2
+e-
+
+1
+0.000
+
+1e-06
+
+e0
+
+85
+00
+.0
+-0
+
+06
+
+e05
+-1
+
+-0
+.
+-0 000
+.0 4
+00
+1
+
+-
+
+-0
+.0
+-0 -0.0 -05
+.0 0 0.
+00 04 00
+1
+2
+
+6
+
+01
+
+e-
+
+0085
+
+02 -0.0
+
+5 0.0
+00 0.
+
+10
+
+01
+
+0.0
+
+-0.00
+
+-0.
+00
+01
+
+-1e
+-05
+-0
+-0.0.00001
+04
+
+-2
+
+05
+-1
+
+-1
+
+e-
+
+-2
+
+e-
+
+06
+
+06
+
+-3
+-2.5
+
+-2
+
+-1e-06
+
+-0.0001
+
+-0.01
+
+-0.2
+
+20
+
+04
+
+0
+.0
+
+-0
+
+0
+0
+
+10
+
+20
+
+0
+
+10
+
+20
+
+0
+
+10
+
+20
+
+0
+
+10
+
+20
+
+Figure 5. Each diagram is for the same dynamical evolution shown in figure 4(c). The
+yellow curves are the apparent horizons from figure 4(c). The diagrams display contours
+for (a) the metric field σ, (b) the outgoing energy-momentum Tuu , (c) the ingoing energymomentum Tvv , and (d) the net flow of energy momentum, Tvv − Tuu .
+
+describes outgoing energy-momentum and Tvv describes ingoing energy-momentum. More
+specifically, focusing on the region v > u, a positive value for Tuu indicates energy-momentum
+that is flowing radially outward and a positive value of Tvv indicates energy-momentum that
+is flowing radially inward. A convenient place to look at these values is at future null infinity.
+This region is located at v → ∞ and below the cosmological horizon. Near this region, both
+Tuu and Tvv are negative. The net flow is given by Tvv − Tuu , which is shown in figure 5(d).
+Near future null infinity we find that Tvv − Tuu is positive and the net flow is ingoing. This
+is precisely what we would expect to find when the mass inside the apparent horizons is
+increasing.
+As the system evolves, the wormhole expands. Since the wormhole is getting bigger,
+intuitively we would expect the violation of the null energy condition to worsen and for the
+null energy to become more negative. To get a sense for this, consider a path through the
+middle of the separated horizons in figures 5(b) and 5(c) for Tuu and Tvv (since the apparent
+horizons are symmetric this path would be the line u = v). We find that this path moves
+along values of Tuu and Tvv which increase, going from initially negative values toward zero.
+We must remember that Tuu and Tvv do not give the null energy along null geodesics, as
+explained in section 2.2. The null energy along null geodesics is given by e−4σ Tuu and e−4σ Tvv ,
+which we plot in figure 6. Here we find, as expected, along the path through the middle of
+the separated horizons the null energy decreases, becoming more negative, as the wormhole
+expands.
+So far we have considered the dynamical evolution of the symmetric massless wormhole.
+We now present examples of asymmetric massive wormholes, but still without a scalar
+field pulse. We show contour diagrams for the areal radius for a few examples in figure
+7. Figures 7(a), 7(b), and 7(c) are for different static solutions, where each static solution is
+incrementally more asymmetric, since a1 increases. We can see that the resulting simulations,
+which display wormhole expansion, are also incrementally more asymmetric. Just as in the
+19
+
+30
+
+30
+06
+
+10
+
+-1
+-0.1
+
+20
+
+-0.00
+0
+-0.001 1
+
+-1e
+
+-05
+
+-2
+e-
+
+-10
+-1
+
+-1
+e05
+-0.0
+0
+-0.00 01
+1
+-0.1
+
+0
+
+20
+
+-10
+
+-2
+
+-5
+
+-50
+
+6
+
+0
+e-
+
+10
+01
+
+0
+0.
+
+-
+
+01
+
+1
+
+-0
+
+.
+
+0
+00
+
+1
+
+.0
+
+05
+e-1
+
+-0
+
+6
+-0
+
+00
+
+05
+
+.0
+
+-0
+
+e-
+
+-1
+
+e
+-2
+
+0
+
+06
+e-
+
+-2
+
+0
+0
+
+10
+
+20
+
+0
+
+10
+
+20
+
+Figure 6. Contour diagrams for the null energy along null geodesics for the same evolution
+shown in figure 4(c) with apparent horizons in yellow.
+25
+
+6
+
+8
+
+4
+
+2.
+
+5
+
+10
+
+20
+
+15
+
+5
+
+15
+
+10
+
+10
+
+12
+
+5 6
+
+8
+
+10
+12
+
+14
+
+0
+
+0.
+8
+
+2
+
+1.
+
+14
+
+0
+0
+
+5
+
+10
+
+15
+
+20
+
+25
+
+0
+
+5
+
+10
+
+15
+
+1.
+2
+
+5
+8
+
+2. 1
+4 .8
+3.
+2
+
+4
+
+3
+
+3
+
+2
+
+2
+
+2
+
+1.
+
+5
+
+4
+
+6
+
+10
+
+4
+
+5
+
+6
+8
+
+16
+
+10
+
+0
+0
+
+5
+
+Figure 7. Contour diagrams for the areal radius, r, for the dynamical evolution of
+asymmetric massive Ellis-Bronnikov wormholes defined by (a) a1 = 0.25, (b) 0.5, and (c)
+1. The black curves display the apparent horizon r,u = 0 and the blue curves display the
+apparent horizon r,v = 0. All diagrams are made using grid spacing ∆u = ∆v = 1/400.
+
+symmetric massless case, if we decrease the strength of the perturbation by decreasing the
+spacing between grid points, we have found that the static configurations are maintained
+longer during the evolution, indicating that the static solutions are unstable.
+As the asymmetry increases, we can see from figure 7 that the system evolves away from
+the static configuration sooner. It follows from the energy-momentum tensor in (53) and the
+equation for ϕ,v in (59), along with the corresponding equation for ϕ,u , that null energy along
+null geodesics for static solutions is equal to e−4σ Tuu = e−4σ Tvv = ηϕ21 x20 /4(x20 + x2 )2 . As we
+increase a1 , we find from (48) that the amplitude for the ghost field, ϕ1 , increases. As we
+increase a1 the system therefore begins with a larger violation of the null energy condition.
+With a larger violation, we are not surprised to find that the system evolves away from the
+static configuration sooner.
+20
+
+0
+
+75
+
+0.
+
+1 1 1
+.0 0 0 5
+-0 -0.00.00 e-0
+- -1
+
+5
+76
+
+-1
+
+5
+
+10
+
+15
+
+1
+1 1 1
+.0 00 00 5
+-0 -0. 0.0 e-0
+- -1
+
+07
+
+e-1
+
+0
+0
+
+00
+-0.
+
+5
+6
+
+0
+e-
+
+0.
+
+0
+
+0
+
+10
+
+5
+7
+0.
+
+-10
+
+-0.01
+-0.1
+
+1
+-0
+
+10
+
+5
+0.
+
+-300
+
+15
+
+-50
+-10
+-1
+
+5
+
+-100
+
+-10
+
+.5
+
+-2
+
+-2
+-1.5
+-1
+.5
+
+-0
+
+10
+
+-50
+
+.0
+0
+
+6
+
+15
+
+-0.01
+-0.1
+-1
+
+.
+-0
+
+-3
+
+15
+
+6
+
+0
+e-
+
+-1
+
+07
+e-
+
+-1
+
+0
+0
+
+5
+
+10
+
+15
+
+0
+
+5
+
+10
+
+15
+
+Figure 8. Each diagram is for the same dynamical evolution shown in figure 7(b), with the
+apparent horizons in yellow. The diagrams display contours for (a) the metric field σ and
+(b, c) the null energy along null geodesics.
+
+We have studied other properties of the dynamical evolution of the asymmetric massive
+static solutions. Similarly to the symmetric massless case, we have found that the mass inside
+the apparent horizons increases and that it can be understood from the components of the
+energy-momentum tensor. Since we found these properties to be qualitatively similar to
+the symmetric massless case, we forgo presenting details. One quantity that is qualitatively
+different is σ. We show the contour diagram for σ in figure 8(a) for the same evolution shown
+in figure 7(b). Since the asymmetric static solutions have nonzero σ, we can see in figure
+8(a) that the contours are straight lines with unit slope near the axes, as expected. This is
+in contrast to the symmetric massless solution shown in figure 5(a). We show in figures 8(b)
+and 8(c) the null energy along null geodesics, since it depends on σ. Along a path through
+the middle of the separated apparent horizons, we can see that the null energy decreases, as
+expected.
+3.4.2. Wormhole collapse We now introduce an explicit perturbation in the form of a pulse
+of regular scalar field. We will find that such a pulse causes the wormhole to collapse. We
+begin with the symmetric massless static wormhole augmented by a pulse with parameters
+A = 0.002, v1 = 1, and v2 = 3. The pulse is placed on the u = ui initial hypersurface and
+introduces an asymmetry into the system. However, these pulse parameters give a relatively
+weak pulse and the asymmetry will not always be discernible.
+We show the contour diagram for the areal radius in figure 9. Comparing figure 9(a)
+to the static solution in figure 3(a), we find that they are different, indicating the system
+evolves away from the static configuration. We also cannot see any discernible asymmetry
+introduced by the pulse. To understand the evolution we again start in the bottom left
+corner and move outward. Initially, figures 9(a) and 3(a) look the same and the system
+is maintaining the static configuration. At around u ≈ 7, the apparent horizons begin to
+separate. Figure 9(b) magnifies the region between the apparent horizons, where we can
+21
+
+20
+2
+
+8
+
+10
+0.
+0. 5
+7
+
+0.9
+
+1
+
+1.
+2
+
+4
+
+6
+
+0.
+
+8
+
+10
+2
+
+1
+
+2
+
+8
+
+1.
+
+2
+1.
+2
+
+2
+
+1.
+
+2
+
+4
+
+6
+
+8
+
+0
+
+6
+0
+
+10
+
+20
+
+6
+
+8
+
+10
+
+Figure 9. (a) Contour diagram for the areal radius, r, for the dynamical evolution of the
+symmetric massless Ellis-Bronnikov wormhole augmented by a scalar field pulse defined by
+A = 0.002, v1 = 1, and v2 = 3. The black curve displays the apparent horizon r,u = 0
+and the blue curve displays the apparent horizon r,v = 0. The red curve displays the
+central singularity. The region beyond the red curve is not part of the spacetime. (b) is a
+magnification of the region between the apparent horizons shown in (a). These diagrams
+display a collapsing wormhole and the formation of black holes and are made using grid
+spacing ∆u = ∆v = 1/400.
+
+see, when moving in timelike directions, that the areal radius decreases. Since the minimum
+radius is decreasing, the wormhole is collapsing. Eventually the radius collapses completely
+and a singularity forms, which is marked by the red curve. The region beyond the red curve
+is not part of the spacetime. The apparent horizons, as well as the r contours, evolve to be
+asymptotically vertical and horizontal, indicating event horizons at u ≈ 9.5 and v ≈ 9.5.
+This signifies the formation of black holes which enclose the mouths of the wormhole.
+There are a couple of interesting things we can note. First, the radius of an apparent
+horizon typically cannot decrease. It can decrease here because the null energy condition is
+violated [22]. Second, from figure 9(a) we can see that it is possible to travel through the
+wormhole and return before it collapses. Consider a null ray starting at (v, u) = (4, 0) and
+traveling up. After it crosses the wormhole throat, and hence travels through the wormhole,
+it can start traveling to the right at, say, (v, u) = (4, 6). It will then cross back to the original
+side of the wormhole, never having crossed the event horizon at u ≈ 9.5. This collapsing
+wormhole is therefore temporarily traversable.
+The contour diagram for the metric function σ is shown in figure 10(a). On the initial
+hypersurfaces σ = 0 and we find that σ increases during the evolution. This is opposite to
+the expanding case, where we recall that σ decreases, as can be seen in figure 5(a). Note
+that near the axes, the contours are not straight lines with unit slope, which would be our
+expectation when the dynamical evolution is maintaining the static configuration. Just as
+we explained for the expanding case and figure 5(a), this occurs because σ = 0 for the static
+solution.
+Returning to figure 9(b), we can see that as the wormhole collapses, the apparent
+22
+
+0.001
+
+0.01
+
+0.0001
+
+15
+
+20
+
+0.1
+
+20
+
+15
+
+1e-05 -2e-07
+
+10
+
+10
+
+5
+
+5
+
+0
+
+0
+0
+
+5
+
+10
+
+15
+
+20
+
+0
+
+5
+
+10
+
+15
+
+20
+
+Figure 10. Contours diagrams for (a) the metric field σ and (b) the net flow of energymomentum, Tvv − Tuu , for the same evolution shown in figure 9, with the apparent horizons
+shown in yellow. In (b), solid gray lines have negative contour values, with contours shown in
+the range −10−7 to −10−2 , and dashed gray lines have positive contour values, with contours
+shown in the range +10−7 to +10−2 . The thick black lines mark where Tvv − Tuu = 0.
+
+horizons evolve along decreasing radii. As a consequence, the mass inside the apparent
+horizons decreases. For this to happen, we would expect energy to flow outward. We again
+find opposite behavior when compared to the expanding case, where we recall that the mass
+inside the apparent horizons increases. However, the situation here is more complicated. We
+expect energy to flow outward, but we also expect energy to flow inward, or equivalently
+we expect negative energy to flow outward. The reason is that black holes form and we
+expect the black holes to asymptotically settle to static Shcwarzschild black holes. For this
+to happen, the ghost matter, which has negative energy, must be expelled from the system.
+To gain insight, we can look at the energy-momentum tensor.
+We show the contour diagram for Tvv − Tuu , which gives the net flow of energymomentum, in figure 10(b). Solid gray lines have negative contour values and dashed gray
+lines have positive contour values. The thick black lines mark where Tvv − Tuu = 0. Focusing
+on the region v > u, we see large portions of spacetime with solid gray lines and hence
+negative Tvv − Tuu . This indicates outgoing energy-momentum, exactly what we would
+expect to find for decreasing mass inside the apparent horizons. Near the region where the
+apparent horizon is close to the the singularity, again for v > u, we find dashed lines and
+hence positive Tvv − Tuu . This indicates ingoing energy-momentum, precisely what is needed
+for the negative energy ghost matter to flow outward.
+In figures 11(a) and 11(b), we show Tuu and Tvv in the region between the apparent
+horizons. Along a path through the middle of the separated horizons, we find Tuu and Tvv
+decreasing, become more negative. Since the wormhole is shrinking, intuitively we would
+expect the violation of the null energy condition to weaken and for the null energy to head
+toward zero. Just as with wormhole expansion, we must remember that Tuu and Tvv do not
+give the null energy along null geodesics. We plot e−4σ Tuu and e−4σ Tvv in figures 11(c) and
+23
+
+025
+-0.0
+05
+
+05
+
+-0.0
+
+-0.
+
+02
+5
+
+.0
+-0
+
+1
+
+-0
+
+21
+
+0
+-0.
+
+1
+.0
+
+.
+-0
+
+2
+
+5
+17
+
+5
+
+17
+
+.0
+-0
+
+02
+
+5
+
+01
+
+.0
+
+-0
+
+.0
+
+.
+-0
+
+.01
+
+-0
+
+15
+
+-0
+
+-0
+
+-0
+
+02
+
+.
+-0
+
+1
+
+.0
+
+.02
+-0
+
+01
+-0.
+
+-0.
+
+21
+
+.0
+-0
+
+.0
+2
+
+8
+
+-0.0025
+
+5
+-0.02
+
+01
+
+-0.
+
+02
+1
+
+-0
+.0
+
+1
+
+10
+
+.0
+
+-0
+
+6
+6
+
+8
+
+10
+
+6
+
+8
+
+10
+
+6
+
+8
+
+10
+
+6
+
+8
+
+10
+
+Figure 11. Contours diagrams for (a) outgoing energy-momentum, (b) ingoing energymomentum, and (c, d) the null energy along null geodesics for the same evolution shown in
+figure 9, with the apparent horizons shown in yellow.
+
+11(d), which do increase, heading toward zero, as expected.
+In figures 12(a) and 12(b), we show contour diagrams for the areal radius for a couple
+examples of asymmetric massive static solutions perturbed by a pulse of scalar field. The
+parameters for the pulse are the same as used for the symmetric massless case and gives
+a relatively weak pulse. In both cases, we can see that the wormhole collapses and black
+holes form. The asymmetry that can be seen in figures 12(a) and 12(b) comes from the
+static solution and not from the perturbation. In figure 12(c), we show an example with the
+symmetric massless static solution and a relatively strong pulse. In this example, the pulse
+introduces a noticeable asymmetry.
+We have investigated the energy-momentum tensors for the examples shown in figure 12
+and found them to be qualitatively similar to the symmetric massless example detailed above.
+Specifically, we find large portions of spacetime with negative Tvv − Tuu which accounts for
+the decreasing mass between the apparent horizons, while near the region where the apparent
+horizon is close the singularity, we find positive Tvv − Tuu , which is consistent with the ghost
+field being expelled and the system asymptotically settling to a Schwarzschild black hole.
+4. Quantum corrected Schwarzschild black holes
+The Schwarzschild black hole is the spherically symmetric vacuum solution in general
+relativity. In semiclassical gravity, general relativity is extended to include both classical
+and quantum contributions, where we take the quantum contribution to be a renormalized
+energy-momentum tensor. The spherically symmetric vacuum solution in semiclassical
+gravity is the quantum corrected Schwarzschild black hole [35–38]. As we’ll see, the quantum
+corrected solution no longer has an event horizon and has a wormhole structure. One side of
+the wormhole looks very similar to the Schwarzschild black hole and is asymptotically flat.
+The other side has a null singularity at a finite proper distance from the wormhole throat.
+The quantum corrected Schwarzschild black hole, which describes a static wormhole, is
+24
+
+15
+
+15
+
+5
+5
+
+1.5
+
+2
+
+5
+
+4
+
+10
+
+3
+
+3
+
+1.
+
+2
+
+1.
+
+2
+
+2
+
+2
+
+1.1
+
+4
+
+10
+
+0.
+8
+
+5
+2
+
+1.
+
+2
+
+3
+
+4
+
+2
+1. 2
+
+5
+
+3 4
+5
+
+6
+
+1.1
+
+5
+
+7
+
+8
+
+0
+
+0
+0
+
+5
+
+10
+
+15
+
+0
+
+5
+
+10
+
+9
+
+11
+
+1.5
+
+2
+
+13
+
+2.5
+
+3
+
+3.5
+
+0
+15
+
+0
+
+5
+
+10
+
+15
+
+4
+
+20
+
+Figure 12. Contour diagrams for the areal radius, r. Black and blue curves display apparent
+horizons r,u = 0 and r,v = 0 and red curves display central singularities. The initial data
+for each diagram is an Ellis-Bronnikov wormhole augmented by a scalar field pulse and each
+diagram shows a collapsing wormhole and the formation of black holes. (a) and (b) use
+asymmetric wormholes with a1 = 0.25 and 0.5 and the same pulse defined by A = 0.002,
+v1 = 1, and v2 = 3. (c) uses the symmetric wormhole and a much stronger pulse defined by
+A = 0.1, v1 = 1, and v2 = 5. All diagrams are made using grid spacing ∆u = ∆v = 1/400.
+
+sourced by the renormalized energy-momentum tensor. This is quite distinct from the ghost
+scalar field which sources the Ellis-Bronnikov wormhole. Nonetheless, when dynamically
+evolved, the quantum corrected Schwarzschild black hole and the Ellis-Bronnikov wormhole
+are remarkably similar, as we’ll see. This leads us to speculate that the results we present
+in this section, and the results we presented in the previous section for Ellis-Bronnikov
+wormholes, are typical for wormhole expansion and wormhole collapse.
+In section 4.1, we discuss semiclassical gravity and the renormalized energy-momentum
+tensor that we will use. We derive the equations we use to solve for static solutions in
+section 4.2 and the boundary conditions we use to solve the equations in section 4.3. In
+section 4.4, we review static quantum corrected Schwarzschild black hole solutions. We
+derive the dynamical equations in section 4.5 and explain how the static solutions are used
+as initial data in section 4.6. We present results for the expansion and collapse of quantum
+corrected Schwarzschild black holes in section 4.7.
+4.1. Semiclassical gravity
+Quantum corrected Schwarzschild black holes are spherically symmetric vacuum solutions in
+semiclassical gravity. In semiclassical gravity, the field equations are still given by (2), but
+the energy-momentum tensor is taken to be [40]
+c
+Tµν = Tµν
++ ⟨Tbµν ⟩,
+
+(62)
+
+c
+where Tµν
+is a classical contribution and the semiclassical correction ⟨Tbµν ⟩ is the expectation
+value of a renormalized energy-momentum tensor operator. When finding static solutions,
+
+25
+
+c
+we set Tµν
+= 0 since we are interested in vacuum solutions. When dynamically evolving the
+system, we will at times have a nonzero classical contribution. Just as we did with EllisBronnikov wormholes, we will explicitly perturb the system using a pulse of (regular) scalar
+field and we will treat the scalar field classically.
+The exact form for ⟨Tbµν ⟩ in 3 + 1 dimensions is complicated, even for static spherically
+symmetric spacetimes [47]. Since the result contains derivatives higher than second order,
+it is unclear how to solve the field equations self-consistently and the result tends to be
+evaluated on fixed spacetime backgrounds. A common alternative is to use the exact
+renormalized energy-momentum tensor computed in 1 + 1 dimensions for the nonangular
+components in spherically symmetric 3+1 dimensions [41–43]. This is known as the Polyakov
+approximation and leads to a much simpler result, a result that can be solved self-consistently
+and that is expected to qualitatively agree with the more complicated exact renormalized
+energy-momentum tensor computed in 3 + 1 dimensions.
+For simplicity, we focus on computing the renormalized energy-momentum tensor in 1+1
+dimensions for a real massless scalar field. The computation may be performed by using a
+mode expansion for the scalar field and the point-splitting method as the renormalization
+procedure [41, 42, 48] or by using an effective action and zeta-function regularization as
+the renormalization procedure [49–51]. Both methods lead to equivalent results [52]. A
+useful covariant formula for the renormalized energy-momentum tensor was given in [52].
+For the 1 + 1-dimensional metric ds2 = gab dxa dxb , where a, b are indices for the nonangular
+coordinates in 3+1 dimensions, the renormalized energy-momentum tensor can be computed
+from
+
+
+(2D)
+1
+1
+R
+c
+(2D)
+⟨Tbab ⟩
+=
+gab +
+Aab − gab A c ,
+(63)
+48π
+48π
+2
+
+where R(2D) is the 1 + 1-dimensional Ricci scalar,
+p
+4
+Aab =
+∇a ∇b |ξ|,
+|ξ| = −ξa ξ a ,
+|ξ|
+
+(64)
+
+and ξ a parameterizes the vacuum state used for the expectation value. Below, we will
+give explicit forms for ⟨Tbab ⟩(2D) for the various coordinate systems we will be using. In the
+Polyakov approximation, the energy-momentum tensor in 3 + 1 dimensions is then given by
+1 b (2D)
+⟨Tbab ⟩ =
+⟨Tab ⟩ .
+(65)
+4πr2
+The multiplicative factor 1/4πr2 ensures 3 + 1-dimensional conservation, ∇µ ⟨Tbµν ⟩ = 0, with
+⟨Tbθθ ⟩ = ⟨Tbϕϕ ⟩ = 0.
+A couple of comments are in order. First, instead of a single scalar field used to compute
+the renormalized energy-momentum tensor, we could assume an arbitrary number. We would
+then multiply the right hand side of (65) by the number of scalar fields. For simplicity,
+we will consider only one. Second, the choice of multiplicative factor in (65) introduces
+a divergence as r → 0. This divergence can be regulated for static solutions by making
+an alternative choice for the multiplicative factor [38]. One must then introduce nonzero
+26
+
+angular components for ⟨Tbµν ⟩ to maintain conservation. Unfortunately, it does not appear
+possible to regulate the divergence in time dependent systems and maintain conservation
+[53, 54]. We will use the multiplicative factor in (65) and will comment on this divergence
+when necessary.
+In using the Polyakov approximation, we are approximating the 3 + 1 renormalized
+energy-momentum tensor for a massless scalar field using the 1 + 1 result. In the context
+of 3 + 1 dimensions, the Polyakov approximation can be understood in terms of two key
+assumptions for the scalar field. First, only the s-wave component of the scalar field’s
+spherical harmonic expansion is retained, with higher order modes neglected. Second, the
+s-wave contribution to the potential is neglected in the equations of motion. A significant
+advantage of this approach is the resulting simplified expression for the renormalized energymomentum tensor in (63), which enables a self-consistent solution of the field equations.
+Moreover, as long as we avoid the region near r = 0, the approximation is expected to
+qualitatively reproduce the properties of the full, exact renormalized energy-momentum
+tensor.
+4.2. Static equations
+Static quantum corrected Schwarzschild black hole solutions are found numerically. Unlike
+with Ellis-Bronnikov wormholes, we will not be able to find analytical solutions. We
+parameterize the static metric as
+ds2 = e2σ(x) (−dt2 + dx2 ) + r2 (x)dΩ2 .
+
+(66)
+
+Comparing to the general static metric in (23), we find α = a = eσ . When transforming to
+double null coordinates, we note that σ and r in (66) are the same metric functions used in
+the double null metric in (1).
+We can compute the renormalized energy-momentum tensor in the Polykov
+approximation using (63). For the metric in (66), the 1 + 1-dimensional metric for the
+nonangular coordinates is ds2 = e2σ (−dt2 + dx2 ). As we’ll see, we’ll find solutions which
+asymptotically agree with the classical Schwarzschild solution for x → ∞. We are therefore
+looking for static asymptotically flat solutions. The appropriate vacuum for computing the
+expectation value is then the Boulware vacuum, for which ξ a = (1, 0) for coordinates (t, x).
+It follows from (66) that the renormalized energy-momentum tensor is
+p
+(σ ′ 2 − 2σ ′′ )
+⟨Tbtt ⟩ = −
+2
+8πr
+p ′2
+b
+⟨Txx ⟩ = −
+σ
+(67)
+8πr2
+and ⟨Tbθθ ⟩ = ⟨Tbϕϕ ⟩ = 0, where
+1
+.
+(68)
+12π
+We have introduced p in part because it simplifies some equations and in part because it
+allows us to track which terms originated from the renormalized energy-momentum tensor.
+p≡
+
+27
+
+To compute the field equations, we use (2) and the semiclassical form for the energyc
+momentum tensor in (62) with Tµν
+= 0. The tt, xx, and θθ field equations are
+
+
+p
+1
+2rr′ σ ′ − r′ 2 − 2rr′′ + e2σ = − 2 σ ′ 2 − 2σ ′′
+2
+r
+r
+
+1
+p
+2rr′ σ ′ + r′ 2 − e2σ
+= − 2 σ′ 2
+2
+r
+r
+−2σ
+′′
+′′
+re
+(r + rσ )
+= 0.
+(69)
+Adding the tt and xx field equations together we have an equation with r′′ and σ ′′ . Combining
+this with the θθ field equation, we can eliminate either σ ′′ or r′′ . We find
+
+p −1
+1 ′ ′
+′2p
+′′
+1− 2
+σ = − 2r σ + σ
+r
+r
+r
+
+
+
+p −1
+′′
+′ ′
+′2p
+r = 2r σ + σ
+1− 2
+.
+(70)
+r
+r
+We shall use these equations to numerically solve for static solutions. Doing so requires
+boundary conditions, which we determine in the next subsection. Note that these equations
+√
+are divergent when r → p. This divergence is a consequence of the multiplicative factor in
+(65). For convenience, we will focus on static solutions which do not approach this divergence
+√
+because the areal radius will always be greater than p. As such, at least for static solutions,
+this divergence will not be a concern.
+There remains the xx field equation, which is the middle equation in (69). Since the
+equation is quadratic in σ ′ , we can straightforwardly solve for it,
+
+
+r
+p
+rr′
+′
+2σ
+′
+2
+(e − r ) .
+(71)
+1± 1+
+σ =−
+p
+(rr′ )2
+This equation offers some interesting insight into how the renormalized energy-momentum
+tensor affects solutions. The renormalized energy-momentum tensor vanishes in the classical
+limit, which can be parametrized by p → 0. Expanding (71) around small p gives
+σ ′ = −(1 ± 1)
+
+rr′ e2σ − r′ 2
+∓
++ O(p).
+p
+2rr′
+
+(72)
+
+We find that the classical limit p → 0 exists for the lower sign in (71). When using the lower
+sign, we can interpret the renormalized energy-momentum tensor as a quantum perturbation
+to the classical equations. The classical limit does not exist for the upper sign in (71).
+In this case, we interpret the renormalized energy-momentum tensor as a nonperturbative
+correction. After we solve (70), we can compare the solution against (71) and determine
+whether the solution is perturbative or nonperturbative.
+4.3. Boundary conditions
+In the previous subsection, we derived the field equations in (70). These field equations
+parameterize the metric functions σ and r in terms of the radial coordinate x. This
+parameterization is helpful for transforming solutions to double null coordinates, as we saw
+28
+
+in section 2.4. However, the asymptotic behavior of the solutions in the large x limit is
+somewhat complicated, making the study of the outer boundary conditions using these
+variables less transparent.
+It is possible to decouple the field equations in (70) by treating r as the independent
+variable and to find a single field equation for σ(r). This equation is easier to analyze in
+the large r limit and will help us find outer boundary conditions. In decoupling the field
+equations, we indicate an r derivative with an overdot, σ̇ = ∂r σ, and the relationship between
+x and r derivatives is
+σ ′ = r′ σ̇,
+
+σ ′′ = r′′ σ̇ + r′ 2 σ̈.
+
+(73)
+
+Converting the derivatives in (70), the resulting equations can be combined to eliminate r′′ .
+We find
+
+
+2
+p
+p
+3p
+2
+(74)
+0 = σ̈ 1 − 2 + σ̇ + σ̇ 2 + 2 + σ̇ ,
+r
+r
+r
+r
+which is the desired formula.
+We cannot solve for static wormhole solutions using (74) in its present form. The reason
+is that the areal radius r has a minimum. Outside this minimum, σ is double valued for
+a single value of r. It is possible to invert (74), deriving an equation for r(σ), with σ the
+independent variable. One can then solve for static wormhole solutions, as was done in [35].
+Having said this, we reiterate that we prefer to solve for static solutions using (70) since the
+solutions can more easily be transformed to double null coordinates.
+Although we cannot solve for the full wormhole solution using (74), we can solve for the
+solution on one side of the wormhole throat. In particular, we can analytically solve for the
+asymptotic solution at large r. The value in solving for the asymptotic solution using (74)
+instead of (70) is that the solution has the simple form
+σ1 σ2 σ3
+σ = σ0 +
++ 2 + 3 + ···.
+(75)
+r
+r
+r
+We can set σ0 = 0 since we will look for asymptotically flat solutions. Plugging (75) into
+(74), we can solve for the expansion coefficients, finding
+M
+M 2 4M 3 + pM
+− 2 −
++ ···,
+(76)
+r
+r
+3r3
+where M is an undetermined constant. Importantly, we find that the renormalized energymomentum tensor enters the large r solution at order r−3 , as indicated by the presence of p.
+In other words, at sufficiently large r the static solution agrees with the classical solution,
+i.e. the Schwarzschild solution. Having established this, we can match the Schwarzschild
+solution to the expansion in (76) and show that M is the Schwarzschild mass parameter.
+We have shown that the classical Schwarzschild solution can be used as our outer boundary
+condition.
+To find the classical Schwarzschild solution, we can analytically solve (74) for σ(r) after
+setting p = 0. We can use the result in the middle equation of (69), after setting p = 0 and
+σ=−
+
+29
+
+converting derivatives using (73), and analytically solve for x(r). The classical Schwarzschild
+solution is
+
+
+ r
+
+2M
+1
+,
+x = r + 2M ln
+−1 ,
+(77)
+σ = ln 1 −
+2
+r
+2M
+where we have set integration constants to their conventional values. In the context of the
+Schwarzschild solution, x is known as the tortoise coordinate. Since (70) is a system of
+second order ODEs, we will also need first derivatives. Taking x derivatives,
+M
+2M
+.
+(78)
+σ′ = 2 ,
+r′ = 1 −
+r
+r
+4.4. Static solutions
+The equations for finding static solutions and the boundary conditions for solving the
+equations were derived in the previous two subsections. Our method for finding static
+quantum corrected Schwarzschild black hole solutions is now clear. We choose a value for
+M , which is the classical Schwarzschild mass and the only free parameter. We then choose
+a large value for r and compute the corresponding values of σ, x, σ ′ , r′ using (77) and (78),
+which are the values at the outer boundary of the numerical solution. We then solve (70)
+numerically by integrating inward. Solutions will be independent of the chosen value for r
+as long as it is sufficiently large.
+In figure 13(a), we show the areal radius, r(x), for M = 0.25, 0.5, 0.75, and 1. A
+minimum is easily seen for smaller values of M . Though less obvious, a minimum persists
+as M increases. Each solution therefore has a wormhole structure. As M increases, the
+wormhole throat radius rth , which is the minimum value of r, also increases and the solution
+becomes more asymmetric.
+The classical Schwarzschild radius is equal to 2M . We show the ratio of the wormhole
+throat radius to the Schwarzschild radius as function of M in figure 13(b). We find that the
+wormhole throat radius is always larger, but asymptotically approaches the Schwarzschild
+radius as M increases.
+In figure 13(c), we show the metric component eσ for each of the solutions shown in
+figure 13(a). Since eσ is nonzero, there is no event horizon in the plotted region. One can
+show that the classical event horizon has disappeared completely in the quantum corrected
+solution [35–38]. The renormalized-energy momentum tensor has removed the event horizon
+and replaced it with a wormhole structure. We do find that eσ is small. As a consequence,
+observations of the static system will closely resemble observations of a system with a horizon.
+By construction, the static solution asymptotically agrees with the Schwarzschild solution
+at large positive x. Putting these two facts together, when observed from large x, it would
+be difficult to distinguish this system from a Schwarzschild black hole, even though it is a
+horizonless wormhole.
+It was shown in [35] that a null curvature singularity exists in the limit x → −∞ and
+that this singularity is located a finite proper distance from the wormhole throat. As such,
+30
+
+5
+
+10-0
+
+1.5
+(a)
+
+(b)
+
+4
+
+1.4
+
+3
+
+1.3
+
+2
+
+1.2
+
+1
+
+1.1
+
+0
+-30
+
+(c)
+
+10-4
+
+10-8
+
+1
+-20
+
+-10
+
+0
+
+0
+
+0.5
+
+1
+
+1.5
+
+2
+
+-30
+
+-20
+
+-10
+
+0
+
+Figure 13. These diagrams display static quantum corrected Schwarzschild black hole
+solutions, which are parameterized in terms of the classical Schwarzschild mass, M . (a)
+The areal radius, r, as a function of the radial coordinate, x, for (from darkest curve to
+lightest) M = 0.25, 0.5, 0.75, and 1. (b) The ratio of the wormhole throat radius, rth , to
+the Schwarzschild radius as a function of M . (c) The metric component eσ as a function of
+x for the same solutions shown in (a).
+
+only one side of the wormhole is asymptotically flat. It may therefore be more appropriate
+to refer to this system as having a wormhole structure instead of referring to this system as
+a wormhole. We shall continue to refer to this system as a wormhole out of convenience.
+We show σ ′ in figure 14 for each of the solutions shown in figure 13(a) as the solid
+blue curves. We have shifted each curve so that the wormhole throat is at x = 0, which
+is indicated by the vertical dotted line. On top of each curve, we have plotted (71) with
+the lower sign as dashed yellow and (71) with the upper sign as dashed red. We have only
+plotted (71) with either sign over the region where it agrees with the numerical solution
+(the blue curves). We recall that when using the lower sign in (71), the renormalized energymomentum tensor can be interpreted as a perturbation to the classical result and when using
+the upper sign, it can be interpreted as a nonperturbative correction. We find from figure 14
+that the renormalized energy-momentum tensor can be interpreted as a perturbation at large
+positive x. This is expected, since we compute the numerical solutions by using the classical
+result as the outer boundary condition. That it can be interpreted as a perturbation persists
+up until the wormhole throat. Interestingly, precisely at the wormhole throat the solution
+switches continuously from perturbative to nonperturbative. The solution then remains
+nonperturbative as x → −∞. Returning to figure 13(a), coming in from large positive x, the
+areal radius decreases. The use of (71) has shown us that the areal radius reaches a minimum
+and then turns up and starts increasing because of a nonperturbative effect introduced by
+the energy-momentum tensor. As such, the wormhole throat cannot be approximated with
+a perturbative expansion [35].
+
+31
+
+1
+
+0.5
+
+0
+-30
+
+-15
+
+0
+
+15
+
+30
+
+Figure 14. The blue curves plot σ ′ for the same solutions shown in figure 13(a). The
+dashed yellow curves are from (71) with the lower sign and the dashed red curves are from
+(71) with the upper sign. All curves have been shifted so that the wormhole throat is located
+at x = 0, which is marked by the vertical dotted line.
+
+4.5. Dynamical equations
+To dynamically evolve the quantum corrected Schwarzschild black hole, we use double null
+coordinates, as we discussed in section 2.1. We can compute the renormalized energymomentum tensor in double null coordinates using (63). For the double null metric in (1),
+the 1 + 1-dimensional metric for the nonangular coordinates is ds2 = −e2σ dudv. We must
+also supply the vector ξ a . In the static case, using coordinates (t, x), we used ξ a = (1, 0).
+Transforming to double null coordinates (u, v), this becomes ξ a = (1, 1). It follows from (63)
+that the renormalized energy-momentum tensor is
+p
+2
+⟨Tbuu ⟩ =
+(σ,uu − σ,u
+)
+2
+4πr
+p
+2
+(σ,vv − σ,v
+)
+⟨Tbvv ⟩ =
+4πr2
+p
+⟨Tbuv ⟩ = −
+σ,uv
+(79)
+4πr2
+and ⟨Tbθθ ⟩ = ⟨Tbϕϕ ⟩ = 0 [53–57].
+We may use the field equations in (3) and (4), but with the energy-momentum tensor
+given by (62) and (79). Plugging in for the energy-momentum tensor, the constraint
+equations become
+h
+i
+p
+c
+2
+r,uu = 2σ,u r,u − 4πr Tuu
++
+(σ
+−
+σ
+)
+,uu
+,u
+4πr2
+h
+i
+p
+c
+2
+r,vv = 2σ,v r,v − 4πr Tvv +
+(σ,vv − σ,v ) ,
+(80)
+4πr2
+and the evolution equations become
+ 
+1 
+p −1
+c
+c
+σ,uv = 2 4r,u r,v + e2σ − 8π 2r2 Tuv
++ e2σ Tθθ
+1− 2
+(81)
+4r
+r
+
+i
+1 h
+p
+c
+−
+r,uv = −
+4r,u r,v + e2σ − 16πr2 Tuv
+σ
+.
+,uv
+4r
+4πr2
+32
+
+√
+Note that the σ,uv equation is divergent when r → p, as is the r,uv equation since it depends
+on σ,uv . This divergence is a consequence of the multiplicative factor in (65). It is also present
+in the static equations in (70), but did not play a role in our static solutions because we
+√
+focused on solutions for which the areal radius was always greater than p. In dynamically
+evolving the system, if the wormhole collapses, then the areal radius will decrease and reach
+√
+p, as we’ll see. A common interpretation for this divergence is to regard it as corresponding
+√
+to the central singularity, which semiclassical effects have shifted from r = 0 to r = p [55–
+58]. With this interpretation, the divergence will not be a cause for concern as long as we
+make sure that any length scale in the system, such as horizon radii, are large compared to
+√
+p.
+We will use a real massless scalar field, χ, to explicitly perturb the system, just as we did
+with Ellis-Bronnikov wormholes. χ will be the only matter in the system and the Lagrangian
+for the matter sector is
+1
+(82)
+L = − (∇µ χ)(∇µ χ),
+2
+p
+which we minimally couple to gravity, L →
+− det(gµν ) L. We previously worked out
+the necessary equations in double null coordinates during our study of Ellis-Bronnikov
+wormholes. The equation of motion is the massless Klein-Gordon equation, ∇µ ∇µ χ = 0. For
+the double null metric in (1), the equation of motion is given in the second equation in (51).
+The only contribution to the classical energy-momentum tensor is the energy-momentum
+χ
+χ
+c
+is given in (54).
+, where Tµν
+= Tµν
+tensor for χ, Tµν
+4.6. Initial data
+To construct initial data from a static wormhole solution, we follow the methods described in
+section 2.4. These methods make use of the new radial coordinate, y, defined by the integral
+in (28). For the static metric we are using in (66), y is just a linear shift of x. We choose the
+integration constants such that the wormhole throat is at the origin of the computational
+domain,
+y = y0 + x − xth ,
+
+(83)
+
+where y0 = (vi − ui )/2 and xth is the location of the wormhole throat. y can be transformed
+to double null coordinates using (26). Along the initial hypersurfaces, we have
+1
+1
+x(u, vi ) = xth − (u − ui ),
+x(ui , v) = xth + (v − vi ).
+(84)
+2
+2
+For any point on an initial hypersurface, we have the corresponding value of x from (84),
+from which we can compute the value of any field from the static solution.
+When discussing the initial data for the dynamical evolution of the Ellis-Bronnikov
+wormhole in section 3.3, we presented contour diagrams for the areal radius for static
+solutions. We did this to give a sense for the diagrams in anticipation of their usefulness
+for understanding the dynamical evolution of the system. We can do the same here. Figure
+33
+
+30
+
+30
+0.
+
+30
+
+8
+
+56
+
+1
+1.
+
+1.
+
+5
+53
+
+05
+
+6
+0.
+
+1.
+
+20
+
+20
+
+10
+
+10
+6
+0. 0.8 .25
+1 2
+
+3 4
+
+6
+
+8
+
+05
+1. 1.1 25
+1.
+
+10
+2
+
+3
+
+10
+
+20
+
+4
+6
+
+0
+0
+
+30
+
+0
+
+10
+
+5
+53
+
+1.
+
+10
+
+0
+
+1.
+
+20
+
+20
+
+56
+
+1.
+
+65
+
+1.
+
+2
+3
+
+8
+
+30
+
+4
+
+0
+0
+
+10
+
+20
+
+30
+
+Figure 15. Contour diagrams for the areal radius, r, in double null coordinates for static
+quantum corrected Schwarzschild black holes defined by (a) M = 0.25, (b) 0.5, and (c) 0.75.
+In each diagram, the gray lines are contours with values of r as labeled and the thick black
+lines mark the wormhole throat with radii (a) rth = 0.566, (b) 1.043, and (c) 1.532.
+
+15 displays the contour diagram for r for various static solutions and is analogous to figure
+13(a), but in double null coordinates. The thick black line in each plot is the contour for
+r = rth , where rth = 0.566, 1.043, and 1.532 in figures 15(a), 15(b), and 15(c). The two
+sides of the thick black line plot the two sides of the wormhole and the asymmetry of each
+wormhole is apparent. Above the thick black line, far fewer contour lines are plotted than
+below. We can see why this is the case by looking at figure 13(a): To the left of the wormhole
+throat, the curves have a small slope and so the curves pass through a small range of r values
+for a comparatively large range of x values. It is this region that is plotted above the thick
+black lines in figure 15. We remind that lines of constant v − u are lines of constant y and
+hence lines of constant x, as follows from (26). For this reason, static systems have straight
+contour lines with unit slope.
+For the dynamical evolution, the initial data is placed on the u = ui and v = vi
+hypersurfaces, which are the axes in figure 15. For initial data, we can use a static solution
+or we can augment a static solution with a pulse of scalar field, which acts as an explicit
+perturbation. Similarly to what we did with Ellis-Bronnikov wormholes, when including an
+explicit perturbation we will use a single pulse on the u = ui hypersurface given by (57) and
+(58) (but with x0 set to 1).
+When including a pulse, the energy-momentum tensor has a nonzero classical
+χ
+contribution from Tµν
+along the u = ui hypersurface. The initial data on the v = vi
+hypersurface is therefore unchanged from the static solution, but σ and r on the u = ui
+hypersurface may change and must be computed. We listed two standard options for
+computing σ or r in our discussion of initial data for Ellis-Bronnikov wormholes in section
+3.3. One of these options was to keep r(ui , v) unchanged and to compute σ(ui , v) using the
+relevant constraint equation. This was not the option we made use of, but we confirmed
+that it worked perfectly well for Ellis-Bronnikov wormholes. However, we do not find it
+34
+
+works well here, in that we had trouble numerically solving the constraint equation. The
+relevant constraint equation is the second equation in (80). We suspect the issue is that the
+constraint equation must be solved for σ,vv , but σ,vv comes from the renormalized energymomentum tensor. We therefore use the same option that we used for Ellis-Bronnikov
+wormholes: We keep σ(ui , v) unchanged from the static solution and compute r(ui , v) using
+the second constraint equation in (80).
+In solving the constraint equation on the u = ui initial hypersurface, we need σ,v (ui , v)
+and σ,vv (ui , v), which are unchanged from the static solution, and r(ui , vi ) and r,v (ui , vi ) at
+the origin, which are also unchanged from the static solution since we will only consider
+pulses outside the origin. The static solution is parameterized in terms of x, which is related
+to double null coordinates through (83) and (26). We have,
+1
+1
+1
+σ,vv = σ ′′ ,
+r,v = r′ ,
+(85)
+σ,v = σ ′ ,
+2
+4
+2
+where σ ′ and r′ are obtained from the numerical solution and σ ′′ is given in (70). We can
+now integrate the constraint equation outward from v = vi to obtain the updated r(ui , v).
+4.7. Dynamical evolution
+We now present results for the dynamical evolution of quantum corrected Schwarzschild
+black holes [39]. We analyze these results similarly to how we analyzed Ellis-Bronnikov
+wormholes in section 3.4. Some explanations in this section will therefore be briefer. We
+will find that the dynamical evolution of the two types of wormholes share many similarities,
+which we will discuss in the next section. We begin with examples of wormhole expansion
+before presenting examples of wormhole collapse.
+4.7.1. Wormhole expansion In figure 16(a), we show a contour diagram for the areal radius
+for the dynamical evolution of a static solution with M = 0.5. As a reminder, the static
+solution is placed on the initial hypersurfaces, which are the axes in the diagram, the gray
+lines are the contour lines for r, with the values for r as labeled, and the thick black and
+blue lines are apparent horizons defined by r,u = 0 and r,v = 0, respectively. Comparing
+figure 16(a) to the static solution in figure 15(b), it is clear that the diagrams are different,
+indicating that the system in figure 16(a) evolves away from the static configuration.
+To understand the evolution, we start in the bottom left corner. Moving away from
+this corner, the diagram is initially identical to figure 15(b), indicating that the system is
+maintaining the static configuration. The apparent horizons separate at around u ≈ 25, at
+which point the system evolves away from the static configuration. In between the separated
+apparent horizons, moving in a timelike direction moves across increasing radii and we find
+that the wormhole is expanding, which appears to continue indefinitely. The blue curve
+evolves to being vertical, signifying a cosmological horizon at v ≈ 25. If we were to extend the
+diagram to larger values of v, we would find that the black curve asymptotically approaches
+horizontal, signifying a cosmological horizon at u ≈ 45.
+35
+
+50
+15
+
+1.
+
+40
+
+30
+
+1.15
+
+1.15
+
+15
+
+1.
+
+40
+
+50
+15
+1.
+
+40
+
+30
+
+30
+1
+1.
+
+1
+1.
+
+1
+1.
+
+20
+
+20
+
+20
+1.
+
+05
+
+1.
+
+10
+12
+
+8
+
+4
+
+10
+5
+
+1.
+
+16
+
+0
+
+12
+
+8
+
+4
+
+20
+
+30
+
+40
+
+50
+
+5
+
+1.
+
+16
+
+0
+10
+
+05
+
+1.
+
+05
+
+10
+5
+
+1.
+
+0
+
+1.15
+
+50
+
+12
+
+8
+
+4
+
+16
+
+0
+0
+
+10
+
+20
+
+30
+
+40
+
+50
+
+0
+
+10
+
+20
+
+30
+
+40
+
+50
+
+Figure 16. Contour diagrams for the areal radius, r, for the dynamical evolution of a
+quantum corrected Schwarzschild black hole with M = 0.5. Each diagram displays an
+expanding wormhole. The black curves display the apparent horizon r,u = 0 and the blue
+curves display the apparent horizon r,v = 0. Each diagram uses the same initial data, but
+evolves the system with grid spacing ∆u = ∆v = 1/N with (a) N = 100, (b) 200, and (c)
+400. As the grid spacing decreases, the evolution maintains the static configuration longer.
+This is the expected behavior for a unstable static solution.
+
+The only perturbation in the dynamical evolution shown in figure 16(a) is the
+discretization error inherent to the code, since we did not include a scalar field pulse. We
+can decrease the strength of this perturbation by increasing the number of grid points used
+in the numerical computation. Figure 16(a) is made with N = 100 grid points per unit
+interval, with the spacing between grid points equal to ∆u = ∆v = 1/N . Figures 16(b) and
+16(c) use the same initial data, but evolve the system using N = 200 and 400 grid points
+per unit interval. As the strength of perturbation is decreased, we find that the system is
+able to maintain the static configuration longer, before eventually evolving away from it.
+We have therefore shown that the static solution is nonlinearly unstable with respect to
+time dependent perturbations. Unlike with the Ellis-Bronnikov wormhole, a linear stability
+analysis has not yet been performed for the static quantum corrected Schwarzschild black
+hole, although these results hint at it also being linearly unstable.
+The diagrams in figure 17 are for the same evolution shown in figure 16(c). The apparent
+horizons are included in yellow for convenience. We show the contour diagram for the metric
+field σ in figure 17(a).
+Once the system evolves away from the static configuration and the wormhole is
+expanding, the apparent horizons evolve along increasing radii, as can be seen in figure
+16. We therefore find that the mass inside the apparent horizons increases during expansion.
+For the mass to increase, we expect energy to flow inward. We show contour diagrams
+for outgoing energy-momentum Tuu in figure 17(b), ingoing energy-momentum Tvv in figure
+17(c), and the net flow of energy-momentum, Tvv − Tuu , in figure 17(d). In the region
+near future null infinity, the net flow is positive, indicating ingoing energy-momentum, as
+36
+
+11
+
+1
+
+00
+
+00
+1
+
+.0
+
+6
+1e-0
+1e-07
+1e-08
+1e-09
+
+-0
+
+.0
+-0
+
+-4
+
+3e-06
+
+-0
+
+-0
+.0
+
+.0
+0
+
+01
+
+00
+1
+
+0
+-8
+
+30
+
+-6
+
+-1
+
+4
+
+2
+
+-1
+
+-1
+
+40
+
+1e-05
+2e-05
+
+50
+
+12
+00
+
+-1
+
+e-
+
+09
+
+.0
+-0
+
+00
+1
+-1
+e-1 05
+e0
+-1 6
+e07
+-1
+e08
+
+20
+
+09
+
+e-1
+
+-0
+.0
+
+e-
+
+e-1
+
+10
+
+8
+
+-0
+
+e
+-1
+
+-1
+
+1
+00
+-0
+
+.0
+
+-0
+
+-0
+
+.0
+
+4
+
+.0
+
+05
+-1
+e06
+
+00
+
+8
+.0
+-0
+
+10
+
+07
+
+12
+
+3
+-0
+.
+
+-2
+
+20
+
+0
+0
+
+10
+
+20
+
+30
+
+40
+
+50
+
+0
+
+30
+
+40
+
+50
+
+0
+
+10
+
+20
+
+30
+
+40
+
+0
+
+50
+
+10
+
+20
+
+30
+
+40
+
+50
+
+Figure 17. Each diagram is for the same dynamical evolution shown in figure 16(c). The
+yellow curves are the apparent horizons from figure 16(c). The diagrams display contours
+for (a) the metric field σ, (b) the outgoing energy-momentum Tuu , (c) the ingoing energymomentum Tvv , and (d) the net flow of energy momentum, Tvv − Tuu . In (d), the regions
+left blank are difficult to compute numerically due to cancellations which are close to zero.
+
+50
+
+50
+
+40
+
+40
+11
+e+
+-1 9
+0
++
+e
+-1 07
+e+
+-1 05
+e+
+-1
+00
+0
+-1
+0
+-1 0.1 001
+- 0.
+-
+
+11
+
+e+
+-1 09
++
+e
+-1 07
+e+
+1
+- 05
+e+
+-1 0
+00
+1
+0
+-1 .1 01
+-0 0.0
+-
+
+30
+20
+10
+
+30
+20
+
+5
+
+-0
+
+e
+-1
+
+7
+
+0
+e-
+
+-1
+
+9
+-0
+
+5e
+
+10
+
+-
+
+0
+
+05
+
+-1
+
+e-
+
+7
+
+0
+e-
+
+-1
+
+09
+
+e-
+
+-5
+
+0
+0
+
+10
+
+20
+
+30
+
+40
+
+50
+
+0
+
+10
+
+20
+
+30
+
+40
+
+50
+
+Figure 18. Contour diagrams for the null energy along null geodesics for the same evolution
+shown in figure 16(c) with apparent horizons in yellow.
+
+expected.
+Intuitively, we expect the violation of the null energy condition to worsen during
+wormhole expansion. To get a sense for this, consider a path through the middle of the
+separated apparent horizons in figures 17(b) and 17(c) for Tuu and Tvv . Along this path, we
+find that Tuu and Tvv increase, going from initially negative values toward zero. We recall
+that these quantities do not give the null energy along null geodesics. We show in figures
+18(a) and 18(b) e−4σ Tuu and e−4σ Tvv , which are seen to decrease along the path through the
+middle of the horizons, as expected.
+The results presented in this subsection are for the dynamical evolution of the static
+solution with M = 0.5. We have studied the dynamical evolution of static solutions with
+other values of M and found them to be qualitatively similar.
+
+37
+
+4.7.2. Wormhole collapse We now introduce an explicit perturbation in the form of a pulse
+of scalar field, which will cause the wormhole to collapse. For initial data, we use the static
+solution with M = 0.5 augmented by a pulse placed on the u = ui initial hypersurface with
+parameters A = 0.002, v1 = 1, and v2 = 3.
+In figure 19(a), we show the contour diagram for the areal radius. Comparing to the
+static solution in figure 15(b), it is clear that the diagrams are different, indicating that
+the system in figure 19(a) evolves away from the static solution. Near the bottom left
+corner, figures 19(a) and 15(b) look the same, indicating that the system initially maintains
+the static configuration. The apparent horizons separate at around u ≈ 7, at which point
+the system evolves away from the static configuration. In between the separated apparent
+horizons, moving in a timelike direction moves across decreasing radii and we find that the
+√
+wormhole is collapsing. Eventually the areal radius collapses to p and a central singularity
+forms, which is marked by the red curve. The region beyond the red curve is not part of
+the spacetime. The black and blue curves evolve to being vertical and horizontal, signifying
+event horizons at v ≈ 19 and u ≈ 11. Black holes have formed which enclose the mouths of
+the wormhole. We show the contour diagram for the metric field σ in figure 19(b).
+As the wormhole collapses, we can see from figure 19(a) that the apparent horizons evolve
+along decreasing radii. It was shown in [39] that the radius of the r,v = 0 apparent horizon
+(the blue curve) continues to decrease for larger values of v, which cannot be determined
+from figure 19(a). This was shown by evolving the system using the adaptive gauge method
+[45], which makes use of different coordinate gauges. There are two possibilities for how
+the radius of an apparent horizon can decrease for quantum corrected Schwarzschild black
+holes. First, it is possible because the null energy condition is violated [22]. This is the most
+likely explanation during the initial stages of collapse. Second, the renormalized energymomentum tensor allows for black hole evaporation, which leads to decreasing radii for
+apparent horizons [53, 54]. This second possibility explains why the radius of the r,v = 0
+apparent horizon continues to decrease for larger values of v.
+The mass inside the apparent horizons decreases during collapse since the radii of the
+apparent horizons decrease. For the mass to decrease, we expect energy to flow outward.
+Unlike with the Ellis-Bronnikov wormhole, there is no ghost field and we do not expect
+energy to also flow inward. We show the contour diagram for outgoing energy-momentum in
+figure 20(a). Near future null infinity, Tuu is positive, indicating outgoing energy-momentum.
+We show the contour diagram for ingoing energy-momentum in figure 20(b). Near future
+null infinity, Tvv is negative, again indicating outgoing energy-momentum. The net flow of
+energy-momentum near future null infinity is therefore outgoing, as expected.
+Moving along a path through the middle of the two separated apparent horizons
+in figures 20(a) and 20(b), we mostly move along decreasing energy-momentum, energymomentum that is initially negative and becoming more negative. Intuitively, we expect
+the violation of the null energy condition to weaken as the wormhole collapses. We show
+contour diagrams for the null energy along null geodesics in figures 20(c) and 20(d), where
+38
+
+-7
+
+1
+0.85
+
+1.1
+
+20
+
+-5
+
+1.04
+
+20
+
+10
+
+.0
+5
+
+-0.1
+
+5
+
+2
+-0.
+
+-0.
+
+-2
+-1
+.5
+-1
+
+-0.01
+
+-0
+
+8
+
+6
+
+4
+
+2
+
+1.1 1.0
+
+5
+
+-3
+
+1.0
+
+5
+
+10
+
+0
+
+0
+0
+
+10
+
+20
+
+30
+
+0
+
+10
+
+20
+
+30
+
+Figure 19. (a) Contour diagram for the areal radius, r, for the dynamical evolution of a
+quantum corrected Schwarzschild black hole with M = 0.5 augmented by a scalar field pulse
+defined by A = 0.002, v1 = 1, and v2 = 3. The black curve displays the apparent horizon
+r,u = 0 and the blue curve displays the apparent horizon r,v = 0. The red curve displays
+the central singularity. The region beyond the red curve is not part of the spacetime. The
+diagram is made using grid spacing ∆u = ∆v = 1/400. (b) Contour diagram for the metric
+field σ for the same evolution shown in (a), with the apparent horizons shown in yellow.
+
+5
+e+
+0
+-1
+
+-1
+
+e+
+03
+
+e+
+03
+
+-1
+
+0
+
+-1
+
+0
+
+-0.
+
+-1
+
+1
+
+e-04
+-1.22
+
+-1
+
+-1.
+
+-1
+
+04
+
+4
+
+10
+
+10
+
+20
+
+10
+
+20
+
+10
+
+-1e
+
+e0
+-1
+
+.1
+
+3
+
+1e-05
+
+2e-06
+
+-0
+
+-1e
+-04
+
+-1
+
+-1
+
+e05
+
+e-
+
+02
+
+-0
+4
+.1
+
+6e
+
+20
+
+-1
+
+05
+
+-05
+-1e
+
+4
+e0
+
+e-7
+
+4
+-0
+1e
+
+.1
+5
+
+6
+
+-1
+
+.2
+-1
+
+1e-0
+
+-1e-06
+
+1e-05
+
+-05
+
+1e-0
+
+1e-04
+
+-1
+
+-1.2
+1e-1.23e 04
+-04
+
+e+
+05
+
+16
+e-0
+4
+
+5e
+-1.
+1
+
+-1e-05
+-1.33e-04
+
+-1.4e-04
+
+-1.2
+
+5e-
+
+10
+
+5
+
+1e-03
+
+-04
+
+20
+
+20
+
+Figure 20. Contour diagrams for (a) outgoing energy-momentum, (b) ingoing energymomentum, and (c, d) the null energy along null geodesics for the same evolution shown in
+figure 19(a), with apparent horizons shown in yellow.
+
+we can see that a path through the middle of the separated horizons moves along increasing
+energy-momentum, as expected.
+We have studied dynamical evolutions with different initial data which also lead to
+collapse. This includes using different static solutions and different parameters for the pulse.
+We found the results to be qualitatively similar.
+5. Comparison and conclusion
+We reviewed the dynamical evolution of spherically symmetric charge free wormholes from
+an initial static solution in double null coordinates. An advantage of double null coordinates
+39
+
+for spherically symmetric simulations is that large potions of spacetime can be presented
+in a single diagram. Focusing on two specific example systems, we presented results for
+wormhole expansion and wormhole collapse and studied how properties of these dynamically
+evolving wormholes could be understood from contour diagrams of the areal radius and
+energy-momentum tensor.
+The first example, which has been extensively studied, was the Ellis-Bronnikov
+wormhole. This wormhole is sourced by a ghost scalar field. An advantage of this model is
+its simplicity, since the static solutions can be found analytically, but its dependence on a
+ghost field makes its physical reasonableness debatable.
+The second example was the quantum corrected Schwarzschild black hole in semiclassical
+gravity, which has a wormhole structure sourced by a renormalized energy-momentum tensor
+in the Polyakov approximation. Semiclassical gravity and the inclusion of the renormalized
+energy-momentum tensor may be one of the best motivated extensions to general relativity,
+making this model much more physically reasonable than the Ellis-Bronnikov wormhole, but
+it follows from a more complicated set of equations and must be found numerically.
+In this final section, we compare the simulations and discuss similarities. Static solutions
+for both systems are nonlinearly unstable with respect to time dependent perturbations.
+Determining the stability of static solutions is a common motivation for performing a
+dynamical evolution in the first place. The dynamical evolution has the added benefit of
+also determining the configuration to which an unstable static solution will evolve.
+In the absence of an explicit perturbation, both systems exhibit wormhole expansion.
+The diagrams for the areal radius for symmetric and asymmetric Ellis-Bronnikov wormholes
+shown in figures 4 and 7 look similar to the analogous diagrams for the quantum corrected
+Schwarzschild black hole shown in figure 16. In both systems, as the wormhole expands,
+the radii of the apparent horizons and the Misner-Sharp mass contained inside the apparent
+horizons increases. Consistent with this mass increase, the net flow of energy-momentum is
+ingoing.
+Tuu and Tvv are often used for the null energy and it is true that the null energy condition
+is violated if either one is negative. We stressed that it is e−4σ Tuu and e−4σ Tvv that gives
+the null energy along null geodesics and that it is these quantities that are referenced in the
+null energy condition as derived from the Raychaudhuri equation. We showed that the null
+energy along null geodesics generally decreases in both systems, worsening the violation of
+the null energy condition as the wormhole expands, which is inline with expectations, while
+Tuu and Tvv do not necessarily decrease.
+An explicit perturbation in the form of a pulse of (regular) scalar field leads to wormhole
+collapse in both systems. The wormhole throat radius decreases, closing off the ability to
+travel from one side of the wormhole to the other. As the wormhole collapses, black holes
+form, which enclose the mouths of the wormhole, and a curvature singularity forms. The
+contour diagrams for the areal radius for the Ellis-Bronnikov wormhole in figures 9, 12(a),
+and 12(b) have obvious similarities to the analogous diagram for the quantum corrected
+40
+
+Schwarzschild black hole in figure 19.
+The collapsed Ellis-Bronnikov wormhole asymptotically approaches a static
+Schwarzschild black hole on both sides. The collapsed quantum corrected Schwarzschild
+black hole cannot approach a static black hole, because the renormalized energy-momentum
+tensor allows for black hole evaporation and an evaporating black hole is not static. It was
+shown in [39] that the side of the collapsed wormhole with larger values of v approaches an
+evaporating Schwarzschild black hole, while the black hole on the other side of the collapsed
+wormhole has not yet been sufficiently studied.
+In both systems, as the wormhole collapses, the radii of the apparent horizons and
+the Miser-Sharp mass contained inside the apparent horizons decreases. Consistent with
+this decrease in mass, we found for both systems portions of spacetime in which the net
+flow of energy-momentum is outgoing. The Ellis-Bronnikov wormhole is more complicated
+because it must expel the ghost field in order to settle down to a Schwarzschild black hole.
+This requires it to also have a net flow of outgoing negative energy or, equivalently, ingoing
+energy-momentum.
+The null energy along null geodesics, e−4σ Tuu and e−4σ Tvv , generally increases for both
+systems and the violation of the null energy condition weakens, as the wormhole collapses,
+which is in line with expectations, while Tuu and Tvv do not necessarily increase.
+As far as we are aware, the Ellis-Bronnikov wormhole and the quantum corrected
+Schwarzschild black hole are the only two charge free wormhole systems that have been
+dynamically evolved and which exhibit expansion or collapse. Given that their respective
+wormhole structures follow from very different sources—a ghost field on the one hand and
+a renormalized energy-momentum tensor on the other—yet their dynamical results are
+remarkably similar, we speculate that their shared properties are generic. Consequently, the
+Ellis-Bronnikov wormhole, with its relatively simple analytic static solutions, is a convenient
+and useful model for understanding dynamical wormhole expansion and collapse in general,
+notwithstanding its use of a ghost field.
+A. Code tests
+We have written code to numerically evolve wormhole systems. It is necessary to test the
+code for convergence. This includes testing for convergence to the intended second order
+accuracy and for convergence to a consistent solution. In this appendix, we explain how this
+can be done and present some tests of our code.
+We can test for second order convergence as follows. When performing a dynamical
+evolution, we use grid spacing ∆u = ∆v = 1/N , where N is the number of grid points per
+unit interval. We perform three evolutions, where each evolution uses the same initial data,
+but uses a different grid spacing. We then compute the convergence functions
+X
+Cf (N1 , N2 ) =
+|fi (N1 ) − fi (N2 )|
+i
+
+41
+
+Cf (N2 , N3 ) =
+
+X
+
+|fi (N2 ) − fi (N3 )|,
+
+(A.1)
+
+i
+
+where fi (N ) is the value of field f at grid point i computed using N grid points per unit
+interval. Each of the fi in (A.1) must be computed at the same grid point. The sum may
+be taken over grid points along a row with constant u or a column with constant v. If our
+results are second order convergent, then if the grid spacings ∆u and ∆v decrease by a factor
+of 2, so that N3 = 2N2 = 4N1 , the convergence functions will decrease by a factor of 4, so
+that Cf (N1 , N2 ) = 4Cf (N2 , N3 ) [59].
+We cannot apply this test to an unstable static solution without including an explicit
+perturbation. To understand why, consider figure 4 for the expansion of the symmetric
+massless Ellis-Bronnikov wormhole. Figure 4 displays results at three different grid spacings,
+where we find that the three evolutions are different. Indeed, the fact that they are different
+indicates that the static solution is unstable. If we were to evaluate the convergence functions
+in (A.1) using these results, we would be comparing different evolutions, instead of comparing
+evolutions that are converging as N is increased.
+We can apply this test to evolutions which include a scalar field pulse. As an example,
+consider three evolutions using the same initial data used in figure 9, which shows the collapse
+of the symmetric massless Ellis-Bronnikov wormhole, and using N1 = 100, N2 = 200, and
+N3 = 400. In figure A1(a), we show Cr (100, 200) as the black curve and 4Cr (200, 400) as
+the dashed yellow curve. Figure A1(a) performs the sum in the convergence functions over
+rows of constant u. The lower curve that flattens out is for u = 5 and the upper curve is
+for u = 17. We compute a set of convergence functions for all values of v. We find that the
+dashed yellow curves agree with the solid black curves, indicating second order convergence.
+The upper curve veers upward because the curve eventually runs into the singularity.
+We can also test whether our results are converging to a consistent solution. Our
+dynamical evolution code primarily makes use of the evolution equations in (4), but not the
+constraint equations in (3). As such, the constraint equations are available for code testing.
+The solution to either constraint equation is r. If we solve one of the constraint equations, we
+can compare the solution for r to the value computed from our code. We solve the constraint
+equation using second order Runge-Kutta. For the non-r fields in the constraint equation
+we use the results from our code and for the derivatives we use standard second order finite
+difference formulas. At each grid point, we can compute the difference between the value of
+r from the dynamical evolution and the value of r from the constraint equation. If we’d like
+to compare results which use different grid spacings, then we will need to make sure that
+we compare results at the same grid points. A less tedious alternative is to compute the
+difference at every grid point and then compute the root-mean-square (rms) value,
+rms(rcon − rdyn ).
+
+(A.2)
+
+We can then compare rms values which use different grid spacings. The rms value is to be
+computed along columns of constant v when using the top constraint equation in (3) and
+along rows of constant u when using the bottom constraint equation in (3).
+42
+
+10 -2
+
+rms(rcon ! rdyn )
+
+10 -6
+
+10 -3
+
+Cr
+
+10 -4
+10 -5
+10 -6
+
+10 -7
+
+10 -8
+
+(a)
+0
+
+5
+
+10
+
+15
+
+(b)
+10 -9
+
+20
+
+v
+
+0
+
+5
+
+10
+
+15
+
+v
+
+Figure A1. (a) Convergence functions in (A.1) evaluated for three evolutions using the
+same initial data as figure 9 using N1 = 100, N2 = 200, and N3 = 400. The solid black
+curves plot Cr (100, 200) and the dashed yellow curves plot 4Cr (200, 400). The lower curve
+that flattens out is for u = 5 and the upper curve is for u = 17. That the curves overlap
+indicates second order convergence. (b) Equation (A.2) is plotted for three evolutions using
+the same initial data as figure 19 and grid spacing ∆u = ∆v = 1/N with N = 100 (blue),
+200 (red), and 400 (yellow) grid points per interval. That each curve drops by a factor of
+4 from the previous curve indicates second order convergence. That the curves have small
+values indicates that the constraint equation is satisfied.
+
+As an example for this test, we use the same initial data used in figure 19, which shows
+the collapse of a quantum corrected Schwarzschild black hole, and evolve the system three
+times using N = 100, 200, and 400 grid points per unit interval. For each evolution, we
+compute (A.2) along columns of constant v and use the top constraint equation in (80),
+which is specific to the quantum corrected Schwarzschild black hole. We do this for a range
+of v values. The result is shown in figure A1(b). Note that we stop plotting the curves
+before they get too close to the singularity, which happens at around v ≈ 19. There are
+two main takeaways from this figure. First, just as with figure A1(a), we find that when the
+grid spacing drops by a factor of 2, the curves drop by a factor of 4, which indicates second
+order convergence. Second, the results are small and getting smaller as we decrease the grid
+spacing, which indicates that the constraint equation is satisfied and that the evolution is
+converging to a consistent solution.
+References
+[1] M. Visser, Lorentzian wormholes: From Einstein to Hawking (Springer-Verlag, New
+York, 1996).
+[2] M. S. Morris and K. S. Thorne, Wormholes in space-time and their use for interstellar
+travel: A tool for teaching general relativity, Am. J. Phys. 56, 395 (1988).
+[3] H. G. Ellis, Ether flow through a drainhole - a particle model in general relativity, J.
+Math. Phys. 14, 104 (1973).
+
+43
+
+[4] K. A. Bronnikov, Scalar-tensor theory and scalar charge, Acta Phys. Polon. B 4, 251
+(1973).
+[5] J. A. Gonzalez, F. S. Guzman, and O. Sarbach, On the instability of charged wormholes
+supported by a ghost scalar field, Phys. Rev. D 80, 024023 (2009), arXiv:0906.0420 [grqc].
+[6] K. A. Bronnikov, R. A. Konoplya, and A. Zhidenko, Instabilities of wormholes and
+regular black holes supported by a phantom scalar field, Phys. Rev. D 86, 024028
+(2012), arXiv:1205.2224 [gr-qc].
+[7] N. Tsukamoto, Strong deflection limit analysis and gravitational lensing of an Ellis
+wormhole, Phys. Rev. D 94, 124001 (2016), arXiv:1607.07022 [gr-qc].
+[8] K. K. Nandi, R. N. Izmailov, A. A. Yanbekov, and A. A. Shayakhmetov, Ring-down
+gravitational waves and lensing observables: How far can a wormhole mimic those of a
+black hole?, Phys. Rev. D 95, 104011 (2017), arXiv:1611.03479 [gr-qc].
+[9] V. Dzhunushaliev, V. Folomeev, B. Kleihaus, and J. Kunz, Wormhole solutions with
+a complex ghost scalar field and their instability, Phys. Rev. D 97, 024002 (2018),
+arXiv:1710.01884 [gr-qc].
+[10] R. A. Konoplya, How to tell the shape of a wormhole by its quasinormal modes, Phys.
+Lett. B 784, 43 (2018), arXiv:1805.04718 [gr-qc].
+[11] F. Cremona, F. Pirotta, and L. Pizzocchero, On the linear instability of
+the Ellis–Bronnikov–Morris-Thorne wormhole, Gen. Rel. Grav. 51, 19 (2019),
+arXiv:1805.02602 [gr-qc].
+[12] J. L. Blázquez-Salcedo, X. Y. Chew, and J. Kunz, Scalar and axial quasinormal modes of
+massive static phantom wormholes, Phys. Rev. D 98, 044035 (2018), arXiv:1806.03282
+[gr-qc].
+[13] T. Harko, T. S. Koivisto, F. S. N. Lobo, G. J. Olmo, and D. Rubiera-Garcia, Coupling
+matter in modified Q gravity, Phys. Rev. D 98, 084043 (2018), arXiv:1806.10437 [gr-qc].
+[14] F. Cremona, L. Pizzocchero, and O. Sarbach, Gauge-invariant spherical linear
+perturbations of wormholes in Einstein gravity minimally coupled to a self-interacting
+phantom scalar field, Phys. Rev. D 101, 104061 (2020), arXiv:1911.13103 [gr-qc].
+[15] K. A. Bronnikov, P. E. Kashargin, and S. V. Sushkov, Magnetized Dusty Black Holes
+and Wormholes, Universe 7, 419 (2021), arXiv:2109.12670 [gr-qc].
+[16] J. Yang and H. Huang, Trapping horizons of the evolving charged wormhole and black
+bounce, Phys. Rev. D 104, 084005 (2021), arXiv:2104.11134 [gr-qc].
+[17] K. A. Bronnikov, R. A. Konoplya, and T. D. Pappas, General parametrization of
+wormhole spacetimes and its application to shadows and quasinormal modes, Phys.
+Rev. D 103, 124062 (2021), arXiv:2102.10679 [gr-qc].
+[18] O. Sokoliuk, S. Mandal, P. K. Sahoo, and A. Baransky, Generalised Ellis–Bronnikov
+wormholes in f (R) gravity, Eur. Phys. J. C 82, 280 (2022), arXiv:2204.00223 [gr-qc].
+44
+
+[19] J. L. Blázquez-Salcedo, M.-A. Dariescu, C. Dariescu, E. Radu, and C. Stelea, Probing
+the Ellis-Bronnikov wormhole geometry with a scalar field: Clouds, waves and Q-balls,
+Phys. Lett. B 827, 136993 (2022), arXiv:2204.05244 [gr-qc].
+[20] A. A. A. Filho, J. Furtado, J. A. A. S. Reis, and J. E. G. Silva, Thermodynamical
+properties of an ideal gas in a traversable wormhole, Class. Quant. Grav. 40, 245001
+(2023), arXiv:2302.05492 [gr-qc].
+[21] H.-a. Shinkai and S. A. Hayward, Fate of the first traversible wormhole: Black
+hole collapse or inflationary expansion, Phys. Rev. D 66, 044005 (2002), arXiv:grqc/0205041.
+[22] J. A. González, F. S. Guzmán, and O. Sarbach, Instability of wormholes supported by
+a ghost scalar field. II. Nonlinear evolution, Class. Quant. Grav. 26, 015011 (2009),
+arXiv:0806.1370 [gr-qc].
+[23] A. Doroshkevich, J. Hansen, I. Novikov, and A. Shatskiy, Passage of radiation through
+wormholes, Int. J. Mod. Phys. D 18, 1665 (2009), arXiv:0812.0702 [gr-qc].
+[24] H.-a. Shinkai and T. Torii, Wormhole Dynamics, J. Phys. Conf. Ser. 574, 012056 (2015).
+[25] H.-A. Shinkai and T. Torii, Nonlinear Dynamics in the Einstein-Gauss-Bonnet gravity,
+Phys. Rev. D 96, 044009 (2017), arXiv:1706.02070 [gr-qc].
+[26] I. D. Novikov and D. I. Novikov, Collapse of a Wormhole and its Transformation into
+Black Holes, J. Exp. Theor. Phys. 129, 495 (2019).
+[27] I. D. Novikov, D. I. Novikov, and S. V. Repin, Disintegration and expansion of
+wormholes, Phys. Rev. D 102, 124073 (2020), arXiv:2012.13788 [gr-qc].
+[28] K. Calhoun, B. Fay, and B. Kain, Matter traveling through a wormhole, Phys. Rev. D
+106, 104054 (2022), arXiv:2210.04905 [gr-qc].
+[29] A. Xu, X. Y. Chew, and D.-h. Yeom, Dynamics of Bronnikov-Ellis wormhole with
+double-null simulation, JCAP 08, 012, arXiv:2503.07610 [gr-qc].
+[30] J. L. Blázquez-Salcedo, C. Knoll, and E. Radu, Traversable wormholes in EinsteinDirac-Maxwell theory, Phys. Rev. Lett. 126, 101102 (2021), arXiv:2010.07317 [gr-qc].
+[31] R. A. Konoplya and A. Zhidenko, Traversable Wormholes in General Relativity, Phys.
+Rev. Lett. 128, 091104 (2022), arXiv:2106.05034 [gr-qc].
+[32] B. Kain, Einstein-Dirac-Maxwell wormholes in quantum field theory, Phys. Rev. D 108,
+084010 (2023), arXiv:2308.00049 [gr-qc].
+[33] B. Kain, Probing the Connection between Entangled Particles and Wormholes in
+General Relativity, Phys. Rev. Lett. 131, 101001 (2023), arXiv:2309.03314 [hep-th].
+[34] B. Kain, Are Einstein-Dirac-Maxwell wormholes traversable?, Phys. Rev. D 108, 044019
+(2023), arXiv:2305.11217 [gr-qc].
+[35] A. Fabbri, S. Farese, J. Navarro-Salas, G. J. Olmo, and H. Sanchis-Alepuz, Semiclassical
+zero-temperature corrections to Schwarzschild spacetime and holography, Phys. Rev. D
+73, 104023 (2006), arXiv:hep-th/0512167.
+45
+
+[36] P.-M. Ho and Y. Matsuo, Static Black Holes With Back Reaction From Vacuum Energy,
+Class. Quant. Grav. 35, 065012 (2018), arXiv:1703.08662 [hep-th].
+[37] P.-M. Ho and Y. Matsuo, Static Black Hole and Vacuum Energy: Thin Shell and
+Incompressible Fluid, JHEP 03, 096, arXiv:1710.10390 [hep-th].
+[38] J. Arrechea, C. Barceló, R. Carballo-Rubio, and L. J. Garay, Schwarzschild geometry
+counterpart in semiclassical gravity, Phys. Rev. D 101, 064059 (2020), arXiv:1911.03213
+[gr-qc].
+[39] B. Kain, Dynamical evolution and stability of quantum corrected Schwarzschild black
+holes in semiclassical gravity, Phys. Rev. D 111, 124057 (2025), arXiv:2507.00109 [grqc].
+[40] N. D. Birrell and P. C. W. Davies, Quantum Fields in Curved Space (Cambridge Univ.
+Press, Cambrdige, UK, 1984).
+[41] P. C. W. Davies, S. A. Fulling, and W. G. Unruh, Energy Momentum Tensor Near an
+Evaporating Black Hole, Phys. Rev. D 13, 2720 (1976).
+[42] P. Davies and S. A. Fulling, Quantum vacuum energy in two dimensional space-times,
+in Proc R Soc London Ser A, Vol. 354 (1977) pp. 59–77, 1676th ed.
+[43] A. M. Polyakov, Quantum Geometry of Bosonic Strings, Phys. Lett. B 103, 207 (1981).
+[44] S. M. Carroll, Spacetime and geometry: An introduction to general relativity (AddisonWesley, San Francisco, 2004).
+[45] E. Eilon and A. Ori, Adaptive gauge method for long-time double-null simulations of
+spherical black-hole spacetimes, Phys. Rev. D 93, 024016 (2016), arXiv:1510.05273 [grqc].
+[46] J. A. González, F. S. Guzmán, and O. Sarbach, Instability of wormholes supported by
+a ghost scalar field. I. Linear stability analysis, Class. Quant. Grav. 26, 015010 (2009),
+arXiv:0806.0608 [gr-qc].
+[47] P. R. Anderson, W. A. Hiscock, and D. A. Samuel, Stress - energy tensor of quantized
+scalar fields in static spherically symmetric space-times, Phys. Rev. D 51, 4337 (1995).
+[48] S. M. Christensen and S. A. Fulling, Trace Anomalies and the Hawking Effect, Phys.
+Rev. D 15, 2088 (1977).
+[49] E. Mottola and R. Vaulin, Macroscopic Effects of the Quantum Trace Anomaly, Phys.
+Rev. D 74, 064004 (2006), arXiv:gr-qc/0604051.
+[50] V. Mukhanov and S. Winitzki, Introduction to quantum effects in gravity (Cambridge
+Univ. Press, Cambridge, UK, 2007).
+[51] S. W. Hawking, Zeta Function Regularization of Path Integrals in Curved Space-Time,
+Commun. Math. Phys. 55, 133 (1977).
+[52] C. Barcelo, R. Carballo, and L. J. Garay, Two formalisms, one renormalized stressenergy tensor, Phys. Rev. D 85, 084001 (2012), arXiv:1112.0489 [gr-qc].
+46
+
+[53] R. Parentani and T. Piran, The Internal geometry of an evaporating black hole, Phys.
+Rev. Lett. 73, 2805 (1994), arXiv:hep-th/9405007.
+[54] S. Ayal and T. Piran, Spherical collapse of a massless scalar field with semiclassical
+corrections, Phys. Rev. D 56, 4768 (1997), arXiv:gr-qc/9704027.
+[55] E. Sorkin and T. Piran, Formation and evaporation of charged black holes, Phys. Rev.
+D 63, 124024 (2001), arXiv:gr-qc/0103090.
+[56] S. E. Hong, D.-i. Hwang, E. D. Stewart, and D.-h. Yeom, The Causal structure of
+dynamical charged black holes, Class. Quant. Grav. 27, 045014 (2010), arXiv:0808.1709
+[gr-qc].
+[57] D.-i. Hwang and D.-h. Yeom, Internal structure of charged black holes, Phys. Rev. D
+84, 064020 (2011), arXiv:1010.2585 [gr-qc].
+[58] A. Fabbri and J. Navarro-Salas, Modeling black hole evaporation (Imperial College Press,
+London and World Scientific Publishing, Singapore, 2005).
+[59] M. Alcubierre, Introduction to 3+1 numerical relativity (Oxford University Press,
+Oxford, UK, 2008).
+
+47
+
+
