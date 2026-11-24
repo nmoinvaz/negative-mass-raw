@@ -203,6 +203,14 @@ A3. Other script changes after a first run, all bug fixes of my own checks, none
 functions, `ideals.run2.log` passes); `omega.run1.log` crashed after section 2 in `dict(par, **{Symbol: ...})` (fixed, `omega.run2.log`).
 `--certs` options print the certificates (no change to a check).
 
+A5. Comparison with `two_scalars_output.txt` (step 5, after the final runs and their commit aed16f5; criteria written before the run).
+`review_two_scalars_compare.py` reads the printed output, not the code. PASS iff: (`compare_coeffs`) the printed c^0, c^2, c^4, c^6 equal mine
+exactly; (`compare_odd`) the printed odd coefficients of the accelerating bubble equal mine exactly; (`compare_points`) my D is nonzero at the off-axis
+and zero at the on-axis sample points of the tanh (sigma = 8, R = 1) and bump (R_b = 2) profiles and at the 4 random-jet points reproduced by the draw order
+of its seed 57; (`compare_eigs`) 16 +- 4i and 4 +- 2i from my table; (`compare_eb`) printed lambda and b_l equal mine at 6 random parameter sets;
+(`compare_brho`) the printed b(rho) block equals mine. Controls named before the run: `coef-sign` -> `compare_coeffs`, `odd-sign` -> `compare_odd`,
+`axis-eps` -> `compare_points`, `eig-v2` -> `compare_eigs`, `eb-kappa` -> `compare_eb`. A mismatch is reported as a discrepancy, not fixed.
+
 ## Run protocol
 
 Every stdout goes to a numbered log here (`<script>.runN.log`); a log is never overwritten. A script exits 1 if a check fails or a
@@ -222,3 +230,15 @@ R(n, d_x, d_y) at z = 0 for every b(t, x, y, z), because review.md's formulas fo
 so D_cartan_jets cannot see a loss of axisymmetry; what axisymmetry adds is R(e_phi, .) = 0, which `blocks_jets` tests.
 Amendment (made after seeing this run, listed for the coordinator to veto): the `nonaxi` targets in the script are now
 `blocks_jets`, `planted_D`. The README table above keeps the original prediction.
+
+2026-11-24, steps 3 to 5, in order. `cartan.run2.log`: `D_slice_nonaxi` FAIL 0 of 9, claim A1 false (A4). `cartan.run3.log`: 10 checks pass after A4.
+`cartan.mut_<NAME>.run2.log`: the eight controls after A4, all fired. `ideals.run1.log` (brho_D failed, bug in my test), `run2`, `run3` (9 checks pass),
+`ideals.mut_<NAME>.run1.log` (7 controls), `ideals.mut_acc-drop-odd.run1.log` (stopped after 12 min, A2), `run2` (fired). `omega.run1.log` (crashed, bug),
+`omega.run2.log` (4 checks pass, 484 s), `omega.mut_<NAME>.run1.log` (6 controls, all fired). Final runs, each default (checks, then every control), exit 0:
+`final_cartan_output.txt` (2 min 7 s, 71 MB), `final_lemma_output.txt` (1 min 52 s, 72 MB), `final_ideals_output.txt` (2 min 55 s, 72 MB),
+`final_omega_output.txt` (10 min 31 s, 92 MB), `final_ideals_certs_output.txt` (certificates, 19 s), their `final_*_stderr.txt` (`/usr/bin/time -v`) and `final.rc`
+(all 0). These are copies of `notes/warp/review_two_scalars_*_output.txt` in the worktree branch, commit dc24411. They were committed here (aed16f5) before
+`two_scalars.py` and `two_scalars_output.txt` were opened. Comparison (A5): `compare.run1.log` and `final_compare_output.txt` (6 of 6 checks, 5 of 5 controls).
+
+Outcome: no check of #65's statements disagreed with #65. The failures on record are mine: `D_slice_nonaxi` (a wrong claim A1), the three bug crashes of A3,
+and `nonaxi` silent on its named target (A1). Longest single run 10 min 31 s, well inside the 1 h stop condition; the one run I stopped (12 min) is in A2.
