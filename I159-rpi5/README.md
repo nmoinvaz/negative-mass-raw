@@ -121,3 +121,36 @@ A control run skips the two numerical checks unless it names one of them as a ta
 `README.md` (this file), `dev_*.log` (development runs, numbered, kept), `run_NN.log` and `run_NN.rc` (runs of record),
 `ctl_<name>.log` and `.rc` (controls). Raw output of every run goes here; the script's own output is
 `notes/warp/conical_limit_output.txt` in the repository.
+
+## Runs
+
+| log | what | exit | wall | peak RSS |
+|---|---|---|---|---|
+| `dev_01_build.log` .. `dev_04_series_modes.log` | development runs of the symbolic checks, one `--only=` group each | 0 | 1 to 16 s | |
+| `dev_05_num.log`, `.note`, `.note2` | first numerics run, stopped by hand after 11 min, no output (A1) | stopped | 11 min | |
+| `dev_06_num.log` | numerics, 7 of 8 comparisons below 1e-10, (2, 1/2) at eta_2 = 50 not (A2) | 1 | 115 s | |
+| `dev_07.log`, `dev_07_ctl/` | full development run, 12 checks pass, 14 controls fire | 0 | 10 min 34 s | 78 MB |
+| `run_01.log`, `.err`, `.rc`, `.time` | **run of record**, `run_final.sh 01`: 12 checks pass, 14 controls fire | 0 | 10 min 37 s | 78 MB |
+
+Controls of the run of record (each a separate process; `ctl_<name>.log` and `.rc`; the last two columns are the process exit code and the
+checks that failed):
+
+| control | verdict | exit | failed checks |
+|---|---|---|---|
+| `d-sign` | FIRED | 1 | ['n_build'] |
+| `parity-break` | FIRED | 1 | ['theta_parity'] |
+| `theta-sub` | FIRED | 1 | ['theta_parity'] |
+| `plant-wrong` | FIRED | 1 | ['planted'] |
+| `plant-res` | FIRED | 1 | ['planted'] |
+| `poly-drop` | FIRED | 1 | ['polygon'] |
+| `poly0-edge` | FIRED | 1 | ['polygon'] |
+| `a2zero-edge` | FIRED | 1 | ['a2_zero'] |
+| `series-8` | FIRED | 1 | ['series_pure'] |
+| `series-nolog` | FIRED | 1 | ['series_log'] |
+| `reduced-eig` | FIRED | 1 | ['reduced_system'] |
+| `modes-a2` | FIRED | 1 | ['linear_modes'] |
+| `num-nolog` | FIRED | 1 | ['num_inward', 'num_outward'] |
+| `ff-drop` | FIRED | 1 | ['farfield_scale'] |
+
+`num-nolog` fires on `num_inward` by a factor 20 to 4500 (|dG| 2.0e-9 to 4.5e-7 against 1e-10) and on `num_outward` only by the single comparison
+|dp| = 1.5e-10 at eta = 1e3 (threshold 1e-10, |dG| = 3.6e-11 passes). The other controls fail exact (symbolic) comparisons.
