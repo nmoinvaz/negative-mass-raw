@@ -139,3 +139,19 @@ would otherwise also break C12's d_G = 4 and make the control fire on two checks
 **A2 (2026-11-24, `dev_01`).** 13 of 14 checks pass. `add_perturbed` (C11) fails as written: the smallest relative residual over the 100 points is
 3.72e-4 < 1e-3, at c = 1, eps = +1, delta = rho^3/10, z = 1.6 (rho = 1.131); it is the only one of the 100 points below 1e-3 (next smallest 5.7e-3).
 Nothing was changed: threshold, delta, c, eps and z-points stay. Asked the coordinator by hc whether the failure stays as a result (as #80's `bessel_pert`).
+
+**A3 (2026-11-24, coordinator ruling after A2, before any run of the new check).**
+1. `add_perturbed` (C11) stays exactly as written and stays FAILED (3.72e-4 against 1e-3 at c = 1, eps = +1, delta = rho^3/10, z = 1.6). The run
+   of record exits 1 because of it, as #80's `bessel_pert` did. The failure is reported here, in the note and in the closing comment. The relative residual of
+   that perturbation is small at that point; this is not a property of E. Its control `m-perturb-zero` is dropped, because its target fails at baseline
+   (as #80's `conical-limit`); the control runner excludes baseline failures from "extra failures".
+2. New check C11b `add_perturbed_exact`, written before its first run, not tuned on any data. Same perturbation families as C11 (delta in {rho^2/10,
+   rho^3/10}). Exact, not thresholded. The shift is u = c x + g(rho) + delta(rho) with g'' + g'/rho = eps (g'^2 + 2 c^2) (any jet (g, g') at a point lies on a
+   member of the Bessel family, #80 section 3). With gamma = g', R1 = gamma + delta', S0 = eps (gamma^2 + 2 c^2) + delta'' + delta'/rho, the quantity
+   E_pert = (R1^2/2 + c^2)^2 - S0^2/4 (= E_add at X'' = 0, X' = c). Pass iff (i) for eps = +1 and eps = -1 and each delta, E_pert is a nonzero polynomial in
+   (gamma, rho, c) after sympy expansion (for delta = 0 it is identically 0, which is the control's target), and (ii) E_pert is nonzero at the three
+   exact rational points (c, eps, rho, gamma) = (1/2, +1, 1, 1/3), (1, -1, 3/2, 2), (2, +1, 1/2, -1) for each delta (6 values).
+3. Its control `m-pexact-zero` (target `add_perturbed_exact`): delta = 0.
+
+**A4 (2026-11-24, before the run of record).** The control runner counts a control as fired when the exit code is 1 and the failed checks, minus the
+baseline failures (`add_perturbed`), are exactly its target. This replaces "exactly its target" in the Controls section for the baseline failure only.
