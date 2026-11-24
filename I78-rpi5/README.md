@@ -121,3 +121,59 @@ below), `pilot_03_stop3.log`, `pilot_04_stop5.log`, `pilot_05_full_nocontrols.lo
   (`pilot_ctl_lemmaS-weight.log`), so it is strong. The first twenty controls (all but `brho-q` and `d3-bracket`) run
   as one detached batch (`run_controls.sh`, unit `nm-i78-ctl1`, `ctl_batch.log`) on the script at 714a211, before the
   C8 recoding; none of them reaches section 7.
+
+## Results of the final run (2026-11-24)
+
+Script `notes/warp/same_sign_scalars.py` at 479a357 (branch `wip/i78-same-sign`), run as systemd unit `nm-i78-final`
+(`run_final.sh`): exit 0 in 351 s wall, stdout in `final.log` (same as `notes/warp/same_sign_scalars_output.txt`),
+`final.rc` = 0, `final.err` empty. 31 of 31 checks pass, 22 of 22 controls fire. The checks alone take 26 s at 72 MB
+peak resident (`mem_nocontrols.time`). `PYTHONHASHSEED` 1 and 42 give the same output apart from the timings
+(`hashseed_1.log`, `hashseed_42.log`, empty `.diff` files).
+
+| id | verdict | number |
+|---|---|---|
+| C1 planted forms and failures | pass | 12 of 12 recovered with lam and pattern; 12 of 12 failures without an admissible root |
+| C2 lemma on 24 tensors | pass | 0 disagreements; `lemmaS-weight` makes 8 of 24 disagree |
+| C3 planted P1 (+,+), P2 (-,-) | pass | all four stages; Lambda(x) error below 1e-60, varies by 0.61 and 1.01 between points |
+| C4 deformed D1, D2, D3 | pass | D1 quotient not flat; D2 L_X M != 0, K(lam) != 0; D3 kernel not integrable ([K_1, K_2] = (0, 2/rho, 0, 0)) |
+| C5 wall, general profile | pass | entries, F and the certificate exact; unit ideal (basis [1]); R indefinite at 25 of 25 off-axis points |
+| C6 32 exact points | pass | no admissible root at any; off axis the rank-<=2 locus has no real root, on axis only lam = 0 with inertia (1,1) |
+| C7 accelerating bubble | pass | entries, F, c^0 and c^1 coefficients exact; unit ideal; v_s = 0 block exact, unit ideal; 6 of 6 points |
+| C8 shifts b(rho), as coded in the first run | **FAIL** | ideal equality with <lam - h, Q> fails; the basis is {lam - h, Q^2} (pilot_05) |
+| C8 as recoded (a) and (b) | pass | (a) every minor reduces to 0 modulo <lam - h, Q>; (b) lam - h and Q in the radical (Rabinowitsch) |
+
+Controls, from `final.log` (the logs `ctl_<name>.log` come from the earlier batch, `run_controls.sh`, and agree):
+
+| mutation | target checks | failed in the final run | extra |
+|---|---|---|---|
+| planted-sign | planted_pass | FIRED, exit 1: planted_pass | - |
+| planted-fail-sign | planted_fail | FIRED, exit 1: planted_fail | - |
+| lemmaS-weight | lemmaS_samples | FIRED, exit 1: lemmaS_samples | - |
+| p1-mixed | p1_algebraic | FIRED, exit 1: p1_algebraic | - |
+| p2-mixed | p2_algebraic | FIRED, exit 1: p2_algebraic | - |
+| p1-fiber | p1_closed | FIRED, exit 1: p1_closed | - |
+| p1-lambda | p1_potential | FIRED, exit 1: p1_potential | - |
+| p2-lambda | p2_potential | FIRED, exit 1: p2_potential | - |
+| p1-sign | p1_residual | FIRED, exit 1: p1_residual | - |
+| p2-sign | p2_residual | FIRED, exit 1: p2_residual | - |
+| d1-flat | d1_closure_fails | FIRED, exit 1: d1_closure_fails | - |
+| d2-gamma0 | d2_algebraic, d2_closure_fails | FIRED, exit 1: d2_algebraic, d2_closure_fails | - |
+| d3-bracket | d3_closure_fails | FIRED, exit 1: d3_closure_fails | - |
+| alc-drop-w2 | wall_identities, wall_entries, wall_F | FIRED, exit 1: wall_identities, wall_entries, wall_F | - |
+| wall-F-sign | wall_F | FIRED, exit 1: wall_F | - |
+| ideal-nosat | wall_ideal | FIRED, exit 1: wall_ideal | - |
+| wall-planted | wall_points | FIRED, exit 1: wall_points, wall_lambda0 | wall_lambda0 |
+| wall-psd | wall_lambda0 | FIRED, exit 1: wall_lambda0 | - |
+| acc-static | acc_entries | FIRED, exit 1: acc_jets, acc_entries, acc_const_limit, acc_vs0 | acc_jets, acc_const_limit, acc_vs0 |
+| acc-drop-A | acc_entries | FIRED, exit 1: acc_entries | - |
+| acc-drop-odd | acc_ideal | FIRED, exit 1: acc_ideal | - |
+| brho-q | brho_rank1 | FIRED, exit 1: brho_rank1 | - |
+
+Two controls fire more checks than the README predicted: `acc-static` (the jets stop depending on the t-derivatives, so
+`acc_jets`, `acc_const_limit` and `acc_vs0` fail as well) and `wall-planted` (the planted tensor has both signs, so
+`wall_lambda0` fails as well). They are reported, not adjusted. `d3-bracket` was run twice (`ctl_d3-bracket.log`,
+`ctl_d3-bracket_run2.log`): the second run follows a change of the check's message text only.
+
+Commands and exit codes: `--stop=2`, `--stop=3`, `--stop=5` and the full no-controls pilots exit 0, 0 (killed, 143),
+0, 1 (pilot_05, `brho_rank1`); the batch of 20 controls and `brho-q`, `d3-bracket` all exit 1 (a fired control); the final
+run exits 0.
