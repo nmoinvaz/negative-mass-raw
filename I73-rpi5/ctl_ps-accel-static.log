@@ -1,0 +1,65 @@
+phantom_source.py, issues #57 and #61. sympy 1.14.0, mpmath 1.3.0, python 3.14.10. mutation: accel-static (drops every t-derivative of b, v_s and x_s in section 6's jets)
+
+== 1. Eulerian energy density ==
+[PASS] rho_einstein: G_ab n^a n^b / 8 pi - expected reduces to 0 (0 s)
+[PASS] rho_3p1: (K^2 - K_ij K^ij) / 16 pi - expected reduces to 0
+
+== 2. Ricci tensor in the tetrad (E_0 = n, E_1 = d_x, e_rho, e_varphi), comoving spherical ==
+  R_(0,0) = -(-2*W0*W1*cos(theta)**2 + 2*W0*W1 + 2*W0*W2*r*cos(theta)**2 + W1**2*r*cos(theta)**2 + W1**2*r)/(2*r)
+  R_(0,1) = -(-W1*sin(theta)**2 + 2*W1 + W2*r*sin(theta)**2)/(2*r)
+  R_(0,rho) = (-W1 + W2*r)*sin(2*theta)/(4*r)
+  R_(0,varphi) = 0
+  R_(1,1) = (-2*W0*W1*cos(theta)**2 + 2*W0*W1 + 2*W0*W2*r*cos(theta)**2 + 3*W1**2*r*cos(theta)**2 - W1**2*r)/(2*r)
+  R_(1,rho) = (-W0*W1 + W0*W2*r + 2*W1**2*r)*sin(2*theta)/(4*r)
+  R_(1,varphi) = 0
+  R_(rho,rho) = W1**2*sin(theta)**2/2
+  R_(rho,varphi) = 0
+  R_(varphi,varphi) = 0
+[PASS] ricci_xcheck: lab-frame and spherical tetrad Ricci differ at 0 of 24 exact points (random rational v and jets)
+
+== 3. Identities: R(e_varphi, .) = 0 and R_00 + R_11 + 2 R_rho,rho = 0 ==
+[PASS] identity_sph: comoving spherical, general w(r): [0, 0, 0, 0, 0]
+[PASS] identity_lab: lab Cartesian, general f, residues mod r_s^2: [0, 0, 0, 0, 0]
+[PASS] identity_axis: on the axis y = z = 0: R(E_2, .), R(E_3, .), R_00 + R_11 reduce to [0, 0, 0, 0, 0, 0, 0, 0, 0]
+[PASS] wall_curvature: R_rho,rho = v^2 f'^2 (y^2 + z^2) / (2 r_s^2) [residue 0] and, on the axis, R_01 = v f' / r_s [residue 0]. So R_ab != 0 wherever f'(r_s) != 0.
+  Lemma (by hand, notes/warp/phantom_source.md): a symmetric R_ab with R(e_varphi, .) = 0 and
+  R_00 + R_11 + 2 R_rho,rho = 0 is of the form lam eta_ab + s u_a u_b (s real, nonzero) only if R_ab = 0.
+  With wall_curvature, the scalar form fails at every point where f'(r_s) != 0, for either eps and any V.
+
+== 4. Scalar-form test at exact points (same code as the Ellis-Bronnikov control) ==
+   tanh sig=8 Rb=1, eps = -1: 15 points, outcomes ['algebraic']
+   tanh sig=8 Rb=1, eps = +1: 15 points, outcomes ['algebraic']
+         bump Rb=2, eps = -1: 4 points, outcomes ['algebraic']
+         bump Rb=2, eps = +1: 4 points, outcomes ['algebraic']
+       random jets, eps = -1: 4 points, outcomes ['algebraic']
+       random jets, eps = +1: 4 points, outcomes ['algebraic']
+  info: eigenvalues of R^a_b on the axis at x - v t = 1, v = 1 (tanh sig=8 Rb=1): [16.0 - 4.0*I, 16.0 + 4.0*I, 0]
+  info: eigenvalues of R^a_b on the axis at x - v t = -1, v = 1 (tanh sig=8 Rb=1): [16.0 - 4.0*I, 16.0 + 4.0*I, 0]
+[PASS] alc_points_fail: every sample point fails the algebraic condition (no lam gives rank <= 1), 46 tests
+
+== 5. Control: Ellis-Bronnikov, ds^2 = -dt^2 + dl^2 + r(l)^2 dOmega^2, r^2 = l^2 + a^2 ==
+  eps = -1. Nonzero R_ab: R_ll = -2*a**2/(a**2 + l**2)**2
+[PASS] eb_algebraic: triple eigenvalue: status pass, lam = 0
+[PASS] eb_sign: rank-1 remainder M = 8 pi eps u u needs M_kk / (8 pi eps) > 0: pass
+[PASS] eb_closed: u = [0, -a/(2*sqrt(pi)*(a**2 + l**2)), 0, 0], du = [0, 0, 0, 0, 0, 0]
+[PASS] eb_potential: phi = -atan(l/a)/(2*sqrt(pi)), d phi = u: True, V = 0, dV ^ d phi = [0, 0, 0, 0, 0, 0]
+[PASS] eb_residual: G_ab - 8 pi T_ab with (phi, V) substituted back: 0
+
+== 6. Accelerating bubble b = -v_s(t) f(r_s), r_s^2 = (x - x_s(t))^2 + rho^2, and any b(t, x, rho) ==
+  ds^2 = -dt^2 + (dx + b dt)^2 + dy^2 + dz^2, frame (E_0 = n, E_1 = d_x, e_rho, e_varphi). v_s and x_s are
+  independent free functions, so v_s = x_s' is a special case.
+  info: jets in R_ab, general b: ['b000', 'b001', 'b002', 'b010', 'b011', 'b020']; bubble: ['vs0']
+  info: jets in R_00, general b: ['b000', 'b001', 'b010', 'b020']; bubble: ['vs0']
+  route E: f = 1/(r**3 + 1), v_s = (t + 1)/(t**2 + 1), x_s = t**3/3 + t/2; b(t, x, rho) = rho*(t**2 + x)/(rho**2 + t*x**2 + 2)
+[FAIL] gen_xcheck: route D for b(t, x, rho) differs from route E at 6 of 6 exact points
+[FAIL] accel_xcheck: route D for the accelerating bubble differs from route E at 6 of 6 exact points
+[PASS] gen_I1: b(t, x, rho): rho R(e_varphi, E_0), rho R(e_varphi, E_1), rho^2 R_rho,varphi, rho^2 R_varphi,varphi reduce to [0, 0, 0, 0]
+[PASS] gen_I2: b(t, x, rho): rho^2 (R_00 + R_11 + 2 R_rho,rho) reduces to 0
+[PASS] gen_Rrr: b(t, x, rho): rho^2 (R_rho,rho - (d_rho b)^2 / 2) reduces to 0
+[PASS] accel_I1: bubble: rho R(e_varphi, E_0), rho R(e_varphi, E_1), rho^2 R_rho,varphi, rho^2 R_varphi,varphi reduce to [0, 0, 0, 0]
+[PASS] accel_I2: bubble: rho^2 (R_00 + R_11 + 2 R_rho,rho) reduces to 0
+[PASS] accel_axis: bubble on the axis y = z = 0: R(E_2, .), R(E_3, .), R_00 + R_11 reduce to [0, 0, 0, 0, 0, 0, 0, 0, 0]
+[PASS] accel_wall: R_rho,rho = v_s^2 f'^2 rho^2 / (2 r_s^2) [residue 0] and, on the axis, R_01 = v_s f' / r_s [residue 0]. So R_ab != 0 wherever v_s(t) f'(r_s) != 0.
+
+checks: 20 passed, 2 failed ['gen_xcheck', 'accel_xcheck']. 32 s
+control accel-static: target checks ['gen_xcheck', 'accel_xcheck'], fired ['gen_xcheck', 'accel_xcheck']
