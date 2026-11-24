@@ -179,3 +179,25 @@ from `LEG`, R1 and the extended `MUTATIONS` table). The commit is named in the f
    direction and agrees with A to 1.5e-12 (G2b). The coordinator is asked how to treat P-C2 (hc message, answer recorded below).
 3. The diagnostic "Richardson in 1/γ₁ from 80 and 160" of §3's list printed T_inf = 0.588341, but the gaps of LE6 fall by 4 per doubling
    (order 2), not 2. The diagnostic now also prints the measured order and the extrapolation with it. A diagnostic, not a check; no criterion involved.
+4. **Coordinator's ruling on P-C2 (hc, 2026-11-24).** (i) P-C2 stays exactly as registered and stays FAILED in the output (γ₁ = 5.0, 10.0), with the diagnosis of
+   amendment 2. (ii) Not replaced, and no new radius or b/sc picked by its growth factor. (iii) **P-C2b** is added, written here before its first run: the manufactured
+   solution is carried through exactly the path, radius and direction method C uses for its real roots at each γ₁, with the same 1e-8. (iv) The controls `cpath` and
+   `deltaphi` then target P-C2b; their effect on it is computed (standalone runs `pc2b_mut_<name>.log`) before the target lists are declared. (v) The note states the
+   γ₁ = 2.0 point plainly.
+
+   **P-C2b, as it will be coded** (`check_planted_C2b`; the same function `C2_det` runs the real roots and the planted test, with an optional source and one extra state):
+   - γ₁ ∈ {2.5, 4, 6, 8, 10} (the set of G2b); b = the root of A at that γ₁ (from the same run), bt = b/sc. L′ = 20, semicircle radius, rtol 1e-12, DOP853, upper and
+     lower semicircle, right start at x(+L′) and left start at x(−L′): exactly G2b's geometry (`C2_geometry`).
+   - Right solution (decaying to the right, growing inward, as the real one): C_R* = exp(−bt s) h(x)/h(x_R), s = ∫_{x_R}^{x} dy/a(y) carried as a third state variable by
+     the integrator itself (so that along the real segment and the arc the source follows the path), h = exp(κ w tanh((x − γ₁)/w)), κ = bt + γ₁/(1+γ₁²) (so that
+     C′ − γ₁C/(1+x²) = 0 at the throat: C* is regular there), w = √(1+γ₁²). Left solution: C_L* = exp(+bt s_L), s_L = ∫_{x_L}^{x} dy/a. Both are integrated with the
+     source S = C*″ − R_true(C*, C*′), R_true the ODE of L1 retyped in the test (k = 2), so the test is independent of `odeC2_rhs` (and a mutation of the latter fires it).
+   - Path: right real segment x(+L′) → x_t + r, then the arc to x_t − r (both sides), left real segment x(−L′) → x_t − r.
+   - Exact end values: s by real-axis quadrature (`scipy.integrate.quad`, epsrel 1e-13; the integrand is analytic in the disc of the arc, so the path does not matter).
+   - Pass: for each γ₁, both semicircles and the left segment, ‖(C, C′) − exact‖/‖exact‖ < 1e-8. An exception is a failure. If P-C2b fails, that is a result.
+   - Why this form: the unwanted homogeneous solution grows along the arc as in the real computation (amendment 2), but C* grows with it, so the relative error is not
+     amplified; that is a property of the real direction, not a tuned parameter. The growth is not used to pick anything.
+   - Predictions: `cpath` (r = 0, the integration reaches the singular throat) and `deltaphi` (the integrated ODE has the coefficient 1, the source the coefficient 2) fire it.
+     P-C2 leaves the target list of `cpath` (it fails unmutated and cannot fire); P-C2b joins `cpath` and `deltaphi`.
+5. The mutation queue `nm-i163-mut1` was stopped by me after 6 min, in its first run (`mut_largex_run1_stopped.*`, no `.rc`), so that all mutation logs come from the
+   script that contains P-C2b. The mutation runs restart as `…_run2` after P-C2b has run once.
