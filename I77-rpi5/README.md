@@ -99,3 +99,16 @@ Pilot logs: `pilot_full_nocontrols.log` (+ `.time`: 118 s, 86 MB peak) at b56280
   not fail on a Euclidean fiber). The planted algebraic checks of D1 and D2 were tightened to require the planted
   root (lam = 0, resp. -3 a''/a) with a rank-3 admissible inertia, as for P1 and P2, and the control reran: both fire.
   The log of the first, partly silent run was overwritten (`pilot_ctl_deform-euclid.log` is the second run).
+
+## Final run (2026-11-23)
+
+- `final.log` is the stdout of `python3 notes/warp/three_scalars.py` (exit code in `final.rc`: 0; `final.err` holds
+  `/usr/bin/time -v`: 9:34.6 wall, 87.7 MB peak). 23 checks pass, 20 controls fire, which ran inside that run as
+  subprocesses, so there is no separate `ctl_<name>.log`.
+- Pilot logs: `pilot_final_v1.*` (first full run, 13 controls, 7:39), `pilot_full_nocontrols.*` (b56280c, C7 as coded
+  failed), `pilot_c7_written.log` (C7 as written passes), `pilot_ctl_<name>.log` (single controls run while the script was
+  written; `pilot_ctl_alc-drop-w2.log` is partial, the batch was stopped after its target checks had fired),
+  `pilot_stop3_nomutation.log` (sections 1 to 3). `explore/` has the scratch scripts of the undecided ideal step.
+- Observed against the predictions above: every control fired on its target and on nothing else, except two
+  deviations already recorded (`deform-euclid` partly silent on its first run; `wall-flat-sub` predicted only
+  `wall_flat_points` before the explicit profile was also substituted).
