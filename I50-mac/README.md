@@ -26,3 +26,33 @@ Brady's r²; H2), `pmap` (p = +αβ; H3), `maeda` (1/(2√π) → 1/√π in Mae
 changed; H5).
 
 ## Results
+
+| file | what |
+|---|---|
+| `rerun/` | `frolov_map.py` with its 10 mutations and `make_quotes.py` with `textual`, run on a copy of `I50-rpi5` on the Mac |
+| `ind50_run1.py`, `.txt` | the independent check, run 1 (`ind50.py` is the same version); the sources it fetched are not committed again |
+| `ind50_mut_*.txt` | its 5 mutations |
+
+**Rerun.** `frolov_map.py`'s PASS/FAIL lines equal rpi5's (23 PASS), each of its 10 mutations exits 1, and the regenerated
+`quotes.md` is byte-identical; `--mutate=textual` exits 1.
+
+**ind50 run 1** (exit 0):
+
+| criterion | run 1 |
+|---|---|
+| H1 | the five e-prints have `fetch.log`'s sha256 |
+| H2 | Brady's (8), (11) satisfy his (3)–(7), and Frolov's (ss_soln) his (es), symbolic in the parameter |
+| H3 | with U = √β u, V = v/√β, p = −αβ: R² = r²; Φ_F = −φ_B + const (one sign); Brady's (mass1) equals the mass from (mass); α = 0 ↔ p = 0 and 4αβ = 1 ↔ p = −1/4 |
+| H4 | Maeda's (roberts1) is Brady's (8) with (C₁, C₂) = (α, β), and φ_B = +2√π φ_M + const |
+| H5 | 2610.13206v2: "do not establish the scaling" and "consistent with a type-I critical solution"; 2604.00071: "to force a clean collapse … we reduce the phantom stress-energy" by a factor 1/2; 2406.02466v2: "not a black hole"; INSPIRE's abstract of 2610.38659: "0.100628" and "not stabilization" |
+
+So p = −C₁C₂ and Φ_F = −2√π φ_M + const (Maeda's lower sign), as #50 states. Re-solve: H3, the map from the two papers'
+own printed formulas.
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `hash` | 1 | H1 | yes |
+| `brady` | 1 | H2 (and H3) | yes |
+| `pmap` | 1 | H3 | yes |
+| `maeda` | 1 | H4 | yes |
+| `quote` | 1 | H5 | yes |
