@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/9/V53OljCIkbbW5reoP0JaGeOH4</id>
+  <title>arXiv Query: search_query=( (all:phantom OR all:ghost) AND all:scalar AND all:"numerical relativity") AND submittedDate:"202601010000 TO 202610202359"&amp;id_list=&amp;start=0&amp;max_results=100</title>
+  <updated>2026-11-24T01:39:22Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=((all:phantom+OR+all:ghost)+AND+(all:scalar+AND+all:%22numerical+relativity%22))+AND+submittedDate:%22202601010000+TO+202610202359%22&amp;start=0&amp;max_results=100&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>100</opensearch:itemsPerPage>
+  <opensearch:totalResults>3</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2610.13206v2</id>
+    <title>Binary Ellis-Bronnikov wormholes in 3+1 numerical relativity: mergers, fly-bys and gravitational waves</title>
+    <updated>2026-10-24T08:43:27Z</updated>
+    <link href="https://arxiv.org/abs/2610.13206v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.13206v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present what are, to our knowledge, the first three-dimensional numerical-relativity evolutions of wormhole binaries: pairs of massive Ellis-Bronnikov wormholes held open by a phantom scalar field, whose energy density is nowhere positive. We construct constraint-satisfying initial data for single throats and for pairs, at rest and with orbital momentum, and evolve them with adaptive mesh refinement. An isolated throat is unstable: depending on the sign of a small perturbation, it collapses to a black hole or inflates, at the rate that linear perturbation theory predicts to within 1.9%. Two throats at rest repel when their scalar charges have the same sign and attract when the signs are opposite, with a strength ratio close to the scalar force law's prediction, so only opposite-signed pairs merge. A head-on collision forms a common horizon around both throats while they are still open. The horizon then loses 28% of its area as it absorbs the scalar field, and approaches the Schwarzschild radius of the pair's mass. Pairs that fly past each other form no horizon, and both throats inflate. Every encounter emits a short burst of gravitational waves and a scalar dipole wave of comparable, negative energy. An isolated collapsing throat rings at the quasinormal frequency of the black hole it becomes. No throat survives more than a few orbital periods, even when its initial perturbation is tiny, so these binaries do not inspiral. The results hold for one phantom-scalar model, equal masses, a single throat compactness and no spin.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="astro-ph.HE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-09T08:25:16Z</published>
+    <arxiv:comment>23 pages, 12 figures, 7 tables; 12 movies as ancillary files. Code and data: https://doi.org/10.5281/zenodo.23257999. v2: text rewritten for readability, convergence test with rescaled differences (Fig. 10); results unchanged</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>Nikita M. Shirokov</name>
+    </author>
+    <author>
+      <name>Ilya Nachevsky</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00071v1</id>
+    <title>Wormhole Dynamics: Nonlinear Collapse and Gravitational-Wave Emission</title>
+    <updated>2026-03-31T13:46:51Z</updated>
+    <link href="https://arxiv.org/abs/2604.00071v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2604.00071v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present 3D numerical-relativity evolutions of the unstable Ellis-Bronnikov wormhole using GRTeclyn, starting from exact isotropic initial data for the coupled Einstein-phantom-scalar system. With a flat initial lapse (alpha=1) and full phantom support, truncation-level noise eventually drives the rarefactive instability and rapid throat expansion. To force a clean collapse while breaking spherical symmetry, we reduce the phantom stress-energy support to S_support=0.5 and add a quadrupolar scalar-field perturbation (A_phi=+0.02, sigma_phi=0.5). The resulting compressive evolution forms a trapped surface and emits a gravitational-wave signal whose peak propagates between extraction radii at v approx c, distinct from superluminal CCZ4 constraint modes. After horizon formation the swallowed phantom matter triggers a violent rebound ("phantom bounce") that launches an outward curvature shock. For the moderate perturbation amplitude simulated here, an intermediate-mass (10^3 solar mass) wormhole at D=1 Mpc falls slightly below the Advanced LIGO design sensitivity; detection requires either closer sources, larger initial asymmetries, or next-generation detectors.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="astro-ph.HE" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-ex" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-31T13:46:51Z</published>
+    <arxiv:comment>13 pages, 7 figures. C++ source code, simulation parameters, and extraction data are available at https://github.com/Nikchik-coder/GRTeclyn</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>Nikita M. Shirokov</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.13210v2</id>
+    <title>Challenging the Weak Cosmic Censorship with Phantom Fields</title>
+    <updated>2026-11-06T18:02:06Z</updated>
+    <link href="https://arxiv.org/abs/2603.13210v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.13210v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Penrose's weak cosmic censorship conjecture asserts that spacetime singularities produced by gravitational collapse are generically hidden behind event horizons, thus preventing them from causally influencing distant observers and preserving the predictability of the exterior region. In this work, we probe this conjecture in a setup that deliberately violates one of its central assumptions - the dominant energy condition - by considering the spherical collapse of a phantom scalar field with negative energy density. In principle, such a field could produce a Schwarzschild geometry with negative mass and therefore no event horizon. Our aim is to assess whether, once the dominant energy condition is abandoned, the fully coupled evolution of matter and geometry can dynamically generate or expose naked singularities, thereby probing the robustness of cosmic censorship. To this end, we perform high-accuracy numerical relativity simulations based on fourth-order finite-difference schemes. Starting from smooth, asymptotically flat initial data representing regular phantom scalar wave packets, we follow their fully nonlinear evolution through collapse or dispersion. While an ordinary (positive-energy) scalar field exhibits the standard Choptuik critical behavior at the threshold of black-hole formation, the phantom field displays qualitatively different dynamics. For all amplitudes considered, we find no evidence for trapped surfaces, naked singularities, or alternative stationary end states. Instead, the phantom scalar field disperses in all the configurations studied. Within the parameter space explored, we find no dynamical violation of cosmic censorship.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="astro-ph.HE" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-13T17:46:09Z</published>
+    <arxiv:comment>15 pages, 18 figures; v2: version accepted for publication in Phys. Rev. D</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>Giovanni Caridi</name>
+    </author>
+    <author>
+      <name>Fabrizio Corelli</name>
+    </author>
+    <author>
+      <name>Paolo Pani</name>
+    </author>
+    <arxiv:doi>10.1103/3c7y-437m</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1103/3c7y-437m" title="doi"/>
+  </entry>
+</feed>

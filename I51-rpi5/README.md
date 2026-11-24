@@ -57,7 +57,7 @@ searches by hand. Output: `queries.md` (every query with UTC date, source, hit c
 
 ## Files
 
-Written during the run; this list is completed at the end.
+See the list at the end of this file (written when the run was complete).
 
 ## Run log (UTC, 2026-11-24)
 
@@ -78,7 +78,40 @@ Written during the run; this list is completed at the end.
   such tests are not used as controls. The phrase query on its own works (I03 found 2605.10976).
 - arXiv API: `lastUpdatedDate` is rewritten by the server to `submittedDate`, so revisions of known papers are read from an
   `id_list` request instead (section K of `queries.json`).
-- Web searches: `websearch/01.tsv` to `06.tsv` (37 queries, standard mode).
+- Web searches: `websearch/01.tsv` to `06.tsv` (34 queries, standard mode).
 - Post-window items opened: Shirokov 2608.24577 v2 (2026-10-26), Laguna 2611.14482 (2026-11-10, "Singustars"), and Ivanov
   1204.1269v2 (re-read for the Havas–Goldberg sentence); the files are `shirokov_v1`, `shirokov_v2`, `new_2611_14482_*`,
   `ivanov_*`.
+
+## Result in one paragraph
+
+Price 1993 and the full texts of Cao 2012 and Paranjape 2025 are unavailable (places and statuses in `quotes.md`, last
+section, and `fetch.log`); their abstracts and reference lists were read where the publisher or INSPIRE shows them. DG08 §V
+(Summary) and §§I-IV were read in v1, v2 and v3. No verdict of RESULTS.md changes; `proposed_text.md` holds the changed
+wording. The rerun of the searches (`queries.md`) found one record that bears on a verdict (Laguna 2611.14482) and three
+revised known papers (Shirokov 2608.24577 v2, Shirokov and Nachevsky 2610.13206 v2, Caridi et al. 2603.13210 v2).
+
+## Files at the end
+
+| file or folder | what it holds |
+|---|---|
+| `README.md` | this file: plan, run log, files |
+| `quotes.md`, `make_quotes.py`, `make_quotes.log`, `mutate_quotes.log` | 47 quotes found verbatim in their sources; negative evidence for DG08; places sought for each item; the textual mutation (exit 1) |
+| `queries.md`, `make_queries_md.py`, `opened.json` | every rerun query with UTC time, counts, new hits, citation trails, revisions of known papers; what was opened |
+| `rerun/queries.json`, `rerun/raw/` | the full run: parsed hits and the unchanged API responses (sha256 in the json) |
+| `rerun_queries.py`, `run_controls.sh`, `run_controls2.sh`, `run_full.sh`, `ctl_*.log`, `ctl_*.rc`, `rerun_ctl_*/queries.json` | the script, the control runs (plain, `--mutate=window`, `--mutate=terms`) and the full run |
+| `run1/` | the failed first runs kept as evidence: three wrong plants, and the INSPIRE `or` precedence bug (I04) caught by C2 |
+| `websearch/` | the 34 web queries and the results, as returned |
+| `proposed_text.md` | proposed edits for RESULTS.md and search_log.md |
+| `fetch.sh`, `fetch.log` | every fetch with UTC time, HTTP status, size and sha256 |
+| `price_*`, `cao_*`, `par_*`, `s2_*`, `fatcat_*`, `sec_physl` | metadata and publisher answers for the three unavailable texts (403 pages kept as the record of the status) |
+| `shirokov_abs`, `shirokov_v1`, `shirokov_v2`, `ivanov_*`, `new_2611_14482_*`, `new_2603_13210_abs`, `new_2610_13206_abs`, `bp13_*` | post-window items and the Ivanov and Belletete-Paranjape texts that were quoted or searched (TeX only, no figures) |
+
+## Controls, final state (UTC 2026-11-24)
+
+- Full run 1 (`run1/full_run1_I04_precedence.log`, `run1/full_run1_queries.json`) failed C2 on I04 (56 hits dated before
+  2026-10-21): the INSPIRE query `t "A" or t "B"` followed by `and de > d` binds as `A or (B and de > d)`. Cause: no
+  parentheses around the base query. Fix: every INSPIRE base query is wrapped in parentheses. No threshold changed.
+- Full run 2 (final script): `controls: PASS 146 runs` (`full.log`, `full.rc` = 0). `queries.md` is generated from it.
+- Final script, control subset: plain PASS (`ctl_plain.log`, rc 0); `--mutate=window` FAIL with 53 C2 lines (`ctl_window.log`,
+  rc 1); `--mutate=terms` FAIL with 12 C1 lines (`ctl_terms.log`, rc 1). The earlier runs of the same three are in `run1/*_prev.log`.

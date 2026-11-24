@@ -219,13 +219,13 @@ def main():
         arxiv_run(qid, sec, aq, NEW_QUERY_START, NOW_S, "NEW")
         arxiv_run(qid, sec, aq, CTRL_START, CTRL_END, "CTRL")
         if iq:
-            inspire_run(qid, sec, f"{iq} and de > {INS_LO}", "NEW")
-            inspire_run(qid, sec, f"{iq} and de > {day_before(CTRL_START)} and de < 2026-10-21", "CTRL")
+            inspire_run(qid, sec, f"({iq}) and de > {INS_LO}", "NEW")
+            inspire_run(qid, sec, f"({iq}) and de > {day_before(CTRL_START)} and de < 2026-10-21", "CTRL")
     insp = [x for x in INSP_ONLY if x[3]] if SUBSET == "control" else INSP_ONLY
     for qid, sec, iq, exp in insp:
         iq = mut(iq) if (MUT == "terms" and exp) else iq
-        inspire_run(qid, sec, f"{iq} and de > {INS_LO}", "NEW")
-        inspire_run(qid, sec, f"{iq} and de > {day_before(CTRL_START)} and de < 2026-10-21", "CTRL")
+        inspire_run(qid, sec, f"({iq}) and de > {INS_LO}", "NEW")
+        inspire_run(qid, sec, f"({iq}) and de > {day_before(CTRL_START)} and de < 2026-10-21", "CTRL")
     if SUBSET != "control":
         # revisions of known papers: version and last update, one request
         for k in range(0, len(KNOWN), 25):

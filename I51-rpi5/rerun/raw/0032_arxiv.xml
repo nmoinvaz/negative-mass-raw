@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/M7TAwkkaG4FXitmLhP4+2jNSKcc</id>
+  <title>arXiv Query: search_query=( (all:"negative ADM mass" OR all:"negative active mass") AND (all:scalar OR all:boson OR all:phantom) ) AND submittedDate:"202601010000 TO 202610202359"&amp;id_list=&amp;start=0&amp;max_results=100</title>
+  <updated>2026-11-24T01:38:49Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=((all:%22negative+ADM+mass%22+OR+all:%22negative+active+mass%22)+AND+(all:scalar+OR+(all:boson+OR+all:phantom)))+AND+submittedDate:%22202601010000+TO+202610202359%22&amp;start=0&amp;max_results=100&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>100</opensearch:itemsPerPage>
+  <opensearch:totalResults>2</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2608.24577v2</id>
+    <title>The Bondi dipole in full numerical relativity: a self-accelerating positive-negative mass binary</title>
+    <updated>2026-10-26T10:34:45Z</updated>
+    <link href="https://arxiv.org/abs/2608.24577v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.24577v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Bondi showed in 1957 that a body of negative active gravitational mass and a positive one should accelerate together without limit while their total momentum stays zero. We test this prediction in full 3+1 numerical relativity, from constraint-satisfying initial data. The matter is two complex scalar fields with identical self-interactions, one of which enters the Einstein equations with the opposite sign; its stars have positive inertial and passive masses but negative active and Arnowitt-Deser-Misner (ADM) masses. To our knowledge, they are the first asymptotically flat bodies of negative ADM mass evolved in numerical relativity. A pair of stars with equal and opposite ADM masses accelerates as a single object at constant separation, and its total momentum stays zero to within 0.5%. The acceleration follows Newton's law of gravitation in both mass and separation, reverses when the stars are exchanged, and is absent in same-sign pairs and isolated stars. We detect no gravitational radiation. The results hold for head-on pairs released from rest, up to a few percent of the speed of light, and in the longest run the pair reaches a tenth of it with both stars intact.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="astro-ph.HE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-25T14:04:41Z</published>
+    <arxiv:comment>13 pages, 9 figures, 5 ancillary videos. Code, run matrix and packed data: https://github.com/Nikchik-coder/GRTeclyn (tag v2.0-bondi-dipole, doi:10.5281/zenodo.23662692). v2: fourth-order time integration and corrected initial data, all simulations rerun, resolution study added, second author added; the qualitative results are unchanged</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>Nikita M. Shirokov</name>
+    </author>
+    <author>
+      <name>Ilya Nachevsky</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.23272v1</id>
+    <title>Spaces with distributional scalar curvature bounded from below: Optimal regularity and positive mass</title>
+    <updated>2026-06-22T12:50:32Z</updated>
+    <link href="https://arxiv.org/abs/2606.23272v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.23272v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this work, we study the positive mass theorem under critical low regularity assumptions using Ricci flow smoothing. We show that asymptotically flat manifolds $(M^n,g)$ of regularity $L^\infty\cap W^{1,n}$ with non-negative distributional scalar curvature have non-negative ADM mass. Furthermore, when the ADM mass vanishes, the manifold is globally isometric to Euclidean space with respect to an integral distance introduced by De~Cecco-Palmieri. This extends the recent work of Hafemann to the critical regularity case. Our approach is based on showing that Riemannian metrics of regularity $L^\infty\cap W^{1,n}$, whose scalar curvature is bounded from below in the distributional sense, admit a Ricci flow smoothing whose scalar curvature is bounded from below by the same initial lower bound in the classical sense. In contrast, Cecchini-Frenck-Zeidler constructed examples of metrics which are in $L^\infty\cap W^{1,p}$ for all $2&lt;p&lt;n$, and whose distributional scalar curvature is bounded from below, that cannot be approximated by smooth metrics with the same scalar curvature lower bound. In this sense, our result is optimal.</summary>
+    <category term="math.DG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AP" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-22T12:50:32Z</published>
+    <arxiv:comment>36 pages</arxiv:comment>
+    <arxiv:primary_category term="math.DG"/>
+    <author>
+      <name>Man-Chun Lee</name>
+    </author>
+    <author>
+      <name>Florian Litzinger</name>
+    </author>
+    <author>
+      <name>Miles Simon</name>
+    </author>
+  </entry>
+</feed>
