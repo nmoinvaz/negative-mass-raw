@@ -93,3 +93,10 @@ The note carries this as a coordinator sentence.
 | `number` | 1 | P3 | yes |
 | `v1v2` | 1 | P4 | yes |
 | `G1` | 1 | P5 | yes |
+
+## Rerun 2, with pdftotext (2026-11-24)
+
+poppler 26.11.0 was installed on the Mac (Homebrew), and `run_controls.sh` was rerun in a fresh copy of the folder
+(`rerun2/`, log `rerun_run_controls_run2.txt`). Exit 0. `check_quotes.py` passes plain (118 quotes, 0 failures), and its
+10 controls each exit 1 with their own failures. `jovera_check.py` passes plain, and its 4 controls fire. The PDF half
+of the quote check (C2) is now reproduced on the Mac.

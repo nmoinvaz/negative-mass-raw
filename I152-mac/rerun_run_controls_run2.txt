@@ -1,0 +1,17 @@
+ok    check_plain rc=0: 118 quotes, 0 failures
+ok    check_quote rc=1: 118 quotes, 1 failures (mutation quote)
+ok    check_pdf rc=1: 118 quotes, 1 failures (mutation pdf)
+ok    check_cite rc=1: 118 quotes, 1 failures (mutation cite)
+ok    check_dangling rc=1: 118 quotes, 1 failures (mutation dangling)
+ok    check_sha rc=1: 118 quotes, 8 failures (mutation sha)
+ok    check_number rc=1: 118 quotes, 2 failures (mutation number)
+ok    check_absent rc=1: 118 quotes, 5 failures (mutation absent)
+ok    check_cell rc=1: 118 quotes, 1 failures (mutation cell)
+ok    check_quoted rc=1: 118 quotes, 2 failures (mutation quoted)
+ok    check_bullet rc=1: 118 quotes, 1 failures (mutation bullet)
+ok    jovera_plain rc=0: G used: 0.07957747 (= 1/(4 pi) unless mutated); failures: 0
+ok    jovera_G1 rc=1: G used: 1.00000000 (= 1/(4 pi) unless mutated); failures: 4
+ok    jovera_p0 rc=1: G used: 0.07957747 (= 1/(4 pi) unless mutated); failures: 4
+ok    jovera_exponent rc=1: G used: 0.07957747 (= 1/(4 pi) unless mutated); failures: 4
+ok    jovera_lam rc=1: G used: 0.07957747 (= 1/(4 pi) unless mutated); failures: 3
+rc 0
