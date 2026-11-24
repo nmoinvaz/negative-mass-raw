@@ -153,3 +153,24 @@ K = (u u')' = 0 at every point of ell, no point is taken, and the check fails (c
 **A4 (new control, written before its first run).** C5 (ii), the derivation of A_tau tau = K A from the geodesic equations, was
 not touched by `ext-hol` or `ext-null`. Control `ext-geo` changes the geodesic equation used there to p'' = -sigma_p p'^2
 (coefficient 1 in place of 2, in the rule for p' and in the derived p_tau_tau_s). Target: `exterior`.
+
+**A5 (diagnosis of the failure of E4 `E_hol`, written after the dev run `dev_E.run1.log` and the scratch study
+`diag_E_hol.run1.log`; no criterion changed).** E_hol as worded fails: L'(10) = 4.5 + 4.79e-6 passes the first test
+(tolerance 1e-5), and b_min = -4.5000048 fails b >= -2 h j - 1e-9. Cause: quadrature in s (the trapezoid sum over the 601
+geodesics, spacing 0.02), not the time step and not a true violation. L'(10) - 4.5 against the spacing of the s grid
+(dt = 0.002 unless stated): 0.02: +4.793e-6; 0.01: +8.047e-9; 0.005: -5.214e-12; 0.0025: -5.963e-12; 0.005 with dt = 0.001:
++4.334e-13. The excess falls faster than any power of the spacing, as for a C-infinity integrand of compact support, and
+the remainder, 5e-12, is the RK4 time-step error (it changes with dt, not with the grid). Domain truncation and ends are
+not the cause: the domain [-3, 3] gives the same values as [-6, 6]; A' = 0 exactly for |s| > 0.64 at t = 10 (and the
+geodesics with |s| > 2 sqrt 2 never meet the support of K). The true value is L'(10) = 2 h j = 4.5, the total
+curvature of C5 (iii) (also the boost rapidity between the far geodesics). E_hol stays FAILED as worded; the failed
+dev log is kept.
+
+**A6 (proposed check E_hol_b, `E_hol_b`; NOT to be run before the coordinator accepts its error control).** Same geodesics as
+E1-E5 on s in [-3, 3] (the integrand is exactly 0 beyond 2 sqrt 2). L'(t) = integral of A' over s by composite
+Gauss-Legendre, 120 panels of width 0.05, order 10 (1200 nodes), RK4 dt = 0.001, at the stored times t = 0, 1, .., 10.
+Error estimate e_q = |L'(10) with 240 panels - L'(10) with 120 panels|, e_t = |L'(10) with dt = 0.0005 - L'(10) with
+dt = 0.001|, both printed. Pass iff e_q <= 1e-11, e_t <= 1e-11, |L'(10) - 2 h j| <= 1e-5 (the README's own tolerance),
+L' nondecreasing over the stored times to 1e-12, and b at the panel boundaries (b = minus the cumulative integral of A')
+in [-2 h j - 1e-9, 1e-9] at every stored time (the README's own slack 1e-9). Control: `E-hol` (expects L'(10) = h j) now
+has target `E_hol_b`; effect computed by hand: |L' - h j| = 2.25 >> 1e-5, so it fails.
