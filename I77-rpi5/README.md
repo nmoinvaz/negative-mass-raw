@@ -68,8 +68,8 @@ Pilot logs: `pilot_full_nocontrols.log` (+ `.time`: 118 s, 86 MB peak) at b56280
   coded only K(lam) != 0 and gave: K(lam) != 0 at 23 of 27 admissible roots lam != 0, K(lam) = 0 at 4, all four at
   c = 0 (the equator). "C7 as coded: FAIL at 4 of 27 roots, all at c = 0." The log stays as `pilot_full_nocontrols.log`.
   The coordinator ruled (hc, 2026-11-23): compute C7 as written, with L_K M at the 4 roots, before any change.
-- **C5 is not decided.** The Groebner computation on the equator Ricci numerators did not finish (killed at 20 min,
-  one run of the modular variant at 20 min). No `wall_flat_ideal` check exists, so the control `ideal-equator-only` is
+- **C5 is not decided.** The Groebner computation on the equator Ricci numerators over Q did not finish (stopped
+  at 5 min), nor did the modular one with the flow derivatives (stopped at 20 min). No `wall_flat_ideal` check exists, so the control `ideal-equator-only` is
   *not run*. The arbitrary-profile ideal step is a follow-up for the coordinator.
 - **Checks added after the README was written** (all in the pilot): `wall_flat_explicit` (C6, explicit bump profile),
   `acc_const_limit` and `acc_flat_points` (C8). Control added: `acc-static` -> `acc_const_limit`. Predictions: the
@@ -91,3 +91,11 @@ Pilot logs: `pilot_full_nocontrols.log` (+ `.time`: 118 s, 86 MB peak) at b56280
   (L_K M)(K, .) = 0 inside its condition) and `acc-static` (target `acc_const_limit`); `lam-const` now takes d lam = 0
   and L_K M = 0 at every root (target `wall_lam_potential`). Each control stops after the last section holding its
   targets (`STOP_AT` in the script); the targets are unchanged.
+- **Controls added before the final run, with targets** (each stops after its section, `STOP_AT`): `p1-fiber` ->
+  `p1_closed`; `p1-euclid` -> `p1_algebraic`; `p2-euclid` -> `p2_algebraic`; `p1-lambda` -> `p1_potential`;
+  `p2-sign` -> `p2_residual`; `deform-euclid` -> `d1_algebraic`, `d2_algebraic`; `acc-flat-sub` -> `acc_flat_points`;
+  `wall-flat-sub` now also substitutes the explicit profile's block, targets `wall_flat_points`, `wall_flat_explicit`.
+  The first run of `deform-euclid` fired only `d2_algebraic` (`d1_algebraic` accepted any admissible root, so it could
+  not fail on a Euclidean fiber). The planted algebraic checks of D1 and D2 were tightened to require the planted
+  root (lam = 0, resp. -3 a''/a) with a rank-3 admissible inertia, as for P1 and P2, and the control reran: both fire.
+  The log of the first, partly silent run was overwritten (`pilot_ctl_deform-euclid.log` is the second run).
