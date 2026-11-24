@@ -42,6 +42,7 @@ P = n(b_x) - b_x^2, Q = -Delta_perp b / 2, Z = d_x b_rho / 2, Y = -n(b_rho) / 2 
   R_ll = -2a^2/(l^2 + a^2)^2 as the only nonzero component for Ellis-Bronnikov (D = 4).
 - C7 `planted_D`: through the coordinate route and the jet route, b = k rho^2 gives D = h(h^2 - 4k^2) with
   h = 2k^2 rho^2 (zero at rho^2 = 1/|k|); b = -eps ln|C - eps ln rho| gives D = 0 identically (eps = +-1).
+- C8 `D_slice_nonaxi` (added 2026-11-24, see A1).
 Verdict wording: *checked symbolically* if C1 to C5 pass; any failing line is a reported discrepancy, with the
 failing identity printed.
 
@@ -108,13 +109,13 @@ Verdict wording: *proved* by hand for the formula (note), *checked symbolically*
 `review_two_scalars_cartan.py`:
 | control | change | targets |
 |---|---|---|
-| `d-qyz-sign` | printed D with -2QYZ | `D_identity`, `D_cartan_jets`, `D_coordinate` |
-| `d-drop-z2` | printed D without the Z^2 terms | `D_identity`, `D_cartan_jets`, `D_coordinate` |
+| `d-qyz-sign` | printed D with -2QYZ | `D_identity`, `D_cartan_jets`, `D_coordinate` (+ `D_slice_nonaxi`, A1) |
+| `d-drop-z2` | printed D without the Z^2 terms | `D_identity`, `D_cartan_jets`, `D_coordinate` (+ `D_slice_nonaxi`, A1) |
 | `blocks-q-sign` | expected R_01 = +Delta_perp b / 2 | `blocks_jets`, `D_cartan_jets` |
 | `cartan-lapse` | imported routine with lapse 1 + b | `blocks_jets`, `D_cartan_jets` |
 | `cartan-sign` | imported routine, sign of omega ^ omega flipped | `cartan_planted`, `blocks_jets`, `D_cartan_jets` |
-| `nonaxi` | shift a function of y^2 + 2 z^2 | `blocks_jets`, `D_cartan_jets` |
-| `coord-gamma` | my Christoffel symbol with a wrong index order | `coord_planted`, `D_coordinate`, `planted_D` |
+| `nonaxi` | shift a function of y^2 + 2 z^2 | `blocks_jets`, `D_cartan_jets` (original prediction; silent on `D_cartan_jets`, amended to `blocks_jets`, `planted_D`, A1) |
+| `coord-gamma` | my Christoffel symbol with a wrong index order | `coord_planted`, `D_coordinate`, `planted_D` (+ `D_slice_nonaxi`, A1) |
 | `planted-h` | planted expectation with h doubled | `planted_D` |
 
 `review_two_scalars_lemma.py`:
@@ -149,6 +150,36 @@ Verdict wording: *proved* by hand for the formula (note), *checked symbolically*
 | `brho-eps` | split with theta^0 - eps theta^1 | `omega_brho` |
 
 A control whose targets do not all fail is SILENT and is reported as a failure of the check, not hidden.
+
+
+### Amendments made after runs began (2026-11-24; each is written here before the run it governs)
+
+A1. `nonaxi` (coordinator's point 1). Record: **`nonaxi` was silent on its named target `D_cartan_jets`; it fired `blocks_jets` and
+`planted_D`; the target list was changed after the run** (log `cartan.mut_nonaxi.run1.log`). Reason, a claim to be checked: D(printed)
+is det R(n, d_x, d_y) for EVERY b(t, x, y, z), with b_rho read as b_y and Delta_perp b = b_yy + b_zz, because review.md's R_00, R_0x,
+R_0A, R_xA, R_AB hold with no symmetry. So `D_cartan_jets` is blind to a loss of axisymmetry, which only `blocks_jets` sees (R(e_phi, .) = 0).
+`D_cartan_jets` keeps other controls that make it fail: `d-qyz-sign`, `d-drop-z2`, `blocks-q-sign`, `cartan-lapse`, `cartan-sign`.
+New check C8 `D_slice_nonaxi`, criterion written now, before it runs: for 3 explicit rational shifts b(t, x, y, z) that are NOT functions of
+rho (for example y + 2 z^2 terms), at 3 exact points each with z != 0, my coordinate-route Ricci gives (a) det R(n, d_x, d_y) equal to
+D(printed) built from b_y, b_x, n and Delta_perp b = b_yy + b_zz, entry by entry R_3 = [[P-h, Q, Z], [Q, -P-h, Y], [Z, Y, h]] with
+h = b_y^2/2, exactly; and (b) R(d_z, d_z) - b_z^2/2 = 0 exactly while R(d_z, d_z) != 0 at every point, so the missing axisymmetry shows
+up in the e_phi row and not in D. Controls for C8, named before the run: `d-qyz-sign`, `d-drop-z2` and `coord-gamma` must make
+`D_slice_nonaxi` fail (these three controls now also list it as a target). `nonaxi` keeps targets `blocks_jets`, `planted_D`.
+The axis check `axis_D` gains one condition, R_00 + R_11 = 0 on the axis (the lemma needs it there; added before its rerun).
+
+A2. `acc-drop-odd` (coordinator's point 2). Original control: the certificate search of `acc_unit` run with the support c_0, c_4, c_6
+(odd coefficient c_5 dropped), by rref over Q(r, w1, aa) at degrees 2 to 5. It ran 12 min wall in the symbolic rref of a system with no
+solution; I stopped it by SIGTERM (the partial log, ending after `acc_coeffs`, is `ideals.mut_acc-drop-odd.run1.log`, with a stop note
+appended). Change: `find_cert2` now first solves the same system at the numeric point (r, w1, aa) = (2, 3, 5) over Q; if that has no
+solution there is none over Q(r, w1, aa) with monomial denominators either (it would specialize), and the search reports "none"; if
+it has one, the symbolic solve runs as before. Reason: the symbolic rref of an inconsistent system is slow. The same function serves the real
+check `acc_unit`; it decides the same thing (`ideals.run3.log` passes after the change, with the same certificate). Targets of the control
+did not change: `acc_unit`. Rerun: `ideals.mut_acc-drop-odd.run2.log`, fired in 16 s.
+
+A3. Other script changes after a first run, all bug fixes of my own checks, none loosened: `lemma.run1.log` crashed in a format string;
+`ideals.run1.log` failed `brho_D` because my Laplacian test used an abstract function with sympy's Abs(y) (replaced by three explicit test
+functions, `ideals.run2.log` passes); `omega.run1.log` crashed after section 2 in `dict(par, **{Symbol: ...})` (fixed, `omega.run2.log`).
+`--certs` options print the certificates (no change to a check).
 
 ## Run protocol
 
