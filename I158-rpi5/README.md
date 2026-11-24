@@ -160,8 +160,20 @@ is recorded here, in the note and in the closing comment. No criterion of any ch
 | `dev_01` to `dev_08` | development runs (sections 1-3, 1-5, 1-8, 1-10, the `add-C0` replacement), kept as run, never overwritten | see the logs |
 | `ctl_<name>.log`, `.rc` | control batch run 1: 21 controls, each its own process; `ctl_batch_run1.log` lists the failed checks per control | 20 fire on their named target only, `add-bracket` rc 0 (silent, A6) |
 | `ctl_add-C0.log`, `.rc` | the replacement control (copy of `dev_08_addC0.log`) | 1, fails `additive_closure` only |
-| `run_01.log` | the final run, stdout, as `notes/warp/one_sign_classify_output.txt` (checks, then every control) | 0 |
-| `run_01_time.txt`, `run_01_stderr.txt`, `run_01.rc` | `/usr/bin/time -v` of the final run, its stderr (empty), its exit code | 2:51 wall, 82 MB peak resident, 99% of one core, exit 0 |
+| `run_01.log` | the first full run (21 controls), stdout; superseded by `run_02` after A7 | 0 |
+| `run_02.log` | the final run (23 controls), stdout, as `notes/warp/one_sign_classify_output.txt` | 0 |
+| `run_01_time.txt`, `run_01_stderr.txt`, `run_01.rc` | `/usr/bin/time -v` of `run_01`, its stderr (empty), its exit code | 2:51 wall, 82 MB peak resident, 99% of one core, exit 0 |
+| `run_02_time.txt`, `run_02_stderr.txt`, `run_02.rc` | the same for `run_02` | 3:23 wall, 82 MB peak resident, 99% of one core, exit 0 |
+| `ctl_add-block.log`, `ctl_compat-s1.log` | the two controls of A7 | 1, each fails its one target |
 
-Final run: 21 of 21 checks pass (26 s), `controls: all fired` (21 of 21: the original 20 plus `add-C0`). Script commit on
+Final run (`run_02`): 21 of 21 checks pass (26 s), `controls: all fired` (23 of 23: 20 of the first batch, `add-C0`, `add-block`, `compat-s1`). Script commit on
 `wip/i158-one-sign`: see the closing comment on #158.
+
+## Amendment A7 (2026-11-24, after the first final run `run_01`): two more controls
+
+The acceptance of #158 says each check has a mutation. After `run_01` (21 controls, exit 0) two checks had none:
+`additive_block` and `static_compat` (the README had listed `static_compat` as "a result"). Two controls were added, each
+targeting one check: `add-block` (P claimed as -X'' - X'^2, u dropped; target `additive_block`) and `compat-s1` (the three
+points drawn on s = 1, the planted family, where C = 0, so "C != 0" must fail; target `static_compat`). Each fires on its
+target and on no other check (`ctl_add-block.log`, `ctl_compat-s1.log`, copies of `dev_09`, `dev_10`). The final run is
+repeated as `run_02` with 23 controls; `run_01` is kept. No criterion changed.
