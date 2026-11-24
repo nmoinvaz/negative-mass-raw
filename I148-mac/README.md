@@ -30,3 +30,31 @@ Mutations, each must exit 1 with its target failing: `legendre` (2xP′ → −2
 A run that has not finished after 2 hours is stopped and reported as not completed.
 
 ## Results
+
+| file | what |
+|---|---|
+| `rerun/` | `zerilli_certificate.py` (exit 0, 16 PASS) and `zerilli_certificate_controls.py` (17 of 18 on target, exit 1) on the Mac at nice 10, with the per-run control logs |
+| `ind148_run1.py`, `.txt`, `.stderr.txt` | the independent check, run 1 (`ind148.py` is the same version) |
+| `ind148_mut_*.txt` | its 5 mutations |
+
+**Rerun.** The output equals #148's apart from timings, including the two solve-time numbers inside the "attempt"
+lines. The controls equal rpi5's apart from timings, with the same one miss: `drop_traceless`, target E.cert, fires at
+E.den.
+
+**ind148 run 1** (exit 0, 4 s):
+
+| criterion | run 1 |
+|---|---|
+| R0 | (a) the abstract-P components at L = 6, 12 equal the explicit P_2, P_3 ones, all 10; (b) odd Regge–Wheeler vanishes with abstract P, L symbolic; the forms are x-free and of the stated type |
+| R1 | #148's tt, tr, rr, tx, rx are constant multiples of mine (certificate denominators 1); trace and traceless lie in the span of a, b, c, d (rank 2 of 4) |
+| R2 | #148's 7-coefficient certificate holds exactly, every jet coefficient cancels; denominator factors L, r, Lr + 6M − 2r only |
+
+Re-solve: R2 itself, the identity at symbolic L checked with the coordinator's operator through R1.
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `legendre` | 1 | R0, R0.shape | yes |
+| `lich` | 1 | R1 | yes |
+| `ccoef` | 1 | R2 | yes |
+| `vz` | 1 | R2 | yes |
+| `psi9` | 1 | R2 | yes |
