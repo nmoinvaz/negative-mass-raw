@@ -130,4 +130,12 @@ and `.rc` for controls, exit codes in `.rc` files). Nothing is overwritten.
 
 ## Amendments
 
-(none yet)
+**A1 (2026-11-24, before the run of record, after `dev_01`).** (a) C9 tests "X2 = 0" as X2^2 in the ideal: the ideal contains X2^2, not X2, so
+the criterion as worded ("X2 = 0 ... in it") is read as radical membership. (b) The control `m-stratum` drops f_4 and f_5 (the python
+`use = [1, 2]`), not f_4 alone: dropping f_4 alone leaves X2^2 = k3 = 0 forced through f_5 (X0^2 coefficient), so the control as
+written in the table above would have been silent; target (C9) unchanged. (c) `m-add-freq` is applied to C10 only (the wrong frequency
+would otherwise also break C12's d_G = 4 and make the control fire on two checks).
+
+**A2 (2026-11-24, `dev_01`).** 13 of 14 checks pass. `add_perturbed` (C11) fails as written: the smallest relative residual over the 100 points is
+3.72e-4 < 1e-3, at c = 1, eps = +1, delta = rho^3/10, z = 1.6 (rho = 1.131); it is the only one of the 100 points below 1e-3 (next smallest 5.7e-3).
+Nothing was changed: threshold, delta, c, eps and z-points stay. Asked the coordinator by hc whether the failure stays as a result (as #80's `bessel_pert`).
