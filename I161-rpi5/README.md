@@ -1,0 +1,133 @@
+# I161-rpi5: logs of notes/warp/planar_closure.py (closure for planar shifts that cross |u| = 1 or do not travel)
+
+Machine rpi5-ubuntu (Raspberry Pi 5, aarch64, 4 cores, shared with choptuik-large-d), one process, one thread, nice 10.
+Issue: https://github.com/nmoinvaz/negative-mass/issues/161. Branch `wip/i161-planar-closure`, worktree
+`~/Source/negative-mass-i161` (main 46ed4dc). Python `~/Source/negative-mass-venv314/bin/python` (sympy 1.14.0,
+mpmath 1.3.0, numpy). Written 2026-11-24, before the first run of record. Stop condition: a single run not finished after
+1 h of wall time is stopped and reported. Memory is reported, never a stop condition.
+
+## Question
+
+Planar shifts b(t, x) have D = det R3 = 0 and R = K g2 + 0 with K = -a_x, a = b_t - b b_x. #80 (`det_classify.md` section 2)
+proved: closure holds iff g2 = -2 exp(2 H(p) J(q)) dp dq, and for traveling shifts u(xi) with |u| != 1 on the whole line
+(Theorem T) closure fails unless flat. Left open: (Q1) which closure-passing g2 (K != 0 somewhere) have a
+Painleve-Gullstrand chart -dt^2 + (dx + b dt)^2 with b -> constant as |x| -> infinity at every t; (Q2) what Theta' = 0
+requires at a crossing of |u| = 1, and whether a superluminal planar bubble that crosses twice is excluded.
+
+## What was explored before this README (not of record)
+
+One scratch script in the scratchpad (not kept in the repository, no run of record), and hand derivations. They gave:
+
+1. Hand: with C[b] = box ln|K| - 2K (box = the 2D d'Alembertian), closure iff C[b] = 0 on {K != 0}; for a static u this is
+   exactly Theta'. For static u, any maximal interval I of {|u| != 1} is mapped by s' = 2/(1 - u^2) onto the whole line
+   (s monotone, |s| -> infinity at both ends), while Phi = K (1 - u^2) tends to 0 at both ends (K bounded at a horizon,
+   K -> 0 at infinity), which Phi = C e^{alpha s} cannot do unless C = 0. So K = 0 on every such interval (Theorem T').
+2. Hand: for a time-dependent shift a PG chart is the Gaussian normal chart of a spacelike curve S0 (t = proper time from
+   S0, x = arclength + c(t)); Jacobi: A_tt = K A, b_x = -A_t/A, L'' = integral of K dx over the slice.
+3. Scratch numerics: H = h S(p), J = j S(q), S a smooth step on [0, 1], h = j = 3/2 (smootherstep, C^2), S0 = {p + q = -2};
+   normal geodesics integrated by RK4 (dt = 0.002) in sigma = H J. They gave A >= 1 for all s and times to 10, A = 1 for
+   |s| > 0.7 beyond what is transported, b_x = 0 outside |s| < 0.7, and L'(t) = -b_+(t) increasing to 4.5000 = 2 h j for
+   t >= 6. So the construction of item 2 gives a localized b with unequal limits (b_- = 0, b_+ -> -2 Delta H Delta J).
+
+Everything below was fixed after this exploration and is not changed after the first run of record, except by a dated
+amendment written before the run it concerns. Thresholds below were chosen from error estimates, not tuned on data.
+
+## Notation and imports
+
+PG metric g = -dt^2 + (dx + b dt)^2, n = d_t - b d_x, a = b_t - b b_x, K = -a_x. Null form g = -2 e^{2 sigma} dp dq,
+sigma(p, q) = H(p) J(q). Static u(xi): b = u(x), Theta = (1 - u^2) K'/K - 2 u u', Phi = K (1 - u^2), s' = 2/(1 - u^2).
+Imported (trusted, as in #80): `phantom_source.ricci`; `two_scalars.closure`, `two_scalars.dform`. Not imported:
+`det_classify` (it reads `--mutate` at import). Formulas of #80 (Theta, null criterion) are retyped. Output of this script
+is stdout only; each run is logged in this folder, reruns are numbered.
+
+## Checks (each is a `check(name, ok, detail)`; the script exits 1 if any fails)
+
+**C1 `crit_null`.** (i) For undefined sigma(p, q): `ricci` of -2 e^{2 sigma} dp dq has R = K g with K = 2 sigma_pq e^{-2 sigma};
+box f = -2 e^{-2 sigma} f_pq; and d_p d_q ln|R_pq| = -(e^{2 sigma}/2) (box ln|K| - 2 K), all exact. (ii) For the six planted
+sigma of #80 (passes sin(p) e^{q/2}/3, p q + p^2 q, (p + q)^2/5; failures p^2 q/2 + p q^2/2, e^{p q}, p^3 q^2/6 + p q), the
+4D null metric has R = a a - b b exactly, `two_scalars.closure` returns ok exactly for the three passes, and
+C = box ln|K| - 2 K computed by the covariant formula in the null chart vanishes exactly for the three passes and for none
+of the failures. Pass iff all six agree with the expectation.
+
+**C2 `crit_pg`.** (i) For undefined b(t, x): `ricci` of the PG metric has R = K g with K = -(b_tx - b b_xx - b_x^2). (ii) For
+undefined static u: C[u] = Theta' exactly, with box computed in PG coordinates from g^{-1} = -n n + d_x d_x. (iii) For undefined
+static u, the obstruction of `two_scalars.closure` on the 4D PG metric is d omega_{t xi} = Theta'/2 (as #80). (iv) Planted
+failures, Theorem T's case: the subluminal traveling bubbles u1 = (1/2)(1 - 1/(1 + xi^2)^2) (#80's planted failure),
+u2 = 1/(2 (1 + xi^2)), u3 = 1/(3 (1 + xi^2)^2) have K != 0 and C[u] != 0 at xi in {1/3, 1, 3/2, 2, 5/2} (15 exact
+points). (v) Planted pass, a formal local solution: u0 = 1/3, u1 = 1/2, u2 = 1/5, u3 = 2/7 at xi = 0, Taylor coefficients
+c4..c8 solved in order so that C[u] = O(xi^5); verified exactly. The same jets with c6 + 1/7 give a coefficient of xi^2
+in C[u] that is nonzero. Pass iff (i)-(v) all hold.
+
+**C3 `horizon`.** (i) At a point with |u| = 1 and K != 0, Theta = -2 u u' exactly, and a closure interval through it has
+alpha = -u u'(xi0); near a simple crossing u = 1 + u1 eta + ..., a solution of (1 - u^2) K' = (2 alpha + 2 u u') K has
+K ~ |eta|^gamma with gamma = -(alpha + u1)/u1 (exact leading-order substitution). (ii) For u_s = 3/(1 + xi^2) (limits 0,
+|u_s| = 1 at xi = +-sqrt 2, u_s > 1 between): u_s u_s' at the two horizons has opposite signs, so no single alpha serves
+both. (iii) For u_s on each of its three components of {|u| != 1}, and for u2 of C2 on its one component: s' has one sign;
+the exact residue or limit of s' at each end gives s -> +infinity at one end and -infinity at the other; Phi = K (1 - u^2)
+-> 0 at both ends (exact limits); K != 0 at an exact interior point. So Phi = C e^{alpha s} with C != 0 is impossible on
+each component. Pass iff (i)-(iii) hold. (The theorem itself is by hand.)
+
+**C4 `jacobi`.** (i) For undefined A(t, s): `ricci` of -dt^2 + A^2 ds^2 has R = (A_tt/A) g. (ii) For undefined X(t, s) with
+X_s = A, x = X, b = -X_t: the metric equals the PG form; with d_x = (1/X_s) d_s, n = d_t|_s (chain rule), b_x = -A_t/A,
+n(b_x) - b_x^2 = -A_tt/A, a = n(b) = -X_tt, -a_x = A_tt/A. (iii) L = integral of A ds has L'' = integral of K dx over the slice,
+and integral of K dx = a_- - a_+ if a -> a_+-. Pass iff (i)-(iii) hold.
+
+**C5 `exterior`.** (i) For undefined H, J: R_pq = -2 H' J', K e^{2 sigma} = 2 H' J'; Christoffels of -2 e^{2 sigma} dp dq are
+Gamma^p_pp = 2 sigma_p, Gamma^q_qq = 2 sigma_q and no others. (ii) Along a normal geodesic family p(tau, s), q(tau, s) with
+2 e^{2 sigma} p_tau q_tau = 1 and orthogonality p_s q_tau + p_tau q_s = 0: A = e^{sigma} sqrt(-2 p_s q_s) = p_s/p_tau and
+A_tau tau = K A, derived from the geodesic equations only (jets substituted). If this derivation is not completed it is
+dropped and the note does not claim it. (iii) With H = h S, J = j S, S(x) = f(x)/(f(x) + f(1 - x)), f(x) = e^{-1/x} (x > 0), f = 0
+(x <= 0): S = 0 for x <= 0, S = 1 for x >= 1, S' >= 0, integral of S' = 1, hence integral of K dA = 2 integral H' J' dp dq =
+2 h j exactly, with dA = e^{2 sigma} dp dq. Pass iff (i), (iii) hold and (ii) holds or was dropped.
+
+**C6 `limits_necessary`.** (i) For b = eps b1(t, x), C[b] = (-d_t^2 + d_x^2) ln|K1| + O(eps), K1 = -b1_tx, exactly (series in
+eps with undefined b1). (ii) With p = t - x, q = t + x and K1 = F(p) G(q): the integral over x of K1 at fixed t equals
+(F * G)(2t) (exact change of variables). (iii) For F = G = u(1 - u)(1 - 2u) on [0, 1] (sign-changing, compact support),
+F * G is a polynomial on [0, 1] and on [1, 2] that is not identically zero (exact). The theorem (compact F, G with
+F * G = 0 forces F = 0 or G = 0, by Paley-Wiener, by hand) is not tested. Pass iff (i)-(iii) hold.
+
+**E1 `E_norm`, E2 `E_focus`, E3 `E_ext`, E4 `E_hol`, E5 `E_geo`** (numerical evidence, numpy, RK4 dt = 0.002, t in [0, 10],
+s on 601 points in [-6, 6], h = j = 3/2, H = h S(p), J = j S(q) as in C5 (iii), S0 = {p + q = -2}, geodesic start
+(p, q) = (-1 - s/sqrt2, -1 + s/sqrt2), velocity (1/sqrt2, 1/sqrt2); state p, q, p', q', A, A' with p'' = -2 sigma_p p'^2,
+q'' = -2 sigma_q q'^2, A'' = K A, K = 2 H' J' e^{-2 H J}):
+- E1: |2 e^{2 sigma} p' q' - 1| <= 1e-8 at every stored time (every 1 unit) and s.
+- E2: A >= 1 - 1e-12 for every s and stored time; and max_s A(10, s) >= 2.
+- E3: |A - 1| <= 1e-12 for s in {-6, -5, -4, -3, 3, 4, 5, 6} at every stored time (the geodesics with q_0 > 1 or p_0 > 1 never
+  meet the support of K).
+- E4: with L'(t) = integral of A_tau ds over the grid (trapezoid), |L'(10) - 2 h j| <= 1e-5; L' nondecreasing up to 1e-12;
+  b(t, s) = -integral from -6 to s of A_tau ds' lies in [-2 h j - 1e-9, 1e-9] at every stored time.
+- E5: A from the ODE equals A_geo = e^{sigma} sqrt(-2 p_s q_s) from central differences (spacing 1e-4) of neighboring
+  geodesics at s in {-0.6, -0.2, 0.1, 0.4, 0.65} and tau in {2, 3, 5, 8}: relative difference <= 1e-5.
+
+## Controls (`--mutate=NAME`; target in advance; each must exit non-zero with the target check failing)
+
+| name | change | target |
+|---|---|---|
+| `crit-factor` | expects d_p d_q ln\|R_pq\| = -e^{2 sigma} C | C1 |
+| `crit-deform` | adds p q^2/10 to sigma of the planted passes | C1 |
+| `crit-static-g` | g^{xx} = 1 + u^2 in box | C2 |
+| `crit-plant-jet` | the planted pass jets get c6 + 1/7 | C2 |
+| `hor-orient` | s' = 2/(1 + u^2) | C3 |
+| `hor-alpha` | alpha = +u u'(xi0) | C3 |
+| `jacobi-sign` | K = -A_tt/A | C4 |
+| `jacobi-theta` | b_x = +A_t/A | C4 |
+| `ext-hol` | expects integral of K dA = h j | C5 |
+| `ext-null` | Gamma^p_pp = sigma_p | C5 |
+| `lin-order` | K1 = -b1_tt | C6 |
+| `conv-zero` | G = 0 in the convolution | C6 |
+| `E-norm` | initial velocity (1, 1) | E1 |
+| `E-kneg` | A'' = -K A | E2 |
+| `E-ext` | support of J' is [0, 2] | E3 |
+| `E-hol` | expects L'(10) = h j | E4 |
+| `E-geo` | finite-difference spacing 0.5 | E5 |
+
+Extras (other checks failing under a control) are reported, not hidden. A control that crashes or hangs before its target
+runs is reported as silent.
+
+## Logs
+
+`run_*` logs are stdout of the script; `ctl_*` logs one control each. Failed, stopped and silent runs are kept and numbered.
+
+## Amendments
+
+(none yet)
