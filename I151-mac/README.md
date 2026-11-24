@@ -67,4 +67,59 @@ Mutations, each must exit 1 with its target failing:
 
 ## Results
 
-(after the runs)
+| file | what |
+|---|---|
+| `rerun/ellis_efold_full.*` | the rerun at 83e4347: stdout, `/usr/bin/time -l`, exit code |
+| `ind151_run1.py`, `.txt`, `.time` | run 1 |
+| `ind151_mut_*.txt`, `ind151_mut_rc.txt` | run 1's 10 mutations |
+| `ind151_diag_q0.py`, `.txt` | the diagnostic of E8's failure (not a criterion) |
+| `ind151_run2.py`, `.txt`, `.time` | run 2, after the refiner fix (`ind151.py` is the same version) |
+| `ind151_mut_*_run2.txt`, `ind151_mut_rc_run2.txt` | run 2's 10 mutations |
+
+**Rerun** (exit 0, 25 s, 129 MB peak): 46 of 46 checks pass. The output equals rpi5's apart from the timings, the Python
+version and the last digits of method B (LAPACK). B's spread at γ₁ = 1/2 is 8.7e-12 on the Mac against 7.4e-12 on rpi5,
+so the error bar of T is 6.6e-12 here against 5.6e-12. β_A is identical to 12 digits at every γ₁.
+
+**ind151 run 1** (exit 1, 9 s, 122 MB peak). E8 fails as written; every other criterion passes.
+
+| criterion | run 1 |
+|---|---|
+| E0 | Painlevé–Gullstrand Ricci-flat |
+| E1 | the background solves R_μν = κΦ_μΦ_ν at κΦ₁² = −2(1 + γ₁²), not at +2(1 + γ₁²); □Φ = 0 |
+| E2 | dρ_E = Ω dr, Ω²r² = ρ_E² + a², the homothety a²e^{πγ₁}, M₊ = m and the throat at x̃ = γ₁ simplify to 0. R(γ₁) = R⋆ and the T identity do not close in sympy (they need arctan γ₁ + arctan(1/γ₁) = π/2); at 5 points, 50 digits, they are below 3e-151. R⋆(2, 1) = 3.889549, α_th = 0.574891 |
+| E3 | on the reduced system, tt, tx, xx, θθ and the scalar equation vanish (largest coefficient 9e-159); #151's printed ODE gives the same G′ (difference 0); P, Q continuous across the throat (jump 9e-21); G″ absent from δE_θθ |
+| E4 | W(0) = −3/(1 + x²)²; typed W = −V + 2(∂Ψ₀/Ψ₀)² (difference 0 at 40 digits); ∂²Ψ₀ = VΨ₀ to 2e-172; W(γ₁) as printed |
+| E5 | ℓ = 1.3: β = 1.2999999999995 (rel 4.2e-13); ℓ = 2.4: β = 2.3999999999989 (rel 4.6e-13); the map to 2.3e-11 |
+| E6 | 4 sign changes on [0.2, 5.5] at 0.5, 1.46, 2.55, 4.48; β = 4.5000000000000 (rel 2.2e-16) and 1.5000000000001 (rel 9.9e-14) |
+| E7 | β = 1.1819697264843, 1.8751275118668, 5.0413275810559 at γ₁ = 0, 1/2, 1: rel to #151's β_A 3.1e-12, 1.2e-12, 1.0e-14; β²(0) = 1.39705243433 |
+| E8 | **fails**: β = 1.1819697264877, 1.8751275118690, 5.0413275810543, rel to route 1 2.9e-12, 1.2e-12, 3.3e-13, one sign change at each γ₁, no-log residual ≤ 1e-22. But \|Q₀ − 1\| = 2e-23 at γ₁ = 1/2 exceeds the 1e-25 bound (0 at γ₁ = 0 and 1) |
+| E9 | T = 0.846045358, 0.758357150, 0.674727266, rounding to Table I; T(1/2)/0.7584 − 1 = −0.0057 %; rounds to 0.7584; τ_lin = 5.13083 m; measured 5.12, 5.23 → −0.211 %, +1.933 % |
+
+Re-solve: β at γ₁ = 1/2 by two own routes, 1.8751275118668 (printed W) and 1.8751275118690 (no W). #151 has
+1.875127511869.
+
+**E8's failure** (`ind151_diag_q0.txt`). Q₀ = 1 exactly: by hand, Q = (1 + x²)[−(2x/(1 + x²) + d′)c′ + 2/(1 + x²) − c″],
+which is 1 at x = γ₁, and the derived Q equals it at 3 points. The derived Q at γ₁ ± 1e-30 (60 digits) is 1 to 5e-31. The
+2.1e-23 stays at 50 digits, so it is not working precision. It is the aliasing of the check's own 64-point Cauchy sum at
+r = 1/2: (r/R)⁶⁴ ≈ 4e-23 for the Taylor radius R = √(1 + γ₁²) = 1.118. The 1e-25 bound was tighter than the method allows
+at γ₁ = 1/2. E8 stays failed; the criterion is not changed.
+
+**Run 2.** In run 1 the `match` mutation crashed with a ZeroDivisionError in the root refiner, on a bracket with no sign
+change, before E6 reported. So `match` was **silent** on E6 in run 1. Fix: the refiner returns no root when its bracket
+has no sign change, and E5, E6 and E8 report a missing root as a failure. No criterion, tolerance or target changed.
+Run 2 (exit 1, 10 s) equals run 1 apart from the timings: E8 fails the same way.
+
+| mutation | run 1 | run 2 | target met (run 2) |
+|---|---|---|---|
+| `pg` | E0, E8 | E0, E8 | yes |
+| `ghost` | E1, E8 | E1, E8 | yes |
+| `gamma0` | E2, E8 | E2, E8 | yes |
+| `scalar` | E3, E8 | E3, E8 | yes |
+| `wtyped` | E4, E7, E8, E9 | E4, E7, E8, E9 | yes |
+| `numerov` | E5, E7, E8, E9 | E5, E7, E8, E9 | yes |
+| `rho` | E5, E7, E8, E9 | E5, E7, E8, E9 | yes |
+| `frob` | E6, E8 | E6, E8 | yes |
+| `match` | crashed before E6 (silent) | E6, E8 (no sign change on [0.2, 5.5]) | yes |
+| `tfac` | E8, E9 | E8, E9 | yes |
+
+E8 fails in every mutated run because it fails unmutated.

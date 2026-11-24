@@ -1,0 +1,39 @@
+== E0: planted Ricci ==
+[PASS] E0: Painleve-Gullstrand Ricci-flat  (0 s)
+
+== E1: the background ==
+[PASS] E1: R - kappa dPhi dPhi = 0 at kappa Phi_1^2 = -2*gamma1**2 - 2: True; nonzero at 2*gamma1**2 + 2: True; box Phi = 0: True  (0 s)
+
+== E2: the map [SN26] -> [GGS09a] ==
+[PASS] E2: d rho_E = Omega dr: True; Omega^2 r^2 = rho_E^2 + a^2: True; homothety a^2 e^(pi gamma): True ; M_+ = m: True; d ln R/dx = (x - gamma)/(1 + x^2): True; {'R(gamma) = R_star': 'sympy did not close it; worst at 5 points (50 digits) 2.28E-159', 'T identity': 'sympy did not close it; worst at 5 points (50 digits) 1.53E-151'}; R_star(2, 1) = 3.889549, alpha_th = 0.574891: True  (0 s)
+
+== E3: linearization in the gauge dPhi = 0 ==
+   perturbed Ricci built (1 s)
+   linearized (1 s)
+   tt: largest coefficient 9.10E-159 (1 s)
+   tx: largest coefficient 0 (1 s)
+   xx: largest coefficient 9.10E-159 (2 s)
+   thth: largest coefficient 4.55E-159 (2 s)
+   scalar: largest coefficient 0 (2 s)
+[PASS] E3: residuals on the reduced system (largest coefficient at 6 points): {'tt': 9.104419837890877e-159, 'tx': 0.0, 'xx': 9.104419837890877e-159, 'thth': 4.552209918945439e-159, 'scalar': 0.0}; #151's printed ODE gives the same G': 0.0; P, Q continuous across the throat (rel jump at 1e-20): 8.8e-21; G'' absent from thth: True  (2 s)
+   P, Q quadratic in beta: residual 0
+
+== E4: the potential ==
+[PASS] E4: W(gamma=0) = -3/(1+x^2)^2: True; typed W vs -V + 2(dPsi0/Psi0)^2: 0.0e+00; d^2 Psi0 = V Psi0: 1.8e-172; W(gamma) printed: 0.0e+00  (2 s)
+
+== E5: planted, route 1 ==
+[PASS] E5: ell = 1.3: beta = 1.2999999999995, rel 4.2e-13 (h-spread 4.4e-14, roots in scan 2); ell = 2.4: beta = 2.3999999999989, rel 4.6e-13 (h-spread 7.8e-14, roots in scan 3); map |rho_quad(x_n) - rho_n| worst 2.3e-11  (3 s)
+
+== E6: planted, route 2 ==
+[PASS] E6: sign changes on [0.2, 5.5]: 4 at [0.5, 1.46, 2.55, 4.48]; beta = 4.5000000000000 (exact 4.5), rel 2.2e-16, h-spread 2.2e-14; beta = 1.5000000000001 (exact 1.5), rel 9.9e-14, h-spread 8.4e-14; no-log residual 0.0e+00  (5 s)
+
+== E7: route 1, the printed potential ==
+[PASS] E7: gamma = 0.0: beta = 1.1819697264843, rel to #151 3.1e-12, h-spread 2.0e-13, roots in scan 1; gamma = 0.5: beta = 1.8751275118668, rel to #151 1.2e-12, h-spread 2.5e-13, roots in scan 1; gamma = 1.0: beta = 5.0413275810559, rel to #151 1.0e-14, h-spread 1.6e-11, roots in scan 1; beta^2(0) = 1.39705243433, |diff| to 1.39705243 = 4.3e-09  (6 s)
+
+== E8: route 2, the gauge dPhi = 0, no potential ==
+[FAIL] E8: gamma = 0.0: beta = 1.1819697264877, rel to route 1 2.9e-12, h-spread 6.2e-14, sign changes 1, |Q0 - 1| 0e+00, first row of M0 5e-20, no-log residual 0e+00 (root), 0e+00 (beta = 1); gamma = 0.5: beta = 1.8751275118690, rel to route 1 1.2e-12, h-spread 5.5e-13, sign changes 1, |Q0 - 1| 2e-23, first row of M0 3e-23, no-log residual 1e-22 (root), 2e-23 (beta = 1); gamma = 1.0: beta = 5.0413275810543, rel to route 1 3.3e-13, h-spread 7.1e-11, sign changes 1, |Q0 - 1| 0e+00, first row of M0 1e-29, no-log residual 3e-29 (root), 1e-29 (beta = 1)  (10 s)
+
+== E9: T and the comparisons ==
+[FAIL] E9: T = 0.846045358, 0.476995396, 0.140262018 (Table I rounding: {0.0: True, 0.5: False, 1.0: False}); T(1/2)/0.7584 - 1 = -37.1050 %: False; rounds to 0.7584: False; tau_lin = 5.13083 M: True; measured 5.12, 5.23 -> +58.651 %, +62.059 %: False  (10 s)
+
+checks failed: ['E8', 'E9']; 10 s; mutation: tfac
