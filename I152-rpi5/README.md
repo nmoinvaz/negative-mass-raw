@@ -122,7 +122,7 @@ G = 1 every value is smaller by 4 pi, `jovera_G1.log`). So |J|/A in both papers 
 
 **Q3. What "no growth through t = 150 at the fastest spin" rests on (v2)**
 
-- Run: D90, 8πJ/A = 80.8 %, L = 128, N = 128/192/256, finest Δx = 0.0625 ("scaling as 1/N within a triplet"), σ = 0.4, final t = 150 (S15, S14),
+- Run: D90, 8πJ/A = 80.8 %, L = 128, N = 128/192/256, finest Δx = 0.0625, "scaling as 1/N within a triplet" (Table IV caption), so the three members differ, σ = 0.4, final t = 150 (S15, S14),
   Δt = 0.02 Δx (S20). 150/5.4 = 27.8 static e-folding times, with 5.4 from Table V (S17, S25): hand arithmetic, matches "about 28" (S02).
 - Evidence: the areal radius drifts by ≤ 7×10⁻⁵ at all three resolutions (S25, S18), constraint norms converge at every level over the run
   (S28, S29). D75 and D80 show the same over shorter intervals (S26, S31).
