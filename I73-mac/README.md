@@ -66,3 +66,49 @@ The first attempt exits 1 after 37 s with FileNotFoundError: `finish()` opens `/
 have. All 13 checks had printed PASS before the crash, and no control ran. That attempt's files are in `rerun/attempt1/`.
 
 The second attempt uses a local copy with that one read guarded (`rerun/mac_proc_patch.diff`), and nothing else changed.
+
+## Results
+
+| file | what |
+|---|---|
+| `rerun/attempt1/` | the first rerun attempt at d9b2df0: 13 PASS, then FileNotFoundError on `/proc/self/status`, exit 1, no control run |
+| `rerun/mac_proc_patch.diff` | the local guard used for the second attempt; the runner's f5c8a45 is the same change |
+| `rerun/he_accel_full.*` | the second attempt: stdout, stderr (empty), exit code, time |
+| `rpi5_output.txt` | `he_accel_output.txt` at d9b2df0, for the comparison |
+| `ind73_run1.py`, `.txt` | the independent check, run 1 (`ind73.py` is the same version) |
+| `ind73_mut_*.txt` | its 7 mutations |
+
+**Rerun** (second attempt, exit 0, 9 min 42 s): 13 of 13 checks pass, 13 of 13 controls fire with the same failed-check
+lists as rpi5, and `phantom_source.py --mutate=accel-static` fires. Every table of §10 equals rpi5's. The differences
+are platform floats only:
+
+| line | rpi5 | Mac |
+|---|---|---|
+| `routeN_planted` relative error | 4.6e-15 | 4.0e-15 |
+| `routeN_vs_E` worst coefficient error | 4.7e-15 | 3.2e-15 |
+| float64 disagreements on Rodal's axis at P2, t = 0 (v = 0, D = 0 exactly) | 86 | 84 |
+
+At that locus both runs recheck all 602 points at 50 digits, and 0 are unresolved.
+
+**ind73 run 1** (exit 0, 27 s):
+
+| criterion | run 1 |
+|---|---|
+| A0 | Painlevé–Gullstrand Ricci-flat; de Sitter R_μν = 3H²g_μν |
+| A1 | own block minus the printed entries is 0 mod s² in all 9 components; R(e_ϕ, ·) = 0; the block's symbols are v, α, u, f, f₁, f₂, r, c, s (no v_s″, x_s″); (I2) holds (diagnostic) |
+| A2 | sympy's D equals the printed D; 52 terms, degree 4 in p, homogeneous of degree 6, j-degrees 0, 2, 4, 6; both end parts as printed |
+| A3 | (a) to (f) hold; D_b has 2095 terms after reduction, 50 monomials in (v, α, u), weights 6, 8, 10, 12 |
+| A4 | wall radii [0.862674, 1.137327]; the 12 rows within 0.005 percentage points (largest \|diff\| 0.005, at v = 2, α = 8) |
+| A5 | the intervals at α = 0, 0.5, 4 within 5e-5 of the printed ends |
+
+Re-solve: A4 and A5, the map and Rodal's equatorial intervals, from the coordinator's own entries and eigenvalues.
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `pg` | 1 | A0 | yes |
+| `w2` | 1 | A1, then a crash in A3 (the mutated entries are not polynomial in 1/r, so the ring conversion fails) | yes |
+| `tx` | 1 | A1 | yes |
+| `disc27` | 1 | A2 | yes |
+| `axis` | 1 | A3 | yes |
+| `map` | 1 | A4 | yes |
+| `rodal` | 1 | A5 | yes |

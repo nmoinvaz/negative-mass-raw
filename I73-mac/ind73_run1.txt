@@ -1,0 +1,26 @@
+[PASS] A0: Painleve-Gullstrand Ricci zero True; de Sitter R = 3H^2 g True  (0 s)
+[PASS] A1: block - printed, mod s^2: [0, 0, 0, 0, 0, 0, 0, 0, 0]; R(e_phi, .) [0, 0, 0, 0]; symbols of the block ['alpha', 'c', 'f', 'f1', 'f2', 'r', 's', 'u', 'v']  (4 s)
+  (diagnostic) R_00 + R_11 + 2 R_rhorho mod s^2 = 0
+[PASS] A2: sympy D = printed D True; 52 terms, degree 4 in p, total degrees [6], j-degrees [0, 2, 4, 6]; j^6 part -4|j|^6 True; j^0 part (pq+h^2)^2((p+q)^2+4h^2) True  (4 s)
+  (diagnostic) D_b reduced: 2095 terms
+[PASS] A3: (a) v = 0 True; (b) axis True; (c) alpha degree 6, coefficient True; (d) 50 monomials, weights [6, 8, 10, 12], k <= i, max powers (12, 6, 6) True; (e) parity True; (f) equator True  (5 s)
+  Le's wall radii [0.862674, 1.137327], printed [0.8627, 1.1373]: True
+  Le    v = 0.5000, alpha = +0.0000, u = 0.5000: Type I 1.153 %, printed 1.15, |diff| 0.003 ok
+  Le    v = 0.5000, alpha = +2.0000, u = 0.5000: Type I 11.986 %, printed 11.99, |diff| 0.004 ok
+  Le    v = 0.5000, alpha = -2.0000, u = 0.5000: Type I 11.986 %, printed 11.99, |diff| 0.004 ok
+  Le    v = 0.5000, alpha = +32.0000, u = 0.5000: Type I 93.922 %, printed 93.92, |diff| 0.002 ok
+  Le    v = 1.0000, alpha = +4.0000, u = 1.0000: Type I 10.548 %, printed 10.55, |diff| 0.002 ok
+  Le    v = 2.0000, alpha = +8.0000, u = 2.0000: Type I 15.185 %, printed 15.19, |diff| 0.005 ok
+  Le    v = 0.5000, alpha = +0.0000, u = 0.0000: Type I 2.501 %, printed 2.5, |diff| 0.001 ok
+  Le    v = 0.5000, alpha = +0.0000, u = 2.0000: Type I 19.420 %, printed 19.42, |diff| 0.000 ok
+  Le    v = 0.3050, alpha = +1.0171, u = 0.3050: Type I 8.596 %, printed 8.597, |diff| 0.001 ok
+  Le    v = 0.1036, alpha = -0.3922, u = 0.1036: Type I 10.641 %, printed 10.641, |diff| 0.000 ok
+  Le    v = 0.1036, alpha = +0.0000, u = 0.1036: Type I 0.043 %, printed 0.045, |diff| 0.002 ok
+  Rodal v = 1.0000, alpha = +4.0000, u = 1.0000: Type I 26.237 %, printed 26.24, |diff| 0.003 ok
+[PASS] A4: wall radii True; 12 rows within 0.10 percentage points True  (27 s)
+  alpha = 0.0: Type I intervals [(4.94583, 5.066)], printed [(4.9458, 5.066)] ok
+  alpha = 0.5: Type I intervals [(4.94375, 4.96559), (4.99452, 5.01915), (5.05087, 5.06826)], printed [(4.9438, 4.9656), (4.9945, 5.0191), (5.0509, 5.0683)] ok
+  alpha = 4.0: Type I intervals [(4.89812, 5.10361)], printed [(4.8981, 5.1036)] ok
+[PASS] A5: Rodal's equatorial intervals at alpha = 0, 0.5, 4 within 2e-4 True  (27 s)
+ALL PASS (27 s, mutation: none)
+exit 0
