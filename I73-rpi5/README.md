@@ -157,4 +157,8 @@ The first run's other results are unchanged by these changes.
   the unmutated block nothing changes (a dev run of sections 1 to 7 gives the same output). `accel-lapse` and `alc-drop-w2` break
   (I2), so `structure` and `parity` fire for them by this rule and not by their content. They are not targets of those two controls.
   Controls already finished before this change: `disc-sign`, `no-rank`, `num-drop-w2`, `num-static`, `accel-static`; their blocks satisfy (I2).
+- **Third stop, `accel-lapse` again.** With the guard in place the control passed `const_limit` (it fails there) and then did not finish
+  the symbolic axis check on its rational entries within 6 min. I stopped it (`aborted_lapse_axis/`; its log already shows `entries_E`
+  and `decouple` failing, but it is not a result). `--mutate=accel-lapse` now stops after section 3, where both of its targets
+  are decided, unless `--stop` is given. The output of that run says so. No other control or check changes.
 
