@@ -172,3 +172,29 @@ multiple of v).
   `m-dg-sign` (target C16): the identity with + P q_R in place of - P q_R in (ii).
 - Consequence used in the note: for v != 0, d_G >= 5, d_F >= 4 (F_2, F_4, F_7, F_9 are nonzero multiples of m X, m X^2, m X^3, m X^4), d_F + d_G <= 10, so 4 <= d_F <= 5. Not
   claimed as a check; the note marks what is by hand.
+
+**A6 (2026-11-24, before the first run of these checks; Part B, traveling v != 0, completion).** The following was found after `dev_01` and the C15/C16 runs
+(scratch `ex15`-`ex17`, not of record): the traveling case can be finished by the rank bound plus exponent bookkeeping. The by-hand argument, for v != 0 (X' R' X R != 0,
+m = (X'/X)^2 not constant, the constant case being C15): (1) F_2, F_4, F_7, F_9 are nonzero multiples of m X, m X^2, m X^3, m X^4, so M4 = span of them has dimension 4 and
+d_F >= 4. (2) d_G >= 5 if v^2 != 1 (C16) and d_G >= 4 if v^2 = 1 (C17, where F_1 = 0 and the separation has 9 terms), so d_F <= 5 and W_F = span{F_i} = M4 + R w.
+(3) X^2 = F_5 and X^4 = F_8 lie in W_F, so either m = X/(p0 + p1 X) (when both have no w component), or m = X (y2 - y1 X^2)/r(X) with r a polynomial of degree <= 3; in both m is rational
+in X (X is a coordinate, X' != 0). (4) In the second case W_F is contained in R X^(2 or 4) + m X R[X]_(<=3), whose elements have pole order <= k at a pole X1 != 0 of m of order k, but
+F_10 = X^4 Theta has pole order 2k + 2 (C21), so m is a Laurent polynomial in X. The first case, m = X/(p0 + p1 X) with p0 p1 != 0, has d_F >= 6 (C19); p1 = 0 is the Laurent monomial
+m = X/p0; p0 = 0 is m constant. (5) The valuations at X = infinity and X = 0 of the F_i all lie in {b+1, .., b+4} plus at most one value, b the top (bottom) exponent of m (C18), which gives
+exponents in {0, 1} if v^2 != 1 and in {-2, -1, 0, 1} if v^2 = 1. (6) For every Laurent m with exponents in [-2, 1] the coefficients of X^k in E/X0^2 (k = -2..6) cannot all vanish (C20).
+The new checks, criteria written now:
+- C17 `trav_dg4_unit` (v = +-1). Pass iff (i) exact: F_1 = 0 at v = 1 and v = -1, E/X0^2 = sum_{i=2}^{10} F_i G_i at both, and the exact rank of E in the monomials is 9 at both;
+  (ii) exact (sympy): if S, T, S^2, R P, P^2, R^2 P (T = 2P - 6 R S) all lie in span{R^2, R^3, R^4} then P = pi R^2 and S = s R^2, and the consistency identity q^2 = (P_R/2) q - P q_R, q = S - P_R/2, forces pi = 0
+  (so P = 0, excluded); (iii) numerical (130 digits, 12 points rho = 1 + j/4) rank of G_2..G_10 >= 4 for the thirteen R of C5 and R = rho^2, at v = 1 and v = -1. Control `m-unit-sign` (target C17): the identity with + P q_R.
+- C18 `trav_exponents`. For m = c X^b (c != 0, b integer) the leading monomials of F_1, F_3, F_5, F_6, F_8, F_10 are, exactly (sympy, symbolic v, b): F_1: -2v(1-v^2)(b/2+1) c^2 X^(1+2b); F_3: c^2 (v^2(-b^2+3b+12) - (b+4)) X^(2+2b);
+  F_5 = X^2; F_6: 2v c^2 (-b^2 + 3b/2 + 13) X^(3+2b); F_8 = X^4; F_10: c^2 (20 + b - b^2) X^(4+2b). Pass iff those identities hold, 2b^2 - 3b - 26 has no integer root, and for every integer b in [-15, 15], with
+  "present" exponents P(b) = {2, 4, 3+2b} union {4+2b if b not in {5,-4}} union ({1+2b if b != -2} union {2+2b if b = -2} for v^2 != 1; {2+2b if b not in {4,-2}} for v^2 = 1), the number of distinct elements of P(b) outside
+  {b+1, .., b+4} is <= 1 exactly for b in {0, 1} (v^2 != 1) and exactly for b in {-2, -1, 0, 1} (v^2 = 1); and for b >= 2 the numbers 2 and 3+2b are outside, for b <= -3 the numbers 2 and 4 are outside
+  (symbolic inequalities, all integers). Control `m-exp-allow` (target C18): 4 removed from P(b).
+- C19 `trav_y0`. For m = X/(p0 + p1 X), beta = X m'/2, the ten F_i times (p0 + p1 X)^4 are polynomials in X; the 10 x (deg+1) coefficient matrix has 6x6 minors (seeded random row and column subsets, seed 160, the first 60 nonzero ones);
+  Pass iff the Groebner basis (grevlex, sympy, over Q) of {these minors, t p0 p1 v - 1} in (t, p0, p1, v) is [1] (so rank >= 6 for p0 p1 v != 0). Control `m-y0-p1` (target C19): the saturation t p0 v - 1 (p1 = 0 allowed).
+- C20 `trav_laurent`. For m = km2/X^2 + km1/X + k0 + k1 X, beta = X m'/2, and the coefficients Gamma_k of X^k in sum F_i G_i (symbolic v): Gamma_6 = 20 R0^4 k1^2; Gamma_5 is a multiple of k1; with k1 = 0, Gamma_4 = R0^4 (c1^2 + 4 k0)(c1^2 + 5 k0);
+  then for each of k0 = -kappa^2/4 and k0 = -kappa^2/5 (c1 = kappa constant, so R = a e^(kappa rho), R0 = a E, s2 = kappa^2 + kappa w with E, w independent) the coefficients in (E, w) of Gamma_k, k = -2..3, together with t kappa a v - 1,
+  have the Groebner basis [1] in (t, km2, km1, a, kappa, v) (grevlex over Q). Control `m-laurent-coef` (target C20): Gamma_6 expected 10 R0^4 k1^2.
+- C21 `trav_pole`. For m = mu (X - X1)^(-k), beta = X m'/2, k = 1..6: the leading coefficient of Theta = 20 m^2 + 2 m beta - 4 beta^2 at X1 is -k^2 X1^2 mu^2 (pole order 2k+2), which is > k. Control `m-pole-theta` (target C21): Theta without -4 beta^2.
+Verdict logic: traveling v != 0 is "no solution" iff C13 to C21 and the static checks pass. Steps (1)-(4) other than the numbers above are by hand; the note says which.
