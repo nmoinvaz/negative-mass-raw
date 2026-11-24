@@ -201,3 +201,10 @@ from `LEG`, R1 and the extended `MUTATIONS` table). The commit is named in the f
      P-C2 leaves the target list of `cpath` (it fails unmutated and cannot fire); P-C2b joins `cpath` and `deltaphi`.
 5. The mutation queue `nm-i163-mut1` was stopped by me after 6 min, in its first run (`mut_largex_run1_stopped.*`, no `.rc`), so that all mutation logs come from the
    script that contains P-C2b. The mutation runs restart as `…_run2` after P-C2b has run once.
+6. **P-C2b, first run (`pc2b_run1.log`, standalone `--only=P-C2b`, exit 0): passes at all five γ₁, worst 1.4e-11** (right + arc 2.5e-12 … 5.0e-12, left segment
+   1.1e-11 … 1.4e-11; the criterion is 1e-8). Its effect under the two controls, computed before they were declared (`pc2b_mut_cpath.log`, `pc2b_mut_deltaphi.log`):
+   `cpath` fires at all five γ₁ (the integration reaches the singular throat: non-finite right-hand side), `deltaphi` fires at all five (worst rel error 33 … 55).
+   So the declared targets stand: `cpath` → P-C, G2, **P-C2b**, G2b (P-C2 removed: it fails unmutated and cannot fire); `deltaphi` → L1, G2, G2b, **P-C2b**.
+   Note for the note: the real-path radius is r = min(0.5 √(1+γ₁²), 0.5 (γ₁ − x(−L′))), e.g. 3.83 at γ₁ = 10 against 5.02 in P-C2, so P-C2 was not
+   the real path in the radius either.
+7. The mutation runs are named `mut_<name>` (not `…_run2`, since the stopped first run was renamed `mut_largex_run1_stopped`); the final unmutated run is `final`.
