@@ -25,3 +25,34 @@ present in v1, added to the labels v1 must lack; P2), `minus` (P3 run with `-\fr
 P3), `sign` (DG08's c₀ taken with a minus; P5).
 
 ## Results
+
+| file | what |
+|---|---|
+| `rerun/` | `lemma1_conversion.py`, `dg06_check.py`, `make_quotes.py` and their 6 mutations, run on a copy of `I149-rpi5` on the Mac |
+| `ind149_run1.py`, `.txt` | the independent check, run 1 (`ind149.py` is the same version); the e-prints it fetched are not committed again (same sha256 as `I149-rpi5`'s) |
+| `ind149_mut_*.txt` | its 4 mutations |
+
+**Rerun.** The three logs equal rpi5's apart from timing lines, and the regenerated `quotes.md` is byte-identical to
+`I149-rpi5/quotes.md`. The 6 mutations exit 1 with the FAIL ids of rpi5's logs.
+
+**ind149 run 1** (exit 0):
+
+| criterion | run 1 |
+|---|---|
+| P1 | the five e-prints and their main .tex files have `fetch.log`'s sha256 |
+| P2 | DG06 v1 has no (cz), (nv1), (im) and no "Lemma 1"; v2 has all |
+| P3 | v2's (cz) right-hand side is +2λ²/(3μ(2λ+3)); (nv1)'s H₁ denominator is r(r+μ)(2λr − 3μ); its H₂ ζ term has + |
+| P4 | DG08 v1: "sign error" within 200 characters of "(16)", and its `\bibitem{dg}` is Gleiser and Dotti's "Instability of the negative mass Schwarzschild naked singularity"; v2 and v3: Lemma 1 with c₀ = λ²c₋₁/(3M(3+2λ)) |
+| P5 | ζ′/ζ(r_s) = c₀/c₋₁, and DG08's value at M = −μ/2 equals c* = −2λ²/(3μ(2λ+3)) |
+
+Re-solve: P5, the conversion, with the coordinator's own Laurent expansion.
+
+**Observation.** From the Mac, `doi.org` answers 200 to urllib, but the final page, fetched with curl, is iopscience's
+Cloudflare challenge ("Just a moment…", HTTP 403). So the journal text is not read from here either, *(unverified)*.
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `hash` | 1 | P1 | yes |
+| `v1lab` | 1 | P2 | yes |
+| `minus` | 1 | P3 | yes |
+| `sign` | 1 | P5 | yes |

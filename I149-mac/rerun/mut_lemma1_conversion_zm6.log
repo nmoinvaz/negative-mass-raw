@@ -1,0 +1,18 @@
+zeta(r_s) = 2*c_m1*lambda   zeta'(r_s) = 2*c_m1*lambda**3/(3*M*(2*lambda + 3))
+zeta'/zeta (r_s), in M : lambda**2/(3*M*(2*lambda + 3))
+zeta'/zeta (r_s), in mu: -2*lambda**2/(3*mu*(2*lambda + 3))
+PASS A1.0 zeta(r_s) = 2 lambda c_-1 and zeta'(r_s) = 2 lambda c_0
+FAIL A2 (zm6) coefficient = lambda^2/(3M(3+2 lambda)) at lambda=(l-1)(l+2)/2
+PASS A4 q, h of DG08 (RW2a) equal f, h of DG06 (RW2a)
+K  pole coefficients (rho^-2, rho^-1): [0, (6*M*c0f*lambda + 9*M*c0f - c_m1*lambda**2)/(9*M)]
+H1 pole coefficients (rho^-2, rho^-1): [0, -(6*M*c0f*lambda + 9*M*c0f - c_m1*lambda**2)/(lambda*(2*lambda + 3))]
+PASS A3.0 double poles vanish identically for a simple-pole Psi_z
+PASS A3.K  K pole-free  <=>  c_0 = DG08 (crc) : c_0 = c_m1*lambda**2/(3*M*(2*lambda + 3))
+PASS A3.H1 H1 pole-free <=>  c_0 = DG08 (crc) : c_0 = c_m1*lambda**2/(3*M*(2*lambda + 3))
+c* (#146), mu form : -2*lambda**2/(3*mu*(2*lambda + 3))    M form: lambda**2/(3*M*(2*lambda + 3))
+DG06 v2 (cz) printed: 2*lambda**2/(3*mu*(2*lambda + 3))
+PASS C1 DG08 Lemma 1 converted = c* (mu form)
+PASS C1' DG08 Lemma 1 converted = c* (M form)
+PASS C1'' DG06 v2 printed (cz) = - (DG08 Lemma 1 converted)
+PASS C1''' r_s: -3M/lambda = 3 mu/(2 lambda) at mu = -2M
+FAILED: A2 (zm6) coefficient = lambda^2/(3M(3+2 lambda)) at lambda=(l-1)(l+2)/2

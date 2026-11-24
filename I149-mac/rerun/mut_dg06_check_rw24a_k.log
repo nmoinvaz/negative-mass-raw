@@ -1,0 +1,17 @@
+PASS E1a printed (exp) 1/rho and higher terms agree with (AppB2) through rho^1 (all printed terms)
+residues of A, B at r_s: 2 | 4*lambda**2/(3*mu*(2*lambda + 3))
+PASS E1a0 residues are A = 2, B = 4 lam^2/(3 mu (2 lam+3)) (nonzero)
+chi'/chi at r_s forced by (AppB2) (any omega): -2*lambda**2/(3*mu*(2*lambda + 3))
+PASS E1c (AppB2)'s relation = -2 lam^2/(3 mu (2 lam+3)), independent of omega
+PASS E1d v2's printed (cz) = - (AppB2)'s relation
+derived  K, H1, H2 over (RW24a): -1 | 1 | 1
+printed  K, H1, H2 over (RW24a): -1 | 2/r | (-4*lambda*r**2*(lambda + 1)*(2*lambda*r - 3*mu)*(-2*lambda*r**2*(lambda + 1) + 3*mu**2 + 6*mu*(mu + r)) + 9*mu**2*(mu + r)*(4*lambda**2*r**2 - 6*lambda*mu*r + 3*mu**2) + 3*mu*(2*lambda*r**2*(lambda + 1) - 3*mu*(mu + r))*(6*lambda*mu*r + 4*lambda*r**2 - 3*mu**2))/(2*lambda*r**2*(lambda + 1)*(3*mu + 2*r*(lambda + 1))*(2*lambda*r - 3*mu)**2)
+PASS X1.0 K of (nv1) printed = K derived
+PASS X1.K  K derived / (RW24a) K is a constant (independent of r, t) : = -1
+FAIL X1.H1d H1 derived / (RW24a) H1 = same constant as K
+FAIL X1.H2d H2 derived / (RW24a) H2 = same constant as K
+PASS X1.H1p printed H1 = (2/r) x derived H1
+PASS X1.H1q printed H1 does NOT reproduce (RW24a) H1 (ratio to K's constant is not 1) : printed/RW24a = 2/r
+PASS X1.H2p printed H2 - derived H2 = + (3 mu^2 - 6 lam mu r + 4 lam^2 r^2)/(r^2 D^2) zeta (the zeta term has the opposite sign)
+PASS X1.H2q printed H2 does NOT reproduce (RW24a) H2 : printed/RW24a = (-4*lambda*r**2*(lambda + 1)*(2*lambda*r - 3*mu)*(-2*lambda*r**2*(lambda + 1) + 3*mu**2 + 6*mu*(mu + r)) + 9*mu**2*(mu + r)*(4*lambda**2*r**2 - 6*lambda*mu*r + 3*mu**2) + 3*mu*(2*lambda*r**2*(lambda + 1) - 3*mu*(mu + r))*(6*lambda*mu*r + 4*lambda*r**2 - 3*mu**2))/(2*lambda*r**2*(lambda + 1)*(3*mu + 2*r*(lambda + 1))*(2*lambda*r - 3*mu)**2)
+FAILED: X1.H1d H1 derived / (RW24a) H1 = same constant as K, X1.H2d H2 derived / (RW24a) H2 = same constant as K
