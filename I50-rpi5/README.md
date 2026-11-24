@@ -112,3 +112,26 @@ Mutations, each must exit 1: `p_sign` (p = +C₁C₂: M1, M2, M4, M5, N5 fire), 
 If any prediction misses, that is reported as a discrepancy and the script is not adjusted to pass.
 Not read: Brady 1994 (the note's [Fro97] text says Frolov's sign of p is opposite to Brady's), so what Brady's parameter is
 in terms of C₁C₂ is stated only as *(unverified)*.
+
+## First run of `frolov_map.py` and the three mutations added after it (2026-11-24)
+
+Run 1 (script as committed in 334c67c; logs in `run1_before_fro_mutations/`): unmutated exit 0, 23 PASS, 4.1 s, peak rss 62 MB, every
+prediction in the table above met (M2 sign σ = −1: Φ_F = −2√π φ_M + const). The seven mutations all exit 1. Every check named
+in a prediction fired; M6 (and for `p_shift` also M5, N5) fired as well, which I had not listed. R0 and F1–F6 fired under no mutation,
+so they had not been shown able to fail. Added, before any further run, and predictions written now:
+
+| mutation | what it breaks | predicted to fire |
+|---|---|---|
+| `fro_R2` | typed [Fro97] `R²` with `+uv` instead of `−uv` | F1 (es:3 gives +1 + 1 ≠ 0), F2–F6, M1, M5, M6 |
+| `fro_Phi` | typed [Fro97] Φ with the sign of `2pv` flipped in the denominator | F2, F5, F6, M2, N5 |
+| `ric_input` | R0's flat case with `+v²/10` added to `R²` | R0.flat only |
+
+The typed Frolov formulas become single functions used by F, M1, M2, M5 and M6 (so a mutation reaches all of them). Run 2 repeats
+the unmutated run and all ten mutations on the edited script.
+
+Run 2 (script as edited, `frolov_map.py` committed with this paragraph): unmutated exit 0, 23 PASS, 4.1 s, peak rss 62 MB
+(`frolov_map.time`). All ten mutations exit 1. Against the predictions: `fro_R2` fired exactly the predicted set (F1–F6, M1, M5, M6);
+`ric_input` fired R0.flat only, as predicted; `fro_Phi` fired F2–F6 and M2 (F3 and F4 contain Φ,v² and Φ,u², which I had not listed),
+and **N5 did not fire, which I had predicted**: N5 uses a separate mpmath typing of Φ (`PhiF_num`) that the mutation does not reach.
+The seven earlier mutations fired the sets shown in `frolov_map_mut_*.log`, with M6 added to what I predicted for the p mutations.
+Run 1's logs are kept in `run1_before_fro_mutations/`.

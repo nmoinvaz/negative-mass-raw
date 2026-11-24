@@ -15,7 +15,8 @@ Claimed map (C2 > 0):  U = sqrt(C2) u,  V = v / sqrt(C2),  p = -C1 C2,  Phi = 2 
 
 usage: python -I frolov_map.py [--mutate=NAME]
   NAME: p_sign, no_c2, p_double, p_shift (change p(C1, C2)); no_rescale, swap_uv (change the coordinates);
-        eps_sign (flip the sign of the scalar energy in the Einstein equations).
+        eps_sign (flip the sign of the scalar energy in the Einstein equations);
+        fro_R2, fro_Phi (typo in the typed [Fro97] R^2 or Phi), ric_input (non-flat input to the flat-case check).
 Exit 0 only if every check passes; exit 1 if any fails (each mutation must exit 1).
 """
 import sys
@@ -28,7 +29,7 @@ for a in sys.argv[1:]:
         MUT = a.split('=', 1)[1]
     else:
         sys.exit('unknown argument ' + a)
-if MUT not in (None, 'p_sign', 'no_c2', 'p_double', 'p_shift', 'no_rescale', 'swap_uv', 'eps_sign'):
+if MUT not in (None, 'p_sign', 'no_c2', 'p_double', 'p_shift', 'no_rescale', 'swap_uv', 'eps_sign', 'fro_R2', 'fro_Phi', 'ric_input'):
     sys.exit('unknown mutation ' + str(MUT))
 
 FAILS = []
@@ -84,11 +85,24 @@ Q_M = -u * v + C1 * v**2 + C2 * u**2
 phi_M = sp.atanh((1 - 2 * C1 * v / u) / t) / (2 * sp.sqrt(sp.pi))
 m_M = -(1 - 4 * C1 * C2) * u * v / (4 * sp.sqrt(Q_M))
 
-# [Fro97]; s = sqrt(1+4p), p = (s^2-1)/4 keeps the derivatives rational
+# [Fro97] (ss_soln), typed once and used by every check; s = sqrt(1+4p), p = (s^2-1)/4 keeps the derivatives rational
 Uf, Vf, s = sp.symbols('U V s')
+
+
+def Q_Fro(U, V, p):
+    """R^2 of [Fro97]."""
+    return U**2 + U * V - p * V**2 if MUT == 'fro_R2' else U**2 - U * V - p * V**2
+
+
+def Phi_Fro(U, V, p, sq):
+    """Phi of [Fro97] without the constant varphi(p); sq = sqrt(1+4p)."""
+    sgn = -1 if MUT == 'fro_Phi' else 1
+    return sp.log(-(2 * p * V + U * (1 - sq)) / (sgn * 2 * p * V + U * (1 + sq))) / 2
+
+
 p_s = (s**2 - 1) / 4
-Q_F = Uf**2 - Uf * Vf - p_s * Vf**2
-Phi_F = sp.log(-(2 * p_s * Vf + Uf * (1 - s)) / (2 * p_s * Vf + Uf * (1 + s))) / 2     # + varphi(p), a constant
+Q_F = Q_Fro(Uf, Vf, p_s)
+Phi_F = Phi_Fro(Uf, Vf, p_s, s)
 
 # ---- Ricci tensor of -2 du dv + Q(u,v) dOmega^2, from the metric with an undetermined Q --------------------
 X = sp.symbols('x0 x1 x2 x3')
@@ -123,7 +137,7 @@ def ricci_of(Qexpr, uu, vv):
 
 
 # R0: the Ricci code on a known case and against the reduced formulas -----------------------------------------
-r0 = ricci_of((u - v / 2)**2, u, v)
+r0 = ricci_of((u - v / 2)**2 + (v**2 / 10 if MUT == 'ric_input' else 0), u, v)
 check('R0.flat', all(zero(e) for e in r0), 'Ricci of R^2 = (u - v/2)^2 (C1 C2 = 1/4) vanishes')
 q = sp.Function('q')(u, v)
 rg = ricci_of(q, u, v)
@@ -151,12 +165,12 @@ check('F6.norm', zero(rF[0] - 2 * Pu**2) and zero(rF[1] - 2 * Pv**2) and zero(rF
 # M1: metric function under the claimed map ---------------------------------------------------------------------
 p_map = p_claim(C1, C2)
 U_of, V_of = coords_claim(u, v, c)
-Q_F_map = (Uf**2 - Uf * Vf - p_map * Vf**2).subs({Uf: U_of, Vf: V_of})
+Q_F_map = Q_Fro(Uf, Vf, p_map).subs({Uf: U_of, Vf: V_of})
 check('M1.metric', zero(Q_F_map - Q_M), 'R_F^2(U(u,v), V(u,v); p(C1,C2)) = -uv + C1 v^2 + C2 u^2')
 
 # M2: scalar, as a derivative identity (constants drop out), Phi = sigma 2 sqrt(pi) phi, sigma = +-1 ----------
 s_map = t if sp.simplify(1 + 4 * p_map - t**2) == 0 else sp.sqrt(sp.simplify(1 + 4 * p_map))
-PhiF_p = sp.log(-(2 * p_map * Vf + Uf * (1 - s)) / (2 * p_map * Vf + Uf * (1 + s))) / 2
+PhiF_p = Phi_Fro(Uf, Vf, p_map, s)
 dPu = sp.diff(PhiF_p, Uf).subs(s, s_map).subs({Uf: U_of, Vf: V_of})
 dPv = sp.diff(PhiF_p, Vf).subs(s, s_map).subs({Uf: U_of, Vf: V_of})
 du_F = c * dPu           # dU/du = c   (claimed map)
@@ -184,14 +198,14 @@ check('M4.sign_BH', bool(sp.simplify(sp.diff(pc, A1)).is_negative),
       'p decreases as C1 rises: BH (p > 0) is C1 < 0, dispersal is C1 > 0')
 
 # M5: apparent horizon R_,v = 0 ------------------------------------------------------------------------------
-Vah = sp.solve(sp.Eq(sp.diff(Uf**2 - Uf * Vf - p_map * Vf**2, Vf), 0), Vf)[0]
+Vah = sp.solve(sp.Eq(sp.diff(Q_Fro(Uf, Vf, p_map), Vf), 0), Vf)[0]
 rel = sp.simplify(Vah.subs(Uf, U_of) - V_of)
 us = sp.solve(sp.Eq(rel, 0), u)
 check('M5.horizon', len(us) == 1 and zero(us[0] - 2 * C1 * v), 'R_F,V = 0 maps to u = 2 C1 v (theta_v = 0 line of bh_to_wormhole.md sec. 2): %s' % us)
 
 # M6: Misner-Sharp mass, [Fro97] 1 - 2M/R = 2 g^{uv} R_,u R_,v with g^{uv} = -1, against the printed (roberts-mass).
 # Compare squares (rational) and the sign at u < 0 < v.
-Rp = sp.sqrt(Uf**2 - Uf * Vf - p_map * Vf**2)
+Rp = sp.sqrt(Q_Fro(Uf, Vf, p_map))
 M_F = (Rp / 2 * (1 + 2 * sp.diff(Rp, Uf) * sp.diff(Rp, Vf))).subs({Uf: U_of, Vf: V_of})
 sq_ok = zero(sp.simplify(M_F**2 - m_M**2))
 pt = {u: sp.Rational(-13, 10), v: sp.Rational(7, 10), c: sp.Rational(3, 2), t: sp.Rational(7, 10)}
