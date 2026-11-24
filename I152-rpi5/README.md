@@ -51,8 +51,44 @@ Predictions written before reading (to be compared with what the papers say; a m
 
 ## Files
 
-(filled in after step 1)
+Fetched from arXiv on 2026-11-24 with `fetch.sh` (log: `fetch.log`, every request HTTP 200). arXiv lists one version of 2610.38659
+(v1, 28 Oct 2026) and 1309.2448 (v1, 10 Sep 2013), and two of 2610.29941 (v1 21 Oct 2026, v2 6 Nov 2026; v2 is current, and the
+unversioned fetch is byte-identical to v2). No journal reference is shown on any of the three abstract pages. Quote locations
+are in `quotes.md`; the TeX and PDFs it cites are committed (`sha256sums.txt`). E-prints (tar.gz holding TeX and EPS or PDF
+figures) are not committed; their sha256 is below.
+
+| paper | version | TeX committed (sha256) | PDF committed (sha256) | e-print, not committed (sha256) |
+|---|---|---|---|---|
+| arXiv:2610.38659, Blázquez-Salcedo et al., "Exact Rotating Wormholes in Five Dimensions and Their Exceptional-Point Instability" | v1 | `src/2610.38659/main.tex` (7e3587c2…1167) | `pdf/2610.38659.pdf` (7c69b469…262e) | 28b1856e…e9d9 |
+| arXiv:2610.29941, Shirokov and Nachevsky, "Rotation slows the instability of Ellis-Bronnikov wormholes" | v2 (current) | `src/2610.29941v2/research.tex` (988d214d…e4d7) | `pdf/2610.29941v2.pdf` (92d3ad90…8da1) | 97295085…94d1 |
+| same | v1 | `src/2610.29941v1/research.tex` (0ad462e1…a6dc) | `pdf/2610.29941v1.pdf` (29824e64…5485) | f3fb7c70…7081 |
+| arXiv:1309.2448, [DFKKR13], "Rotating Wormholes in Five Dimensions" | v1 | `src/1309.2448/rotworm.tex` (0262cf1c…b870) | `pdf/1309.2448.pdf` (8b5710d6…0c34) | 1d82a1e7…49b5 |
+
+Full hashes: `sha256sums.txt`. Scripts: `check_quotes.py` (C1-C5), `jovera_check.py` (recompute of |J|/A, below), `fetch.sh`.
+
+Both versions of 2610.29941 were read because they differ (about 1500 diff lines of TeX); the quotes cite v2 unless marked
+V (v1 only, checked absent from v2).
 
 ## Fetch log
 
-(filled in after step 1)
+See `fetch.log` (UTC time, HTTP status, content type, bytes, URL, local name, sha256).
+
+## Step 2 findings (all three papers read; proposal not yet written)
+
+Predictions written before the run, compared with what the sources say:
+
+| prediction | found | verdict |
+|---|---|---|
+| 1. The body of 2610.38659 agrees with its abstract: the mode does not disappear, the same family is refined | A04, A09, A34, A40: same equal-J family, merger at the same J, the continuation is an oscillatory pair | as predicted |
+| 2. [DFKKR13] does not contain "the unstable mode disappears above a critical angular momentum" | D01 (abstract): "the unstable mode of the static wormholes solutions vanishes when the angular momentum exceeds some critical value"; D20 (Sec. VI): "the two unstable modes then bifurcate and disappear"; D18 (Sec. V B) hedges: "rotation may stabilize wormholes" if "no new unstable modes of a different type appear" | **wrong**: the claim is in [DFKKR13], hedged in the body, unhedged in the abstract |
+| 3. 2610.29941 claims no stability, only no growth seen | S31 (v2, Sec. VI): "evidence of prolonged radial stability under the numerical perturbations present in the sampled high-spin evolutions", bounded by S32 ("a slower mode could still emerge later"); v1 was stronger and v2 removed it (V01, V02) | **partly wrong**: a bounded stability claim is made |
+
+Checks so far (run from this folder, `python3 -I check_quotes.py`): 111 quotes pass C1 (TeX) and C2 (PDF), 0 failures.
+Controls, each exits 1: `--mutate=quote` (1 failure), `pdf` (1), `sha` (8), `absent` (5). `jovera_check.py`: exit 0, and `--mutate=G1`,
+`p0`, `exponent`, `lam` each exit 1 (logs `jovera_*.log`). C3 and C5 and their controls (`cite`, `dangling`, `number`, `cell`)
+need `proposal.md` and are run after it is written.
+
+Unplanned recompute (labelled as such): neither 2610.38659 nor [DFKKR13] states G in the text read. From the exact solution printed
+in 2610.38659 (Eqs. (8), (19)-(22)), |J|/A at the printed lambda values (2.190024, 2.059523, 3.948341) reproduces 0.100628, 0.05475,
+0.48717 and the limits 1/2 (lambda -> 4) and 0 (lambda -> 2) only with G = 1/(4 pi), that is 4 pi G = 1 (`jovera_run1.log`; with
+G = 1 every value is smaller by 4 pi, `jovera_G1.log`). So |J|/A in both papers is in units 4 pi G = 1.
