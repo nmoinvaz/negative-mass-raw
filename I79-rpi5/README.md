@@ -167,6 +167,28 @@ up in the e_phi row and not in D. Controls for C8, named before the run: `d-qyz-
 `D_slice_nonaxi` fail (these three controls now also list it as a target). `nonaxi` keeps targets `blocks_jets`, `planted_D`.
 The axis check `axis_D` gains one condition, R_00 + R_11 = 0 on the axis (the lemma needs it there; added before its rerun).
 
+A4. (Coordinator approved 2026-11-24 with conditions; everything here is written after `D_slice_nonaxi` failed and before the rerun.)
+**Result on record: claim A1 (det R(n, d_x, d_y) at z = 0 equals the printed D for every b(t, x, y, z)) is false.** `D_slice_nonaxi` failed
+0 of 9 (`cartan.run2.log`, kept). The reason is that for a general b, R_00 = P - h - b_z^2/2 and R_11 = -P - h - b_z^2/2 with h = b_y^2/2;
+the block has the printed form only where b_z = 0. What is true: `nonaxi` was silent on `D_cartan_jets` because b = G(t, x, y^2 + 2z^2) has
+b_z = 4 z G_001 = 0 on the slice z = 0 that `D_cartan_jets` uses. `D_slice_nonaxi` is removed from the script and replaced by two checks,
+both "written after D_slice_nonaxi failed":
+- (i) `D_slice_bz0` (written after D_slice_nonaxi failed). For 3 explicit rational shifts that are NOT functions of rho and are even in z
+  (y + 2 z^2 terms), at 3 exact points each with z = 0, my coordinate-route Ricci gives R(n, d_x, d_y) = [[P-h, Q, Z], [Q, -P-h, Y], [Z, Y, h]]
+  entry by entry and det = D(printed), with h = b_y^2/2, Q = -(b_yy + b_zz)/2. Also, for the axisymmetric b = G(t, x, y^2 + z^2) of
+  `blocks_jets`, b_z = 0 on z = 0 exactly in the jets of G (so #65's D is unaffected by the correction). Controls named before the rerun:
+  `d-qyz-sign`, `d-drop-z2`, `coord-gamma`, `blocks-q-sign` must make `D_slice_bz0` fail.
+- (ii) `D_slice_offslice` (written after D_slice_nonaxi failed). For 3 explicit rational non-axisymmetric shifts (including ones not even in z),
+  at 3 exact points each with z != 0, compare all six entries of R(n, d_x, d_y) with the block [[P-h, Q, Z], [Q, -P-h, Y], [Z, Y, h]]
+  (h = b_y^2/2): the claim is that ONLY R_00 and R_11 differ, each by exactly -b_z^2/2 (b_z != 0 at every point), the other four entries agree
+  exactly, and det R(n, d_x, d_y) != D(printed). R_00 = P - h - b_z^2/2 and R_11 = -P - h - b_z^2/2 are checked in code from the derivatives
+  of b; review.md is not the evidence. Controls named before the rerun: `coord-gamma`, `blocks-q-sign` must make `D_slice_offslice` fail
+  (`d-qyz-sign` and `d-drop-z2` change only D(printed), which this check uses for an inequality, so they are not targets here).
+- `D_cartan_jets` keeps controls that fire on it, in `cartan.mut_<NAME>.run1.log`: `d-qyz-sign` (difference -8 G_000 G_001 G_011^2),
+  `d-drop-z2`, `blocks-q-sign`, `cartan-lapse`, `cartan-sign`. `nonaxi` was never needed for it.
+- Status word to give in the note for "#65's D is unaffected": *checked symbolically* (b_z = 0 on z = 0 for G(t, x, q) is an exact identity in the jets;
+  D_cartan_jets and D_coordinate already use the slice y = rho, z = 0 or e_rho and pass).
+
 A2. `acc-drop-odd` (coordinator's point 2). Original control: the certificate search of `acc_unit` run with the support c_0, c_4, c_6
 (odd coefficient c_5 dropped), by rref over Q(r, w1, aa) at degrees 2 to 5. It ran 12 min wall in the symbolic rref of a system with no
 solution; I stopped it by SIGTERM (the partial log, ending after `acc_coeffs`, is `ideals.mut_acc-drop-odd.run1.log`, with a stop note
