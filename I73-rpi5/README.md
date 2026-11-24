@@ -173,7 +173,7 @@ Final run: `he_accel.py` at 79d7f00 (repository, branch `wip/i73-he-accel`; sha2
 | `step2.log`, `he_accel_step2.py` | sections 1 to 7 at c7fe197, exit 0, 80 s, 10 checks pass |
 | `step3.log` | **run 1** of the grids at c7fe197, exit 1, `closed_vs_numeric` FAILS (see "Added after the first run") |
 | `step3b.log`, `he_accel_step3b.py` | run 2 at 7d4519a, exit 0, 13 of 13 pass, 188 s |
-| `ctl_<name>.log`, `.rc`, `.err`, `controls_queue.log`, `launch_controls.sh` | the 13 controls and phantom_source's control, one process each, at 79d7f00 (the first five at 7d4519a, which differs only by the guards listed above) |
+| `ctl_<name>.log`, `.rc`, `.err`, `controls_queue.log`, `launch_controls.sh` | the 13 controls and phantom_source's control, one process each, at 79d7f00 (`disc-sign`, `no-rank`, `num-drop-w2`, `num-static`, `accel-static` at b83762c, which lacks only the later guards listed above; the others at 79d7f00) |
 | `final.err` | stderr of the final run (empty) |
 | `aborted_vetoed_rule/`, `aborted_slow_controls/`, `aborted_lapse_structure/`, `aborted_lapse_axis/` | runs I stopped, each for the reason given above. Not results. |
 
