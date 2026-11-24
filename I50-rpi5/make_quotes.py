@@ -12,6 +12,7 @@ import json
 import os
 import re
 import sys
+import unicodedata
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 MUT = None
@@ -86,7 +87,7 @@ Q = [
     ('K12', 4, 'xcy', 'body text, pulse collisions (before Fig. 7)', 'Specifically, can fine-tuned collisions stabilize the throat, delaying or preventing horizon formation and maintaining traversability?'),
     ('K13', 4, 'xcy', 'body text, after Fig. 8', 'hybrid pulse interactions can reduce but do not cure the instability, offering only limited extensions to the wormhole’s lifetime.'),
     # ---- item 5: citers of Shinkai-Hayward ----
-    ('H1', 5, 'hay03', 'body text, summary of SH02', 'Unexpected critical behaviour was also discovered: the initial energy determines the collapse time x − x0 = −0.60 ln E0 and there appears to be a minimal black-hole mass M = 0.30a or Hubble constant H = 1.1/a as perturbations tend to zero, for both exotic and normal fields.'),
+    ('H1', 5, 'hay03', 'body text, summary of SH02', 'Unexpected critical behaviour was also discovered: the initial energy determines the collapse time x − x0 = −0.60 ln E0 and there appears to be a minimal black-hole mass M = 0.30a or Hubble constant H = 1.1/a as perturbations tend to zero, for both exotic and normal field perturbations. All this is unexplained.'),
     ('H2', 5, 'hay03', 'conclusions (bullet list)', 'Numerically discovered critical behaviour suggests critical black-hole and inflationary-universe solutions.'),
     ('H3', 5, 'kain25', 'abstract', 'In vacuum, the wormhole expands, but in the presence of even a small amount of classical matter, the wormhole collapses, forming a horizon and evolving to an evaporating black hole.'),
     ('H4', 5, 'shi26', 'abstract', 'To force a clean collapse while breaking spherical symmetry, we reduce the phantom stress-energy support to Ssupport = 0.5 and add a quadrupolar scalar-field perturbation'),
@@ -150,6 +151,7 @@ def load(sid):
         d = json.load(open(path, encoding='utf-8'))
         raw = '\n'.join(' '.join(a['value'] for a in h['metadata'].get('abstracts', [])) for h in d['hits']['hits'])
         lineno = False
+    raw = unicodedata.normalize('NFC', raw)
     # normalized text with a map to source line numbers
     out, lines = [], []
     ln = 1
@@ -165,7 +167,7 @@ def load(sid):
 
 
 def norm(s):
-    s = ''.join(LIG.get(c, c) for c in s)
+    s = ''.join(LIG.get(c, c) for c in unicodedata.normalize('NFC', s))
     return STRIP.sub('', s)
 
 

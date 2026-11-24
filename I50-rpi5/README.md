@@ -135,3 +135,23 @@ Run 2 (script as edited, `frolov_map.py` committed with this paragraph): unmutat
 and **N5 did not fire, which I had predicted**: N5 uses a separate mpmath typing of Φ (`PhiF_num`) that the mutation does not reach.
 The seven earlier mutations fired the sets shown in `frolov_map_mut_*.log`, with M6 added to what I predicted for the p mutations.
 Run 1's logs are kept in `run1_before_fro_mutations/`.
+
+## Run log (2026-11-24), what ran, in order, with exit codes
+
+All Python: `~/Source/negative-mass-venv314/bin/python -I`, `nice -n 10`, one process at a time, `OMP_NUM_THREADS=1`. Load average stayed under 1 (choptuik-large-d idle).
+
+| step | command | exit | note |
+|---|---|---|---|
+| fetch | `fetch.sh DIR URL NAME` (curl, generic user agent, 3 s pause), `fetch.log` | 0 | all HTTP 200; the first INSPIRE query used `refersto:arxiv:` and matched 142134 records, discarded (Trash), re-queried by `refersto:recid:586606` (222) |
+| citers | `citers.py inspire_sh02/page1.json citers_out` | 0 | writes `citers_out/citers.tsv`, 222 rows, flags are string matches for sorting only |
+| citers | `citers_abs.py inspire_sh02/page1.json abs|ctx RECID...` | 0 | abstracts and match contexts, printed only |
+| Frolov map | `frolov_map.py` (run 2, edited script) | 0 | 23 PASS, 4.1 s, 62 MB (`frolov_map.log`, `.time`); run 1: `run1_before_fro_mutations/` |
+| Frolov map | `frolov_map.py --mutate=` p_sign, no_c2, p_double, p_shift, no_rescale, swap_uv, eps_sign, fro_R2, fro_Phi, ric_input | 1 each | logs `frolov_map_mut_*.log`, codes `*.rc` |
+| quotes | `make_quotes.py` | 0 | 83 quotes found, 1.0 s, 45 MB, writes `quotes.md` (`make_quotes.log`, `.time`) |
+| quotes | `make_quotes.py --mutate=textual` | 1 | S10 not found, as planned; does not write `quotes.md` |
+
+Mistakes, kept and not hidden:
+- Raw folder is 95 MB, because the first commit (334c67c) took in whole downloads: two 10 MB e-prints of Shirokov–Nachevsky (their tarballs hold 12 mp4 files) and a 31 MB PDF of Xu–Chew–Yeom. They are reproducible from `fetch.log` (URL, sha256) and could not be removed from history (no rewrite of pushed commits).
+- `fro_Phi` was predicted to fire N5 and did not (separate typing). Predictions for the p mutations omitted M6.
+- Two quotes needed their snippet or the script changed before they matched: Hayward 2003's sentence ends "field perturbations. All this is unexplained." (I had cut it short), and pdftotext writes accented letters in decomposed form (NFC normalization added).
+- Section numbers of the Nakonieczna paper (the Einstein–Maxwell–phantom-dilaton case is IV D, not IV C) and of Shirokov–Nachevsky (Discussion is X, not VII) were first written from memory and corrected against the PDF.
