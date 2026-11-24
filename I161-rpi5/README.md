@@ -130,4 +130,22 @@ runs is reported as silent.
 
 ## Amendments
 
-(none yet)
+**A1 (2026-11-24, before any run of record).** Dev run `dev_pg_horizon.run1.log` (checks C2 and C3 together) was stopped by
+hand after 13 min (CPU 10:47, no progress output, 670 MB resident): C3 called `sp.limit` on an expression with a symbolic
+exponent and hung. That is a code defect, not a result; the leading-order coefficient (1 - u^2) gamma/eta - (2 alpha +
+2 u u') is now written by hand, and residues come from `pole_residue`. The log is kept. Before the stop the same run
+printed the C2 results: (i), (ii), (iii), (v) true, and (iv) false: u1 and u2 pass at all 5 points, u3 = 1/(3(1+xi^2)^2) has
+K = 4(9 xi^2 - 1)/(9(1+xi^2)^6) = 0 at xi = 1/3, one of the five points. `dev_horizon.run1.log` is the C3 rerun (passes) and
+`dev_crit_null.run1.log` is a failure of C1 caused by a helper that compared a matrix with 0 (code defect, fixed in run2).
+
+**A2 (coordinator ruling A, 2026-11-24, before any run of record).** C2 (iv) stays exactly as written and stays FAILED
+(u3 at xi = 1/3, where K = 0): the wording did not exclude zeros of K, where Phi = 0 and Theta is undefined. The run of
+record exits 1 because of it. Bookkeeping only, no criterion changed: C2 is reported as three checks, `crit_pg` ((i), (ii),
+(iii), (v)), `crit_pg_iv` ((iv) as written; no control, its target fails at baseline) and `crit_pg_ivb` (A3). The controls
+`crit-static-g` and `crit-plant-jet` keep the target `crit_pg`.
+
+**A3 (new check C2 (iv-b), `crit_pg_ivb`, written before its first run).** Same profiles u1, u2, u3 as (iv). The fixed list
+ell = [1/5, 1/3, 1/2, 2/3, 1, 3/2, 2, 5/2, 3, 4] is scanned in order; a point is taken only if K(xi) != 0 is verified exactly
+(the exact rational value of K is nonzero); the first 5 taken are the test points; fewer than 5 available means the check
+fails. Pass iff C[u](xi) != 0 (exact) at all 15 taken points. Control `ivb-flat`: u1 is replaced by the constant 1/3, so
+K = (u u')' = 0 at every point of ell, no point is taken, and the check fails (computed from K = 0, not run).

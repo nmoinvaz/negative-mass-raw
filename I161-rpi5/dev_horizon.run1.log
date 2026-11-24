@@ -1,0 +1,14 @@
+  (i) leading order: gamma = [(-alpha - u1)/u1]
+  (ii) u_s = 3/(1 + xi^2): |u_s| = 1 at xi = +-sqrt2, K(+-sqrt2) != 0: True; alpha = 2*sqrt(2)/3 and -2*sqrt(2)/3
+  (iii) component (-oo, -sqrt(2)) of u_s: sign s' = 1, s diverges with sign -1 at the left end and 1 at the right, Phi -> 0 at both: True, K != 0 inside: True -> excludes Phi = C e^(alpha s), C != 0: True
+  (iii) component (-sqrt(2), sqrt(2)) of u_s: sign s' = -1, s diverges with sign 1 at the left end and -1 at the right, Phi -> 0 at both: True, K != 0 inside: True -> excludes Phi = C e^(alpha s), C != 0: True
+  (iii) component (sqrt(2), oo) of u_s: sign s' = 1, s diverges with sign -1 at the left end and 1 at the right, Phi -> 0 at both: True, K != 0 inside: True -> excludes Phi = C e^(alpha s), C != 0: True
+  (iii) component (-oo, oo) of u2: sign s' = 1, s diverges with sign -1 at the left end and 1 at the right, Phi -> 0 at both: True, K != 0 inside: True -> excludes Phi = C e^(alpha s), C != 0: True
+[PASS] horizon: (i) Theta' = 0 at a simple crossing: K ~ |eta|^gamma, gamma = -(alpha + u1)/u1: True; alpha = -u u'(xi0) when K(xi0) != 0: True; (ii) u_s has opposite alpha at its two horizons: True; (iii) on each of 4 components s runs from one infinity to the other and Phi -> 0 at both ends, so Phi = C e^(alpha s) forces C = 0: True
+  (1 s)
+
+checks: 1 passed, 0 failed []. 1 s
+
+real	0m1.308s
+user	0m1.421s
+sys	0m0.058s
