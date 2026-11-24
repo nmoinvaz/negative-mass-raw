@@ -59,3 +59,20 @@ Predictions: each target fails and nothing else needs to. A control that is sile
 - `final.log`: stdout of the final run (exit code in `final.rc`).
 - `ctl_<name>.log`, `ctl_<name>.rc`: one per control.
 - `pilot_*.log`: earlier runs while the script was written.
+
+## Changes and results recorded before the final run (2026-11-23, after the pilots)
+
+Pilot logs: `pilot_full_nocontrols.log` (+ `.time`: 118 s, 86 MB peak) at b56280c, `pilot_ctl_<name>.log`.
+
+- **C7 as coded failed.** README's C7 is "dlam(K) != 0 or L_K M != 0 at every admissible root". The pilot at b56280c
+  coded only K(lam) != 0 and gave: K(lam) != 0 at 23 of 27 admissible roots lam != 0, K(lam) = 0 at 4, all four at
+  c = 0 (the equator). "C7 as coded: FAIL at 4 of 27 roots, all at c = 0." The log stays as `pilot_full_nocontrols.log`.
+  The coordinator ruled (hc, 2026-11-23): compute C7 as written, with L_K M at the 4 roots, before any change.
+- **C5 is not decided.** The Groebner computation on the equator Ricci numerators did not finish (killed at 20 min,
+  one run of the modular variant at 20 min). No `wall_flat_ideal` check exists, so the control `ideal-equator-only` is
+  *not run*. The arbitrary-profile ideal step is a follow-up for the coordinator.
+- **Checks added after the README was written** (all in the pilot): `wall_flat_explicit` (C6, explicit bump profile),
+  `acc_const_limit` and `acc_flat_points` (C8). Control added: `acc-static` -> `acc_const_limit`. Predictions: the
+  lab-route Ricci tensor of the accelerating block equals the comoving polar one only if the t-derivatives are kept;
+  dropping them breaks `acc_const_limit`. `wall-flat-sub` has targets `wall_flat_points` and `wall_flat_explicit`
+  (the explicit one is not substituted, so only `wall_flat_points` is predicted to fire).
