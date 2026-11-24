@@ -96,3 +96,33 @@ largest working set was 84 MB.
   gaps in `memory-sampler.log` show a suspended laptop). The one sampler gap so far, 19:46:38 to 20:02:30, is the sampler
   stopped between the controls and `run_l5`, not a standby. cpu counts from the worker's creation, so it exceeds the wall
   time since the start record by the problem setup (about 40 s) at the start of a run.
+
+## Results: l = 5 (`run_l5`, finished 2026-11-23 18:28, exit 0)
+
+The rtol 1e-12 evaluation at gamma = 6000 finished inside its cap: wall 80728.5 s (22.42 h), cpu 79762 s, worker pid 4940
+(`done` record in the partial file; the coordinator estimated about 25 h, the cap was 129600 s). cpu/wall was 0.989 for
+the whole run and the sampler shows no gap, so no standby. `check_l5.py` (output in `check_l5.out`) reads the partial
+file independently of `convergence.py`'s printing:
+
+| variant at gamma = 6000 | D |
+|---|---|
+| base | -8.936082976708e-13 |
+| rtol 1e-12 (new) | -8.936082955882e-13 |
+| background R = 90 | -8.937095724218e-13 |
+| r0 = 3e-3 | -8.935196170070e-13 |
+| phi_cut 1e-12 (r_m ~ 34) | -4.438951805474e-13 |
+
+rtol 1e-12 against base: relative difference 2.33e-9 (limit 2.1e-4), D < 0. All five D are negative.
+`run_l5.log` (stdout) has the top row with no cap note and time (107868s) = 27140 s of the five old evaluations plus the
+new 80728 s. `run_l5.stderr` holds the same two kinds of RuntimeWarning as #4's l = 5 stderr (`polar_solver.py:106`
+overflow in multiply, scipy's `rk.py` invalid value in dot).
+
+Step 4 for l = 5 (`regen_out5`, exit 0, no new evaluation, stderr empty): stdout went to
+`phase2/nonradial/convergence_l5_output.txt`, which equals `run_l5.log` and differs from the committed version in the
+top row only, and there only in the time `(27140s)` -> `(107868s)` and the removed note. D_base, signs, spread, D(r_m ~ 34)
+and q are the same to the printed digits. Code commit 6e73456 on `wip/i114-convergence-cap`.
+
+Observation, not changed (the script is the coordinator's): `convergence.py` takes the "same r_m" variants as those
+without `phi_cut` in their name, and the base variant's name `base (rtol1e-10, phi_cut1e-9, R60)` contains it, so base is
+left out of the spread and the spread is over rtol 1e-12, R = 90 and r0. `check_spread.py` shows that including base
+changes no printed spread at any of the 11 gammas of l = 4, 5 and 6, nor in the l = 2 control.
