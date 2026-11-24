@@ -41,4 +41,41 @@ Mutations, each must exit 1 with its target failing:
 
 ## Results
 
-(after the runs)
+| file | what |
+|---|---|
+| `rerun/planar_closure_full.*` | the rerun at 1ccf30f: stdout, `/usr/bin/time -l`, exit code |
+| `ind161_run1.py`, `.txt`, `.time` | run 1 (`ind161.py` is the same version) |
+| `ind161_diag_norm.py`, `.txt` | the diagnostic of Q4's normalization clause (not a criterion) |
+| `ind161_mut_*.txt` | its 6 mutations |
+
+**Rerun** (exit 1, 12 min, 101 MB peak). As #161 reports: `crit_pg_iv` and `E_hol` fail as worded, 12 of 14 checks
+pass, `E-ext` is silent, and `E-ext5` (in the script at 1ccf30f) fires on `E_ext` with extras. The output equals rpi5's
+apart from the timings and the `E-ext5` line, which the run of record at 20d1fa4 did not have.
+
+**ind161 run 1** (exit 1, 27 s, 81 MB peak). Q4 fails on one clause; everything else passes.
+
+| criterion | run 1 |
+|---|---|
+| Q0 | Painlevé–Gullstrand Ricci-flat |
+| Q1 | R = K g with K = 2σ_pq e^{−2σ}; □f = −2e^{−2σ}f_pq; ∂_p∂_q ln R_pq = −(e^{2σ}/2)(□ ln K − 2K) |
+| Q2 | planar R = K g with K = −a_x; static K = (uu′)′; □ ln K − 2K = Θ′ |
+| Q3 | horizons ±√2 with α = ∓2√2/3; on all three components s′ has one sign, s diverges at both ends and Φ → 0; γ = −(α + u₁)/u₁ |
+| Q4 | **fails**: L′(10) = 4.4999999997922, \|L′ − 4.5\| = 2.1e-10 (< 1e-9, passes); min A = 1, min A_τ = 0 (pass); but the normalization error is 1.6e-8 against 1e-10 (fails). Spreads: dt 8.8e-11, panels 5.7e-10 |
+| Q5 | the ε⁰ term of C is (−∂_t² + ∂_x²) ln K₁; ∫K₁ dx = (F ∗ G)(2t) at t = 1/5, 1/2, 4/5 (18164/8203125, −1/210, 18164/8203125); F ∗ G ≢ 0 |
+
+Re-solve: Q4, Theorem E's example by the coordinator's own geodesic and Jacobi integration. L′(10) = 4.5 = 2H₁J₁ to
+2.1e-10, as #161's `E_hol_b` found (+2.1e-12).
+
+**Q4's failure** (`ind161_diag_norm.txt`) is RK4 truncation at the time steps the criterion fixed, dt = 0.01 and 0.005.
+The normalization error falls by a factor of 16 per halving of dt: 4.5e-9, 2.9e-10, 1.8e-11, 1.1e-12 at s = 0, and
+1.2e-8 … 2.9e-12 at s = 0.3. The 1e-10 bound was tighter than those steps allow. Q4 stays failed. No looser check was
+added.
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `pg` | 1 | Q0 (Q4 at baseline) | yes |
+| `null` | 1 | Q1 (Q4 at baseline) | yes |
+| `theta` | 1 | Q2 (Q4 at baseline) | yes |
+| `alpha` | 1 | Q3 (Q4 at baseline) | yes |
+| `rk` | 1 | Q4, which fails at baseline; it is informative because its L′ clause also fails (\|L′ − 4.5\| = 5.9e-5) | yes |
+| `conv` | 1 | Q5 (Q4 at baseline) | yes |

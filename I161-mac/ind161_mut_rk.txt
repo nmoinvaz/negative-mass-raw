@@ -1,0 +1,19 @@
+== Q0: planted Ricci ==
+[PASS] Q0: Painleve-Gullstrand Ricci-flat  (0 s)
+
+== Q1: the criterion in null coordinates ==
+[PASS] Q1: R = K g with K = 2 sigma_pq e^(-2 sigma): True; box f = -2 e^(-2 sigma) f_pq: True; d_p d_q ln R_pq = -(e^(2 sigma)/2)(box ln K - 2K): True  (0 s)
+
+== Q2: the planar PG metric and the static reduction ==
+[PASS] Q2: R = K g with K = -a_x: True; static K = (uu')': True; box ln K - 2K = Theta': True  (1 s)
+
+== Q3: the superluminal bubble u_s = 3/(1 + xi^2) and the crossing exponent ==
+[PASS] Q3: horizons [-sqrt(2), sqrt(2)], alpha [-2*sqrt(2)/3, 2*sqrt(2)/3]: True; components (sign s', [(s diverges, lim Phi)]): [('-oo', '-sqrt(2)', 1, [(True, 0), (True, 0)]), ('-sqrt(2)', 'sqrt(2)', -1, [(True, 0), (True, 0)]), ('sqrt(2)', 'oo', 1, [(True, 0), (True, 0)])]: True; gamma = [(-alpha - u1)/u1]: True  (1 s)
+
+== Q4: Theorem E's example, own geodesics and Jacobi field ==
+[FAIL] Q4: L'(10) = 4.4999412196489 (|L' - 4.5| = 5.9e-05); spreads: dt 1.5e-05, panels 5.7e-10; min A = 1.0000000000000, min A_tau = 0.0e+00, normalization 3.2e-05  (25 s)
+
+== Q5: linear order and the convolution ==
+[PASS] Q5: eps^0 term of C = (-d_t^2 + d_x^2) ln K1: True; int K1 dx = (F*G)(2t) at t = 1/5, 1/2, 4/5: [('1/5', '18164/8203125', '18164/8203125'), ('1/2', '-1/210', '-1/210'), ('4/5', '18164/8203125', '18164/8203125')]: True; F*G(2/5) = 18164/8203125 != 0: True  (25 s)
+
+checks failed: ['Q4']; 25 s; mutation: rk
