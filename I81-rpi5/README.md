@@ -154,4 +154,29 @@ Section Z (60 digits, mpmath): v = 1, X = y = 0, z = 1/2, p = (3 sqrt 2 - 4)/8, 
 
 ## Amendments
 
-(none yet)
+A1 (2026-11-24, before run 2; the coordinator approved the fix and its conditions by hc before the rerun).
+Run 1: `--mutate=unsheared` silent on its named target `shear_cross`; cause: `shear_cross` took its derivatives from the
+fixed sheared q, not the mutable q the README names; fixed in run 2 (script 1792be8, one line: `q_rule(q, False)` for
+`q_rule(QS, False)` in that check). The other five targets of `unsheared` fired in run 1. `final.run1.log` and
+`final_mut/*.log` are kept. The criterion text above is unchanged.
+
+## Runs
+
+| run | script | what | exit | wall |
+|---|---|---|---|---|
+| `dev_checks.run1` | f715105 | checks only, before the first full run (differs from 280e20f in one printed sentence) | 0 | 41 s |
+| `final.run1` | 280e20f | checks and the 20 controls; 19 fired, `unsheared` silent (A1) | 1 | 246 s |
+| `final.run2` | 1792be8 | the same after the fix; all 20 fired | 0 | 247 s |
+
+`final.run2.log` is `notes/warp/sheared_output.txt` (stdout only; stderr is `final.run2.log.err`). Each control's own stdout is
+`final_mut/<name>.log` (run 1) and `final_mut/<name>.2.log` (run 2).
+
+Run 2 against run 1, timings ignored (`sed 's/[0-9]+ s\.?$//'`, then `diff`):
+- Everything printed before the "Controls" header, that is the 20 check lines, the 29-row table and section Z: identical.
+- The 20 control summary lines: identical except `unsheared`, which changes from SILENT (failed 5 of its 6 targets) to
+  FIRED (failed all 6, `shear_cross` now with residue -2 v^2 f'^2 z).
+- The 19 other per-control logs: identical. `unsheared.log` and `unsheared.2.log` differ in `shear_cross`
+  PASS -> FAIL and the two summary lines.
+
+Predictions P1 to P5 all held in `dev_checks.run1` and in both final runs. Machine: one process at a time, nice 10, rss 71 MB
+sampled at 16 s of the checks (no peak recorded for the controls), load average 0.4 to 0.8 during the runs.

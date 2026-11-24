@@ -1,0 +1,10 @@
+sheared.py, issue #81. sympy 1.14.0, mpmath 1.3.0, python 3.14.10. mutation: planted-flat (plants R = 0, which satisfies the lemma's premises). sections L
+
+== L. Planted control at the sample points: R = lam eta - 8 pi u u passes, a deformed one fails ==
+[FAIL] planted_pass: lam eta - 8 pi u u, eps = -1: status 'pass' with lam and u u recovered exactly at 0 of 29 points
+[FAIL] planted_sign: the same form with eps = +1: status 'sign' at 0 of 29 points
+[FAIL] planted_deform: the form plus (1/10) E_3 E_3 (rank 2): status 'algebraic' at 0 of 29 points
+[FAIL] planted_premise: the planted form violates (I1) or (I2) of the adapted frame at 0 of 29 points (the lemma's contrapositive)
+
+checks: 0 passed, 4 failed ['planted_pass', 'planted_sign', 'planted_deform', 'planted_premise']. 1 s
+control planted-flat: target checks ['planted_premise'], fired ['planted_premise']

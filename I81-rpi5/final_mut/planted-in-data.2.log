@@ -1,0 +1,65 @@
+sheared.py, issue #81. sympy 1.14.0, mpmath 1.3.0, python 3.14.10. mutation: planted-in-data (replaces the Ricci tensor at the sample points by a planted scalar form). sections DP
+
+== D. Frame Ricci tensor of b = -v f(q), q = X**2 + X*y/2 + y**2 + 2*z**2, on the jets of f ==
+  R_(0,0): 12 terms
+  R_(0,1): 5 terms
+  R_(0,2): 4 terms
+  R_(0,3): 2 terms
+  R_(1,1): 12 terms
+  R_(1,2): 11 terms
+  R_(1,3): 6 terms
+  R_(2,2): 3 terms
+  R_(2,3): 2 terms
+  R_(3,3): 1 terms
+  (frame E_0 = n, E_1 = d_x, E_2 = d_y, E_3 = d_z. G_k = f^(k)(q). The components are polynomials in X, y, z, v, G_0, G_1, G_2, equal to the closed form checked next.)
+[PASS] closed_form: R_ab of route D equals the closed form of any b(t, x, y, z) in its derivatives, for b = -v f(q) with q the sheared one, as a polynomial identity in X, y, z, v, f, f', f''. Components that differ: []
+[PASS] shear_cross: d_y(d_x b) d_z b - d_z(d_x b) d_y b - 2 v^2 f'^2 z = 0, so grad_perp d_x b is along grad_perp b iff v f' z = 0
+[PASS] shear_I1: w = (X/2 + 2*y, 4*z): R(wp, E_0), R(wp, E_1), R(wp, w), R(wp, wp) minus (v f' z, v^2 f' (1 - f) z, 0, 0) = [0, 0, 0, 0]
+[PASS] shear_I2: |w|^2 (R_00 + R_11) + 2 R(w, w) = 0
+[PASS] circular_closed: circular frame w = (y, z): (I1) residues minus [-(v/2)(f'' q_X cp.w - f' z/2), ..., (v^2 f'^2/2)(cp.w)^2] and (I2) + v^2 f'^2 (cp.w)^2, cp.w = z (2y - X/2): [0, 0, 0, 0, 0]
+[PASS] reduction_identity: R(w, E_1) - v (1 - f) R(w, E_0) - v^2 f'^2 q_X |w|^2 = 0
+  Lemma (by hand, phantom_source.md): in any orthonormal frame, R(e_3, .) = 0 and R_00 + R_11 + 2 R_22 = 0
+  force R_ab = lam eta_ab + s u_a u_b to have R_ab = 0. Here R(e_3, .) = (v f' z, v^2 f' (1 - f) z, 0, 0) / |w|,
+  so (I1) fails where v f' z != 0, and the lemma does not apply there.
+
+== P. Scalar-form test at exact points, eps = -1 and +1 (phantom_source.scalar_form) ==
+  A = frame adapted to grad_perp q (w = (q_y, q_z)); C = circular frame (y, z). Both at points where the vector vanishes use (E_2, E_3).
+  |I1|, |I2|: residues of (I1) and (I2) for unit vectors, rel = sqrt(|I1|^2 + |I2|^2) / ||R||_F, ||R||_F over the 16 frame components.
+   #  profile                  kind              v      X      y      z      q       f_q  R!=0    A |I1|   A |I2|    A rel    C |I1|    C |I2|    C rel  eps=-1     eps=+1
+   1  tanh, sigma = 8, R = 1   axis              1      1      0      0      1        -2  True       408      510    0.887       408       510    0.887  pass       sign
+   2  tanh, sigma = 8, R = 1   axis              1     -1      0      0      1        -2  True      57.8      514     1.74      57.8       514     1.74  pass       sign
+   3  tanh, sigma = 8, R = 1   z = 0 plane     1/2    3/5    4/5      0  31/25    -0.864  True      72.2 1.33e+03     1.03      72.2  1.33e+03     1.03  pass       sign
+   4  tanh, sigma = 8, R = 1   critical line     3      1   -1/4      0  15/16    -1.938  True      39.2      593     1.08      39.2       593     1.08  pass       sign
+   5  tanh, sigma = 8, R = 1   X = 0 plane       1      0    1/3    2/3      1        -2  True      11.8      363     1.89      27.9       356     1.86  pass       sign
+   6  tanh, sigma = 8, R = 1   y = 0 plane       3    1/3      0    2/3      1        -2  True       140      231    0.902       138       235    0.909  pass       sign
+   7  tanh, sigma = 8, R = 1   general           3    1/2    1/2    1/2    9/8    -1.503  True       131      379     1.01       149       354    0.962  pass       sign
+   8  tanh, sigma = 8, R = 1   general           1    4/5    1/5    2/5  27/25    -1.747  True      32.9     73.2     1.27      32.9      73.2     1.27  pass       sign
+   9  tanh, sigma = 8, R = 1   general         1/2   -1/5    4/5    2/5  23/25    -1.878  True      28.2     29.6    0.883      30.1      24.8    0.841  pass       sign
+  10  tanh, sigma = 8, R = 1   general           1    5/6    1/2    1/6  29/24    -1.025  True       175      658     1.34       213       599     1.25  pass       sign
+  11  tanh, sigma = 8, R = 1   general           3   -4/7    1/7    4/7  47/49    -1.988  True       4.4     17.7    0.972       3.3      18.8     1.02  pass       sign
+  12  tanh, sigma = 8, R = 1   z axis            1      0      0   7/10  49/50    -2.007  True      32.1      144     1.11      32.1       144     1.11  pass       sign
+  13  tanh, sigma = 8, R = 1   z axis          3/2      0      0   -5/7  50/49    -1.967  True       229  4.1e+03     1.96       229   4.1e+03     1.96  pass       sign
+  14  bump (1 - q / 4)^3       axis            7/4      1      0      0      1   -0.4219  True       113     92.3    0.814       113      92.3    0.814  pass       sign
+  15  bump (1 - q / 4)^3       z = 0 plane     7/4    3/5    4/5      0  31/25   -0.3571  True      30.3     38.7    0.929      30.3      38.7    0.929  pass       sign
+  16  bump (1 - q / 4)^3       general         7/4    1/2    1/2    1/2    9/8   -0.3875  True      23.5 1.34e+03     1.03      28.4  1.34e+03     1.03  pass       sign
+  17  bump (1 - q / 4)^3       general         7/4   -1/5    4/5    2/5  23/25   -0.4447  True       116      339    0.971       123       329    0.953  pass       sign
+  18  bump (1 - q / 4)^3       general         7/4    3/2    1/3   -1/2   28/9  -0.03704  True      61.8     14.2    0.939      62.3      12.3    0.941  pass       sign
+  19  bump (1 - q / 4)^3       z axis          7/4      0      0    1/2    1/2   -0.5742  True      36.4     74.6     1.19      36.4      74.6     1.19  pass       sign
+  20  1 / (1 + q^2)            general           2    4/5    1/5    2/5  27/25   -0.4602  True      58.1     72.4    0.936      58.1      72.4    0.936  pass       sign
+  21  1 / (1 + q^2)            X = 0 plane       2      0    1/3    2/3      1      -0.5  True       449     44.7    0.953       438      84.9    0.943  pass       sign
+  22  1 / (1 + q^2)            general         3/2    1/3   -2/5    3/4 2393/1800   -0.3472  True       221      156     1.02       173       298      1.3  pass       sign
+  23  random jets              general         8/3    1/2    1/2    1/2    9/8         1  True      51.3      160    0.961      51.6       160     0.96  pass       sign
+  24  random jets              general         5/3    5/6    1/2    1/6  29/24    0.1667  True      55.5     36.6    0.912      53.2      43.4    0.941  pass       sign
+  25  random jets, f = 1       general         3/2    4/5    1/5    2/5  27/25       1.5  True      4.09      150     1.01      4.09       150     1.01  pass       sign
+  26  random jets, f' = 0      general         5/2    4/5    1/5    2/5  27/25         0  True       227      112    0.888       227       112    0.888  pass       sign
+  27  random jets, c1 = 0      general           2    1/2    1/2    1/2    9/8      -1.5  True      21.1 1.35e+03     1.01        59  1.34e+03     1.01  pass       sign
+  28  random jets, c2 = 0      general           2    1/2    1/2    1/2    9/8      -1.5  True       330      445     0.87       308       490    0.909  pass       sign
+  29  bump, beyond it (f = 0)  general         7/4      2      1    1/2   13/2         0  True     0.125      211     1.63      12.7       208     1.62  pass       sign
+[PASS] points_xcheck: route D equals route E (explicit b, sympy's own derivatives) in all 16 frame components at 29 of 29 sample points
+[FAIL] points_residues: at 0 of 29 points the adapted-frame residues equal (v f' z, v^2 f' (1 - f) z, 0, 0) for (I1) and 0 for (I2). (I1) fails at 29 of 29 points, the premises of the lemma hold at 0
+[FAIL] points_outcome: 29 points, both signs (58 tests). R != 0 gives 'algebraic' (no lam makes R - lam eta of rank <= 1) and R = 0 gives 'trivial'. 0 points with f'(q) != 0 are 'algebraic' at both signs, 0 point is 'trivial', 29 points differ from that
+[PASS] lemma_agree: at the 0 points where (I1) and (I2) hold, scalar_form agrees with the lemma ('algebraic' if R != 0, 'trivial' if R = 0) at both signs: 0 differ
+[FAIL] reduction_agree: the by-hand reduction predicts scalar_form's status at 0 of 29 points, both signs
+
+checks: 8 passed, 3 failed ['points_residues', 'points_outcome', 'reduction_agree']. 29 s
+control planted-in-data: target checks ['points_outcome', 'points_residues'], fired ['points_outcome', 'points_residues']
