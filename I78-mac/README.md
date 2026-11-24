@@ -42,7 +42,48 @@ Mutations, each must exit 1 with its target failing:
 | `psd` | at one bump point R₃ replaced by λη₃ + ε n nᵀ with the weighted trace −2λ (rank-1 N), λ = −1 | F2 |
 | `accA` | the A w′ c term dropped from the typed R₀₀ | F3 |
 | `qh` | the expected b(ρ) solution with Q = h | F4 |
+| `psdmp` | added after run 1: the planted rank-1 N of `psd` at the first tanh point, through the 60-digit branch | F2 |
 
 ## Results
 
-Written after the runs.
+| file | what |
+|---|---|
+| `rerun/same_sign_full.*` | the rerun at 1d59d2f: stdout, `/usr/bin/time -l`, exit code |
+| `rpi5_output.txt` | `same_sign_scalars_output.txt` at 1d59d2f, for the comparison |
+| `ind78_run1.*` | run 1: every criterion passes |
+| `ind78_mut_psdmp_run1crash.txt` | `psdmp` on run 1's code: a crash in mpmath's `polyroots` |
+| `ind78_run2.py`, `.txt` | run 2: every criterion passes (`ind78.py` is the same version) |
+| `ind78_mut_*.txt` | the 8 mutations, on run 2's version |
+
+**Rerun** (exit 0, 85 s, 86 MB peak): 31 of 31 checks pass and 22 of 22 controls fire. The output equals rpi5's line
+for line apart from the timings and the Python version.
+
+**ind78 run 1** passed every criterion, and the 7 mutations of the table fired on target. None of them reached F2's
+60-digit branch (the tanh points), so `psdmp` was added after run 1. On run 1's code it crashed: the planted N makes the
+quadratic minor's root double, and mpmath's `polyroots` does not converge there. A real double root at a tanh point
+would have crashed F2 in the same way. Run 2 takes the roots of that quadratic from the quadratic formula. Nothing else
+changed, and the criteria did not change.
+
+**ind78 run 2** (exit 0, 1 s):
+
+| criterion | run 2 |
+|---|---|
+| F0 | Painlevé–Gullstrand Ricci-flat; P1, P2 and D2 exactly as printed |
+| F1 | the six entries as printed (mod the circle); F = s²c²B/(8r³); B affine in s² with constant term −2w′(u² + V²); the certificate is an identity |
+| F2 | R₃ indefinite and no real λ with rank(R₃ − λη₃) ≤ 1: bump 3 of 3, explicit 18 of 18, random 4 of 4 (exact), tanh 18 of 18 (60 digits) |
+| F3 | the accelerating entries with A = v_s′/v_s as printed at 3 of 3 exact points, no common real root there; the v_s = 0 block as printed at 2 of 2 |
+| F4 | R₃ of b(ρ) as printed; `sympy.solve` gives exactly {λ = h, Q = 0}; D3 at 3 points: inertia (0, 2), kernel span(n, ∂_ρ), the bracket outside it. R(e_ϕ, ·) = 0 is printed, not a criterion |
+
+Re-solve: F2, the absence of a rank-1 λ at the 43 wall points, by the gcd of the minors in place of #78's 3 × 3 minors
+of the 4 × 4 pencil.
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `pg` | 1 | F0 | yes |
+| `d2lam` | 1 | F0 | yes |
+| `r00` | 1 | F1, F3 (both use the typed entries) | yes |
+| `bconst` | 1 | F1 | yes |
+| `psd` | 1 | F2 | yes |
+| `psdmp` | 1 | F2 | yes |
+| `accA` | 1 | F3 | yes |
+| `qh` | 1 | F4 | yes |
