@@ -153,6 +153,31 @@ ten pass). Then `run_final.run2.log`: the full run with `--logdir=final_mut` (th
 about 25 min); the final `notes/warp/bessel_closure_output.txt` is the stdout of that full run. Peak memory from
 `/usr/bin/time -v`. Each as a systemd user unit `nm-i162-<step>` with the exit code in a `.rc` file.
 
+## Runs of record
+
+Script of record: commit ba9a31d of `wip/i162-bessel-closure` (`notes/warp/bessel_closure.py`, sha256 c770c0fb...; identical to the
+draft that ran in scratch). Note and output: 115fc31.
+
+| log | command | exit | wall | peak RSS | result |
+|---|---|---|---|---|---|
+| `run_final.run1.log` | `bessel_closure.py --no-controls` | 0 | 100 s | 71 MB | 10 of 10 checks pass |
+| `run_final.run2.log` | `bessel_closure.py --logdir=final_mut` (checks, then 13 controls) | 0 | 22 min 43 s | 72 MB | 10 of 10 pass; 13 of 13 controls FIRED on target only |
+
+`final_mut/mut_<name>.log` is each control's own stdout. `notes/warp/bessel_closure_output.txt` is `run_final.run2.log`. Both runs
+were one process, nice 10, as systemd user units `nm-i162-run1` and `nm-i162-run2`; the `.time` files hold `/usr/bin/time -v`.
+
+Results against the criteria above: nothing failed, no control was silent or off target, no threshold was touched. Largest
+residuals: `bessel` 1.77e-74 and 4.03e-76 at 80 digits (thresholds 1e-50). Observations printed (not criteria): the real roots of P at
+c = 1, and the sign-change counts along the five members. The four jets with g' = 0 return 'omega closed' from
+`two_scalars.closure` (pointwise, not decisive); the criterion only required that it not report 'no chi' there.
+
+Disagreement with the issue text, reported: the issue asks for an expression "nonzero on the ODE for all (c != 0, g', rho, eps)".
+O_k + O_m = 2 g'(g'^2 + 4 c^2) is nonzero for all g' != 0 but vanishes at g' = 0, where g'' = 2 eps c^2 makes the zeros isolated
+on every member; each of O_k, O_m alone also vanishes on a hypersurface of the jets (exact jet (-2, 1, 4/39, +1) has O_k = 0).
+
+The scratch exploration scripts were run twice: once interactively (output seen, not saved), once more to save the `scratch_*.log`
+files here, with unchanged code.
+
 ## Amendments
 
-(none yet)
+(none)
