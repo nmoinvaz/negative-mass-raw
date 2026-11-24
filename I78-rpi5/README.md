@@ -91,3 +91,33 @@ reported, not adjusted.
   A), `explore_iso0` (a numerical search for isolated wall points that pass the stage).
 
 ## Changes and results recorded after this README
+
+### 2026-11-24, after pilots 1 to 5 and before the final run
+
+Pilot logs: `pilot_01_stop2.log`, `pilot_02_stop3.log` (stopped by hand after 2 min 52 s inside D1's `closure2`, see
+below), `pilot_03_stop3.log`, `pilot_04_stop5.log`, `pilot_05_full_nocontrols.log` (all sections, 27 s, ~100 MB:
+30 of 31 checks pass, `brho_rank1` fails), `pilot_ctl_<name>.log` for the first three controls.
+
+- **Geometry change in the planted metrics.** The first shear, Ro = Rn + T/3 + Z/11, made `closure2` on D1 run for more
+  than 2 min 52 s (killed, log kept). The final shear is to = T + Z/3, zo = Z, Ro = Rn, Tho = Th + T/7 + Z/5. The kernel
+  vectors K_1 = d_T - d_Th/7, K_2 = d_Z - d_Th/5 are still not coordinate vectors and Lambda(x) still depends on the
+  point. No criterion changes. Section 3 now takes 6 s.
+- **C8 as coded: FAIL.** `brho_rank1` tested equality of ideals, <minors, 1 - zz h> = <lam - h, Q, 1 - zz h>
+  (`pilot_05_full_nocontrols.log`). The inclusion "minors in <lam - h, Q>" holds, the converse does not: the Groebner
+  basis with h != 0 is {lam - h, Q^2} (`explore/explore_brho_radical.log`), so the ideal is not radical. The criterion C8
+  says "has the solutions Q = 0, lam = h (h != 0) and no other", a statement about the zero set. The code tested more
+  than the README says. The failing log stays as the record.
+- **C8 recoded as worded (coordinator, hc 2026-11-24), written before the rerun.** Let I be the ideal of the nine 2 x 2
+  minors of R_3 - lam eta_3 (symbols lam, h, Q) and I_h = I + <1 - zz h> the saturation by h. (a) Every generator of I
+  reduces to 0 modulo <lam - h, Q>: the points lam = h, Q = 0 are solutions. (b) lam - h and Q are in the radical of
+  I_h: 1 is in I_h + <1 - y (lam - h)> and in I_h + <1 - y Q> (Rabinowitsch, no exponent chosen). Both directions pass
+  or the check fails. The basis {lam - h, Q^2} is printed as information and does not gate the result. The rest of the
+  check (R_3 of b(rho) equals [[-h, Q, 0], [Q, -h, 0], [0, 0, h]]; Q = 0 for b = C ln rho + b_0) is unchanged.
+- **Control `brho-q` kept.** Expected solution lam = h, Q = h in place of Q = 0. Prediction: (b) fails for Q - h (Q - h
+  is not in the radical, since lam = h, Q = 0 is a solution with h != 0) and (a) fails too (the generator
+  h^2 - lam^2 - Q^2 equals -h^2 at lam = h, Q = h). Target check: `brho_rank1`.
+- **Other facts recorded.** `explore_iso0`: 0 of 40 random trials found an isolated wall point that passes the stage
+  (a weak search, not a claim). `lemmaS-weight`: 8 of the 24 samples disagree with the lemma in that control
+  (`pilot_ctl_lemmaS-weight.log`), so it is strong. The first twenty controls (all but `brho-q` and `d3-bracket`) run
+  as one detached batch (`run_controls.sh`, unit `nm-i78-ctl1`, `ctl_batch.log`) on the script at 714a211, before the
+  C8 recoding; none of them reaches section 7.

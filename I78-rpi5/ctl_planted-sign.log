@@ -1,0 +1,8 @@
+same_sign_scalars.py, issue #78. sympy 1.14.0, mpmath 1.3.0, python 3.14.10. mutation: planted-sign (builds the planted forms as lam eta + a a - b b)
+
+== 1. Planted truth: R = lam eta + s (a a + b b) passes for s = +1 and -1, other forms fail ==
+[FAIL] planted_pass: 12 random lam eta + s (a a + b b), six with s = +1 and six with s = -1, transformed: lam recovered with rank 2 and the planted pattern in all but 12 [(-7/5, 'PP', [(-7/5, (1, 1))]), (-2/7, 'MM', [(-2/7, (1, 1))])]
+[PASS] planted_fail: 12 random forms with squares (+,-), (-,+), (+,+,+), (-,-,-), (+,+,-), (+,-,-): no admissible root in all but 0 []
+
+checks: 1 passed, 1 failed ['planted_pass']. 1 s
+control planted-sign: target checks ['planted_pass'], fired ['planted_pass']
