@@ -198,3 +198,8 @@ The new checks, criteria written now:
   have the Groebner basis [1] in (t, km2, km1, a, kappa, v) (grevlex over Q). Control `m-laurent-coef` (target C20): Gamma_6 expected 10 R0^4 k1^2.
 - C21 `trav_pole`. For m = mu (X - X1)^(-k), beta = X m'/2, k = 1..6: the leading coefficient of Theta = 20 m^2 + 2 m beta - 4 beta^2 at X1 is -k^2 X1^2 mu^2 (pole order 2k+2), which is > k. Control `m-pole-theta` (target C21): Theta without -4 beta^2.
 Verdict logic: traveling v != 0 is "no solution" iff C13 to C21 and the static checks pass. Steps (1)-(4) other than the numbers above are by hand; the note says which.
+
+**A7 (2026-11-24, before the first run of C17 to C21).** The control `m-unit-sign` of A6 is predicted silent on C17, by a hand computation done after writing A6: for P = a R^2, S = s R^2, q = s R^2 - a R,
+the identity with - P q_R gives s = 0, a = 0, and with + P q_R it also gives s^2 = 0, s a = 0 and a^2 = -2 a^2, i.e. a = 0, so the target does not change. It is still run once as written, its log is kept, and it is reported as silent,
+not counted among the fired controls. Its replacement, target C17 unchanged: `m-unit-v` evaluates part (i) at v = 1/3 and v = -1 instead of v = 1 and v = -1 (F_1 is not 0 at v = 1/3, so (i) fails).
+The other new controls (`m-exp-sign`, `m-dg-sign`, `m-exp-allow`, `m-y0-p1`, `m-laurent-coef`, `m-pole-theta`) were checked by hand for the same kind of silence before this amendment; `m-dg-sign` gives the extra solution a_2 = s_1/3 with q != 0.
