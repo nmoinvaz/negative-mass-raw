@@ -155,3 +155,20 @@ Nothing was changed: threshold, delta, c, eps and z-points stay. Asked the coord
 
 **A4 (2026-11-24, before the run of record).** The control runner counts a control as fired when the exit code is 1 and the failed checks, minus the
 baseline failures (`add_perturbed`), are exactly its target. This replaces "exactly its target" in the Controls section for the baseline failure only.
+
+**A5 (2026-11-24, before the first run of these checks; Part B, traveling v != 0).** Two checks and two controls are added. They decide only part of the
+traveling case; the rest is reported as not decided. Both use the ten-term separation F.G of C13 (F, G as in C13, coefficient of F_2 and F_7 is a nonzero
+multiple of v).
+- C15 `trav_exp` (exponential X). Pass iff (i) exact, symbolic v: at m = lambda^2, beta = 0 the sum F_8 G_8 + F_9 G_9 + F_10 G_10 equals
+  X0^4 R0^4 (c + 4 lambda^2)(c + 5 lambda^2), and each of F_1..F_7 is a constant times X0^k with k in {1, 2, 3}; (ii) exact: (c + 4 lambda^2)(c + 5 lambda^2) > 0 for
+  c = n/10 (n in 0..60) and lambda = k/4 (k in 1..8); (iii) numerical (130 digits) d_F = 4 for X = exp(lambda x), lambda in {1/2, 1, 3/2}, v in {1/3, 2}, at 10
+  points x = j/7. So X^4 is independent of X, X^2, X^3, its coefficient must vanish, and it cannot for real c >= 0, lambda != 0. Control `m-exp-sign` (target C15):
+  the grid of (ii) with c = -n/10.
+- C16 `trav_dg5` (the rho-side has d_G >= 5). Notation: the six functions beyond R, R^2, R^3, R^4 are S, T = (v^2+1) P - 6 R S, S^2, R P, P^2, R^2 P with P = R'^2 as a
+  function of R (R' != 0). Let P4 = span{R, R^2, R^3, R^4}. Pass iff (i) exact, with P = sum_{k=1}^4 a_k R^k and S = sum_{k=1}^4 s_k R^k, the conditions
+  "R P, R^2 P, P^2, S^2 are polynomials in R of degree <= 4 without constant term" leave P = a_1 R + a_2 R^2 and S = s_1 R + s_2 R^2; (ii) exact (sympy solve over C): the
+  consistency identity q^2 = (P_R/2) q - P q_R, q = S - P_R/2, which comes from rho = sqrt(P)/q and d rho/dR = 1/sqrt(P), has only solutions with q = 0 (so R' = rho q = 0, excluded);
+  (iii) numerical d_G >= 5 (130 digits, 12 points rho = 1 + j/4, v = 1/3) for the thirteen R of C5 and for R = rho^2 (where it is 5). Hence d_G = 4 is impossible. Control
+  `m-dg-sign` (target C16): the identity with + P q_R in place of - P q_R in (ii).
+- Consequence used in the note: for v != 0, d_G >= 5, d_F >= 4 (F_2, F_4, F_7, F_9 are nonzero multiples of m X, m X^2, m X^3, m X^4), d_F + d_G <= 10, so 4 <= d_F <= 5. Not
+  claimed as a check; the note marks what is by hand.
