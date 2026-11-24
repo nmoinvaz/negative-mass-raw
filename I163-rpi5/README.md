@@ -168,4 +168,14 @@ from `LEG`, R1 and the extended `MUTATIONS` table). The commit is named in the f
 
 ## Amendments
 
-(none yet)
+1. **run1 (`run1_new.log`, rc 1) crashed in its first check, N1a**, with a ZeroDivisionError of the derived W at γ₁ = 10, x = 10: that sample point of §3 is
+   exactly the throat, where the derived W is 0/0 (removable; #151's B had the same at γ₁ = 0). A code defect of the check, not a failed
+   criterion. Fix: `derived_wbar_mp` uses #151's symmetric average (x ± 1e-8) when |x − γ₁| < 1e-14. The sample points, the 60 digits and the
+   1e-12 are unchanged. Log kept; the rerun is `run2_new.log`.
+2. **run2 (`run2_new.log`, rc 1, 3 min 55 s): P-C2 fails at γ₁ = 5.0 (9.3e-8, criterion 1e-8) and 10.0 (4.8e6); LE5(a) fails (criterion ≤ 0.001, value
+   −0.00165).** Nothing in either criterion is changed. LE5(a) is the issue's acceptance reported as it is (§ results). For P-C2 the cause was computed
+   (`diag_pc2_growth.py/.log`): the manufactured test integrates along an arc on which the unwanted homogeneous solution grows by 1.7e2, 3.4e4, 1.4e9 at
+   γ₁ = 2.5, 5, 10 (b/sc = 1.3), so the test amplifies its own 1e-12 integration error; the real use of method C integrates in the stable
+   direction and agrees with A to 1.5e-12 (G2b). The coordinator is asked how to treat P-C2 (hc message, answer recorded below).
+3. The diagnostic "Richardson in 1/γ₁ from 80 and 160" of §3's list printed T_inf = 0.588341, but the gaps of LE6 fall by 4 per doubling
+   (order 2), not 2. The diagnostic now also prints the measured order and the extrapolation with it. A diagnostic, not a check; no criterion involved.

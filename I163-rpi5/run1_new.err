@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-i163/notes/ellis_efold.py", line 1592, in <module>
+    main()
+    ~~~~^^
+  File "/home/nathan/Source/negative-mass-i163/notes/ellis_efold.py", line 1577, in main
+    run_new()
+    ~~~~~~~^^
+  File "/home/nathan/Source/negative-mass-i163/notes/ellis_efold.py", line 1525, in run_new
+    check_far_field()
+    ~~~~~~~~~~~~~~~^^
+  File "/home/nathan/Source/negative-mass-i163/notes/ellis_efold.py", line 1146, in check_far_field
+    ref = f(mp.mpf(x), mp.mpf(g)) * mp.exp(-4 * mp.mpf(g) * mp.atan(mp.mpf(g)))
+          ~^^^^^^^^^^^^^^^^^^^^^^
+  File "<lambdifygenerated-2>", line 17, in _lambdifygenerated
+    x15 = 1/x8
+          ~^~~
+  File "/home/nathan/Source/negative-mass-venv314/lib/python3.14/site-packages/mpmath/ctx_mp_python.py", line 205, in __rdiv__
+    v._mpf_ = mpf_rdiv_int(t, s._mpf_, prec, rounding)
+              ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-venv314/lib/python3.14/site-packages/mpmath/libmp/libmpf.py", line 991, in mpf_rdiv_int
+    return mpf_div(from_int(n), t, prec, rnd)
+  File "/home/nathan/Source/negative-mass-venv314/lib/python3.14/site-packages/mpmath/libmp/libmpf.py", line 960, in mpf_div
+    raise ZeroDivisionError
+ZeroDivisionError
