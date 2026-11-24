@@ -1,0 +1,6 @@
+# review_lemma_a3_l4: L4, the DG mode and the intertwining
+# mutations on: l4_alg
+PASS PLL.1
+PASS PLL.2
+FAIL L4.1: A A* - H_Z: 2*(-u(X)*Derivative(psi(X), (X, 2)) - Derivative(psi(X), X)*Derivative(u(X), X))/psi(X); A* A - H-hat: 2*(-psi(X)*Derivative(u(X), X) - u(X)*Derivative(psi(X), X))*Derivative(psi(X), X)/psi(X)**2; H-hat A* - A* H_Z: 2*(psi(X)*u(X)*Derivative(psi(X), (X, 3)) + 2*psi(X)*Derivative(psi(X), (X, 2))*Derivative(u(X), X) - u(X)*Derivative(psi(X), X)*Derivative(psi(X), (X, 2)) - 2*Derivative(psi(X), X)**2*Derivative(u(X), X))/psi(X)**2; H_Z A - A H-hat: 0
+# summary: 2 PASS, 1 FAIL, 0 DIFFERS

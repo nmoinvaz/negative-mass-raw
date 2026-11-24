@@ -1,0 +1,15 @@
+# review_lemma_a3_dg61: V-hat in x near 0 against DG09 (61)
+# mutations on: cn_n4to3
+PASS PLE.4a
+PASS PLE.4b
+# r^4 V-hat = 12 + (2*(l**2 + l + 3)) r + (l*(l + 1)) r^2 + ...
+# r(s) = -s**4/135 + s**3/18 + 2*s**2/3 + 2*s, s = sqrt(x)
+PASS E2.6[x^-2]
+PASS E2.6[x^-3/2]
+DIFFERS E2.6[x^-1]: coefficient of x^-1: series gives 0, DG09 (61) prints -l*(l + 1)/4
+PASS E2.6b
+# l=2: x (V-hat - 3/(4x^2) - (l^2+l-1)/(4 x^1.5)) at r = 1e-8: 3.5 (DG09 prints -1.5)
+# l=3: x (V-hat - 3/(4x^2) - (l^2+l-1)/(4 x^1.5)) at r = 1e-8: 13.0 (DG09 prints -3.0)
+# l=5: x (V-hat - 3/(4x^2) - (l^2+l-1)/(4 x^1.5)) at r = 1e-8: 77.5 (DG09 prints -7.5)
+FAIL E2.6c: largest |x(V-hat - ...)| = 77.5, below 1e-6
+# summary: 5 PASS, 1 FAIL, 1 DIFFERS

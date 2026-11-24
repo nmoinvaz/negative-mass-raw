@@ -1,0 +1,594 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/2dFZs74ziF2wMEG+BjrnLkc1TIw</id>
+  <title>arXiv Query: search_query=&amp;id_list=2608.24577,2610.13206,2603.04400,2408.00154,2201.03640,0809.3615,gr-qc/0604021,gr-qc/0604101,hep-th/0409307,1407.1457,1910.01774,1807.06468,1204.1269,1409.6978,0805.3211,1606.07304,2302.07889,1105.1498,2605.10976,2603.13210,2602.15058,2601.22910,2604.00071,2411.00933,1406.0841&amp;start=0&amp;max_results=100</title>
+  <updated>2026-11-24T01:51:26Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=&amp;start=0&amp;max_results=100&amp;id_list=2608.24577,2610.13206,2603.04400,2408.00154,2201.03640,0809.3615,gr-qc/0604021,gr-qc/0604101,hep-th/0409307,1407.1457,1910.01774,1807.06468,1204.1269,1409.6978,0805.3211,1606.07304,2302.07889,1105.1498,2605.10976,2603.13210,2602.15058,2601.22910,2604.00071,2411.00933,1406.0841" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>100</opensearch:itemsPerPage>
+  <opensearch:totalResults>25</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2610.13206v2</id>
+    <title>Binary Ellis-Bronnikov wormholes in 3+1 numerical relativity: mergers, fly-bys and gravitational waves</title>
+    <updated>2026-10-24T08:43:27Z</updated>
+    <link href="https://arxiv.org/abs/2610.13206v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.13206v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present what are, to our knowledge, the first three-dimensional numerical-relativity evolutions of wormhole binaries: pairs of massive Ellis-Bronnikov wormholes held open by a phantom scalar field, whose energy density is nowhere positive. We construct constraint-satisfying initial data for single throats and for pairs, at rest and with orbital momentum, and evolve them with adaptive mesh refinement. An isolated throat is unstable: depending on the sign of a small perturbation, it collapses to a black hole or inflates, at the rate that linear perturbation theory predicts to within 1.9%. Two throats at rest repel when their scalar charges have the same sign and attract when the signs are opposite, with a strength ratio close to the scalar force law's prediction, so only opposite-signed pairs merge. A head-on collision forms a common horizon around both throats while they are still open. The horizon then loses 28% of its area as it absorbs the scalar field, and approaches the Schwarzschild radius of the pair's mass. Pairs that fly past each other form no horizon, and both throats inflate. Every encounter emits a short burst of gravitational waves and a scalar dipole wave of comparable, negative energy. An isolated collapsing throat rings at the quasinormal frequency of the black hole it becomes. No throat survives more than a few orbital periods, even when its initial perturbation is tiny, so these binaries do not inspiral. The results hold for one phantom-scalar model, equal masses, a single throat compactness and no spin.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="astro-ph.HE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-09T08:25:16Z</published>
+    <arxiv:comment>23 pages, 12 figures, 7 tables; 12 movies as ancillary files. Code and data: https://doi.org/10.5281/zenodo.23257999. v2: text rewritten for readability, convergence test with rescaled differences (Fig. 10); results unchanged</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>Nikita M. Shirokov</name>
+    </author>
+    <author>
+      <name>Ilya Nachevsky</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.24577v2</id>
+    <title>The Bondi dipole in full numerical relativity: a self-accelerating positive-negative mass binary</title>
+    <updated>2026-10-26T10:34:45Z</updated>
+    <link href="https://arxiv.org/abs/2608.24577v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.24577v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Bondi showed in 1957 that a body of negative active gravitational mass and a positive one should accelerate together without limit while their total momentum stays zero. We test this prediction in full 3+1 numerical relativity, from constraint-satisfying initial data. The matter is two complex scalar fields with identical self-interactions, one of which enters the Einstein equations with the opposite sign; its stars have positive inertial and passive masses but negative active and Arnowitt-Deser-Misner (ADM) masses. To our knowledge, they are the first asymptotically flat bodies of negative ADM mass evolved in numerical relativity. A pair of stars with equal and opposite ADM masses accelerates as a single object at constant separation, and its total momentum stays zero to within 0.5%. The acceleration follows Newton's law of gravitation in both mass and separation, reverses when the stars are exchanged, and is absent in same-sign pairs and isolated stars. We detect no gravitational radiation. The results hold for head-on pairs released from rest, up to a few percent of the speed of light, and in the longest run the pair reaches a tenth of it with both stars intact.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="astro-ph.HE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-25T14:04:41Z</published>
+    <arxiv:comment>13 pages, 9 figures, 5 ancillary videos. Code, run matrix and packed data: https://github.com/Nikchik-coder/GRTeclyn (tag v2.0-bondi-dipole, doi:10.5281/zenodo.23662692). v2: fourth-order time integration and corrected initial data, all simulations rerun, resolution study added, second author added; the qualitative results are unchanged</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>Nikita M. Shirokov</name>
+    </author>
+    <author>
+      <name>Ilya Nachevsky</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.10976v1</id>
+    <title>Unique Gravitational-Wave Signals from Negative-Mass Binaries</title>
+    <updated>2026-05-08T23:06:23Z</updated>
+    <link href="https://arxiv.org/abs/2605.10976v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.10976v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Negative masses have long been explored, but their observational viability remains unclear. In this work, we develop a unified, observationally testable framework to constrain negative masses using both coupling level and dynamical probes. We establish that while dipole radiation bounds require universality of gravitational charge, the intrinsic dynamics of negative mass binaries generically lead to anomalous behaviors such as anti-chirps, dispersal and runaway motion. These signatures are absent in current gravitational wave observations, providing a robust exclusion channel independent of modified gravity assumptions.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="astro-ph.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-08T23:06:23Z</published>
+    <arxiv:comment>7 pages with 2 figures, comments very welcome !</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <arxiv:journal_ref>Physics of the Dark Universe, Volume 53, 2026, 102409</arxiv:journal_ref>
+    <author>
+      <name>Oem Trivedi</name>
+    </author>
+    <author>
+      <name>Abraham Loeb</name>
+    </author>
+    <arxiv:doi>10.1016/j.dark.2026.102409</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.dark.2026.102409" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00071v1</id>
+    <title>Wormhole Dynamics: Nonlinear Collapse and Gravitational-Wave Emission</title>
+    <updated>2026-03-31T13:46:51Z</updated>
+    <link href="https://arxiv.org/abs/2604.00071v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2604.00071v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present 3D numerical-relativity evolutions of the unstable Ellis-Bronnikov wormhole using GRTeclyn, starting from exact isotropic initial data for the coupled Einstein-phantom-scalar system. With a flat initial lapse (alpha=1) and full phantom support, truncation-level noise eventually drives the rarefactive instability and rapid throat expansion. To force a clean collapse while breaking spherical symmetry, we reduce the phantom stress-energy support to S_support=0.5 and add a quadrupolar scalar-field perturbation (A_phi=+0.02, sigma_phi=0.5). The resulting compressive evolution forms a trapped surface and emits a gravitational-wave signal whose peak propagates between extraction radii at v approx c, distinct from superluminal CCZ4 constraint modes. After horizon formation the swallowed phantom matter triggers a violent rebound ("phantom bounce") that launches an outward curvature shock. For the moderate perturbation amplitude simulated here, an intermediate-mass (10^3 solar mass) wormhole at D=1 Mpc falls slightly below the Advanced LIGO design sensitivity; detection requires either closer sources, larger initial asymmetries, or next-generation detectors.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="astro-ph.HE" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-ex" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-31T13:46:51Z</published>
+    <arxiv:comment>13 pages, 7 figures. C++ source code, simulation parameters, and extraction data are available at https://github.com/Nikchik-coder/GRTeclyn</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>Nikita M. Shirokov</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.13210v2</id>
+    <title>Challenging the Weak Cosmic Censorship with Phantom Fields</title>
+    <updated>2026-11-06T18:02:06Z</updated>
+    <link href="https://arxiv.org/abs/2603.13210v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.13210v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Penrose's weak cosmic censorship conjecture asserts that spacetime singularities produced by gravitational collapse are generically hidden behind event horizons, thus preventing them from causally influencing distant observers and preserving the predictability of the exterior region. In this work, we probe this conjecture in a setup that deliberately violates one of its central assumptions - the dominant energy condition - by considering the spherical collapse of a phantom scalar field with negative energy density. In principle, such a field could produce a Schwarzschild geometry with negative mass and therefore no event horizon. Our aim is to assess whether, once the dominant energy condition is abandoned, the fully coupled evolution of matter and geometry can dynamically generate or expose naked singularities, thereby probing the robustness of cosmic censorship. To this end, we perform high-accuracy numerical relativity simulations based on fourth-order finite-difference schemes. Starting from smooth, asymptotically flat initial data representing regular phantom scalar wave packets, we follow their fully nonlinear evolution through collapse or dispersion. While an ordinary (positive-energy) scalar field exhibits the standard Choptuik critical behavior at the threshold of black-hole formation, the phantom field displays qualitatively different dynamics. For all amplitudes considered, we find no evidence for trapped surfaces, naked singularities, or alternative stationary end states. Instead, the phantom scalar field disperses in all the configurations studied. Within the parameter space explored, we find no dynamical violation of cosmic censorship.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="astro-ph.HE" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-13T17:46:09Z</published>
+    <arxiv:comment>15 pages, 18 figures; v2: version accepted for publication in Phys. Rev. D</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>Giovanni Caridi</name>
+    </author>
+    <author>
+      <name>Fabrizio Corelli</name>
+    </author>
+    <author>
+      <name>Paolo Pani</name>
+    </author>
+    <arxiv:doi>10.1103/3c7y-437m</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1103/3c7y-437m" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.04400v1</id>
+    <title>Gravitational confinement of ghost scalar fields in neutron stars</title>
+    <updated>2026-03-04T18:59:59Z</updated>
+    <link href="https://arxiv.org/abs/2603.04400v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.04400v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We investigate the effects, stability, and nonlinear dynamics of ghost scalar matter modeled as a field with a negative kinetic term confined within the cores of neutron stars. To this end, we analyze static configurations of the coupled Einstein-Euler-(ghost, complex) Klein-Gordon system and then we perform fully dynamical numerical evolutions of illustrative cases. Our results demonstrate that neutron stars can gravitationally confine a finite amount of ghost matter and support continuous families of equilibrium solutions, indicating that these configurations are not the result of fine tuning. We analyze the properties of the final states and find that the neutron star undergoes a persistent pulse-like oscillatory motion. In particular, we explicitly compute the frequency synchronization between the stellar fluid oscillation modes and those of the ghost scalar sector.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-04T18:59:59Z</published>
+    <arxiv:comment>18 pages,18 figures</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>Argelia Bernal</name>
+    </author>
+    <author>
+      <name>Víctor Jaramillo</name>
+    </author>
+    <author>
+      <name>Néstor A. Montiel-Hernández</name>
+    </author>
+    <author>
+      <name>Darío Núñez</name>
+    </author>
+    <author>
+      <name>Nicolas Sanchis-Gual</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2602.15058v2</id>
+    <title>May Negative Mass Objects exist in the sky?</title>
+    <updated>2026-05-27T05:29:23Z</updated>
+    <link href="https://arxiv.org/abs/2602.15058v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2602.15058v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We conjecture the possibility of negative mass objects (NMOs) existing in the sky. It is shown that they may not be so exotic as usually expected. We show that NMOs appear as solutions of standard gravitational equations if we consider the system of a compact positive mass object, cosmological fluid and negative cosmological constant. We also construct models which generate such NMOs as solutions within the two-scalar theory and scalar-Einstein-Gauss-Bonnet gravity inspired by string theory. The orbits of the photon and massive particles are investigated in the background, where there is a negative mass object which realises a kind of effective anti-gravity. It is explicitly found that the bound system consisting of a positive mass object and a negative mass object can be formed in spite that a positive mass object suffers the repulsive force from the NMO. The possibility that such exotic objects might be observed is discussed. A simple conjecture about their possible masses is made, too. As an even more exotic object, we consider a non-trivial object with vanishing mass and investigate its properties.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="astro-ph.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-02-13T07:25:30Z</published>
+    <arxiv:comment>LaTeX 20 pages, to appear in Physics of the Dark Universe</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>Shin'ichi Nojiri</name>
+    </author>
+    <author>
+      <name>S. D. Odintsov</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.22910v3</id>
+    <title>The Bondi universe: Can negative mass drive the cosmological expansion?</title>
+    <updated>2026-04-20T15:45:28Z</updated>
+    <link href="https://arxiv.org/abs/2601.22910v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.22910v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We identify a new cosmological coincidence that parallels the well-known matter/dark-energy coincidence: the present-epoch transition of the universe from a weakly coupled (collisionless) to a strongly coupled (collisional) gravitational regime. Within a cosmological model containing equal amounts of positive and negative Bondi masses -- consistent with the weak equivalence principle and momentum conservation -- we show that this coupling transition naturally coincides with the shift from a coasting to an accelerating expansion. A linear response analysis of the corresponding Vlasov-Poisson system reveals that mixed positive-negative mass configurations are always unstable, with growth rates that increase at shorter wavelengths, thereby driving the system toward strong coupling. Using long-time, exact one-dimensional N-body simulations, we demonstrate that the universe undergoes three successive expansion phases: an initial ballistic regime, an intermediate random-walk acceleration driven by sporadic Bondi encounters, and finally a uniformly accelerating phase triggered by the formation of stable positive/negative mass pairs. The onset of this last phase occurs precisely when the coupling parameter crosses unity, linking the two cosmological coincidences through a single dynamical mechanism. These results suggest that cosmic acceleration may arise from the nonlinear dynamics of a gravitationally neutral mixed-mass universe, without invoking dark energy or a cosmological constant.</summary>
+    <category term="astro-ph.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-30T12:33:22Z</published>
+    <arxiv:primary_category term="astro-ph.CO"/>
+    <author>
+      <name>Giovanni Manfredi</name>
+    </author>
+    <author>
+      <name>Jean-Louis Rouet</name>
+    </author>
+    <author>
+      <name>Bruce Miller</name>
+    </author>
+    <arxiv:doi>10.1016/j.dark.2026.102493</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.dark.2026.102493" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2411.00933v1</id>
+    <title>Newtonian restricted three-body gravitational problem with positive and negative point masses</title>
+    <updated>2024-11-01T17:34:01Z</updated>
+    <link href="https://arxiv.org/abs/2411.00933v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2411.00933v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Newtonian restricted three-body problem involving a positive primary point mass, $m_+$, and a negative secondary point mass, $m_-$, in a circular orbit, and a positive or negative tertiary point mass, $m_3$, with $m_+ &gt; |m_-| \gg |m_3|$, is solved. Five Lagrange points are found for $m_3$, three of which are coplanar with $m_+$ and $m_-$, and two of which are not, a subtle consequence of the gravitational repulsion from $m_-$. All Lagrange points are linearly unstable, except for one point in the regime $m_+ \gtrsim 8.4 |m_-|$, which is linearly stable and collinear with $m_+$ and $m_-$.</summary>
+    <category term="physics.class-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="astro-ph.EP" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="astro-ph.SR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-11-01T17:34:01Z</published>
+    <arxiv:primary_category term="physics.class-ph"/>
+    <arxiv:journal_ref>Physical Review D, Volume 110, Issue 12, December 2024, Pages 124010</arxiv:journal_ref>
+    <author>
+      <name>K. H. Thong</name>
+    </author>
+    <author>
+      <name>A. Melatos</name>
+    </author>
+    <arxiv:doi>10.1103/PhysRevD.110.124010</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1103/PhysRevD.110.124010" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2408.00154v3</id>
+    <title>Positive Mass in General Relativity Without Energy Conditions</title>
+    <updated>2025-01-17T19:43:57Z</updated>
+    <link href="https://arxiv.org/abs/2408.00154v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2408.00154v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A long-standing problem in physics is why observed masses are always positive. While energy conditions in quantum field theory can partly answer this problem, in this paper we find evidence that classical general relativity abhors negative masses, without the need for quantum theory or energy conditions. This is done by considering many different models of negative-mass "stars" and showing they are dynamically unstable. A fortiori, we show that any barotropic negative-mass star must be dynamically unstable.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-07-31T20:36:33Z</published>
+    <arxiv:comment>26 pages, 9 figures. v3 accepted for publication in Phys. Rev. D. Two extra appendices relative to the published version</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <arxiv:journal_ref>Phys. Rev. D 111, 044027 (2025)</arxiv:journal_ref>
+    <author>
+      <name>Níckolas de Aguiar Alves</name>
+    </author>
+    <author>
+      <name>Andre G. S. Landulfo</name>
+    </author>
+    <author>
+      <name>Bruno Arderucio Costa</name>
+    </author>
+    <arxiv:doi>10.1103/PhysRevD.111.044027</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1103/PhysRevD.111.044027" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2302.07889v1</id>
+    <title>Confinement of exotic matter. I. Static solutions</title>
+    <updated>2023-02-15T19:00:01Z</updated>
+    <link href="https://arxiv.org/abs/2302.07889v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2302.07889v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present the ${\cal E}$-boson star: A novel configuration of a boson star with an exotic matter nucleus; the exotic matter being described by a real massive scalar field with self-interaction term and kinetic term of the opposite sign. The other scalar field is canonical, so that the system is similar to the material component of the quintom cosmological scenario. Considering the static spherical symmetric case, we obtain cases where both fields are distributed as concentric spheres, and others with the remarkable feature that the canonical matter is pushed outwards and obtain a shell-like distribution of the canonical field, with a nucleus of exotic matter at the center. We present global properties of such ${\cal E}$-boson stars and stress the differences that these configuration have with respect to the usual boson stars. In particular, we obtain cases where the compactness goes beyond the Buchdahl limit.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-02-15T19:00:01Z</published>
+    <arxiv:comment>13 pages, 14 figures</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>Víctor Jaramillo</name>
+    </author>
+    <author>
+      <name>Erik Jiménez-Vázquez</name>
+    </author>
+    <author>
+      <name>Darío Núñez</name>
+    </author>
+    <arxiv:doi>10.1103/PhysRevD.107.064061</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1103/PhysRevD.107.064061" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2201.03640v1</id>
+    <title>Linear Stability of Black Holes and Naked Singularities</title>
+    <updated>2022-01-10T20:44:56Z</updated>
+    <link href="https://arxiv.org/abs/2201.03640v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2201.03640v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>These notes follow from a course delivered at the V José Plínio Baptista School of Cosmology, held at Guarapari (Espírito Santo) Brazil, from 30 September to 5 October 2021. A review of the current status of the linear stability of black holes and naked singularities is given. The standard modal approach, that takes advantage of the background symmetries and analyze separately the harmonic components of linear perturbations, is briefly introduced and used to prove that the naked singularities in the Kerr--Newman family, as well as the inner black hole regions beyond Cauchy horizons, are unstable and therefore unphysical. The proofs require a treatment of the boundary condition at the timelike boundary, which is given in detail. The nonmodal linear stability concept is then introduced, and used to prove that the domain of outer communications of a Schwarzschild black hole with a non-negative cosmological constant satisfies this stronger stability condition, which rules out transient growths of perturbations, and also to show that the perturbed black hole settles into a slowly rotating Kerr black hole. The encoding of the perturbation fields in gauge invariant curvature scalars and the effects of the perturbation on the geometry of the spacetime is discussed.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-01-10T20:44:56Z</published>
+    <arxiv:comment>Lecture notes delivered at the V José Plínio Baptista School of Cosmology (Guarapari (Espírito Santo) Brazil, September 30th to October 5th, 2021)</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <arxiv:journal_ref>Universe 2022, 8, 38</arxiv:journal_ref>
+    <author>
+      <name>Gustavo Dotti</name>
+    </author>
+    <arxiv:doi>10.3390/universe8010038</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.3390/universe8010038" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1910.01774v4</id>
+    <title>Stable, thin wall, negative mass bubbles in de Sitter space-time</title>
+    <updated>2020-05-17T20:12:30Z</updated>
+    <link href="https://arxiv.org/abs/1910.01774v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1910.01774v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Negative mass makes perfect physical sense as long as the dominant energy condition is satisfied by the corresponding energy-momentum tensor. Heretofore, only {\it configurations} of negative mass had been found \cite{Belletete:2013nqa,Mbarek:2014ppa}, the analysis did not address stability or dynamics. In this paper, we analyze both of these criteria. We demonstrate the existence of {\it stable}, static, negative mass bubbles in an asymptotically de Sitter space-time. The bubbles are solutions of the Einstein equations and correspond to an interior region of space-time containing a specific mass distribution, separated by a thin wall from the exact, negative mass Schwarzschild-de Sitter space-time in the exterior. We apply the Israel junction conditions at the wall. For the case of an interior corresponding simply to de Sitter space-time with a different cosmological constant from the outside space-time, separated by a thin wall with energy density that is independent of the radius, we find static but unstable solutions which satisfy the dominant energy condition everywhere. The bubbles can collapse through spherically symmetric configurations to the exact, singular, negative mass Schwarzschild-de Sitter solution. Interestingly, this provides a counter-example of the cosmic censorship hypothesis. Alternatively, the junction conditions can be used to give rise to an interior mass distribution that depends on the potential for the radius of the wall. We show that for no choice of the potential, for positive energy density on the wall that is independent of the radius, can we get a solution that is non-singular at the origin. However, if we allow the energy density on the wall to depend on the radius of the bubble, we can find {\it stable}, static, non-singular solutions of negative mass which everywhere satisfy the dominant energy condition.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-10-04T01:34:38Z</published>
+    <arxiv:comment>12 pages, 9 figures, minor changes</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>Matthew C. Johnson</name>
+    </author>
+    <author>
+      <name>M. B. Paranjape</name>
+    </author>
+    <author>
+      <name>Antoine Savard</name>
+    </author>
+    <author>
+      <name>Natalia Tapia-Arellano</name>
+    </author>
+    <arxiv:doi>10.1007/s10714-020-02732-9</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/s10714-020-02732-9" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1807.06468v1</id>
+    <title>Stars creating a gravitational repulsion</title>
+    <updated>2018-07-16T11:10:55Z</updated>
+    <link href="https://arxiv.org/abs/1807.06468v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1807.06468v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In the framework of the Theory of General Relativity, models of stars with an unusual equation of state $ρc^2&lt;0$, $P&gt;0$ where $ρ$ is the mass density and $P$ is the pressure, are constructed. These objects create outside themselves the forces of gravitational repulsion. The equilibrium of such stars is ensured by a non-standard balance of forces. Negative mass density, acting gravitationally on itself, creates an acceleration of the negative mass, directed from the center. Therefore in the absence of pressure such an object tends to expand. At the same time, the positive pressure, which falls just like in ordinary stars from the center to the surface, creates a force directed from the center. This force acts on the negative mass density, which causes acceleration directed the opposite of the acting force, that is to the center of the star. This acceleration balances the gravitational repulsion produced by the negative mass. Thus, in our models gravity and pressure change roles: the negative mass tends to create a gravitational repulsion, while the gradient of the pressure acting on the negative mass tends to compress the star. In this paper, we construct several models of such a star with various equations of state.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2018-07-16T11:10:55Z</published>
+    <arxiv:comment>6 pages, 4 figures</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <arxiv:journal_ref>Phys. Rev. D 98, 063528 (2018)</arxiv:journal_ref>
+    <author>
+      <name>I. D. Novikov</name>
+    </author>
+    <author>
+      <name>G. S. Bisnovatyi-Kogan</name>
+    </author>
+    <author>
+      <name>D. I. Novikov</name>
+    </author>
+    <arxiv:doi>10.1103/PhysRevD.98.063528</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1103/PhysRevD.98.063528" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1606.07304v2</id>
+    <title>Compact and extended objects from self-interacting phantom fields</title>
+    <updated>2016-07-10T22:35:52Z</updated>
+    <link href="https://arxiv.org/abs/1606.07304v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1606.07304v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this work we investigate localized and extended objects for gravitating, self-interacting phantom fields. The phantom fields come from two scalar fields with a "wrong sign" (negative) kinetic energy term in the Lagrangian. This study covers several solutions supported by these phantom fields: phantom balls, traversable wormholes, phantom cosmic strings, and "phantom" domain walls. These four systems are solved numerically and we try to draw out general, interesting features in each case.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-06-23T13:12:53Z</published>
+    <arxiv:comment>17 pages revtex, 25 figures. Published version. References added and a noted added in the arXiv only version of relevant review article</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <arxiv:journal_ref>Phys.Rev. D94 (2016) 024004</arxiv:journal_ref>
+    <author>
+      <name>Vladimir Dzhunushaliev</name>
+    </author>
+    <author>
+      <name>Vladimir Folomeev</name>
+    </author>
+    <author>
+      <name>Arislan Makhmudov</name>
+    </author>
+    <author>
+      <name>Ainur Urazalina</name>
+    </author>
+    <author>
+      <name>Douglas Singleton</name>
+    </author>
+    <author>
+      <name>John Scott</name>
+    </author>
+    <arxiv:doi>10.1103/PhysRevD.94.024004</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1103/PhysRevD.94.024004" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1409.6978v1</id>
+    <title>Boson Stars with Nontrivial Topology</title>
+    <updated>2014-09-24T14:48:13Z</updated>
+    <link href="https://arxiv.org/abs/1409.6978v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1409.6978v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We construct boson star solutions in the presence of a phantom field, allowing for a nontrivial topology of the solutions. The wormholes residing at the core of the configurations lead to a number of qualitative changes of the boson star solutions. In particular, the typical spiraling dependence of the mass and the particle number on the frequency of the boson stars is lost. Instead, the boson stars with nontrivial topology approach a singular configuration in the limit of vanishing frequency. Depending on the value of the coupling constant, the wormhole geometry changes from a single throat configuration to a double throat configuration, featuring a belly inbetween the two throats. Depending on the mass of the boson field and its self-interaction, the mass and the size of these objects cover many orders of magnitude, making them amenable to various astrophysical observations. A stability analysis reveals, that the unstable mode of the Ellis wormhole is retained in the presence of the bosonic matter. However, the negative eigenvalue can get very close to zero, by tuning the parameters of the self-interaction potential appropriately.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-09-24T14:48:13Z</published>
+    <arxiv:comment>21 pages, 9 figures</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <arxiv:journal_ref>Phys.Rev. D90 (2014) 124038</arxiv:journal_ref>
+    <author>
+      <name>Vladimir Dzhunushaliev</name>
+    </author>
+    <author>
+      <name>Vladimir Folomeev</name>
+    </author>
+    <author>
+      <name>Christian Hoffmann</name>
+    </author>
+    <author>
+      <name>Burkhard Kleihaus</name>
+    </author>
+    <author>
+      <name>Jutta Kunz</name>
+    </author>
+    <arxiv:doi>10.1103/PhysRevD.90.124038</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1103/PhysRevD.90.124038" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1407.1457v2</id>
+    <title>Negative mass bubbles in de Sitter space-time</title>
+    <updated>2014-11-20T03:17:15Z</updated>
+    <link href="https://arxiv.org/abs/1407.1457v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1407.1457v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study the possibility of the existence of negative mass bubbles within a de Sitter space-time background with matter content corresponding to a perfect fluid. It is shown that there exist configurations of the perfect fluid, that everywhere satisfy the dominant energy condition, the Einstein equations and the equations of hydrostatic equilibrium, however asymptotically approach the exact solution of Schwarzschid-de Sitter space-time with a negative mass.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-07-06T05:17:15Z</published>
+    <arxiv:comment>4 pages, 5 figures</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <arxiv:journal_ref>Phys. Rev. D 90, 101502(R), 2014</arxiv:journal_ref>
+    <author>
+      <name>Saoussen Mbarek</name>
+    </author>
+    <author>
+      <name>M. B. Paranjape</name>
+    </author>
+    <arxiv:doi>10.1103/PhysRevD.90.101502</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1103/PhysRevD.90.101502" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1406.0841v1</id>
+    <title>Black holes in the presence of dark energy</title>
+    <updated>2014-06-03T16:02:57Z</updated>
+    <link href="https://arxiv.org/abs/1406.0841v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1406.0841v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The new, rapidly developing field of theoretical research --- studies of dark energy interacting with black holes (and, in particular, accreting onto black holes) --- is reviewed. The term `dark energy' is meant to cover a wide range of field theory models, as well as perfect fluids with various equations of state, including cosmological dark energy. Various accretion models are analyzed in terms of the simplest test field approximation or by allowing back reaction on the black-hole metric. The behavior of various types of dark energy in the vicinity of Schwarzschild and electrically charged black holes is examined. Nontrivial effects due to the presence of dark energy in the black hole vicinity are discussed. In particular, a physical explanation is given of why the black hole mass decreases when phantom energy is being accreted, a process in which the basic energy conditions of the famous theorem of nondecreasing horizon area in classical black holes are violated. The theoretical possibility of a signal escaping from beneath the black hole event horizon is discussed for a number of dark energy models. Finally, the violation of the laws of thermodynamics by black holes in the presence of noncanonical fields is considered.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="astro-ph.HE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-06-03T16:02:57Z</published>
+    <arxiv:comment>25 pages, 10 figures, review paper</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <arxiv:journal_ref>Phys.-Usp. 56 (2013) 1155-1175; Uspekhi Fiz. Nauk 183 (2013) 1257-1280</arxiv:journal_ref>
+    <author>
+      <name>E. O. Babichev</name>
+    </author>
+    <author>
+      <name>V. I. Dokuchaev</name>
+    </author>
+    <author>
+      <name>Yu. N. Eroshenko</name>
+    </author>
+    <arxiv:doi>10.3367/UFNe.0183.201312a.1257</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.3367/UFNe.0183.201312a.1257" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1204.1269v2</id>
+    <title>On relativistic motion of a pair of particles having opposite signs of masses</title>
+    <updated>2012-06-03T12:30:54Z</updated>
+    <link href="https://arxiv.org/abs/1204.1269v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1204.1269v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>(abbreviated) In this note we consider, in a weak-field limit, a relativistic linear motion of two particles with opposite signs of masses having a small difference between their absolute values $m_{1,2}=\pm (μ\pm Δμ) $, $μ&gt; 0$, $|Δμ| \ll μ$ and a small difference between their velocities. Assuming that the weak-field limit holds and the dynamical system is conservative an elementary treatment of the problem based on the laws of energy and momentum conservation shows that the system can be accelerated indefinitely, or attain very large asymptotic values of the Lorentz factor $γ$. The system experiences indefinite acceleration when its energy-momentum vector is null and the mass difference $Δμ\le 0$. When modulus of the square of the norm of the energy-momentum vector, $|N^2|$, is sufficiently small the system can be accelerated to very large $γ\propto |N^2|^{-1}$. It is stressed that when only leading terms in the ratio of a characteristic gravitational radius to the distance between the particles are retained our elementary analysis leads to equations of motion equivalent to those derived from relativistic weak-field equations of motion of Havas and Goldberg 1962. Thus, in the weak-field approximation, it is possible to bring the system to the state with extremely high values of $γ$. The positive energy carried by the particle with positive mass may be conveyed to other physical bodies say, by intercepting this particle with a target. Suppose that there is a process of production of such pairs and the particles with positive mass are intercepted while the negative mass particles are expelled from the region of space occupied by physical bodies of interest. This scheme could provide a persistent transfer of positive energy to the bodies, which may be classified as a 'Perpetuum Motion of Third Kind'.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.hist-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2012-04-05T16:34:28Z</published>
+    <arxiv:comment>to be published in Physics-Uspekhi, a few misprints are corrected, discussion is extended and one figure is added</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>Pavel Ivanov</name>
+    </author>
+    <arxiv:doi>10.3367/UFNe.0182.201212d.1319</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.3367/UFNe.0182.201212d.1319" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1105.1498v1</id>
+    <title>Unified picture of Q-balls and boson stars via catastrophe theory</title>
+    <updated>2011-05-08T06:52:55Z</updated>
+    <link href="https://arxiv.org/abs/1105.1498v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1105.1498v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We make an analysis of Q-balls and boson stars using catastrophe theory, as an extension of the previous work on Q-balls in flat spacetime. We adopt the potential $V_3(φ)={m^2\over2}φ^2-μφ^3+λφ^4$ for Q-balls and that with $μ=0$ for boson stars. For solutions with $|g^{rr}-1|\sim 1$ at its peak, stability of Q-balls has been lost regardless of the potential parameters. As a result, phase relations, such as a Q-ball charge versus a total Hamiltonian energy, approach those of boson stars, which tell us an unified picture of Q-balls and boson stars.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2011-05-08T06:52:55Z</published>
+    <arxiv:comment>10 pages, 13 figures</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <arxiv:journal_ref>Phys.Rev.D81:124041,2010</arxiv:journal_ref>
+    <author>
+      <name>Takashi Tamaki</name>
+    </author>
+    <author>
+      <name>Nobuyuki Sakai</name>
+    </author>
+    <arxiv:doi>10.1103/PhysRevD.81.124041</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1103/PhysRevD.81.124041" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/0809.3615v3</id>
+    <title>The initial value problem for linearized gravitational perturbations of the Schwarzschild naked singularity</title>
+    <updated>2009-09-17T18:32:36Z</updated>
+    <link href="https://arxiv.org/abs/0809.3615v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/0809.3615v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  The coupled equations for the scalar modes of the linearized Einstein equations around Schwarzschild's spacetime were reduced by Zerilli to a 1+1 wave equation with a potential $V$, on a field $Ψ_z$. For smooth metric perturbations $Ψ_z$ is singular at $r_s=-6M/(\ell-1)(\ell+2)$, $\ell$ the mode harmonic number, and $V$ has a second order pole at $r_s$. This is irrelevant to the black hole exterior stability problem, where $r&gt;2M&gt;0$, and $r_s &lt;0$, but it introduces a non trivial problem in the naked singular case where $M&lt;0$, then $r_s&gt;0$, and the singularity appears in the relevant range of $r$. We solve this problem by developing a new approach to the evolution of the even mode, based on a {\em new gauge invariant function}, $\hat Ψ$ -related to $Ψ_z$ by an intertwiner operator- that is a regular function of the metric perturbation {\em for any value of $M$}. This allows to address the issue of evolution of gravitational perturbations in this non globally hyperbolic background, and to complete the proof of the linear instability of the Schwarzschild naked singularity, by showing that a previously found unstable mode is excitable by generic initial data. This is further illustrated by numerically solving the linearized equations for suitably chosen initial data.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2008-09-21T20:36:05Z</published>
+    <arxiv:comment>typos corrected, references added</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>Gustavo Dotti</name>
+    </author>
+    <author>
+      <name>Reinaldo J. Gleiser</name>
+    </author>
+    <arxiv:doi>10.1088/0264-9381/26/21/215002</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1088/0264-9381/26/21/215002" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/0805.3211v3</id>
+    <title>Non-singular solutions to Einstein-Klein-Gordon equations with a phantom scalar field</title>
+    <updated>2008-08-07T06:47:56Z</updated>
+    <link href="https://arxiv.org/abs/0805.3211v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/0805.3211v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  It is shown that the 4D Einstein-Klein-Gordon equations with a phantom scalar field (a scalar field with a negative sign in front of the kinetic energy term of its Lagrange density) has non-singular, spherically symmetry solutions. These solutions have a combination of features found in other spherically symmetric gravity plus field solutions. A stability analysis on these solutions indicates they are unstable.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2008-05-21T07:40:39Z</published>
+    <arxiv:comment>final version</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <arxiv:journal_ref>JHEP 0807:094,2008</arxiv:journal_ref>
+    <author>
+      <name>Vladimir Dzhunushaliev</name>
+    </author>
+    <author>
+      <name>Vladimir Folomeev</name>
+    </author>
+    <author>
+      <name>Ratbay Myrzakulov</name>
+    </author>
+    <author>
+      <name>Douglas Singleton</name>
+    </author>
+    <arxiv:doi>10.1088/1126-6708/2008/07/094</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1088/1126-6708/2008/07/094" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/gr-qc/0604101v2</id>
+    <title>Stability of naked singularities and algebraically special modes</title>
+    <updated>2006-07-20T19:41:05Z</updated>
+    <link href="https://arxiv.org/abs/gr-qc/0604101v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/gr-qc/0604101v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  We show that algebraically special modes lead to the instability of naked singularity spacetimes with negative mass. Four-dimensional negative-mass Schwarzschild and Schwarzschild-de Sitter spacetimes are unstable. Stability of the Schwarzschild-anti-de Sitter spacetime depends on boundary conditions. We briefly discuss the generalization of these results to charged and rotating singularities.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="astro-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2006-04-22T00:33:58Z</published>
+    <arxiv:comment>6 pages. ReVTeX4. v2: Minor improvements and extended discussion on boundary conditions. Version to appear in Phys. Rev. D</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <arxiv:journal_ref>Phys.Rev. D74 (2006) 024027</arxiv:journal_ref>
+    <author>
+      <name>Vitor Cardoso</name>
+    </author>
+    <author>
+      <name>Marco Cavaglia</name>
+    </author>
+    <arxiv:doi>10.1103/PhysRevD.74.024027</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1103/PhysRevD.74.024027" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/gr-qc/0604021v2</id>
+    <title>Instability of the negative mass Schwarzschild naked singularity</title>
+    <updated>2006-05-29T17:13:19Z</updated>
+    <link href="https://arxiv.org/abs/gr-qc/0604021v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/gr-qc/0604021v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  We study the negative mass Schwarzschild spacetime, which has a naked singularity, and show that it is perturbatively unstable. This is achieved by first introducing a modification of the well known Regge - Wheeler - Zerilli approach to black hole perturbations to allow for the presence of a ``kinematic'' singularity that arises for negative masses, and then exhibiting exact exponentially growing solutions to the linearized Einstein's equations. The perturbations are smooth everywhere and behave nicely around the singularity and at infinity. In particular, the first order variation of the scalar invariants can be made everywhere arbitrarily small as compared to the zeroth order terms. Our approach is also compared to a recent analysis that leads to a different conclusion regarding the stability of the negative mass Schwarzschild spacetime. We also comment on the relevance of our results to the stability of more general negative mass, nakedly singular spacetimes.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2006-04-05T18:46:34Z</published>
+    <arxiv:comment>15 pages</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <arxiv:journal_ref>Class.Quant.Grav. 23 (2006) 5063-5078</arxiv:journal_ref>
+    <author>
+      <name>Reinaldo J. Gleiser</name>
+    </author>
+    <author>
+      <name>Gustavo Dotti</name>
+    </author>
+    <arxiv:doi>10.1088/0264-9381/23/15/021</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1088/0264-9381/23/15/021" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/hep-th/0409307v1</id>
+    <title>On the stability of naked singularities</title>
+    <updated>2004-09-30T18:28:22Z</updated>
+    <link href="https://arxiv.org/abs/hep-th/0409307v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/hep-th/0409307v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  We study the linearised stability of the nakedly singular negative mass Schwarzschild solution against gravitational perturbations. There is a one parameter family of possible boundary conditions at the singularity. We give a precise criterion for stability depending on the boundary condition. We show that one particular boundary condition is physically preferred and show that the spacetime is stable with this boundary condition.</summary>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2004-09-30T18:28:22Z</published>
+    <arxiv:comment>20 pages. 5 figures</arxiv:comment>
+    <arxiv:primary_category term="hep-th"/>
+    <arxiv:journal_ref>Prog.Theor.Phys.113:963-978,2005</arxiv:journal_ref>
+    <author>
+      <name>Gary W. Gibbons</name>
+    </author>
+    <author>
+      <name>Sean A. Hartnoll</name>
+    </author>
+    <author>
+      <name>Akihiro Ishibashi</name>
+    </author>
+    <arxiv:doi>10.1143/PTP.113.963</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1143/PTP.113.963" title="doi"/>
+  </entry>
+</feed>

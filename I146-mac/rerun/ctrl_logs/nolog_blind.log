@@ -1,0 +1,20 @@
+# zerilli_gauge_rs: gauge attainability (e^{st} and static) and the flow at r_s against DG06 Lemma 1 (part=all)
+# mutations on: nolog_blind
+PASS PL.0a
+# [   0.1 s] PL.0a
+PASS PL.0b
+# [   0.1 s] PL.0b
+PASS PL.0c
+# [   0.1 s] PL.0c
+PASS PL.0d
+# [   0.3 s] PL.0d
+PASS PL.L
+# [   0.3 s] PL.L
+PASS PL.E
+# [   0.4 s] PL.E
+PASS PL.P
+# [   0.6 s] PL.P e^{st}
+PASS PL.P.static
+# [   0.8 s] PL.P static
+FAIL PL.R: planted flows: analytic flow reported eig True nolog True; flow with a logarithm reported nolog True (dsolve has log: True); eigenvalues {0,2} reported eig False
+# planted check failed: stop before any real data

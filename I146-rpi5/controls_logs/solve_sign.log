@@ -1,0 +1,16 @@
+# zerilli_gauge_rs: gauge attainability (e^{st} and static) and the flow at r_s against DG06 Lemma 1 (part=all)
+# mutations on: solve_sign
+PASS PL.0a
+# [   0.2 s] PL.0a
+PASS PL.0b
+# [   0.3 s] PL.0b
+PASS PL.0c
+# [   0.4 s] PL.0c
+PASS PL.0d
+# [   0.8 s] PL.0d
+PASS PL.L
+# [   1.0 s] PL.L
+PASS PL.E
+# [   1.1 s] PL.E
+FAIL PL.P: e^{st}: xi + eta = [2*ec_0*r*s/(-2*M + r), (-8*M*ec_0 + 4*M*ec_1*r + 4*ec_0*r - 2*ec_1*r**2)/r**2, 2*ec_0], nonzero transformed functions ['H0', 'H1', 'H2', 'K', 'G'], RW part returned False, xi + eta (ii) = [2*ec_0*r*s/(-2*M + r), (-8*M*ec_0 + 4*M*ec_1*r + 4*ec_0*r - 2*ec_1*r**2)/r**2, 2*ec_0]
+# planted check failed: stop before any real data

@@ -1,0 +1,24 @@
+review_he_type3_count.py  mutation: krawczyk-shift  bits: 160
+check planted
+  A: g has 7 roots in [1/4, 40] (exact: 7 of 9 rational c_i lie strictly between the enclosures of cosh(1/4) and cosh(40)); pair separation 1.0e-5
+  A: 52 leaves {'excl': 45, 'root': 7}, tiling True, 0 s
+  A: every root leaf holds exactly one known root: True
+  B: P_pl has 34 leaves {'excl': 17, 'root': 5, 'mono': 12}, 5 roots (exact: 5 at z = 3, 5, 5 + 1e-5, 7, 659/49)
+     root z = 3.0: enclosure contains it, boxes 0, complete False
+     root z = 5.0: enclosure contains it, boxes 0, complete False
+     root z = 5.00001: enclosure contains it, boxes 0, complete False
+     root z = 7.0: enclosure contains it, boxes 0, complete False
+     root z = 13.4489795918: enclosure contains it, boxes 0, complete False
+  B: admissible (0 < w < 1, T != 0) at z = 3, 5, 5 + 1e-5, 7, 659/49: [None, None, None, None, None]; exact expectation [True, True, False (T = 0), False (w = 7/2), True]
+  -> FAIL (1 s)
+check points:le
+     root r = 0.9905678898: no common root with |w| <= 1e4 verified (complete False)
+     root r = 1.006345187: no common root with |w| <= 1e4 verified (complete False)
+     root r = 1.023933261: no common root with |w| <= 1e4 verified (complete False)
+     root r = 1.094662309: no common root with |w| <= 1e4 verified (complete False)
+  le: 4 P roots, 0 Krawczyk boxes in (z, w) (K(X) inside X), every other point of z in the root cell x w in [-1e4, 1e4] excluded: False; 12 s
+  admissible (0 < w < 1, T != 0): 0 (statement: 3)
+  the other P roots have their common root at w = [] (statement: ['58459/1000'])
+  -> FAIL (139 s)
+
+summary: 2 checks run, 2 failed ['planted', 'points:le'], 140 s

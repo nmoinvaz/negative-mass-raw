@@ -1,0 +1,7 @@
+[PASS] K1: rows 2999, 2999, l sets = 2..3000 True, True; c = (l+2)(l-1) True; lo < hi True; disjoint pairs 0 []; smallest overlap 2.000001e-14; widest #2 2.000000e-13, #104 2.000001e-14; largest midpoint gap 4.592673e-15 (claims 2.0e-13, 2.0e-14, 4.59e-15: True)
+[FAIL] K2: Mac csv 644946 bytes, rpi5 csv 644962 bytes, identical False
+[FAIL] K3:#2: r_* < r_neg True; c r decreasing True; above rho False; l^2 r increasing from l = 5 True; minimum at l = 5 True (7.682592, 8.780277; RESULTS 7.6826, 8.7803); below rho for l >= 3 True
+[FAIL] K3:#104: r_* < r_neg True; c r decreasing True; above rho False; l^2 r increasing from l = 5 True; minimum at l = 5 True (7.682592, 8.780277; RESULTS 7.6826, 8.7803); below rho for l >= 3 True
+[PASS] K4: l = 2: N roots on (6, 20] ['9.115121701849806'], V-hat zeros on (c r_*, 40] ['10.69628593566439'], inside both brackets True; l = 3: N roots on (6, 20] ['8.789041269692871'], V-hat zeros on (c r_*, 40] ['10.14351892096025'], inside both brackets True; l = 10: N roots on (6, 20] ['8.517778972489448'], V-hat zeros on (c r_*, 40] ['9.689315919387254'], inside both brackets True; l = 100: N roots on (6, 20] ['8.486049049339369'], V-hat zeros on (c r_*, 40] ['9.636567628766799'], inside both brackets True; l = 1500: N roots on (6, 20] ['8.485702528771038'], V-hat zeros on (c r_*, 40] ['9.635992036143301'], inside both brackets True
+FAILED: K2, K3:#2, K3:#104
+rc=1

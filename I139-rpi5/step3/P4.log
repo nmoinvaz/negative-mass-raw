@@ -1,0 +1,16 @@
+ours   ours_p4.csv  sha256 7a3d18f481971fbb58db80131839aa18e3d1b8e48cf89bd5d1315d5bd83162c1
+theirs theirs_a.csv  sha256 a7ad743629910781406c1a2cc8c3ca5b54278fd2ed8c7e3a1af51155e72542ab
+FAIL  C1: ours has 2 rows, theirs 3; missing in ours: l = 3; extra in ours: none; duplicate in ours: none; missing in theirs: none; extra in theirs: none; duplicate in theirs: none
+PASS  C2: c = (l+2)(l-1) in every row of ours
+PASS  C2: c = (l+2)(l-1) in every row of theirs
+PASS  C3: lo < hi in both brackets of every row of ours
+PASS  C3: lo < hi in both brackets of every row of theirs
+PASS  C4: c r_* brackets intersect for every l (2 l)
+PASS  C5: c r_neg brackets intersect for every l (2 l)
+
+largest bracket width, ours:      3.000000e-01  (c r_*, l = 2)
+largest bracket width, theirs:    2.000000e-01  (c r_*, l = 2)
+smallest overlap:                 1.000000e-02  (c r_*, l = 4)
+largest midpoint gap:             1.500000e-01  (c r_*, l = 2)
+
+1 check(s) FAIL: C1

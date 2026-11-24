@@ -79,12 +79,62 @@ the resultant in w, 167 terms) or of the spurious factor y = B' - A' (phi > 0 fo
 | `no-tail-large` | the proof on [z_t, infinity) is removed | `tail_z`, `planted`, `assembly` |
 | `no-tail-small` | the proof on (0, z_s] is removed | `small_z`, `assembly` |
 | `cell-gap` | one leaf is removed from the tiling of each wall's cover | `cover`, `assembly` |
-| `eps-typo` | a~ = (1 - eps^2)/D^2 becomes (1 + eps^2)/D^2 in the jets | `identity`, `cover`, `spurious`, `points`, `cross`, `assembly` |
+| `eps-typo` | D = 1 + 2 C eps + eps^2 becomes 1 + C eps + eps^2 in the jets | `identity`, `cover`, `spurious`, `points`, `cross`, `assembly` |
 | `T-off` | the T != 0 condition is dropped from admissibility | `planted` |
 | `w-range` | admissible w in (0, 1) becomes (-10^4, 10^4) | `planted`, `points` |
 | `krawczyk-nocorr` | the Krawczyk operator drops its (I - Y J)(X - m) term | `planted`, `points` |
 | `double-root` | the planted close pair becomes a double root | `planted` |
+| `skip-y` | the roots of the spurious factor y are not classified | `planted`, `spurious`, `assembly` |
+| `drop-P-term-low` | the last term of P's table (total degree 10) is dropped everywhere | `tables`, `small_z`, `points`, `cross`, `assembly` |
 
 A control that fires on other checks than its targets, or on fewer, is reported as a result and not adjusted.
 
 ## Run notes
+
+- Before any control run, the `eps-typo` row was changed from a~ = (1 - eps^2)/D^2 -> (1 + eps^2)/D^2 to D = 1 + 2 C eps + eps^2
+  -> 1 + C eps + eps^2, with the same targets. Reason, from analysis and not from a run: the first typo changes every jet by a
+  relative eps^2 (1e-14 at Le's wall, 1e-35 at Rodal's), so only `identity` would see it. The second moves the wall by ln 2.
+- The Le pilot (`step2_pilot.log`, commit of the script 'warp: add he_type3_count.py ...') ran `--checks=cover,spurious,points,cross
+  --walls=Le`, one check more than the README's step 2 (`cross`); it took 49 s, not hours.
+- Step 4 was started once (commit 01acf50) and stopped by me after `sigma-1e-3` had begun, before any control result was read
+  (`aborted/`). Reason: three changes to the script that every control must see. (1) The planted problem now also has a spurious
+  factor: P_pl omits the factor z - 11/5 that a planted y_pl carries, so one admissible point sits at a root of y_pl, and the new
+  control `skip-y` (row added above, before any control ran) must lose it. (2) `tables` checks the resultant identity exactly on
+  three random lines as well as at five points. (3) `cover` and `spurious` also check the tanh-form sign at the midpoint of each
+  excluded leaf, and `--dump-cells` exists. Step 4 and step 5 run on the commit after these changes.
+- The step 3 log (`step3.log`) is from commit e154b77, before those changes; it is kept as the first full run.
+- Pilot (`step2_pilot.log`): run on the working tree just before e154b77.
+- Step 4, pass 1 (commit 666e0c5; logs in `step4_pass1/`): all 11 controls exit 1. Observed failures against the frozen targets:
+
+| control | frozen targets | failed | difference |
+|---|---|---|---|
+| `sigma-1e-3` | points, cross | points, cross | none |
+| `drop-P-term` | tables, small_z, points, cross, assembly | tables, points, cross | `small_z`, `assembly` silent. My prediction was wrong: the first table term has total degree 18, so weight at least 36 in (phi, psi, delta), and cannot touch the weight-24 part or create a term of weight below 24 |
+| `no-tail-large` | tail_z, planted, assembly | tail_z, planted, assembly | none |
+| `no-tail-small` | small_z, assembly | small_z, assembly | none |
+| `cell-gap` | cover, assembly | cover, assembly | none |
+| `eps-typo` | identity, cover, spurious, points, cross, assembly | identity, cover, points, cross, assembly | `spurious` silent. The check was too weak: its tanh-form sign test is at leaf ends and midpoints, and the mutated y-root (z = 15.907 for 15.874) fell inside one leaf |
+| `T-off` | planted | planted | none |
+| `w-range` | planted, points | planted, points, cross | `cross` also fails (it needs 3 points), which I did not predict |
+| `krawczyk-nocorr` | planted, points | planted | `points` silent: at the real walls each root cell holds exactly one common root, and an unsound Newton-like box finds it anyway; the planted cells with two candidate roots expose the unsoundness |
+| `double-root` | planted | planted | none |
+| `skip-y` | planted, spurious, assembly | planted, spurious, assembly | none |
+
+  Not adjusted: the frozen table above stays. Two follow-ups, decided after reading pass 1: the `cover` and `spurious` checks now
+  also require the tanh-form function to change sign across every shrunk root cell (commit after 666e0c5), which a mutated profile
+  cannot satisfy; and `drop-P-term-low` is a new control, added after reading pass 1, with its own prediction (dropping the last
+  table term, of total degree 10, creates weight 20 in (phi, psi, delta), so `tables` and `small_z` must fire). Pass 2 reruns all
+  12 controls on the final commit. The final run of the script reports a control as firing when at least one frozen target
+  fails, and prints the silent targets and the extra failures.
+- Step 4, pass 2 (script commit c9148ff, `mutate_*.log` in this folder): all 12 controls exit 1. Nine fail exactly their frozen
+  targets (`sigma-1e-3`, `drop-P-term-low`, `no-tail-large`, `no-tail-small`, `cell-gap`, `eps-typo`, `T-off`, `double-root`,
+  `skip-y`). Three do not, as in pass 1: `drop-P-term` (`small_z`, `assembly` silent), `w-range` (also `cross`),
+  `krawczyk-nocorr` (`points` silent). `eps-typo` now fires `spurious` too, after the strengthened check.
+- Step 5 (script commit c9148ff, output committed in 5426fb0): `final.log` holds `exit 0`, `final_output.txt` is the stdout
+  (copied to `notes/warp/he_type3_count_output.txt`), `final.err` is empty. 10 checks pass, 12 controls fire (three with silent
+  targets, listed in the output), 1714.65 s wall, peak rss 127108 KB, one core at nice 10. The longest single run was the
+  final one, far below the 3 h stop.
+- `cells.tsv` (3381 leaves of the covers of g and Yn at both walls, from `--dump-cells`, run `cells.log`) is the certificate of
+  the cover: each leaf is an excluded leaf (x) or has exactly one root (r).
+- The step 3 log is from commit e154b77 (all 10 checks passed in 351 s); step 2 from e154b77.
+

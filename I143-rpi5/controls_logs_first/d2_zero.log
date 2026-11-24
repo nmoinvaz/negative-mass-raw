@@ -1,0 +1,96 @@
+# zerilli_derivation: Zerilli potential from the linearized Einstein equations (part=all)
+# mutations on: d2_zero
+PASS PL.0a
+# [   0.2 s] PL.0a
+PASS PL.0b
+# [   0.3 s] PL.0b
+PASS PL.0c
+# [   0.4 s] PL.0c
+PASS PL.0d
+# [   0.8 s] PL.0d
+PASS PL.O.1
+# odd radial equations (jets h0_n, h1_n):
+#   t-phi: (L*h0_0*r - 4*M*h0_0 + 2*M*h0_2*r**2 - 4*M*h1_0*r*s - 2*M*h1_1*r**2*s - h0_2*r**3 + 2*h1_0*r**2*s + h1_1*r**3*s)/(2*r**3)
+#   r-phi: (-2*L*M*h1_0 + L*h1_0*r + 4*M*h1_0 + 2*h0_0*r**2*s - h0_1*r**3*s + h1_0*r**3*s**2 - 2*h1_0*r)/(2*r**2*(-2*M + r))
+#   x-phi: -(4*M**2*h1_0 - 4*M**2*h1_1*r - 2*M*h1_0*r + 4*M*h1_1*r**2 + h0_0*r**3*s - h1_1*r**3)/(r**2*(-2*M + r))
+PASS PL.O.2
+PASS PL.O.3
+PASS PL.O.4
+# odd: Psi = f h1 / r, Psi_xx = (V_RW + s^2) Psi, V_RW = (-2*M + r)*(L*r - 6*M)/r**4
+# [   3.6 s] odd done
+PASS A.1
+# [   9.5 s] A.1
+PASS A.2
+# [  10.4 s] A.2
+# even radial equations: 7 (tt, tr, rr, tx, rx, angular trace, traceless)
+PASS E.1
+# E.1: traceless equation = (1/2) (H0 - H2), so H0 = H2 =: H (l >= 2 by A.1)
+# [  10.4 s] E.1
+# [  10.6 s] E.2 det
+# [  10.6 s] E.2 solve
+# [  10.7 s] E.2 Grr built
+# [  14.6 s] E.2 A on flow
+PASS E.2
+# E.2: first-order system (K', H1', H') = flow in (K, H1, H), det of its coefficient matrix = -s*(-2*M + r)/(4*r)
+# E.2:   K' = (-(-3*M + r)/(r*(-2*M + r))) K_0 + (L/(2*r**2*s)) H1_0 + (1/r) H_0
+# E.2:   H1' = (r*s/(-2*M + r)) K_0 + (-2*M/(r*(-2*M + r))) H1_0 + (r*s/(-2*M + r)) H_0
+# E.2:   H' = (-(-3*M + r)/(r*(-2*M + r))) K_0 + ((-2*L*M + L*r + 2*r**3*s**2)/(2*r**2*s*(-2*M + r))) H1_0 + ((-4*M + r)/(r*(-2*M + r))) H_0
+# E.2: algebraic relation A = aK K + a1 H1 + aH H, aK = -(-2*L*M*r + L*r**2 - 6*M**2 + 6*M*r + 2*r**4*s**2 - 2*r**2)/(2*r**2*(-2*M + r)**2), a1 = (L*M + 2*r**3*s**2)/(2*r**3*s*(-2*M + r)), aH = (L*r + 6*M - 2*r)/(2*r**2*(-2*M + r))
+# [  14.7 s] E.2
+PASS E.3
+# E.3: dA/dr = (-(-M + 2*r)/(r*(-2*M + r))) A
+# [  15.4 s] E.3
+PASS E.4
+# [  16.7 s] E.4
+PASS E.3b
+# [  18.4 s] E.3b
+# E.5a: psi = (2*r**2/(L*r + 6*M - 2*r)) K + (-2*(-2*M + r)/(s*(L*r + 6*M - 2*r))) H1
+PASS E.5a
+PASS E.5b
+PASS E.5c
+PASS E.5d
+# E.5: V = (-2*M + r)*(L**3*r**3 + 6*L**2*M*r**2 - 4*L**2*r**3 + 36*L*M**2*r - 24*L*M*r**2 + 4*L*r**3 + 72*M**3 - 72*M**2*r + 24*M*r**2)/(r**4*(L*r + 6*M - 2*r)**2)
+# [  20.2 s] E.5
+PASS E.5e
+# [  20.3 s] E.5e
+PASS E.6a
+# [  20.8 s] E.6a
+PASS E.6b
+# [  20.8 s] E.6b
+# divisors met (step : expression):
+#   odd: h0 from x-phi | coefficient of h0 in the x-phi equation | -r*s/(-2*M + r)
+#   odd: ODE of h1 | coefficient of h1_2 after h0 is eliminated | -(-2*M + r)/(2*r)
+#   odd: master variable | det of (Psi, Psi_x) against (h1, h1_r) | (-2*M + r)**3/r**5
+#   E.2: flow | det of the coefficient matrix of (K', H1', H') in (tr, tx, rx) | -s*(-2*M + r)/(4*r)
+#   E.2: H from A | coefficient of H in A | (L*r + 6*M - 2*r)/(2*r**2*(-2*M + r))
+#   E.5: master variable | det of (psi, psi_x) against (K, H1) | 2*(-2*M + r)/(s*(L*r + 6*M - 2*r))
+#   E.2: flow K' | denominator factor (multiplicity 1) | s
+#   E.2: flow K' | denominator factor (multiplicity 2) | r
+#   E.2: flow K' | denominator factor (multiplicity 1) | -2*M + r
+#   E.2: flow H1' | denominator factor (multiplicity 1) | r
+#   E.2: flow H1' | denominator factor (multiplicity 1) | -2*M + r
+#   E.2: flow H' | denominator factor (multiplicity 1) | s
+#   E.2: flow H' | denominator factor (multiplicity 2) | r
+#   E.2: flow H' | denominator factor (multiplicity 1) | -2*M + r
+#   E.2: H from A | denominator factor (multiplicity 1) | s
+#   E.2: H from A | denominator factor (multiplicity 1) | r
+#   E.2: H from A | denominator factor (multiplicity 1) | -2*M + r
+#   E.2: H from A | denominator factor (multiplicity 1) | L*r + 6*M - 2*r
+#   E.5: psi coefficient of K | denominator factor (multiplicity 1) | L*r + 6*M - 2*r
+#   E.5: psi coefficient of H1 | denominator factor (multiplicity 1) | s
+#   E.5: psi coefficient of H1 | denominator factor (multiplicity 1) | L*r + 6*M - 2*r
+#   E.5: V | denominator factor (multiplicity 4) | r
+#   E.5: V | denominator factor (multiplicity 2) | L*r + 6*M - 2*r
+#   E.5: a (psi_xx = a psi) | denominator factor (multiplicity 4) | r
+#   E.5: a (psi_xx = a psi) | denominator factor (multiplicity 2) | L*r + 6*M - 2*r
+#   E.5: definition (9) | denominator (lam + 1) of both terms | L/2
+#   E.5: definition (9) | denominator (lam r + 3M) | (L*r + 6*M - 2*r)/2
+PASS D.1
+#   factor -2*M + r met at 10 step(s)
+#   factor 6*M + r*(L - 2) met at 8 step(s)
+#   factor L met at 1 step(s)
+#   factor r met at 11 step(s)
+#   factor s met at 7 step(s)
+# [  21.1 s] D.1
+FAIL D.2: lam r + 3M: zero at -4*M/(L - 2); (lam r + 3M)^2 V there = 5*L**4/64 - 7*L**3/32 - L**2/16 + 3*L/8; at M = -1 the zero is 4/(L - 2) (6/c = 6/(L - 2))
+# summary: 23 PASS, 1 FAIL

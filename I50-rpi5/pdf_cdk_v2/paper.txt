@@ -1,0 +1,636 @@
+                                          WHAT NO ONE HAS SEEN BEFORE: GRAVITATIONAL WAVEFORMS FROM WARP DRIVE COLLAPSE
+
+
+
+                                                                          Katy Clough1,2 , Tim Dietrich3,4 , and Sebastian Khan5
+                                                 1 School of Mathematical Sciences, Queen Mary University of London, Mile End Road, London E1 4NS, United Kingdom
+                                                                    2 Astrophysics, University of Oxford, DWB, Keble Road, Oxford OX1 3RH, UK
+                                               3 Institut für Physik und Astronomie, Universität Potsdam, Haus 28, Karl-Liebknecht-Str. 24/25, 14476, Potsdam, Germany
+                                              4 Max Planck Institute for Gravitational Physics (Albert Einstein Institute), Am Mühlenberg 1, Potsdam 14476, Germany and
+                                                     5 School of Physics and Astronomy, Cardiff University, Queens Buildings, Cardiff, CF24 3AA, United Kingdom
+
+                                                                                                Version July 25, 2024
+
+                                                                                                 ABSTRACT
+                                                 Despite originating in science fiction, warp drives have a concrete description in general relativity,
+                                                 with Alcubierre first proposing a spacetime metric that supported faster-than-light travel. Whilst
+                                                 there are numerous practical barriers to their implementation in real life, including a requirement for
+arXiv:2406.02466v2 [gr-qc] 24 Jul 2024
+
+
+
+
+                                                 negative energy, computationally, one can simulate their evolution in time given an equation of state
+                                                 describing the matter. In this work, we study the signatures arising from a warp drive ‘containment
+                                                 failure’, assuming a stiff equation of state for the fluid. We compute the emitted gravitational-wave
+                                                 signal and track the energy fluxes of the fluid. Apart from its rather speculative application to the
+                                                 search for extraterrestrial life in gravitational-wave detector data, this work is interesting as a study of
+                                                 the dynamical evolution and stability of spacetimes that violate the null energy condition. Our work
+                                                 highlights the importance of exploring strange new spacetimes, to (boldly) simulate what no one has
+                                                 seen before.
+
+                                                           1. INTRODUCTION                                   bubble” could traverse distances faster than the speed
+                                            Detections of gravitational waves by the LIGO                    of light (as measured by some distant observer) by con-
+                                         Scientific-Virgo-Kagra Collaborations (e.g., Abbott et al.          tracting spacetime in front of it and expanding spacetime
+                                         2018, 2021, 2023) are paving the way to viewing extreme             behind it (Alcubierre and Lobo 2017). The problems as-
+                                         gravitational events across the entire visible universe.            sociated with such spacetimes are well documented (Ev-
+                                         It is natural to ask what new signals originating from              erett 1996; Hiscock 1997; Visser et al. 2000; Loup et al.
+                                         strongly distorted regions of spacetime could be seen in            2001; Lobo 2007; Obousy and Cleaver 2008). One par-
+                                         the future beyond the compact binary mergers already                ticular issue is the requirement for matter that violates
+                                         detected. To search for such signals and to correctly iden-         the Null Energy Condition (NEC) (Olum 1998; Lobo and
+                                         tify them in the measured data, it is important to under-           Visser 2004) 1 . The requirement that warp drives violate
+                                         stand their phenomenology and properties. Numerical                 the NEC may be considered a practical rather than fun-
+                                         relativity (NR) is one of the main tools for computing              damental barrier to their construction since NEC viola-
+                                         gravitational-wave signals for spacetimes in the highly             tion can be achieved by quantum effects and effective de-
+                                         dynamical strongly gravity regime in the absence of sym-            scriptions of modifications to gravity (Barcelo and Visser
+                                         metries (Gourgoulhon 2007; Alcubierre 2008; Baumgarte               2002; Kontou and Sanders 2020), albeit subject to quan-
+                                         and Shapiro 2010, 2021). NR simulations are time do-                tum inequality bounds (Pfenning and Ford 1997; Fewster
+                                         main evolutions of a given initial state that allow the re-         and Teo 1999; Krasnikov 2003) and other semiclassical
+                                         sulting gravitational-wave signals to be extracted in the           considerations (Finazzi et al. 2009) that seem likely to
+                                         asymptotic radiation zone, from which we can connect                prove problematic. Other issues with the warp drive met-
+                                         to our own observations from a given viewing angle and              ric include the potential for closed time-like curves (Ev-
+                                         distance.                                                           erett 1996; Visser et al. 2000) and, from a more practical
+                                            Unlike black holes, which have a natural formation               perspective, the difficulties for those in the ship in con-
+                                         channel (Chandrasekhar 1931; Penrose 1965) and consid-              trolling and deactivating the bubble (Alcubierre 2017).
+                                         erable observational support (Akiyama et al. 2019; Ab-                 From the perspective of simulating the warp drive
+                                         bott et al. 2016; Ghez et al. 2008), more exotic spacetimes         dynamically, the key challenge is stability. One can
+                                         such as wormholes or warp drives (Lobo 2007; Santiago               straightforwardly generate the initial metric that de-
+                                         et al. 2021) are considered science fiction because their           scribes the Alcubierre metric and infer the instantaneous
+                                         formation and existence generate many potential para-               matter configuration that must support it using the Ein-
+                                         doxes, and require matter that violates certain energy              stein Equation, but a time-domain evolution of the cou-
+                                         conditions. Nevertheless, warp drives can be described              pled matter-gravity system necessitates that we specify
+                                         classically within the theory of general relativity by a            the equation of state of the matter, which in turn de-
+                                         metric first proposed by Miguel Alcubierre (Alcubierre              termines how it evolves. In a perfect fluid, this involves
+                                         1994) and further developed in subsequent works (e.g.,              specifying the relation between the fluid pressure and
+                                         Natário 2002; Van Den Broeck 1999; Krasnikov 1998;                 density, but in a more general case, the full relation
+                                         Everett and Roman 1997).                                              1 Recent works that have suggested positive energy warp drive
+                                            The principle idea behind a warp drive is that instead           solutions (Lentz 2021; Bobrick and Martire 2021; Fell and Heisen-
+                                         of exceeding the speed of light directly in a local reference       berg 2021) have problems that are discussed in (Santiago et al.
+                                         frame, which would violate Lorentz invariance, a “warp              2022).
+2
+                                                                                             t=0          t=0.21       t=0.42      t=1.312
+between the stress-energy components must be given.
+There is (to our knowledge) no known equation of state
+that would maintain the warp drive metric in a stable
+configuration over time - therefore, whilst one can re-
+quire that initially, the warp bubble is constant, it will
+quickly evolve away from that state and, in most cases,
+the warp fluid and spacetime deformations will disperse
+or collapse into a central point.
+   This instability, whilst undesirable for the warp ship’s
+occupants, gives rise to the possibility of generating grav-
+itational waves. The Alcubierre metric for a constant ve-             Figure 1. The evolution in time of the trace of Kij , K = γ ij Kij .
+locity warp ship would not generate gravitational waves.              This quantity initially provides a schematic representation of the
+In addition, far away from the warp bubble, the space-                warp drive metric, with positive values for the contracting part of
+                                                                      the space ahead of the ship and negative values for the expanding
+time is exactly Minkowskian – that is, it is actually flat,           part behind. We observe the destabilisation of these regions, which
+not just asymptotically flat. The warp bubble spacetime               initially collapse inwards and then dissipate to infinity. Movie at
+is therefore undetectable by its gravitational effects as             https://youtu.be/rZsre-y4hlM?feature=shared.
+it has no gravitational wave content and no measurable
+ADM mass (Schuster et al. 2023) 2 (although other signa-
+tures are possible, see e.g. (Marzlin and Kinach 2022)).
+However, the collapse of the warp drive, or its accelera-
+tion or deceleration, should generate gravitational waves,            Visser 2004), which is assumed to be negligible compared
+and in this work, we study the first case by allowing the             to the bubble.
+warp bubble to collapse. Physically, this could be related              This article is structured as follows. In Sec. 2, we set
+to a breakdown in the containment field that the post-                out the formalism used to perform our simulations of
+warp civilisation (presumably) uses to support the warp               warp bubble collapse, particularly the treatment of the
+bubble against collapse.                                              warp fluid element and its equation of state. In Sec. 3, we
+   The prospect of a zero ADM mass spacetime radiat-                  present the resulting gravitational-wave signatures and
+ing gravitational-wave energy immediately leads to an                 quantify the radiation of energy from the spacetime re-
+interesting physical question: Does the spacetime actu-               gion. In Sec. 4, we discuss the implications of our findings
+ally radiate energy, and if so, once it settles down to a             and propose directions for further study. Some technical
+steady state, does the final spacetime have a negative                details and validation of our simulations are given in the
+mass? In this work we consider the fluxes of energy both              Appendix.
+from the matter and the gravitational waves out of a
+spatial volume after the warp drive collapse. This study                    2. FORMALISM FOR THE WARP DRIVE
+has connections to early work by Bondi (Bondi 1957),                                         SIMULATION
+in which positive and negative matter restricted to lin-                We follow the standard numerical-relativity approach
+ear motion was shown to attract and repel in a way that               to solving the Einstein Equation
+would accelerate them together.
+   For our study, we restrict ourselves to a limited and                                           1
+                                                                                    Gµν = Rµν − Rgµν = 8πTµν                (1)
+simplified scenario and sub-light speeds as a proof of prin-                                       2
+ciple. This is also a first step towards studying what, if            as an initial value problem, using the 3 + 1-decomposed
+any, pathologies develop as we reach v = c. We would                  form and setting G = c = 1. This means that we define
+also emphasise that the warp drive is interesting since it            spacelike hypersurfaces that foliate the four-dimensional
+uses gravitational distortion of spacetime to propel the              manifold, specify initial data on a particular hypersur-
+ship forward, rather than a usual kind of fuel/reaction               face, and evolve it forward in our chosen time coordinate
+system. This means that its detection would signal                    using the method of lines. (See the standard numeri-
+the use of NEC violating drives, even in sub-light-speed              cal relativity texts (Arnotwitt et al. 1960; York 1979;
+cases.                                                                Alcubierre 2008) for detailed discussions.) The 3 + 1-
+   The initial bubble is described by the original Alcu-              decomposed metric in coordinates adapted to the slicing
+bierre metric with a fixed wall thickness. We develop                 takes the form
+a formalism to describe the warp fluid and its evolution
+and vary its initial velocity at the point of collapse (which            ds2 = (−α2 + βi β i )dt2 + 2βi dtdxi + γij dxi dxj ,          (2)
+is related to the amplitude of the warp bubble). We                                                                i
+neglect the existence of the warp ship itself (Lobo and               where α is the lapse function, β is the shift vector,
+                                                                      and γij is the spatial metric connected to the spatial
+   2 It circumvents theorems about all asymptotically Minkowskian     hypersurface. The description is completed by the ex-
+spacetimes being Minkowski (Witten 1981; Schon and Yau 1979)          trinsic curvature Kij , which is roughly related to the
+by the presence of the negative energy contribution. Note that        time derivative of γij , and more rigorously defined as its
+the spacetime at spatial infinity, where the ADM mass is defined,
+is causally disconnected from the spacetime of the warp bubble,       Lie derivative, such that
+therefore the true ADM mass should be conserved and remain at
+zero. When we refer to the mass of the spacetime volume here, after                                 1
+                                                                                        Kij = −       ∂t γij + D(i βj) .               (3)
+a period of dynamical evolution, we mean a quasi-local analogy                                     2α
+obtained by integrating over the surface of a finite volume some
+distance away from the collapsing bubble, after that volume has       It will also be useful to note that nµ = (−α, 0, 0, 0) is the
+reached a stationary state with no net fluxes in or out.              normal to the spatial hypersurface.
+                                                                                                                                            3
+                                                                                             t=0            t=0.21     t=5.25      t=10.5
+              2.1. Initial data for the metric
+   Although, as discussed above, many alternatives with
+improved physical properties have been discussed in the
+literature, we will consider in this work the original Al-
+cubierre metric (Alcubierre 1994) for which
+
+                       α = 1,                                    (4)
+                      γij = δij ,                                (5)
+                      β i = (0, 0, −vs f (rs )) ,                (6)
+                                                                       Figure 2. The evolution in time of the real part of the Weyl scalar
+with the quantities rs and vs defined as                               Ψ4 for the case of v = 0.1. This quantity provides a measure of the
+                                                                       spacetime curvature and, in the far region, can be identified with
+                  dzs             p                                    the gravitational wave content of the spacetime. In the last two
+         vs =         ,    rs =       x2 + y 2 + (z − zs )2 ,    (7)   panels, we see a burst of gravitational-wave radiation leaving the
+                  dt                                                   collapsed remnant of the warp bubble. Movie at https://youtu.
+                                                                       be/rZsre-y4hlM?feature=shared.
+and
+                  tanh(σ(rs + R)) − tanh(σ(rs − R))
+      f (rs ) =                                     .            (8)
+                             2 tanh(σR)
+                                                                       with the ten components
+The free parameters R and σ determine the shape of the
+warp bubble, specifically its radius and the wall thickness                          Sij = Tij ,                                     (13)
+∼ 1/σ.                                                                                                  j
+                                                                                            1      β
+    We will use the value of R to define the system of units                        Si = − Tit +      Tij ,                 (14)
+                                                                                           α        α
+in which our results are expressed - our simulations have
+                                                                                          1         βi        βiβj
+a scaling freedom that means that they apply to any simi-                            ρ = 2 Ttt − 2 2 Tit + 2 Tij .          (15)
+lar warp drive with size R. Specifying the physical value                                α          α          α
+of R determines the other physical values of our mea-                  Knowing that the energy-momentum-tensor has to sat-
+surements, including the gravitational-wave fluxes and                 isfy the Einstein Equation, we can directly calculate the
+the energy radiated. For reference, for a warp bubble of               quantities on the right-hand side from Eq. (1) as
+size R = 1 km, the relevant quantities in physical units                                                        
+are t = 1[R] is 3.33 µs and E or M = 1[R] is 0.677 M⊙                                          1            R
+3                                                                                     Tµν =        Rµν − gµν ,              (16)
+  .                                                                                           8π            2
+    The extrinsic curvature carries the information about
+the expansion and contraction of the spacetime, with val-              where the Ricci tensor can be straightforwardly calcu-
+ues                                                                    lated from the Alcubierre metric in terms of derivatives
+                                                                       of the shift.
+                           1
+                   Kij = (∂i βj + ∂j βi )                (9)
+                           2                                                              2.3. Metric evolution
+that can be computed analytically from the expression                     For the metric evolution, we use the standard CCZ4
+for f (rs ). The trace of Kij , K = γ ij Kij is initially              formulation of (Alic et al. 2012) and the moving puncture
+K = ∂z β z . This quantity is usually plotted to provide a             gauge (Bona et al. 1995; Baker et al. 2006; Campanelli
+schematic representation of the warp drive, see Fig. 1.                et al. 2006; van Meter et al. 2006) within the numerical-
+                                                                       relativity code grchombo (Andrade et al. 2021; Radia
+                                                                       et al. 2022; Clough et al. 2015), which uses the method of
+               2.2. Initial data for matter
+                                                                       lines, with an RK4 time integration and 4th order finite
+  The initial data for the matter degrees of freedom is                difference stencils for calculating spatial gradients.
+computed from the energy-momentum-tensor that sup-                        We note that for the gauge evolution we use the shock-
+ports the initial spacetime curvature deformation. We                  avoiding Bona-Masso type gauge slicing originally pro-
+describe the state of the matter at any time in terms of               posed by Alcubierre (Alcubierre 1997, 2003), and re-
+projections of the stress-energy tensor                                cently advocated for by Baumgarte and Hilditch (Baum-
+                                                                       garte and Hilditch 2022) in the context of critical col-
+                          Sµν = Pµσ Pνρ Tσρ ,                   (10)   lapse simulations. We find that the shock-avoiding slic-
+                           Sµ = −Pµσ nρ Tσρ ,                   (11)   ing gives much better stability and, more importantly,
+                                    µ ν                                allows us to extract coherent gravitational waveforms in
+                            ρ = n n Tµν ,                       (12)   the wave zone, whereas in the standard gauge, we ob-
+                                                                       tained large unphysical gauge effects that hindered us
+with the projection operator Pνµ = δνµ + nµ nν where nµ                in extracting the physical gravitational-wave signal. Be-
+is the normal vector to the spatial hypersurface defined               cause this gauge has a tendency to push the extrinsic cur-
+above. In coordinates adapted to the slicing, we can work              vature to zero, one should not over-interpret the evolu-
+                                                                       tion shown in Fig. 1. It quickly decays to zero in the sim-
+  3 For comparison, the Enterprise-E of the Star Trek universe is
+                                                                       ulation before the matter and gravitational-wave fluxes
+685.7 meters in length (Drexler and Clark 2014).                       have begun to leave the volume.
+4
+                        t=0           t=0.21      t=5.25     t=10.5
+                                                                       where the first terms are the advection of the fields in
+                                                                       spacetime and the terms containing κ set a timescale
+                                                                       related to proper time for the decay of the anisotropic
+                                                                       stresses to zero and the pressure to that of a stiff fluid
+                                                                       for which p̄ = ρ. We take the timescale 1/κ to be of
+                                                                       order [R]. Evolving the anisotropic and average pressure
+                                                                       components, we can at any point reconstruct Sij from
+                                                                       their values as defined by Eq. (21)4 .
+                                                                          This construction assumes that there is some transition
+                                                                       after the warp field breakdown that reverts the warp fluid
+Figure 3. The evolution in time of the matter energy density ρ         to a perfect fluid with a stiff equation of state and a ve-
+for the case of v = 0.1. We see that a ring of positive energy forms
+within the initially negative energy density bubble and propels it     locity that matches the normal observers, such that the
+outwards, which is reminiscent of (Bondi 1957). There are several      divergence term in Eq. (19) and the anisotropic stresses
+waves of alternating positive and negative energies. In the final      decay away. Further investigations are needed to under-
+panel, we see that the remnant appears stable, and compared to         stand the influence of the equation of state of the warp
+Fig. 2, we see that the matter waves propagate at roughly the
+same speed as the gravitational waves. Movie at https://youtu.         field on the gravitational-wave signal, but it appears that
+be/rZsre-y4hlM?feature=shared.                                         the metric behaviour mostly dominates the signal. How-
+                                                                       ever, the chosen equation of state will strongly affect the
+                                                                       matter fluxes, which may change the conclusions in Sec.
+                                                                       3.
+                                                                          The evolution of the energy density ρ that results from
+   Better quantities to track the evolution of the metric              this prescription is illustrated in Fig. 3.
+ curvature are the Weyl scalars, in particular Ψ4 . We
+ study the tensorial gravitational-wave modes emitted by                                   2.5. Numerical setup
+ the warp drive by extracting the Newman-Penrose scalar
+                                                                          The size of the domain is L = 168 [R] with N = 224
+ Ψ4 with the tetrads proposed by (Baker et al. 2002), pro-
+                                                                       cells on the coarsest grid in the direction of travel of the
+Hjected into spin-weight
+                        lm
+                             −2 spherical harmonics, ψlm =            warp ship (the z axis). In the x and y directions, we use
+    2 Ψ 4 |r=r     −2 Ȳ     dΩ, where dΩ = sin θ dθ dφ is the
+  S            ex
+                                                                       the symmetry of the problem to halve the simulation do-
+ area element on the S 2 unit sphere. The evolution of the             main so that we only evolve a quarter of the full domain,
+ real part of Ψ4 is illustrated in Fig. 2.                             with appropriate parities at the reflection boundaries. In
+                                                                       the nonsymmetric directions, we use Sommerfeld bound-
+                      2.4. Matter evolution                            ary conditions (Radia et al. 2022). We employ 6 levels
+   The requirement that ∇ν T µν = 0 gives us four evolu-               of 2:1 refinement, such that the finest grid has a width
+tion equations for the components of the matter ρ and                  of 2.625[R] and the finest grid spacing is dx ∼ 0.0117[R].
+Si as follows:                                                            For all runs, the size of the warp ship in code units is
+                                                                       set to be R = 1, and the value that determines the wall
+                        1                                              thickness σ is set to be 8. The velocity of the warp ship is
+  ∂t ρ = β i Di ρ − γ ij Dj α2 Si + α(Sij K ij + ρK), (17)
+                                  
+                        α                                              varied between 0.1 and 0.2. We have found that we can
+                                                                       stably evolve higher velocities up to 0.5, but good qual-
+∂t Si = β j Dj Si + Sj Di β j − γ jk Dk (αSij ) + αKSi − ρ∂i α.
+                                                                       ity results require very high resolutions, which would be
+                                                          (18)
+                                                                       better achieved with a code adapted to the axisymmetry.
+   The evolution equation for Sij is, in principle, free -
+                                                                       This work can be viewed as a step towards the study of
+once we specify the equation of state of the matter, it
+                                                                       the physicality of the faster-than-light case, where there
+would be fully determined. We base our choice on the
+                                                                       are good reasons to suppose that the spacetime should
+observation that the initial warp drive spacetime has an
+                                                                       be pathological in some way. By showing that numerical
+average pressure of (Santiago et al. 2022)
+                                                                       evolutions can be made to work at sub-light speeds, this
+                               1                                       gives us hope of being able to trace a point of breakdown
+             p̄ ≡ γ ij Sij /3 = ρ −
+                                  ∇a (Kna ) ,   (19)                   near light speed.
+                              12π
+                                                                          The waves are extracted at a radius of 14[R]. This
+which we can reexpress using the ADM formalism as                      is much smaller than values used in binary extraction,
+            ρ    1
+                     2
+                      D α
+                                                                      but the system here is very different and so the compar-
+                                   ij     2                            ison is not appropriate. In particular, the spacetime is
+       p̄ = −               + Kij K + K       . (20)
+            3 24π       α                                              already flat outside the original bubble wall at R. The
+We then decompose the stress density tensor as                         total integrated massR of the matter is also initially of or-
+                                                                       der (minus) M = ρdV ∼ 0.01R, and not M ∼ R as
+                        Sij = p̄γij + σij                      (21)    in, say, a neutron star. Since the frequency of the waves
+                                                                       is high relative to the grid spacing, we need to extract
+where the second term is trace-free by construction and
+represents the anisotropic stress component (it is initially             4 One might consider trying to naively evolve the equation of
+
+non-zero for the Alcubierre metric). We then impose                    state in Eq. (19), but a simple analysis shows that this introduces
+that                                                                   higher derivative terms to the equation of motion for the momen-
+                                                                       tum density (either 3rd spatial derivatives of the lapse or 3rd-time
+     ∂t σij = β k Dk σij + σkj ∂i β k + σik ∂j β k − κασij , (22)      derivatives of the spatial metric). Given the high chance that such
+                                                                       terms will result in an ill-posed evolution system, we do not follow
+       ∂t p̄ = β i ∂i p̄ + ∂t ρ − β i ∂i ρ − κα(p̄ − ρ),       (23)    this approach.
+                                                                                                                                5
+
+further in to obtain a good resolution of the frequencies
+using the adaptive mesh refinement (AMR) hierarchy.
+We have checked the consistency of the waves at differ-
+ent resolutions, and details of the checks we have done
+on convergence of the constraints and verification of the
+matter evolution are given in Appendix A.
+
+                      3. RESULTS
+                  3.1. Gravitational waves
+  A visualisation of the evolution of the gravitational-
+wave content is shown in Fig. 2. We plot the extracted
+Weyl scalar Ψ4 for the main m = 0 modes in Fig. 4.
+The signal comes as a burst, initially having no gravi-
+tational wave content, followed by an oscillatory period
+with a characteristic frequency of order 1/[R]. Overall,
+the signal is very distinct from the typical compact bi-
+nary coalescences observed by gravitational-wave detec-
+tors and more similar to events like the collapse of an un-
+stable neutron star or the head-on collision of two black
+holes (Giacomazzo et al. 2011; Sperhake et al. 2005).
+However, since the remnant is not a black hole, there
+is no characteristic black hole ringdown in the signal,
+and there is evidence of a longer lower frequency tail,
+particularly for higher velocities.
+  Integrating Ψ4 , we find that for a warp speed of
+v = 0.1, the magnitude of the strain times the radius
+of extraction is of order 10−2 [R]. Thus, for a 1 km-sized
+warp ship, the strain of the signal at a distance of 1 Mpc    Figure 4. Modes of the Newman-Penrose scalar Ψ4 multiplied
+would be 10−21 . However, its frequency (f ∼ 1/[R])           by the coordinate radius for different values of the warp speed v.
+equates to f ∼ 300 kHz, which is outside the range of         Given the symmetry of the problem, the m̸= 0 modes are zero,
+                                                              so we only show the modes with l = 2, 3, 4. We observe that the
+current ground based detectors. Proposals for higher fre-     signal has a frequency set by the size of the warp bubble f ∼ 1/[R],
+quency detectors have been made (Aggarwal et al. 2021),       which for a 1 km warp bubble would be of the order f ∼ 300 kHz.
+so in future one may be able to put bounds on the exis-
+tence of such signals. Depending on the size of the warp
+bubble, which determines the frequency of the signal, as
+well as the distance to the source, these signatures may      where γ is the determinant of the spatial metric γij (see
+be detected through a coherent search or burst search         Clough (2021) for a derivation and details on practical
+combining information from multiple gravitational-wave        implementation). We can also integrate this to find the
+detectors (e.g., Sutton et al. 2010; Cornish and Litten-      total energy flux that is emitted up to a time t as
+berg 2015; Klimenko et al. 2016). A more in depth anal-                                  Z t
+ysis, like the one of Kuwahara and Cannon (2023), would
+be needed to give accurate bounds.                                                ∆E =       F (t̃)dt̃ .           (25)
+                                                                                              0
+  We note that since the matter and gravitational waves
+propagate at the same speed, the gravitational waves are         A visualisation of the evolution of the matter-energy
+never in an exact vacuum. We use the appropriate cal-         density ρ is shown in Fig. 3. In Fig. 5, we show a
+culation of the Weyl scalars to account for this, but it      comparison of the integrated matter and gravitational-
+means that the two components may continue to interact        wave fluxes out of the sphere at a coordinate radius of
+and that the gravitational waves will not fall off exactly    r = 14[R] around the warp bubble versus time. We see
+as 1/r (although the difference is small over the domain      that whilst the gravitational-wave flux is strictly posi-
+we study). This is specific to the case where the matter      tive as expected, the matter flux alternates in sign, with
+propagates at the speed of light, whereas in a more re-       waves of positive and negative energy leaving the vol-
+alistic matter model we would expect the matter to be         ume. It appears from the evolution that the ejection
+moving slower and the gravitational waves to propagate        of matter is driven by a shell of positive energy form-
+ahead. This is another point that could be investigated       ing within the negative energy density shell of the initial
+further in future work.                                       bubble and driving it outwards. This is reminiscent of
+                                                              the early works of Bondi (1957), showing the effect of
+                  3.2. Matter fluxes                          repulsion and attraction between positive and negative
+                                                              energy matter.
+  We measure the matter flux out of a spherical coordi-          In Fig. 6, we show a zoom-in of the fluxes and in-
+nate surface ∂Σ with unit coordinate normal vector si         tegrated energy loss, which shows that the matter flux
+and coordinate area element dA as                             results in an overall negative flux out of the spacetime,
+                       Z
+                          √                                   with the gravitational waves giving a much smaller pos-
+                 F =        γ T0i si dA            (24)       itive flux. The result is that the final mass of the space-
+                         ∂Σ
+6
+
+
+
+
+Figure 5.      A comparison of the integrated matter and               Figure 6. Zoom in on the start and end periods of the integrated
+gravitational-wave energy fluxes out of sphere at a coordinate ra-     energy fluxes in the matter and gravitational waves as in Fig. 5
+dius of r = 14[R] around the warp bubble versus time for different     for the case v = 0.1. We see that the flux begins in the matter sec-
+v. The top panel shows the integrated matter fluxes (i.e., the total   tor, with alternating waves of positive and negative energy. The
+energy radiated). The bottom panel shows the integrated gravita-       gravitational-wave flux starts a little later but continues through-
+tional wave fluxes in the 20 mode. The net gravitational-wave flux     out the periods in which the net matter flux is both positive and
+is always positive, whereas the net matter flux oscillates as waves    negative. The second panel shows that the overall matter energy
+of positive and negative energy leave the volume. Note that the        loss is negative (i.e. the energy of matter in the volume increases),
+matter flux is significantly larger in magnitude than that of the      whereas the gravitational-wave flux is overall positive as expected
+gravitational waves.                                                   but much smaller. The final mass of the spacetime volume once
+                                                                       the spacetime settles into a stationary state
+                                                                            is therefore larger than its initial value (which was zero).
+
+
+time volume is more positive (having started at zero). It
+would be interesting to study whether this is a generic                the collapse of a warp drive bubble.
+effect, such that spacetimes with NEC-violating matter                    We also studied the evolution of the fluxes of matter
+cannot dynamically settle into a state with a mass below               and gravitational-wave energy from the spacetime, find-
+zero. We can see from Fig. 6 that nothing appears to                   ing that an initial wave of negative energy matter is emit-
+impede the gravitational-wave flux when the net matter                 ted, followed by alternating positive and negative energy
+flux is instantaneously positive overall, as between times             waves. The gravitational-wave flux starts shortly after
+t − rext = −1.0 and −0.5 on the second panel of the plot               and is positive throughout, as expected. The end result
+so temporary decreases appear to be permitted.                         is a net negative flux of energy, resulting in a higher final
+   Since we do not know the type of matter used to con-                mass of the spacetime volume. It would be interesting
+struct the warp ship, we do not know whether it would                  to explore to what extent this behaviour is generic or
+interact (apart from gravitationally) with normal matter               depends on the chosen equation of state supporting the
+as it propagates through the Universe. If it did interact,             warp bubble. To do this, one would want to consistently
+it may give rise to further signatures (i.e., a multimes-              implement a fluid description with a general rest frame
+senger event). For a 1 km sized warp bubble traveling                  velocity and equation of state, unlike the somewhat ad
+at v = 0.1, the magnitude of the energy carried by the                 hoc setup employed here.
+matter waves, of order 10−2 [R] (see Fig. 5), would be                    This work could be extended in several other direc-
+around 1/100 times the mass-energy of the sun.                         tions. Firstly, using a code better adapted to the ax-
+   The evolution does appear to settle down into a stable              isymmetry, one could extend to higher speeds, including
+remnant, that could be described as a “star” of the warp               those that exceed v = 1.0, to see if there is a change
+fluid - it is a configuration of the fluid that appears to             in behaviour as light speed is approached. One might
+balance the gravitational forces and fluid pressures. We               expect to see some kind of pathology develop, e.g., the
+would need to evolve for longer and use a larger grid (to              formation of elliptic regions that cause the dynamical
+avoid boundary reflection effects) to be sure about its                evolution to fail. Better resolution and longer evolutions
+stability, but it appears to have settled to at least an               would also allow better characterization of the strain sig-
+approximately steady state in the period simulated.                    nal, particularly the role of the gravitational-wave mem-
+                                                                       ory content (Mitman et al. 2024).
+                       4. DISCUSSION                                      As discussed above, for a 1km-sized ship, the frequency
+   In this work, we proposed a formalism for studying                  of the signal ∼ 300 kHz is much higher than the range
+warp drive spacetimes dynamically and produced the                     probed by existing detectors, so current observations can-
+first fully consistent numerical-relativity waveforms for              not constrain the occurrence of such events. However,
+                                                                                                                                7
+
+the amplitude of the strain signal would be significant for   icester was funded by BEIS, UKRI and STFC capital
+any such event within our galaxy and even beyond - at a       funding and STFC operations grants. This work also
+distance of 1 Mpc, slightly further than the Andromeda        used the DiRAC Data Intensive service (CSD3) at the
+galaxy, the strain amplitude is similar to LIGO detec-        University of Cambridge, managed by the University of
+tor’s peak sensitivity. The signal is therefore potentially   Cambridge University Information Services on behalf of
+within the reach of future detectors targeting higher fre-    the STFC DiRAC HPC Facility (www.dirac.ac.uk). The
+quencies (Aggarwal et al. 2021). We caution that the          DiRAC component of CSD3 at Cambridge was funded
+waveforms obtained are likely to be highly specific to        by BEIS, UKRI and STFC capital funding and STFC
+the model employed, which has several known theoreti-         operations grants. DiRAC is part of the UKRI Digital
+cal problems, as discussed in the Introduction. Further       Research Infrastructure.
+work would be required to understand how generic the
+signatures are, and properly characterise their detectabil-
+ity.                                                                                    APPENDIX
+             5. ACKNOWLEDGEMENTS                              A. NUMERICAL DETAILS, VALIDATION AND
+   The crew thanks the creators and actors of the Star                                CONVERGENCE
+Trek universe for their inspiration for this work. We also
+                                                                To validate our simulations, we monitor the violations
+thank the many people who discussed the project and
+                                                              of the Hamiltonian and momentum constraints which are
+gave useful feedback and encouragement, especially the
+2023 Peyresque workshop attendees and our NR friends
+at the 2023 ETK meeting in Aveiro. Particular con-
+ceptual help was given by Jean Alexandre, Josu Aur-
+rekoetxea, Mark Hannam, Juan Valiente Kroon, Gautam
+Satischandran, and Miren Radia and Josu Aurrekoetxea
+provided the gravitational-wave analysis scripts used.
+The GRTL collaboration is warmly acknowledged for the
+use of their GRChombo code (www.grchombo.org) and
+the development work that supports it. Katy “I can-
+nae change the laws of physics Captain” Clough thanks
+the University of Potsdam and the Albert Einstein In-
+stitute in Potsdam for hosting her for the final stage
+of the project and acknowledges current support from
+an STFC Ernest Rutherford fellowship, project reference
+ST/V003240/1, and previous support from the European
+Research Council (ERC) under the European Union’s
+Horizon 2020 research and innovation programme (grant
+agreement No 693024). Tim “Captain Jim T.” Dietrich
+thanks Pedro Ferreira for hosting him at the University
+of Oxford, which allowed this project to make signifi-
+cant progress. TD also acknowledged support from the
+European Union (ERC, SMArt, 101076369). Views and
+opinions expressed are those of the authors only and do
+not necessarily reflect those of the European Union or
+the European Research Council. Neither the European
+Union nor the granting authority can be held responsi-
+ble for them. Sebastian “Wrath of” Khan thanks Jens
+Niemeyer for hosting him in Georg August University of
+Goettingen, where the voyage towards this article first
+began.
+   The simulations presented in this paper used the
+Glamdring cluster in Astrophysics at Oxford Univer-
+sity and DiRAC resources under the projects of dp092
+(Testing the limits of General Relativity). This work
+used the DiRAC Memory Intensive service (Cosma8 and
+Cosma7) at Durham University, managed by the In-
+stitute for Computational Cosmology on behalf of the          Figure 7. The top panel shows the L2 norm of the Hamiltonian
+STFC DiRAC HPC Facility (www.dirac.ac.uk). The                constraint violation over time in the central volume over which data
+DiRAC service at Durham was funded by BEIS, UKRI              is extracted, the second the same for the Momentum constraint
+                                                              violation. These show approximate convergence of the quantities
+and STFC capital funding, Durham University and               to zero with increasing resolution between 1st and and 3rd order.
+STFC operations grants. This work also used the DiRAC         The final panel shows the reconciliation of the matter-energy fluxes
+Data Intensive service (DIaL3) at the University of Le-       and source term (the exchange of energy with the curvature) as
+icester, managed by the University of Leicester Research      described in the main text. The agreement between the direct
+                                                              measurement of M and its inferred value from the flux and source
+Computing Service on behalf of the STFC DiRAC HPC             terms validates that the matter is well resolved in the relevant
+Facility (www.dirac.ac.uk). The DiRAC service at Le-          volume.
+8
+
+given by                                                           Miguel Alcubierre. Introduction to 3+1 Numerical Relativity.
+                                                                     International Series of Monographs on Physics. Oxford
+                    2                                                University Press, Oxford, 2008. ISBN 9780199205677.
+         H := R + K 2 − Ãkl Ãkl − 2Λ − 16πρ,            (A1)       doi:10.1093/acprof:oso/9780199205677.001.0001.
+                   3                                             Miguel Alcubierre.
+                                                   ∂l χ              Wormholes, Warp Drives and Energy Conditions, volume 189.
+        Mi := γ̃ kl ∂k Ãli − 2Γ̃m
+                                 l(i Ãk)m − 3Ãik                   Springer, 2017. doi:10.1007/978-3-319-55182-1.
+                                                   2χ              Miguel Alcubierre and Francisco S. N. Lobo. Warp Drive Basics.
+                 2                                                   Fundam. Theor. Phys., 189:257–279, 2017.
+              − ∂i K − 8πSi .                             (A2)       doi:10.1007/978-3-319-55182-1˙11.
+                 3                                                 Daniela Alic, Carles Bona-Casas, Carles Bona, Luciano Rezzolla,
+                                                                     and Carlos Palenzuela. Conformal and covariant formulation of
+In the continuum limit these two quantities should van-              the Z4 system with constraint-violation damping. Phys.Rev.,
+ish. We check that the initial values converge to zero at            D85:064040, 2012. doi:10.1103/PhysRevD.85.064040.
+the appropriate order, which validates the initial stress          Tomas Andrade et al. GRChombo: An adaptable numerical
+                                                                     relativity code for fundamental physics. J. Open Source
+energy tensor components ρ and Si . The Hamilto-                     Softw., 6(68):3703, 2021. doi:10.21105/joss.03703.
+nian constraint is solved exactly to numerical precision,          R. Arnotwitt, S. Deser, and C.W. Misner. Canonical variables for
+whereas the spatial gradients in the Momentum con-                   general relativity. Physical Review, 117(6):1595–1602, March
+straint mean that it should initial converge at 4th order.           1960.
+                                                                   John G. Baker, Manuela Campanelli, and Carlos O. Lousto. The
+During the evolution we expect errors to be dominated by             Lazarus project: A Pragmatic approach to binary black hole
+the time integration, and give something between 1st and             evolutions. Phys. Rev. D, 65:044001, 2002.
+3rd order, with some of the drop in convergence caused               doi:10.1103/PhysRevD.65.044001.
+                                                                   John G. Baker, Joan Centrella, Dae-Il Choi, Michael Koppitz,
+by the approximate way that we zero the constraints out-             and James van Meter. Gravitational wave extraction from an
+side the volume.                                                     inspiraling configuration of merging black holes. Phys. Rev.
+   We calculate the L2 norm of the constraints over the              Lett., 96:111102, 2006. doi:10.1103/PhysRevLett.96.111102.
+coordinate volume for which the matter integrals are               Carlos Barcelo and Matt Visser. Twilight for the energy
+                                                                     conditions? Int. J. Mod. Phys. D, 11:1553–1560, 2002.
+evaluated (with its 2D surface also being the surface used           doi:10.1142/S0218271802002888.
+for extraction of the gravitational waves), which is at a          Thomas Baumgarte and Stuart Shapiro. Numerical Relativity.
+coordinate radius of r = 14[R] from the centre of the                Cambridge University Press, Cambridge, 2010.
+grid. As shown in Fig 7, the constraint violations remain          Thomas W. Baumgarte and David Hilditch. Shock-avoiding
+                                                                     slicing conditions: Tests and calibrations. Phys. Rev. D, 106
+under control throughout the simulation and converge at              (4):044014, 2022. doi:10.1103/PhysRevD.106.044014.
+a reasonable order.                                                Thomas W. Baumgarte and Stuart L. Shapiro.
+   To verify that the matter is sufficiently resolved within         Numerical Relativity: Starting from Scratch. Cambridge
+                                                                     University Press, 2 2021. ISBN 978-1-108-93344-5,
+the volume of interest, we also reconcile the matter quan-           978-1-108-84411-6, 978-1-108-92825-0.
+tities over time, checking that the net energy flux out of           doi:10.1017/9781108933445.
+the surface matches the change in the matter energy and            Alexey Bobrick and Gianni Martire. Introducing Physical Warp
+                                                                     Drives. Class. Quant. Grav., 38(10):105009, 2021.
+any exchange with the curvature (often referred to as a              doi:10.1088/1361-6382/abdf6e.
+“source”) over time. For this, we follow the approach              Carles Bona, Joan Masso, Edward Seidel, and Joan Stela. A New
+of Clough (2021). As shown in the last panel of Fig. 7,              formalism for numerical relativity. Phys. Rev. Lett., 75:
+the agreement is good throughout the simulation, which               600–603, 1995. doi:10.1103/PhysRevLett.75.600.
+                                                                   H. Bondi. Negative Mass in General Relativity. Rev. Mod.
+gives us confidence in the matter evolution.                         Phys., 29:423–428, 1957. doi:10.1103/RevModPhys.29.423.
+                                                                   Manuela Campanelli, C. O. Lousto, P. Marronetti, and
+                       REFERENCES                                    Y. Zlochower. Accurate Evolutions of Orbiting Black-Hole
+                                                                     Binaries Without Excision. Phys. Rev. Lett., 96:111101, 2006.
+B. P. Abbott et al. Observation of Gravitational Waves from a        doi:10.1103/PhysRevLett.96.111101.
+  Binary Black Hole Merger. Phys. Rev. Lett., 116(6):061102,       Subrahmanyan Chandrasekhar. The maximum mass of ideal
+  2016. doi:10.1103/PhysRevLett.116.061102.                          white dwarfs. Astrophys. J., 74:81–82, 1931.
+B. P. Abbott et al. GWTC-1: A Gravitational-Wave Transient           doi:10.1086/143324.
+  Catalog of Compact Binary Mergers Observed by LIGO and           Katy Clough. Continuity equations for general matter:
+  Virgo during the First and Second Observing Runs. 2018.            applications in numerical relativity. Class. Quant. Grav., 38
+R. Abbott et al. GWTC-2: Compact Binary Coalescences                 (16):167001, 2021. doi:10.1088/1361-6382/ac10ee.
+  Observed by LIGO and Virgo During the First Half of the          Katy Clough, Pau Figueras, Hal Finkel, Markus Kunesch,
+  Third Observing Run. Phys. Rev. X, 11:021053, 2021.                Eugene A. Lim, and Saran Tunyasuvunakool. GRChombo :
+  doi:10.1103/PhysRevX.11.021053.                                    Numerical Relativity with Adaptive Mesh Refinement. Class.
+R. Abbott et al. GWTC-3: Compact Binary Coalescences                 Quant. Grav., 32(24):245011, 2015.
+  Observed by LIGO and Virgo during the Second Part of the           doi:10.1088/0264-9381/32/24/245011. [Class. Quant.
+  Third Observing Run. Phys. Rev. X, 13(4):041039, 2023.
+                                                                     Grav.32,24(2015)].
+  doi:10.1103/PhysRevX.13.041039.                                  Neil J. Cornish and Tyson B. Littenberg. BayesWave: Bayesian
+Nancy Aggarwal et al. Challenges and opportunities of                Inference for Gravitational Wave Bursts and Instrument
+  gravitational-wave searches at MHz to GHz frequencies. Living      Glitches. Class. Quant. Grav., 32(13):135012, 2015.
+  Rev. Rel., 24(1):4, 2021. doi:10.1007/s41114-021-00032-5.          doi:10.1088/0264-9381/32/13/135012.
+Kazunori Akiyama et al. First M87 Event Horizon Telescope          D. Drexler and M. Clark. Ships of the Line. Star Trek. Gallery
+  Results. I. The Shadow of the Supermassive Black Hole.             Books, 2014. ISBN 9781476792675. URL
+  Astrophys. J. Lett., 875:L1, 2019.                                 https://books.google.co.uk/books?id=9YN0AwAAQBAJ.
+  doi:10.3847/2041-8213/ab0ec7.                                    Allen E. Everett. Warp drive and causality. Phys. Rev. D, 53:
+Miguel Alcubierre. The warp drive: hyper-fast travel within          7365–7368, 1996. doi:10.1103/PhysRevD.53.7365.
+  general relativity. Class. Quant. Grav., 11:L73–L77, 1994.       Allen E. Everett and Thomas A. Roman. A Superluminal
+  doi:10.1088/0264-9381/11/5/001.                                    subway: The Krasnikov tube. Phys. Rev. D, 56:2100–2108,
+Miguel Alcubierre. The Appearance of coordinate shocks in            1997. doi:10.1103/PhysRevD.56.2100.
+  hyperbolic formalisms of general relativity. Phys. Rev. D, 55:   Shaun D. B. Fell and Lavinia Heisenberg. Positive energy warp
+  5981–5991, 1997. doi:10.1103/PhysRevD.55.5981.                     drive from hidden geometric structures. Class. Quant. Grav.,
+Miguel Alcubierre. Hyperbolic slicings of spacetime: singularity     38(15):155020, 2021. doi:10.1088/1361-6382/ac0e47.
+  avoidance and gauge shocks. Class. Quant. Grav., 20:607–624,
+  2003. doi:10.1088/0264-9381/20/4/304.
+                                                                                                                                     9
+
+Christopher J. Fewster and Edward Teo. Bounds on negative             Ken D. Olum. Superluminal travel requires negative energies.
+   energy densities in static space-times. Phys. Rev. D, 59:            Phys. Rev. Lett., 81:3567–3570, 1998.
+   104016, 1999. doi:10.1103/PhysRevD.59.104016.                        doi:10.1103/PhysRevLett.81.3567.
+Stefano Finazzi, Stefano Liberati, and Carlos Barcelo.                Roger Penrose. Gravitational collapse and space-time
+   Semiclassical instability of dynamical warp drives. Phys. Rev.       singularities. Phys. Rev. Lett., 14:57–59, 1965.
+   D, 79:124017, 2009. doi:10.1103/PhysRevD.79.124017.                  doi:10.1103/PhysRevLett.14.57.
+A. M. Ghez et al. Measuring Distance and Properties of the            Michael J. Pfenning and L.H. Ford. The Unphysical nature of
+   Milky Way’s Central Supermassive Black Hole with Stellar             ’warp drive’. Class. Quant. Grav., 14:1743–1751, 1997.
+   Orbits. Astrophys. J., 689:1044–1062, 2008.                          doi:10.1088/0264-9381/14/7/011.
+   doi:10.1086/592738.                                                Miren Radia, Ulrich Sperhake, Amelia Drew, Katy Clough, Pau
+Bruno Giacomazzo, Luciano Rezzolla, and Nikolaos Stergioulas.           Figueras, Eugene A. Lim, Justin L. Ripley, Josu C.
+   Collapse of differentially rotating neutron stars and cosmic         Aurrekoetxea, Tiago França, and Thomas Helfer. Lessons for
+   censorship. Phys.Rev., D84:024022, 2011.                             adaptive mesh refinement in numerical relativity. Class. Quant.
+   doi:10.1103/PhysRevD.84.024022.                                      Grav., 39(13):135006, 2022. doi:10.1088/1361-6382/ac6fa9.
+Eric Gourgoulhon. 3+1 formalism and bases of numerical                Jessica Santiago, Sebastian Schuster, and Matt Visser. Tractor
+   relativity. arXiv: 0703035, 2007.                                    Beams, Pressor Beams and Stressor Beams in General
+William A. Hiscock. Quantum effects in the Alcubierre warp              Relativity. Universe, 7(8):271, 2021.
+   drive space-time. Class. Quant. Grav., 14:L183–L188, 1997.           doi:10.3390/universe7080271.
+   doi:10.1088/0264-9381/14/11/002.                                   Jessica Santiago, Sebastian Schuster, and Matt Visser. Generic
+S. Klimenko et al. Method for detection and reconstruction of           warp drives violate the null energy condition. Phys. Rev. D,
+   gravitational wave transients with networks of advanced              105(6):064038, 2022. doi:10.1103/PhysRevD.105.064038.
+   detectors. Phys. Rev. D, 93(4):042004, 2016.                       R. Schon and Shing-Tung Yau. On the Proof of the positive mass
+   doi:10.1103/PhysRevD.93.042004.                                      conjecture in general relativity. Commun. Math. Phys., 65:
+Eleni-Alexandra Kontou and Ko Sanders. Energy conditions in             45–76, 1979. doi:10.1007/BF01940959.
+   general relativity and quantum field theory. Class. Quant.         Sebastian Schuster, Jessica Santiago, and Matt Visser. ADM
+   Grav., 37(19):193001, 2020. doi:10.1088/1361-6382/ab8fcf.            mass in warp drive spacetimes. Gen. Rel. Grav., 55(1):14,
+S. Krasnikov. The Quantum inequalities do not forbid space-time         2023. doi:10.1007/s10714-022-03061-9.
+   shortcuts. Phys. Rev. D, 67:104013, 2003.                          Ulrich Sperhake, Bernard J. Kelly, Pablo Laguna, Kenneth L.
+   doi:10.1103/PhysRevD.67.104013.                                      Smith, and Erik Schnetter. Black hole head-on collisions and
+S.V. Krasnikov. Hyperfast travel in general relativity. Phys.           gravitational waves with fixed mesh-refinement and dynamic
+   Rev. D, 57:4760–4766, 1998. doi:10.1103/PhysRevD.57.4760.            singularity excision. Phys. Rev. D, 71:124042, 2005.
+Soichiro Kuwahara and Kipp Cannon. Development and                      doi:10.1103/PhysRevD.71.124042.
+   Application of a Detection System for a Novel Class of             Patrick J. Sutton et al. X-Pipeline: An Analysis package for
+   Gravitational-Wave Transients. 10 2023.                              autonomous gravitational-wave burst searches. New J. Phys.,
+Erik W. Lentz. Breaking the warp barrier: hyper-fast solitons in        12:053034, 2010. doi:10.1088/1367-2630/12/5/053034.
+   Einstein–Maxwell-plasma theory. Class. Quant. Grav., 38(7):        Chris Van Den Broeck. A ’Warp drive’ with reasonable total
+   075015, 2021. doi:10.1088/1361-6382/abe692.                          energy requirements. Class. Quant. Grav., 16:3973–3979, 1999.
+Francisco S. N. Lobo and Matt Visser. Fundamental limitations           doi:10.1088/0264-9381/16/12/314.
+   on ’warp drive’ spacetimes. Class. Quant. Grav., 21:5871–5892,     James R. van Meter, John G. Baker, Michael Koppitz, and Dae-Il
+   2004. doi:10.1088/0264-9381/21/24/011.                               Choi. How to move a black hole without excision: gauge
+Francisco S.N. Lobo. Exotic solutions in General Relativity. 10         conditions for the numerical evolution of a moving puncture.
+   2007.                                                                Phys. Rev., D73:124011, 2006.
+F. Loup, D. Waite, and Jr. Halerewicz, E. Reduced total energy          doi:10.1103/PhysRevD.73.124011.
+   requirements for a modified Aalcubierre warp drive space-time.     Matt Visser, Bruce Bassett, and Stefano Liberati. Superluminal
+   7 2001.                                                              censorship. Nucl. Phys. B Proc. Suppl., 88:267–270, 2000.
+Karl-Peter Marzlin and Michael P. Kinach. Exactly solvable 2D           doi:10.1016/S0920-5632(00)00782-9.
+   model for photon propagation in curved space: loss of              Edward Witten. A Simple Proof of the Positive Energy Theorem.
+   interference and Bell inequality violation. Class. Quant. Grav.,     Commun. Math. Phys., 80:381, 1981. doi:10.1007/BF01208277.
+   39(6):065005, 2022. doi:10.1088/1361-6382/ac4fbb.                  James W. York. Kinematics and dynamics of general relativity.
+Keefe Mitman et al. A Review of Gravitational Memory and                In Larry L. Smarr, editor, Sources of gravitational radiation,
+   BMS Frame Fixing in Numerical Relativity. 5 2024.                    pages 83–126. Cambridge University Press, Cambridge, UK,
+José Natário. Warp drive with zero expansion. Class. Quant.           1979. ISBN 0-521-22778-X.
+   Grav., 19:1157–1166, 2002. doi:10.1088/0264-9381/19/6/308.
+Richard K. Obousy and Gerald Cleaver. Warp Drive: A New
+   Approach. J. Br. Interplanet. Soc., 61:364, 2008.
+

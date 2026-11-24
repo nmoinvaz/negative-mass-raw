@@ -1,0 +1,256 @@
+%apsrev4-2.bst 2019-01-14 (MD) hand-edited version of apsrev4-1.bst
+%Control: key (0)
+%Control: author (8) initials jnrlst
+%Control: editor formatted (1) identically to author
+%Control: production of article title (0) allowed
+%Control: page (0) single
+%Control: year (1) truncated
+%Control: production of eprint (0) enabled
+\begin{thebibliography}{19}%
+\makeatletter
+\providecommand \@ifxundefined [1]{%
+ \@ifx{#1\undefined}
+}%
+\providecommand \@ifnum [1]{%
+ \ifnum #1\expandafter \@firstoftwo
+ \else \expandafter \@secondoftwo
+ \fi
+}%
+\providecommand \@ifx [1]{%
+ \ifx #1\expandafter \@firstoftwo
+ \else \expandafter \@secondoftwo
+ \fi
+}%
+\providecommand \natexlab [1]{#1}%
+\providecommand \enquote  [1]{``#1''}%
+\providecommand \bibnamefont  [1]{#1}%
+\providecommand \bibfnamefont [1]{#1}%
+\providecommand \citenamefont [1]{#1}%
+\providecommand \href@noop [0]{\@secondoftwo}%
+\providecommand \href [0]{\begingroup \@sanitize@url \@href}%
+\providecommand \@href[1]{\@@startlink{#1}\@@href}%
+\providecommand \@@href[1]{\endgroup#1\@@endlink}%
+\providecommand \@sanitize@url [0]{\catcode `\\12\catcode `\$12\catcode
+  `\&12\catcode `\#12\catcode `\^12\catcode `\_12\catcode `\%12\relax}%
+\providecommand \@@startlink[1]{}%
+\providecommand \@@endlink[0]{}%
+\providecommand \url  [0]{\begingroup\@sanitize@url \@url }%
+\providecommand \@url [1]{\endgroup\@href {#1}{\urlprefix }}%
+\providecommand \urlprefix  [0]{URL }%
+\providecommand \Eprint [0]{\href }%
+\providecommand \doibase [0]{https://doi.org/}%
+\providecommand \selectlanguage [0]{\@gobble}%
+\providecommand \bibinfo  [0]{\@secondoftwo}%
+\providecommand \bibfield  [0]{\@secondoftwo}%
+\providecommand \translation [1]{[#1]}%
+\providecommand \BibitemOpen [0]{}%
+\providecommand \bibitemStop [0]{}%
+\providecommand \bibitemNoStop [0]{.\EOS\space}%
+\providecommand \EOS [0]{\spacefactor3000\relax}%
+\providecommand \BibitemShut  [1]{\csname bibitem#1\endcsname}%
+\let\auto@bib@innerbib\@empty
+%</preamble>
+\bibitem [{\citenamefont {Anastopoulos}\ and\ \citenamefont
+  {Savvidou}(2021)}]{anastopoulos}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.}~\bibnamefont
+  {Anastopoulos}}\ and\ \bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
+  {Savvidou}},\ }\bibfield  {title} {\bibinfo {title} {Classification theorem
+  and properties of singular solutions to the {Tolman--Oppenheimer--Volkoff}
+  equation},\ }\href {https://doi.org/10.1088/1361-6382/abdf26} {\bibfield
+  {journal} {\bibinfo  {journal} {Class. Quantum Grav.}\ }\textbf {\bibinfo
+  {volume} {38}},\ \bibinfo {pages} {075024} (\bibinfo {year}
+  {2021})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Zurek}\ and\ \citenamefont {Page}(1984)}]{Zurek}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {W.~H.}\ \bibnamefont
+  {Zurek}}\ and\ \bibinfo {author} {\bibfnamefont {D.~N.}\ \bibnamefont
+  {Page}},\ }\bibfield  {title} {\bibinfo {title} {Black-hole thermodynamics
+  and singular solutions of the {Tolman--Oppenheimer--Volkoff} equation},\
+  }\href {https://doi.org/10.1103/PhysRevD.29.628} {\bibfield  {journal}
+  {\bibinfo  {journal} {Phys. Rev. D}\ }\textbf {\bibinfo {volume} {29}},\
+  \bibinfo {pages} {628} (\bibinfo {year} {1984})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {{'t Hooft}}(1998)}]{t_hooft}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {G.}~\bibnamefont {{'t
+  Hooft}}},\ }\bibfield  {title} {\bibinfo {title} {The self-screening
+  {Hawking} atmosphere---a different approach to quantum black hole
+  microstates},\ }\href {https://doi.org/10.1016/S0920-5632(98)00151-0}
+  {\bibfield  {journal} {\bibinfo  {journal} {Nucl. Phys. B Proc. Suppl.}\
+  }\textbf {\bibinfo {volume} {68}},\ \bibinfo {pages} {174} (\bibinfo {year}
+  {1998})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Laguna}\ \emph {et~al.}(2026)\citenamefont {Laguna},
+  \citenamefont {Guerrero},\ and\ \citenamefont {Kokkotas}}]{laguna2026}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {P.}~\bibnamefont
+  {Laguna}}, \bibinfo {author} {\bibfnamefont {O.}~\bibnamefont {Guerrero}},\
+  and\ \bibinfo {author} {\bibfnamefont {K.}~\bibnamefont {Kokkotas}},\ }\href
+  {https://arxiv.org/abs/2610.28140} {\bibinfo {title} {On the stability of
+  {Tolman--Oppenheimer--Volkoff} fireholes}} (\bibinfo {year} {2026}),\ \Eprint
+  {https://arxiv.org/abs/2610.28140} {arXiv:2610.28140 [gr-qc]} \BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Oppenheimer}\ and\ \citenamefont
+  {Volkoff}(1939)}]{oppenheimer}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~R.}\ \bibnamefont
+  {Oppenheimer}}\ and\ \bibinfo {author} {\bibfnamefont {G.~M.}\ \bibnamefont
+  {Volkoff}},\ }\bibfield  {title} {\bibinfo {title} {On massive neutron
+  cores},\ }\href {https://doi.org/10.1103/PhysRev.55.374} {\bibfield
+  {journal} {\bibinfo  {journal} {Phys. Rev.}\ }\textbf {\bibinfo {volume}
+  {55}},\ \bibinfo {pages} {374} (\bibinfo {year} {1939})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Tolman}(1934)}]{Tolman1934-TOLRTA}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.~C.}\ \bibnamefont
+  {Tolman}},\ }\href@noop {} {\emph {\bibinfo {title} {Relativity,
+  Thermodynamics and Cosmology}}}\ (\bibinfo  {publisher} {Clarendon Press},\
+  \bibinfo {address} {Oxford},\ \bibinfo {year} {1934})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Buchdahl}(1959)}]{Buchdahl1959}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {H.~A.}\ \bibnamefont
+  {Buchdahl}},\ }\bibfield  {title} {\bibinfo {title} {General relativistic
+  fluid spheres},\ }\href {https://doi.org/10.1103/PhysRev.116.1027} {\bibfield
+   {journal} {\bibinfo  {journal} {Phys. Rev.}\ }\textbf {\bibinfo {volume}
+  {116}},\ \bibinfo {pages} {1027} (\bibinfo {year} {1959})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Kokkotas}\ and\ \citenamefont
+  {Ruoff}(2001)}]{kostas_radial}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {K.~D.}\ \bibnamefont
+  {Kokkotas}}\ and\ \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Ruoff}},\ }\bibfield  {title} {\bibinfo {title} {Radial oscillations of
+  relativistic stars},\ }\href {https://doi.org/10.1051/0004-6361:20000216}
+  {\bibfield  {journal} {\bibinfo  {journal} {Astron. Astrophys.}\ }\textbf
+  {\bibinfo {volume} {366}},\ \bibinfo {pages} {565} (\bibinfo {year}
+  {2001})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont
+  {Chandrasekhar}(1964{\natexlab{a}})}]{Chandrasekhar1964a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Chandrasekhar}},\ }\bibfield  {title} {\bibinfo {title} {The dynamical
+  instability of gaseous masses approaching the {Schwarzschild} limit in
+  general relativity},\ }\href {https://doi.org/10.1086/147938} {\bibfield
+  {journal} {\bibinfo  {journal} {Astrophys. J.}\ }\textbf {\bibinfo {volume}
+  {140}},\ \bibinfo {pages} {417} (\bibinfo {year} {1964}{\natexlab{a}})},\
+  \bibinfo {note} {erratum: Astrophys. J. 140, 1342 (1964)}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont
+  {Chandrasekhar}(1964{\natexlab{b}})}]{Chandrasekhar1964b}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Chandrasekhar}},\ }\bibfield  {title} {\bibinfo {title} {Dynamical
+  instability of gaseous masses approaching the {Schwarzschild} limit in
+  general relativity},\ }\href {https://doi.org/10.1103/PhysRevLett.12.114}
+  {\bibfield  {journal} {\bibinfo  {journal} {Phys. Rev. Lett.}\ }\textbf
+  {\bibinfo {volume} {12}},\ \bibinfo {pages} {114} (\bibinfo {year}
+  {1964}{\natexlab{b}})},\ \bibinfo {note} {erratum: Phys. Rev. Lett. 12, 437
+  (1964)}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Chandrasekhar}\ and\ \citenamefont
+  {Tooper}(1964)}]{ChandrasekharTooper1964}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Chandrasekhar}}\ and\ \bibinfo {author} {\bibfnamefont {R.~F.}\ \bibnamefont
+  {Tooper}},\ }\bibfield  {title} {\bibinfo {title} {The dynamical instability
+  of the white-dwarf configurations approaching the limiting mass},\ }\href
+  {https://doi.org/10.1086/147883} {\bibfield  {journal} {\bibinfo  {journal}
+  {Astrophys. J.}\ }\textbf {\bibinfo {volume} {139}},\ \bibinfo {pages} {1396}
+  (\bibinfo {year} {1964})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Font}\ \emph {et~al.}(2002)\citenamefont {Font},
+  \citenamefont {Goodale}, \citenamefont {Iyer}, \citenamefont {Miller},
+  \citenamefont {Rezzolla}, \citenamefont {Seidel}, \citenamefont
+  {Stergioulas}, \citenamefont {Suen},\ and\ \citenamefont
+  {Tobias}}]{Font2002}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~A.}\ \bibnamefont
+  {Font}}, \bibinfo {author} {\bibfnamefont {T.}~\bibnamefont {Goodale}},
+  \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Iyer}}, \bibinfo {author}
+  {\bibfnamefont {M.}~\bibnamefont {Miller}}, \bibinfo {author} {\bibfnamefont
+  {L.}~\bibnamefont {Rezzolla}}, \bibinfo {author} {\bibfnamefont
+  {E.}~\bibnamefont {Seidel}}, \bibinfo {author} {\bibfnamefont
+  {N.}~\bibnamefont {Stergioulas}}, \bibinfo {author} {\bibfnamefont {W.-M.}\
+  \bibnamefont {Suen}},\ and\ \bibinfo {author} {\bibfnamefont
+  {M.}~\bibnamefont {Tobias}},\ }\bibfield  {title} {\bibinfo {title}
+  {Three-dimensional numerical general relativistic hydrodynamics. {II}.
+  {Long}-term dynamics of single relativistic stars},\ }\href
+  {https://doi.org/10.1103/PhysRevD.65.084024} {\bibfield  {journal} {\bibinfo
+  {journal} {Phys. Rev. D}\ }\textbf {\bibinfo {volume} {65}},\ \bibinfo
+  {pages} {084024} (\bibinfo {year} {2002})},\ \Eprint
+  {https://arxiv.org/abs/gr-qc/0110047} {arXiv:gr-qc/0110047} \BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Cunha}\ \emph {et~al.}(2017)\citenamefont {Cunha},
+  \citenamefont {Berti},\ and\ \citenamefont {Herdeiro}}]{Cunha2017}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {P.~V.~P.}\
+  \bibnamefont {Cunha}}, \bibinfo {author} {\bibfnamefont {E.}~\bibnamefont
+  {Berti}},\ and\ \bibinfo {author} {\bibfnamefont {C.~A.~R.}\ \bibnamefont
+  {Herdeiro}},\ }\bibfield  {title} {\bibinfo {title} {Light-ring stability for
+  ultracompact objects},\ }\href
+  {https://doi.org/10.1103/PhysRevLett.119.251102} {\bibfield  {journal}
+  {\bibinfo  {journal} {Phys. Rev. Lett.}\ }\textbf {\bibinfo {volume} {119}},\
+  \bibinfo {pages} {251102} (\bibinfo {year} {2017})},\ \Eprint
+  {https://arxiv.org/abs/1708.04211} {arXiv:1708.04211 [gr-qc]} \BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Sorkin}(1982)}]{Sorkin1982}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.~D.}\ \bibnamefont
+  {Sorkin}},\ }\bibfield  {title} {\bibinfo {title} {A stability criterion for
+  many-parameter equilibrium families},\ }\href
+  {https://doi.org/10.1086/160034} {\bibfield  {journal} {\bibinfo  {journal}
+  {Astrophys. J.}\ }\textbf {\bibinfo {volume} {257}},\ \bibinfo {pages} {847}
+  (\bibinfo {year} {1982})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Friedman}\ \emph {et~al.}(1988)\citenamefont
+  {Friedman}, \citenamefont {Ipser},\ and\ \citenamefont
+  {Sorkin}}]{FriedmanIpserSorkin1988}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~L.}\ \bibnamefont
+  {Friedman}}, \bibinfo {author} {\bibfnamefont {J.~R.}\ \bibnamefont
+  {Ipser}},\ and\ \bibinfo {author} {\bibfnamefont {R.~D.}\ \bibnamefont
+  {Sorkin}},\ }\bibfield  {title} {\bibinfo {title} {Turning-point method for
+  axisymmetric stability of rotating relativistic stars},\ }\href
+  {https://doi.org/10.1086/166043} {\bibfield  {journal} {\bibinfo  {journal}
+  {Astrophys. J.}\ }\textbf {\bibinfo {volume} {325}},\ \bibinfo {pages} {722}
+  (\bibinfo {year} {1988})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Misner}\ and\ \citenamefont
+  {Sharp}(1964)}]{MisnerSharp1964}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.~W.}\ \bibnamefont
+  {Misner}}\ and\ \bibinfo {author} {\bibfnamefont {D.~H.}\ \bibnamefont
+  {Sharp}},\ }\bibfield  {title} {\bibinfo {title} {Relativistic equations for
+  adiabatic, spherically symmetric gravitational collapse},\ }\href
+  {https://doi.org/10.1103/PhysRev.136.B571} {\bibfield  {journal} {\bibinfo
+  {journal} {Phys. Rev.}\ }\textbf {\bibinfo {volume} {136}},\ \bibinfo {pages}
+  {B571} (\bibinfo {year} {1964})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Wald}(1980)}]{Wald1980}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.~M.}\ \bibnamefont
+  {Wald}},\ }\bibfield  {title} {\bibinfo {title} {Dynamics in nonglobally
+  hyperbolic, static space-times},\ }\href@noop {} {\bibfield  {journal}
+  {\bibinfo  {journal} {J. Math. Phys.}\ }\textbf {\bibinfo {volume} {21}},\
+  \bibinfo {pages} {2802} (\bibinfo {year} {1980})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Ishibashi}\ and\ \citenamefont
+  {Wald}(2003)}]{IshibashiWald2003}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Ishibashi}}\ and\ \bibinfo {author} {\bibfnamefont {R.~M.}\ \bibnamefont
+  {Wald}},\ }\bibfield  {title} {\bibinfo {title} {Dynamics in
+  non-globally-hyperbolic static spacetimes: {II}. {G}eneral analysis of
+  prescriptions for dynamics},\ }\href@noop {} {\bibfield  {journal} {\bibinfo
+  {journal} {Class. Quantum Grav.}\ }\textbf {\bibinfo {volume} {20}},\
+  \bibinfo {pages} {3815} (\bibinfo {year} {2003})},\ \Eprint
+  {https://arxiv.org/abs/gr-qc/0305012} {arXiv:gr-qc/0305012} \BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Gibbons}\ \emph {et~al.}(2005)\citenamefont
+  {Gibbons}, \citenamefont {Hartnoll},\ and\ \citenamefont
+  {Ishibashi}}]{GibbonsHartnollIshibashi2005}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {G.~W.}\ \bibnamefont
+  {Gibbons}}, \bibinfo {author} {\bibfnamefont {S.~A.}\ \bibnamefont
+  {Hartnoll}},\ and\ \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Ishibashi}},\ }\bibfield  {title} {\bibinfo {title} {On the stability of
+  naked singularities with negative mass},\ }\href
+  {https://doi.org/10.1143/PTP.113.963} {\bibfield  {journal} {\bibinfo
+  {journal} {Prog. Theor. Phys.}\ }\textbf {\bibinfo {volume} {113}},\ \bibinfo
+  {pages} {963} (\bibinfo {year} {2005})},\ \Eprint
+  {https://arxiv.org/abs/hep-th/0409307} {arXiv:hep-th/0409307} \BibitemShut
+  {NoStop}%
+\end{thebibliography}%

@@ -1,0 +1,16 @@
+# zerilli_certificate: certificate of the Zerilli forward direction (part=even, L=symbolic, order=2)
+# mutations on: l1
+PASS PL.0c
+# [   0.0 s] PL.0c
+PASS PL.0d
+# [   0.2 s] PL.0d
+PASS PL.D.1
+# [   0.2 s] PL.D.1
+PASS PL.O.1
+# [   0.8 s] PL.O.1 equations
+# odd radial equations (jets h_n):
+#   tphi: (L*h0_0*r - 4*M*h0_0 + 2*M*h0_2*r**2 - 4*M*h1_0*r*s - 2*M*h1_1*r**2*s - h0_2*r**3 + 2*h1_0*r**2*s + h1_1*r**3*s)/(2*r**3)
+#   rphi: (-2*L*M*h1_0 + L*h1_0*r + 4*M*h1_0 + 2*h0_0*r**2*s - h0_1*r**3*s + h1_0*r**3*s**2 - 2*h1_0*r)/(2*r**2*(-2*M + r))
+#   xphi: (-4*M**2*h1_0 + 4*M**2*h1_1*r + 2*M*h1_0*r - 4*M*h1_1*r**2 - h0_0*r**3*s + h1_1*r**3)/(r**2*(-2*M + r))
+FAIL A.1: P and xP' can be dependent at L in [0, 2]; this run has L = 2; ranks l = 2..30 ok: True
+# summary: 4 PASS, 1 FAIL

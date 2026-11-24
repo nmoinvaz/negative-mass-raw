@@ -1,0 +1,16 @@
+review_lemma_a_t2 (mutation: t2_shift)
+PASS PL5 (t-2)(t+1)(t+3)
+PASS PL5 (t-1)(t-2)(t+3)
+PASS PL5 t^2-t+1
+PASS PL5 t^3+2t^2
+FAIL T2.1 N(r_s + t) = c sum_m (1-m) d_m t^m, d_m = chi^(m)(r_s)/m!, generic chi of degree 8: difference -(c*t + 6)*(a1*c**7 + a2*c**7*t + 6*a2*c**6 + a3*c**7*t**2 + 12*a3*c**6*t + 36*a3*c**5 + a4*c**7*t**3 + 18*a4*c**6*t**2 + 108*a4*c**5*t + 216*a4*c**4 + a5*c**7*t**4 + 24*a5*c**6*t**3 + 216*a5*c**5*t**2 + 864*a5*c**4*t + 1296*a5*c**3 + a6*c**7*t**5 + 30*a6*c**6*t**4 + 360*a6*c**5*t**3 + 2160*a6*c**4*t**2 + 6480*a6*c**3*t + 7776*a6*c**2 + a7*c**7*t**6 + 36*a7*c**6*t**5 + 540*a7*c**5*t**4 + 4320*a7*c**4*t**3 + 19440*a7*c**3*t**2 + 46656*a7*c**2*t + 46656*a7*c + a8*c**7*t**7 + 42*a8*c**6*t**6 + 756*a8*c**5*t**5 + 7560*a8*c**4*t**4 + 45360*a8*c**3*t**3 + 163296*a8*c**2*t**2 + 326592*a8*c*t + 279936*a8)/c**7
+PASS T2.2a d_m = sum_{n>=m} c_n C(n,m) r_s^{n-m} for generic chi (degree 8)
+PASS T2.2b the same for the actual chi (sympy Taylor shift against the sum), l = 2..40 [l=2..40]
+PASS T2.3 d_0 = chi(r_s) > 0, d_1 = -d_0/(r_s(r_s+2)), d_2 = 0 (exact) [l=2..120]
+PASS T2.4 d_m > 0 for 4 <= m <= l+2 (exact; d_m = 0 beyond since chi has degree l+2) [l=2..120]
+info: sign of d_3 for l = 2..120: positive at 119 values of l ([2, 3, 4, 5, 6, 7]...[119, 120]), negative at 0 ([]...[]), zero at []
+PASS T2.5 coefficients of N(r_s + t) have exactly one sign change; leading coefficient -c(l+1)c_{l+2} < 0 [l=2..120]
+PASS T2.6 exact Sturm: one root of N in (r_s, inf), none in [0, r_s], N squarefree (root is simple) [l=2..40]
+FAILED: 1 failing check(s), first T2.1 N(r_s + t) = c sum_m (1-m) d_m t^m, d_m = chi^(m)(r_s)/m!, generic chi of degree 8
+
+exit 1

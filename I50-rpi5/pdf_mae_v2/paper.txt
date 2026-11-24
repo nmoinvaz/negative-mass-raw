@@ -1,0 +1,2116 @@
+                                                                      Simple analytic model of wormhole formation
+                                                                                              Hideki Maeda∗
+                                                                 Centro de Estudios Cientı́ficos (CECS), Arturo Prat 514, Valdivia, Chile
+                                                                                       (Dated: November 2, 2018)
+                                                        An explicit and simple solution representing the wormhole formation is presented. The spacetime
+                                                     is constructed by gluing the Minkowski and Roberts spacetimes at null hypersurfaces in a regular
+                                                     manner. The parameters in the Roberts solution are required to give the negative kinetic term for
+                                                     the massless scalar field. Although a curvature singularity appears at the moment of the wormhole
+                                                     formation, it disappears instantaneously. This instantaneous singularity is weak in the senses of
+                                                     both Tipler and Królak along radial causal geodesics.
+
+                                                     PACS numbers: 04.20.Jb, 04.20.Dw, 04.20.Gz, 04.40.Nr
+arXiv:0811.2962v2 [gr-qc] 2 Feb 2009
+
+
+
+
+                                                         I.   INTRODUCTION                                 Independent of the stability of the stationary worm-
+                                                                                                        hole configurations, the formation of a wormhole is a
+                                          Along with black holes, wormholes are intriguing ob-          highly nontrivial problem because it is a dynamical pro-
+                                       jects in general relativity which have been attracting peo-      cess of the topology change. Actually, the dynamical
+                                       ple even not working in gravitational physics. A worm-           aspects of wormholes have not been well understood so
+                                       hole is locally characterized by a “throat,” i.e., a two-        far. Although there is a lot of static wormhole solutions
+                                       dimensional compact spatial surface of minimal area on           obtained in the literature, there are few works on the ex-
+                                       an achronal hypersurface, connecting some asymptotic             act model of wormhole formation from the regular initial
+                                       regions or infinities. Wormholes admit the (apparent)            data. Because the formation or the growth of a wormhole
+                                       superluminal travel as a global effect of the spacetime          is essentially a quite complicated dynamical and inhomo-
+                                       topology [1–3]. Moreover, they are available to make             geneous process, numerical methods have been often used
+                                       time machines [4, 5]. (The readers should refer to [2] for       to study such problems. In these surroundings, exact an-
+                                       a standard textbook and [3] for a nice recent review.)           alytic models are important to give a transparent picture
+                                                                                                        of the phenomenon. They become test beds for the fu-
+                                          The Morris-Thorne static traversable wormhole con-
+                                                                                                        ture research and should be intensively investigated to
+                                       necting two asymptotically flat spacetimes is now a well-
+                                                                                                        complement the numerical works.
+                                       known classic in general relativity [6]. (Static worm-
+                                       hole metrics were obtained even before Morris and                   The purpose of the present paper is to give a simple
+                                       Thorne [7].) It is known that an exotic matter vio-              analytic model of wormhole formation with a massless
+                                       lating the null energy condition is necessary for static         ghost scalar field. The rest of the present paper is con-
+                                       traversable wormholes in general relativity [2, 8, 9]. This      stituted as follows. In the following section, basic equa-
+                                       is also a natural consequence of the topological censor-         tions and a review of the Roberts solution are presented.
+                                       ship in the asymptotically flat case [10]. Thus, to con-         In Sec. III, we construct our model and study its global
+                                       struct wormhole solutions with small or even without vio-        structure. In Sec. IV, properties of the curvature singu-
+                                       lation of the energy condition has been a big challenge in       larity in the Roberts spacetime are studied. Concluding
+                                       wormhole physics [11, 12]. In fact, it was shown that the        remarks and discussions including future prospects are
+                                       wormhole spacetime can be constructed with an arbitrar-          summarized in Sec. IV. In Appendix A, the relation be-
+                                       ily small amount of matter which violates the averaged           tween the Roberts and the Gutman-Bespal’ko solutions
+                                       null energy condition [13]. This result suggests that the        is explicitly shown. In Appendix B, the global structure
+                                       wormhole configuration could be realized in the universe         of the Roberts solution for the nonghost case is reviewed.
+                                       by some quantum effects violating the energy conditions.         We adopt the units such that c = G = 1. The metric sig-
+                                                                                                        nature convention is taken to be (−, +, +, +), and greek
+                                          Then, a natural question is the stability of the worm-
+                                                                                                        indices run over all spacetime indices. The conventions
+                                       hole solutions. A wormhole could be formed from the
+                                                                                                        of the curvature tensors are [∇ρ , ∇σ ]V µ = Rµ νρσ V ν and
+                                       gravitational collapse of matter fields possibly violating
+                                                                                                        Rµν := Rρ µρν .
+                                       the energy conditions. Also, it may be formed by some
+                                       quantum tunneling effect. The stability analysis is im-
+                                       portant in order to clarify the stable stationary config-
+                                       uration of a wormhole. In the case of the static worm-                    II.   MODEL AND THE SOLUTION
+                                       hole solution with thin shells, there exist linearly stable
+                                       configurations depending on the parameter(s) of the so-
+                                                                                                            We begin with the following action:
+                                       lution [14]. On the other hand, no stable and analytic
+                                       wormhole solutions have been reported in the studies of
+                                                                                                                                √
+                                                                                                                                                         
+                                                                                                                                           1     1
+                                                                                                                        Z
+                                       mode analyses and numerical simulations so far [15–18].                     S=       d4 x −g           R − ǫφ,µ φ,µ ,   (2.1)
+                                                                                                                                          16π    2
+
+                                                                                                        where ǫ = 1 and −1 respectively correspond to the real
+                                       ∗ Electronic address: hideki@cecs.cl                             and ghost massless scalar field. The energy-momentum
+                                                                                                                            2
+
+tensor for a scalar field is given by                             The expression (2.8) is convenient to understand the
+                                                              codomain of φ because arctanh(w) is real, complex, and
+                                  1     ,ρ                      purely imaginary for 0 ≤ (Re w)2 < 1 with Im w = 0,
+             Tµν = ǫ φ,µ φ,ν − gµν φ,ρ φ     .         (2.2)
+                                  2                             (Re w)2 > 1 with Im w = 0, and Re w = 0, respectively.
+                                                                The scalar field is real for
+The Einstein equation is
+                                                                                     [1 − 2C1 (v/u)]2
+                       µ             ,µ
+                      R ν = 8πǫφ φ,ν ,                 (2.3)                    0≤                    <1               (2.12)
+                                                                                        1 − 4C1 C2
+while the equation of motion for φ is                           in the case of C1 C2 < 1/4 otherwise φ becomes complex.
+                                                                We write the condition (2.12) in terms of the square of
+                            φ = 0.                     (2.4)    the areal radius R2 = −uv + C1 v 2 + C2 u2 as
+We see from the basic Eqs. (2.3) and (2.4) that if the                                 4C1 R2
+scalar field in one solution with ǫ = 1 is purely imaginary,                  0≤    2
+                                                                                                   + 1 < 1.            (2.13)
+                                                                                   u (1 − 4C1 C2 )
+it can be interpreted as a solution with a ghost scalar field
+(ǫ = −1).                                                       Therefore, under C1 C2 < 1/4, the scalar field is real and
+   In this paper, we consider the spherically symmetric         complex for C1 ≤ 0 and C1 > 0, respectively. In the case
+spacetime (M4 , gµν ) which is a warped product of a two-       of C1 C2 > 1/4, on the other hand, Eq. (2.8) with φ0 = 0
+dimensional constant curvature space (S 2 , γij ) and a two-    can be rewritten as
+dimensional orbit spacetime (M 2 , gAB ) under the isome-
+try of (S 2 , γij ). Namely, the line element is given by
+                                                                                                          
+                                                                                 i           1 − 2C1 (v/u)
+                                                                         φ=±     √   arctan  √               ,      (2.14)
+                                                                                2 π            4C1 C2 − 1
+           ds2 = gAB dxA dxB + R(xA )2 dΩ2 ,           (2.5)
+                                                                where i2 := −1. Therefore, the scalar field is purely imag-
+where A, B = 0, 1; i, j = 2, 3 and dΩ2 := γij dxi dxj =         inary corresponding to a ghost scalar field for C1 C2 >
+dθ2 + sin2 θdϕ2 . Here R is a scalar on (M 2 , gAB ) with       1/4.
+R = 0 defining its boundary, and γij is the unit metric on         Here we must give some comments on the history of
+(S 2 , γij ) with its sectional curvature k = 1. The Misner-    this solution. The solution with C1 6= 0 was obtained by
+Sharp mass [19] is defined by                                   Roberts in 1989 [20]. Unfortunately, the metric in the
+                                                                double null coordinates was erroneously written and the
+                           R
+               mMS :=        (1 − R,A R,A ).           (2.6)    correct form was found later by several authors [21–24].
+                           2                                    In this case, we can set |C1 | = 1 without losspof general-
+  Under the assumption that (M 2 , gAB ) is Minkowski,          ity by the
+                                                                         p coordinate transformations v̄ := |C1 |v and
+the general homothetic self-similar spherically symmetric       ū := u/ |C1 |, so it is a one-parameter family of solu-
+solution for a massless scalar field with ǫ = 1 is given by     tions. On the other hand, the solution with C1 = 0 was
+                                                                obtained by Brady in 1994 [23]. (See also [25, 26].) In
+     ds2 = −2dudv + (−uv + C1 v 2 + C2 u2 )dΩ2 ,       (2.7)    fact, we can show that the metric of the solution found by
+                                                                Gutman and Bespal’ko for a stiff fluid in 1967 [27] covers
+where C1 and C2 are real constants. For C1 C2 = 1/4, it         half of the spacetime (2.7). (See Appendix A.) This is
+is the Minkowski spacetime. For C1 C2 6= 1/4, the scalar        because a massless scalar field is equivalent to a stiff fluid
+field is given by                                               if the gradient of the scalar field is timelike [28]. Keep-
+                                                              ing in mind the history, we call this solution the Roberts
+                   1          1 − 2C1 (v/u)
+         φ = φ0 ± √ arctanh √                      (2.8)        solution in the present paper.
+                  2 π           1 − 4C1 C2
+for C1 6= 0 and
+                                                                 III.   AN ANALYTIC MODEL OF WORMHOLE
+                        1   v                                                   FORMATION
+               φ = φ0 ± √ ln − C2                      (2.9)
+                       4 π  u
+                                                                   In this section, we construct a simple analytic model
+for C1 = 0, where the value of the constant φ0 is mean-         of wormhole formation by gluing the Roberts and
+ingless. The Misner-Sharp mass (2.6) is given by                Minkowski spacetimes in a regular manner. We focus on
+                                                                the case of C1 C2 > 1/4 corresponding to a ghost scalar
+                    (1 − 4C1 C2 )uv                             field, which is required for this construction. The prop-
+          mMS = − √                     .             (2.10)
+                 4 −uv + C1 v 2 + C2 u2                         erties of the Roberts solution in the case of C1 C2 ≤ 1/4
+                                                                is reviewed in Appendix B.
+The Kretschmann invariant K is given by                            In the case of C1 C2 > 1/4, C1 > 0 and C2 > 0 are re-
+                                                                quired for the areal radius to be nonnegative. The areal
+             K := Rµνρσ Rµνρσ                                   radius becomes zero only at u = v = 0. Thus, it is seen
+                        3u2 v 2 (1 − 4C1 C2 )2                  in Eq. (2.11) that only u = v = 0 may be a curvature
+                  =                            .      (2.11)
+                      (−uv + C1 v 2 + C2 u2 )4                  singularity. We also see in Eq. (2.10) that the region with
+                                                                                                                              3
+
+uv > (<)0 has positive (negative) mass. On a null hy-               basis vectors of Σ defined by eµa := ∂xµ /∂y a are given by
+persurface of u = 0 or v = 0, the Kretschmann invariant
+                                                                                               ∂      ∂
+and the quasilocal mass are zero and the derivative of the                              eµv      µ
+                                                                                                   =     ,                (3.3)
+scalar field becomes null.                                                                    ∂x     ∂v
+                                                                                               ∂           ∂
+  The trapped region is given by R < 2mMS . Since                                         eµi    µ
+                                                                                                   = δµ i i .             (3.4)
+mMS ≤ 0 is satisfied for uv ≤ 0, the trapped region is lo-                                    ∂x          ∂x
+cated in the region of uv > 0. The trapping horizon [29]            The basis is completed by Nµ dxµ = −dv satisfying
+defined by R = 2mMS is given by                                     Nµ eµv = −1 and Nµ eµi = 0 on Σ. The only nonvanishing
+                             √                                      component of the transverse curvature Cab := Nµ;ν eµa eνb
+              (1 + 4C1 C2 ) ± 1 + 8C1 C2                            of Σ is
+          v=−                            u                  (3.1)
+                          4C1                                                                        1
+                                                                                             Cij = − vγij .               (3.5)
+                                                                                                     2
+for C1 6= 0, while u = 0 and v = 2C2 u for C1 = 0.
+Thus, there are two timelike trapping horizons (3.1) for               The regular attachment on Σ requires the continuity
+C1 C2 > 1/4 with C1 , C2 > 0 in the region of uv > 0.               of hab and Cab on both side of Σ. Since there is no C2 in
+  It is easy to know the global structure of the Roberts            the expressions of hab and Cab , two Roberts spacetimes
+solution because (M 2 , gAB ) is the Minkowski spacetime.           with the same nonzero C1 but different C2 can be at-
+u and v are affine parameters along radial null geodesics,          tached in a regular manner at u = 0. Thus, as a special
+and then null infinities are represented by u → ±∞ or               case, the Roberts spacetime (2.7) with C1 = C̄1 (6= 0) and
+v → ±∞. The Penrose diagram of the Roberts spacetime                C2 = C̄2 can be attached to the past Minkowski space-
+for C1 C2 > 1/4 with C1 , C2 > 0 is given in Fig. 1. This           time at u = 0 in a regular manner, of which metric is
+spacetime represents a dynamical wormhole. (Several                 given by Eq. (2.7) with C1 = C̄1 and C2 = 1/(4C̄1 ) 6= C̄2 .
+(quasi-)local definitions of a dynamical wormhole have              Similarly, it is shown that two Roberts spacetimes with
+been independently proposed so far [30–32].)                        the same nonzero C2 but different C1 can be attached in
+                                                                    a regular manner at v = 0.
+                                                                       By gluing the Roberts spacetime with 4C1 C2 > 1,
+                                                                    C1 , C2 > 0 and the Minkowski spacetime(s) at u = 0
+                                                                    and/or v = 0 in a regular manner, we can construct
+                         ity
+
+
+
+
+                                        fu
+                       fin
+
+
+
+
+                                                                    spacetimes representing wormhole formation from the
+                                         tu
+                                             re
+                    in
+
+
+
+
+                               II                                   initial data with a regular center. The Penrose diagrams
+                                                 in
+                  re
+
+
+
+
+                                                  fin
+               tu
+             fu
+
+
+
+
+                                                                    for these spacetimes are given in Fig. 2.
+                                                      ity
+                       v=
+
+
+
+
+                                          0
+                                        u=
+                         0
+
+
+
+
+                                                                       The attachment of the Roberts spacetime to the
+                                                                    Minkowski spacetime in the case of the ghost scalar field
+                    III                      I                      has been mentioned in [35] without detailed calculations.
+                                                                    It is claimed there that the instantaneous singularity
+                                                                    u = v = 0 in the Roberts spacetime can be removed by
+                         0
+
+
+
+
+                                         v=
+                       u=
+
+
+
+
+                                                  ity
+                                           0
+              pa
+
+
+
+
+                               IV                                   gluing the Minkowski spacetime at u = 0 or v = 0. Ob-
+                                              fin
+                st
+
+
+
+
+                                                                    viously, the curvature invariants do not blow up if an ob-
+                                             in
+                    in
+                     fin
+
+
+
+
+                                         st
+
+
+
+
+                                                                    server approaches there from the Minkowski region, how-
+                                        pa
+                         ity
+
+
+
+
+                                                                    ever, they certainly blow up along some causal geodesics
+                                                                    emanating from u = v = 0 in the Roberts region. As a
+                                                                    result, there is still a naked singularity at u = v = 0 in
+FIG. 1: The Penrose diagram of the Roberts solution (2.7)
+                                                                    the resulting spacetime. The details will be presented in
+for C1 C2 > 1/4 with C1 > 0 and C2 > 0. A star corresponds
+to an instantaneous curvature singularity at u = v = 0. The         the next section.
+quasilocal mass is positive (negative) in the regions II and
+IV (I and III). The trapping horizons (3.1) are located in the
+regions II and IV.                                                   IV.   PROPERTIES OF THE INSTANTANEOUS
+                                                                                   SINGULARITY
+
+  Now we show that the Roberts spacetime can be at-                   In the last section, we constructed a spacetime repre-
+tached to the Minkowski spacetime at u = 0 or v = 0 in a            senting the wormhole formation. One problem in this
+regular manner, i.e., without a massive thin shell on the           spacetime is an instantaneous curvature singularity at
+hypersurface. (See [33, 34] for the matching condition              u = v = 0 which appears at the moment of the wormhole
+on a null hypersurface.) We consider a null hypersurface            formation. In this section, we show that it is a naked but
+u = 0 as a matching surface, which we call Σ. (The ar-              weak singularity.
+gument is similar for v = 0.) The induced metric hab on
+Σ is given by
+                                                                                         A.   Nakedness
+             ds2Σ = hab dy a dy b := C1 v 2 dΩ2 ,           (3.2)
+                                                                      First we show that both radial and nonradial causal
+where y a = (v, θ, ϕ) is a set of coordinates on Σ. The             geodesics emanate from u = v = 0, i.e., it is certainly a
+                                                                                                                                                                                    4
+
+(A)                                                          (B)                                                         Then, the geodesic equations (4.2) are written as
+
+                                                                                                                                                 (−v + 2C2 u)Φ2
+                ity
+
+
+
+
+                                                                             ity
+                                        fu
+
+
+
+
+                                                                                                 fu
+             fin
+
+
+
+
+                                                                          fin
+                                                                                                                                     0 = v̈ +                           ,        (4.4)
+
+
+
+
+                                          tu
+
+
+
+
+                                                                                                   tu
+                                            re
+
+
+
+
+                                                                                                     re
+           in
+
+
+
+
+                                                                        in
+                             II                                                           II                                                  2(−uv + C1 v 2 + C2 u2 )2
+
+
+
+
+                                                  in
+
+
+
+
+                                                                                                              in
+          re
+
+
+
+
+                                                                       re
+                                                    fin
+
+
+
+
+                                                                                                                fin
+        tu
+
+
+
+
+                                                                     tu
+      fu
+
+
+
+
+                                                                   fu
+                                                       ity
+
+
+
+
+                                                                                                                   ity
+               v=
+
+
+
+
+                                                                            v=
+                                          0
+
+
+
+
+                                                                                                       0
+                             t2                                                           t2
+
+
+                                        u=
+
+
+
+
+                                                                                                     u=
+                                                                                                                                                 (−u + 2C1 v)Φ2
+                 0
+
+
+
+
+                                                                              0
+                                                                                                                                     0 = ü +                           .        (4.5)
+              III                             I                            III                            I                                   2(−uv + C1 v 2 + C2 u2 )2
+                                         t1                                                          t1
+                                                                                                                           The tangent vector of a nonspacelike geodesic k µ := ẋµ
+                 0
+
+
+
+
+                                                                              0
+                                         v=
+
+
+
+
+                                                                                                     v=
+               u=
+
+
+
+
+                                                                            u=
+                                                  ity
+
+
+
+
+                                                                                                              ity
+       pa
+
+
+
+
+                                                                    pa
+                                           0
+
+
+
+
+                                                                                                       0
+                       IV1        IV2           in                                  IV1        IV2
+
+
+
+
+                                                                                                            in
+                                                                                                                         satisfies
+          st
+
+
+
+
+                                                                       st
+                                              nf
+
+
+
+
+                                                                                                          nf
+             i
+
+
+
+
+                                                                          i
+           nf
+
+
+
+
+                                                                        nf
+                                              i
+
+
+
+
+                                                                                                       i
+                                           st
+
+
+
+
+                                                                                                    st
+             in
+
+
+
+
+                                                                          in
+                                        pa
+
+
+
+
+                                                                                                 pa
+               ity
+
+
+
+
+                                                                            ity
+                                                                                                                                                  k µ kµ = ε,                    (4.6)
+(C)                                                          (D)
+                                                                                                                         where ε is 0 and −1 for null and timelike geodesics, re-
+                ity
+
+
+
+
+                                                                             ity
+                                                                                                                         spectively. This equation is written as
+                                        fu
+
+
+
+
+                                                                                                 fu
+             fin
+
+
+
+
+                                                                          fin
+                                          tu
+
+
+
+
+                                                                                                   tu
+                                            re
+
+
+
+
+                                                                                                     re
+           in
+
+
+
+
+                                                                        in
+                             II                                                           II
+                                                  in
+
+
+
+
+                                                                                                              in
+          re
+
+
+
+
+                                                                       re
+                                                    fin
+
+
+
+
+                                                                                                                fin
+        tu
+
+
+
+
+                                                                     tu
+
+
+
+                                                                                                                               ε = −2u̇v̇ + (−uv + C1 v 2 + C2 u2 )−1 Φ2 .
+      fu
+
+
+
+
+                                                                   fu
+
+
+
+                                                                                                                                                                                 (4.7)
+                                                       ity
+
+
+
+
+                                                                                                                   ity
+               v=
+
+
+
+
+                                                                            v=
+                                          0
+
+
+
+
+                                                                                                       0
+                             t2                                                           t2
+                                        u=
+
+
+
+
+                                                                                                     u=
+                 0
+
+
+
+
+                                                                              0
+
+
+
+
+              III                             I                            III                            I                The Roberts spacetime admits a homothetic Killing
+                                         t1                                                          t1                  vector ξ µ (∂/∂xµ ) = u(∂/∂u) + v(∂/∂v) satisfying
+                  0
+
+
+
+
+                                                                               0
+                                         v=
+
+
+
+
+                                                                                                     v=
+               u=
+
+
+
+
+                                                                            u=
+                                                  ity
+
+
+
+
+                                                                                                            ity
+       pa
+
+
+
+
+                                                                    pa
+                                            0
+
+
+
+
+                                                                                                        0
+                       IV1        IV2                                               IV1        IV2
+                                               fin
+
+
+
+
+                                                                                                         fin
+          s
+
+
+
+
+                                                                       s
+         ti
+
+
+
+
+                                                                      ti
+
+
+
+
+                                                                                                                                       Lξ gµν := ξµ;ν + ξν;µ = 2gµν .            (4.8)
+                                             in
+
+
+
+
+                                                                                                       in
+           nf
+
+
+
+
+                                                                        nf
+                                          st
+
+
+
+
+                                                                                                     st
+             in
+
+
+
+
+                                                                          in
+                                        pa
+
+
+
+
+                                                                                                 pa
+                 ity
+
+
+
+
+                                                                              ity
+
+
+
+
+                                                                                                                         Then, we obtain
+
+FIG. 2: The Penrose diagrams representing wormhole forma-                                                                             d µ
+                                                                                                                                        (ξ kµ ) =: (ξ µ kµ );ν k ν
+tion from the initial data with a regular center. The Roberts                                                                        dλ
+spacetime with C1 C2 > 1/4, C1 > 0, and C2 > 0 (the shad-                                                                                       = ξµ;ν k µ k ν + ξ µ kµ;ν k ν
+owed region) is attached to the past Minkowski spacetimes at
+(A) u = 0 with v > 0 and v = 0 with u > 0, (B) u = 0, (C)                                                                                       = ξµ;ν k µ k ν
+v = 0 with u > 0, and (D) u = 0 with v < 0 and v = 0 with                                                                                       = gµν k µ k ν
+u < 0. A thick line corresponds to a symmetric center in a                                                                                      = ε,                             (4.9)
+Minkowski spacetime. t1 represents a spacelike hypersurface
+with a regular symmetric center, while t2 represents a space-                                                            where we used the fact that k µ is tangent to a geodesic
+like hypersurface with distinct spacelike infinities without a
+                                                                                                                         and Eq. (4.8). Hence we obtain ξ µ kµ = D0 + ελ, or
+regular center.
+                                                                                                                         equivalently
+
+                                                                                                                                           −uv̇ − v u̇ = D0 + ελ,               (4.10)
+naked singularity. The Lagrangian to give the geodesic                                                                   where D0 is a constant. Equation (4.10) is integrated to
+equations is                                                                                                             give
+
+       1                                                                                                                                                  1
+   L = gµν ẋµ ẋν                                                                                                                       −uv = D1 + D0 λ + ελ2 ,                (4.11)
+       2                                                                                                                                                  2
+                1                                                                                                        where D1 is a constant.
+     = − u̇v̇ + (−uv + C1 v 2 + C2 u2 )(θ̇2 + sin2 θϕ̇2 ).
+                2                                                                                                           We are now interested in the geodesics emanating from
+                                                       (4.1)                                                             u = v = 0. Without loss of generality, we can set λ such
+                                                                                                                         that λ = 0 corresponds to u = v = 0. Thus, we consider
+where a dot denotes the derivative with respect to the                                                                   the case with D1 = 0. Now the geodesic equations reduce
+affine parameter λ along a geodesic. Because of spherical                                                                to
+symmetry, we can set θ ≡ π/2 without loss of generality.
+The metric (2.7) is independent of ϕ, so that from the                                                                        ε = −2u̇v̇ + (−uv + C1 v 2 + C2 u2 )−1 Φ2 ,       (4.12)
+Lagrange equation                                                                                                                         1
+                                                                                                                            −uv = D0 λ + ελ2 .                                  (4.13)
+                                                                                                                                          2
+                                                   ∂ ∂L      ∂L
+                                    0=                      − µ,                                                 (4.2)   We obtain the master equation for u(λ) from above equa-
+                                                   ∂λ ∂ ẋµ  ∂x                                                          tions as
+                                                                                                                                                p
+we obtain a conserved quantity along a geodesic as                                                                        du    Au(ελ + D0 ) ± u A[D02 A + 4λΦ2 u2 (ελ + 2D0 )]
+                                                                                                                             =                                                  ,
+                                                                                                                          dλ                    λA(ελ + 2D0 )
+                                     ∂L                                                                                                                                   (4.14)
+                             Φ :=
+                                     ∂ ϕ̇                                                                                 A := 4C2 u4 + 2λu2 (ελ + 2D0 ) + C1 λ2 (ελ + 2D0 )2 .
+                                  = (−uv + C1 v 2 + C2 u2 )ϕ̇.                                                   (4.3)                                                      (4.15)
+                                                                                                                       5
+
+   First we consider radial geodesics (Φ = 0). For the       geodesics is given by
+null geodesics (ε = 0), the solutions of Eqs. (4.12) and
+(4.13) passing through u = v = 0 are u = 0 or v =                               192u80(1 − 4C1 C2 )2
+0. Along these radial null geodesics, the Kretschmann                   K=                                ,       (4.17)
+                                                                              (−2u20 + C1 + 4C2 u40 )4 λ4
+invariant and the quasilocal mass are identically zero.
+For the timelike geodesics (ε = −1), the general solution
+of Eq. (4.14) is given by u = u0 λ and u = u0 (2D0 − λ),     which diverges at λ = 0, i.e., u = v = 0. Along these
+where u0 is a nonzero constant. These two coincide for       radial timelike geodesics, the quasilocal mass is given by
+D0 = 0 and the latter does not pass through u = 0 for
+D0 6= 0. Finally, the solution passing through u = v = 0                         (1 − 4C1 C2 )u0 λ
+                                                                       mMS = − p                     ,            (4.18)
+is given by                                                                   4 −2u20 + C1 + 4C2 u40
+                                     1
+                 u = u0 λ,    v=        λ,          (4.16)   which converges to zero at λ = 0.
+                                    2u0
+                                                               For the nonradial geodesics (Φ 6= 0), there is a solution
+which corresponds to D0 = 0 in Eq. (4.13). The               of Eqs. (4.12) and (4.13) passing through u = v = 0,
+Kretschmann invariant along these radial timelike            which is given by
+
+
+
+                                                            p
+                                 −λ(2D0 + ελ)[(D02 + 2Φ2 ) ± (D02 + 2Φ2 )2 − 4D04 C1 C2 ]
+                             u2 =                                                         ,                       (4.19)
+                                                        4D02 C2
+                                                            p
+                              2  −λ(2D0 + ελ)[(D02 + 2Φ2 ) ∓ (D02 + 2Φ2 )2 − 4D04 C1 C2 ]
+                             v =                                                          .                       (4.20)
+                                                        4D02 C1
+
+
+
+Under 4C1 C2 − 1 > 0 and C1 , C2 > 0, the conditions for                             B.   Strength
+u2 and v 2 to be real and positive are D0 < 0 and
+
+               1           (D02 + 2Φ2 )2                        Next we consider the strength of the singularity at u =
+                 < C1 C2 ≤               .          (4.21)   v = 0. As definitions of the strength of singularities, the
+               4                4D04
+                                                             strong curvature condition (SCC) [36] and the limiting
+Because D0 and Φ are independent parameters which            focusing condition (LFC) [37] were proposed by Tipler
+characterize a geodesic, the right-hand side of Eq. (4.21)   and Królak, respectively. We consider a geodesic (N),
+varies from 1/4 to infinity. Hence, for any values of C1     affinely parametrized by λ, with the tangent vector k µ ,
+and C2 satisfying C1 C2 > 1/4 and C1 , C2 > 0, there are     terminating at or emanating from a singularity, where
+nonradial causal geodesics passing through u = v = 0.        λ = 0. SCC and LFC imply that N is emanating from or
+                                                             terminating in the Tipler’s strong and the Królak’s strong
+  Along these nonradial geodesics, the Kretschmann in-
+                                                             curvature singularities, respectively [38]. The physical
+variant diverges around u = v = 0 as
+                                                             content of the Tipler strong is that the volume element of
+                                                             physical objects (constructed by the Jacobi fields along
+               3u0 v0 (1 − 4C1 C2 )2
+ lim K ≃                                    ,       (4.22)   N) converges to zero at the singularity. On the other
+ λ→0        (−u0 v0 + C1 v02 + C2 u20 )4 λ2                  hand, the physical content of the Królak strong is that
+                              p
+             −(D02 + 2Φ2 ) ∓ (D02 + 2Φ2 )2 − 4D04 C1 C2      the expansion along N diverges at the singularity, but
+     u20 :=                                             ,    still the volume element remains finite. (See also [39, 40]
+                                2D0 C2
+                                                    (4.23)   for the textbook.)
+                                                                The necessary conditions for SCC and LFC are avail-
+                              p
+                 2      2           2         2 2 4
+             −(D0 + 2Φ ) ± (D0 + 2Φ ) − 4D0 C1 C2
+     v02 :=                                             ,                      µ
+                                                             able [38]. Let E(I)  (I = 1, 2, 3, 4) a parallelly propagat-
+                                2D0 C1                                                           µ             µ
+                                                    (4.24)   ing frame along N satisfying E(1)     E(1)µ = E(2)   E(2)µ =
+                                                                µ                µ
+                                                             E(3) E(3)µ = −E(4) E(4)µ = 1 if N is timelike and
+while the quasilocal mass converges to zero at u = v = 0        µ
+                                                             E(1)           µ
+                                                                  E(1)µ = E(2) E(2)µ = −E(3) µ
+                                                                                                E(4)µ = −E(4)µ
+                                                                                                                E(3)µ = 1
+as
+                                                             if N is null. All other products vanish and E(4)µ := k µ .
+                                                                                                                (I)
+                  (1 − 4C1 C2 )u0 v0 λ1/2                    If SCC is satisfied along N, then limλ→0 λ2 R (4)(J)(4)
+      lim mMS ≃ − p                         .       (4.25)
+      λ→0        4 −u0 v0 + C1 v02 + C2 u20                  does not converge for I, J = 1, 2, 3 and I, J = 1, 2
+                                                             in the cases where N is timelike and null, respectively,
+                                                                      (I)
+We note that Eqs. (4.22) and (4.25) are exact expressions    where R (J)(K)(L) is the Riemann tensor in the paral-
+for nonradial null geodesics.                                lelly propagating frame. If LFC is satisfied along N, then
+                                                                                                                                   6
+
+             (I)
+limλ→0 λR (4)(J)(4) does not converge for I, J = 1, 2, 3                a regular center. The spacetime represents the wormhole
+and I, J = 1, 2 in the cases where N is timelike and null,              formation with a massless ghost scalar field. In this con-
+respectively.                                                           struction, the matter region represented by the Roberts
+   We show that the singularity at u = v = 0 in the                     spacetime is attached to the past Minkowski spacetimes
+Roberts spacetime is weak in the senses of both Tipler                  at null hypersurfaces in a regular manner.
+and Królak for radial causal geodesics. For the radial                    This construction has been mentioned in [35] without
+causal geodesics, of which tangent vector has the form of               a detailed analysis. Actually, unlike the authors’ claim
+                              µ
+k µ = (k u , k v , 0, 0) =: E(4) , where k u k v = 0 is satisfied for   in [35], a naked curvature singularity appears at the mo-
+null geodesics, the angler bases E(I)     µ
+                                               (I = 1, 2) are given     ment of the wormhole formation. However, we showed
+as                                                                      that it is only instantaneous and weak in the senses of
+                                                                        both Tipler and Królak. This class of weak singularities
+                         µ   ∂       1 ∂
+                       E(1)    µ
+                                  :=      ,                    (4.26)   could be harmless because it would be dealt with in some
+                            ∂x       R ∂θ                               distributional sense.
+                         µ   ∂          1      ∂
+                       E(2)       :=             ,             (4.27)      In this context, Hayward and Koyama constructed an
+                            ∂x µ     R sin θ ∂ϕ                         analytic model representing the wormhole “formation”
+               µ                                                        from the Schwarzschild black hole [41]. Although their
+which satisfy E(I) E(J)µ = δIJ . The only nonzero compo-
+         µ
+nent of R (4)ν(4) := Rµρνσ k ρ k σ is                                   model does not contain a singularity at the moment of
+                                                                        “formation”, it does not represent the wormhole forma-
+                     (4C1 C2 − 1)(vk u − uk v )2 i                      tion from the initial data with a regular center, i.e., there
+    Ri (4)j(4) = −                              δ j.         (4.28)     is no topology change in their model. While they defined
+                      4(−uv + C1 v 2 + C2 u2 )2
+                                                                        a wormhole throat by a class of trapping horizons [30, 31],
+                                                 (I)
+Thus, the only nonzero component of R               (4)(J)(4) is        there is a wormhole throat on any spacelike hypersurface
+                                                                        in their model. (See [32] for the discussions of the (quasi-
+  (1)              (2)              (4C1 C2 − 1)(vk u − uk v )2         )local definition of a wormhole throat on a spacelike hy-
+R (4)(1)(4) = R (4)(2)(4) = −                                   .
+                                     4(−uv + C1 v 2 + C2 u2 )2          persurface.)
+                                                         (4.29)            In the spatially compact spacetime, the wormhole for-
+These quantities are identically zero both for radial null              mation necessarily requires the appearance of singular-
+geodesics (u = 0 or v = 0) and radial timelike geodesics                ities or closed timelike curves. This is a consequence
+(4.16). Hence, it is concluded that the singularity at                  of the result by Geroch about the topology change of
+u = v = 0 is weak in the senses of both Tipler and                      spacetimes [42]. Hence, under the suitable chronology
+Królak for radial causal geodesics.                                    condition, the singularity formation is inevitable. In this
+   For nonradial geodesics, it seems to be cumbersome                   paper, on the other hand, the wormhole formation in the
+               (I)
+to examine R (4)(J)(4) . Instead, we here consider the                  spatially noncompact spacetime is considered. The sin-
+                                                                        gularity formation would be also inevitable for the worm-
+behavior of R(4)(4) := Rµν k µ k ν , which is used in the
+                                                                        hole formation in this case, however, as far as the author
+sufficient conditions for SCC and LFC. SCC is satis-
+                                                                        knows, this is an open question.
+fied if limλ→0 λ2 R(4)(4) > 0 and LFC is satisfied if
+                                                                           The solution presented in this paper will be a simple
+limλ→0 λR(4)(4) > 0 [38, 40]. The nonzero components
+                                                                        analytic model to study the formation of a wormhole.
+of the Ricci tensor of the Roberts spacetime are given by
+                                                                        In this context, the stability of the wormhole formation
+                      v 2 (4C1 C2 − 1)                                  is an important future work. While the stability of the
+          Ruu = −                           ,                (4.30)
+                  2(−uv + C1 v 2 + C2 u2 )2                             Roberts solution was studied in the case of the positive
+                    uv(4C1 C2 − 1)                                      kinetic term of the scalar field [43], it is still an open
+          Ruv =                           ,                  (4.31)     question for the ghost scalar field.
+                2(−uv + C1 v 2 + C2 u2 )2
+                      u2 (4C1 C2 − 1)
+          Rvv = −                           .                (4.32)
+                  2(−uv + C1 v 2 + C2 u2 )2                                                 Acknowledgments
+Finally, for nonradial causal geodesics k µ = (u̇, v̇, 0, ϕ̇),
+where u̇, v̇, and ϕ̇ are obtained from (4.19), (4.20), and                 The author would like to thank T Harada, K. Nakao,
+(4.3), respectively, we obtain R(4)(4) ≡ 0, which immedi-               J. Oliva, J.M.M. Senovilla, and R. Vera for discussions
+ately implies λ2 R(4)(4) ≡ 0 and λR(4)(4) ≡ 0 along the                 and comments. The author was supported by Fondecyt
+geodesics. Although this result does not directly mean                  Grant No. 1071125. The Centro de Estudios Cientı́ficos
+that neither SCC nor LFC is satisfied, it would suggest                 (CECS) is funded by the Chilean Government through
+that the singularity at u = v = 0 is weak also along                    the Millennium Science Initiative and the Centers of Ex-
+nonradial causal geodesics.                                             cellence Base Financing Program of Conicyt. CECS is
+                                                                        also supported by a group of private companies which at
+                                                                        present includes Antofagasta Minerals, Arauco, Empre-
+        V.    SUMMARY AND DISCUSSIONS                                   sas CMPC, Indura, Naviera Ultragas, and Telefónica del
+                                                                        Sur. The author is also grateful to Universidad del Pais
+ In this paper, we constructed an explicit and simple                   Vasco, Universidade de Santiago de Compostela, and In-
+model of wormhole formation from the initial data with                  stituto Superior Técnico for their hospitality during his
+                                                                                                                               7
+
+visit.                                                           for C1 = 0.
+                                                                    In the Gutman-Bespal’ko spacetime, the metric on
+                                                                 (M 2 , gAB ) is Minkowski in the Rindler coordinates, while
+APPENDIX A: THE RELATION BETWEEN THE                             it is also Minkowski but in the double null coordinates in
+ GUTMAN-BESPAL’KO AND THE ROBERTS                                the Roberts solution. By the coordinate transformations
+              SOLUTIONS                                                                
+                                                                                       T             p
+                                                                          t = arctanh       , z = ± X 2 − T 2,         (A9)
+   In 1967, Gutman and Bespal’ko obtained a spherically                                X
+symmetric solution for a stiff fluid, i.e., a perfect fluid
+with an equation of state p = µ, where p and µ are               of which inverse transformations are
+the pressure and energy density, respectively [27]. (See
+                                                                               T = z sinh t,     X = z cosh t,            (A10)
+also [44, 45] for the generalized solution.) The energy-
+momentum tensor for a perfect fluid is given by                  the two-dimensional Rindler metric ds22 = −z 2 dt2 + dz 2
+                                                                 is transformed into ds22 = −dT 2 + dX 2 . Adopting the
+                  Tµν = pgµν + (p + µ)uµ uν ,           (A1)
+                                                                 null coordinates such as
+where uµ is the four-velocity of the fluid element. The                              T −X             T +X
+Gutman-Bespal’ko solution is given in the comoving co-                          u=    √ ,        v=    √ ,                (A11)
+                                                                                        2                2
+ordinates as
+                                                                 we obtain ds22 = −2dudv.
+         ds2 = −z 2 dt2 + dz 2                                     Indeed, by the direct transformations
+                        1
+                     + z 2 (1 + C1 e2t + C2 e−2t )dΩ2 , (A2)
+                        2                                                              1                   1
+                                                                                 u = ± √ ze−t ,      v = ∓ √ zet ,        (A12)
+                              1 − 4C1 C2                                                2                   2
+           p = µ=                                   ,   (A3)
+                     8πz 2 (1 + C1 e2t + C2 e−2t )2
+                                                                 of which inverse is
+where the constants C1 and C2 satisfy C1 C2 ≤ 1/4 for                                  
+                                                                                         v+u
+                                                                                             
+                                                                                                             √
+nonnegative energy density. In the case of 4C1 C2 = 1,                      t = arctanh        ,        z = ± −2uv, (A13)
+the solution gives the Minkowski solution. The Gutman-                                   v−u
+Bespal’ko spacetime admits a homothetic Killing vector           the Roberts metric (2.7) is transformed to the Gutman-
+ξ µ (∂/∂xµ ) = z(∂/∂z) satisfying Lξ gµν = 2gµν .                Bespal’ko metric (A2). Therefore, we may call the
+    We show that the Gutman-Bespal’ko spacetime covers           Gutman-Bespal’ko metric (A2) the Rindler chart of the
+half of the Roberts spacetime. In 1988, Madsen showed            Roberts metric. Because of uv < 0, the Rindler chart
+the equivalence between a massless scalar field and a stiff      covers only half of the Roberts spacetime. (The regions
+fluid [28]. This is easily generalized to the ghost case as      I and III in Figs. 1 and 3.)
+shown below. The energy-momentum tensor for a stiff                 On the other hand, by the coordinate transformations
+fluid is
+                                                                               T = t̃ cosh z̃,   X = t̃ sinh z̃,          (A14)
+                    Tµν = µ(2uµ uν + gµν ).             (A4)
+                                                                 of which inverse is
+If uµ is vorticity free, which is satisfied in the spherically                                       
+symmetric spacetime, one can show that this matter field                       p
+                                                                                   2 2
+                                                                                                     X
+                                                                         t̃ = ± T − X , z̃ = arctanh   ,                  (A15)
+is equivalent to a massless scalar field φ, of which gradient                                        T
+φ,µ is timelike. The corresponding energy density and 4-
+velocity are given by                                            the two-dimensional Minkowski spacetime ds22 = −dT 2 +
+                                                                 dX 2 is transformed to the Milne form ds22 = −dt̃2 + t̃2 dz̃ 2 .
+                            1                                    Thus, by the direct transformations
+                      µ = − ǫφ,µ φ,µ ,                  (A5)
+                            2
+                               φ,µ                                                  1                   1
+                     uµ = ± p          ,                (A6)                  u = ± √ t̃e−z̃ ,    v = ± √ t̃ez̃ ,         (A16)
+                              −φ,ν φ,ν                                               2                   2
+
+with which Eq. (A4) coincides with Eq. (2.2), where the          of which inverse is
+sign in (A6) is chosen so that uµ is future-directed.                           √
+                                                                                                            
+                                                                                                         v−u
+   For the Gutman-Bespal’ko solution, the corresponding                   t̃ = ± 2uv,      z̃ = arctanh       ,           (A17)
+                                                                                                         v+u
+scalar field with ǫ = 1 is
+                                                                 the Roberts solution is transformed to
+                                 1 + 2C1 e2t
+                                             
+                    1
+         φ = φ0 ± √ arctanh √                         (A7)
+                   2 π            1 − 4C1 C2                            ds2 = −dt̃2 + t̃2 dz̃ 2
+                                                                                   1
+for C1 6= 0 and                                                                 + t̃2 (−1 + C1 e2z̃ + C2 e−2z̃ )dΩ2 , (A18)
+                                                                                   2
+                                                                                                    1 − 2C1 e2z̃
+                                                                                                                
+                        1                                                            1
+               φ = φ0 ± √ ln −e2t − C2                  (A8)              φ = φ0 ± √ arctanh √                        (A19)
+                       4 π                                                          2 π              1 − 4C1 C2
+                                                                                                                           8
+
+for C1 6= 0. For C1 = 0, the scalar field is transformed to      If C1 C2 > 0, both of them are timelike or spacelike, while
+                                                                 if C1 C2 < 0, one is spacelike and the other is timelike.
+                       1                                         For C1 = 0 and C2 6= 0, there are null and nonnull central
+              φ = φ0 ± √ ln e2z̃ − C2 .                (A20)
+                      4 π                                        curvature singularities at u = 0 and u = (1/C2 )v, respec-
+                                                                 tively. For C2 = 0 and C1 6= 0, there are null and nonnull
+We may call this metric the Milne chart of the Roberts           central curvature singularities at v = 0 and v = (1/C1 )u,
+metric. Because of uv > 0, the Milne chart covers the            respectively. For C1 = 0 and C2 = 0, there are null cen-
+regions II and IV in Figs. 1 and 3. This spacetime ad-           tral curvature singularities at u = 0 and v = 0. The Pen-
+mits a homothetic Killing vector ξ µ (∂/∂xµ ) = t(∂/∂t)          rose diagram of the Roberts spacetime for C1 C2 ≤ 1/4 is
+satisfying Lξ gµν = 2gµν .                                       given in Fig. 3.
+
+
+APPENDIX B: THE ROBERTS SOLUTION FOR
+               C1 C2 ≤ 1/4
+
+   In this appendix, we review the properties of the
+Roberts spacetime with C1 C2 ≤ 1/4 corresponding to                 As shown in the main text, the Roberts spacetime can
+the positive kinetic term of the scalar field. First we see      be attached to the Minkowski spacetime at a null hyper-
+in Eq. (2.10) that the region with uv > 0 has negative           surface u = 0 or v = 0 in a regular manner if that hy-
+mass. In the case with C1 6= 0, C2 6= 0, and C1 C2 6= 1/4,       persurface is regular. The resulting spacetime can be a
+there are nonnull central curvature singularities located        model of the gravitational collapse leading to the naked
+at                                                               singularity formation. This model has been considered
+                         √                                       in the context of critical phenomena or cosmic censor-
+                     1 ± 1 − 4C1 C2
+                u=                    v.              (B1)       ship [20, 23–25, 43, 46, 47].
+                           2C1
+
+
+
+ [1] M. Visser, B. Bassett, and S. Liberati, arXiv:gr-                Phys. Rev. D 55, 2497 (1997); K.K. Nandi and Y.-
+     qc/9908023; M. Visser, B. Bassett, and S. Liberati, Nucl.        Z. Zhang, Phys. Rev. D 70, 044040 (2004); A. Bhadra
+     Phys. Proc. Suppl. 88, 267 (2000);                               and K. Sarkar, Mod. Phys. Lett. A20, 1831 (2005);
+ [2] M. Visser, Lorentzian Wormholes: From Einstein to                E.F. Eiroa, M.G. Richarte, and C. Simeone, Phys. Lett.
+     Hawking, (Springer-Verlag, Berlin, Germany, 1997).               A373, 1 (2008).
+ [3] F.S.N. Lobo, e-Print: arXiv:0710.4474 [gr-qc].              [12] D. Hochberg, Phys. Lett. B251, 349 (1990); H. Fuku-
+ [4] M.S. Morris, K.S. Thorne, and U. Yurtsever, Phys. Rev.           taka, K. Tanaka and K. Ghoroku, Phys. Lett. B222, 191
+     Lett. 61, 1446 (1988).                                           (1989); D.H. Coule and K.-i. Maeda, Class. Quant. Grav.
+ [5] M. Visser, Phys. Rev. D47, 554 (1993); S.W. Kim and              7, 955 (1990); K. Ghoroku and T. Soma, Phys. Rev.
+     K.S. Thorne, Phys. Rev. D43, 3929 (1991).                        D46, 1507 (1992); N. Furey and A. DeBenedictis, Class.
+ [6] M.S. Morris and K.S. Thorne, Am. J. Phys. 56, 395                Quant. Grav. 22, 313 (2005); F.S.N. Lobo, Class. Quant.
+     (1988).                                                          Grav. 25, 175006 (2008).
+ [7] H. G. Ellis, J. Math. Phys. 14, 104 (1973); H. G. Ellis,    [13] M. Visser, S. Kar, and N. Dadhich, Phys. Rev. Lett. 90,
+     Gen. Rel. Grav. 10, 105 (1979); K. A. Bronnikov, Acta            201102 (2003).
+     Phys. Polon. B 4, 251 (1973); T. Kodama, Phys. Rev. D       [14] E. Poisson and M. Visser, Phys. Rev. D 52, 7318 (1995);
+     18, 3529 (1978); G. Clément, Gen. Rel. Grav. 13, 763            M. Ishak and K. Lake, Phys. Rev. D 65, 044011 (2002);
+     (1981).                                                          E.F. Eiroa and G.E. Romero, Gen. Rel. Grav. 36, 651
+ [8] D. Hochberg and M. Visser, Phys. Rev. D58, 044021                (2004); F.S.N. Lobo and P. Crawford, Class. Quant.
+     (1998).                                                          Grav. 21, 391 (2004); F.S.N. Lobo, Phys. Rev. D 71,
+ [9] D. Ida and S.A. Hayward, Phys.Lett. A260, 175 (1999);            124022 (2005); E.F. Eiroa and C. Simeone, Phys. Rev. D
+     M. Visser, S. Kar, and N. Dadhich, Phys. Rev. Lett. 90,          76, 024021 (2007); E.F. Eiroa, Phys. Rev. D 78, 024018
+     201102 (2003); C.J. Fewster and T.A. Roman, Phys. Rev.           (2008); J.P.S. Lemos and F.S.N. Lobo, Phys. Rev. D 78,
+     D72, 044023 (2005); P.K.F. Kuhfittig, Phys. Rev. D73,            044030 (2008).
+     084014 (2006); O.B. Zaslavskii, Phys. Rev. D76, 044017      [15] H.-a. Shinkai and S.A. Hayward, Phys. Rev. D 66, 044005
+     (2007).                                                          (2002).
+[10] J. L. Friedman, K. Schleich, and D. M. Witt, Phys. Rev.     [16] C. Armendariz-Picon, Phys. Rev. D 65, 104010 (2002).
+     Lett. 71, 1486 (1993) [Erratum-ibid. 75, 1872 (1995)];      [17] J.A. Gonzalez, F.S. Guzman, and O. Sarbach, Class.
+     G. J. Galloway, K. Schleich, D. M. Witt, and E. Woolgar,         Quant. Grav. 26, 015010 (2009); Class. Quant. Grav.
+     Phys. Rev. D 60, 104039 (1999).                                  26, 015011 (2009).
+[11] A.G. Agnese and M. La Camera, Phys. Rev. D51, 2011          [18] K.A. Bronnikov and S. Grinyok, Grav. Cosmol. 7, 297
+     (1995); L. A. Anchordoqui, S. E. Perez Bergliaffa and            (2001); K.A. Bronnikov and S.V. Grinyok, Grav. Cosmol.
+     D. F. Torres, Phys. Rev. D 55, 5226 (1997); K. K. Nandi,         10, 237 (2004); Grav. Cosmol. 11, 75 (2005).
+     B. Bhattacharjee, S. M. K. Alam, and J. Evans, Phys.        [19] C. W. Misner and D. H. Sharp, Phys. Rev. 136, B571
+     Rev. D 57, 823 (1998); P. E. Bloomfield, Phys. Rev.              (1964).
+     D 59, 088501 (1999); K. K. Nandi, Phys. Rev. D 59,          [20] M.D. Roberts, Gen. Rel. Grav. 21, 907 (1989).
+     088502 (1999); K. K. Nandi, A. Islam, and J. Evans,         [21] R.A. Sussman, J. Math. Phys. 32, 223 (1991).
+                                                                                                                                                                   9
+
+(a)                                                 (b)                                                 [22] L.M. Burko, Gen. Relat. Grav. 29, 259 (1997).
+                                                                                                        [23] P.R. Brady, Class. Quant. Grav. 11, 1255 (1994).
+
+
+                    ity
+
+
+
+
+                                                                       ity
+                               fu
+
+
+
+
+                                                                                   fu
+                 in
+
+
+
+
+                                                                    in
+                                tu
+
+
+
+
+                                                                                    tu
+                                                                                                        [24] Y. Oshiro, K. Nakamura, and A. Tomimatsu, Prog.
+              nf
+
+
+
+
+                                                                  nf
+                                   r
+
+
+
+
+                                                                                       r
+                          II
+
+
+
+
+                                    ei
+                                                                              II
+
+
+
+
+                                                                                        ei
+            ei
+
+
+
+
+                                                                ei
+                                      nf
+
+
+
+
+                                                                                          nf
+           r
+
+
+
+
+                                                               r
+        tu
+
+
+
+
+                                                            tu
+                                                                                                             Theor. Phys. 91, 1265 (1994).
+
+
+
+
+                                        in
+
+
+
+
+                                                                                            in
+       fu
+
+
+
+
+                                                           fu
+                                           ity
+
+
+
+
+                                                                                               ity
+                 v=
+
+
+
+
+                                                                     v=
+                                 0
+
+
+
+
+                                                                                     0
+                               u=
+
+
+
+
+                                                                                   u=
+                   0
+
+
+
+
+                                                                       0
+                                                                                                        [25] S.A. Hayward, Class. Quant. Grav. 17, 4021 (2000).
+               III                  I                              III                  I               [26] G. Clement and S.A. Hayward, Class. Quant. Grav. 18,
+                                                                                                             4715 (2001).
+                   0
+
+
+
+
+                                                                       0
+                                v=
+
+
+
+
+                                                                                    v=
+                 u=
+
+
+
+
+                                                                     u=
+                                                                                                        [27] I.I. Gutman and R.M. Bespal’ko, Sbornik Sovrem. Probl.
+
+                                           ity
+
+
+
+
+                                                                                               ity
+                                  0
+
+
+
+
+                                                                                        0
+        pa
+
+
+
+
+                                                           pa
+                          IV                                                  IV
+                                       fin
+
+
+
+
+                                                                                           fin
+          st
+
+
+
+
+                                                             st
+                                    in
+             in
+
+
+
+
+                                                                                        in
+                                                                 in
+                                                                                                             Grav. Tbilissi, 1, 201 (1967).
+                fin
+
+
+
+
+                                                                    fin
+                                 st
+
+
+
+
+                                                                                     st
+                               pa
+
+
+
+
+                                                                                   pa
+                    ity
+
+
+
+
+                                                                        ity
+                                                                                                        [28] M. S. Madsen Class. Quant. Grav. 5, 627 (1988).
+(c)                                                 (d)                                                 [29] S.A. Hayward, Phys. Rev. D 49, 6467 (1994).
+                                                                                                        [30] S.A. Hayward, Int. J. Mod. Phys. D8, 373 (1999).
+
+
+
+
+                                                                       ity
+                   ity
+
+
+
+
+                                                                                                        [31] D. Hochberg and M. Visser, Phys. Rev. D58, 044021
+
+
+
+
+                                                                                   fu
+                               fu
+
+
+
+
+                                                                    in
+                in
+
+
+
+
+                                                                                    tu
+                                tu
+
+
+
+
+                                                                  nf
+              nf
+
+
+
+
+                                                                                       r
+                                   r
+
+
+
+
+                                                                              II
+
+
+
+
+                                                                                        ei
+                          II
+                                    ei
+
+
+
+
+                                                                ei
+            ei
+
+
+
+
+                                                                                                             (1998).
+
+
+
+
+                                                                                          nf
+                                      nf
+
+
+
+
+                                                               r
+           r
+
+
+
+
+                                                            tu
+        tu
+
+
+
+
+                                                                                            in
+                                        in
+
+
+
+
+                                                           fu
+       fu
+
+
+
+
+                                                                                               ity
+                                                                     v=
+
+
+
+
+                                                                                     0
+                                           ity
+                 v=
+
+
+
+
+                                 0
+
+
+
+
+                                                                                                        [32] H. Maeda, T. Harada, and B.J. Carr, e-Print:
+
+
+
+
+                                                                                   u=
+                               u=
+
+
+
+
+                                                                       0
+                   0
+
+
+
+
+               III                  I                              III                  I                    arXiv:0901.1153 [gr-qc].
+                                                                                                        [33] C. Barrabes and W. Israel, Phys. Rev. D 43, 1129 (1991).
+                                                                                                        [34] E. Poisson, A Relativist’s Toolkit (Cambridge University
+                                                                       0
+                   0
+
+
+
+
+                                                                                    v=
+                                v=
+
+
+
+
+                                                                     u=
+                 u=
+
+
+
+
+                                                                                               ity
+                                           ity
+
+
+
+
+                                                                                        0
+                                                           pa
+                                  0
+        pa
+
+
+
+
+                          IV                                                  IV
+
+
+                                                                                           fin
+                                                                                                             Press, Cambridge, England, 2004).
+                                       fin
+
+
+
+
+                                                             st
+          st
+
+
+
+
+                                                                                        in
+                                                                 in
+                                    in
+             in
+
+
+
+
+                                                                    fin
+                fin
+
+
+
+
+                                                                                     st
+                                 st
+
+
+
+
+                                                                                                        [35] A. Feinstein and S. Jhingan, Mod. Phys. Lett. A19, 457
+                                                                                   pa
+                               pa
+
+
+
+
+                                                                        ity
+                    ity
+
+
+
+
+(e)                                                                                                          (2004).
+                                                     (f)                                                [36] F.J. Tipler, Phys. Rev. Lett. A 64, 8 (1977).
+                                                                                                        [37] A. Królak, J. Math. Phys. 28, 138 (1987).
+                                                                       ity
+                   ity
+
+
+
+
+                                                                                   fu
+                               fu
+
+
+
+
+                                                                     fin
+                 fin
+
+
+
+
+                                                                                    tu
+                                 tu
+
+
+
+
+                                                                                                        [38] C.J.S. Clarke and K. Królak, J. Geom. Phys. 2, 127
+                                                                                        re
+                                                                  in
+                                    re
+              in
+
+
+
+
+                          II                                                  II
+                                                                                            in
+                                                                re
+                                        in
+            re
+
+
+
+
+                                                                                             fin
+                                                            tu
+                                         fin
+        tu
+
+
+
+
+                                                                                                             (1985).
+                                                           fu
+       fu
+
+
+
+
+                                                                                                  ity
+                                                                     v=
+
+
+
+
+                                                                                     0
+                                              ity
+                 v=
+
+
+
+
+                                 0
+
+
+
+
+                                                                                   u=
+                               u=
+
+
+
+
+                                                                       0
+                   0
+
+
+
+
+                                                                                                        [39] P.S. Joshi, Global Aspects in Gravitation and Cosmology
+               III                  I                              III                  I                    (Oxford University Press, New York, 1993).
+                                                                                                        [40] C.J.S. Clarke, The analysis of Space-Time Singularities
+                                                                       0
+                   0
+
+
+
+
+                                                                                    v=
+                                v=
+
+
+
+
+                                                                     u=
+                 u=
+
+
+
+
+                                                                                                             (Cambridge University Press, Cambridge, 1993).
+                                                                                              ity
+                                         ity
+
+
+
+
+                                                                                        0
+                                                           pa
+                                    0
+        pa
+
+
+
+
+                          IV                                                  IV
+                                                                                            fin
+                                        fin
+
+
+
+
+                                                                st
+            st
+
+
+
+
+                                                                                        in
+                                                                 in
+                                    in
+             in
+
+
+
+
+                                                                                                        [41] S.A. Hayward and H. Koyama, Phys. Rev. D 70,
+                                                                     fin
+                 fin
+
+
+
+
+                                                                                    st
+                                st
+
+
+
+
+                                                                                   pa
+                               pa
+
+
+
+
+                                                                       ity
+                   ity
+
+
+
+
+                                                                                                             101502(R) (2004); H. Koyama and S.A. Hayward, Phys.
+ (g)                                                (h)                                                      Rev. D 70, 084001 (2004).
+                                                                                                        [42] R.P. Geroch, J. Math. Phys. 8, 782 (1967).
+                                                                                                        [43] A.V. Frolov, Phys. Rev. D 56, 6433 (1997); Phys. Rev.
+                   ity
+
+
+
+
+                                                                       ity
+                               fu
+
+
+
+
+                                                                                   fu
+                 fin
+
+
+
+
+                                                                     fin
+                                tu
+
+
+
+
+                                                                                     tu
+                                    re
+             in
+
+
+
+
+                                                                                        re
+                                                                  in
+
+
+
+
+                          II                                                  II                             D 59, 104011 (1999); Phys. Rev. D 61, 084006 (2000).
+                                        in
+            re
+
+
+
+
+                                                                                            in
+                                                                re
+                                         fin
+        tu
+
+
+
+
+                                                                                              fin
+                                                            tu
+       fu
+
+
+
+
+                                                           fu
+
+
+
+
+                                                                                                        [44] P.S. Wesson, J. Math. Phys. 19, 2283 (1978).
+                                              ity
+                 v=
+
+
+
+
+                                                                                                  ity
+                                 0
+
+
+
+
+                                                                     v=
+
+
+
+
+                                                                                     0
+                               u=
+
+
+
+
+                                                                                   u=
+                   0
+
+
+
+
+                                                                       0
+
+
+
+
+                                                                                                        [45] A. Krasiński, Inhomogeneous Cosmological Models (Cam-
+               III                  I                              III                  I                    bridge University Press, Cambridge, England, 1997).
+                                                                                                        [46] P.R. Brady, Phys. Rev. D 51, 4168 (1995).
+                   0
+
+
+
+
+                                                                       0
+                                v=
+
+
+
+
+                                                                                    v=
+                 u=
+
+
+
+
+                                                                     u=
+                                         ity
+
+
+
+
+                                                                                              ity
+                                    0
+        pa
+
+
+
+
+                                                                                        0
+                                                           pa
+
+
+
+
+                          IV                                                  IV                        [47] A. Ishibashi and A. Hosoya, Phys. Rev. D 60, 104028
+                                        fin
+
+
+
+
+                                                                                            fin
+         st
+
+
+
+
+                                                                st
+                                    in
+             in
+
+
+
+
+                                                                                        in
+                                                                 in
+                fin
+
+
+
+
+                                                                     fin
+
+
+
+
+                                                                                                             (1999); U. Miyamoto and T. Harada, Phys. Rev. D 69,
+                                st
+
+
+
+
+                                                                                    st
+                               pa
+
+
+
+
+                                                                                   pa
+                   ity
+
+
+
+
+                                                                       ity
+
+
+
+
+                                                                                                             104005 (2004); T. Harada and H. Maeda, Class. Quant.
+ (i)                                                (j)                                                      Grav. 21, 371 (2004).
+                  ity
+
+
+
+
+                                                                      ity
+                               fu
+
+
+
+
+                                                                                   fu
+               fin
+
+
+
+
+                                                                    in
+                                  t
+
+
+
+
+                                                                                     tu
+                                 ur
+
+
+
+
+                                                                  nf
+             in
+
+
+
+
+                                                                                       re
+
+
+
+
+                          II
+                                   ei
+
+
+
+
+                                                                              II
+                                                                   i
+           re
+
+
+
+
+                                                                                            in
+                                                                re
+                                        nf
+         tu
+
+
+
+
+                                                                                              fin
+                                                            tu
+                                          in
+       fu
+
+
+
+
+                                                           fu
+                                              ity
+                 v=
+
+
+
+
+                                  0
+
+
+
+
+                                                                                                 ity
+                                                                     v=
+
+
+
+
+                                                                                     0
+                               u=
+
+
+
+
+                                                                                   u=
+                   0
+
+
+
+
+                                                                        0
+
+
+
+
+               III                  I                             III                   I
+                   0
+
+
+
+
+                                v=
+
+
+
+
+                                                                       0
+
+
+
+
+                                                                                   v=
+                 u=
+
+
+
+
+                                                                     u=
+                                         ity
+
+
+
+
+                                                                                            ity
+                                  0
+        pa
+
+
+
+
+                                                                                     0
+                                                           pa
+
+
+
+
+                          IV                                                  IV
+                                      in
+
+
+
+
+                                                                                         fin
+         st
+
+
+
+
+                                                             st
+                                    nf
+             in
+
+
+
+
+                                                                                        in
+                                                                 in
+                                 ti
+               fin
+
+
+
+
+                                                                   fin
+
+
+
+
+                                                                                    st
+                                  s
+                               pa
+
+
+
+
+                                                                                   pa
+                  ity
+
+
+
+
+                                                                       ity
+
+
+
+
+FIG. 3: The Penrose diagrams of the Roberts solution for (a)
+C1 C2 = 1/4 (Minkowski), (b) C1 = C2 = 0, (c) C1 = 0 and
+C2 < 0, (d) C1 = 0 and C2 > 0, (e) C2 = 0 and C1 < 0, (f)
+C2 = 0 and C1 > 0, (g) C1 > 0 and C2 < 0, (h) C1 < 0
+and C2 > 0, (i) 0 < C1 C2 < 1/4 and C1 > 0, and (j)
+0 < C1 C2 < 1/4 and C1 < 0. A thick line in (a) corre-
+sponds to the symmetric center. A zigzag curve corresponds
+to a curvature singularity. The areal radius is negative in the
+shadowed region, which is unphysical.
+

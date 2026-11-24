@@ -1,0 +1,1570 @@
+Dynamical Collapse of Charged Scalar Field in Phantom Gravity
+Anna Nakonieczna and Marek Rogatko
+Institute of Physics
+Maria Curie-Sklodowska University
+20-031 Lublin, pl. Marii Curie-Sklodowskiej 1, Poland
+aborkow@kft.umcs.lublin.pl
+rogat@kft.umcs.lublin.pl
+marek.rogatko@poczta.umcs.lublin.pl
+
+arXiv:1209.1203v1 [hep-th] 6 Sep 2012
+
+Rafal Moderski
+Nicolaus Copernicus Astronomical Center
+Polish Academy of Sciences
+00-716 Warsaw, Bartycka 18, Poland
+moderski@camk.edu.pl
+(Dated: June 4, 2021)
+We investigated the problem of the dynamical collapse of a self-gravitating complex charged
+scalar field in Einstein-Maxwell-dilaton theory with a phantom coupling for the adequate fields
+in the system under consideration. We also considered two simplifications of it, i.e., the separate
+collapses of phantom Maxwell and phantom scalar fields under the influence of Einstein gravity.
+One starts with the regular spacetime and leads the evolution through the formation of the horizons
+and the final singularity. We discuss the structures of spacetimes emerging in the process of the
+dynamical collapse and comment on the role of the considered fields in its course.
+PACS numbers: 04.25.dg, 04.40.-b
+
+I.
+
+INTRODUCTION
+
+Phantom gravitating fields emerge with a kinetic term with the wrong sign. It turns out that this fact implies that
+they are coupled repulsively to gravity. These fields could form ghost condensation at the quantum level, which in
+turn might lead to the modification of gravity at the infrared limit [1]. On the other hand, the present observations
+of the Universe reveal the fact that it may be dominated by an exotic kind of fields with negative pressure causing
+the acceleration. Type Ia supernovae (Sn Ia) provide a precise calibrated standard candle with which one can probe
+the expansion of the Universe on large scales. In the late 1990s the independent surveys for distant Sn Ia announced
+that the high-redshifted supernovae of this type appeared about 40 percent fainter or equivalently more distant
+than expected in a flat, matter-dominated Universe [2]. These researches were combined with other concerning the
+composition of the Universe such as cosmic microwave background (CMB) observations [3] or analyzes of barionic
+acoustic oscillations (BAO) [4]. Altogether they do not exclude the possibility that the exotic matter mentioned above
+consists of the fields with the so-called super-negative pressure, i.e., when p < −ρ (p and ρ stand for the pressure and
+density of matter, respectively) [5]. Such fields are dubbed phantom.
+The presence of this kind of fields which contribute negatively to the total energy, i.e., when the violation of the null
+energy condition takes place, gives rise to the interesting possibilities of new solutions of Einstein equations coupled
+to phantom field. Namely, in Ref.[6] the wormhole solutions with phantom scalar field were studied both analytically
+and numerically. Phantom field has also a direct consequence for black hole physics. In Ref.[7] in theories where
+gravity coupled to Maxwell and dilaton fields in such a way that the kinetic energy for either or both of the fields in
+question was allowed to be negative, black hole solutions were obtained. Among all it was found that regular black
+hole solutions with zero or negative mass could be provided. On the other hand, cold black holes with a multiply
+degenerate event horizon and an infinite horizon area were considered in [8]. The new class of static, spherically
+symmetric solutions in Einstein-Maxwell-dilaton theory with phantom coupling for the dilaton and/or Maxwell field
+leading to black holes with single or multiple horizons were elaborated in Ref.[9]. The static multicenter solutions of
+phantom Einstein-Maxwell-dilaton theory and gravitating σ-models obtained via dimensional reduction of phantom
+Einstein-Maxwell, phantom Kaluza-Klein and phantom Einstein-Maxwell-dilaton-axion theories were discussed in
+[10].
+On the other hand, the gravitational collapse and the no-hair conjecture or its mathematical formulation black hole
+uniqueness theorem, stating that stationary axisymmetric solution of Einstein-Maxwell equations relaxes to KerrNewman spacetime and is characterized by black hole mass, charge and angular momentum [11], attracted attention
+for many decades of researches. A lot of progress has been also made during last years to answer the basic question
+underlying the theoretical studies of black hole interiors. Quite different description of the inner black hole singularity
+
+2
+emerged [12]-[14]. A full nonlinear description of the inner structure of black holes was presented in Ref.[15]. Then,
+in [16] the spherically symmetric collapse of massless scalar field was numerically examined. It was shown that the
+field dispersed to infinity or collapsed to a black hole. The aforementioned researches were also broaden to the case
+of the nonlinear evolution of the neutral scalar field on a background spacetime of charged black hole [17]. Ref.[18]
+was devoted to the numerical solution of spherically symmetric semi-classical scalar field collapse. The addition of
+the effective energy momentum tensor describing evaporation of black hole enabled to consider the influence of this
+process on a critical phenomena present in classical collapse. In [19] the occurrence of the mass inflation phenomenon
+during a dynamical charged gravitational collapse was shown. As far as mass inflation is concerned, it was shown in
+[14] that in a realistic RN black hole the Cauchy horizon was unstable due to the fact that it developed a weak null
+singularity caused by the local mass parameter growing indefinitely large.
+The case of the dynamical collapse of spherically symmetric shell of the charged massless scalar field was elaborated
+in Ref.[20]. An external RN spacetime and the inner spacetime bounded by singularity on the Cauchy horizon were
+obtained from numerical calculations. In order to figure out pair creation process in strong electric field in the
+dynamical collapse of electrically charged massless scalar field, the dynamical formation of evaporating spherically
+symmetric charged black hole emitting Hawking radiation and the behaviour of complex scalar field, gauge field and
+the normalized energy momentum tensor during the process in question, numerical approaches were performed [21][24]. These researches were supplemented by the studies of the behaviour of Brans-Dicke field [25] during gravitational
+collapse of matter.
+Apart from studying the full gravitational collapse on flat background spacetime, the wide range of simulations of
+an accretion onto an existing black hole was also carried out. The most interesting for us exotic matter accreting onto
+the Schwarzschild [26] or Reissner-Nordström black hole [27] was modeled as a free scalar field with the opposite sign
+in its energy momentum tensor.
+Because of the fact that the uniqueness theorem for the low-energy string black holes is quite well established [28],
+the implication of the superstring theory on the dynamical gravitational collapse of charged scalar field was studied
+in [29]. Numerical studies revealed that the dynamical collapse in question led to the formation of Schwarzschild-like
+spacetimes in case of non-zero coupling between the charged scalar field and the fields emerging from the superstring
+theory.
+As was mentioned above, the presence of phantom fields as well as phantom coupling of the ordinary fields, gives rise
+to new possibilities for solutions of generalized Einstein equations. Motivated by the aforementioned analytical and numerical researches we shall consider the problem of the full nonlinear dynamical collapse of a complex scalar field when
+gravitational interactions take forms of Einstein-phantom Maxwell (EM ), Einstein-phantom Maxwell-dilaton (EM D),
+Einstein-Maxwell-phantom dilaton (EM D), and Einstein-phantom Maxwell-phantom dilaton (EM D) theories. We
+will also consider the evolution in Einstein-phantom dilaton (ED) theory, namely the collapse of phantom scalar field
+in the regime of Einstein gravity.
+Our paper is organized as follows. In Sec.II we derive equations of motion describing the gravitational collapse of a
+shell of charged scalar field in Einstein-Maxwell-dilaton theory with phantom coupling. Sec.III is connected with the
+numerical scheme applied in our investigations. In Sec.IV we discuss obtained results, while in Sec.V we present the
+conclusions of our investigations.
+
+II.
+
+PHANTOM EINSTEIN-MAXWELL-DILATON THEORY
+
+The main aim of our researches will be to study the dynamical collapse of a complex scalar field in the stringinspired background with phantom coupling of the fields in the theory. Because of the fact that the coupling constant
+of dilaton field to the complex scalar field is unknown, the considered action is provided in the form written in the
+string frame as follows:
+
+
+
+Z
+ 2
+p
+ˆ
+Iˆ = d4 x −ĝ e−2φ R̂ − 2ξ1 ∇φ
++ e2αφ L ,
+(1)
+where φ denotes the dilaton field, α stands for the coupling constant between dilaton and charged scalar field ψ
+described by the Lagrangian L of the form as
+L=−
+
+
+
+
+1 ˆ
+ˆ β ψ ∗ − ieAβ ψ ∗ − ξ2 Fµν F µν .
+∇α ψ + ieAα ψ ĝ αβ ∇
+2
+
+(2)
+
+ξ1 and ξ2 are dilaton-gravity and U (1)-gauge field-gravity coupling constants. In the normal case of Einstein-Maxwelldilaton-complex scalar field system they are equal to 1. On the contrary, in phantom case we have ξ1 = −1 and/or
+
+3
+ξ2 = −1. After performing the conformal transformation, the action may be rewritten in the so-called Einstein frame.
+It yields
+
+
+Z
+2
+2αφ+4φ
+∗
+2φ
+4 √
+L(ψ, ψ , A, e gαβ ) .
+(3)
+I = d x −g R − 2ξ1 (∇φ) + e
+Taking variations with respect to the adequate fields in the theory in question, we obtain the following equations of
+motion:
+
+
+
+α + 1 2φ(α+1)
+1 ξ2 2αφ 2
+2
+β ∗
+β ∗
+∇ φ −
+e
+αe F = 0,
+∇β ψ + ieAβ ψ
+∇ ψ − ieA ψ −
+(4)
+4ξ1
+2 ξ1
+
+
+
+
+
+
+
+e2φ(α+1)
+ieψ ∗ ∇ν ψ + ieAν ψ − ieψ ∇ν ψ ∗ − ieAν ψ ∗
+= 0,
+(5)
+∇µ e2αφ F µν +
+4ξ2
+
+
+∇2 ψ + ieAβ 2∇β ψ + ieAβ ψ + ie∇δ Aδ ψ = 0,
+(6)
+
+
+∇2 ψ ∗ − ieAβ 2∇β ψ ∗ − ieAβ ψ ∗ − ie∇δ Aδ ψ ∗ = 0,
+(7)
+Gµν = Tµν (φ, F, ψ, ψ ∗ , A).
+
+(8)
+
+The energy momentum tensor Tµν (φ, F, ψ, ψ ∗ , A) is given by
+Tµν (φ, F, ψ, ψ ∗ , A) = e2φ(α+1) T̃µν (ψ, ψ ∗ , A) + Tµν (F, φ),
+
+(9)
+
+where T̃µν (ψ, ψ ∗ , A) implies
+
+
+
+
+
+1
+ie ψ Aµ ∇ν ψ ∗ + Aν ∇µ ψ ∗ − ie ψ ∗ Aµ ∇ν ψ + Aν ∇µ ψ
+4
+
+
+1
+1
+1
++
+∇µ ψ ∇ν ψ ∗ + ∇µ ψ ∗ ∇ν ψ + e2 Aµ Aν ψ ψ ∗ + L̃(ψ, ψ ∗ , A)gµν .
+4
+2
+2
+
+T̃µν (ψ, ψ ∗ , A) =
+
+On the other hand, the explicit form of the Lagrangian L̃(ψ, ψ ∗ , A) is provided by the expression
+
+
+
+1
+L̃(ψ, ψ ∗ , A) = − ∇β ψ + ieAβ ψ
+∇β ψ ∗ − ieAβ ψ ∗ .
+2
+The energy momentum tensor for U (1)-gauge and dilaton fields yields
+
+
+
+
+1
+Tµν (F, φ) = ξ2 e2αφ 2Fµρ Fν ρ − gµν F 2 + ξ1 2∇µ φ∇ν φ − gµν (∇φ)2 .
+2
+
+(10)
+
+(11)
+
+(12)
+
+In our research we shall start with the regular initial spacetime at approximately past null infinity, compute the
+formation of the horizons and follow the evolution of the dynamically formed black hole to the central singularity.
+One chooses (2 + 2)-spherically symmetric double null coordinate system. It turned out that any coordinate gauge
+transformation of the form u → f (u) and v → g(v) will preserve the null character of the retarded and advanced
+coordinates. The line element written in the aforementioned coordinates is provided by [30]:
+ds2 = −a(u, v)2 dudv + r2 (u, v)dΩ2 .
+
+(13)
+
+The assumptions about spherical symmetry of the problem imply that the only non-vanishing components of the
+U (1)-gauge strength field are Fuv and Fvu . Moreover, another restriction on the gauge potential can be implemented.
+We can consider Au or Av . It turned out [29] that one can restrict
+R his attention to the only one gauge potential due
+to the fact of the gauge freedom Au → Au + ∇u θ, where θ = Av dv. Consequently, we are left with the only one
+component of the gauge field being the function of the retarded and advanced coordinates.
+Defining the quantity like in Ref.[20]:
+Q=2
+
+Au,v r2
+,
+a2
+
+(14)
+
+4
+enables us to separate v-component of the second order partial differential generalized Einstein-Maxwell equations (5)
+given by
+
+
+ 2αφ 2
+
+r2 e2φ(α+1)
+2e
+r Au,v
+∗
+∗
++
+ie ψ ψ,v − ψ ψ,v = 0
+(15)
+a2
+4ξ2
+,v
+into much simpler first order differential equations for Au
+Au,v −
+
+Qa2
+=0
+2r2
+
+(16)
+
+and for Q, which in turn yields
+
+
+ier2 2φ ∗
+∗
+Q,v + 2 α φ,v Q +
+e
+ψ ψ,v − ψψ,v = 0.
+4ξ2
+
+(17)
+
+On the other hand, Eq.(4) has the explicit form as follows:
+
+
+
+(α + 1) 2φ(α+1)
+ξ2 a2 Q2 e2αφ
+∗
+∗
+∗
+∗
+r,u φ,v + r,v φ,u + rφ,uv −
+= 0. (18)
+e
+r ψ,u ψ,v + ψ,v ψ,u + ie Au ψψ,v − ψ ψ,v
+−α
+8ξ1
+ξ1
+4r3
+An inspection of the relations for the complex scalar field (6)-(7) reveals that one gets the following:
+ie Q a2
+ψ = 0,
+4r
+2
+ie Q a ∗
+∗
+∗
+∗
+∗
+r,u ψ,v
++ r,v ψ,u
++ rψ,uv
+− ie r Au ψ,v
+− ie r,v Au ψ ∗ −
+ψ = 0.
+4r
+r,u ψ,v + r,v ψ,u + rψ,uv + ie r Au ψ,v + ie r,v Au ψ +
+
+(19)
+(20)
+
+Furthermore, the adequate components of the Einstein tensor and the stress-energy tensor for the underlying theory
+reveal the set of equations
+
+
+
+
+2a,u r,u
+r e2φ(α+1)
+∗
+∗
+− r,uu = ξ1 r φ2,u +
+ψ,u ψ,u
++ ie Au ψ ψ,u
+− ψ ∗ ψ,u + e2 A2u ψ ψ ∗ ,
+(21)
+a
+4
+1
+2a,v r,v
+∗
+− r,vv = ξ1 r φv 2 + r e2φ(α+1) ψ,v ψ,v
+,
+(22)
+a
+4
+r,u rv
+a2
+e2αφ a2 Q2
++
++ r,uv = ξ2
+,
+(23)
+4r
+r
+4r3
+
+
+
+a,u a,v
+a,uv
+r,uv
+Q2 e2αφ a2
+e2φ(α+1)
+∗
+∗
+−
+−
+=
+ξ
++
+ξ
+φ
+φ
++
+ψ,u ψ,v
++ ψ,u
+ψ,v + ie Au ψ ψv∗ − ψ ∗ ψ,v . (24)
+2
+1
+,u
+,v
+a2
+a
+r
+4r4
+8
+To proceed further, one introduces the new auxiliary variables written in the following forms:
+a,u
+,
+a
+s = ψ,
+
+c=
+
+a,v
+,
+a
+p = ψ,u ,
+k = φ,
+d=
+
+f = r,u ,
+
+g = r,v ,
+
+q = ψ,v ,
+x = φ,u ,
+
+β = Au ,
+y = φ,v .
+
+(25)
+
+Moreover, the additional quantities take the forms as
+a2
++ f g,
+4
+µ ≡ f q + gp,
+η ≡ gx + f y.
+λ ≡
+
+(26)
+(27)
+(28)
+
+It can be easily seen that instead of taking into account two complex fields ψ and ψ ∗ , one can introduce two real
+fields. Namely, they satisfy the relations ψ = ψ1 + i ψ2 and ψ ∗ = ψ1 − i ψ2 . Under these assumptions we arrive at
+s = s1 + i s2 ,
+µ = µ1 + i µ2 ,
+
+p = p1 + i p2 ,
+q = q1 + i q2 ,
+µ1 = f q1 + gp1 ,
+µ2 = f q2 + gp2 .
+
+(29)
+(30)
+
+5
+Just, the system of the second order partial differential equations can be rewritten in the form of the first order one.
+It can be checked that we finally arrive at the set of the first order differential equations written as follows:
+P 1 : a,u − a c = 0,
+P 2 : a,v − a d = 0,
+P 3 : r,u − f = 0,
+P 4 : r,v − g = 0,
+P 5(Re) : s1,u − p1 = 0,
+
+(31)
+(32)
+(33)
+(34)
+(35)
+
+P 5(Im) : s2,u − p2 = 0,
+
+(36)
+
+P 6(Re) : s1,v − q1 = 0,
+
+(37)
+
+P 6(Im) : s2,v − q2 = 0,
+
+(38)
+
+k,u − x = 0,
+k,v − y = 0,
+
+(39)
+(40)
+
+P7 :
+P8 :
+E1 :
+E2 :
+E3(1) :
+E3(2) :
+E4(1) :
+E4(2) :
+(1)
+:
+S(Re)
+(1)
+:
+S(Im)
+(2)
+S(Re)
+:
+(2)
+:
+S(Im)
+
+D(1) :
+D(2) :
+M1 :
+M2 :
+
+h
+i
+1
+r e2k(α+1) p12 + p22 + 2 e β (s1 p2 − s2 p1 ) + e2 β 2 s12 + s22 = 0,
+4
+
+1
+g,v − 2 d g + ξ1 r y 2 + r e2k(α+1) q12 + q22 = 0,
+4
+λ
+Q2 a2
+f,v + − ξ2 e2αk
+= 0,
+r
+4 r3
+Q2 a2
+λ
+= 0,
+g,u + − ξ2 e2αk
+r
+4 r3
+h
+i
+λ
+1
+Q2 a2
+c,v − 2 + ξ1 x y + e2k(α+1) p1 q1 + p2 q2 + e β (s1 q2 − s2 q1 ) + ξ2 e2αk
+= 0,
+r
+4
+2 r4
+h
+i
+λ
+1
+Q2 a2
+d,u − 2 + ξ1 x y + e2k(α+1) p1 q1 + p2 q2 + e β (s1 q2 − s2 q1 ) + ξ2 e2αk
+= 0,
+r
+4
+2 r4
+Qa2
+rp1,v + µ1 − e r β q2 − e s2 β g − e s2
+= 0,
+4r
+Qa2
+rp2,v + µ2 + e r β q1 + e s1 β g + e s1
+= 0,
+4r
+Qa2
+rq1,u + µ1 − e r β q2 − e s2 β g − e s2
+= 0,
+4r
+2
+Qa
+rq2,u + µ2 + e r β q1 + e s1 β g + e s1
+= 0,
+4r
+h
+i
+α+1
+ξ2
+Q2 a2
+rx,v + η −
+= 0,
+r e2k(α+1) p1 q1 + p2 q2 + e β (s1 q2 − s2 q1 ) − α e2αk
+4ξ1
+ξ1
+4 r3
+h
+i
+α+1
+ξ2
+Q2 a2
+r y,u + η −
+r e2k(α+1) p1 q1 + p2 q2 + e β (s1 q2 − s2 q1 ) − α e2αk
+= 0,
+4ξ1
+ξ1
+4 r3
+Qa2
+β,v −
+= 0,
+2 r2
+1 2k
+Q,v + 2 α y Q −
+e e r2 (s1 q2 − s2 q1 ) = 0.
+2ξ2
+f,u − 2 c f + ξ1 r x2 +
+
+(41)
+(42)
+(43)
+(44)
+(45)
+(46)
+(47)
+(48)
+(49)
+(50)
+(51)
+(52)
+(53)
+(54)
+
+Let us introduce the quantity of the physical interest. Namely, we define the mass function provided by the relation
+
+
+
+
+r
+4 r,u r,v
+r
+4
+m(u, v) =
+1+
+=
+1+ 2 f g .
+(55)
+2
+a2
+2
+a
+It represents the Hawking mass, i.e., the mass included in a sphere of the radius r(u, v).
+The characteristics of all the evolutions under consideration are listed in Table I. As was explained in detail in
+[10] the structures of solutions in EM D as well as in phantom-EM D theories may be regarded as equilibrium states
+resulting from the competition and/or cooperation among gravitational, electromagnetic and dilatonic forces. The
+nature of gravitational force is always attractive. The other two forces are either attractive or repulsive depending
+on whether they are phantom or not. It should be kept in mind that in our case we deal with one more constituent
+
+6
+TABLE I: Characteristics of evolutions under consideration. The overlining indicates phantom field. Parameters p̃k and p̃s
+denote amplitudes of dilaton and electrically charged scalar fields, respectively.
+Type of evolution
+
+ξ1
+
+ξ2
+
+p̃k
+
+p̃s
+
+e
+
+α
+
+EM
+
+−
+
+−1
+
+−
+
+6= 0
+
+6= 0
+
+−
+
+ED
+
+−1
+
+−
+
+6= 0
+
+−
+
+−
+
+−
+
+EM D
+
++1
+
+−1
+
+6= 0
+
+6= 0
+
+6= 0
+
+0, −1
+
+EM D
+
+−1
+
++1
+
+6= 0
+
+6= 0
+
+6= 0
+
+0, −1
+
+EM D
+
+−1
+
+−1
+
+6= 0
+
+6= 0
+
+6= 0
+
+0, −1
+
+of the system under consideration, namely the complex scalar field. Its influence on spacetime structures is uniform
+in all considered cases, because we do not allow it to be phantom. We shall comment on its role during the collapse
+after a detailed analysis of spacetime structures.
+
+III.
+
+NUMERICAL COMPUTATIONS
+
+Unfortunately, a detailed analytical investigations of fully nonlinear gravitational dynamics described by the set of
+the conjugate equations (31)-(54) are impossible. Therefore, numerical methods ought to be used in order to draw
+conclusions about the structure of spacetime emerging in the process of the dynamical collapse.
+In the present paper we used a numerical algorithm containing an adaptive mesh refinement described in [29]. It was
+adjusted for the current issue by taking the parameters ξ1 and ξ2 into account. The manner of setting the boundary
+and initial conditions for the considered equations remained unchanged in comparison to Ref.[29]. The one-parameter
+families representing the initial profiles of the field functions used for simulations in the present paper are listed in
+Table II. The (fD )-family refers to the dilaton field with the family constants c1 = 1.3 and c2 = 0.21. The (fS )-family
+describes the electrically charged scalar field. The family constant vf = 7.5 and the parameter determining the
+amount of the initial electric charge δ = π2 (maximal electric charge) [25]. In both cases the free family parameter is
+denoted by p̃ with a subscript corresponding to the particular field. Such choice of the initial conditions is physically
+representative, because the considered collapse is universal, i.e., its course and results do not depend on the types of
+initial profiles.
+There are no analytical solutions neither to the problem in question nor to any of simplified versions of it (apart
+from the extremely simplified, trivial case of empty spacetime). Thus, checking the correctness of numerical code has
+to be based on indirect methods.
+The three tests used for proving the credibility of the code and justifications for carrying them out, are widely
+discussed in [29]. As was reported in the aforementioned paper, the results obtained for the different integration steps
+on the non-adaptive grid display satisfying agreement of an order of 0.01%. Moreover, the code displays the linear
+convergence as is expected for the applied algorithm and errors decrease with increasing grid density. We reached
+the same conclusions for the modified code for all possible combinations of ξ1,2 shown in Table I. Since the figures
+depicting them are analogous to the ones presented in the previous paper, we decided not to present them here.
+The issue of mass (55) and charge (14) conservation was also analyzed. We obtained profiles of m and Q versus u
+along ingoing null rays specific to all types of evolutions under consideration. The values of the advanced time were
+chosen in such a way that the null rays did not intersect any horizons for the small values of the retarded time. The
+obtained profiles appeared to be in a qualitative agreement with the ones presented in [29]. For the evolutions leading
+to the formation of a black hole the mass was conserved within 7% and the electric charge within 4.5% in regions
+apart from the vicinities of the apparent horizons. The fluctuations were significant there due to the outgoing fluxes,
+which appear during the refraction of matter on the potential barriers near the gravitational radius of the collapsing
+shell [20]. Mass and charge profiles for non-singular spacetimes also displayed expected behaviour. The values tended
+towards zero for the reason that evolving matter bounced off the non-singular r = 0 and moved towards future null
+infinity leaving empty spacetime [16].
+
+7
+TABLE II: Initial profiles of field functions.
+Family
+
+Profile
+
+
+v−c1 2
+−
+c
+
+p̃k · v 2 · e
+
+(fD )
+
+(fS )
+
+
+
+p̃s · sin2 π vvf ·
+
+2
+
+
+
+
+
+cos π v2vf + i cos π v2vf + δ
+
+!
+
+Next, we examined the simplified versions of the problem in question, namely the non-phantom (ξ1 = ξ2 = 1)
+collapses of neutral and electrically charged scalar fields leading to Schwarzschild and Reissner-Nordström spacetimes,
+respectively. The results are consistent with those published, e.g., in Refs.[16, 19, 20].
+The dynamical Schwarzschild spacetime corresponding to the outcome of the collapse of a neutral scalar field [16]
+in fact results from the evolution of dilaton field under the influence of gravitation (ED-collapse). Its structure for
+p̃k = 0.1 is shown in Fig.1a. There is one apparent horizon visible in the spacetime, namely r,v = 0. For v → ∞
+it settles down to an event horizon, which is situated along u = 1.06. It surrounds the central spacelike singularity
+located along the line r = 0, which becomes singular at u = 1.38 (the peak on the diagram).
+The dynamical Reissner-Nordström spacetime emerging from the collapse of an electrically charged scalar field (EM evolution) [20] for p̃s = 0.6 is shown in Fig.1b. There are two horizons in the spacetime. The outer apparent horizon,
+r,v = 0, after the dynamical part of evolution, when v → ∞, coincides with an event horizon located along u = 0.84.
+The inner horizon, namely the Cauchy horizon is located at future null infinity, i.e., at v → ∞. The line r = 0
+becomes central spacelike singularity at u = 3.04.
+
+IV.
+
+RESULTS
+
+As was mentioned in the introduction, the main aim of our research was to investigate the results of the dynamical
+collapse of an electrically charged scalar field in the presence of dilaton field, while one or both types of fields
+are phantom. All the possible configurations were presented in Table I. Because of the fact that the structure of
+spacetimes emerging from the dynamical collapse depends on the unknown coupling constant α [29], we take into
+account α = −1 and α = 0. These values are particularly interesting because they refer to analytical models discussed
+in the literature. Specifically, α = −1 refers to the low-energy string theory, while when α vanishes the dynamical
+collapse of an electrically charged scalar field in presence of an uncoupled dilaton field takes place. On the contrary,
+the electric coupling constant does not exert any influence on the evolution, so we assume that it is equal to e = 0.5.
+The results of the numerical computations are depicted on Penrose diagrams, i.e., we plot lines of constant r (u, v) in
+the (v, u)-plane.
+The types of the initial field profiles, which were used in our numerical computations are presented in Table II. The
+(fD )-family refers to dilaton field, while the family (fS ) is connected with electrically charged scalar field. The free
+family parameter p̃ denotes an amplitude of the particular field. Namely, p̃s is responsible for the electrically charged
+scalar field, while p̃k for the dilaton field.
+At the beginning we will consider the separate evolutions of an electrically charged scalar field with phantom
+coupling of Maxwell field to gravity (EM -collapse) and phantom dilaton field (ED-collapse). Then we shall pay
+attention to the evolutions when more than one field is involved (phantom-EM D-collapses). In these situations the
+one-parameter cases will be considered at first. It means that the amplitudes of both collapsing fields will be taken
+to be equal and their common value will be denoted by p̃. Afterwards, in order to complete the physical picture
+of the results of the examined process, for each of phantom-EM D evolutions we shall discuss the behavior of the
+system in the case when the amplitudes of the considered fields differ. To be precise, we describe the changes in
+the spacetime structures appearing when one of the fields has a constant amplitude and the amplitude of the other
+field varies. The constant amplitudes of the electrically charged scalar field and dilaton field were chosen to be equal
+to p̃s = 0.6 and p̃k = 0.1, respectively. Such choice was motivated by the fact that these evolutions in the nonphantom case lead to the dynamical Reissner-Nordström and Schwarzschild spacetimes as was described above. At
+the same time in the phantom cases, as will be explained in sections IV A and IV B, they lead to Schwarzschild and
+non-singular spacetimes, which are typical for particular phantom evolutions. In view of the bewildering complexity
+of the considered dynamical collapse it will enable us to generalize about the role of the accompanying field (which
+
+8
+amplitude varies) in the phenomena under consideration.
+
+A.
+
+Einstein-phantom Maxwell collapse
+
+To begin with, we shall consider the first of the simplified versions of the theory under consideration. Namely,
+we will discuss spacetime structures emerging in the process of the dynamical collapse of the charged scalar field in
+the case of Einstein-phantom Maxwell theory (EM -evolution). The representative structure is shown in Fig.2. The
+parameter characterizing the initial amplitude of the considered field was chosen as p̃s = 0.6. It turned out that the
+most striking feature of the resulting spacetime is the fact that despite the presence of an electric charge only one
+apparent horizon is observed. The outcome of the considered dynamical collapse is similar to the one in the case of
+Schwarzschild spacetime, which results from the evolution of a self-gravitating electrically neutral scalar field (Fig.1a).
+The single apparent horizon r,v = 0 surrounds the spacelike central singularity and settles along an event horizon for
+v → ∞.
+The event horizon is a null hypersurface situated along u = 0.78. In comparison with the case of the dynamical
+collapse of the electrically charged scalar field in non-phantom Einstein-Maxwell case (EM -evolution), observed for
+the same parameter p̃s = 0.6 and depicted in Fig.1b, the emerging event horizon is situated along the smaller value of
+retarded time. As far as the point, where the line r = 0 becomes singular is concerned (peak on the Penrose diagram),
+one can draw the same conclusion. Namely, in phantom dynamical collapse it corresponds to u = 2.98, whereas in
+non-phantom Einstein-Maxwell evolution the singularity arises slightly later as was described above.
+To conclude, one can observe that in the case of Einstein-phantom Maxwell dynamical collapse the structure of the
+issuing spacetime is Schwarzschild-like and the black hole forms earlier in terms of the retarded time comparing to the
+non-phantom Einstein-Maxwell evolution. The comparison between EM and EM cases allows us to draw an interesting conclusion concerning the correlation between the attractive/repulsive nature of forces and spacetime structures.
+As was already mentioned, gravitational force is always attractive and supports the collapse. The electrostatic force
+in EM -evolution is repulsive and the Reissner-Nordström spacetime is the outcome of some kind of a compromise
+between the two forces. In contrast, the electrostatic force in EM -evolution is attractive just as gravitational force.
+In this case a simpler, Schwarzschild-like spacetime emerges.
+
+B.
+
+Einstein-phantom dilaton collapse
+
+To proceed further, let us consider the second simplification, i.e., dynamical collapse in the case of Einstein-phantom
+dilaton system (ED-evolution), where dilaton field evolves under the influence of gravitational field. This case simply
+refers to the evolution of phantom electrically neutral scalar field. A vast range of the parameters p̃k characterizing the
+initial amplitude of the field was examined. The results of the numerical calculations for p̃k equal to 0.25, 0.5 and 1 are
+shown in Fig.3. An important notion concerning the evolution in question is the fact that for every considered dilaton
+field amplitude the emerging spacetime is non-singular, that is black holes do not form. The only influence of the
+parameter p̃k on the resulting spacetime structure is the fact that the bigger value of p̃k we take the more significantly
+r-coordinate varies in the vicinity of the center of spacetime (pushing out the lines of r = const. in the vicinity of the
+point u = v = 0). The aforementioned behaviour is in complete contrast to the dynamical evolution in Einstein-scalar
+theory (ED-evolution). In this case the dynamical collapse of non-phantom scalar field, for appropriately large values
+of the parameter p̃k results in a singular, Schwarzschild-type spacetime, as was shown in Fig.1a.
+Summing it all up, the influence of the phantom nature of the scalar field is even more extreme in the electrically
+neutral case than in the charged one. In Einstein-phantom dilaton theory black holes do not appear in comparison
+with Einstein-scalar case, where Schwarzschild-type black holes are obtained. It may be also explained in terms of
+the nature of acting forces. Attractive gravitational force cooperates with an attractive force during ED-collapse and
+competes with repulsive dilatonic force in ED-evolution. It turns out that in the latter case gravity is not able to
+overcome the repulsive nature of phantom field.
+
+C.
+
+Einstein-phantom Maxwell-dilaton collapse
+
+The first theory concerning the collapse of both considered fields, namely the dilaton and electrically charged scalar
+ones, is Einstein-phantom Maxwell-dilaton theory (EM D-evolution). It should be emphasized that there are no
+differences between spacetime structures resulting from the process for the coupling constant α equal to −1 and 0
+while values of field amplitudes do not differ. In Fig.4 the outcome of an evolution in EM D-theory for both considered
+values of the dilatonic coupling constant is presented. The value of parameter p̃ was taken to be equal to 0.06 and
+
+9
+0.175. For small values of p̃ the spacetime is non-singular. For its bigger values the Schwarzschild-like black hole
+forms. We achieve a single apparent horizon r,v = 0 surrounding spacelike singularity. When v-coordinate tends to
+infinity the apparent horizon coincides with the event horizon of a newly born black hole.
+This situation is also in agreement with the previous analyzes of the nature of acting forces. In this case all of
+them are attractive, hence for the sufficiently large value of the amplitudes the simplest singular, Schwarzschild-type
+structure forms.
+In order to proceed to considerations of how various fields influence on the dynamical collapse in question, we kept
+an amplitude of electrically charged scalar field p̃s constant and equal to 0.6 and varied the amplitude of dilaton field.
+The structures of spacetimes for α = −1, 0 and p̃k equal to 0.01 and 0.09 are shown in Fig.5. Then, we performed
+computations the other way round. Namely, we changed an amplitude of electrically charged scalar field p̃s while
+keeping the other amplitude p̃k constant and equal to 0.1. In Fig.6 we depicted spacetime structures for the amplitude
+of electrically charged scalar field equal to 0.35 and 0.6 for both considered values of dilatonic coupling constant. In
+all the cases we obtained dynamic Schwarzschild spacetimes.
+For small values of a varying amplitude we observed Schwarzschild-like spacetimes like the one shown in Fig.1a,
+that is a central spacelike singularity surrounded by one apparent horizon r,v = 0, which after a dynamical part
+of evolution settles along an event horizon for v → ∞. For larger values of a varying amplitude slightly different
+behaviour was revealed, namely two dynamical stages during the evolution were observed. After achieving a constant
+value of u-coordinate an apparent horizon r,v = 0 changes its position to another value of retarded time, which is
+smaller than the previous one. As v → ∞ the horizon again settles along u = const. indicating the position of an
+event horizon of a final black hole. Of course a spacelike singularity is situated in the center of it. Such structure also
+corresponds to Schwarzschild-type.
+An increase of p̃k results in earlier (in terms of retarded time) appearance of a point, where the line r = 0 becomes
+singular (Fig.5). This increase is also connected with the fact that an event horizon is situated along a smaller constant
+value of u-coordinate. The decrease of a value of retarded time corresponding to a location of an event horizon is
+more significant than the decrease of u referring to the first singular point at r = 0. Within the set of solutions with
+altering amplitude of phantom counterpart of electrically charged scalar field (Fig.6), the changes of p̃s do not affect
+the location of a point, where the line r = 0 becomes singular. At the same time the location of the event horizon
+moves towards lower values of u-coordinate when p̃s increases.
+The energy momentum tensor (9)–(12) for EM D-theory in the case of α = −1 has the following form:
+Tµν (F, φ) = −e−2φ Tµν (F ) + Tµν (φ),
+∗
+
+(56)
+
+∗
+
+Tµν (φ, F, ψ, ψ , A) = T̃µν (ψ, ψ , A) + Tµν (F, φ),
+while for α = 0:
+Tµν (F, φ) = −Tµν (F ) + Tµν (φ),
+∗
+
+2φ
+
+(57)
+
+∗
+
+Tµν (φ, F, ψ, ψ , A) = e T̃µν (ψ, ψ , A) + Tµν (F, φ),
+where T̃µν (ψ, ψ ∗ , A), Tµν (F ) and Tµν (φ) denote the parts connected with electrically charged, Maxwell and dilaton
+fields, respectively. The coexisting effects of the dilaton field and phantom counterpart of an electrically charged scalar
+field result in an appearance of Schwarzschild black hole. Even though the changes of the amplitudes of particular
+fields change their relative impact on the collapse, its outcome is in all cases similar.
+It is worth mentioning that analytic studies of singular static configurations in EM D-theory were conducted in
+Refs.[7, 9]. It turned out that in the considered case the solutions are Schwarzschild-type, i.e., the spacetimes consist
+of one horizon surrounding central singularity. This conclusion was confirmed by our computations also in the case
+of dynamical collapse.
+
+D.
+
+Einstein-Maxwell-phantom dilaton collapse
+
+The next type of the theory we shall be interested in is Einstein-Maxwell-phantom dilaton gravity (EM D-evolution).
+In this theory the electrically charged scalar field coupled to phantom dilaton field collapses gravitationally. The plots
+bounded with the dynamical collapse in EM D-evolution, for the dilatonic coupling constant equal to −1 and 0 are
+shown in Figs.7 and 8, respectively. In our considerations, for the case of α = −1, we have chosen the parameter p̃ to
+be equal to 0.5, 0.85 and 1.1. When the coupling constant α is equal to zero p̃ equals to 0.1, 0.8 and 1.1.
+For all values of the family parameter p̃ the non-singular spacetimes emerge for both considered values of α. For
+small values of the parameter p̃ there are no horizons in spacetime. Refining our numerical studies to the larger values
+of p̃, we obtain an apparent horizon r,u = 0 for small values of retarded time. For α = −1, it settles along constant
+
+10
+u-coordinate for v → ∞, while for α = 0 it forms an open loop with ending points at v → ∞. It happens that for
+even bigger values of the amplitudes another type of an apparent horizon, namely r,v = 0, emerges. We observe both
+r,u = 0 and r,v = 0 types of the apparent horizons. However, their presence in spacetime is not connected with the
+appearance of the singularity.
+For α = −1 the results are depicted in Fig.7. One observes that the appearance of r,u = 0 and r,v = 0 apparent
+horizons for small values of u-coordinate develops a gap between r = const. lines at v → ∞. The adjacent lines move
+away very quickly. As was mentioned above, for large values of parameter p̃ both types of apparent horizons emerge.
+For the coupling constant α = 0 the results are shown in Fig.8. One gets that for large values of the parameter p̃ and
+small values of the u-coordinate as well as for large values of both retarded and advanced times, both r,u = 0 and
+r,v = 0 apparent horizons exist in the non-singular spacetime.
+In the considered EM D-theory the repulsive electromagnetic and dilatonic forces compete with the attractive
+gravitational force after all leading to non-singular spacetimes with single or multiple horizons.
+In order to get a deeper insight into the physical processes taking place during EM D-collapse we shall vary
+amplitudes of phantom dilaton and of electrically charged scalar field. We commence with altering an amplitude of
+phantom dilaton while an amplitude of the other field remains constant and equal to p̃s = 0.6. For α = −1 the
+structures formed when p̃k equals to 0.15, 0.2 and 0.25 are shown in Fig.9. For small values of the parameter p̃k we
+get the singular spacetime with two kinds of apparent horizons, but when the amplitude of phantom dilaton grows
+the spacetime becomes non-singular. The growing amplitude of phantom dilaton field suppresses emergence of a
+singularity. This result seems to be intuitive because phantom field contributes negatively to the total energy of the
+system.
+As was mentioned above, for small values of the phantom dilaton amplitude the spacetime became singular but with
+two types apparent horizons r,u = 0 and r,v = 0 in the domain of integration. For values of amplitudes not exceeding
+0.15 there are two branches of r,v = 0 horizon. The first one settles along an event horizon for v → ∞. With an
+increasing value of the phantom dilaton field amplitude, the singularity as well as the horizon appears at increasing
+u-coordinate. The second branch of the horizon r,v = 0 lies inside the first one and it begins at the point, where the
+line of singular r = 0 ends. The apparent horizon r,u = 0 is situated inside the second branch of r,v = 0 horizon
+and begins at the same point. For small values of parameter p̃k these two lines almost coincide. The structure of an
+area beyond the horizon r,u = 0 is impossible to interpret fully and clearly, because calculations cannot be carried
+out until r = 0 and they end at some positive value of r. Such structure with two branches of r,v = 0 apparent
+horizon and an apparent horizon r,u = 0 inside them may be interpreted as a dynamical wormhole [24]. On the
+other hand, for greater values of the parameter p̃k (larger than 0.2) the two branches of the horizon r,v = 0 form
+a loop with two ends coinciding with ending points of singular part of line r = 0. The horizon r,u = 0 remains
+outside it and continuously tends towards smaller values of u-coordinate as v → ∞. This structure corresponds to an
+unphysical situation of naked singularity in spacetime [24]. For even bigger values of amplitudes of dilaton field, from
+approximately p̃k = 0.25, the spacetime is non-singular with no visible horizons.
+A close inspection of the energy momentum tensor (9)–(12) for EM D-theory in the considered case of α = −1 reveals
+that one gets the following:
+Tµν (F, φ) = e−2φ Tµν (F ) − Tµν (φ),
+∗
+
+(58)
+
+∗
+
+Tµν (φ, F, ψ, ψ , A) = T̃µν (ψ, ψ , A) + Tµν (F, φ).
+It can be seen that the factor e−2φ diminishes the influence of the Maxwell field on the collapse, i.e., the bigger
+amplitude of phantom dilaton field we consider the smaller influence is of the U (1)-gauge field we obtain. When
+p̃k increases the strong repulsive effect of the phantom dilaton field begins to play the dominant role leading to
+non-singular spacetimes.
+Different situation takes place for Einstein-Maxwell-phantom dilaton collapse without dilaton coupling, that is for
+α = 0. The structures of the emerging spacetimes for p̃k equal to 0.05 and 0.8 are shown in Fig.10. The spacetimes are
+non-singular for all values of the parameter p̃k . It means that the presence of phantom dilaton field, not interacting
+with the rest of matter in spacetime, prevents black hole formation. The spacetime is non-singular with both types
+of horizons at first and then, for p̃k exceeding 0.7, only one open loop-shaped apparent horizon r,u = 0 is observable
+for the small values of the u-coordinate.
+On the other hand, the energy momentum tensor for α = 0 is provided by
+Tµν (F, φ) = Tµν (F ) − Tµν (φ),
+∗
+
+2φ
+
+(59)
+
+∗
+
+Tµν (φ, F, ψ, ψ , A) = e T̃µν (ψ, ψ , A) + Tµν (F, φ).
+Eq.(59) reveals that the growth of the phantom dilaton field amplitude plays the dominant role while the factor e2φ
+also enlarges the influence of the electrically charged scalar field. Therefore due to these facts the domination of the
+phantom dilaton field seems to be a key factor in the process of the dynamical collapse for this case.
+
+11
+The next set of solutions referring to Einstein-Maxwell-phantom dilaton theory involves spacetimes emerging from
+a collapse when an amplitude of phantom dilaton field is constant and an amplitude of electrically charged scalar field
+varies. The value of the constant amplitude was set as p̃k = 0.1. In Fig.11 the structures of spacetimes emerging
+from the collapse for α = −1 were depicted. The amplitudes of the scalar field p̃s were chosen to be equal to 0.3 and
+0.6, respectively. One can observe that for small values of the electrically charged scalar field amplitude the repulsive
+character of phantom dilaton field combined with small amount of the electrically charged scalar field results in the
+nonsingularity of the emerging spacetime. On the other hand, when the role of phantom dilaton field is diminished,
+i.e., the amplitude of electrically charged scalar field grows, one attains the singular spacetime with two branches of
+r,v = 0 apparent horizon – the outer and the inner one as well as an apparent horizon r,u = 0 located within them.
+One remarks that a dynamical wormhole structure appears. Namely, the emerging black hole gains phantom dilaton
+matter violating the null energy condition and this phenomenon causes formation of a wormhole.
+As may be inferred from Eq.(58) the growth of an electrically charged scalar field amplitude is able to neutralize the
+diminishing effect of the factor e−2φ coexisting with the repulsive tendency of phantom dilaton field. It finally leads
+to the formation of a dynamic wormhole.
+The structures of spacetimes emerging from EM D-evolution with constant value of an amplitude p̃k and dilatonic
+coupling constant α = 0 are shown in Fig.12. The amplitude of charged scalar field p̃s was set as equal to 0.2 and 0.7.
+The spacetimes for all values of a varying amplitude are non-singular. For small values of it there are no horizons
+visible in the domain of integration. In turn, for bigger values of p̃s apparent horizons r,v = 0 and r,u = 0 appear in
+spacetime, but none of them reach the line r = 0, which for this reason does not become singular. The emergence of
+the apparent horizons is accompanied by squeezing the lines of r = const. in the vicinity of the line r = 0, in the area
+lying above the r,v = 0 horizon in terms of the u-coordinate.
+From Eq.(59) we can observe that the factor containing phantom dilaton field e2φ plays an important role together
+with the growth of the electrically charged scalar field amplitude in the domain of integration. This is closely related
+to the fact that phantom dilaton field suppresses appearance of black hole, while an increasing amplitude of the
+electrically charged scalar field relatively to dilaton field amplitude forces the formation of horizons in the underlying
+spacetime.
+
+E.
+
+Einstein-phantom Maxwell-phantom dilaton collapse
+
+The last examined case is Einstein-phantom Maxwell-phantom dilaton theory (EM D-evolution). The resulting
+spacetimes formed during the process of the dynamical collapse are depicted in Figs.13 and 14. The plots were made
+for the dilaton coupling constant equal to −1 and 0, respectively. For α = −1 the amplitudes of the considered fields
+were chosen to be equal to 0.3, 0.4 and 0.5. In the case of α = 0, the parameter p̃ was equal to 0.2 and 0.5.
+For both values of α the spacetimes for small values of p̃ are non-singular without any horizons. Similarly to the
+previously analyzed dynamical collapse, in the majority of cases both types of apparent horizons, namely r,v = 0 and
+r,u = 0 are visible in the domain of integration. Moreover, the appearance of the apparent horizon r,v = 0 for larger
+values of the free family parameter always ensues from the formation of singularity in the considered spacetime. What
+is more, the bigger value of the parameter one considers the earlier in terms of retarded time the singularity at r = 0
+appears.
+In Fig.13, plotted for the coupling constant α = −1, one observes a loop-shaped part of the apparent horizon r,v = 0
+near the peak of the line r = 0, where it becomes singular. The size of a loop-shaped apparent horizon decreases with
+increasing field parameter p̃. What is more, the loop surrounds the singular part of the r = 0 line. Outside the loop
+the singularity is absent or impossible to localize. When v-coordinate tends to infinity, the apparent horizon r,v = 0
+settles along constant u-coordinate. Moreover, the other apparent horizon begins at the point, where the singular
+r = 0 ends and tends towards smaller values of retarded time as v → ∞. As was already stated in the previous
+section, such structure corresponds to naked singularity in spacetime.
+In Fig.14 we presented the results for the uncoupled case, that is for α = 0. One notices that for the large values of
+parameter p̃ the spacetime relaxes to the one containing naked singularity. There is a loop-shaped apparent horizon
+surrounding the central spacelike singularity and it tends towards u = const. as v → ∞. Additionally, there are two
+branches of the horizon r,u = 0. One of them is connected with the naked singularity. The other one forms an open
+loop similar to the ones observed in spacetimes emerging from the EM D-evolutions conducted for α = 0.
+In conclusion it may be stated that spacetimes emerging from the collapse in Einstein-phantom Maxwell-phantom
+dilaton theory with equal amplitudes of both fields are either non-singular or they contain naked singularities. In this
+case only the dilatonic force is repulsive, the other two forces have attractive character.
+Let us turn our attention to the evolutions with a constant amplitude of phantom electrically charged scalar field
+equal to p̃s = 0.6. For α = −1 we considered the values of phantom dilaton field amplitude p̃k equal to 0.1 and
+0.3. The spacetimes emerging from these evolutions are presented in Fig.15. For all values of p̃k the structure of the
+
+12
+spacetime resembles Schwarzschild one, i.e., there is an apparent horizon r,v = 0 coinciding with an event horizon at
+v → ∞ and surrounding central spacelike singularity. The peak, where the line r = 0 becomes singular practically
+does not change its u-location as p̃k increases. On the contrary, the value of u-coordinate corresponding to the location
+of the event horizon increases while the amplitude of phantom dilaton field becomes bigger.
+In the considered case of α = −1 the energy momentum tensor (9)–(12) for EM D-theory is given by:
+Tµν (F, φ) = −e−2φ Tµν (F ) − Tµν (φ),
+∗
+
+(60)
+
+∗
+
+Tµν (φ, F, ψ, ψ , A) = T̃µν (ψ, ψ , A) + Tµν (F, φ).
+Contrary to the case described by relations (58), where we observe dynamic wormhole spacetimes, now the phantom
+coupling of Maxwell field causes that the outcome is similar to the Schwarzschild spacetime. It should be emphasized
+that it happens despite of the influence of phantom dilaton field, which previously prevented black hole formation due
+to its repulsive nature.
+On the other hand, Fig.16 illustrates spacetime structures resulting from a collapse in Einstein-phantom Maxwellphantom dilaton theory without dilaton coupling, i.e., for α = 0. The values of phantom dilaton field were set as
+equal to 0.05 and 0.2. For small values of p̃k the spacetime is singular with one apparent horizon r,v = 0 surrounding
+singularity visible in the domain of integration. Nearby the point, where the line r = 0 becomes singular the apparent
+horizon almost coincides with the singularity. At some point it moves away from the line r = 0 towards slightly
+smaller values of v-coordinate and then settles along constant u for v → ∞. Since it becomes null hypersurface there
+we may predict that its location at large values of advanced time indicates the location of the event horizon. Although
+the structure in the vicinity of the point, where the line r = 0 becomes singular (beyond the event horizon) is different
+from the one presented in Fig.1a, we conclude that it may be interpreted as Schwarzschild-like. The emerging object
+consists of a central spacelike singularity surrounded by one apparent horizon coinciding with an event horizon at
+v → ∞. The length of a part, where the apparent horizon is very close to r = 0 decreases with an increase of an
+amplitude of phantom dilaton field. The location of the point, where the line r = 0 becomes singular slightly decreases
+in terms of u while the varying amplitude increases. For larger values of a varying amplitude, naked singularity and
+an additional open loop-shaped branch of an apparent horizon r,u = 0 appear in the spacetime.
+Consider now the energy momentum tensor for the studied α = 0 case. It implies
+Tµν (F, φ) = −Tµν (F ) − Tµν (φ),
+∗
+
+2φ
+
+(61)
+
+∗
+
+Tµν (φ, F, ψ, ψ , A) = e T̃µν (ψ, ψ , A) + Tµν (F, φ).
+Having in mind Eq.(59), the case when no formation of a black hole was indicated, now we observe that phantom
+coupling of Maxwell field provides the singularity in the emerging spacetime and the formation of a Schwarzschild-like
+black hole or naked singulatrity. Similarly to the case of α = −1 black hole formation takes place in spite of the
+presence of the repulsive phantom dilaton field.
+The next set of solutions corresponding to EM D-theory refers to the computations conducted for a constant
+phantom dilaton field amplitude p̃k = 0.1 and altering amplitude of phantom counterpart of an electrically charged
+scalar field. The spacetimes ensuing from the collapse for dilatonic coupling constant α = −1 and values of an
+electrically charged scalar field p̃s equal to 0.25 and 0.5 are shown in Fig.17. For small values of an amplitude p̃s
+the spacetime is non-singular, while for larger values it becomes Schwarzschild-type. There is one apparent horizon
+r,v = 0 indicating the location of an event horizon for v → ∞. It surrounds central spacelike singularity like in Fig.1a.
+The damping effect of e−2φ in (60) is dominant at first and the phantom dilaton field plays the most important role.
+But with the passage of the increase of the phantom counterpart of the electrically charged scalar field amplitude
+the situation reverses and this field manages to force black hole formation. Just one can conclude that instead of
+the diminishing factor e−2φ , the sign of energy momentum tensor of U (1)-gauge field combined with the increasing
+value of the amplitude of the electrically charged scalar field are of the crucial importance for the formation of
+Schwarzschild-like black hole.
+The diagrams of spacetimes for α = 0 are illustrated in Fig.18. The amplitude of the phantom electrically charged
+scalar field was equaled to 0.35 and 0.65. For small values of p̃s the spacetime is non-singular. The structures obtained
+when the amplitude p̃s increases are Schwarzschild-like with an additional branch of an r,u = 0 apparent horizon at
+small values of the retarded time.
+On the other hand, a close inspection of (61) reveals that together with the dominating factor e2φ , the opposite sign
+of the Maxwell term again occurs decisive for the singularity to appear in the domain under inspection.
+As was noticed in the above subsection, the very familiar situation as described in EM D-theory, i.e., black hole
+solution with effectively one event horizon in the case of α2 → 1 [7], takes place in EM D-gravity. This analytical
+result obtained in the static case was confirmed in our simulations of the dynamical collapse.
+
+13
+V.
+
+CONCLUSIONS
+
+In our paper we studied the problem of the dynamical collapse of charged scalar field in the Einstein-Maxwell-dilaton
+theory with phantom coupling of the adequate fields. These fields are allowed to violate the null energy condition.
+The landscape of static and spherically symmetric solutions for the system under consideration abounds in eleven
+different not only asymptotically flat spacetimes related to sixteen various causal structures [9]. Such a rich collection
+of solutions aroused our interest especially in the context of the dynamical evolution.
+At first, it was revealed that in Einstein-phantom Maxwell evolution the structure of the resulting spacetime resembles Schwarzschild-like spacetime despite of the presence of the electrically charged U (1)-gauge field. In this
+case phantom nature of the electrically charged scalar field forces Schwarzschild-like structure formation instead of
+Reissner-Nordström-like in the non-phantom case. What is more, the resulting event horizon in the case of EM
+dynamical collapse emerges slightly earlier, in terms of the retarded time, than in the case of the dynamical collapse
+in EM -theory. Such structure remains in agreement with the one described in non-dynamical case [7, 9].
+Then, taking into account Einstein-phantom dilaton theory, one observes that for every considered amplitude of
+the dilaton field the resulting spacetime is non-singular. There is no formation of a black hole. Such behaviour
+is in complete contrast to the dynamical collapse in Einstein-dilaton (Einstein-scalar) evolution, which leads to the
+formation of Schwarzchild-like spacetime [16]. In this case the phantom nature of scalar field prevents a singularity
+as well as event horizons formation due to the repulsive character of the field.
+On its turn, in Einstein-phantom Maxwell-dilaton case there are no qualitative differences among the structures of
+the emerging spacetimes for the different values of the coupling constant α. One arrives at the Schwarzschild-like
+black hole formation, with a single horizon surrounding spacelike singularity. Dilaton field and phantom counterpart
+of electrically charged scalar field cooperate in Schwarzschild-type structure formation. These dynamically obtained
+structures only partially confirm the static solutions for EM D-theory obtained in [9]. From a wide variety of possibilities during the dynamical evolution the simplest one with only one horizon surrounding spacelike singularity is
+preferred.
+As far as Einstein-Maxwell-phantom dilaton theory is concerned, the obtained structures are far more complicated
+than in the previous cases. First of all, two types of apparent horizons are observed in the spacetime, namely lines of
+r,u = 0 and r,v = 0. Moreover, the appearance of an apparent horizon is not necessarily connected with the emergence
+of the singularity. For the dilatonic coupling constant equal to −1 dynamical wormhole spacetimes are observed in
+case when an amplitude of phantom dilaton field is considerably smaller than an amplitude of an electrically charged
+scalar field. In fact one has a formation of the black hole which gains phantom dilaton field which violates null
+energy condition. This phenomenon provides a formation of the wormhole structure. For α = 0 the spacetimes are
+non-singular. It means that an uncoupled phantom dilaton field prevents black hole formation due to its repulsive
+character. It seems that in the case of EM D-collapse the diversity of solutions manifests itself most clearly. Obviously,
+as was noticed in [9, 10], multiple horizons separating distinct areas are observed. Moreover, as was anticipated in
+static cases [7, 9], wormhole structures in the case of phantom scalar field and non-phantom vector field were obtained
+also during the dynamical collapse. Interestingly, our computations also provided an evidence of the existence of the
+dynamical interconversion between black holes and wormholes, which results from the dynamics of the phantom field
+in the considered spacetime [31].
+Finally we note that, in the case of Einstein-phantom Maxwell-phantom dilaton theory, also both types of the
+apparent horizons are visible in the domain of integration. The obtained structures correspond to the non-singular
+or Schwarzschild-type spacetimes or they contain naked singularities. Naked singularities mainly appear when the
+amplitudes of both collapsing fields are equal. On the other hand, the dynamical collapse results in Schwarzschild-like
+spacetime when an amplitude of the dilaton field is considerably smaller than the other one. Hence it may be stated
+that the considered EM D-evolution again leads to the simplest structure with a singularity surrounded by an event
+horizon among those presented in [9].
+During our numerical simulations of a dynamical collapse in phantom-EM D system we obtained an extensive
+collection of the spacetime structures. They are summarized in Table III together with the structures emerging from
+the collapse without phantom coupling. An analysis of energy-momentum tensors and the nature of forces acting in
+the considered system combined with the study of the emerging spacetime structures, led us to the general conclusions
+concerning the role of particular fields and the dilatonic coupling during the collapse in question.
+It turned out that the non-phantom dilaton field supports the formation of Schwarzschild-type singular spacetimes.
+On the other hand, its phantom counterpart suppresses black hole formation due to its strongly repulsive nature. It also
+facilitates the formation of multiple horizons not necessarily connected with the singularity. The non-phantom Maxwell
+field seems to be less repulsive than phantom dilaton field and thus it favors Reissner-Nordström-type spacetime as
+an outcome of the dynamical collapse. What is more, phantom Maxwell field, similarly to the dilaton field, supports
+the creation of the simplest singular, Schwarzschild-like structure despite its phantom coupling to gravity.
+Considering the role of a complex scalar field during the collapse, it seems to act just as a carrier of the Maxwell field.
+
+14
+TABLE III: Spacetime structures emerging from the phantom gravitational collapse. The overlining indicates phantom field. The
+structures of spacetimes resulting from the evolutions in non-phantom gravity are summarized at the bottom for comparison.
+Symbols: A – attractive, R – repulsive, ns – non-singular spacetime, S – Schwarzschild-type spacetime, RN – ReissnerNordström-type spacetime, W H – wormhole, N S – naked singularity. Superscripts: ∗ – additional horizons in spacetime, (2) –
+two-stage collapse. Arrows: ↑ – an increase of a particular amplitude, → – the direction of changes while the amplitude varies.
+Evolution
+
+Forces
+Dilatonic
+M/M D/D coupling constant
+
+Energy-momentum
+tensor
+
+p̃s = p̃k ↑
+
+p̃s = const.
+p̃k ↑
+
+p̃k = const.
+p̃s ↑
+
+EM
+
+A
+
+−
+
+−
+
+T̃µν (ψ) − Tµν (F )
+
+−
+
+−
+
+ns → S
+
+ED
+
+−
+
+R
+
+−
+
+−Tµν (φ)
+
+−
+
+ns
+
+−
+
+EM D
+
+A
+
+A
+
+α = −1
+α=0
+
+T̃µν (ψ) − e−2φ Tµν (F ) + Tµν (φ)
+e2φ T̃µν (ψ) − Tµν (F ) + Tµν (φ)
+
+ns → S
+
+S → S (2)
+
+S → S (2)
+
+EM D
+
+R
+
+R
+
+α = −1
+α=0
+
+T̃µν (ψ) + e−2φ Tµν (F ) − Tµν (φ)
+e2φ T̃µν (ψ) + Tµν (F ) − Tµν (φ)
+
+ns → ns∗
+ns → ns∗
+
+W H → N S → ns
+ns∗
+
+ns → W H
+ns → ns∗
+
+EM D
+
+A
+
+R
+
+α = −1
+α=0
+
+T̃µν (ψ) − e−2φ Tµν (F ) − Tµν (φ) ns → N S
+e2φ T̃µν (ψ) − Tµν (F ) − Tµν (φ) ns → N S ∗
+
+S
+S → N S∗
+
+ns → S
+ns → S ∗
+
+EM [20]
+
+R
+
+−
+
+−
+
+T̃µν (ψ) + Tµν (F )
+
+−
+
+−
+
+ns → RN
+
+ED [16]
+
+−
+
+A
+
+−
+
+Tµν (φ)
+
+−
+
+ns → S
+
+−
+
+EM D [29]
+
+R
+
+A
+
+α = −1
+α=0
+
+S → S (2)
+RN → RN (2)
+
+S → S (2)
+RN → RN (2)
+
+T̃µν (ψ) + e−2φ Tµν (F ) + Tµν (φ) ns → S
+e2φ T̃µν (ψ) + Tµν (F ) + Tµν (φ) ns → RN
+
+It does not influence the obtained structures distinctly. Such situation is in agreement with the previously examined
+simpler case of the collapse of electrically charged scalar field in Einstein gravity [20].
+Considering the dilatonic coupling it may be revealed that α = −1 diminishes the influence of Maxwell field on
+the evolution and thus enhances the role of the dilaton field in its course. The dilatonic coupling constant equal to
+zero acts the other way round, i.e., it reduces the role of dilaton field during the collapse and indirectly enlarges the
+meaning of Maxwell field by acting on the complex electrically charged scalar field.
+
+Acknowledgments
+
+AN was supported by Human Capital Programme of European Social Fund sponsored by European Union.
+MR was partially supported by the grant of the National Science Center 2011/01/B/ST 2/00408.
+
+[1] N.Arkani-Hamed, H.Ch.Cheng, M.A.Luty, and S.Mukoyama, JHEP 0405, 251 (2004).
+[2] S.Permutter, et al., Astrophys. J. 483, 565 (1997),
+B.P.Schmidt, et al., ibid. 507, 46 (1998),
+A.G.Riess, A.J. 116, 1009 (1998).
+[3] C.L.Bennett et al., Astrophys. J. Suppl. 148, 1 (2003).
+[4] D.J.Eisenstein et al. Astrophys. J. 633, 560 (2005).
+[5] R.R.Caldwell, Phys. Lett. B 545, 23 (2002),
+M.Da̧browski, T.Stachowiak and M.Szydlowski, Phys. Rev. D 68, 103519 (2003).
+
+15
+[6] H.G.Ellis, J. Math. Phys. 14, 104 (1973),
+E.I.Novikova and I.D.Novikov, Phys. Rev. D 81, 104034 (2010).
+[7] G.W.Gibbons and D.A.Rasheed, Nucl. Phys. B 476, 515 (1996).
+[8] G.Clement and J.C.Fabris, Class. Quantum Grav. 16, 323 (1999).
+[9] G.Clement, J.C.Fabris, and M.E.Rodrigues, Phys. Rev. D 79, 064021 (2009).
+[10] M.Azreg-Ainou, G.Clement, J.C.Fabris, and M.E.Rodrigues, Phys. Rev. D 83, 124001 (2011).
+[11] M.Heusler, Black Holes Uniqueness Theorems (Cambridge University Press, Cambridge, England, 1996),
+K.S.Thorne, Black Holes and Time Warps (W.W.Norton and Company, New York, 1994).
+[12] W.A.Hiscock, Phys. Lett. A 83, 110 (1981).
+[13] A.Ori, Phys. Rev. Lett. 67, 789 (1991),
+A.Ori, Phys. Rev. Lett. 68, 2117 (1992),
+L.M.Burko and A.Ori, Phys. Rev. Lett. 74, 1064 (1995),
+A.Ori and D.Gorbonos, J. Math. Phys. 48, 092502 (2007),
+D.Gorbonos and G.Wolansky, J. Math. Phys. 48, 092503 (2007).
+[14] E.Poisson and W.Israel, Phys. Rev. D 41, 1796 (1990),
+E.Poisson and W.Israel, Phys. Rev. Lett. 63, 1663 (1989).
+[15] M.L.Gnedin and N.Y.Gnedin, Class. Quantum Grav. 10, 1083 (1993).
+[16] R.S.Hamade and J.M.Stewart, Class. Quantum Grav. 13, 497 (1996).
+[17] P.R.Brady and J.D.Smith, Phys. Rev. Lett. 75, 1256 (1995).
+[18] S.Ayal and T.Piran, Phys. Rev. D 56, 4768 (1997).
+[19] S.Hod and T.Piran, Phys. Rev. Lett. 81, 1554 (1998),
+S.Hod and T.Piran, Gen. Rel. Grav. 30, 1555 (1998).
+[20] Y.Oren and T.Piran, Phys. Rev. D 68, 044013 (2003).
+[21] E.Sorkin and T.Piran, Phys. Rev. D 63, 084006 (2001).
+[22] E.Sorkin and T.Piran, Phys. Rev. D 63, 124024 (2001).
+[23] S.E.Hong, D.Hwang, E.D.Stewart, and D.Yeom, Class. Quantum Grav. 27, 045014 (2010).
+[24] D.Hwang and D.Yeom, Phys. Rev. D 84, 064020 (2011).
+[25] D.Hwang and D.Yeom, Class. Quantum Grav. 27, 205002 (2010).
+[26] J.A.Gonzáles and F.S.Guzmán, Phys. Rev. D 79, 121501(R) (2009).
+[27] A.Doroshkevich, J.Hansen, D.Novikov, I.Novikov, D.Park, and A.Shatskiy, Phys. Rev. D 81, 124011 (2010).
+[28] A.K.M.Masood-ul-Alam, Class. Quantum Grav. 14, 2649 (1993),
+M.Rogatko, Class. Quantum Grav. 14, 2425 (1997),
+M.Rogatko, ibid. 19, 875 (2002),
+M.Mars and W.Simon, Adv. Theor. Math. Phys. 6, 279 (2003),
+M.Rogatko, Phys. Rev. D 58, 044011 (1998),
+M.Rogatko, ibid. 59, 104010 (1999),
+M.Rogatko, ibid. 82, 044017 (2010),
+S.Yazadijev, ibid. 82, 124050 (2010).
+[29] A.Borkowska, M.Rogatko and R.Moderski, Phys. Rev. D 83, 084007 (2011).
+[30] D.Christodoulou, Comm. Pure Appl. Math. 46, 1131 (1993).
+[31] S.A.Hayward, Phys. Rev. D 79, 124001 (2009).
+
+16
+
+FIG. 1: (color online). Penrose diagrams of the dynamical (a) Schwarzschild and (b) Reissner-Nordström spacetimes obtained
+for the field amplitudes equal to p̃k = 0.1 and p̃s = 0.6, respectively.
+
+17
+
+FIG. 2: (color online). Lines of constant r in the (vu)-plane for EM -evolution with the electric coupling constant e = 0.5. The
+family parameter is set to be p̃s = 0.6.
+
+18
+
+FIG. 3: (color online). Lines of constant r in the (vu)-plane for ED-evolution with the family parameter equal to (a) p̃k = 0.25,
+(b) p̃k = 0.5 and (c) p̃k = 1.
+
+19
+
+FIG. 4: (color online). Lines of constant r in the the (vu)-plane for EM D-evolution with the electric coupling constant e = 0.5
+and the dilatonic coupling constant α equal to −1 and 0. The family parameter is taken to be (a) p̃ = 0.06 and (b) p̃ = 0.175.
+
+20
+
+FIG. 5: (color online). Lines of constant r in (vu)-plane for the EM D evolution with a varying dilaton field amplitude. The
+coupling constants have the same values as in Fig.4. The family parameter for the electrically charged scalar field p̃s = 0.6,
+while for the dilaton field (a) p̃k = 0.01 and (b) p̃k = 0.09.
+
+21
+
+FIG. 6: (color online). Lines of constant r in the (vu)-plane for the EM D evolution with varying electrically charged scalar
+field amplitude. The coupling constants have the same values as in Fig.4. The family parameter for the dilaton field is equal
+to p̃k = 0.1, while for the electrically charged scalar field field is set to be (a) p̃s = 0.35 and (b) p̃s = 0.6, respectively.
+
+22
+
+FIG. 7: (color online). Lines of constant r in the (vu)-plane for EM D-evolution with the electric and the dilatonic coupling
+constants equal to e = 0.5 and α = −1, respectively. The family parameter is equal to (a) p̃ = 0.5, (b) p̃ = 0.85 and (c) p̃ = 1.1.
+
+23
+
+FIG. 8: (color online). Lines of constant r in the (vu)-plane for EM D-evolution with the electric and the dilatonic coupling
+constants equal to e = 0.5 and α = 0, respectively. The family parameter is provided by (a) p̃ = 0.1, (b) p̃ = 0.8 and (c)
+p̃ = 1.1.
+
+24
+
+FIG. 9: (color online). Lines of constant r in (vu)-plane for EM D evolution with a varying dilaton field amplitude. The electric
+and dilatonic coupling constants are equal to e = 0.5 and α = −1, respectively. The family parameter for the electrically charged
+scalar field is equal to p̃s = 0.6, while for the dilaton field is set as (a) p̃k = 0.15, (b) p̃k = 0.2 and (c) p̃k = 0.25.
+
+25
+
+FIG. 10: (color online). Lines of constant r in the (vu)-plane for the evolution described in Fig.9 with the dilatonic coupling
+constant equal to α = 0 and the family parameter for dilaton field given by (a) p̃k = 0.05 and (b) p̃k = 0.8.
+
+26
+
+FIG. 11: (color online). Lines of constant r in the (vu)-plane for EM D evolution with a varying electrically charged scalar field
+amplitude. The electric and dilatonic coupling constants are equal to e = 0.5 and α = −1, respectively. The family parameter
+for the dilaton field is p̃k = 0.1, while for the electrically charged scalar field field is chosen to be (a) p̃s = 0.3 and (b) p̃s = 0.6.
+
+27
+
+FIG. 12: (color online). Lines of constant r in the (vu)-plane for the evolution described in Fig.11 with the dilatonic coupling
+constant equal to α = 0 and the family parameter for electrically charged scalar field field (a) p̃s = 0.2 and (b) p̃s = 0.7.
+
+28
+
+FIG. 13: (color online). Lines of constant r in the (vu)-plane for EM D-evolution with the electric and dilatonic coupling
+constants equal to e = 0.5 and α = −1, respectively. The family parameter is set (a) p̃ = 0.3, (b) p̃ = 0.4 and (c) p̃ = 0.5.
+
+29
+
+FIG. 14: (color online). Lines of constant r in the (vu)-plane for EM D-evolution with the electric and dilatonic coupling
+constants equal to e = 0.5 and α = 0, respectively. The family p arameter is given by (a) p̃ = 0.2 and (b) p̃ = 0.5.
+
+30
+
+FIG. 15: (color online). Lines of constant r in the (vu)-plane for EM D evolution with a varying dilaton field amplitude.
+The electric and dilatonic coupling constants are equal to e = 0.5 and α = −1, respectively. The family parameter for the
+electrically charged scalar field p̃s = 0.6, while for the dilaton field (a) p̃k = 0.1 and (b) p̃k = 0.3.
+
+31
+
+FIG. 16: (color online). Lines of constant r in the (vu)-plane for the evolution described in Fig.15 with the dilatonic coupling
+constant equal to α = 0 and the family parameter for dilaton field (a) p̃k = 0.05 and (b) p̃k = 0.2.
+
+32
+
+FIG. 17: (color online). Lines of constant r in the (vu)-plane for EM D evolution with a varying electrically charged scalar field
+amplitude. The electric and dilatonic coupling constants are equal to e = 0.5 and α = −1, respectively. The family parameter
+for the dilaton field is chosen as p̃k = 0.1, while for the electrically charged scalar field field equals to (a) p̃s = 0.25 and (b)
+p̃s = 0.5, respectively.
+
+33
+
+FIG. 18: (color online). Lines of constant r in the (vu)-plane for the evolution described in Fig.17 with the dilatonic coupling
+constant equal to α = 0 and the family parameter for the electrically charged scalar field field equal to (a) p̃s = 0.35 and (b)
+p̃s = 0.65.
+
+

@@ -1,0 +1,16 @@
+# review_lemma_a3_l6: L6, Psi-hat = A* Psi_DG
+# mutations on: l6_gen
+PASS PLW.1
+PASS PLW.2
+PASS PLW.3
+PASS PLE.3a
+PASS PLE.3b
+PASS PLE.3c
+PASS PLS.1
+PASS PLS.2
+PASS PLS.3
+PASS PLS.4
+PASS PLS.5
+PASS PLS.6
+FAIL L6.1: A* Psi - formula = 2*(r*W(r)*Derivative(chi(r), r) - r*chi(r)*Derivative(W(r), r) + 2*W(r)*Derivative(chi(r), r) - 2*chi(r)*Derivative(W(r), r))/(r*(c*r - 6)*chi(r))
+# summary: 12 PASS, 1 FAIL, 0 DIFFERS

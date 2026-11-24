@@ -1,0 +1,703 @@
+\documentclass[aps,floats,showpacs,amssymb,tightenlines]{revtex4}
+
+
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amscd}
+\usepackage{epsfig}
+\usepackage{amssymb}
+\usepackage{tabularx}
+\def\a{\alpha}
+\def\b{\beta}
+\def\g{\gamma}
+\def\G{\Gamma}
+\def\e{\epsilon}
+\def\m{\mu}
+\def\n{\nu}
+\def\d{\delta}
+\def\l{\lambda}
+\def\L{\Lambda}
+\def\t{\theta}
+\def\w{\omega}
+\def\c{\nabla}
+\def\p{\partial}
+\def\k{\kappa}
+\def\r{\rho}
+\def\P{{\cal P}}
+\def\I{{\cal I}}
+\def\re{r_{ext}}
+\def\ri{r_{int}}
+\def\A{{\cal A}}
+\def\po{\psi_{\w_o}}
+\def\pe{\psi_{\w_o}^{(j=1)}{}}
+
+
+
+\begin{document}
+\title{Exciting the unstable modes of a negative mass Schwarzschild spacetime}
+
+\author{Gustavo Dotti and Reinaldo J. Gleiser}
+\affiliation {Facultad de Matem\'atica, Astronom\'{\i}a y
+F\'{\i}sica (FaMAF), Universidad Nacional de C\'ordoba. Ciudad
+Universitaria, (5000) C\'ordoba,\ Argentina}
+
+
+\begin{abstract}
+Schwarzschild spacetime with negative mass $M$ is known to admit gravitational instabilities
+in the form of exponentially growing solutions
+of Zerilli's equation, satisfying appropriate boundary conditions.
+However, it is not known how to evolve general initial data using Zerilli's equation.
+The reason is that when $M<0$ the Zerilli function, as defined in terms of regular metric perturbation,
+has in general a simple pole at $r=r_s>0$, and also the
+ Zerilli potential has
+a second order pole at $r_s$. As a consequence, Zerilli functions are not square integrable,
+and it is not possible to regard the  radial piece
+ of Zerilli's equation as  a self-adjoint  operator, whose mode
+expansion allows
+the evolution of arbitrary initial data, as is done in the positive mass case. We do not know
+ how to evolve
+initial data even after having specified  boundary conditions at the $r=0$ singularity. In this paper we show
+how this problem can be overcome using the technique of intertwining potentials. This allows
+ to fill in some gaps in the proof of instability of the negative mass Schwarzschild spacetime,
+ by showing that generic initial
+data supported away from the $r=0$ singularity do in fact excite the unstable modes.
+ \end{abstract}
+
+
+\pacs{04.50.+h,04.20.-q,04.70.-s, 04.30.-w}
+
+\maketitle
+
+\section{Introduction}
+The linear stability under gravitational perturbations of the negative mass Schwarzschild
+spacetime was first considered in \cite{ghi}, where a proof of stability for the
+vector (or odd) modes is given. The scalar (even) modes, reconsidered in \cite{dg},  are far more subtle,
+because the behaviour of the Zerilli potential $V_z$ \cite{zerilli,ki} at the $r=0$ singularity implies
+a one parameter ambiguity in boundary conditions at this point (parameterized by $S^1$ \cite{ghi}).
+ The potential $V_z$ also has
+a second order pole at $r=r_s$ ($r_s > 0$) in the domain of interest, referred to
+as a ``kinematic'' singularity in \cite{dg}. None of these problems
+are present in the positive mass case, for which $r > 2M$ and the kinematic singularity occurs for negative $r$.
+
+The ambiguity in boundary conditions at $r=0$ was addressed to in \cite{ghi,dg} where it was shown  that, requiring
+that the first order corrections to the Riemann tensor algebraic invariants do not diverge faster, as $r \to 0^+$, than
+their zeroth order piece,
+selects a unique boundary condition. Note that this requirement is natural if we want our first order
+formalism to provide approximate solution of Einstein's equations that can be interpreted as arbitrarily small perturbations of the unperturbed metric. Also, this same choice of boundary conditions at
+$r=0$
+selects perturbations with finite energy, using the energy notion obtained by going to
+second order perturbation theory \cite{ghi}.   Regarding
+the kinematic singularity, its origin lies in the fact that, as defined, the Zerilli function $\Psi_z$ has a built in simple pole
+at this point for generic smooth gravitational perturbations \cite{dg}. The Zerilli function is still useful in
+decoupling the full set of linearized Einstein's equations in the negative mass case, but the usual
+approach of solving Zerilli's equation  by regarding its radial piece as a self adjoint operator in $L^2((0,\infty),dx)$,
+$dx=dr / (1-2M/r)$
+breaks down, since $\Psi_z$ does not belong to this space, and $V_z$ has a second order pole
+at $r=r_s>0$. This problem cannot be fixed by introducing alternative radial variables or integrating factors, which
+can be seen to merely move the singularity from the coefficients of the differential equation to the measure
+that makes its radial piece self adjoint. Since we lack a self adjoint radial operator in the space of physically relevant
+Zerilli functions, we do not actually know how to evolve initial data $\Psi_z(t=0,r), \p \Psi_z / \p t (t=0,r)$, even after having specified boundary conditions at $r=0$.
+
+In \cite{dg}, unstable (exponentially growing in time) solutions of Zerilli's equation satisfying the chosen
+boundary condition at $r=0$, exponentially decaying for large $r$,
+and leading to a smooth perturbed metric, are  given in an explicit form. It is also argued in \cite{dg}
+that these unstable modes can be excited by initial data  compactly supported
+away from $r=0$. Yet, since we do not know how to evolve in time a given initial configuration, we do not
+have a proof of the fact that these modes can actually be excited by such  initial data.
+
+In this paper we show how the problem of evolution of initial data for gravitational scalar
+perturbations on a negative mass Schwarzschild spacetime can be solved using the technique of intertwining potentials
+ (see \cite{price} and references therein).
+An intertwining operator is constructed that sends physically relevant Zerilli functions onto $L^2((0,\infty),dx)$ and that,
+at the same time, converts the Zerilli potential into another potential, free of kinematic singularities and having a unique
+self adjoint extension that corresponds precisely to our physically motivated choice of boundary condition at $r=0$.
+In Section \ref{rw} we give a brief account of Zerilli's approach to (scalar type) gravitational
+perturbations of Schwarzschild spacetime,
+stressing the problems that arise
+ in the negative mass case. In Section \ref{inter} we
+ introduce the intertwining operator technique. An account of the results we need from
+ \cite{price} is given in Lemma 1, then we prove some further
+results that are relevant to our problem (Lemma 2 and the Theorem below).
+In Section \ref{apli} the intertwining technique is applied to Zerilli's equation for a negative mass
+Schwarzschild spacetime, and shown to map the space of physically relevant Zerilli functions onto $L^2((0,\infty),dx)$,
+while converting  Zerilli's potential into one free of kinematic singularities. In the  construction of  the
+intertwining operator, the generalization to higher harmonics of the zero mode found in \cite{ghi} is obtained and used.
+Section \ref{sum} summarizes our results.
+
+
+
+
+\section{Scalar perturbations of the negative mass Schwarzschild spacetime}\label{rw}
+  In the Regge-Wheeler gauge \cite{rw}, the scalar
+perturbations for the angular mode $(\ell,m)$  are
+described by  four functions $H_0(r,t)$, $H_1(r,t)$, $H_2(r,t)$ and
+$K(r,t)$, in terms of which the perturbed metric takes the form,
+\begin{eqnarray}
+\label{RW1}
+ds^2 & = & -\left(1-\frac{2M}{r}\right)\left(1- \e H_0 Y_{\ell,m}\right)dt^2 +
+2 \: \e \;  H_1 Y_{\ell,m} dt dr+\left(1-\frac{2M}{r}\right)^{-1}\left(1+ \e H_2 Y_{\ell,m}\right)dr^2
+\nonumber \\
+& & +r^2\left(1+ \e K\, Y_{\ell,m}\right) \left( d \theta^2 +  \sin^2(\theta)
+d \phi^2 \right)
+\end{eqnarray}
+where $\epsilon$ is an auxiliary parameter, used to  keep track of the order of the perturbation, and
+$Y_{\ell,m}=  Y_{\ell,m}(\theta,\phi)$ are standard spherical
+harmonics on the sphere. The linearized Einstein equations for the
+metric (\ref{RW1}) imply $H_0(r,t)=H_2(r,t)$, and a set of coupled
+differential equations for $H_1$, $H_2$ and $K$, which can be  ``diagonalized" by introducing
+the Zerilli function $\Psi_z(t,r)$, by the replacements,
+\begin{eqnarray}
+\label{RW2}
+K & = & q(r) \Psi_z+\left(1-\frac{2M}{r}\right)\frac{\partial \Psi_z}{\partial r} \nonumber \\
+H_1 & = & h(r)\frac{\partial \Psi_z}{\partial t}+r\frac{\partial^2 \Psi_z}{\partial t \partial r}
+ \\
+H_2 & = & \frac{\partial }{\partial r}\left[\left(1-\frac{2M}{r}\right)\left(h(r) \Psi_z
++r\frac{\partial \Psi_z}{ \partial r} \right)\right] -K  \nonumber
+\end{eqnarray}
+where,
+\begin{eqnarray}
+\label{RW2a}
+q(r) & = &  \frac{\lambda(\lambda+1)r^2+3 \lambda M r + 6 M^2}{r^2(\lambda r + 3 M)}\nonumber \\
+h(r) & = &  \frac{\lambda r^2 - 3 \lambda r M -3 M^2}{(r-2M)(\lambda r + 3M)}\nonumber
+\end{eqnarray}
+and
+\begin{equation}
+\lambda =  \frac{(\ell-1)(\ell+2)}{2} .
+\end{equation}
+The linearized Einstein's equations then reduce to Zerilli's wave equation
+\begin{equation}
+\label{zerilli}
+\frac{\partial^2 \Psi_z}{\partial t^2}+{\cal H}_z \Psi_z = 0
+\end{equation}
+where,
+\begin{equation} \label{scho}
+{\cal H}_z = -\frac{\partial^2 }{\partial x^2} +V
+\end{equation}
+looks like a  quantum Hamiltonian operator  with potential
+\begin{equation}
+\label{poten1}
+V = 2 \left(1 -\frac{2 M}{ r}\right) {\frac{ \lambda^2 r^2
+\left[(\lambda+1) r + 3 M \right] + 9 M^2 (\lambda r +M)}{ r^3
+(\lambda r + 3 M)^2} } ,
+\end{equation}
+and $x$ is the ``tortoise'' coordinate, related to $r$ by $\frac{dx}{dr}=\left(1-\frac{2M}{r}\right)^{-1}$.
+We choose the integration constant such that $x=0$ for $r=0$, then
+\begin{equation}\label{tortu}
+x = r +2 M \ln \left| \frac{r-2M}{2M}\right|.
+\end{equation}
+The usual approach to (\ref{zerilli}) is separation of variables:  $e^{\pm i E^{1/2} t} \psi_E(x)$
+is a solution of (\ref{zerilli}) if ${\cal H}_z \psi_E = E \psi_E$.
+In the positive mass case,   the exterior static region
+$r>2M$ of a Schwarzschild black hole gets mapped onto $-\infty < x< \infty$,
+the black hole horizon sitting at $x=-\infty$,
+and  the relevant solutions
+of (\ref{zerilli})
+belong to $L^2({\mathbb R},dx)$, where ${\cal H}_z$ is self adjoint, as follows
+from (\ref{scho}) and (\ref{poten1}).
+In this case one solves (\ref{zerilli}) by expanding $\Psi_z$ and $\p \Psi_z / \p t$ at $t=0$
+ in a complete set $\psi_E$ of eigenfunctions of ${\cal H}_z$,   then (\ref{zerilli}) reduces
+ to  the following ordinary differential equations for $a_E(t) \equiv \int \psi_E(x) ^* \Psi_z(t,x) dx$:
+\begin{eqnarray}
+ \ddot a_E &=& -E a_E \\
+ \dot a_E(0) &=& \int \psi_E ^* \left.  \left(\frac{\p \Psi_z}{ \p t}\right)
+ \right \vert _{t=0}  \; dx  \\
+ a_E(0) &=& \int \psi_E ^* \Psi_z |_{t=0} \; dx
+\end{eqnarray}
+  Moreover, since ${\cal H}_z$ is positive definite in this case, the  $E$ eigenvalues  are positive, $e^{\pm i E^{1/2} t} \psi_E(r)$
+  oscillatory, and $\Psi_z$
+   bounded at all times,
+    for any initial conditions. This proves that the exterior, static region of a Schwarzschild black hole is stable.\\
+In the negative mass case, the domain of (\ref{zerilli}) is $x>0$, so we need to specify boundary conditions at
+ $x=0$ besides the initial values of $\Psi_z$ and $\p\Psi_z / \p t$, in order that (\ref{zerilli}) has  a unique solution.
+ Also, the potential has a singularity at the boundary,
+ \begin{equation} \label{vcero}
+ V \simeq -1/(4x^2)+ ... \;\; \text{ for } \; x \to 0^+.
+ \end{equation}
+ Consider a quantum mechanical problem ${\cal H} \psi_E = E \psi_E$ on the half axis $x>0$, with a smooth potential
+ behaving as (\ref{vcero})  and vanishing at infinity.
+ For {\em any} $E$, the general local solution for $x \gtrsim 0$
+  of the differential equation ${\cal H} \psi_E = E \psi_E$ is
+ \begin{equation} \label{cero}
+ \psi_E \simeq a_0 \left[ \left(\frac{x}{|M|}\right)^{1/2}  + ... \right] + b_0 \left[  \left(\frac{x}{|M|}\right)^{1/2}  \ln \left(\frac{x}{|M|} \right) + ... \right]
+ , \;\;\; x \gtrsim 0.
+ \end{equation}
+ with  $E$ showing up at higher order.
+Note that (\ref{cero}) is
+ square integrable near $x=0$ for any $a_0$ and $b_0$, a peculiarity of  the potential
+ $V  \simeq \a/x^2$ when $\a < 3/4$ (for $\a \geq 3/4$, only one of the local solutions is square
+ integrable near $x=0$ \cite{meetz}.) If $E$ is negative,  there is always an asymptotic solution $\psi_E^o$ which is square
+ integrable at infinity. Since $\psi_E^o$  behaves as (\ref{cero}) near zero, then $\psi_E^o \in L^2((0,\infty),dx)$.
+ Such a potential allows a square integrable eigenfunction for any negative $E$!
+ This introduces an ambiguity, as a choice  of an appropriate
+ boundary condition needs to be imposed  to define a domain where ${\cal H}_z$ is self adjoint.
+ The allowed choices for this purpose can be  parameterized by $S^1$, with  $(a_0,b_0) \propto (\cos \theta, \sin \theta)$
+ \cite{ghi,meetz,reed}. In the space $S_{\theta}$ of functions behaving like (\ref{cero}) with
+ $(a_0,b_0) \propto (\cos \theta, \sin \theta)$,
+ the continuum of negative eigenvalues get  discretized, ${\cal H}$ is self adjoint, and arbitrary functions can be expanded in a basis of ${\cal H}$ eigenfunctions \cite{ghi,meetz,reed}.
+
+However, as discussed in Section 7 of \cite{dg}, the quantum mechanical problem associated to ${\cal H}_z$ is not directly relevant to the gravitational perturbation problem when $M<0$.
+To understand this crucial difference between the positive and negative mass cases,
+consider the  relations (\ref{RW2}), which can be inverted and give
+\begin{equation}
+\label{zeri}
+\Psi_z(r,t)  = \frac {r (r-2M)}{ ( \lambda+1 )  ( \lambda
+\,r+3\,M ) } \left(H_2
+ - r  \frac {\partial K}{\partial r}
+\right)
+    +\frac{r}{\lambda+1} K.
+\end{equation}
+Zerilli's function
+succeeds in reducing the full set of linearized Einstein's equations to a single wave equation, however, for $M<0$, this function
+is singular in the relevant $r>0$ range. The ``kinematic'' singularity at $r_s=-3M/\lambda$ in (\ref{zeri}) indicates
+that physically acceptable Zerilli functions, i.e., those corresponding to smooth metric perturbations decaying for large $r$,
+ have a simple pole at $r_s$. This built in singularity in $\Psi_z$ is certainly related  to the singularity in the
+coefficients of the wave equation it satisfies, the second order pole at $r_s$ in the potential (\ref{poten1}).
+Thus, even if  ${\cal H}_z$ were extended to a  self adjoint operator in some subspace of  $L^2({\mathbb R},dx)$,
+this space would not be the natural setting for
+physically acceptable gravitational perturbations, which, because of the kinematic singularity, generically, are not square integrable. In fact, the relevant Zerilli functions
+are those admitting a Laurent expansion
+\begin{equation} \label{crc}
+\Psi_z = \sum_{j \geq -1}  c_j (r-r_s)^j, \;\;\; c_0 = \frac{\lambda^2  c_{-1}}{3M (3 + 2 \lambda)}
+\end{equation}
+for $r$ near $r_s$. The second of the above equations (which fixes a sign error in the analogous equation (16) in \cite{dg})
+follows from requiring that the metric functions in (\ref{RW2}) be $C^2$ at $r_s$.
+
+Regarding the boundary condition at $x=0$, we note that (\ref{cero}) gives the behaviour of any
+solution of (\ref{zerilli})  in the $x =0$ limit (the $t$ dependence showing up at higher orders). As proved in \cite{ghi,dg}, if we did not make the choice $b_0=0$, the first order correction
+to the Kretschmann invariant would diverge faster than the  zeroth order piece as  $x \to 0^+$, and it would not be possible to treat the solution as an acceptable perturbation \cite{dg}.
+Also, the choice $b_0=0$
+selects perturbations with finite energy \footnote{Using the energy notion obtained by going to
+second order perturbation theory \cite{ghi}. The one associated to ${\cal H}_z$ as a quantum Hamiltonian
+is not relevant to the gravitational problem, in view of our comments above.}.
+
+ Motivated by these facts, we choose as boundary condition at $x=0=r$
+\begin{equation} \label{cero2}
+ \Psi_z \simeq a_0 \left[ \left(\frac{x}{|M|}\right)^{1/2}  + ... \right] = a_0 \left[ \left(\frac{r}{|M|}\right)  + ... \right]
+ \end{equation}
+Our problem is now well defined: we are interested in solutions of (\ref{zerilli}) satisfying (\ref{crc}) and
+(\ref{cero2}). Since ${\cal H}_z$ preserves these two conditions \cite{dg}, they will be preserved by the evolution
+(\ref{zerilli}) if they are satisfied by the initial data $\Psi_z|_{t=0}$ and $\p \Psi_z / \p t |_{t=0}$.
+
+An unstable solution of (\ref{zerilli}) for every harmonic number, satisfying (\ref{crc}) and (\ref{cero2}),  was found in \cite{dg}, 
+and soon recognized by Cardoso and Cavaglia \cite{cardoso}  to correspond to Chandrasekhar's algebraic special modes \cite{prs}.
+It is separable with  $E=-k^2$,
+$\Psi_z^{unst} = \psi_{unst} e^{kt}, k = \frac{2\lambda (\lambda+1)}{6|M|}$ and
+\begin{equation}
+\label{ines}
+ \psi_{unst}  = C_1 r{e^{-kr}} \frac{\left( r-2M \right) ^{2 k |M|}}{2 \lambda r + 6M} .
+\end{equation}
+The
+existence of these modes  constitute
+a proof of instability for the negative mass Schwarzschild spacetime.
+
+There remains the question, however, of how
+would one evolve arbitrary initial data satisfying (\ref{crc}) and (\ref{cero2}), since neither the space of functions nor
+the differential operator in (\ref{zerilli}) fit in the standard settings of functional analysis and differential equation theory.
+A change of   radial  variable and integrating factor is easily seen not to solve the problem, it  just moves the singularity
+from the function to the integration measure. The tool we need is that of intertwining potentials, which uses
+a map $\Psi_z \to \hat \Psi := \p \Psi_z  / \p x - g(x) \Psi_z$ that, with a suitable chosen $g$, transforms
+a physically sensible $\Psi_z$ (i.e., satisfying (\ref{crc}) and (\ref{cero2})) into a smooth
+and square integrable  $\hat \Psi$, obeying a Zerilli like equation with a potential $\hat V$ free
+of singularities.
+This provides  a method to evolve initial data, and to show that arbitrary initial data with compact support
+away from $r=0$ does excite the
+unstable modes (\ref{ines}).
+
+
+
+
+
+
+\section{Intertwining operators} \label{inter}
+
+Consider a two dimensional wave  equation with a space dependent potential $V$
+\begin{equation} \label{z1}
+\left[ \frac{\p^2 }{\p t^2} - \frac{\p^2 }{\p x^2} + V(x) \right] \Psi = 0,
+\end{equation}
+and a linear operator $\I= \frac{\p}{\p x} -g(x)$ such that \cite{price}
+\begin{equation} \label{io}
+\I \; \left[ - \frac{\p^2 }{\p x^2} + V(x) \right]  =   \left[ - \frac{\p^2 }{\p x^2} + \hat V(x) \right] \; \I
+\end{equation}
+for some potential $\hat V(x)$. Since $\I$  commutes with $\p /\p t$, any solution $\Psi$ of (\ref{z1})  gives a -possibly trivial- solution $\hat \Psi := \I \Psi$ for the equation
+\begin{equation} \label{z2}
+\left[ \frac{\p^2 }{\p t^2} - \frac{\p^2 }{\p x^2} + \hat V(x)
+\right] \hat \Psi = 0.
+\end{equation}
+Separation of variables $\Psi = \exp(i\w t) \psi(x)$
+  ( $\hat \Psi = \exp(i\w t) \hat \psi(x)$) reduces (\ref{z1})
+and (\ref{z2})  to   Schr\"odinger like
+equations
+\begin{eqnarray} \label{z3}
+{\cal H} \psi  &=& \left[ - \frac{\p^2 }{\p x^2} + V(x) \right] \psi = \w ^2 \psi ,\\
+\hat {\cal H} \hat \psi &=& \left[ - \frac{\p^2 }{\p x^2} + \hat
+V(x) \right] \hat \psi = \w ^2 \hat \psi , \label{z4}
+\end{eqnarray}
+If we do not specify boundary conditions, there will be
+two linearly independent solutions of (\ref{z3}) for any chosen
+eigenvalue. Let us   denote any two such solutions  as $\psi_{\w}^{(j)}, j=1,2$. Note from (\ref{io}) that
+ $ \I \psi _{\w}^{(j)}$ are (possibly trivial) solutions of  (\ref{z4}).\\
+The conditions for the existence of an intertwining operator can be
+obtained
+ by applying (\ref{io}) to an
+arbitrary function $\psi$, and then isolating  terms in $\psi$ and $\psi' := \p \psi / \p x$.
+The coefficient of $\psi'$ gives
+\begin{equation} \label{vh}
+\hat V = V - 2 g' ,
+\end{equation}
+and that of $\psi$ gives $(g' + g^2-V)' = 0$, i.e.
+$g'+g^2=V-\w_o{}^2$ for some constant $\w_o$. This last condition is
+more transparent in terms of  $\po =\exp (\int^x g(x') dx' )$, which satisfies $\po'/\po=g$:
+\begin{equation} \label{zz}
+\left[ - \frac{\p^2 }{\p x^2} + V \right] \po = \w_o ^2 \po,
+\end{equation}
+i.e.,  $\po$ is an $\w_o^2$ eigenvalue of ${\cal H}$. From this follows \cite{price},
+
+\vspace{.3cm}
+
+\noindent
+{\bf Lemma 1:} From any eigenfunction (\ref{zz}) it is possible to construct an intertwining operator
+ $\I= \frac{\p}{\p x} -g(x)$  by choosing
+$g = \po' / \po$. This gives  $\hat V = V - 2 g'$ in (\ref{io}).
+
+\vspace{.3cm}
+
+Lemma 1 collects the results we  need from \cite{price},
+but  we need to elaborate further on these results to get some information  about
+the possible ways to invert the effect of $\I$.  To fix the notation, let  $\psi_{\w_o}^{(j=1)}=\po$,
+$\psi_{\w_o}^{(j=2)}$ be linearly independent $\w_o^2$ eigenfunction of ${\cal H}$. The
+kernel of $\I$ is the span of $\pe$, since   $0 = \I \psi = \psi' - \pe '
+/ \pe \psi$ implies that $\psi$ is proportional to $\pe$. The form
+of an intertwiner $\hat \I = \frac{\p}{\p x} -h(x)$
+satisfying
+\begin{equation} \label{iio}
+\hat \I \; \left[ - \frac{\p^2 }{\p x^2} + \hat  V(x) \right]  =
+\left[ - \frac{\p^2 }{\p x^2} +  V(x) \right] \; \hat \I
+\end{equation}
+can be guessed from Lemma 1 by noting that, since $\hat V - 2h' = V =
+\hat V + 2g'$, the only possible way back to $V$ is to find an $\hat
+{\cal H}$ eigenfunction $\hat \psi_o$ for which $\hat \psi_o ' / \hat \psi_o =-g$.
+Since $g = \pe'/\pe$ this could only be possible if $ 1/\pe
+$ were an eigenfunction of $\hat  {\cal H}$. That this is actually the
+case can be checked by a direct calculation
+ using our previous results, from where we obtain
+  $\hat {\cal H}  (1/ \pe) = \w_o{}^ 2 /\pe$. We will set $\hat \psi {}_{\w_o}^{(j=2)} := 1/\pe$ and
+  choose $\hat \psi {}_{\w_o}^{(j=1)}$ such that $\hat I \hat \psi {}_{\w_o}^{(j=1)} = \pe$.
+  It follows that $\hat \I := \frac{\p}{\p x} + g(x)$ satisfies (\ref{iio}), and a simple calculation shows that
+$\hat \I \I \psi = (\w_o{}^2 - {\cal H}) \psi$, i.e., the non trivial kernels of $\I$ and $\hat \I$ combine
+in such a way that the kernel of $\hat \I \I$ is the two dimensional $\w_o^2$ eigenspace of ${\cal H}$. Note that we have
+shown that we can label the $\w_o^2$ eigenfunctions
+ such that
+\begin{eqnarray} \nonumber
+\pe &=&  \hat I \hat \psi _{\w_o}^{(j=1)}\\ \label{qsy}
+I \psi _{\w_o}^{(j=2)} &=&  \hat \psi _{\w_o}^{(j=2)} = 1 / \pe \\
+I \psi _{\w_o}^{(j=1)} &=& \hat I \hat \psi _{\w_o}^{(j=2)} =0\nonumber
+\end{eqnarray}
+
+\vspace{.3cm}
+
+\noindent
+{\bf Lemma 2:}  The kernel of $\I = \frac{\p}{\p x} - \psi _{\w_o}^{(j=1)} {}' / \psi _{\w_o}^{(j=1)}$
+is the subspace spanned by $\po ^{(j=1)}$.  If $ \hat \I  =  \p/\p x +
+ \psi _{\w_o}^{(j=1)} {}' / \psi _{\w_o}^{(j=1)}$, then (\ref{iio}) holds,
+ $ \hat \I \I = (\w_o^2 - {\cal H})$, and  the ${\cal H}$ and $\hat {\cal H}$ eigenfunctions
+can be labeled such that (\ref{qsy}) hold.
+
+\vspace{.3cm}
+
+The intertwining  operator (\ref{io}) will be useful whenever  $\hat V$ is simpler than
+$V$. However, information is lost when solving (\ref{z2}) instead of (\ref{z1}), and we need
+to know how to recover it. This problem is addressed in the theorem below.
+
+\vspace{.3cm}
+
+\noindent
+{\bf Theorem:} Assume $\Psi(t,x)$ satisfies the wave equation (\ref{z1}) with initial conditions $\Psi(0,x)=f(x)$ and $\p \Psi / \p t (0,x)=
+k(x)$. Let $\hat \Psi := \I \Psi, \hat f := \I f$ and $\hat k := \I k$, then:\\
+(i) $\hat \Psi$ satisfies the wave equation (\ref{z2}) with
+initial conditions $\hat \Psi(0,x)=\hat f(x)$ and $\p \hat \Psi / \p t (0,x)= \hat k(x)$. \\
+(ii) If $\tilde \Psi := \hat \I \hat \Psi = \hat \I \I \Psi$
+then
+\begin{equation} \label{sol}
+\Psi(t,x) =  \cos (\w_o t) f(x) + \frac{\sin (\w_o t)}{\w_o} k(x) + \frac{1}{w_o} \left(
+\sin (\w_o t) \int_0^t \cos (\w_o t') \tilde \Psi(t',x) dt' -\cos (\w_o t) \int_0^t \sin (\w_o t') \tilde \Psi(t',x) dt' \right)
+\end{equation}
+unless  $\w_o = 0$, in which case
+\begin{equation}  \label{sol2}
+\Psi(t,x) = \int_0^t \left( \int_0^{t'} \tilde \Psi(t'',x) dt'' \right) dt' + t k(x) + f(x)
+\end{equation}
+
+\vspace{.3cm}
+
+{\bf Proof:} (i) is trivial. To prove (ii) note from Lemma 2 that
+\begin{equation} \label{eqn}
+\tilde \Psi =  \hat \I \I \Psi =  (\w_o^2 - {\cal H}) \Psi = (\w_o^2 + \p^2  / \p t^2) \Psi
+\end{equation}
+where we have used that $\Psi$ satisfies  (\ref{z1}) in the last equality.
+ The solution of (\ref{eqn}), regarded as a  differential equation on $\Psi$, is
+\begin{equation} \label{sola}
+\Psi(t,x) =  \cos (\w_o t) F(x) + \sin (\w_o t) K(x) + \frac{1}{w_o} \left(
+\sin (\w_o t) \int_0^t \cos (\w_o t') \tilde \Psi(t',x) dt' -\cos (\w_o t) \int_0^t \sin (\w_o t') \tilde \Psi(t',x) dt' \right)
+\end{equation}
+if $\w_0^2 \neq 0$, and
+\begin{equation}  \label{sol2a}
+\Psi(t,x) = \int_0^t \left( \int_0^{t'} \tilde \Psi(t'',x) dt'' \right) dt' + t R(x) + Q(x)
+\end{equation}
+if $\w_o =0$. The unknown functions $F$ and $K$ ($Q$ and $R$) is the information about $\Psi$ that we have lost
+when applying $\hat \I \I$. Fortunately, this information  is contained in the
+initial conditions, since it can readily be seen that $F(x) = \Psi(0,x)= f(x) $ and $\w_o K(x)=\p \Psi / \p t (0,x) = k(x)$.
+This gives (\ref{sol}), and (\ref{sol2}) follows similarly $\Box$\\
+
+The theorem above provides a procedure  to solve eq.(\ref{z1}) given  $\Psi|_{(t=0)}=f(x)$ and $\p \Psi / \p t |_{(t=0)}=
+k(x)$, using intertwining operators. The steps to follow  are:
+\begin{enumerate}
+\item  Find $\hat f := \I f$ and $\hat k := \I k$.
+\item  Solve eq.(\ref{z2}) subject to $\hat \Psi |_{(t=0)} = \hat f(x)$ and $ \p \hat \Psi/ \p t |_{(t=0)} = \hat k (x)$.
+This can be done by
+using a mode expansion of $\hat {\cal H}$,
+that is, for every eigenvalue $E$ of $\hat {\cal H}$ with normalized eigenfunction $\hat \psi_E$ ($\hat {\cal H} \hat \psi_E
+ = E \hat \psi_E$),
+solve the elementary ordinary differential equation
+$\ddot a_E = -E a_E $ subject to the initial conditions $\dot a_E(0) = \int \hat \psi_E ^*   \hat k
+   \; dx $ and $a_E(0) = \int \hat \psi_E ^* \hat f  \; dx$, then
+   \begin{equation} \label{step}
+ \hat \Psi(t,x) = \int dE a_E(t) \hat \psi_E(x) ,
+ \end{equation}
+where the integral above is symbolic, and is meant to denote an integral over the continuum piece
+of the spectrum plus a sum over the discrete part of it.
+\item Define $\tilde \Psi = \hat \I \hat \Psi$, where $\hat \Psi$ is given in (\ref{step}).
+\item $\Psi(t,x)$ is given by eqn.(\ref{sol}) or (\ref{sol2}).
+\end{enumerate}
+Note that the initial conditions $f$ and $k$ have to be used twice because of the information
+lost caused by applying $\I$ and $\hat I$, both of which have a nonzero kernel.
+
+
+\section{Intertwining operator for the negative mass Zerilli equation} \label{apli}
+
+The intertwining operator technique above can be used to reformulate the problem (\ref{zerilli})-(\ref{cero})-(\ref{crc})
+and end up with a self adjoint operator in a Hilbert space. This could have been  guessed from Lemma 1: since generic
+solutions of ${\cal H}_z \psi_E = E \psi_E$ behave as (\ref{crc}) \cite{dg}, there is a good chance
+that the transformed potential (\ref{vh}) be nonsingular at $r_s$, and this may well be a consequence of
+\begin{equation}\label{hpsi1}
+\hat \Psi = \Psi_z' - g \Psi_z
+\end{equation}
+being a smooth function of the perturbed metric. All these expectations
+turn out to be right. The ${\cal H}_z$ eigenfunction that we will use in Lemma 1 is the generalization to
+arbitrary harmonic number $\ell$ of the zero mode ($\w_0=0$)
+in \cite{ghi}. The zero mode equation is of the form,
+\begin{equation}\label{zm1}
+{\cal H}_z \psi_0 = 0
+\end{equation}
+with $V$ of the form (\ref{poten1}), and $M < 0$, and the resulting potential is then
+\begin{equation} \label{zm4}
+\hat V = V - 2 (\psi_0' / \psi_0 )'
+\end{equation}
+We need to find solutions $\psi_0$ such that $\hat V$ has no ``kinematic'' singularities. These may arise from singularities in $V$ or in $(\psi_0' / \psi_0 )'$. Let us first consider the singularity for $r=r_s$, with $r_s =-(3 M/\lambda)$. Using the fact that $\psi_0$ is a solution of (\ref{zm1}), and turning to $r$ (instead of $x$) derivatives, we find,
+\begin{equation}\label{zm5}
+\hat{V} = \frac{2(r-2M)^2}{r^2 \psi_0^2}\left(\frac{d \psi_0}{dr}\right)^2 -V(r)
+\end{equation}
+Now, if $\psi(r)$ is {\em any} solution of (\ref{zm1}), then, near $r=r_s$, we have,
+\begin{equation}\label{zm6}
+\psi(r) = a_0 (r-r_s)^{-1}+\frac{a_0(\ell+2)^2(\ell-1)^2}{12 M(\ell^2+\ell+1)}
++a_3(r-r_s)^2+{\cal{O}}\left((r-r_s)^3\right)
+\end{equation}
+where $a_0$, and $a_3$ are arbitrary constants. Replacing in (\ref{zm5}), assuming $a_0 \neq 0$,
+and expanding in powers of $(r-r_s)$, we find,
+\begin{equation}\label{zm7}
+\hat V = \frac{(\ell^2+\ell+2)(\ell+2)^3(\ell-1)^3}{216 M^2} +\left[\frac{(\ell^2+\ell+1)(\ell+2)^4(\ell-1)^4}{648 M^3}-\frac{4 (\ell^2+\ell+1)^2 a_3}{3 a_0}\right](r-r_s)+{\cal{O}}\left((r-r_s)^2\right)
+\end{equation}
+which shows that $\hat V$ is smooth for $r=r_s$, provided $a_0 \neq 0$. If $a_0=0$, $\hat V$ has a second order
+pole at $r_s$. We consider therefore, $\psi_0$ of the form,
+\begin{equation}\label{zm2}
+\psi_0=\frac{\chi(r)}{6 M+r(\ell+2)(\ell-1)}
+\end{equation}
+with $\chi$ smooth in $ r \geq 0$. Replacing (\ref{zm2}) in (\ref{zm1}), we find that $\chi$ satisfies,
+\begin{equation}\label{zm8}
+\frac{d^2 \chi}{dr^2} +\frac{\left[6M^2+2 r \lambda(3M-r)\right]}{r(r-2M)(3M+\lambda r)}\frac{d \chi}{dr}
+-\frac{\left[6M^2+2 r \lambda(3M+\lambda r)\right]}{r^2(r-2M)(3M+\lambda r)}\  \chi =0
+\end{equation}
+Using this result we may write (\ref{zm4}) as,
+\begin{equation}\label{zm5a}
+\hat{V} = \frac{2(r-2M)^2}{r^2 \chi^2}\left(\frac{d\chi}{dr}\right)^2
+-\frac{4(r-2M)^2 \lambda}{r^2 (3M+\lambda r) \chi}\frac{d\chi}{dr}-
+\frac{(r-2M)(6M^2+\lambda r (2\lambda r+4M))} {r^4 (3M+\lambda r)}
+\end{equation}
+
+Then, since, as shown, $\hat V$ is actually free from the singularity for $r=r_s$, the only remaining possible singularities for $r >0$ would correspond to the zeros of $\chi$. Therefore, we must require that $\chi$ in (\ref{zm2}) be not only smooth, but also non vanishing for $r>0$. It turns out that (\ref{zm8}) admits, for every $\ell \geq 2$, a polynomial solution of the form,
+\begin{equation} \label{zm3}
+\chi(r)=\sum_{n=1}^{\ell+2}\frac{(n-2)\left[(n-4)\ell(\ell+1)+n-1\right]\Gamma(\ell+n-1)
+}{ 2^{n}\Gamma(n)^2\Gamma(\ell-n+3) (-M)^{n}}r^n
+\end{equation}
+
+For $\ell=2$ we have the mode found in \cite{ghi},
+\begin{equation} \label{zm3a}
+\chi(r)=-\frac{3r}{2M}+\frac{3r^3}{4M^3}+\frac{r^4}{4M^4}
+\end{equation}
+which is positive for $M<0$ and $r>0$. Similarly, for $M<0$, and $\ell \geq 3$ we have,
+\begin{eqnarray} \label{zm3b}
+\chi(r) & = & \frac{r}{|M|} \left[\frac{3}{2}-\frac{\ell(\ell+2)(\ell^2-1)}{32 } \frac{r^2}{|M|^2}+\frac{\ell(\ell+2)(\ell^2-1)}{96}\frac{ r^3}{|M|^3} \right.
+\nonumber \\ & &\left. +
+\frac{\ell(\ell^2+\ell+4)(\ell+3)(\ell^2-4)(\ell^2-1)}{6144}\frac{ r^4}{|M|^4}+\dots\right]
+\end{eqnarray}
+where all the remaining terms, indicated by dots, are non negative for $r>0$. Consider now the fourth degree polynomial given explicitly between the brackets in (\ref{zm3b}). Clearly, it is positive (equal to $3/2$) for $r=0$, and it is also positive for sufficiently large $r$. Therefore, it can only have a zero if its derivative vanishes at least at one point for $r>0$. One can check that for $r > 0$ there is only one root given by,
+\begin{equation}\label{zm9}
+r_0 = \frac{4|M|\left(\sqrt{6\ell(\ell^2-1)(\ell+2)-108}-6\right)}{(\ell-2)(\ell+3)(\ell^2+\ell+4)}
+\end{equation}
+which must, therefore, correspond to a minimum of the polynomial in $r > 0$.
+Replacing $r=r_0$ in (\ref{zm3b}) we find,
+\begin{equation}\label{zm10}
+\chi(r_0) \geq \frac{16 (\rho-6)\left((\ell^3-\ell)(\ell+2)-18\right)\left((\ell^3-\ell)(\ell+2)(\rho-18)+288\right)}
+{(\ell^2+\ell+4)^4(\ell-2)^4(\ell+3)^4}
+\end{equation}
+where $\rho=\sqrt{6\ell(\ell^2-1)(\ell+2)-108}$. The right hand side of (\ref{zm10}) is positive for $\ell \geq 3$, and, therefore, $\chi(r) > 0$  for $r >0$, and the potential $\hat V$ is smooth for $r > 0$, and free from ''kinematical singularities'', as intended. The explicit form of $\hat V$ as a function of $r$ is very complicated but, fortunately, it is not required for the rest of our analysis.
+
+We may, nevertheless, obtain several features of $\hat V$, directly from  (\ref{zm5a}). First, since $\chi$ is a polynomial of degree $L+2$, from (\ref{zm5a}) we find that for large $r$,
+\begin{equation}\label{zm11a}
+\hat V = \frac{(L+2)(L+1)}{r^2} + {\cal{O}}(r^{-3})
+\end{equation}
+and, therefore, $\hat V > 0$, and $\hat V \to 0$, for sufficiently large $r$. Also,
+from (\ref{zm3}), for $r \to 0$ we have, in general
+\begin{equation}\label{zm11}
+\hat V = 12 M^2 r^{-4} -2 M (\ell^2+\ell+3) r^{-3} +{\cal{O}}(r^{-2})
+\end{equation}
+From (\ref{tortu}),  for $M<0$ we have
+\begin{equation}\label{zm12}
+r = 2 |M|^{1/2} x^{1/2}+\frac{2}{3} x +\frac{1}{18 |M|} x^{3/2}+{\cal{O}}(x^{2}),
+\end{equation}
+which, inserted in (\ref{zm12})  gives
+\begin{equation}\label{zm13}
+\hat V = \frac{3}{4 x^2} +\frac{\ell^2+\ell-1}{4|M|^{1/2}x^{3/2}} -\frac{\ell(\ell+1)}{4 |M|x} +{\cal{O}}(x^{-1/2})
+\end{equation}
+and
+thus the general local solution of the differential equation $\hat {\cal H}_z \hat \psi_E = E \hat \psi_E$, for $x \to 0$ is of the form,
+\begin{equation}
+\hat \psi_E = a_0 \left( x^{3/2} + ... \right)  + b_0 \left(  x^{-1/2} + ... \right)
+\end{equation}
+which is not square integrable near $x=0$ unless $b_0=0$, as anticipated in Section \ref{rw} (see the discussion below eq. (\ref{vcero})).
+As can be checked using (\ref{hpsi1}), this last condition
+corresponds precisely to (\ref{cero2}).  Moreover, (\ref{hpsi1}) and (\ref{crc}) imply that $\hat \psi = \I \psi_z$ admits a Taylor
+expansion around $r=r_s$, which is, of course consistent with fact that $\hat V$ is smooth there. Of particular relevance is the transformed of (\ref{ines}). This is of the form,
+\begin{equation}\label{hines}
+\hat \psi _{unst}  = C_1 r{e^{-kr}} \frac{\left( r-2M \right) ^{2 k |M|}}{2 \lambda r + 6M} \left[\frac{\ell(\ell+2)(\ell^2-1)}{12M}+\frac{r-2M}{r^2} \left(1 -\frac{r}{ \chi}\frac{d \chi}{dr}\right)\right]
+\end{equation}
+which, in accordance with our previous discussion, is smooth for $r=r_s$, and vanishes as $r^3$ for $ r \to 0$. Since $\chi$ is polynomial that does not vanish in $r > 0$, the function between square brackets on the right in (\ref{hines}) is also smooth and bounded in the full interval $0 \leq r \leq \infty$, and the function $\hat \psi$ is a square integrable eigenfunction of $\hat {\cal H}_z$, which, therefore, has, at least, one bound state. This, by the way, implies that $\hat V$ must have a region where it takes negative values, as can be explicitly checked for particular values of $L$. Figure 1 shows a graph of $\hat V$ and $\hat \psi _{unst}$ for $\ell=2$ and $M=-2$.\\
+
+\begin{figure}[h]
+\centerline{\includegraphics[height=9cm,angle=-90]{f1}}
+\caption{Modified potential $\hat V$ for $\ell =2$ and $M=-2$ (solid line), and unstable mode (dotted line) as functions of $x$.
+This mode satisfies $\hat {\cal H} \hat \psi_{unst} = -\hat \psi_{unst}$, see(\ref{ines}) and (\ref{hines}) .}
+\end{figure}
+
+The intertwining transformation changed the original problem into that of finding the solutions
+of (\ref{z2}) with the potential (\ref{zm4}), which behaves as $ \frac{3}{4x^2} + ...  $ as $x \to 0^+$. Since
+$\hat {\cal H}_z$ is a self adjoint operator on this space, arbitrary functions in this space can be
+expanded using a basis of eigenfunctions of $\hat {\cal H}_z$, among which is the unstable mode (\ref{hines}).
+Thus, generic initial data will excite this mode and  will therefore grow exponentially in time,
+and this will also be true for the corresponding solution of the Zerilli equation, as follows from (\ref{sol2}).
+
+
+\section{Summary} \label{sum}
+
+
+Gravitational perturbations propagating on a negative mass Schwarzschild background is a subtle
+problem for two reasons. First, this space is not globally hyperbolic. As a consequence,
+the perturbation equations can be reduced to a single $1+1$ wave equation on a
+semi-infinite domain $x>0$, $(t,x)$ standard inertial coordinates of two dimensional Minkowski space,
+$x=0$ the position of the singularity. This implies that a physically motivated choice of boundary conditions
+at $x=0$ is required. There is a unique choice dictated simultaneously by two conditions \cite{ghi,dg}: (i) that
+the linearized regime be valid in the whole domain, and, in particular, that the invariants made out of the Riemman tensor
+behave such that their first order piece does not diverge faster than their zeroth order piece as the singularity is approached;
+ (ii) that the energy of
+the perturbation, as measured using the second order correction to the Einstein tensor \cite{ghi} be finite.\\
+The second issue is that  Zerilli's function $\Psi_z$ is a singular function of the first order metric coefficients. As a consequence, the wave
+equation it obeys has  a potential  with a ``kinematic'' singularity, and it is not clear how to evolve
+initial data, since the usual approach of separation of variables leading to a well behaved quantum Hamiltonian operator
+for the $x$ coordinate breaks down.\\
+In this paper we have shown that this second problem can be overcome using the technique of intertwining potentials
+given in \cite{price} and references therein. It is shown that the function $\hat \Psi = \Psi_z - \psi_0'/\psi_0 \Psi_z =: {\cal I}
+\Psi_z$
+obeys a wave equation with a smooth potential if $\psi_0$ is a particular zero mode of Zerilli's Hamiltonian. Moreover,
+the new Hamiltonian (spatial piece of the modified wave equation), naturally selects the boundary
+condition that is physically relevant.\\
+We have also shown that, in spite of the fact that ${\cal I}$ has a non trivial kernel, it is possible to
+evolve the perturbation equations using, at two different steps, the initial condition for the Zerilli function.
+A straightforward application of this formalism allows us to show that the unstable mode
+found in \cite{dg} can actually be excited by initial data compactly supported away from the singularity. This
+closes a gap in our proof in \cite{dg} of instability of the negative mass Schwarzschild spacetime.
+
+
+\section*{Acknowledgments}
+
+
+This work was supported in part by grants from CONICET (Argentina)
+and Universidad Nacional de C\'ordoba.  RJG and GD are supported by
+CONICET.
+
+
+
+
+\begin{thebibliography}{99}
+\bibitem{ghi} Gibbons G W, Hartnoll D and  Ishibashi A 2005 {\em Prog.Theor.Phys.}
+{\bf 113} 963-978, hep-th/0409307.
+\bibitem{dg}
+R.~J.~Gleiser and G.~Dotti,
+  %``Instability of the negative mass Schwarzschild naked singularity,''
+  Class.Quant.Grav.{\bf 23}, 5063 (2006) [arXiv:gr-qc/0604021]
+\bibitem{zerilli} F. J.
+Zerilli, Phys. Rev. {\bf D2}, 2141 (1970).
+\bibitem{ki}
+  H.~Kodama and A.~Ishibashi,
+  %``Stability of higher-dimensional Schwarzschild black holes,''
+  Prog.\ Theor.\ Phys.\  {\bf 110}, 901 (2003)
+  [arXiv:hep-th/0305185];
+  %``A master equation for gravitational perturbations of maximally  symmetric
+  %black holes in higher dimensions,''
+  Prog.\ Theor.\ Phys.\  {\bf 110}, 701 (2003)
+  [arXiv:hep-th/0305147];
+  %``Brane world cosmology: Gauge-invariant formalism for perturbation,''
+  Phys.\ Rev.\  D {\bf 62}, 064022 (2000)
+  [arXiv:hep-th/0004160];
+  \bibitem{price}
+  A.~Anderson and R.~H.~Price,
+  %``Intertwining of the equations of black hole perturbations,''
+  Phys.\ Rev.\  D {\bf 43}, 3147 (1991).
+  \bibitem{rw}
+T. Regge, J. Wheeler, Phys. Rev. {\bf 108}, 1063 (1957).
+\bibitem{meetz}
+K. Meetz, Il Nuovo Cimento {\bf 34} 690 (1964).
+  \bibitem{reed} M. Reed and B. Simon, {\em  Methods of modern mathematical physics} (v. 2: Fourier
+  analysis, self-adjointness), section X,
+  Academic Press (1975).
+  \bibitem{cardoso}
+  V.~Cardoso and M.~Cavaglia,
+  %``Stability of naked singularities and algebraically special modes,''
+  arXiv:gr-qc/0604101 (to appear in Phys. Rev. D)
+  \bibitem{prs}
+  S.~Chandrasekhar
+  Proc.\ Roy.\ Soc.\ Lond.\ A {\bf 392}, 1 (1983).
+  
+
+
+
+\end{thebibliography}
+
+\end{document}
+
+
+\bibitem{doglepu}
+ G.Dotti, R. J. Gleiser, J. Pullin
+ %Instability of charged and rotating naked singularities
+Phys.Lett. {\bf B644} (2007) 289-293 [arXiv:gr-qc/0607052]
+\bibitem{cuatro}
+  G.~Dotti, R.~J.~Gleiser, I.~F.~Ranea-Sandoval and H.~Vucetich,
+  %``Gravitational instabilities in Kerr space times,''
+  arXiv:0805.4306 [gr-qc].
+\bibitem{cardoso}
+  V.~Cardoso and M.~Cavaglia,
+  %``Stability of naked singularities and algebraically special modes,''
+   Phys.Rev. {\bf D74},   024027 (2006)
+  [arXiv:gr-qc/0604101]
+\bibitem{prs}
+  S.~Chandrasekhar
+  Proc.\ Roy.\ Soc.\ Lond.\ A {\bf 392}, 1 (1983).
+

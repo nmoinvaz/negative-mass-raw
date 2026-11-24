@@ -1,0 +1,22 @@
+# zerilli_gauge_rs: gauge attainability (e^{st} and static) and the flow at r_s against DG06 Lemma 1 (part=all)
+# mutations on: l2_struct
+PASS PL.0a
+# [   0.2 s] PL.0a
+PASS PL.0b
+# [   0.3 s] PL.0b
+PASS PL.0c
+# [   0.4 s] PL.0c
+PASS PL.0d
+# [   0.8 s] PL.0d
+PASS PL.L
+# [   1.0 s] PL.L
+PASS PL.E
+# [   1.1 s] PL.E
+PASS PL.P
+# [   1.9 s] PL.P e^{st}
+PASS PL.P.static
+# [   2.5 s] PL.P static
+PASS PL.R
+# [   2.7 s] PL.R
+FAIL GA.1: T_l = xP_l' - (L/2)P_l: dependence of P, xP' only at L in [0, 2]; T_l nonzero with leading coefficient -k_l l(l-1)/2 for l = 1..30: False; T_0 = T_1 = 0
+# summary: 9 PASS, 1 FAIL

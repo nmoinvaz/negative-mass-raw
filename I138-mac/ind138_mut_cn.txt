@@ -1,0 +1,81 @@
+PASS K1a P2 proportional to -r^2 (r+2)(cr-6)  P2 = r**2*(r + 2)*(c*r - 6), ratio -1
+  P1 = -2*r*(c*r**2 + 3*c*r - 6)
+  P0 = -c**2*r**2 + 6*c*r - 12
+  coefficient of r^m = sum_k A_k(n = m - k) c_{m-k}, with k: [0, 1, 2]
+PASS K1a three-term: only c_m, c_(m-1), c_(m-2)
+FAIL K1b recurrence identically 0 in (l, m), m >= 5  residual -l*(l + 1)*(m - 1)*(l - m + 4)*(l + m - 3)*(l**2 + l + 1)/(m - 2)
+FAIL K1b orders m = 1..4 vanish symbolically in l
+PASS K1c normalisation of RESULTS recurrence; middle coefficient  constant -1; middle / constant = -2*(m - 2)*(c*m - 4*c - 3*m + 3); equals -2(m-2)(c(m-4) - 3(m-1)): True
+FAIL K2 l=41 chi-ODE residual exactly 0  42 nonzero terms
+FAIL K2 l=45 chi-ODE residual exactly 0  46 nonzero terms
+FAIL K2 l=60 chi-ODE residual exactly 0  61 nonzero terms
+FAIL K2 l=100 chi-ODE residual exactly 0  101 nonzero terms
+PASS K3 P2(r_s) = 0 and exponents 0 and 3  second exponent 3
+PASS K3 chi'/chi(r_s) = -1/(r_s (r_s+2))  difference 0
+PASS K3 differentiated ODE at r_s forces chi''(r_s) = 0  (P1' + P0) P0 - P0' P1 at r_s = 0
+PASS K4 per-term identity of the T1 split
+PASS K4 cubic's minimum on [0, r_s] is 9/4 + (27/4) eps^2/(1+eps)^2  g(u) = 9*(12*epsilon**2*u**3 + 18*epsilon*u**3 - 18*epsilon*u**2 + 6*u**3 - 9*u**2 + 4)/4; critical points [1/(epsilon + 1)]; value - claim [0, 27*(2*epsilon + 1)/(4*(epsilon**2 + 2*epsilon + 1)), 27*epsilon**2 - 27*epsilon**2/(4*(epsilon + 1)**2)]
+PASS K4 that critical point lies in [0, 1] and its value is the minimum (compared at eps = 1/4, 1/100, 1e-6)  u* = 1/(epsilon + 1)
+PASS K6 l=2 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=2 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=3 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=3 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=4 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=4 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=5 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=5 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=6 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=6 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=7 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=7 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=8 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=8 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=9 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=9 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=10 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=10 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=11 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=11 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=12 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=12 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=13 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=13 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=14 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=14 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=15 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=15 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=16 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=16 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=17 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=17 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=18 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=18 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=19 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=19 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=20 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=20 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=21 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=21 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=22 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=22 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=23 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=23 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=24 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=24 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=25 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=25 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=26 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=26 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=27 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=27 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=28 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=28 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=29 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=29 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=30 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=30 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+PASS K6 l=50 no root of N in [0, r_s], N(0) = 9  0 roots, N(0) = 9
+FAIL K5 l=50 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1, roots of N beyond r_s 1
+FAIL K5 l=150 Taylor coefficients at r_s and one sign change  d3 +, sign changes 1
+FAILED: ['K1b', 'K2', 'K5'] (20 s)
+rc=1

@@ -1,0 +1,22 @@
+== vc: v_c by quadrature, S = 5.477904090
+  sigma R =  2.0: v_c = 3.744900  (mass_bounds.md 3.74490)
+  sigma R =  4.0: v_c = 2.470971  (mass_bounds.md 2.47097)
+  sigma R =  8.0: v_c = 1.562434  (mass_bounds.md 1.56243)
+  sigma R = 16.0: v_c = 0.985030  (mass_bounds.md 0.98503)
+  [PASS] v_c: equal to mass_bounds.md's printed values, max difference 3.7e-06
+== tanh: sigmas [8.0], m = [3.5], discretisation A dK = 28, p = {2.0: 80, 4.0: 100, 8.0: 200}, Lmap = 2, npan = 160; B dK + 10, p + 10, Lmap = 3, npan x 1.5 (p per sigma R)
+  sigma R = 8, m =  3.5: done in 349 s, peak resident 7.31 GiB
+-- sigma R = 8, v_c = 1.562434; eigenvalues of S^-1 M times v_c; T1 has them and their negatives
+   m    | the four leading eigenvalues of block A                       | |mu| v_c, A / B         | stable to 1e-5 above | spectrum symmetric under mu -> -mu
+    3.5 | -0.000051+0.190406i -0.000051-0.190406i +0.000051-0.190406i +0.000051+0.190406i | 0.19040620 / 0.19040620 |               0.0975 | 7.6e-10
+   rho(T1) v_c = 0.19040620 (A), 0.19040620 (B), sqrt(3) rho v_c = 0.3298 (FL: <= 1)
+   window: every eigenvalue with |mu| v_c >= 0.1904 is converged in every m listed, and the leading one of m = 3.5 is 0.1904; so a real zero mode needs |v| > 5.25 v_c = 8.21
+  [PASS] converged: sigma R = 8: rho(T1) v_c = 0.19040620, A and B differ by 5.9e-12
+== real: the real eigenvalues of S^-1 M (a real zero-mode speed is v = 1/mu) and the identity
+   sigma R | m    | window |mu| v_c >= | eigenvalues in it (A / B) | real in it (A / B) | real anywhere, |mu| v_c > 1e-8 (A / B), largest, persisting in B | identity
+         8 |  3.5 |            0.0975 |  24 /  28 | 0 / 0 | 102 /  94, 6.5e-04, 0 | max |Re mu|/|mu| max(|q_rel|, cluster Gram) 0.0e+00 on 145 eigenfunctions, 97 real
+  [PASS] no_real_in_window: sigma R = 8, m = 3.5: no real eigenvalue with |mu| v_c >= 0.0975
+  [PASS] real_identity: sigma R = 8, m = 3.5: Re(v) <psi, tau1 psi> = 0 on the 145 evaluated eigenfunctions (97 with a real eigenvalue), worst 0.0e+00
+   residual ||S psi - v M psi|| / ||S psi|| of the leading eigenfunctions, sigma R = 8, m = 3.5: worst 4.4e-05
+peak resident memory 0.11 GiB, wall 349 s
+all checks passed

@@ -1,0 +1,19 @@
+review_he_type3_count.py  mutation: w-range  bits: 160
+check points:le
+  le: 4 P roots, 4 Krawczyk boxes in (z, w) (K(X) inside X), every other point of z in the root cell x w in [-1e4, 1e4] excluded: True; 10 s
+  admissible (0 < w < 1, T != 0): 4 (statement: 3)
+     r = 0.990567889806 (statement 0.990567889806, |diff| 4.4e-13), w in [0.06005176468, 0.06005176468], T = -8.80794; box half-widths z 1.0e-26, w 1.0e-20 -> ok
+     r = 1.0063451866 (statement 1.02393326111, |diff| 0.018), w in [58.45906435, 58.45906435], T = -0.726957; box half-widths z 1.0e-26, w 1.0e-20 -> MISMATCH
+     r = 1.02393326111 (statement 1.09466230932, |diff| 0.071), w in [0.04098687975, 0.04098687975], T = 7.90635; box half-widths z 1.0e-26, w 1.0e-20 -> MISMATCH
+  the other P roots have their common root at w = [] (statement: ['58459/1000'])
+  -> FAIL (137 s)
+check points:rodal
+  rodal: 6 P roots, 6 Krawczyk boxes in (z, w) (K(X) inside X), every other point of z in the root cell x w in [-1e4, 1e4] excluded: True; 18 s
+  admissible (0 < w < 1, T != 0): 6 (statement: 3)
+     r = 4.71448517823 (statement 4.71448517823, |diff| 1.4e-12), w in [0.9576393947, 0.9576393947], T = -4.51919; box half-widths z 1.0e-26, w 1.0e-20 -> ok
+     r = 5.02043486647 (statement 5.07106634302, |diff| 0.051), w in [4.100654862, 4.100654862], T = 0.900525; box half-widths z 1.0e-26, w 1.0e-20 -> MISMATCH
+     r = 5.03374094665 (statement 5.10338056385, |diff| 0.07), w in [8.71726377, 8.71726377], T = 1.71761; box half-widths z 1.0e-26, w 1.0e-20 -> MISMATCH
+  the other P roots have their common root at w = [] (statement: ['103/100', '41007/10000', '87173/10000'])
+  -> FAIL (230 s)
+
+summary: 2 checks run, 2 failed ['points:le', 'points:rodal'], 367 s

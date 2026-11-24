@@ -1,0 +1,15 @@
+ind96 mutation=ref
+PASS G1 sR=8 m=0.5 v_c  1.5624337 against #96 1.562434
+PASS G2 sR=8 m=0.5 A and B agree on the leading |mu| v_c  A 0.29951072, B 0.29951077, rel 1.7e-07
+FAIL G3 sR=8 m=0.5 leading and second |mu| v_c against #96  lead 0.29951072 vs 0.2998103108 (rel 1.0e-03), next 0.224928 vs 0.22515492999999998 (rel 1.0e-03)
+PASS G1 sR=8 m=10.5 v_c  1.5624337 against #96 1.562434
+PASS G2 sR=8 m=10.5 A and B agree on the leading |mu| v_c  A 0.10278143, B 0.10278158, rel 1.4e-06
+FAIL G3 sR=8 m=10.5 leading and second |mu| v_c against #96  lead 0.10278143 vs 0.10288478199999998 (rel 1.0e-03), next 0.093655 vs 0.09375065699999999 (rel 1.0e-03)
+FAIL G1 sR=16 m=0.5 v_c  0.9850202 against #96 0.98503
+PASS G2 sR=16 m=0.5 A and B agree on the leading |mu| v_c  A 0.22508094, B 0.22508104, rel 4.3e-07
+FAIL G3 sR=16 m=0.5 leading and second |mu| v_c against #96  lead 0.22508094 vs 0.22530838329999997 (rel 1.0e-03), next 0.184358 vs 0.184548364 (rel 1.0e-03)
+FAIL G1 sR=16 m=10.5 v_c  0.9850202 against #96 0.98503
+PASS G2 sR=16 m=10.5 A and B agree on the leading |mu| v_c  A 0.10291624, B 0.10291644, rel 2.0e-06
+FAIL G3 sR=16 m=10.5 leading and second |mu| v_c against #96  lead 0.10291624 vs 0.10302091799999999 (rel 1.0e-03), next 0.095274 vs 0.09537327799999999 (rel 1.0e-03)
+FAILED: ['G3', 'G1'] (0 s)
+rc=1

@@ -1,0 +1,694 @@
+Perturbations and Critical Behavior in the
+Self-Similar Gravitational Collapse of a Massless Scalar Field
+Andrei V. Frolov∗
+
+arXiv:gr-qc/9704040v1 15 Apr 1997
+
+Physics Department, University of Alberta
+Edmonton, Alberta, Canada, T6G 2J1
+(April 14, 1997)
+
+Abstract
+This paper studies the perturbations of the continuously self-similar critical solution of the gravitational collapse of a massless scalar field (Roberts
+solution). The perturbation equations are derived and solved exactly. The
+perturbation spectrum is found to be not discrete, but occupying continuous
+region of the complex plane. The renormalization group calculation gives the
+value of the mass-scaling exponent β = 1.
+PACS numbers: 04.20.Jb, 05.70.Jk
+
+Typeset using REVTEX
+
+∗ Email: andrei@phys.ualberta.ca
+
+1
+
+I. INTRODUCTION
+
+Numerical calculation of spherically symmetric gravitational collapse of a massless scalar
+field by Choptuik [1] and subsequent results for different matter models and symmetries
+(see for example Refs. [2–5]) spectacularly demonstrate that critical phenomena occur in
+the gravitational collapse, and that the near-critical behavior is universal in some important
+aspects.
+There are two possible late-time outcomes of gravitational collapse, distinguished by
+whether or not a black hole is formed in the course of evolution. Which end state is realized
+depends on initial conditions, specified by a control parameter p that characterizes the gravitational interaction strength in the ensuing evolution. For p < p∗ (subcritical solution) the
+gravitational field is too weak to form a black hole, while for p > p∗ (supercritical solution)
+a black hole is produced. The critical solution, corresponding to a control parameter value
+p∗ just at the threshold of black hole formation, acts as an intermediate attractor for nearby
+initial conditions, and has an additional symmetry: discrete or continuous self-similarity,
+also referred to as echoing. For supercritical evolution there is usually no mass gap, and the
+mass of the resultant black hole is described by the mass-scaling relation
+MBH (p) ∝ |p − p∗ |β ,
+
+(1)
+
+where β is mass-scaling exponent.
+General gravitational collapse is a very difficult problem, even if restricted to the case of
+spherical symmetry. As a result, most studies of critical behavior resort to numerical calculations at some stage, with few fully analytical solutions known. Finding critical solutions is
+made easier by the fact that they have additional symmetry; requiring solution to be continuously self-similar can simplify the problem enough to make it solvable for simpler matter
+models. Both the stability of the critical solution and the exact mass-scaling exponent can
+then be determined by linear perturbation analysis, as suggested by Evans and Coleman [3]
+and carried out in Refs. [6–8].
+In this paper we consider an analytical continuously self-similar solution of gravitational
+collapse of a massless scalar field constructed by Roberts [9]. Originally it was intended as
+a counter-example to cosmic censorship conjecture, but it was later rediscovered in context
+of the critical gravitational collapse by Brady [10] and Oshiro, Nakamura and Tomimatsu
+[11]. Although this solution does exhibit critical behavior, there are two problems. First, as
+any self-similar solution, it is not asymptotically flat, and the mass of the black hole grows
+infinitely. This can be prevented if we cut the self-similar solution away from the black hole
+and glue it to some other solution to make the spacetime asymptotically flat and of finite
+mass, which was in fact done in Ref. [12]. A second, and bigger, problem is that growing
+non-self-similar modes will dominate the mass-scaling exponent if they exist, but they are
+not accounted for by the self-similar solution.
+This paper addresses the second problem by doing linear perturbation analysis of the
+Roberts solution. We calculate the mass-scaling exponent β and analyze the stability of
+the critical solution. The remarkable feature of this model is that it allows exact analytical
+treatment.
+
+2
+
+II. SELF-SIMILAR SOLUTION
+
+We begin by presenting a continuously self-similar spherically symmetric solution of the
+gravitational collapse of a massless scalar field (Roberts solution). It is most easily derived
+in null coordinates. Therefore we write the metric as
+dS 2 = −2e2Σ dudv + R2 dΩ2 ,
+
+(2)
+
+where Σ and R are functions of both u and v. The coordinates u, v can be reparametrized
+as u(ū), v(v̄), so coordinate choice freedom is given by two functions of one variable each; it
+can be fixed by setting Σ = 0 at two null hypersurfaces v = const and u = const. With this
+choice of metric the Einstein-scalar field equations become
+(R2 ),uv + e2Σ = 0,
+2Σ,uv −
+
+2R,u R,v e2Σ
+− 2 + 2Φ,u Φ,v = 0,
+R2
+R
+
+(3a)
+(3b)
+
+R,vv − 2Σ,v R,v + R(Φ,v )2 = 0,
+
+(3c)
+
+R,uu − 2Σ,u R,u + R(Φ,u )2 = 0,
+
+(3d)
+
+R,v Φ,u R,u Φ,v
++
+= 0.
+R
+R
+
+(3e)
+
+Φ,uv +
+
+The first four equations (3a-3d) are the Einstein equation for metric (2), and equation (3e)
+is the scalar wave equation ✷Φ = 0. Equations (3c,3d) are constraints. Note that in the
+case of a massless scalar field the wave equation follows from the Einstein equations, so one
+of the equations (3a,3b,3e) is redundant.
+We turn on the influx of the scalar field at the advanced time v = 0, so that the spacetime
+is Minkowskian to the past of this surface. The initial conditions for system (3) are specified
+there by the continuity of the solution. We use coordinate freedom to set Σ|v=0 = 0.
+Assumption that the collapse is continuously self-similar, i.e. that there exists a vector field ξ such that £ξ gµν = 2gµν , allows the Einstein-scalar equations (3) to be solved
+analytically. The critical solution is given by
+Σ0 = 0,
+√
+R0 = u2 − uv,
+
+
+v
+1
+,
+Φ0 = ln 1 −
+2
+u
+
+(4)
+
+and is a member of a one-parameter family of self-similar solutions
+Σ = 0,
+R=
+
+q
+
+u2 − uv − pv 2 ,
+
+#
+"
+√
+2pv + u(1 − 1 + 4p)
+1
+√
++ ϕ(p).
+Φ = ln −
+2
+2pv + u(1 + 1 + 4p)
+
+3
+
+(5)
+
+Above ϕ(p) is constant component of a scalar field, chosen so that Φ|v=0 = 0, and the
+solution converges to the critical solution as p goes to zero:
+#
+"√
+1
+1
+1 + 4p − 1
+= − ln p + p + O(p2 ).
+ϕ(p) = − ln √
+(6)
+2
+1 + 4p + 1
+2
+For values p > 0 of control parameter, a black hole is formed; for p < 0 the field disperses,
+and the spacetime is flat again in region u > 0. (Our choice of sign of p is opposite to the
+one in [10]. Also note that the constant field term is omitted there.)
+The existence and position of the apparent horizon is given by condition A(u, v) = 0,
+where
+A(u, v) = u;µ;µ = R,v .
+
+(7)
+
+Due to the spherical symmetry of the problem it is possible to introduce a local mass M(u, v)
+by
+1−
+
+2M
+= 2g uv R,u R,v .
+R
+
+(8)
+
+The mass contained inside the apparent horizon is the mass of the black hole
+1
+MBH = RAH ,
+2
+
+(9)
+
+where RAH is the radius of apparent horizon given by equation (7).
+III. LINEAR PERTURBATIONS
+
+We now apply the perturbation formalism [6–8]. It is convenient to analyze perturbations
+to the self-similar solution in new variables natural to the problem. For this purpose we
+introduce a “spatial” coordinate x and a “scaling variable” s
+1
+v
+x = ln 1 −
+, s = − ln(−u),
+2
+u
+
+
+(10)
+
+u = −e−s , v = e−s (e2x − 1).
+
+(11)
+
+
+
+with the inverse transformation
+
+The signs are chosen to make the arguments of the logarithm positive in the region of interest
+(v > 0, u < 0), where the field evolution occurs.
+In these coordinates the metric (2) becomes
+h
+
+i
+
+(12)
+
+Σ0 = 0, R0 = ex−s , Φ0 = x.
+
+(13)
+
+dS 2 = 2e2(Σ+x−s) (1 − e−2x )ds2 − 2dsdx + R2 dΩ2 ,
+and the critical solution (4) is simply
+
+4
+
+We now consider small perturbations of critical solution (13). Quite generally, the perturbation modes can be written as
+Σ = Σ0 + pσ(x)eks ,
+R = R0 + pr(x)ex−s eks ,
+Φ = Φ0 + pφ(x)eks ,
+
+(14)
+
+which amounts to doing Laplace transformation on general perturbations dependent on both
+x and s. It is understood that there can be many perturbation modes, with distinct σ, r
+and φ for each (possibly complex) k in the perturbation spectrum. To recover a general
+perturbation we must take the sum of these modes. Modes with Re k > 0 (called relevant
+modes) grow and eventually lead to black hole formation, while modes with Re k < 0 decay
+and are irrelevant.
+Let us discuss how the mass-scaling exponent β is related to the perturbation spectrum.
+The function A, defined by equation (7), takes the form
+A(x, s, p) = A0 (x) − pa(x)eks ,
+
+(15)
+
+where A0 is the self-similar background term. Recall that A vanishes at the apparent horizon. Even thought there is no apparent horizon in critical solution, i.e. A0 (x) > 0, the
+exponentially growing perturbation will eventually make A zero, leading to black hole formation. The mode with the largest eigenvalue, κ = max{Re k}, will clearly dominate, giving
+the position of the apparent horizon RAH (xAH ) by
+A0 (xAH ) = pa(xAH )
+
+eκxAH
+.
+(RAH )κ
+
+(16)
+
+Here we made use of the fact that R = ex−s to the zeroth order in p. Therefore the
+dependence of the black hole mass on p, taken to be the control parameter, is
+MBH ∝ RAH ∝ p1/κ .
+
+(17)
+
+This is precisely the mass-scaling relation (1) with exponent β = 1/κ. For a more detailed
+discussion of this approach and its validity see Ref. [7].
+Perturbing the Einstein-scalar equations (3) by a mode (14), we obtain a system of linear
+partial differential equations. After a change of variables (u, v) to (x, s), the s-dependence
+separates, and we are left with a following system of linear ordinary differential equations
+for σ, r, and φ in the independent variable x:
+(1 − e−2x )r ′′ + 2(k − e−2x )r ′ + 4(k − 1)r + 4σ = 0,
+
+(18a)
+
+(1 − e−2x )σ ′′ + 2(k + e−2x )σ ′ − 4σ + 2(1 − e−2x )φ′ + 2kφ + 2e−2x r ′ + 2(2 − k)r = 0, (18b)
+r ′′ − 2σ ′ + 2φ′ = 0,
+5
+
+(18c)
+
+(e2x − 2 + e−2x )r ′′ − 4k(1 − e2x )r ′ − 4k(1 − ke2x )r + 2(e2x − e−2x )σ ′ + 4k(1 + e2x )σ
++ 2(e2x − 2 + e−2x )φ′ − 4k(1 − e2x )φ = 0,
+(18d)
+(1 − e−2x )φ′′ + 2kφ′ + 2kφ + 2(1 − e−2x )r ′ + 2kr = 0.
+
+(18e)
+
+Here a prime denotes the derivative with respect to x.
+Boundary conditions for the system (18) are specified at x = 0 and x = ∞. We require
+that perturbations grow slower than background at large x (i.e. that σ and r are bounded,
+and φ grows slower than x) for the perturbation expansion to be valid. Because the solution
+must be continuous at the hypersurface v = 0, we have r(0) = φ(0) = 0. Since we used
+coordinate freedom in u to set Σ to zero on that surface, we also have σ(0) = 0. Thus, the
+boundary conditions are
+σ(0) = r(0) = φ(0) = 0,
+σ(x), r(x), φ(x) grow slowly as x → ∞.
+
+(19)
+
+Equations (18) together with boundary conditions (19) constitute our eigenvalue problem.
+The infinitesimal coordinate transformation v 7→ v − 2ζ(v) corresponding to the remaining coordinate freedom in v will give rise to unphysical gauge modes
+δΣ = ζ ′(v) = ζ ′ [e−s (e2x − 1)],
+ζ(v)
+δR =
+= e−x ζ[e−s (e2x − 1)],
+1/2
+(1 − v/u)
+ζ(v)
+= −es−2x ζ[e−s (e2x − 1)].
+δΦ =
+(u − v)
+
+(20)
+
+Since on a v = 0 hypersurface δΣ, δR, and δΦ must vanish identically, ζ(0) = ζ ′(0) = 0, so
+a Taylor expansion of ζ(v) around zero starts from v 2 term. Therefore these gauge modes
+correspond to negative eigenvalues k, and are irrelevant.
+IV. SOLUTION OF PERTURBATION EQUATIONS
+
+Observe that there is an obvious solution of perturbation equations (18), which can be
+obtained from self-similar solution (5) by expanding around p = 0
+Σ = 0,
+!
+2
+
+
+√
+v
+p
+2
+x−s
+R = u2 − uv 1 −
+1
+−
+2p
+sinh
+x
+,
+=
+e
+2 u2 − uv
+
+
+1
+p v 2 − 2uv
+v
+Φ = ln 1 −
++
+= x + p sinh 2x.
+2
+u
+2 u2 − uv
+
+(21)
+
+Clearly, the self-similar mode has eigenvalue k = 0, hence any relevant mode will dominate
+the calculation of mass-scaling exponent.
+
+6
+
+The perturbation equations (18) inherit their structure from general Einstein-scalar equations (3); equations (18a,18b,18e) are dynamical equations, while equations (18c,18d) are
+constraints. Equation (18b) is redundant
+(18b) = [(18a)′ − 2(18a) − (1 − e−2x )(18c)′ − 2(e−2x + k − 1)(18c) + 2(18e)]/2,
+
+(22)
+
+so it will be discarded. The simple integrable form of equation (18c) allows elimination of
+one of the unknowns, say σ, from the other equations by
+σ = r ′ /2 + φ + C.
+
+(23)
+
+Thus we are left with two second order ODE’s for r and φ:
+(1 − e−2x )r ′′ + 2(k + 1 − e−2x )r ′ + 4(k − 1)r + 4φ + 4C = 0,
+
+(24a)
+
+(1 − e−2x )φ′′ + 2kφ′ + 2kφ + 2(1 − e−2x )r ′ + 2kr = 0
+
+(24b)
+
+with boundary conditions (19), and one constraint (18d), which we equivalently rewrite as
+first order ODE with the use of equation (18a)
+(k − 2)(1 − e−2x )r ′ + 2(k 2 − ke−2x − 2k + 2)r
++ 2(1 − e−2x )φ′ + 4(k − 1)φ + 2C(k + ke−2x − 2) = 0.
+
+(24c)
+
+Equations (24a,24b) can be separated with introduction of the auxiliary function z = r − φ,
+reducing to
+(1 − e−2x )z ′′ + 2kz ′ + 2(k − 2)z = −4C,
+
+(25a)
+
+(1 − e−2x )r ′′ + 2(k + 1 − e−2x )r ′ + 4kr = 4(z − C).
+
+(25b)
+
+We convert this into algebraic form using change of variable
+y = e2x , x =
+
+1
+ln y.
+2
+
+(26)
+
+Finally, equations (25) and constraint (24c) become
+dz
+d2 z
++ [1 − (k + 1)y]
+− (k/2 − 1)z = C,
+2
+dy
+dy
+
+(27a)
+
+d2 r
+dr
++
+[2
+−
+(k
++
+2)y]
+− kr = C − z,
+dy 2
+dy
+
+(27b)
+
+dr
+dz
+− 2y(k − 1)z − ky(1 − y)
+− k(1 − ky)r + C[k + (k − 2)y] = 0,
+dy
+dy
+
+(27c)
+
+y(1 − y)
+
+y(1 − y)
+
+2y(1 − y)
+
+7
+
+and boundary conditions (19) are specified at y = 1 and y = ∞ by
+dr
+(1) + C = 0,
+dy
+z(y), r(y) grow slowly as y → ∞.
+
+z(1) = r(1) = 0,
+
+(28)
+
+“Grow slowly” means that r(y) must be bounded, and z(y) grows at most logarithmically,
+with y dr/dy + r − z bounded, as y → ∞. The last condition follows from σ being bounded
+at infinity.
+Equation (27c) is indeed a constraint, since d(27c)/dy = (27a) − k(27b), and is automatically satisfied for all y if
+(k − 1)[kr(1) − 2z(1) + 2C] = 0
+
+(29)
+
+is satisfied initially at y = 1. Imposing initial conditions (28), the constraint (29) yields
+C(k − 1) = 0,
+
+(30)
+
+i.e. C = 0 unless k = 1.
+Observe that equations (27a) and (27b) are inhomogeneous hypergeometric equations.
+Their properties are well-known and described in a number of books on differential equations
+(see, for example, [13]), so the system (27) can be analytically solved and the perturbation
+spectrum exactly determined.
+Equation (27a) is the homogeneous (except when k = 1) hypergeometric equation
+y(1 − y)
+
+dz
+d2 z
++ [c − (a + b + 1)y]
+− abz = 0
+2
+dr
+dy
+
+(31)
+
+with coefficients
+c = 1, a + b = k, ab = k/2 − 1,
+√
+√
+a = 1/2 (k − k 2 − 2k + 4), b = 1/2 (k + k 2 − 2k + 4).
+
+(32)
+
+It has singular points at y = 0, 1, ∞, and its general solution is a linear combination of any
+two different solutions from the set
+z1 = F (a, b; k; 1 − y),
+z2 = (1 − y)1−k F (1 − a, 1 − b; 2 − k; 1 − y),
+z3 = (−y)−a F (a, a; a + 1 − b; y −1 ),
+z4 = (−y)−b F (b, b; b + 1 − a; y −1),
+
+(33)
+
+where F (a, b; c; y) is the hypergeometric function; F (a, b; c; 0) = 1. Any three of the functions
+(33) are linearly dependent with constant coefficients, for example
+z2 =
+
+Γ(2 − k)Γ(a − b) −iπ(1−a)
+Γ(2 − k)Γ(b − a) −iπ(1−b)
+e
+z3 +
+e
+z4 .
+2
+Γ(1 − a)
+Γ(1 − b)2
+8
+
+(34)
+
+Functions z1 , z2 and z3 , z4 have the asymptotic behavior
+z1 ≃ 1, z2 ≃ (1 − y)1−k near y = 1,
+z3 ≃ (−y)−a , z4 ≃ (−y)−b near y = ∞.
+
+(35)
+
+The case when k = 1 is special. In this case the solution (33) degenerates and z1 = z2
+identically. In order to deal with this situation we continue to use z1 as earlier, but denote
+by z2 a solution independent of z1 . It is easy to verify that z2 is logarithmically divergent
+at y = 1. Note also that for k = 1 we can have C 6= 0, so that the equation (27a) is
+inhomogeneous, and we must add the particular solution z = C to the general solution
+above.
+Observe that at y = 1, z2 diverges as a power for Re k > 1, logarithmically for k = 1,
+does not have a limit for Re k = 1, Im k 6= 0, and converges (to zero) only for Re k < 1.
+The solutions that satisfy the initial condition z(1) = 0 are z = cz2 , Re k < 1 and z =
+C(1 − z1 ), k = 1. From equation (34) we see that z2 (and z1 ) is connected to z3 , z4 by
+a linear relation with non-zero coefficients, so the boundary conditions at infinity will only
+be satisfied if both z3 , z4 do not blow up, i.e. if Re a > 0, Re b > 0. The curve Re a = 0,
+written in terms the real and imaginary parts of k, has the form
+(Im k)2 =
+
+Re k (2 − Re k)
+,
+1 − (2Re k)−1
+
+(36)
+
+which divides the complex k-plane into two regions shown in Fig. 1; to the left of the curve
+Re a < 0, and to the right Re a > 0. So to satisfy all boundary conditions (28), k must lie
+in the shaded region K of the complex plane, and for any k ∈ K,
+z = (1 − y)1−k F (1 − a, 1 − b; 2 − k; 1 − y)
+
+(37)
+
+is a solution of equation (27a) with boundary conditions (28).
+Equation (27b) is also hypergeometric, with coefficients
+c = 2, a = 1, b = k.
+
+(38)
+
+The general solution of the homogeneous equation is
+r1 = y −1 , r2 = y −1 (1 − y)1−k ,
+
+(39)
+
+and the solution of inhomogeneous equation is easily constructed from (39) by
+y
+
+ y
+
+
+
+Z
+Z
+1
+z(ỹ)dỹ 
+1−k
+
+r=−
+z(ỹ)dỹ − (1 − y)
+.
+y(1 − k)
+(1 − ỹ)1−k
+1
+
+1
+
+(40)
+
+The limits of integration are chosen so that the boundary conditions at y = 1 are satisfied.
+Asymptotic (35) and equation (40) give the behavior
+y −1 (1 − y)2−k
+near y = 1.
+(41)
+r≃−
+2−k
+Clearly, r(1) = dr/dy(1) = 0. Also, r is bounded at infinity since z is, for the constraint
+(27c) requires k dr/dy(∞) − 2 dz/dy(∞) = 0. Therefore, (37) and (40) for k ∈ K is a
+solution of perturbation equations (27) with boundary conditions (28), and the region K is
+the perturbation spectrum, which turns out to be continuous.
+9
+
+V. CONCLUSION
+
+We have perturbed the continuously self-similar critical solution of the gravitational
+collapse of a massless scalar field (Roberts solution), and solved the perturbation equations
+exactly. The perturbation spectrum was found to be not discrete, but continuous, and
+occupying the region of the complex plane
+v
+u
+
+u Re k (2 − Re k)
+1
+< Re k < 1, |Im k| > t
+,
+2
+1 − (2Re k)−1
+
+(42)
+
+which, according to [7], suggests non-universality of critical behavior for different ingoing
+wavepackets. The complex oscillatory modes might lead to decay of a continuously selfsimilar solution (4) into discrete self-similar choptuon observed in [1].
+The eigenvalues k approach sup Re k = 1, which corresponds to the mass-scaling exponent β = 1. This is different from the exponent β = 1/2 found in [10–12] using the
+self-similar solution.
+ACKNOWLEDGMENTS
+
+This research was supported by Natural Sciences and Engineering Research Council of
+Canada. I am grateful to D. N. Page for interest in this work and stimulating discussions.
+
+10
+
+REFERENCES
+[1] M. W. Choptuik, Phys. Rev. Lett. 70, 9 (1993).
+[2] A. M. Abrahams and C. R. Evans, Phys. Rev. Lett. 70, 2980 (1993).
+[3] C. R. Evans and J. S. Coleman, Phys. Rev. Lett. 72, 1782 (1994).
+[4] E. W. Hirschmann and D. M. Eardley, Phys. Rev. D51, 4198 (1995).
+[5] E. W. Hirschmann and D. M. Eardley, Phys. Rev. D52, 5850 (1995).
+[6] T. Koike, T. Hara, and S. Adachi, Phys. Rev. Lett. 74, 5170 (1995).
+[7] T. Hara, T. Koike, and S. Adachi, gr-qc/9607010, 1996.
+[8] D. Maison, Phys. Lett. B366, 82 (1996).
+[9] M. D. Roberts, Gen. Relativ. Gravit. 21, 907 (1989).
+[10] P. R. Brady, Class. Quant. Grav. 11, 1255 (1994).
+[11] Y. Oshiro, K. Nakamura, and A. Tomimatsu, Prog. Theor. Phys. 91, 1265 (1994).
+[12] A. Wang and H. P. de Oliveira, gr-qc/9608063, 1996.
+[13] H. Bateman and A. Erdélyi, Higher Transcendental Functions (McGraw-Hill, New York,
+1953).
+
+11
+
+FIGURES
+
+Im k
+3
+
+K
+
+2
+1
+
+Re k
+1
+
+0
+
+2
+
+-1
+-2
+-3
+
+K
+
+FIG. 1. Complex perturbation spectrum. Values of k to the left of the solid line are prohibited
+by the boundary conditions at infinity, to the right of the broken line by the initial conditions at
+y = 1. Values in the region of intersection (the shaded region K) are allowed, and constitute the
+perturbation spectrum.
+
+12
+
+

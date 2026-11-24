@@ -1,0 +1,7 @@
+review_large_l_table, mutation=table_digit, 2999 brackets read from /home/nathan/Source/negative-mass-raw/I104-rpi5/sweep_brackets.csv
+PASS RESULTS table row l=2: c r_*, c r_neg, l^2 r_*, l^2 r_neg mine c r_* = 9.115121702, c r_neg = 10.696285936, l^2 r_* = 9.1151217, l^2 r_neg = 10.6962859; flags (True, True, True, True)
+PASS RESULTS table row l=3: c r_*, c r_neg, l^2 r_*, l^2 r_neg mine c r_* = 8.789041270, c r_neg = 10.143518921, l^2 r_* = 7.9101371, l^2 r_neg = 9.1291670; flags (True, True, True, True)
+PASS RESULTS table row l=5: c r_*, c r_neg, l^2 r_*, l^2 r_neg mine c r_* = 8.604503309, c r_neg = 9.833909912, l^2 r_* = 7.6825922, l^2 r_neg = 8.7802767; flags (True, True, True, True)
+PASS RESULTS table row l=10: c r_*, c r_neg, l^2 r_*, l^2 r_neg mine c r_* = 8.517778972, c r_neg = 9.689315919, l^2 r_* = 7.8868324, l^2 r_neg = 8.9715888; flags (True, True, True, True)
+FAIL RESULTS table row l=20: c r_*, c r_neg, l^2 r_*, l^2 r_neg mine c r_* = 8.494079311, c r_neg = 9.649909251, l^2 r_* = 8.1283056, l^2 r_neg = 9.2343629; flags (False, True, True, True)
+STOP first failure under mutation: RESULTS table row l=20: c r_*, c r_neg, l^2 r_*, l^2 r_neg

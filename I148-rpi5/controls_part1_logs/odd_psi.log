@@ -1,0 +1,17 @@
+# zerilli_certificate: certificate of the Zerilli forward direction (part=odd, L=symbolic, order=2)
+# mutations on: odd_psi
+PASS PL.0c
+# [   0.1 s] PL.0c
+PASS PL.0d
+# [   0.6 s] PL.0d
+PASS PL.D.1
+# [   0.6 s] PL.D.1
+PASS PL.O.1
+# [   2.6 s] PL.O.1 equations
+# odd radial equations (jets h_n):
+#   tphi: (L*h0_0*r - 4*M*h0_0 + 2*M*h0_2*r**2 - 4*M*h1_0*r*s - 2*M*h1_1*r**2*s - h0_2*r**3 + 2*h1_0*r**2*s + h1_1*r**3*s)/(2*r**3)
+#   rphi: (-2*L*M*h1_0 + L*h1_0*r + 4*M*h1_0 + 2*h0_0*r**2*s - h0_1*r**3*s + h1_0*r**3*s**2 - 2*h1_0*r)/(2*r**2*(-2*M + r))
+#   xphi: (-4*M**2*h1_0 + 4*M**2*h1_1*r + 2*M*h1_0*r - 4*M*h1_1*r**2 - h0_0*r**3*s + h1_1*r**3)/(r**2*(-2*M + r))
+# odd attempt O1: no solution (0.1 s)
+FAIL PL.O.2: no certificate for the odd target with k <= 2: the target is not in the span
+# planted check failed: stop before any real data

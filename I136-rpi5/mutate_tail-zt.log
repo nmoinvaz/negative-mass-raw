@@ -1,0 +1,19 @@
+review_he_type3_count.py  mutation: tail-zt  bits: 160
+check tail:le
+  with e = e^-z, cosh = (1 + e^2)/(2e), sinh = (1 - e^2)/(2e): phi - v phih, A' + tau alphah, B' - tau z betah (exact) = [0, 0, 0]
+  P(v phih, -tau alphah, tau z betah) = (tau z)^9 S(1/z, tau, phih, alphah, betah) at 5 random rational points (exact): 0 mismatches
+  z >= 4: e <= 0.01832, tau <= 3.255e+5, phih in [5.9211668e-6, 1.0], betah in [-162808.39, 1.0]
+  S = P/(tau z)^9 over 64 cells of s = 1/z in (0, 1/4]: smallest lower bound -6.274546e+47 (leading term 4 v^3 = 0.5); 0.8 s
+  y = tau (z betah + alphah) > 0: betah, alphah lower bounds -162808.0, 3.77382e-11 -> False
+  the enclosure of S contains the true S (mpmath, 120 digits) at z = 1, 2, 3, 5 times 4: 0 misses
+  -> FAIL (3 s)
+check tail:rodal
+  with e = e^-z, cosh = (1 + e^2)/(2e), sinh = (1 - e^2)/(2e): phi - v phih, A' + tau alphah, B' - tau z betah (exact) = [0, 0, 0]
+  P(v phih, -tau alphah, tau z betah) = (tau z)^9 S(1/z, tau, phih, alphah, betah) at 5 random rational points (exact): 0 mismatches
+  z >= 4: e <= 0.01832, tau <= 1.724e+16, phih in [2.2353339e-16, 1.0], betah in [-4.3126778e+15, 1.0]
+  S = P/(tau z)^9 over 64 cells of s = 1/z in (0, 1/4]: smallest lower bound -1.3198547e+143 (leading term 4 v^3 = 4.0); 0.8 s
+  y = tau (z betah + alphah) > 0: betah, alphah lower bounds -4.31268e+15, 5.37838e-32 -> False
+  the enclosure of S contains the true S (mpmath, 120 digits) at z = 1, 2, 3, 5 times 4: 0 misses
+  -> FAIL (1 s)
+
+summary: 2 checks run, 2 failed ['tail:le', 'tail:rodal'], 4 s

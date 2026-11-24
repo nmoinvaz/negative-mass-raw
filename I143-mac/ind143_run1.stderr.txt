@@ -1,0 +1,33 @@
+Traceback (most recent call last):
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/r143/ind143_run1.py", line 262, in <module>
+    oki, mi = member(base, JET['H0', 0] - JET['H2', 0], used, field, pt, f"l = {l} (i) H0 - H2")
+              ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/r143/ind143_run1.py", line 235, in member
+    c = S.lu_solve(rhs)
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/sympy/polys/matrices/domainmatrix.py", line 3370, in lu_solve
+    sol = self.rep.lu_solve(rhs.rep)
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/sympy/polys/matrices/ddm.py", line 1112, in lu_solve
+    a._check(a, 'lu_solve', b, m, m2)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/sympy/polys/matrices/ddm.py", line 662, in _check
+    raise DMDomainError(msg)
+sympy.polys.matrices.exceptions.DMDomainError: Domain mismatch: ZZ(r,s,M) lu_solve ZZ
+       54.59 real        54.34 user         0.13 sys
+           103235584  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                6710  page reclaims
+                 590  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   1  signals received
+                 580  voluntary context switches
+                3121  involuntary context switches
+            30373680  instructions retired
+            15376363  cycles elapsed
+             1393024  peak memory footprint
+exit 1

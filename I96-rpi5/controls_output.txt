@@ -1,0 +1,27 @@
+######## sector_numbers.py --mutate=cut
+  [FAIL] recount sigma R = 8: 52 differ, first: ['m=0.5 cut: log 0.1045 recount 0.0939', 'm=0.5 asym: log 2.7e-09 recount 3.2e-09', 'm=0.5 lo: log 0.1045 recount 0.0939']
+  [FAIL] recount sigma R = 16: 53 differ, first: ['m=0.5 cut: log 0.1128 recount 0.1031', 'm=0.5 asym: log 5.3e-10 recount 7.9e-10', 'm=0.5 lo: log 0.1128 recount 0.1031']
+  [FAIL] R1b sigma R = 8: sectors where the log's A window count or symmetry differs from the recount: ['0.5', '1.5', '2.5', '3.5', '4.5', '5.5', '6.5', '7.5', '8.5', '9.5', '10.5']; of them reproduce
+  [FAIL] R1b sigma R = 16: sectors where the log's A window count or symmetry differs from the recount: ['0.5', '1.5', '2.5', '3.5', '4.5', '5.5', '6.5', '7.5', '8.5', '9.5', '10.5']; of them reproduc
+  [PASS] ab sigma R = 8: largest relative |A - B| 6.5e-10 at m = 10.5 (limit 1e-6); rho_A 0.2995108013, rho_B 0.2995108013, |A - B| 1.38e-11
+  [PASS] ab sigma R = 16: largest relative |A - B| 5.3e-09 at m = 10.5 (limit 1e-6); rho_A 0.2250833008, rho_B 0.2250833006, |A - B| 1.46e-10
+FAILED: recount sigma R = 8, recount sigma R = 16, R1b sigma R = 8, R1b sigma R = 16
+exit 1
+######## sector_numbers.py --mutate=real
+  [FAIL] recount sigma R = 8: 36 differ, first: ['m=0.5 raA: log 88 recount 112', 'm=0.5 raB: log 92 recount 102', 'm=0.5 big: log 7.8e-04 recount 8.8e-04']
+  [FAIL] recount sigma R = 16: 33 differ, first: ['m=0.5 raA: log 76 recount 84', 'm=0.5 raB: log 74 recount 78', 'm=0.5 big: log 5.1e-04 recount 7.0e-04']
+  [PASS] R1b sigma R = 8: sectors where the log's A window count or symmetry differs from the recount: ['3.5', '7.5']; of them reproduced without the cut's eigenvalues: 2; np.abs(array) - abs(scalar) 
+  [PASS] R1b sigma R = 16: sectors where the log's A window count or symmetry differs from the recount: none; of them reproduced without the cut's eigenvalues: 0; np.abs(array) - abs(scalar) at the cu
+  [PASS] ab sigma R = 8: largest relative |A - B| 6.5e-10 at m = 10.5 (limit 1e-6); rho_A 0.2995108013, rho_B 0.2995108013, |A - B| 1.38e-11
+  [PASS] ab sigma R = 16: largest relative |A - B| 5.3e-09 at m = 10.5 (limit 1e-6); rho_A 0.2250833008, rho_B 0.2250833006, |A - B| 1.46e-10
+FAILED: recount sigma R = 8, recount sigma R = 16
+exit 1
+######## sector_numbers.py --mutate=ab
+  [FAIL] recount sigma R = 8: 19 differ, first: ['m=0.5 B: log 0.29951080 recount 0.29951140', 'm=1.5 B: log 0.25250969 recount 0.25251020', 'm=2.5 B: log 0.21707943 recount 0.21707986']
+  [FAIL] recount sigma R = 16: 11 differ, first: ['m=0.5 B: log 0.22508330 recount 0.22508375', 'm=1.5 B: log 0.20079010 recount 0.20079050', 'm=2.5 B: log 0.18081171 recount 0.18081207']
+  [FAIL] R1b sigma R = 8: sectors where the log's A window count or symmetry differs from the recount: ['3.5', '7.5', '10.5']; of them reproduced without the cut's eigenvalues: 2; np.abs(array) - abs(
+  [PASS] R1b sigma R = 16: sectors where the log's A window count or symmetry differs from the recount: none; of them reproduced without the cut's eigenvalues: 0; np.abs(array) - abs(scalar) at the cu
+  [FAIL] ab sigma R = 8: largest relative |A - B| 2.0e-06 at m = 1.5 (limit 1e-6); rho_A 0.2995108013, rho_B 0.2995114003, |A - B| 5.99e-07
+  [FAIL] ab sigma R = 16: largest relative |A - B| 2.0e-06 at m = 1.5 (limit 1e-6); rho_A 0.2250833008, rho_B 0.2250837508, |A - B| 4.50e-07
+FAILED: recount sigma R = 8, recount sigma R = 16, R1b sigma R = 8, ab sigma R = 8, ab sigma R = 16
+exit 1

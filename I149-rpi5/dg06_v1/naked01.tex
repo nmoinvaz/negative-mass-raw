@@ -1,0 +1,934 @@
+\documentclass[12pt,aps,floats,showpacs,amssymb,tightenlines]{revtex4}
+
+
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amscd}
+\usepackage{epsfig}
+\usepackage{amssymb}
+\usepackage{tabularx}
+
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\newcommand{\g}{\gamma}
+\newcommand{\e}{\epsilon}
+\newcommand{\m}{\mu}
+\renewcommand{\d}{\delta}
+\newcommand{\w}{\omega}
+\renewcommand{\t}{\tau}
+\newcommand{\p}{\wedge}
+\newcommand{\A}{\bar{A}}
+\newcommand{\R}{{\cal{R}}}
+\newcommand{\s}{ Schwarzschild }
+
+
+\begin{document}
+
+\title{Instability of the negative mass Schwarzschild naked singularity}
+\author{Reinaldo J. Gleiser and Gustavo Dotti}
+\affiliation{Facultad de Matem\'atica, Astronom\'{\i}a y F\'{\i}sica,
+Universidad Nacional de C\'ordoba, Ciudad Universitaria,
+(5000) C\'ordoba, Argentina}
+\email{gdotti@famaf.unc.edu.ar}
+
+
+\begin{abstract}
+We study the negative mass  Schwarzschild spacetime, which has a
+naked singularity, and show that it is perturbatively unstable. This
+is achieved by first introducing a modification of the well known Regge - Wheeler - Zerilli approach to black hole perturbations to allow for the presence of a ``kinematic'' singularity that arises for negative masses, and then exhibiting exact exponentially growing  solutions to the
+linearized Einstein's equations. The perturbations are smooth everywhere and behave nicely around the
+singularity and at infinity. In particular, the first order variation of the
+scalar invariants can be made everywhere arbitrarily small as compared to the zeroth order terms.
+Our approach is also compared to a recent analysis that leads to a different conclusion regarding the stability of the negative mass  Schwarzschild spacetime. We also comment on the relevance of our results to the stability of more general negative mass, nakedly singular spacetimes.
+\end{abstract}
+\pacs{04.50.+h,04.20.-q,04.70.-s, 04.30.-w}
+
+
+\maketitle
+
+
+
+
+\noindent
+\section{Introduction: the negative mass Schwarzschild solution}
+
+The positive mass theorems of general relativity establish that, under plausible assumptions,
+asymptotically flat solutions of the Einstein equations with physically acceptable matter sources
+cannot have negative total mass. Another well known feature of general relativity, compatible with
+the positivity theorems, is the possibility of the presence, or eventual formation, of singularities
+ in the spacetime manifold. However, in the most relevant examples where this happens, the singularity
+ is surrounded by a horizon, so that it is unobservable to an observer outside the horizon. That this
+ should happen generically in all physically relevant situations is the essential content of the versions
+ of the Cosmic Censorship hypothesis. On the other hand, from a strictly mathematical point of view,
+ there is plenty of solutions of the Einstein equations that are asymptotically flat and present a
+  negative total mass, but, in general, they are also nakedly singular, which would make them physically
+   unacceptable. A simple and particularly interesting example of this type of solutions is the
+   negative mass Schwarzschild spacetime. Nevertheless, for different reasons, these solutions
+   are not expected to arise from physically acceptable regular initial data. One should notice,
+   however, that what is physically acceptable may change as more data is available. What we
+   have in mind here is the recent suggestion of the existence of ``phantom matter", that is some
+   field that carries {\em negative kinetic energy}, as a possible explanation for the observed
+    acceleration of the scale factor of the Universe \cite{pm}.
+
+A different, but equally important consideration regarding negative masses is the manner
+in which they interact with positive masses. This gives rise to different types of
+instabilities that have been analyzed in the literature. We refer to \cite{ghi} for a
+recent review. It is rather remarkable, however, that until recently \cite{ghi}, the stability
+of the negative mass Schwarzschild solution, that, in a loose sense, may be considered as representing
+the field of an isolated negative mass source, had not been considered in the literature, although the
+ essential machinery for this analysis, at least at the linear level, had been available for some time.
+ The analysis carried out in \cite{ghi} leads to the conclusion that if certain boundary conditions,
+ assumed suitable for the problem, are imposed, the negative mass Schwarzschild singularity should be considered as
+ stable under linear perturbations. However, as discussed in Section \ref{ns}, the resulting solutions of Zerilli's equation, that are used to prove stability in
+ \cite{ghi}, are only twice differentiable functions  of the radial coordinate. As a consequence, the
+ perturbed metrics fail to be solutions of the vacuum of Einstein's equations, and they
+ actually satisfy the field equations of a singular distribution of sources, unrelated to the negative mass Schwarzschild singularity.
+  Given this situation, we undertake in this paper
+ a new analysis of the linear stability of the negative mass Schwarzschild solution. This is based on
+ a modification of the standard Regge-Wheeler-Zerilli formalism (reviewed in Section \ref{rw})
+  that simplifies and makes more
+ transparent the analysis of the perturbative equations for negative mass. This is given in Section
+ \ref{rwzg}.
+  Next, we consider the existence of ``zero modes'', i.e., static solutions of the perturbation equations.
+   We give the general solution, that for each mode depends on two integration constants, and prove that
+    there is no choice of these constants such that the solution can be considered as a ``small"
+    perturbation. We give also a physical interpretation for these solutions that supports our
+    conclusions. In Section \ref{us}, based on this modified form of the formalism, and this is the
+     main result presented in this paper, we prove that under quite general boundary conditions,
+      {\em all} scalar perturbative modes are unstable. Concurrently in the Appendix, we prove
+      that our main perturbation equation, that replaces the Sch\"odinger like equation for the
+      standard Zerilli function, has the remarkable property that {\em all} its solution are
+      regular at the ``kinematic'' singularity that appears in the Regge-Wheeler-Zerilli formalism
+       for negative mass. Our results and possible consequences are finally summarized in Section \ref{cc}.
+
+
+
+
+
+\section{Perturbation equations for the spherically symmetric Schwarzschild solution.} \label{rw}
+
+The vacuum solution of Einstein's equations for the exterior of a bounded spherically symmetric source,
+first obtained by Schwarzschild, may be written in the form,
+\begin{equation}
+\label{Schw1}
+ds^2 =  -\left(1-\frac{2 M}{r}\right) dt^2 +
+ \left(1-\frac{2 M}{r}\right)^{-1} dr^2   +r^2 \left( d \theta^2 +  \sin^2(\theta)
+d \phi^2 \right)
+\end{equation}
+where $\theta$ and $\phi$ are standard coordinates on the unit sphere, and $M$ is a real
+(positive or negative) constant, that can be identified with the Newtonian mass of the source.
+The range of $r$ is limited by the singularities of the metric coefficients in (\ref{Schw1}).
+ For $M>0$ the singularity at $r=2M$ corresponds to a regular horizon, and the solution may be
+extended to $r<2M$. The resulting space time is known as a ``black
+hole''. The horizon hides
+  a curvature singularity for $r=0$, rendering the portion of space time outside the horizon
+  globally hyperbolic. Similarly, for negative mass ($M<0$) there is a singularity for $r=0$,
+   but in this case there is no horizon, the singularity is ``naked'', and the resulting space
+    time is not gobally hyperbolic.
+
+The rather strange properties of the spacetime described by
+(\ref{Schw1}) led to question the possibility of their physical
+realization. Since the solution (at least for $r>2M$) is static, a
+first step in this direction, carried out by Regge and Wheeler \cite{RW}, and
+completed later by Zerilli \cite{Zerilli}, was aimed at establishing their
+stability, through an analysis of the behavior of linear
+perturbations. The Einstein equations lead in this case to a set of
+coupled linear partial differential equations for the functions
+representing the perturbations. Because of the spherical symmetry of
+(\ref{Schw1}) this functions may be grouped into ``even'' (or
+scalar) and ``odd'' (or vector) sets that do not couple to each
+other, and are characterized by their dependence on the angular
+coordinates $(\theta,\phi)$. Still, the resulting perturbative
+equations contain, in general, some redundant information that can
+be eliminated through a choice of ``gauge''.
+A particular choice, that keeps full generality, was selected in
+\cite{RW}, \cite{Zerilli} and is known as the ''Regge-Wheeler gauge''. Independently of the gauge issue, the stability of the Schwarzschild space time, well known for $M>0$, was also established for $M<0$ in \cite{ghi}. For this reason we shall restrict our analysis to the scalar
+perturbations.  In the Regge-Wheeler gauge, the scalar (even)
+perturbations, for each angular mode $(\ell,m)$,  are fully
+described by  four functions $H_0(r,t)$, $H_1(r,t)$, $H_2(r,t)$ and
+$K(r,t)$, in terms of which the perturbed metric takes the form,
+\begin{eqnarray}
+\label{RW1}
+ds^2 & = & -\left(1-\frac{2M}{r}\right)\left(1- \e H_0 Y_{\ell,m}\right)dt^2 +
+2 \: \e \;  H_1 Y_{\ell,m} dt dr+\left(1-\frac{2M}{r}\right)^{-1}\left(1+ \e H_2 Y_{\ell,m}\right)dr^2
+\nonumber \\
+& & +r^2\left(1+ \e K\, Y_{\ell,m}\right) \left( d \theta^2 +  \sin^2(\theta)
+d \phi^2 \right)
+\end{eqnarray}
+where $\epsilon$ is an auxiliary parameter, useful in keeping track of the order of the perturbation.
+$Y_{\ell,m}=  Y_{\ell,m}(\theta,\phi)$ are standard spherical
+harmonics on the sphere, and, on account of the spherical symmetry, we may restrict to $m=0$ without loss of generality. The linearized Einstein equations for the
+metric (\ref{RW1}) imply $H_0(r,t)=H_2(r,t)$, and a set of coupled
+differential equations for $H_1$, $H_2$ and $K$. This can be solved
+in terms of the Zerilli function $\psi_Z(r,t)$, by the replacements,
+\begin{eqnarray}
+\label{RW2}
+K & = & f(r) \psi_Z+\left(1-\frac{2M}{r}\right)\frac{\partial \psi_Z}{\partial r} \nonumber \\
+H_1 & = & h(r)\frac{\partial \psi_Z}{\partial t}+r\frac{\partial^2 \psi_Z}{\partial t \partial r}
+ \nonumber \\
+H_2 & = & \frac{\partial }{\partial r}\left[\left(1-\frac{2M}{r}\right)\left(h(r) \psi_Z
++r\frac{\partial \psi_Z}{ \partial r} \right)\right] -K
+\end{eqnarray}
+where,
+\begin{eqnarray}
+\label{RW2a}
+f(r) & = &  \frac{\lambda(\lambda+1)r^2+3 \lambda M r + 6 M^2}{r^2(\lambda r + 3 M)}\nonumber \\
+h(r) & = &  \frac{\lambda r^2 - 3 \lambda r M -3 M^2}{(r-2M)(\lambda r + 3M)}\nonumber \\
+\lambda & = &  \frac{(\ell-1)(\ell+2)}{2}
+\end{eqnarray}
+provided $\psi_Z$ is a solution of the Zerilli equation,
+\begin{equation}
+\label{RW3}
+\frac{\partial^2 \psi_Z}{\partial t^2}-\frac{\partial^2 \psi_Z}{\partial r_*^2} +V(r) \psi_z = 0
+\end{equation}
+where,
+\begin{equation}
+\label{poten1}
+V(r) = 2 \left(1 -\frac{2 M}{ r}\right) {\frac{ \lambda^2 r^2
+\left[(\lambda+1) r + 3 M \right] + 9 M^2 (\lambda r +M)}{ r^3
+(\lambda r + 3 M)^2} } ,
+\end{equation}
+and $r_*$ is the ``tortoise'' coordinate, related to $r$ by,
+\begin{equation}
+\label{RW4}
+\frac{dr_*}{dr}=\left(1-\frac{2M}{r}\right)^{-1}
+\end{equation}
+
+In what follows, for simplicity, we choose the integration constant relating $r$ and $r_*$ such that,
+\begin{equation}
+\label{RW4a}
+r_* = r +2 M \left[\ln (r-2M) -\ln(2|M|)\right]
+\end{equation}
+Therefore, for $M<0$, we have $ r_*=0$ for $r=0$.
+
+We notice that the relations (\ref{RW2}) can be inverted, giving,
+\begin{equation}
+\label{RW3a}
+\psi_Z(r,t)  = \frac {r (r-2M)}{ ( \lambda+1 )  ( \lambda
+\,r+3\,M ) } \left(H_2
+ - r  \frac {\partial K}{\partial r}
+\right)
+    +\frac{r}{\lambda+1} K
+\end{equation}
+Therefore, there is a one to one correspondence between $\psi_Z$ and
+the Regge-Wheeler gauge functions, $H_0$, $H_1$, $H_2$ and $K$.\\
+
+For the stability analysis one considers a time dependence of the form,
+\begin{equation}
+\label{psitopsi1}
+\psi_Z(t,r)=e^{i \omega t} \psi(r)
+\end{equation}
+which turns (\ref{RW3}) into the Schr\"odinger-like form,
+\begin{equation}
+\label{RW3b}
+ -\frac{d^2 \psi}{d r_*^2} +V(r) \psi = \omega^2  \psi
+\end{equation}
+Very loosely speaking, stability is attained if (\ref{RW3b}) has no solutions with {\em negative}
+ $\omega^2$. More rigorously, this statement must be supplemented with the imposition of appropriate
+ boundary conditions on $\psi(r)$. The resulting boundary value problem for $M > 0$ turns out to be
+  quite different from that for $M<0$.
+
+The case $M >0$ has been considered in detail in the literature
+(see, e.g. \cite{chandra}). In this case we have $-\infty < r_* <
++\infty$ and $V(r)$ is positive definite in this range. Then,
+ imposing boundary conditions that imply that the perturbed space time remains asymptotically flat,
+  with a regular horizon, it can be shown that (\ref{RW3b})is turned into a self adjoint boundary
+  value problem, that admits only solutions with $\omega^2 >0$, and, therefore, the spacetime is
+  linearly stable.
+
+For $M<0$ the problem is quite different. First, we have $0 \leq r_* < +\infty$.
+ Second, as can be seen from (\ref{poten1}), $V(r)$ is singular for $r=r_*=0$,
+ and for $\lambda r = -3 M$. Finally, since $r=0$ corresponds to a singularity,
+ it is not at all clear what boundary conditions are physically adequate
+ for $r_*=0$. An attempt at an appropriate formulation of the problem was recently
+ given in \cite{ghi}. Unfortunately, for reasons explained below in Section \ref{ns}, we consider
+ that there are some serious difficulties in that analysis that make their conclusions invalid.
+
+\section{A modified Regge-Wheeler-Zerilli formalism}
+\label{rwzg}
+
+In view of the difficulties indicated in the previous Section, we present here a modification
+of the Regge-Wheeler-Zerilli formalism that, as we shall show, allows for a simple analysis of
+ the stability problem for $M<0$, with the intriguing result that these solutions are unstable
+ under arbitrarily small perturbations.  Following \cite{ghi}, we define $\mu = -2M$, but consider,
+ instead of $\psi$, the function,
+\begin{equation}
+\label{AppB1}
+\zeta(t,r)= (2\lambda r -3 \mu ) \psi(r,t).
+\end{equation}
+which is also simply related to $H_0$, $H_1$, $H_2$, and $K$, and shares its uniqueness and gauge
+ invariance properties.
+
+ { } From (\ref{RW3}) we easily find that $\zeta$ satisfies the equation,
+ \begin{eqnarray}
+\label{RW17}
+ {\frac {\partial ^{2} \zeta}{\partial {t}^{2}}} & = &
+{\frac {   \left( r+\mu \right) ^{2}}{{r}^{2}}}\left( {\frac
+{\partial^{2} \zeta}{\partial {r}^{2}}}  \right)   \nonumber \\ & &
+-{\frac {\left( 4\lambda {r}^{2}+ 6 \lambda \mu r-3{\mu}^{2} \right)
+\left( r+\mu
+ \right)  }{{r}^
+{3} \left( 2 \lambda r-3\mu \right) }}{\frac {\partial
+\zeta}{\partial r}} -{\frac {
+ \left( r+\mu \right)  \left( 3{\mu}^{2}- 6 \lambda \mu r+4 \lambda^2 {r}^{2}
+ \right) }{{r}^{4} \left( 2 \lambda \,r-3\,\mu \right) }}\zeta
+\end{eqnarray}
+Since the coefficients in (\ref{RW17}) depend only on $r$, we may separate variables by
+setting $\zeta(t,r)=\exp(i \omega t) \chi(r)$, which gives
+\begin{eqnarray}
+\label{AppB2}
+{\frac {d^2 \chi}{d{r}^{2}}} & = &
+ {\frac { \left(
+4 \lambda {r}^{2}+6  \lambda r\mu -3{\mu}^{2} \right)  }{
+ \left( 2  \lambda  r-3\mu \right)  \left( r+\mu
+ \right) r}}{\frac {d \chi}{dr}} \nonumber \\ & &
++\left[{\frac { \left( 4{\lambda}^{2}{r}^{2}-6 \lambda
+r\mu+3{\mu}^{2} \right)
+  }{ \left( 2  \lambda  r-3\mu \right)
+ \left( r+\mu \right) {r}^{2}}}  -\frac{r^2}{(r+\mu)^2}\omega^2 \right]{\chi}
+\end{eqnarray}
+This ODE, obviously, does not have the Schr\"odinger like form of
+(\ref{RW3b}). Moreover, the coefficients of $\chi$ and $d \chi/dr$
+are singular at $r=3 \mu /  (2 \lambda)$. However, the nature of
+this singularity is rather subtle, and, as shown in detail in the
+Appendix, it turns out that {\em all} solutions of (\ref{AppB2}) are
+regular around $2 \lambda r=3\mu $, {\em irrespective} of the
+boundary conditions for $r=0$ and $r=\infty$. In the next subsection
+ we consider the {\em zero modes} or time independent solutions, as an illustration of this
+ rather peculiar feature of (\ref{AppB2}).
+
+
+\section{Static solutions}
+
+
+Static solutions correspond to  $\omega=0$. In this case (\ref{AppB2}) is
+reduced to,
+\begin{equation}
+\label{AppB3}
+{\frac {d^2 \chi}{d{r}^{2}}}
+ -{\frac { \left(
+4 \lambda {r}^{2}+6  \lambda r\mu -3{\mu}^{2} \right)  }{
+ \left( 2  \lambda  r-3\mu \right)  \left( r+\mu
+ \right) r}}{\frac {d \chi}{dr}} -{\frac { \left( 4{\lambda}^{2}{r}^{2}-6
+\lambda  r\mu+3{\mu}^{2} \right)
+  }{ \left( 2  \lambda  r-3\mu \right)
+ \left( r+\mu \right) {r}^{2}}}{\chi} =0
+\end{equation}
+A straightforward computation shows that this equation has, in general, two independent solutions, one
+regular and the other with logarithmic divergences for $r=0$, and
+for $r=-\mu$.  The regular
+solution is a polynomial of order $\ell+2$, given by,
+\begin{equation}
+\label{AppB4}
+ Q(r)=\sum_{i=1}^{\ell +2} q_i r^i
+\end{equation}
+with
+\begin{equation}
+\label{AppB5}
+  q_{{i}}={\frac { \left( i-2 \right) \Gamma  \left( {\ell}+i-1 \right)  \left[  \left( i-4 \right)
+   {\ell}\, \left( {\ell}
++1 \right) +i-1 \right] } { 3\, \Gamma( {\ell}-i+3) {\mu}^{i -1}
+\left[ \Gamma( i )  \right] ^{2}}}
+\end{equation}
+The general solution of (\ref{AppB3}) may
+be written in the form,
+\begin{equation}
+\label{AppB6}
+\chi(r) = C_1 Q(r) + C_2 Q(r) \int_{C_3}^r{\frac{y (2
+\lambda y -3 \mu)}{(y+\mu)Q(y)^2} dy}
+\end{equation}
+where $C_1$, $C_2$ and $C_3$ are constants. Notice that this
+expression contains effectively only two arbitrary constants,
+because a change in $C_3$ amounts only to a change in $C_1$. We also remark that, since all solution
+of (\ref{AppB3}) are regular for $r \geq 0$, we must have $Q(r) > 0$ for $r>0$, for otherwise a zero
+ in $Q(r)$ would introduce singularities in $\chi$ through the integral term in (\ref{AppB6}), which must be absent in the general solution of (\ref{AppB3}).
+
+\subsection{Boundary conditions}
+
+Equations (\ref{AppB5},\ref{AppB6}) provide the general time
+independent solutions for the perturbative zero mode, but we still need to specify boundary conditions.
+The question is
+then if these solutions, perhaps for some particular choices of
+$C_1$ and $C_2$, are acceptable as perturbations of the negative mass
+Schwarzschild metric. As a possible criterion, we explore the change
+in a particular curvature invariant, which we choose
+ to be the Kretschmann invariant ${\cal{K}}$, given by,
+\begin{equation}
+\label{RW9} {\cal{K}} = R_{abcd} R^{abcd}
+\end{equation}
+where $R_{abcd}$ is the Riemann curvature tensor. Replacing
+(\ref{AppB5})-(\ref{AppB6}) in the appropriate expression for
+${\cal{K}}$, linearized to
+ first order in the perturbations, we find that, in the $r \simeq 0$
+ limit
+\begin{multline}
+\label{Kcerca} {\cal{K}} = \frac{12 \m^2}{r^6} - \epsilon \; C_2 \;
+\left[  \frac{36 \m^2}{r^7}  + {\cal O} \left( \frac{\ln(r) }{r^5}
+\right) \right] Y_{(\ell,m)}
+\\ - \epsilon \; C_1 \;\left[ \frac{\ell (\ell ^2-1) (\ell +1)
+(\ell+2)(\ell ^2+\ell +4)(\ell ^2+\ell-1)}{ 9 \; \m^2 r^3} + {\cal
+O} \left( \frac{1}{r^2} \right)\right] Y_{(\ell,m)}
+\end{multline}
+ We must set $C_2=0$ to ensure that the first order term
+does not grow faster than the zero order term as $r \to 0^{+}$. On
+the other hand, if we  compute ${\cal{K}}$ for large $r$,  we obtain
+\begin{multline}
+\label{Klejos} {\cal{K}} = \frac {12 \mu^2} {{r}^{6}} -  \; \epsilon
+\; C_1 \; \left[ \left( \frac{2 \; \Gamma (2 \ell +1)}{\mu^{\ell} \;
+\Gamma (\ell-1)^2} \right) r^{\ell-5} +  {\cal O} (r^{\ell-4})
+\right] \; Y_{(\ell,m)} \\
++ \epsilon \; C_2 \; \left[ \frac{K_{\ell}}{ r^{\ell+7}} +  {\cal O}
+\left( \frac{1}{r^{\ell+8}} \right) \right] \; Y_{(\ell,m)},
+\end{multline}
+where
+\begin{equation}
+K_{\ell} = \frac{3 \sqrt{\pi} \; \Gamma(\ell)  (3 \ell^2+5 \ell
++8)(\ell+1)(\ell+2) \;\m^{\ell +2}}{ 4^{\ell} \; \Gamma(\ell +1/2)
+(\ell-1)^2},
+\end{equation}
+then $C_1$ must also be set to zero in order to keep the
+perturbation smaller than the zero order term  at large $r$.
+ We must, therefore, conclude that there is
+no (non trivial) choice of $C_1$ and $C_2$ for which a static
+ perturbation will remain small in the entire range of $r$.\\
+
+
+
+
+
+\subsection{A comment on a particular solution} \label{ns}
+
+The $\ell = 2$ perturbation was studied in detail \cite{ghi}, where
+it was shown  that (\ref{AppB3}) has the property that an appropriate choice $q_o$ of
+ $q \equiv C_1/C_2$ in the general solution (\ref{AppB6}), gives a particular solution
+ $\chi_o$, that is regular in $0 < r < +\infty$, and such that near $ r = 3 \mu/4$,
+ the solution admits the expansion,
+\begin{equation}
+\label{RW15}
+ \chi_o(r) \simeq C_1 \left( \a \left( 4\,r-3\,\mu \right) ^{3}+ \b
+  \left( 4\,r-3\,\mu \right) ^{4}+ \dots \right)
+\end{equation}
+Then $\psi_o= \chi_o/( 4\,r-3\,\mu)$ satisfies $\psi_o=d\psi_o/dr=0$ for $r=3 \mu/4$, and one may construct a
+bounded static solution ($\w^2=0$) of  (\ref{RW3b})  by the prescription,
+\begin{equation} \label{nosol}
+\hat \psi_o (r) = \begin{cases} \psi_o(r) & , 0 \leq r < 4\m/3 \\
+0 & , r > 4\m/3 \end{cases}
+\end{equation}
+Departures of $C_1/C_2$ from $q_o$ in one particular direction would
+then introduce a negative $\w^2$ in the spectrum of (\ref{RW3b}),
+and thus an instability \cite{ghi}. We remark, however, that, although the
+matching (\ref{nosol}) provides a solution
+  of (\ref{RW3b}) for all $r > 0$, it is not a
+  solution of the linearized Einstein equations, with which we are concerned here.
+  The reason is that, in accordance with
+(\ref{RW3}), the linearized Einstein equations include up to fourth
+order $r-$derivatives of $\psi$, and   the second derivative of
+(\ref{nosol}) has a discontinuity at $r=3 \mu /4$.
+ Thus, inserting $\hat
+\psi_o(r)$ in
+ (\ref{RW3}) gives a perturbation that fails to be
+ a solution of the linearized vacuum equations, because of the presence of Dirac's deltas,
+  associated to the discontinuities of the higher derivatives. In
+  the notation of equations (2.18)-(2.19) in \cite{ghi}, the Einstein
+  tensor corresponding to (\ref{nosol})  has the following nontrivial
+  components:
+ \begin{eqnarray}
+ G_{rr} &=& \left( \frac{256 \; C_4}{63}\right)   \frac{Y_{(2,m)}(\theta,\phi)}{r^2} \;\delta ( \mu - 4r/3) \\
+G_{r \theta} &=& -\left( \frac{128 \; C_4}{63}\right)
+\frac{\partial Y_{(2,m)}(\theta,\phi)}{\partial \theta}
+\frac{1}{r^2} \;\delta ( \mu - 4r/3) \\
+G_{r \phi} &=& -\left( \frac{128 \; C_4}{63}\right) \frac{\partial
+Y_{(2,m)}(\theta,\phi)}{\partial \phi}
+\frac{1}{r^2} \;\delta ( \mu - 4r/3) \\
+G_{\theta \theta} &=& \left( \frac{128 \; C_4}{27}\right)\;
+Y_{(2,m)}(\theta,\phi) \left[ \delta ( \mu - 4r/3) - r \delta' ( \mu
+- 4r/3) \right] \\
+G_{\phi \phi} &=& \left( \frac{32 \; C_4}{27}\right)\;
+Y_{(2,m)}(\theta,\phi) \; sin^2(\theta) \;\left[ 3 \delta ( \mu -
+4r/3) - 4 r \delta' ( \mu - 4r/3) \right]
+\end{eqnarray}
+
+\subsection{A physical interpretation for the zero modes}
+
+Even though there are problems in interpreting the zero modes given
+by (\ref{AppB4})-(\ref{AppB6}) as
+ perturbations of the negative mass Schwarzschild metric, they are static solutions
+  of the linearized equations and, therefore, their physical interpretation is of interest.
+  One way in which the problem may be analyzed is to consider the Schwarzschild metric in
+   Weyl coordinates. The general form of the static axially symmetric vacuum metrics in Weyl
+   coordinates is,
+\begin{equation}
+\label{wey1}
+ds^2=-e^{2U} dt^2+ e^{2k-2U} d\rho^2+\rho^2 e^{-2U} d\phi^2 +e^{2k-2U} dz^2
+\end{equation}
+where $U=U(\rho,z)$, $k=k(\rho,z)$, and the Einstein equations imply,
+\begin{equation}
+\label{wey2}
+\frac{\partial^2 U}{\partial \rho^2} +\frac{1}{r}
+\frac{\partial U}{\partial \rho}+\frac{\partial^2 U}{\partial z^2}=0
+\end{equation}
+and,
+\begin{eqnarray}
+\label{wey3}
+ k,_{\rho} & = & \rho \left(U,_{\rho}\right)^2-  \rho \left(U,_{z}\right)^2 \nonumber \\
+k,_{z} & = & 2 \rho  U,_{\rho}U,_{z}
+\end{eqnarray}
+where a comma indicates partial derivative.
+It can be checked that (\ref{wey2}) is the integrability condition for the system (\ref{wey3}),
+so that $k$ is obtained by quadratures if $U$, satisfying (\ref{wey2}) is given. The latter is
+the Laplace equation in flat cylindrical coordinates and, as is well known, allows for the
+construction of static vacuum solutions of the Einstein equations by taking for $U$ different
+ solutions of the Laplace equation corresponding to localized sources. The Schwarzschild space
+ time is recovered by taking for $U$ the Newtonian potential corresponding to uniform line
+  source of finite length, centered at the origin, and laying along the z-axis. The explicit
+   forms for $U$ and $k$ in this case are,
+\begin{eqnarray}
+\label{wey4}
+U_S(\rho,z) & = & \frac{1}{2} \ln\left[\frac{\rho_+ +\rho_- -2M}{\rho_+ +\rho_- +2M}\right] \nonumber \\
+k_S(\rho,z)& = &  \frac{1}{2} \ln\left[\frac{(\rho_+ +\rho_-)^2-4M}{ 4 \rho_+ \rho_-}\right]
+\end{eqnarray}
+where $\rho_{\pm}=\sqrt{\rho^2+(z\pm M)^2}$. The constant $M$ is identified with the Schwarzschild
+mass and can be positive or negative. Suppose now that instead of $U_S$ we consider, e.g.,
+\begin{equation}
+\label{wey5}
+U(\rho,z) = U_S(\rho,z)+U_1(\rho,z;m)
+\end{equation}
+where $U_1(\rho,z;m)$ is a solution of (\ref{wey2}) that depends smoothly on a real parameter
+$m$ such that,
+\begin{equation}
+\label{wey6}
+ U_1(\rho,z;0)= 0
+\end{equation}
+This implies that $U(\rho,z)$ given (\ref{wey5}) satisfies also (\ref{wey2}) and can be used
+to construct static vacuum solutions of the Einstein equations. But, in accordance with
+(\ref{wey6}), these solutions, at least locally, can be made to approach the Schwarzschild
+metric arbitrarily closely, by taking $m$ small enough. This may fail, and in general it does,
+ when we approach the line source of $U_S$. This line source corresponds to the regular horizon
+ for $M>0$ and, therefore, a singularity in $U_1$ destroys that regularity, and $U_1$ cannot be
+  considered globally as a ``small" perturbation. Similarly, for $M<0$, the line source
+  corresponds to a naked singularity, and a singularity in $U_1$ may modify its structure,
+  and can make it even ``harder''. To illustrate this discusion we consider for $U_1$ the form,
+\begin{equation}
+\label{wey7}
+U_1(\rho,z;m) = \frac{m}{\sqrt{\rho^2+z^2}}
+\end{equation}
+This represents (in Weyl coordinates) a point source at the origin. The resulting equations
+ for the modified $k(\rho,z)$ may be solved explicitly, for any $m$, but we are only interested
+ in the change to order $m$. Actually what we are interested in is the form of the metric
+ in Schwarzschild, rather than Weyl coordinates. The coordinate change that accomplishes
+ this is well known (see, e.g. \cite{exactas}, for details). Performing it we find that
+ in Schwarzschild coordinates the modified metric, to first order in $m$, takes the form,
+\begin{eqnarray}
+\label{wey8}
+g_{tt} & = & -1+ {\frac {2M}{r}}-{\frac {2 m \left( r-2M \right) }{r
+\sqrt {{M}^{2} \cos^2 \theta   +{r}^{2}
+-2Mr}}}
+\nonumber \\
+g_{rr} & = & {\frac {r}{r-2 M}}+{\frac {2 mr \left( 2r-3M-2
+\sqrt { {M}^{2} \cos^2 \theta +{r}^{2}
+-2Mr} \right) }{ \left(r -2M\right) \sqrt { {M}^{2}\cos^2
+\theta    +{r}^{2}-2Mr}M}}
+\nonumber \\
+g_{\theta \theta} & = & {r}^{2}+{\frac {2 m {r}^{2} \left(2 r -3M-2\sqrt {
+ {M}^{2} \cos^2 \theta   +{r}^{2}-2Mr}
+ \right) }{M\sqrt {M^2  \cos^2  \theta +{r}^{2}-2Mr}}}
+\nonumber \\
+g_{\phi \phi} & = &  r^2 \sin^2  \theta -{\frac {2 m r^2
+  \sin^2  \theta  }{
+\sqrt { M^2 \cos^2 \theta +{r}^{2}
+-2Mr}}}
+\end{eqnarray}
+This metric may be expanded now in the Regge-Wheeler-Zerilli functions. For the metric
+in the form (\ref{wey8}), in the notation of \cite{RW}, the only non vanishing functions
+are $H_0$, $H_2$, $K$, and $G$, corresponding to even (scalar) perturbations for even $\ell$, as the result of the  symmetry of $U_1(\rho,z;m)$ under $ z \leftrightarrow -z$.
+This is not in the Regge-Wheeler gauge, but, from gauge invariance \cite{moncrief},
+the function $\psi(r,t)$ is in this case given by,
+\begin{eqnarray}
+\label{wey9}
+\psi(r,t) & = & \frac{1}{\lambda r+3M} \chi(r,t) \nonumber \\
+\chi(r,t) & = & \frac{2r \left(r -2M\right)}{\ell (\ell+1) }  \left( H_2   -r{
+\frac {\partial K}{\partial r}}   -{\frac { \left( r-
+3M \right) K  }{r-2M}} \right)  + {r}^{2}  \left( K   +
+ \left(r -2M \right) {\frac {\partial G}{\partial r}}    \right)
+\end{eqnarray}
+Going back to (\ref{wey8}), if we specialize to $\ell=2$, we find,
+\begin{eqnarray}
+\label{wey10}
+H_2 & = & {\frac {\sqrt {
+5 \pi } m \left( 2r-3M\right)  }{2{M}^{4}}} \left[  \left( 2\,{M}^{2}-6
+\,Mr+3\,{r}^{2} \right)  \ln  \left(1 -\frac{2M }{r}\right) +6\, \left( r-M \right) M \right]
+  \nonumber \\
+K & = &  {\frac {\sqrt {5 \pi } m }{4{M}^{4}}}\left[ \left( 3\,{r}^{
+3}-15\,{r}^{2}M+16\,r{M}^{2}-2\,{M}^{3} \right)   \ln  \left(1 - \frac{2M}{r}
+\right) -24\,r{M}^{2}+10\,{M}^{
+3}+6\,{r}^{2}M \right]
+\nonumber \\
+G & = & {\frac {\sqrt {5 \pi }m}{12{M}^{4}}} \left[ 3 \left(M- r
+ \right)  \left( 2{M}^{2}-2Mr+{r}^{2} \right)  \ln
+ \left(1 -\frac{2M}{r} \right)
++2 M \left(6 r M -7 M^2 -3 r^2 \right)
+  \right]
+\end{eqnarray}
+and the corresponding expression for $\chi(r)$ results,
+\begin{equation}
+\label{wey11}
+\chi= {\frac {  \sqrt {5 \pi } m r }{6{\mu}^{3}}}\left[ 3 \left( 4{r}^{3}-6{r}^{2}\mu+3{\mu}^{3}
+ \right)   \ln  \left( 1+\frac{\mu}{r}
+ \right)  -12\mu {r}^{2}+24\mu^2 r-13{\mu}^{3}
+ \right]
+\end{equation}
+which coincides with (\ref{AppB4})-(\ref{AppB6}) for  an appropriate
+choice of integration constants. Similar results hold for the other
+even values of $\ell$. Non vanishing contributions for odd $\ell$ may be
+ obtained starting from a different choice of $U_1(\rho,z;m)$ that
+ makes it odd under $z \longleftrightarrow -z$, with analogous results
+ regarding the corresponding zero modes. Therefore, the zero modes are the linearized
+expressions for the modifications that result in the Schwarzschild
+metric by the addition of different (static) multipoles. We stress
+again that these modifications approach only locally the
+Schwarzschild metric, because they modify non trivially the structure of its
+singularity. We shall add more comments on this feature in Section
+\ref{cc}.
+
+
+\section{Time dependent solutions}
+
+Going back to (\ref{AppB2}), we consider now the general, time dependent case, with
+ $\omega \neq 0$. We are interested in solutions that are regular in $0\leq r \leq \infty$.
+ Therefore, we need to consider the behavior of $\chi_1$ near the singular points
+  $r=0$, $r=3\mu/4$ and $r=\infty$. First we find that near $r=0$,
+  any solution of (\ref{AppB2}), for any $\omega$, is of the form,
+\begin{equation}
+\label{RW20}
+\chi_1(r) \simeq C_1 r + C_2 r \ln(r) + \dots
+\end{equation}
+where $C_1$ and $C_2$ are constants, and $\dots$ indicates terms that vanish faster
+for $r=0$. This implies that all solutions of (\ref{AppB2}) vanish for $r=0$, but,
+in general, $d \chi_1/dr$ diverges as $\ln(r)$. On account of our previous discussion
+regarding acceptability of the perturbations, this means that we need to impose the condition
+that this divergence is absent, and therefore, only the regular solution associated with $C_1$
+can be considered for the stability analysis. This fixes our boundary condition for $r=0$.
+
+Next, we have to consider the singularity for $r=3\mu/4$. Here, as already mentioned,
+and as shown in Appendix A, we have the rather surprising feature that {\em all}
+ solutions of (\ref{AppB2}) are analytic for $r=3\mu/4$, and, therefore, we need only
+ be concerned with the behavior of $\chi_1$ for large $r$, as no restriction is imposed
+ by the behavior at $r=3\mu/4$.
+
+The behavior at $r=\infty$ is also simple. For large $r$, the general solution of (\ref{AppB2})
+ is of the form
+\begin{equation}
+\label{RW21}
+ \chi_1(r) \simeq   \left( {C_3} r +\dots
+ \right) \exp(i r\sqrt{\omega^2})+  \left( C_4 r +\dots\right)
+\exp(-i r\sqrt {\omega^2})
+\end{equation}
+where $C_3$ and $C_4$ are constants, and, again, $(\dots)$ indicate
+sub leading terms \footnote{ Notice that the leading term in $r$ in
+(\ref{RW21}) can be traced to the
+ transformation (\ref{AppB1}), since, for any sign of $M$, the Zerilli equation for $\psi(t,r)$
+ approaches the one dimensional wave equation, and $\psi(t,r) \rightarrow \exp(i \omega t)$.}
+
+From the assumed time dependence,
+positive values for $\omega^2$ correspond to an oscillating, and
+therefore stable, behavior for the perturbations. The interesting
+range for instability is, therefore, $\omega^2 < 0$.
+ On account of (\ref{RW21}), the solutions for $\omega^2 < 0$ will
+grow unboundedly for large $r$, unless we can eliminate the exponentially divergent terms.
+  In the following section we analyze this problem in detail.
+
+\section{Unstable solutions} \label{us}
+
+Unstable modes, correspond to solutions of (\ref{AppB2}) with $\omega^2 =-k^2$, that
+ satisfy the regularity condition for $r=0$, and are exponentially decreasing for large $r$.
+  Therefore, finding these solutions  turns this equation into a boundary value problem,
+  determining the appropriate value or values of $k$, if they exist.
+
+As a first step, we considered a ``shooting'' approach, and, using a high precision
+numerical method, we found, for $\ell=2$, a numerical solution for $k \simeq 4/\mu$.
+Since this value was so close to an integer times $1/\mu$, we
+replaced $k = 4/\mu$, $\ell=2$ in (\ref{AppB2}), and found that indeed it has a rather
+simple solution for this value of $k$. Repeating the procedure for $\ell=3$, we found again
+a solution for $k=20/\mu$. This suggested the possibility that we could construct solutions
+ for {\em all} $\ell$, by a simple generalization of the results for $\ell=2$, and $\ell=3$.
+ This was effectively the case, and we found that,
+\begin{equation}
+\label{AppC3}
+ {\chi} ( r )  = r{e^{-kr}} \left( r+\mu \right) ^{k\mu}
+ \left[ {C_1}+{C_2}\,\int _{{C_3}}^{r}\!{\frac { \left( 2\,
+\lambda\,y-3\,\mu \right) ^{2}{e^{2\,ky}}}{ \left( y+\mu \right) ^{2\,
+k\mu+1}y}}{dy} \right]
+\end{equation}
+where $C_1$, $C_2$, and $C_3$ are arbitrary constants, is a solution of (\ref{AppB2}) with
+$\omega^2=-k^2$, provided  the constant $k$ is given by
+\begin{equation}
+\label{AppC4}
+ k = \frac{2\lambda (\lambda+1)}{3 \mu}=\frac{ (l-1) l (l+1) (l+2)} {6 \mu}
+\end{equation}
+and, therefore, $k\mu$ is an integer for all $\ell$. Notice that (\ref{AppC3}) effectively
+ contains only two arbitrary constants, because any change in $C_3$ can be compensated by a
+ corresponding change in $C_1$.
+
+It is easy to see that the integral in (\ref{AppC3}) contributes logarithmic divergences for
+ $r=0$, and an exponentially increasing factor for $r \rightarrow \infty$. Therefore if we
+ choose $C_2=0$, we find that
+\begin{equation}
+\label{AppC5}
+ {\zeta} ( t, r )  = C_1 r{e^{-kr}} \left( r+\mu \right) ^{k\mu}e^{kt}
+\end{equation}
+with $k$ given by (\ref{AppC4}), is a solution of (\ref{AppB2}), representing
+ the general expression for the regular, bounded, unstable modes.
+Moreover, this result implies that {\em all scalar modes (i.e. for all $\lambda$) of the Schwarzschild negative
+mass naked singularity are linearly unstable}.
+
+As a check of the consistency of our results, we replace (\ref{AppC5}) in (\ref{AppB1}),
+ and this in(\ref{RW2}), and obtain
+\begin{eqnarray}
+\label{RW24a}
+ K(t,r) & = & -\frac{ (\lambda + 1)(r+\mu)^{k \mu}}{3 \mu}\exp[k(t- r)]   \nonumber \\
+ H_1(r,t) & = & -H_2(t,r) = -\frac{\lambda (\lambda+1)
+   [2(\lambda+1) r+ 3 \mu] \; r  (r+\mu)^{k\mu -1}}{9 \mu^2}\exp[k(t- r)] \nonumber
+\end{eqnarray}
+which shows explicitly the regularity of the solution of the perturbative equations in the
+ range $0 \leq r < +\infty$. The perturbations of the curvature are also well behaved.
+Replacing in the Kretschmann scalar, we find that it is unchanged from the unperturbed value,
+to order $\epsilon$.
+Furthermore, a complete set of quadratic algebraic invariants of the
+Riemann tensor \cite{cm,zm} was computed to find  that they are all
+invariant to first order in $\epsilon$. However, we have found non
+trivial first order contributions to the  {\em differential}
+invariants
+\begin{eqnarray} \label{i1}
+R_{abcd;e} \; R^{abcd;e} &=& \frac{180 \mu^2 (r + \mu)}{r^9} - \e \;
+  \frac{ 5 \ell (\ell-1) (\ell+1)(\ell+2)}{r^8}  \;  Y_{\ell m}(\theta,\phi)\\
+\nonumber && \times  \left[ r \ell (\ell+1) + 3 \mu \right]
+  (r+\mu)^{k \mu} \;
+ \exp[k (t-r)]
+\end{eqnarray}
+and \begin{multline}
+ \label{i2}
+R_{abcd;ef} \; R^{abcd;ef} = \frac{90 \m^2 (65 \m^2 +120 \m r+56
+r^2)}{r^{12}} \\- 30 \e k \frac{(r+\mu)^{k \mu} \exp[k
+(t-r)]}{r^{11}} \; Q_{\ell}(r) \;Y_{\ell m}(\theta,\phi)
+\end{multline}
+\begin{multline}
+Q_{\ell}(r) = \left( {l}^{2} \left( l-1 \right)  \left( l+2 \right)
+\left( l+1 \right) ^{2 }{r}^{3}+3\,\mu\,l \left( l+1 \right)  \left(
+{l}^{2}+l+14 \right) {r} ^{2} \right. \\ \left.+ 3 \,{\mu}^{2}
+\left( 17\,{l}^{2}+17\,l+56 \right) r+180\,{\mu}^{3} \right)
+\end{multline}
+and we may expect non trivial contributions in some of the many other differential
+invariants. Note that, both for  (\ref{i1}) and (\ref{i2}),
+the ${\cal O} (\e)$ term  grows slower than the ${\cal O} (\e^0)$ term as
+$r \to 0^+$ limit, and also as $r \to \infty$.
+
+\section{Comments and conclusions} \label{cc}
+
+In this article we have shown that even if we only allow for the
+ most restrictive boundary conditions, both as $r \to 0^+ $ and $r \to \infty$, the
+ perturbation equations for the negative mass Schwarzschild metric contain,
+ for every angular mode, solutions that grow exponentially in time.
+ These solutions represent everywhere regular perturbations that can be
+ made initially globally arbitrarily small and, therefore, imply that
+ the metric is unstable at the perturbative level, for all angular modes.
+ An interesting technical point of our derivations was the introduction of
+a modification of the standard Regge-Wheeler-Zerilli method, that led to equation
+ (\ref{AppB2}) and its rather unusual properties.
+Our analysis of the zero modes indicates that rather than
+perturbations they should be considered as linearized approximations
+for exact static metrics that locally, but not globally approach the
+negative mass Schwarzschild metric. Although asymptotically flat,
+they actually contain a naked singularity where the curvature
+diverges even faster than for the Schwarzschild metric. From the
+perspective of the present analysis, these spacetimes should also be considered
+unstable, since, if they are considered as part of the unperturbed
+metric, one would be allowed to relax the boundary conditions at
+$r=0$, and as can be seen from the derivations in Section \ref{us}, this
+would lead to unstable solutions for {\em any} $k = \sqrt{-\omega^2} $. Our
+results also suggest that, even though the vector (linearized)
+perturbations have been shown to be stable \cite{ghi}, one would
+expect that these would also become unstable through the coupling to
+the scalar modes. Since vector modes are related to rotation, this
+again suggests that rotation would not make the singularity more
+stable, although going through this in detail would require higher
+order perturbation theory, or, perhaps, some application of the
+Teukolsky equation.
+
+Finally, there is an obvious implication of our results to the
+cosmic censorship conjecture, since the linear instability implies
+that the negative mass \s cannot be the final stage of
+an evolving spacetime.
+
+\appendix
+
+\section{Behavior of the ODE (\ref{AppB2}) around $r = (3 \mu)/(2 \lambda)$ }
+
+In this Appendix we give a brief analysis of the behavior of
+equation (\ref{AppB2}) near $r~=~3\mu/(2 \lambda)$. For this purpose
+it is simpler to change variables to $\rho=r-3\mu/(2 \lambda)$, so
+that the singularity is located at $\rho=0$. Replacing $\rho-$
+derivatives for $r-$ derivatives, (\ref{AppB2}) takes the form
+\begin{equation}\label{ed}
+ \frac {d^2\chi}{d\rho^2} +  \frac {Q(\rho)}{\rho}\frac {d
+\chi}{d\rho} +\frac {P(\rho)}{\rho}\chi = 0,
+\end{equation}
+where $Q$ and $P$ admit expansions
+\begin{equation}
+Q(\rho) = \sum_{k\geq 1} a_k \rho^{k-1} \hspace{2cm} P(\rho) =
+\sum_{k\geq 1} b_k \rho^{k-1}
+\end{equation}
+with $a_1 \neq 0$ and $b_1 \neq 0$. Equation (\ref{ed}) has, in general,
+two linearly independent solutions. Let us assume there is a solution
+which is analytic around $\rho=0$:
+\begin{equation}
+\chi(\rho) = \sum_{k\geq 0} c_k \rho^{k},
+\end{equation}
+then (\ref{ed}) reduces to
+\begin{equation} \label{super}
+s \left( s-1 + a_1\right) c_{{s}}+\sum _{l=0}^{s-1} \; c_{{l}} \;
+\left( l \; a_{{s+1-l}} +  b_{{s-l}} \right)  = 0 , \;\; s=1,2,3,...
+\end{equation}
+There are different possibilities:\\
+{\bf \em (A) $a_1$ is not a negative integer:} in this case
+(\ref{super}) can be solved iteratively (solve the $s=1$ equation,
+then the $s=2$ one, etc) starting from an arbitrary $c_0$ value.
+This gives one solution
+of (\ref{ed}) which is analytic around $\rho=0$.\\
+{\bf \em (B) $a_1$ is  a negative integer:} let $a_1=1-s_o$. The $s
+\leq s_o$ equations (\ref{super}) constitute a system of $s_o$
+homogeneous linear equations on $s_o$ unknowns ($c_0$ through
+$c_{s_o-1}$). Then, we have two separate cases depending on whether
+the determinant of the system vanishes or not.
+
+  {\bf (case {\em B.1})} If the determinant of
+this system is nonzero, the only solution
+ is $c_0=c_1=\dots=c_{s_o-1}=0$. The $s
+> s_o$ equations are then solved iteratively starting from an
+arbitrary $c_{s_o}$ value. Again, this gives one solution of
+(\ref{ed}) which is analytic around $\rho=0$ (moreover, $\chi =
+{\cal O} (\rho^{s_o})$).
+
+{\bf case {\em B.2}} If the
+above mentioned determinant is zero, the $s_o$ equation will be
+consistent with the previous ones, and will add no information.
+$c_{s_o}$ can be given an arbitrary value and the remaining ($s
+> s_o$) equations solved iteratively in terms of the {\em two}
+arbitrary parameters $c_0$ and $c_{s_o}$.\\
+
+Thus, generically, in case $B.1$, (\ref{ed}) admits only one solution analytic
+around $\rho=0$. However, in the special case $B.2$ {\em both}
+solutions of (\ref{ed}) are analytic around $\rho=0$. \\
+If we expand
+(\ref{AppB2}) we get
+   \begin{multline} \label{exp}
+0 = \frac{d^2 \chi}{d \rho^2} + \left( -2\,{\rho}^{-1}-{\frac
+{4{\lambda}^{2}}{3 \mu\, \left( 3+2\,\lambda
+ \right) }}+\,{\frac {16 \left( 3+\lambda \right) {
+\lambda}^{3}\rho}{9{\mu}^{2} \left( 3+2 \lambda
+ \right)^2 }} + {\cal O} (\rho^2) \right) \frac{d \chi}{d \rho} \\+
+ \left({\frac {-4{\lambda}^{2}}{3 \mu\, \left( 3+2\,\lambda \right) \rho}}-
+\,{\frac {16\,{\lambda}^{4}-81\,{w}^{2}{\mu}^{2}}{9{\mu}^{2} \left(
+3+2\lambda \right)^2 }}+\,{\frac {8{ \lambda}^{2} \left(
+4\,{\lambda}^{3}+27\,{w}^{2}{\mu}^{2} \right) \rho }{9{\mu}^{3}
+  \left( 3+2\lambda \right)^3 }} + {\cal{O}}(\rho^2) \right)
+\chi(\rho)
+ \end{multline}
+ Since $a_1=-2$,  this equation belongs to case $B$ with $s_o=3$.
+ In order to know whether this is a case $B.1$ or a case $B.2$,
+ we need to calculate the determinant of the matrix associated to
+ the system of equations (\ref{super}) with $s=1,2,3$, i.e.
+ \begin{equation} M = \left(
+ \begin{matrix} b_1 & a_1 & 0 \\ b_2 & b_1+a_2 & 2 a_1+2\\
+ b_3 & a_3+b_2 & b_1+2 a_2 \end{matrix}  \right)
+ \end{equation}
+Inserting the $a_i$ and $b_i$ values from (\ref{exp}), we find that
+the matrix $M$ above has zero determinant, {\em for any value of
+$\lambda$ and  $\w$}. We conclude that our system belongs to case
+$B.2$, then both solutions of (\ref{AppB2}) are analytic, and this
+holds for any
+$\w$.\\
+
+An example of a differential equation (\ref{ed}) of type A is
+\begin{equation}
+\frac {d^2\chi}{d\rho^2} -  \left(\frac {3}{2 \rho} \right)\frac {d
+\chi}{d\rho} +\frac {1}{\rho}\chi = 0.
+\end{equation}
+This has solution
+\begin{multline}
+\chi(\rho) = C_1 \left[ 6 \sqrt{\rho}\; \sin(2 \sqrt{\rho} ) + (3-4
+\rho) \cos(2 \sqrt{\rho} ) \right]  + C_2 \left[ 6 \sqrt{\rho}\;
+\cos(2 \sqrt{\rho} ) + (4 \rho -3) \sin(2 \sqrt{\rho} ) \right] \\ =
+C_1 \left[ 3 + 2 \rho + 2 \rho^2 -\frac{4}{3} \rho^3 + \frac{2}{9}
+\rho^4 + \cdots  \right] + C_2 \left[ -\frac{32}{15} \rho^{5/2} +
+\frac{64}{105} \rho^{7/2} - \frac{64}{945} \rho^{9/2} + \cdots
+\right]
+\end{multline}
+An example of a differential equation (\ref{ed}) of type B.1 is
+\begin{equation}
+\label{app1a} \frac {d^2\chi}{d\rho^2} -\frac{2}  {\rho}\frac {d
+\chi}{d\rho} +\frac {b_1}{\rho}\chi = 0
+\end{equation}
+This has the general solution
+\begin{equation}
+\label{app1b} \chi  ={C_1}\,{\rho}^{3/2}{J_3}
+ \left( 2\,\sqrt { b_1 \rho} \right) +{C_2}\,{\rho}^{3/2}{
+Y_3} \left( 2\,\sqrt { b_1 \rho} \right)
+\end{equation}
+where $J_i$ and $Y_i$ are Bessel functions. One solution is
+analytic, whereas the other contains  terms
+ of the form $\rho^3 \ln(\rho)$, so that it is only twice differentiable at $\rho=0$.
+
+Finally, case $B.2$ is illustrated by the equation,
+\begin{equation}
+\label{app6}
+\frac {d^2\chi}{d\rho^2}
++\left(-\frac{2}  {\rho}+a_2\right)\frac {d \chi}{d\rho}
++\left(\frac {a_2}{\rho}- \frac{3 a_2^2}{4}\right)\chi = 0
+\end{equation}
+which has the general solution,
+\begin{equation}
+\label{app6a}
+ \chi(\rho) ={ C_1}\,\exp(a_2 \rho/2)+{
+C_2}  \left( 1+2 a_2\rho+2 a_2^{
+2}{\rho}^{2} \right) \exp(-a_2 \rho/3)
+\end{equation}
+which is clearly analytic for $\rho=0$.
+
+
+\section*{Acknowledgments}
+ G.D. thanks the KITP at UCSB, where part of this work was done,
+ for  hospitality.
+This work was supported in part by grants of CONICET (Argentina) and
+the Universidad Nacional de   C\'ordoba. It was also supported in
+part by grant NSF-INT-0204937 of the National Science Foundation of
+the US. The authors are supported by CONICET (Argentina).
+
+
+
+
+\begin{thebibliography}{99}
+\bibitem{pm} Carroll S M (2003) {\em Phys. Rev.} {\bf C68} 023509,
+astro-ph/0301273.\\
+Gibbons  G W (2003), hep-th/0302199.\\
+Caldwell R R (2002) {\em Phys. Lett.} {\bf B545} 23,
+astro-ph/9908168.
+\bibitem{ghi} Gibbons G W, Hartnoll D and  Ishibashi A 2005 {\em Prog.Theor.Phys.}
+{\bf 113} 963-978, hep-th/0409307.
+\bibitem{RW} Regge T and  Wheeler J A 1957 {\it Phys. Rev.} {\bf 108}, 1063.
+\bibitem{Zerilli}  Zerilli F J 1970 {\it
+Phys. Rev. Lett} {\bf 24} 737.
+\bibitem{chandra} Chandasekhar S, {\em The mathematical theory of
+black holes}, Oxford University Press, 1992.
+\bibitem{cm} Carminati J  and McLenaghan R G 1991  {\it Jour.Math.Phys} {\bf 33},
+3135.
+\bibitem{zm} Zakhary E and  McIntosh C B G 1997 {\em Gen.Rel.Grav} {\bf 29}, 539.
+\bibitem{exactas} Stephani H, Kramer D, MacCallum M, Hoenselaers C and Herlt E {\em
+Exact Solutions to Einstein's field equations} 2nd ed (2003).
+\bibitem{moncrief} Moncrief V (1974) {\em Ann. Phys} {\bf 88} 323.
+\end{thebibliography}
+
+
+\end{document}
+
+The expression: "in physics, what is not forbidden by a physical law must necessarily occur'', or something similar to this has been sometimes attributed to R. Feynmann, and ...

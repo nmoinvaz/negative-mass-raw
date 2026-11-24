@@ -1,0 +1,19 @@
+== vc: v_c by quadrature, S = 5.477904090
+  sigma R =  2.0: v_c = 3.744900  (mass_bounds.md 3.74490)
+  sigma R =  4.0: v_c = 2.470971  (mass_bounds.md 2.47097)
+  sigma R =  8.0: v_c = 1.562434  (mass_bounds.md 1.56243)
+  sigma R = 16.0: v_c = 0.985030  (mass_bounds.md 0.98503)
+  [PASS] v_c: equal to mass_bounds.md's printed values, max difference 3.7e-06
+== planted: tau1 = 6/(1 + r^2), mu = +-i/l_n, l_n = 1 + 2n/3, the first levels of each m > 0
+  FL m = 0.5: top |mu| = 1.0000000000, worst error over levels n <= 4 1.1e-14, max |Re mu|/|mu| 2.0e-16
+  FL m = 1.5: top |mu| = 0.6000000000, worst error over levels n <= 4 5.2e-15, max |Re mu|/|mu| 2.0e-16
+  FL m = 2.5: top |mu| = 0.4285714286, worst error over levels n <= 4 4.1e-15, max |Re mu|/|mu| 2.0e-16
+  [PASS] planted: rho(T1) = 1.000000000000 (exact 1), worst error over the levels 1.1e-14
+  [PASS] real_identity: Re(v) int tau1 |psi|^2 = 0 with int tau1 |psi|^2 > 0 forces Re mu = 0: max |Re mu|/|mu| 2.0e-16, real candidates 0
+== shift: tau1 = 6 s/(1 + s^2 |x - a e_z|^2), the Mobius image of the planted weight, same spectrum
+  s = 1.2, a = 0.5 m = 0.5: top |mu| = 1.0000000000, worst error over levels n <= 4 1.6e-11, max |Re mu|/|mu| 7.7e-12
+  s = 1.2, a = 0.5 m = 1.5: top |mu| = 0.6000000000, worst error over levels n <= 4 5.1e-15, max |Re mu|/|mu| 7.7e-12
+  s = 1.2, a = 0.5 m = 2.5: top |mu| = 0.4285714286, worst error over levels n <= 4 3.2e-15, max |Re mu|/|mu| 7.7e-12
+  [PASS] shift: worst error over the levels 1.6e-11, rho = 1.0000000000, max |Re mu|/|mu| 7.7e-12
+peak resident memory 0.67 GiB, wall 15 s
+all checks passed

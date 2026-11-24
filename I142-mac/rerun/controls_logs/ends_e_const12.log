@@ -1,0 +1,19 @@
+# review_lemma_a3_ends: L2, L3 (ends of V-hat, Frobenius exponents)
+# mutations on: e_const12
+PASS PLE.1a
+PASS PLE.1b
+PASS PLE.1c
+PASS PLE.1d
+PASS PLE.1e
+PASS PLE.3a
+PASS PLE.3b
+PASS PLE.3c
+PASS PLE.4a
+PASS PLE.4b
+PASS PLE.2[n=1]
+PASS PLE.2[n=2]
+PASS PLE.2[n=3]
+PASS PLE.2[n=5]
+PASS PLE.2[n=3, shifted]
+FAIL E2.1: r^0 coefficient 12 (want 14); r^1 coefficient 2*c + 10 (want 2*l**2 + 2*l + 6)
+# summary: 15 PASS, 1 FAIL, 0 DIFFERS

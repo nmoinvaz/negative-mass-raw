@@ -1,0 +1,11 @@
+# zerilli_certificate_controls: baseline, 1 required pairs, 6 exploratory runs (extra args ['--L=6']) (cap 900 s)
+MISS drop_traceless   exit 0 (want 1), first FAIL None (target E.cert) (15 s)
+# required pairs on target: 0 of 1
+OK   drop_tt          exit 0, first FAIL None: silent (not needed) (14 s)
+OK   drop_tr          exit 0, first FAIL None: silent (not needed) (14 s)
+OK   drop_rr          exit 0, first FAIL None: silent (not needed) (14 s)
+OK   drop_tx          exit 0, first FAIL None: silent (not needed) (15 s)
+OK   drop_rx          exit 0, first FAIL None: silent (not needed) (14 s)
+UNEXPECTED drop_trace       exit 1, first FAIL E.1: fires at E.1 (10 s)
+# exploratory runs with an accepted outcome: 5 of 6
+# summary: 2 problem(s)

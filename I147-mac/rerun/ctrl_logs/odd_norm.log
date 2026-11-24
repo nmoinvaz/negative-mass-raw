@@ -1,0 +1,12 @@
+# zerilli_derivation: Zerilli potential from the linearized Einstein equations (part=all)
+# mutations on: odd_norm
+PASS PL.0a
+# [   0.1 s] PL.0a
+PASS PL.0b
+# [   0.2 s] PL.0b
+PASS PL.0c
+# [   0.2 s] PL.0c
+PASS PL.0d
+# [   0.5 s] PL.0d
+FAIL PL.O.1: odd components do not have the expected angular form: ['tphi: P1 coefficient depends on x']
+# planted check failed: stop before any real data

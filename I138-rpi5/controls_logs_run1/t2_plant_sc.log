@@ -1,0 +1,8 @@
+review_lemma_a_t2 (mutation: plant_sc)
+PASS PL5 (t-2)(t+1)(t+3)
+FAIL PL5 (t-1)(t-2)(t+3): changes 3 (want 2), roots 2 (want 2)
+PASS PL5 t^2-t+1
+FAIL PL5 t^3+2t^2: changes 2 (want 0), roots 0 (want 0)
+STOP: planted check(s) failed: PL5 (t-1)(t-2)(t+3), PL5 t^3+2t^2; no real data was examined
+
+exit 2

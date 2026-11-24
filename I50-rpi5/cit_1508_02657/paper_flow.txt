@@ -1,0 +1,2283 @@
+Prepared for submission to JHEP
+
+Dark sector impact on gravitational collapse
+of an electrically charged scalar field
+
+Anna Nakonieczna,a,b Marek Rogatko,a and Łukasz Nakoniecznyc
+
+arXiv:1508.02657v2 [hep-th] 9 Nov 2015
+
+a
+
+Institute of Physics, Maria Curie-Skłodowska University,
+Plac Marii Curie-Skłodowskiej 1, 20-031 Lublin, Poland
+b
+Institute of Agrophysics, Polish Academy of Sciences,
+Doświadczalna 4, 20-290 Lublin, Poland
+c
+Institute of Theoretical Physics, Faculty of Physics, University of Warsaw,
+Pasteura 5, 02-093 Warszawa, Poland
+
+E-mail: aborkow@kft.umcs.lublin.pl, rogat@kft.umcs.lublin.pl,
+Lukasz.Nakonieczny@fuw.edu.pl
+Abstract: Dark matter and dark energy are dominating components of the Universe.
+Their presence affects the course and results of processes, which are driven by the gravitational interaction. The objective of the paper was to examine the influence of the dark sector
+on the gravitational collapse of an electrically charged scalar field. A phantom scalar field
+was used as a model of dark energy in the system. Dark matter was modeled by a complex
+scalar field with a quartic potential, charged under a U (1)-gauge field. The dark components were coupled to the electrically charged scalar field via the exponential coupling
+and the gauge field-Maxwell field kinetic mixing, respectively. Complete non-linear simulations of the investigated process were performed. They were conducted from regular
+initial data to the end state, which was the matter dispersal or a singularity formation
+in a spacetime. During the collapse in the presence of dark energy dynamical wormholes
+and naked singularities were formed in emerging spacetimes. The wormhole throats were
+stabilized by the violation of the null energy condition, which occurred due to a significant
+increase of a value of the phantom scalar field function in its vicinity. The square of mass
+parameter of the dark matter scalar field potential controlled the formation of a Cauchy
+horizon or wormhole throats in the spacetime. The joint impact of dark energy and dark
+matter on the examined process indicated that the former decides what type of an object
+forms, while the latter controls the amount of time needed for the object to form. Additionally, the dark sector suppresses the natural tendency of an electrically charged scalar
+field to form a dynamical Reissner-Nordström spacetime during the gravitational collapse.
+
+Contents
+1 Introduction
+
+1
+
+2 Theoretical model of the evolution
+
+6
+
+3 Details of computer simulations and results analysis
+
+12
+
+4 Electrically charged scalar field collapse with dark energy
+4.1 Dynamical emergence of wormhole-like structures and naked singularities
+4.2 Vicinity of wormhole throats
+4.3 Black hole-wormhole duality
+4.4 Properties of wormholes
+
+14
+15
+16
+19
+20
+
+5 Influence of dark matter on electrically charged scalar field evolution
+5.1 Spacetime structures
+5.2 Fields behavior in spacetimes
+5.3 Characteristics of the formed black holes
+
+22
+22
+24
+26
+
+6 Collective effect of dark components on the considered collapse
+6.1 Spacetime structures
+6.2 Fields behavior in spacetimes
+6.3 Properties of the emerging objects
+
+26
+26
+28
+30
+
+7 Conclusions
+
+31
+
+A Numerical computations
+
+35
+
+1
+
+Introduction
+
+Black holes which exist in the Universe are rotating and electrically neutral, due to the presence of an interstellar medium. They are formed during gravitational collapse of a star,
+whose mass exceeds the Tolman-Oppenheimer-Volkoff limit [1, 2]. One of theoretical
+toy models of this process, which allows to describe the resulting spacetime structures
+and properties of the emerging objects, is a dynamical evolution of an electrically charged
+scalar field [3, 4]. A considerable advantage of its investigations is that they allow to describe
+physics of both outer and inner regions of the arising objects.
+Dynamical gravitational collapse attracts scientific interest also because the structures
+of dynamically formed spacetimes differ significantly from their non-dynamical counterparts. This means that the knowledge of static solutions, which describe a particular
+system, is insufficient to characterize the results of dynamical processes, which take place
+
+–1–
+
+within it. For this reason, the evolution of a massless electrically charged scalar field under
+the influence of gravity was examined [5, 6]. It turned out that the dynamical ReissnerNordström spacetime is substantially different from the static one due to the existence
+of a central spacelike singularity and a null singularity along the Cauchy horizon, which
+results from the mass inflation phenomenon [7]. The effect of pair creation during the collapse and the subsequent evaporation of a black hole were also considered [3, 4, 8, 9].
+The collapse of a Brans-Dicke field was elaborated in [10–13], while the results of the gravitational evolution in Einstein-Maxwell-dilaton theory with standard and phantom couplings
+of the involved fields were described in [14–16].
+According to current cosmic microwave background (CMB) measurements performed
+by Planck, the amount of dark matter and dark energy in the Universe is about 27%
+and 69%, respectively [17]. Such high abundance of the dark components, both of which
+interact gravitationally, undoubtedly affects the course and results of the gravitational collapse, which was one of the motivations for the analyses presented in the paper. The conducted research concerning the dark sector influence on the relatively small-scale process
+supplement vast investigations on its significance during the cosmological evolution.
+Until now, the collapse in the presence of the dark sector was studied mainly in the context of the large scale structure formation and the course of a few astrophysical processes.
+The evolution of dark matter concentration in the form of a spherically symmetric dust
+cloud of a finite radius was examined on a background spacetime containing dark energy
+modeled by isotropic and anisotropic fluids, as well as the Chaplygin gas [18–20]. The structure formation during the evolution of quintessence dark energy induced by the collapse
+of dark matter halos was described in [21]. The spherical collapse model of the structure formation on cosmological scales in the presence of the dark sector was also considered [22, 23].
+The evolution was followed on a background of a flat, homogeneous and isotropic universe,
+while the matter content was modeled by a multicomponent fluid. The clustering process
+was investigated during the non-linear spherical ’top hat’ collapse of the generalized Chaplygin gas, which unifies dark energy and dark matter into a single matter component [24].
+Recently, the role of the dark sector in gravitational collapse has been studied from
+the astrophysical perspective. The issue of a neutron star collapse due to capture and sedimentation of dark matter within its core was considered as a solution to two interesting
+observational puzzles [25]. One of them are fast radio bursts, which are probably extragalactic, transient bright radio pulses of an unexplained origin [26]. The second is a missing pulsar
+problem, which is related to the non-detection of pulsars within the inner core of the Galactic Center of the radius close to 10 parsecs [27]. The early stage and the long-term phase
+of the formation of supermassive black holes progenitors via a direct gas collapse in dark
+matter halos at high redshifts was studied in [28, 29].
+The above-mentioned analyses were mostly focused on the behavior of matter during its
+gravitational collapse. The research was performed within the framework of fluid dynamics
+on either fixed or evolving background spacetimes. The current studies, by contrast, involve
+examining dynamical matter-geometry systems with the matter content of spacetime described in terms of classical field theory. To our knowledge, such a methodology has not yet
+been used in the analyses of the role of the dark sector in gravitational collapse. It allowed
+
+–2–
+
+us not only to investigate the matter behavior, but also to follow the geometry dynamics
+observed during the evolution. The latter was reflected in the obtained spacetime structures. Due to the fact that they resulted from the fully non-linear computations conducted
+within the whole spacetime region subjected to the collapse dynamics, they were not limited by the capabilities of the previously employed local techniques [18, 19] and allowed
+presenting global characteristics of the forming spacetimes. Their interpretation enabled
+us to describe causal relations between distinct spacetime areas and to test the geometrical
+properties of both outer and inner regions of the emerging objects.
+The first indirect evidence suggesting the existence of an electromagnetically non-interacting unknown matter component of the Universe came from observations of the galactic
+rotation curves [30, 31]. Since then, the concept of dark matter has put down its roots
+in modern cosmology. Apart from the aforementioned experiments, the gravitational interaction of dark matter with the remaining content of the Universe may be inferred from
+the observations of CMB, baryon acoustic oscillations (BAO), the rate of the large scale
+structures formation [17, 32] or galactic collisions, like the Bullet Cluster [33]. These observations also provide information of the dark matter abundance and distribution in the Universe, as well as its non-gravitational nature, i.e., possible interaction types and the lifetime
+of the dark matter particle. Unfortunately, they are insufficient to fully identify the particle
+nature of dark matter, which is a dominant matter component of the Universe. However,
+the non-gravitational interactions of dark matter disfavoring some of the proposed extensions of the Standard Model were revealed recently [34, 35].
+There is yet another branch of modern physics that is immensely interested in the topic,
+namely particle physics. The Standard Model of particle physics, despite being very successful in describing the visible matter, lacks any dark matter candidates. From this perspective the quest of gathering and analyzing information about dark matter is the quest
+of understanding the beyond-Standard Model physics. This situation and an enormous
+technological advancement triggered in the last few decades made the subject of dark matter one of the most interesting in modern physics. Astrophysical observations (other than
+these mentioned above) provide hints that dark matter may be responsible for the γ-ray
+bursts from galactic centers [36–38] and keV photons from galactic clusters [39, 40]. The terrestrial experiments in supercolliders such as the Large Hadron Collider (LHC) also strive
+to identify dark matter or at least constrain its models [41], for a current list of the dark
+matter models proposed to search for in the LHC run-2 data see [42]. Apart from the above
+two sources of the information on dark matter, a new one appeared recently. It is concerned with the theoretical investigation of the role of dark matter in the missing pulsar
+problem [25, 43] and its impact on the composition and lifetime of the early generation
+of stars [44].
+As a dark matter model we used one of the viable, from the particle physics perspective, models of the dark matter sector. It is composed of a complex scalar field with
+a quartic self-interaction, which is charged under an additional Abelian gauge field. Its coupling to the standard matter sector (represented by an electrically charged scalar field)
+was implemented via a kinetic mixing between the introduced gauge field and the electromagnetic field [45]. A new experiment constraining such a coupling is currently under
+
+–3–
+
+preparation [46], while some previous results can be found, e.g., in [47]. The considered
+model describes one or two dark matter candidates, depending on the vacuum expectation
+value (vev) of the complex scalar field. If the vev is non-zero, the dark matter candidate is the massive gauge boson mentioned earlier (in the particle physics literature often
+called Z 0 or dark photon). When the scalar does not possess the vev the candidate can
+be either the scalar or the gauge boson. A slightly modified version of this model was
+analyzed in the context of dark matter phenomenology [48, 49] and the GeV-scale γ-ray
+excess in the Galactic Center [50]. On the other hand, a new theoretical tool for detecting
+the influence of the dark matter sector on characteristic quantities of holographic superconductors was proposed [51–53]. It happens that the coupling constant of the dark matter
+sector to the ordinary Maxwell field imprints its existence during holographic phase transitions and these phenomena may constitute a possible way of understanding the nature
+of the dark matter sector.
+Dark energy is a notion assigned within the ΛCDM cosmological model to the content
+of the Universe, which remains after determining the amount of matter detectable either
+directly (photons, neutrinos and baryonic matter) or indirectly (dark matter). It is responsible for the present-day accelerated expansion of the Universe [54–57]. Experimental
+restrictions on dark energy models are imposed by observations of supernovae Ia, combined
+with the CMB and BAO measurements [58]. The obtained constraints allow of the existence
+of dark energy in the form of phantom matter [59]. Its pressure P and density ρ satisfy
+the relation P < −ρ, which means that the value of its barotropic index w = P ρ−1 is less
+than −1. Matter of this type is coupled repulsively to gravity and thus exerts negative
+pressure and causes cosmic acceleration. Such a phantom scalar field coupled exponentially
+to the electrically charged scalar field was chosen as a dark energy model in our research.
+Investigating a dynamical evolution in the presence of phantom fields is also justified
+due to a wide variety of non-dynamical solutions to Einstein equations involving such fields.
+New classes of spherically symmetric solutions of Einstein-Maxwell-dilaton theory with
+a phantom coupling were considered in [60, 61], while static multicentered solutions in this
+theory were discussed in [62]. A vast array of diversified and complex solutions opens new
+possibilities of finding their interesting dynamical counterparts.
+The concept of a static wormhole was introduced by Wheeler [63] and extended by Morris and Thorne [64], who invented a class of potentially traversable wormholes. The wormhole throat is kept open by the presence of exotic matter, whose energy-momentum tensor
+violates the energy conditions. A scalar field coupled to gravity in a phantom manner
+is a good candidate for such a type of matter, which supports wormhole traversability [65].
+The quoted works initiated studies of wormholes as topological bridges connecting two distinct regions of spacetime. There were proposed various models such as thin shells in cosmological background [66], in Brans-Dicke gravity [67], in the low-energy limit of the string
+theory [68], as well as wormholes supported by scalar phantom fields [69, 70], tachyonic matter [71] or non-linear electrodynamics [72]. Recently, to circumvent the problem of exotic
+matter, the modified-gravity theories were considered as suitable candidates to obtain stable traversable wormholes [73–76]. It is worth emphasizing that these researches deal with
+constructing eternal, i.e., non-dynamical wormholes. There also exists a research branch,
+
+–4–
+
+which is concerned with physics of evolving wormholes [77–79]. The aim of our studies
+was to test the dynamical formation of such objects during fully non-linear investigations
+of the gravitational collapse.
+Because of the ambiguous nature of wormholes in the view of astrophysical observations,
+a considerable resurgence of interests in their physics was observed recently. Experimental
+studies of phenomena and processes which result from the presence of a black hole in spacetime are based on the effects related to its external gravitational field. Wormholes possess
+the same gravitational properties as black holes, which are characteristic for them from
+the observational viewpoint [80]. For this reason, a wormhole is an alternative to a black
+hole and hence various possibilities of the experimental distinction between these two types
+of objects are being analyzed [81, 82].
+Apart from the efforts to observationally distinguish wormholes from black holes, the issue of experimental distinction between naked singularities and black holes has also been
+pursued. These two types of objects could be differentiated through their gravitational
+lensing features [83], such as a number of generated images of a particular light source [84],
+their orientation in space, total magnifications and time delays [85, 86]. Another possibility is investigating the properties of accretion disks, which form around naked singularities and black holes, as their luminosities and angular velocities of the particles within
+them depend on the type of the central object [87, 88]. The above findings indicated that
+the observational consequences of the existence of naked singularities and black holes differ.
+It opens a possibility of testing the cosmic censorship hypothesis experimentally through
+astronomical measurements [89].
+Astrophysical objects present in the Universe are dynamical, as they constantly undergo
+changes due to interactions with the surrounding environment. Thus one of the elements
+necessary to achieve the aforementioned goal, that is observational determination of a true
+nature of the astrophysical objects with strong gravitational fields, is to investigate the formation and behavior of black holes, wormholes and naked singularities during dynamical
+evolutions.
+The leading research objective of the current studies was to test the influence of dark
+energy and dark matter on the collapse of an electrically charged scalar field. The role
+of the dark sector during the analyzed process was investigated through the prism of the forming spacetime structures, the behavior of fields within them and properties of the emerging
+dynamical objects. The paper is organized as follows. In section 2 we present the theoretical model, which enables us to study the dynamical gravitational collapse of an electrically
+charged scalar field accompanied by the dark sector. Section 3 contains basic information on solving the derived equations of motion and particulars of the results presentation.
+In sections 4 and 5 we discuss the course and outcomes of the investigated process running in the presence of dark energy and dark matter, respectively. Section 6 is devoted
+to studies of the joint influence of these two components on the evolution. The summary
+of the obtained results and prospects of further research are placed in section 7. Comments
+on numerical methods used for solving the equations of motion and the code accuracy checks
+can be found in appendix A.
+
+–5–
+
+2
+
+Theoretical model of the evolution
+
+The model used to investigate the dynamical collapse of interest consists of three parts,
+whose construction is based on self-interacting scalar fields. The first one refers to a complex
+scalar field ψ coupled with the Maxwell field Aµ . The second one is a phantom scalar field φ,
+which represents dark energy in the system. Its exponential coupling to the previous field
+is consistent with the low-energy string theory regime. The third component is a massive
+complex scalar field χ with a quartic potential coupled with a U (1)-gauge field Pµ , which
+is coupled to the Maxwell field. It serves as dark matter in the system. Since the model
+incorporates notions taken from string theory, it is convenient to write the most general
+form of the action in the string frame
+Z
+h
+ 2
+i
+o
+p n
+ˆ
+Ŝ = d4 x −ĝ e−2φ R̂ − 2ξ ∇φ
++ e2αφ L̂SF + L̂DM ,
+(2.1)
+where the constant ξ determines the nature of the coupling between φ and gravity. It is set
+as equal to −1, which means that the field is phantom [61, 62]. The constant α characterizes the coupling between the scalar field φ and the electrically charged one. Since
+the low-energy limit of the string theory is considered, we set α as equal to −1 [90]. This
+value was incorporated in the equations below. The dark energy and dark matter sectors
+are chosen to be independent, so dark matter represented by the Lagrangian L̂DM is not
+coupled to the phantom scalar field via the exponential coupling e−2φ . The presented
+model enables us to study the impact of dark components on the evolution both separately
+and jointly. Throughout the computations, we used the geometrized units system, in which
+8πG = c = 1.
+The Lagrangian of the electrically charged scalar field ψ is given by the expression
+∗
+
+1
+L̂SF = − D̂β ψ D̂β ψ − Fβσ F βσ ,
+(2.2)
+2
+where Fβσ is the strength tensor of the Maxwell field. The covariant derivative has the form
+ˆ β +ieAβ , where e is the electric coupling constant, Aβ is the four-potential and i deD̂β = ∇
+notes the imaginary unit.
+The dark matter Lagrangian is the following:
+
+
+
+αDM
+ˆe
+ˆe β ∗ 1
+L̂DM = −D
+− Bβσ B βσ −
+Bβσ F βσ − V |χ|2 .
+(2.3)
+βχ D χ
+4
+4
+ˆe
+ˆ
+The covariant derivative is D
+β = ∇β + iẽPβ , while Pβ is the four-potential of a U (1)gauge field, ẽ is its coupling constant with χ and Bβσ ≡ ∂β Pσ − ∂σ Pβ . The scalar field
+
+2
+4
+2
+potential is given by V |χ|2 = m2 |χ|2 + λDM
+4 |χ| . The constants m and λDM are a square
+of the mass parameter of the scalar field and its quartic self-interaction coupling constant,
+respectively. The square of the mass parameter can be either positive or negative, when it is
+negative the scalar field possesses a non-zero vacuum expectation value. On a side note,
+due to the system of units, which was used in our calculations, it is impossible to compare
+the parameter m2 with the particles masses directly. The perturbativity of the quantized
+theory requires that λDM is in general smaller than 4π. In the considered theory it is
+
+–6–
+
+restricted to values not exceeding 0.2 [48]. The parameter αDM stands for the kinetic
+mixing coupling constant, which controls the strength of the mixing between the photon
+and the dark photon. Taking into account various experimental scenarios, its upper value
+is constrained to be not larger than 10−3 [91].
+The searches for the dark photon have been conducted with the use of diverse experimental techniques. The current constraints on its mass and its coupling constant with
+photon come from a collection of experiments, which are adapted to inspecting their various
+value ranges. The respective upper limits obtained during the dish antenna experiments
+are 3.1 eV and 6 · 10−12 [92]. Studying the supernovae excess cooling covers the αDM values
+from 10−10 to 10−6 and masses within the range 10−3 − 1 GeV [93]. The beam dump experiments [94, 95], searching for lepton jets in pp collisions [96], investigating heavy neutrino
+decays [97] and analyses of the distortion of the CMB [98] allowed examining the kinetic
+mixing parameter from within the range 10−7 − 10−4 for the dark photon mass ranges
+0.03 − 0.63 GeV, 0.4 − 1.1 GeV, 1 − 500 MeV and 10−14 − 10−7 eV, respectively. Optical
+experiments dealt with the dark photon masses between 10−5 and 10−2 eV and the values
+of the mixing parameter greater than 10−7 [99]. The upper limit of αDM was established
+as equal to 1.7 · 10−5 for the mass range 5 − 470 MeV in experiments focused on analyzing meson decays [100–102]. Investigating e+ e− collisions allowed searching the mass
+range 0.02 − 10.2 GeV [47], while analyses of the e− and p scattering on nuclei focused
+on 175 − 550 MeV range [103–105], both with the values of the coupling constant with
+photon of the order of 10−4 − 10−3 .
+The variation of the action (2.1) with respect to adequate fields, namely phantom
+scalar φ, Maxwell Aµ , complex scalar fields ψ and χ, as well as the Pµ gauge field leads
+to the following set of equations of motion:
+1
+∇2 φ + e−2φ Fβσ F βσ = 0, (2.4)
+2ξ
+ 1h
+
+i 1
+∇µ e−2φ F µν + ieψ ∗ Dν ψ − ieψ (Dν ψ)∗ + αDM ∇µ B µν = 0, (2.5)
+4
+2
+2
+β
+∇ ψ + ieA (2∇β + ieAβ ) ψ + ie∇β Aβ ψ = 0, (2.6)
+∇2 ψ ∗ − ieAβ (2∇β − ieAβ ) ψ ∗ − ie∇β Aβ ψ ∗ = 0, (2.7)
+
+ i m2
+1 h
+λDM 2
+∇2 χ − ẽ2 Pβ P β χ + iẽ ∇β (χPβ ) + Pβ ∇β χ −
+χ−
+|χ| χ = 0, (2.8)
+2
+2
+2
+
+ i m2
+1 h
+λDM 2 ∗
+−
+∇2 χ∗ − ẽ2 Pβ P β χ∗ − iẽ ∇β (χ∗ Pβ ) + Pβ ∇β χ∗
+χ∗ −
+|χ| χ = 0, (2.9)
+2
+2
+2
+1
+∇µ B µν − 2ẽ2 P ν |χ|2 − iẽ (χ∇ν χ∗ − χ∗ ∇ν χ) + αDM ∇µ F µν = 0.(2.10)
+2
+During the derivation of the above evolution equations the string frame was converted into
+the Einstein frame in order to get manageable equations of motion. The metrics in these
+two frames are related via the conformal transformation
+gµν = e−2φ ĝµν ,
+
+(2.11)
+
+where gµν and ĝµν denote metric tensors in the Einstein and string frames, respectively [106].
+The transformation between frames (2.11) preserves causality. Since the interpretation
+
+–7–
+
+of the obtained results is based mainly on investigating notions related to causal structures
+of emerging spacetimes, we do not expect the transformation to influence the ultimate
+conclusions, which can thus be regarded as physically relevant. From now on, all quantities
+are written in the Einstein frame.
+The issue of choosing an adequate conformal frame to describe physics of a particular system has been so far addressed on numerous occasions in research related primarily
+to cosmology and particle physics (see, e.g., [107–110]). A general conclusion on the equivalence of conformal frames at the classical level is that although the frames are physically
+equivalent, the interpretations of results obtained within them may differ [111]. However,
+as was stated above, this drawback does not refer to our case, as the results analysis is based
+mainly on describing causal properties of spacetimes.
+The most convincing arguments on physical relevance of a particular frame could be obtained by comparing theoretical and experimental data. Some attempts in this respect have
+been made recently in relation to cosmological observations [111–113]. However, they are
+not yet complete enough to resolve the issue of the conformal frames equivalence satisfactorily and hence the problem of its experimental confirmation still remains open.
+The Einstein equations derived by varying the action (2.1) with respect to gravitational
+field complement the above set of equations, which describes the examined dynamical system. For studying the evolutions of interest, the double null spherically symmetric line
+element [114] is selected
+ds2 = −a(u, v)2 dudv + r2 (u, v)dΩ2 ,
+
+(2.12)
+
+where u and v are retarded and advanced time null coordinates, respectively, and dΩ2 =
+dΘ2 + sin2 ΘdΦ2 is the line element of the unit sphere, where Θ and Φ are angular coordinates. Such a coordinate choice determines the spacetime foliation for conducting computations, which is 2+2 [115]. The double null formalism was successfully employed in dynamical
+gravitational collapse investigations, e.g., [3–6, 8, 9], because it enables to follow the evolution from approximately past null infinity, through the formation of horizons up to the final
+central singularity in the case of singular spacetimes.
+Regarding spherical symmetry, the only non-vanishing components of the field tensors
+are Fuv , Fvu , Buv and Bvu . Due to the gauge freedom Au → Au +∇u θ0 and Pu → Pu +∇u θ00 ,
+R
+R
+where θ0 = Av dv and θ00 = Pv dv, the only non-zero four-vector components are Au
+and Pu . They are functions of retarded and advanced time.
+The equation of motion for the phantom scalar field (2.4) in the chosen coordinate
+system is provided by
+1
+Q2 a2
+r,u φ,v + r,v φ,u + rφ,uv + e−2φ
+= 0,
+ξ
+4r3
+where we set
+
+(2.13)
+
+Au,v r2
+.
+(2.14)
+a2
+Q is a function of retarded and advanced time, which corresponds to electric charge within
+a sphere of a radius r(u, v), on a spacelike hypersurface containing the point (u, v). Partial
+Q=2
+
+–8–
+
+derivatives with respect to the null coordinates are marked as ,u and ,v . Concerning the assumed line element (2.12) and the definition of electric charge (2.14), the v-component
+of Maxwell equations (2.5) can be separated into two first-order differential equations.
+The first one governs the evolution of the only non-zero component of the four-vector
+of the Maxwell field
+Qa2
+= 0,
+2r2
+while the second one describes the dynamical behavior of Q. Namely, one has
+Au,v −
+
+ 1
+ier2 2φ ∗
+∗
+e
+ψ ψ,v − ψψ,v
++ αDM e2φ T,v = 0,
+4
+8
+where we denoted by T the expression
+Q,v − 2φ,v Q +
+
+T =
+
+2r2
+Pu,v ,
+a2
+
+(2.15)
+
+(2.16)
+
+(2.17)
+
+being related to the charge associated with the Pµ field within a sphere of a radius r(u, v)
+on a specific spacelike hypersurface containing (u, v). The relations for the complex scalar
+field (2.6)–(2.7) imply
+ieQa2
+ψ = 0,
+4r
+ieQa2 ∗
+∗
+∗
+∗
+∗
+r,u ψ,v
++ r,v ψ,u
++ rψ,uv
+− ierAu ψ,v
+− ier,v Au ψ ∗ −
+ψ = 0.
+4r
+r,u ψ,v + r,v ψ,u + rψ,uv + ierAu ψ,v + ier,v Au ψ +
+
+(2.18)
+(2.19)
+
+The equations of the scalar field χ, its complex conjugate χ∗ and the related U (1)-gauge
+field are given by
+1
+1
+1
+rχ,uv + r,u χ,v + r,v χ,u + iẽχrPu,v + iẽrPu χ,v + iẽr,v Pu χ +
+4
+2
+2
+1 2 2
+λDM 2
++ m a rχ +
+a r|χ|2 χ = 0,
+8
+8
+1
+1
+1
+rχ∗,uv + r,u χ∗,v + r,v χ∗,u − iẽχ∗ rPu,v − iẽrPu χ∗,v − iẽr,v Pu χ∗ +
+4
+2
+2
+1
+λDM 2
++ m2 a2 rχ∗ +
+a r|χ|2 χ∗ = 0,
+8
+8
+ 1
+T,v − 2iẽr2 χχ∗,v − χ∗ χ,v + αDM Q,v = 0,
+2
+T a2
+Pu,v − 2 = 0.
+2r
+The stress-energy tensor for the considered theory is the following:
+
+
+1
+,β
+−2φ
+β
+βσ
++
+Tµν = 2ξφ,µ φ,ν − gµν ξφ,β φ + e
+2Fµβ Fν − gµν Fβσ F
+2
+
+∗ 1 h
+i
+1
+− gµν Dβ ψ Dβ ψ + Dµ ψ (Dν ψ)∗ + (Dµ ψ)∗ Dν ψ +
+4
+4
+1 h e  e ∗  e ∗ e i
++ Dµ χ Dν χ + Dµ χ Dν χ + Bµβ Bνβ + αDM Bµβ Fν β +
+2
+h
+
+∗
+i
+eβχ D
+e β χ + 1 Bβσ B βσ + αDM Bβσ F βσ + V |χ|2 .
+−gµν D
+4
+4
+
+–9–
+
+(2.20)
+
+(2.21)
+(2.22)
+(2.23)
+
+(2.24)
+
+Its non-vanishing components calculated in double null coordinates are of the forms
+i
+
+1h
+∗
+∗
++ ieAu ψψ,u
+− ψ ∗ ψ,u + e2 A2u ψψ ∗ +
+Tuu = 2ξφ2,u + ψ,u ψ,u
+2
+
++χ,u χ∗,u + iẽPu χχ∗,u − χ∗ χ,u + ẽ2 Pu2 χχ∗ ,
+(2.25)
+1
+∗
+Tvv = 2ξφ2,v + ψ,v ψ,v
++ χ,v χ∗,v ,
+(2.26)
+2
+
+
+T Qa2 a2
+λDM 4
+Q2 a2 T 2 a2
++
++
+α
++
+m2 |χ|2 +
+(2.27)
+|χ| ,
+Tuv = e−2φ
+DM
+4
+4
+4
+2r
+4r
+4r
+4
+2
+i
+r2
+Q2 1 r 2 h
+∗
+∗
+∗
+∗
+Tθθ = 4ξ 2 φ,u φ,v + e−2φ 2 +
+ψ
+ψ
++
+ψ
+ψ
++
+ieA
+ψψ
+−
+ψ
+ψ
++
+,u
+,v
+u
+,v
+,v
+,u
+,v
+a
+r
+2 a2
+i
+T2
+T Q 2r2 h
++ 2 + αDM 2 + 2 χ,u χ∗,v + χ,v χ∗,u + iẽPu χχ∗,v − χ∗ χ,v .
+(2.28)
+2r
+2r
+a
+Combining the adequate components of the Einstein tensor resulting from the metric (2.12)
+and the above stress-energy tensor components, the Einstein equations of the gravitational
+field are obtained
+i
+
+2a,u r,u
+rh
+∗
+∗
+− r,uu =
+ψ,u ψ,u
++ ieAu ψψ,u
+− ψ ∗ ψ,u + e2 A2u ψψ ∗ +
+a
+4
+i
+
+rh
+(2.29)
++ξrφ2,u + χ,u χ∗,u + iẽPu χχ∗,u − χ∗ χ,u + ẽ2 Pu2 χχ∗ ,
+2
+2a,v r,v
+r
+r
+∗
+− r,vv = ξrφv 2 + ψ,v ψ,v
++ χ,v χ∗,v ,
+(2.30)
+a
+4
+2
+Q2 a2
+a2 r,u rv
++
++ r,uv = e−2φ
++
+4r
+r
+4r3
+
+
+T 2 a2
+T Qa2 ra2 m2 2 λDM 4
++ 3 + αDM
++
+|χ| +
+|χ| ,
+(2.31)
+8r
+8r3
+4
+2
+4
+i
+2 2
+a,u a,v
+a,uv
+r,uv
+1h
+−2φ Q a
+∗
+∗
+∗
+∗
+−
+−
+=
+e
++
+ξφ
+φ
++
+ψ
+ψ
++
+ψ
+ψ
++
+ieA
+(ψψ
+−
+ψ
+ψ
+)
++
+,u ,v
+,u ,v
+u
+,v
+,u ,v
+v
+a2
+a
+r
+4r4
+8
+T 2 a2
+T Qa2
++ 4 + αDM
++
+8r
+8r4
+i
+1h
++ χ,u χ∗,v + χ∗,u χ,v + iẽPu (χχ∗v − χ∗ χ,v ) .
+(2.32)
+2
+They complement the preceding relations in order to obtain the complete set of equations
+of motion for the examined system, which are (2.13)–(2.32), excluding the relations (2.14),
+(2.17) and (2.24), which determine the physical quantities Q, T and Tµν .
+In order to make the solution of the obtained equations of motion attainable, one introduces a set of auxiliary variables
+a,v
+a,u
+,
+d=
+,
+f = r,u ,
+g = r,v ,
+c=
+a
+a
+k = φ,
+x = φ,u ,
+y = φ,v ,
+(2.33)
+s = ψ,
+p = ψ,u ,
+q = ψ,v ,
+β = Au ,
+h = χ,
+
+w = χ,u ,
+
+z = χ,v ,
+
+γ = Pu ,
+
+and the quantities denoted by
+λ≡
+
+a2
++ f g,
+4
+
+µ ≡ f q + gp,
+
+– 10 –
+
+κ ≡ gw + f z,
+
+(2.34)
+
+which make it possible to rewrite the second-order differential equations (2.13), (2.18)–
+(2.21) and (2.29)–(2.32) as first-order ones. Moreover, the real fields ψ1 , ψ2 , χ1 and χ2
+are introduced instead of conjugate fields ψ, ψ ∗ , χ and χ∗ according to ψ = ψ1 + iψ2 ,
+ψ ∗ = ψ1 − iψ2 , χ = χ1 + iχ2 and χ∗ = χ1 − iχ2 . These relations result in
+s = s1 + is2 ,
+
+p = p1 + ip2 ,
+
+q = q1 + iq2 ,
+
+h = h1 + ih2 ,
+
+w = w1 + iw2 ,
+
+z = z1 + iz2 ,
+
+µ = µ1 + iµ2 ,
+
+µ1 = f q1 + gp1 ,
+
+µ2 = f q2 + gp2 ,
+
+κ = κ1 + iκ2 ,
+
+κ1 = f z1 + gw1 ,
+
+κ2 = f z2 + gw2 .
+
+(2.35)
+
+The final system of equations of motion, which governs the investigated evolution yields
+P 1 : a,u = ac,
+
+(2.36)
+
+P 2 : a,v = ad,
+
+(2.37)
+
+P 3 : r,u = f,
+
+(2.38)
+
+P 4 : r,v = g,
+
+(2.39)
+
+P 5 : s1(2),u = p1(2) ,
+
+(2.40)
+
+P 6 : s1(2),v = q1(2) ,
+
+(2.41)
+
+P 7 : h1(2),u = w1(2) ,
+
+(2.42)
+
+P 8 : h1(2),v = z1(2) ,
+
+(2.43)
+rh
+
+i
+2
+
++
+E1 : f,u = 2cf − rx2 − p12 + p22 + 2eβ (s1 p2 − s2 p1 ) + e2 β 2 s12 + s2
+4
+h
+i
+
+1
+− r w12 + w22 + 2ẽγ (h1 w2 − h2 w1 ) + ẽ2 γ 2 h12 + h22 ,
+(2.44)
+2
+ r 2
+
+r 2
+q1 + q22 −
+z1 + z22 ,
+(2.45)
+E2 : g,v = 2dg − ry 2 −
+4
+2
+λ
+Q2 a2 T 2 a2
+T Qa2
+E3 : g,u = f,v = − + e−2k
++
++
+α
++
+DM
+r
+4r3
+8r3
+8r3
+
+
+ λDM
+2
+ra2 m2
++
+h12 + h22 +
+h12 + h22
+,
+(2.46)
+4
+2
+4
+i
+Q2 a2
+λ
+1h
++
+E4 : d,u = c,v = 2 − xy − p1 q1 + p2 q2 + eβ (s1 q2 − s2 q1 ) − e−2k
+r
+4
+2r4
+T 2 a2
+T Qa2
+− 4 − αDM
+− w1 z1 − w2 z2 + ẽγ (h2 z1 − h1 z2 ) ,
+(2.47)
+8r
+8r4
+µ1
+g
+Qa2
+S(Re) : q1,u = p1,v = − + eβq2 + es2 β + es2 2 ,
+(2.48)
+r
+r
+4r
+µ2
+g
+Qa2
+S(Im) : q2,u = p2,v = − − eβq1 − es1 β − es1 2 ,
+(2.49)
+r
+r
+4r
+Qa2
+M 1 : β,v =
+,
+(2.50)
+2
+2r
+1
+M 2 : Q,v = 2yQ + er2 e2k (s1 q2 − s2 q1 ) +
+2
+
+−1
+2
+αDM 2 2k
+2k αDM
++
+ẽr e (z1 h2 − z2 h1 )
+1−e
+,
+(2.51)
+4
+16
+
+– 11 –
+
+T a2 1
+1
+g
+κ1
+H(Re) : z1,u = w1,v = − + ẽh2 2 + ẽz2 γ + ẽh2 γ +
+r
+8r
+2
+2
+r
+i
+1 2 h 2
+2
+2
+− a h1 m + λDM h1 + h2 ,
+8
+T a2 1
+κ2
+1
+g
+H(Im) : z2,u = w2,v = − − ẽh1 2 − ẽz1 γ − ẽh1 γ +
+r
+8r
+2
+2
+r
+i
+1 2 h 2
+2
+2
+− a h2 m + λDM h1 + h2 ,
+8
+T a2
+,
+C1 : γ,v =
+2r2
+
+αDM
+1
+C2 : T,v = 2ẽr2 (h1 z2 − h2 z1 ) −
+2yQ + er2 e2k (s1 q2 − s2 q1 ) +
+2
+2
+
+−1
+2
+αDM 2 2k
+2k αDM
+ẽr e (z1 h2 − z2 h1 )
+1−e
+.
++
+4
+16
+
+3
+
+(2.52)
+
+(2.53)
+(2.54)
+
+(2.55)
+
+Details of computer simulations and results analysis
+
+Because of its complexity, the system of the obtained differential equations (2.36)–(2.55)
+needs to be solved numerically. The details of the numerical code and performed tests are
+presented in appendix A.
+The evolution equations were solved in the region of the (vu)-plane, which is shown
+on the background of a dynamical Reissner-Nordström spacetime [6] in figure 1. In all
+conducted simulations it was confined to 0 ⩽ v ⩽ 7.5 and 0 ⩽ u ⩽ 7.5. The only arbitrary
+input data of the computations were profiles of the evolving fields, posed on the initial null
+hypersurface denoted as u = 0. The initial profile of the phantom scalar field was Gaussian
+2
+
+φ = p̃k · v · e
+
+
+2
+v−c
+− c 1
+2
+
+,
+
+(3.1)
+
+while the complex fields were modeled by the trigonometric profile of the following form:
+
+ "
+
+
+
+#
+v
+2v
+2v
+2
+ψ(or χ) = p̃s (or p̃h ) · sin π
+· cos π
++ i cos π + δ
+.
+(3.2)
+vf
+vf
+vf
+The above profiles were selected so that they described the behavior of real and complex
+scalar fields properly [5, 6, 116, 117]. The profiles were treated as one-parameter families
+with amplitudes p̃k , p̃s and p̃h as free family parameters. The amplitudes are indicators
+of the strength of the gravitational self-interaction of the particular field [118]. The existence
+of a specific matter type in the examined system was guaranteed by the non-zero value
+of the respective amplitude. Three systems were investigated, i.e.,
+• electrically charged scalar field – dark energy (SF –DE) with p̃s 6= 0, p̃k 6= 0
+and p̃h = 0,
+• electrically charged scalar field – dark matter (SF –DM ) with p̃s 6= 0, p̃k = 0
+and p̃h 6= 0,
+
+– 12 –
+
+Figure 1.
+The computational domain (marked gray)
+on the background of the Carter-Penrose diagram of the dynamical Reissner-Nordström spacetime. The central singularity along r = 0, the event and Cauchy horizons are denoted
+as S, EH and CH, respectively. I ± and i± are null and timelike infinities, while i0 is a spacelike infinity.
+
+• electrically charged scalar field – dark energy – dark matter (SF –DE–DM ) with
+p̃s 6= 0, p̃k 6= 0 and p̃h 6= 0.
+The remaining constants were arbitrarily chosen and invariable during computations.
+To be precise, we set c1 = 1.3, c2 = 0.21 and the parameter determining the amount
+of initial charge δ = π2 . The maximum value of advanced time was vf = 7.5. The choice
+of initial conditions is representative for the conducted evolutions, because their outcomes
+are independent of the types of profiles provided that they are regular, i.e., they result
+in a regular spacetime slice at the initial null hypersurface. This condition is fulfilled
+by the selected profiles (3.1) and (3.2).
+Provided that the value of the electric coupling constant is non-zero, it does not affect
+the results of the collapse [14], which was confirmed for the investigated cases. For this
+reason, it was set as equal to e = 0.5 in all evolutions. A similar property was observed
+for the coupling constant ẽ, so it was also kept constant and equal to 0.5 during simulations.
+The cases of vanishing e and ẽ were not examined, because they refer to uncharged complex
+scalar fields, whose behavior during the collapse is beyond the scope of the current research.
+The dynamical spacetime structures resulting from the considered evolutions will be
+presented on Penrose diagrams. These diagrams contain contours of r = const. lines plotted
+in the (vu)-plane. The outermost thick line refers to r = 0, which is non-singular when
+coinciding with the u = v line and singular in the remaining part. The lines indicating
+the vanishing expansion
+2
+θi ≡ r,i ,
+r
+
+(3.3)
+
+in the respective null directions i = u, v will be also presented on the diagrams and their
+role in a spacetime will be commented in each case separately. They will be denoted
+as r,v = 0 and r,u = 0 and marked on the diagrams as red and blue solid lines, respectively.
+The presentation of Penrose diagrams will be limited to spacetime regions, which are crucial
+for the conducted results analysis.
+The aim of the paper is to present the influence of the dark sector on the collapse
+of an electrically charged scalar field. In figure 2 we present the Penrose diagrams of spacetimes formed during the gravitational evolution of the field without any additional factors
+as a reference for further analyses. For the initial amplitude value p̃s = 0.2 the emerging curved spacetime is non-singular, because the evolving field disperses towards infinity
+
+– 13 –
+
+(a)
+
+(b)
+
+Figure 2. (color online) Spacetime structures emerging from the collapse of an electrically charged
+scalar field of the amplitude (a) p̃s = 0.2 and (b) p̃s = 0.6.
+
+(figure 2(a)). The process with p̃s = 0.6 results in a dynamical Reissner-Nordström spacetime [6], shown in figure 2(b).
+The obtained Reissner-Nordström spacetime consists of two parts. The first one covers
+the dynamical region of spacetime and spreads up to about v = 7.05. The second one refers
+to v > 7.05 and is non-dynamical. This distinction is based on the analysis of the behavior
+of the apparent horizon, which lies along the r,v = 0 line. It changes its position along u
+in the dynamical region and becomes null as v → ∞. Its location there, along u = 0.84,
+determines the event horizon location in the spacetime [119]. The Cauchy horizon is situated
+at the future null infinity, i.e., at v = ∞. It is invisible within the covered spacetime domain,
+but its existence is confirmed by the fact that the r = const. lines tend towards constant u
+with increasing advanced time. The line r = 0 is non-singular up to v = 3.04 and becomes
+a spacelike singularity for bigger values of advanced time.
+One of physical quantities, which plays a significant role during the interpretation
+of the results is the quasi-local Hawking mass [120]. Its value calculated for the spherically
+symmetric spacetime with two coupled gauge fields Aµ and Pµ is provided by
+
+
+r
+4f g 2Q2 + T 2 + αDM T Q
+m (u, v) =
+1+ 2 +
+.
+(3.4)
+2
+a
+r2
+It describes the mass contained within a sphere of a radius r(u, v) on a spacelike hypersurface
+containing the point (u, v). The mass of a particular object is a value of the above expression
+at the event horizon in the non-dynamical region of the emerging spacetime, i.e., for v = vf .
+
+4
+
+Electrically charged scalar field collapse with dark energy
+
+An interpretation of the dark energy impact on the examined collapse was made on the basis of two distinct sets of solutions describing the outcomes of the process. The first one
+
+– 14 –
+
+corresponds to the varying amplitude of the phantom field p̃k and the constant amplitude
+of the electrically charged scalar field p̃s = 0.6. The other set was obtained during simulations with the constant phantom scalar field amplitude p̃k = 0.1 and the varying charged
+scalar field amplitude p̃s . Such an approach allows to investigate the influence of the gravitational self-interaction strength of a particular field on the studied process. The evolutions
+conducted for the selected values of constant amplitudes, when the accompanying field
+is absent, lead to dynamical spacetimes of Reissner-Nordström and Schwarzschild types,
+respectively [16].
+4.1
+
+Dynamical emergence of wormhole-like structures and naked singularities
+
+Dynamical spacetimes resulting from the collapse proceeding for the constant electrically
+charged scalar field amplitude and varying p̃k are presented in figure 3. The emerging
+spacetimes are singular for small values of p̃k and become non-singular for its bigger values.
+This results from the fact that the phantom field contributes negatively to the overall energy
+of the system. For small values of the amplitude p̃k , up to 0.22, the spacetimes are singular
+with both r,u = 0 and r,v = 0 lines of zero expansion visible in the domain of integration.
+For values of the altering amplitude not exceeding 0.185 there are two branches of the r,v = 0
+line. The outer one surrounds the singular part of r = 0 (for explanation, see section 3)
+and it becomes null as v → ∞. The second branch of the line r,v = 0 lies inside the first
+one and its beginning coincides with the end of the singular spacelike r = 0 line. The line
+of r,u = 0 is situated beyond the second branch of r,v = 0 and begins at the same point.
+For small values of the parameter p̃k these two lines practically coincide.
+The structure described above, with two branches of r,v = 0 lines and the line r,u = 0
+beyond them, is a dynamical wormhole. The strong flare-out condition θi,i > 0 with
+i = u, v [121] is fulfilled along the r,u = 0 line and the inner branch of r,v = 0. This
+fact proves that they are wormhole throats. Each of the throats is related to one travel
+direction. The outgoing throat is situated along r,u = 0 and the ingoing one along r,v = 0.
+The strong flare-out condition is not satisfied along the outer branch of the line r,v = 0,
+because the relation θv,v < 0 holds there. This confirms that the branch is not a throat,
+but an apparent horizon in the spacetime, whose null course in the region v → ∞ indicates
+the location of an event horizon.
+For values of the amplitude p̃k larger than 0.185, but not exceeding 0.22, the two
+branches of the line r,v = 0 form a loop, whose ends are joined to the ending points
+of the singular part of the r = 0 line. The line r,u = 0 remains outside the loop. Such
+a structure corresponds to a naked singularity in the spacetime [9]. For values of the scalar
+field amplitude p̃k larger than 0.22, the spacetime is non-singular.
+The second set of solutions involves spacetimes emerging from a collapse when the amplitude of the phantom scalar field is constant and the amplitude of the electrically charged
+scalar field changes. In figure 4 the structures of spacetimes which stem from the collapse
+are depicted. As in the previous set of solutions, the wormhole structures are observed.
+But unlike the preceding case, the spacetime is non-singular for small values of the amplitude p̃s , not exceeding 0.35, and contains a wormhole for its bigger values. The wormhole
+structures are similar to these presented above, that is there are two branches of the r,v = 0
+
+– 15 –
+
+(a)
+
+(b)
+
+(c)
+
+(d)
+
+Figure 3. (color online) Penrose diagrams of spacetimes emerging from the SF –DE evolution
+with the varying phantom scalar field amplitude. The family parameter for the electrically charged
+scalar field p̃s = 0.6, while for the phantom scalar field p̃k is equal to (a) 0.01, (b) 0.15, (c) 0.2
+and (d) 0.25.
+
+line, the outer and the inner one, and the line r,u = 0 located within them. The outer
+branch of the line r,v = 0 settles along a constant value of u-coordinate for v → ∞ indicating the location of an event horizon. Contrary to the previous case, no naked singularities
+were observed in the formed dynamical spacetimes.
+4.2
+
+Vicinity of wormhole throats
+
+As was explained in the previous section, due to the behavior of the expansion (3.3) and its
+adequate derivatives, the ingoing and outgoing wormhole throats are located along the inner
+branch of r,v = 0 and along the r,u = 0 line, respectively. As was anticipated and confirmed
+
+– 16 –
+
+(a)
+
+(b)
+
+(c)
+
+Figure 4. (color online) Penrose diagrams
+of spacetimes emerging from the SF –DE evolution with the varying electrically charged
+scalar field amplitude. The family parameter
+of the phantom scalar field p̃k = 0.1, while p̃s
+is equal to (a) 0.3, (b) 0.375 and (c) 0.7.
+
+for eternal wormholes, the violation of the null energy condition (NEC)
+Tµν nµ nν ⩾ 0,
+
+(4.1)
+
+where nµ denotes a null vector, is crucial for their existence [121, 122].
+In spherical symmetry, taking into account the line element (2.12), the stress-energy
+tensor can be written in the general form
+Tµν dxµ dxν = Tuu du2 + Tvv dv 2 + 2Tuv dudv + Tkk r2 dΩ2 ,
+
+(4.2)
+
+where Tuu , Tvv , Tuv and Tkk are its components, while k = Θ, Φ. The matter described
+by the above stress-energy tensor fulfills the null energy condition when diagonal components of (4.2) corresponding to the coordinates u and v are non-negative [123], i.e.,
+Tuu ⩾ 0 and Tvv ⩾ 0.
+
+(4.3)
+
+The non-zero components of the stress-energy tensor (2.24) were calculated for the wormhole spacetimes in order to examine the fulfillment of the NEC in the dynamical case.
+
+– 17 –
+
+(a)
+
+(b)
+
+Figure 5. (color online) The stress-energy tensor components (2.25)–(2.28) in the (vu)-plane
+for evolutions carried out for electrically charged scalar field and phantom scalar field amplitudes
+set as (a) p̃s = 0.6 and p̃k = 0.15, (b) p̃s = 0.7 and p̃k = 0.1.
+
+Figure 5 presents the components (2.25)–(2.28) for the SF –DE collapse with the amplitudes of the electrically charged field and the phantom field equal to p̃s = 0.6, p̃k = 0.15
+and p̃s = 0.7, p̃k = 0.1 (the respective spacetime structures were presented in figures 3(b)
+and 4(c)).
+In the vicinity of wormhole throats the violation of the null energy condition is observed,
+because the requirement (4.3) is not satisfied. At the same time, this condition is fulfilled
+nearby the singular part of r = 0. The violation of NEC is thus a factor, which determines
+the existence of wormhole throats also in the dynamical case. Another area, in which
+the null energy condition is violated, is the vicinity of null lines v ≈ 1.3 and u ≈ 1.3 in both
+investigated wormhole spacetimes. This region is related to the evolution of the phantom
+scalar field, during which it neither falls into the central singularity nor evolves through
+the wormhole, but escapes to null infinity as v → ∞.
+Figures 6 and 7 depict the modulus of the electrically charged complex scalar field
+and the phantom scalar field in the (vu)-plane for the same evolutions as in figure 5.
+The modulus of the electrically charged scalar field increases with retarded time uniformly
+for all values of the v-coordinate. It is hard to distinguish any area, within which the field
+accumulates and the biggest values are one order of magnitude larger than the smallest ones. The value of the function related to the phantom field is considerably higher
+in the region nearby wormhole throats, where it is four orders of magnitude bigger than
+in the surrounding spacetime region. It can be interpreted as a phenomenon of stabilization of the wormhole structure by phantom matter [70]. The value of the phantom scalar
+field function is also significantly bigger along the hypersurfaces v ≈ 1.3 and then u ≈ 1.3
+
+– 18 –
+
+(a)
+
+(b)
+
+Figure 6. (color online) The (vu)-distribution of (a) the modulus of the electrically charged scalar
+field, |ψ|, and (b) the phantom scalar field, φ, for the SF –DE evolution characterized by initial
+field amplitudes p̃s = 0.6 and p̃k = 0.15.
+(a)
+
+(b)
+
+Figure 7. (color online) The (vu)-distribution of (a) |ψ| and (b) φ for the SF –DE evolution
+characterized by initial field amplitudes p̃s = 0.7 and p̃k = 0.1.
+
+indicating the course of the dispersive evolution of the field, which was also noticed during
+the above interpretation of the stress-energy tensor components.
+4.3
+
+Black hole-wormhole duality
+
+A possibility of a two-way interconversion between black holes and wormholes was discussed
+in [124–128]. It was stated that a black hole may turn into a wormhole when irradiated
+by matter with negative energy. On the other hand, a wormhole stabilized by such exotic
+matter shall turn into a black hole when the matter source disappears.
+Dynamical wormhole spacetimes obtained in our computations contain spacelike singularities for large values of retarded time and the existence of event horizons is due to these
+
+– 19 –
+
+late-u singularities. A singularity exists during the dynamical stage of the collapse and bifurcates into two wormhole throats when the spacetime tends towards its stationary phase
+at v → ∞. Such a course of the investigated process suggests that a black hole, which
+emerges in the preliminary stage of the evolution, finally converts into a wormhole. The existence of a singularity at large values of retarded time is strictly connected with the fact
+that the null energy condition is fulfilled in the area (figure 5), what is in turn a result
+of a considerably smaller value of the phantom field function in this region (figures 6(b)
+and 7(b)). The reason for the black hole-wormhole conversion is a substantial increase of its
+values in the particular area, which in consequence turns into a tunnel outlined by wormhole
+throats.
+4.4
+
+Properties of wormholes
+
+The issue whether and in what manner do the properties of the obtained spacetimes differ
+when one of the field amplitudes is constant and the value of the other amplitude changes
+was also addressed. The ranges of varying amplitudes were chosen in such a way that
+in the case of the constant electrically charged scalar field amplitude the biggest p̃k is approximately the last one not leading to the formation of a naked singularity. In the case
+of a constant phantom scalar field amplitude the smallest p̃s refers to the first dynamical
+wormhole spacetime which appears instead of a non-singular spacetime.
+In figure 8 the radii of event horizons and wormhole throats at the final value of the vcoordinate were plotted as functions of the altering field amplitudes. The chosen value
+of advanced time vf corresponds to the well-established stationary phase of the evolution
+due to the fact that in all considered cases the apparent horizon r,v = 0 is a null hypersurface
+there. The common feature of both sets of solutions is that the radii of event horizons as well
+as wormhole throats increase when the varying amplitude increases. The radii of event
+horizons for the biggest values of p̃k are the only exception (figure 8(a)). In this region
+two branches of the line r,v = 0 approach each other, which for values of p̃k exceeding
+0.185 results in their connection and naked singularity formation. Such a tendency is not
+visible for the other set of solutions with the varying amplitude p̃s (figure 8(b)), hence
+a naked singularity does not form. The changes of radii of event horizons are considerably
+more noticeable in the case of a varying amplitude of the electrically charged scalar field.
+On the contrary, the radii of wormhole throats vary more significantly when the phantom
+scalar field amplitude alters. The radii of both wormhole throats are identical for all values
+of the varying p̃s . For altering p̃k they are equal up to some point and than they begin
+to differ more and more significantly.
+Figure 9 depicts the u-locations of event horizons, wormhole throats at the final value
+of advanced time and the points, where the line r = 0 becomes singular (singularity
+origins) for both sets of solutions. When the phantom scalar field amplitude increases,
+the u-locations of all the mentioned features increase (figure 9(a)), while in the other case
+the opposite tendency is observed (figure 9(b)). Similarly to the radii, the u-locations
+of wormhole throats are exactly the same in the case of altering p̃s and they bifurcate
+at some point when p̃k increases. It is connected with the forthcoming naked singularity
+formation. The changes in u-locations are considerably bigger when the phantom scalar
+
+– 20 –
+
+(a)
+
+(b)
+
+Figure 8. The radii of event horizons and wormhole throats at the final value of the v-coordinate
+as functions of (a) the phantom scalar field amplitude p̃k and (b) the electrically charged scalar
+field amplitude p̃s for the SF –DE collapse. The constant free family parameters for the particular
+evolutions were chosen to be equal to p̃s = 0.6 and p̃k = 0.1, respectively.
+(b)
+
+(a)
+
+Figure 9. The u-locations of event horizons, wormhole throats at the final value of the v-coordinate
+and the points, where the line r = 0 becomes singular, as functions of (a) p̃k and (b) p̃s for the SF –
+DE collapse. The respective constant free family parameters are the same as in figure 8.
+
+field amplitude is constant and the amplitude of the electrically charged scalar field varies,
+in comparison to the other set of solutions.
+The masses of wormholes versus the phantom scalar field and electrically charged scalar
+field amplitudes are presented in figure 10. In both cases the mass increases when the amplitude raises.
+
+– 21 –
+
+(a)
+
+(b)
+
+Figure 10. The wormhole masses, mEH , as functions of (a) p̃k and (b) p̃s for the SF –DE collapse.
+The respective constant free family parameters are the same as in figure 8.
+
+5
+
+Influence of dark matter on electrically charged scalar field evolution
+
+During examining the role of dark matter in the studied collapse the values of parameters,
+which characterize the considered dark matter model, i.e., αDM , m2 and λDM , were varied within the permissible ranges outlined in section 2. It turned out that αDM and λDM
+do not play a significant role during the process. The latter result is an extension of the previous attempt to include the χ4 -type interactions in the gravitational collapse mentioned
+in [129], which was made for the evolution of a real scalar field without electric charge.
+The results of the conducted simulations will be presented for αDM = 10−3 and λDM = 0.1.
+The course of the SF –DM evolution was also interpreted regarding the strength of a gravitational self-interaction of the evolving fields by changing the values of their initial amplitudes p̃h and p̃s .
+5.1
+
+Spacetime structures
+
+The Penrose diagrams of spacetimes formed during the SF –DM collapse with a varying
+amplitude p̃h are presented in figures 11 and 12 for m2 = 0.1 and the electrically charged
+scalar field amplitude p̃s equal to 0.6 and 0.2, respectively. The structures of spacetimes,
+which stem from the process in the absence of dark energy are shown in figure 2. The former
+is the dynamical Reissner-Nordström spacetime and the latter is non-singular.
+In the case of p̃s = 0.6, all the resulting spacetimes are dynamical Reissner-Nordström
+spacetimes for all initial amplitudes of the complex field, which constitutes the dark matter model. The central spacelike singularity at r = 0 is surrounded within each of them
+by a single apparent horizon situated along the r,v = 0 line, which settles down along
+an event horizon as v → ∞. The Cauchy horizon is located at future null infinity v = ∞.
+An increasing value of p̃h results in an earlier formation of a black hole in terms of retarded
+time. When p̃s equals 0.2, the obtained spacetime is non-singular for values of p̃h not exceeding 0.135 or contains a dynamical Reissner-Nordström black hole for its larger values.
+This result is particularly interesting due to the role played by dark matter in this case. Although the self-interaction of an electrically charged scalar field is too weak to form a black
+hole (figure 2(a)), the presence of dark matter enables the emergence of a singular spacetime. The appearance of the singularity is clearly related to the dark matter action during
+
+– 22 –
+
+(a)
+
+(b)
+
+(c)
+
+(d)
+
+Figure 11. (color online) Penrose diagrams of spacetimes formed during the collapse of the electrically charged scalar field of the amplitude p̃s = 0.6 in the presence of dark matter with m2 = 0.1
+and p̃h equal to (a) 10−3 , (b) 0.1, (c) 0.15 and (d) 0.2.
+(a)
+
+(b)
+
+Figure 12. (color online) Penrose diagrams
+of spacetimes formed during the SF –DM evolution with p̃s = 0.2, m2 = 0.1 and p̃h equal
+to (a) 0.1 and (b) 0.4.
+
+the collapse, but the existence of a Cauchy horizon is strictly connected with the charge
+associated with the scalar field coupled with the Maxwell field.
+The spacetimes formed during the discussed collapse for p̃s = 0.6, p̃h = 0.1 and several
+negative values of m2 are shown in figure 13. For m2 larger than −3.85 the dynamical
+Reissner-Nordström spacetimes form, while for its smaller values the Cauchy horizon is absent in the spacetime and hence dynamical Schwarzschild black holes stem from the evolution. In the latter case, the central r = 0 spacelike singularity is surrounded by an apparent
+horizon r,v = 0, which coincides with an event horizon at v → ∞. The Cauchy horizon
+does not exist, because the r = const. lines do not settle along u = const. hypersurfaces
+as v → ∞. For m2 > 0 all the spacetimes are of the Reissner-Nordström type. The non-zero
+vev of the dark matter complex scalar field, i.e., the existence of dark matter in the form
+of a massive gauge boson (called Z 0 or dark photon) during the course of the studied process
+for m2 < −3.85, results in the disappearance of a Cauchy horizon and favors the formation
+
+– 23 –
+
+(a)
+
+(b)
+
+(c)
+
+(d)
+
+Figure 13. (color online) Penrose diagrams of spacetimes formed during the SF –DM collapse
+with p̃s = 0.6, p̃h = 0.1 and m2 equal to (a) −1, (b) −2, (c) −3 and (d) −4.
+
+of a simpler Schwarzschild-type spacetime.
+5.2
+
+Fields behavior in spacetimes
+
+The components of the stress-energy tensor (2.24) calculated for the spacetimes formed
+during the SF –DM collapse characterized by the amplitudes p̃s = 0.6, p̃h = 0.1 and m2
+equal to −1 and −4 are presented in figure 14 (the respective spacetime structures were
+presented in figures 13(a) and 13(d)). The (vu)-distributions of the moduli of the electrically
+charged scalar field and the dark matter complex scalar field for the same evolutions are
+shown in figures 15 and 16.
+Both Tuu and Tvv components of the stress-energy tensors are positive nearby the singular r = 0 lines in the presented spacetimes. Hence, the null energy condition (4.1)
+is fulfilled in the vicinity of the central singularities. They do not bifurcate into wormhole throats and black holes form during the SF –DM evolution. Similar conclusions stem
+from the analysis of the stress-energy tensor components for singular spacetimes presented
+in figures 11 and 12.
+An inspection of the moduli of the field functions reveals that the type of the forming
+spacetime depends on their values in the vicinity of r = 0 as v → ∞. A significant value
+of the modulus of an electrically charged scalar field in this region, three orders of magnitude
+bigger than in the remaining spacetime, accompanied by a small value of the other field modulus, results in the formation of a dynamical Reissner-Nordström spacetime. It is connected
+with the repulsive character of the scalar field due to the electric charge associated with it.
+On the other hand, when the modulus of the dark matter complex scalar field is bigger
+at v → ∞ nearby r = 0 (two orders of magnitude in relation to the rest of the spacetime
+in the considered case), the importance of the other field is reduced and the dynamical
+Schwarzschild spacetime emerges. Such behavior of dark matter during the gravitational
+collapse is consistent with its action on a cosmological scale, where it tends to concentrate
+in confined areas due to the attractive character of its gravitational interaction. It is worth
+
+– 24 –
+
+(a)
+
+(b)
+
+Figure 14. (color online) The stress-energy tensor components (2.25)–(2.28) in the (vu)-plane
+for SF –DM evolutions with p̃s = 0.6, p̃h = 0.1 and m2 equal to (a) −1 and (b) −4.
+
+(a)
+
+(b)
+(a)
+
+Figure 15. (color online) The (vu)-distribution of the moduli of (a) the electrically charged
+scalar field, |ψ|, and (b) the dark matter complex scalar field, |χ|, for the SF –DM evolution
+with p̃s = 0.6, p̃h = 0.1 and m2 = −1.
+
+(b)
+
+Figure 16. (color online) The (vu)-distribution of (a) |ψ| and (b) |χ| for the SF –DM evolution with p̃s = 0.6, p̃h = 0.1 and m2 = −4.
+
+noting, that in the regime of the selected dark matter model, the described behavior is related to the change in potential (the value of m2 ), not in the gravitational self-interaction
+strength of the complex field (the amplitude p̃h ).
+
+– 25 –
+
+(a)
+
+(b)
+
+Figure 17. (color online) The u-locations of the event horizons, uEH , the masses, mEH ,
+and the radii, rEH , of black holes formed during the SF –DM collapse as functions of (a) p̃h
+with m2 = 0.1 and (b) m2 with p̃h = 0.1. The green line indicates the border between spacetimes
+of the Schwarzschild (m2 < −3.85) and Reissner-Nordström (m2 ⩾ −3.85) types.
+
+5.3
+
+Characteristics of the formed black holes
+
+The dependence of the event horizon u-locations, the masses and the radii of black holes
+formed during the collapse of an electrically charged scalar field accompanied by dark matter
+on p̃h and m2 is depicted in figure 17. The maximal value of the initial amplitude of the dark
+matter scalar field was selected so that for all investigated cases the collapse begins outside
+of the event horizon.
+The black holes form earlier in terms of retarded time and their masses and radii
+increase as p̃h gets bigger (figure 17(a)). When m2 increases the moment of the event
+horizon formation appears later in terms of u and the black hole masses and radii decrease
+with an inflection nearby m2 = −3.85, which is the point of the change between the ReissnerNordström and Schwarzschild spacetime structures (figure 17(b)).
+
+6
+
+Collective effect of dark components on the considered collapse
+
+Similarly to the evolutions described in section 5, the collapse of an electrically charged
+scalar field with both dark energy and dark matter will be presented for the values of αDM
+and λDM equal to 10−3 and 0.1, respectively. The altering of the initial amplitudes p̃s ,
+p̃h and p̃k is equivalent to changing the strength of the particular field gravitational selfinteraction within the examined physical system.
+6.1
+
+Spacetime structures
+
+The structures of spacetimes formed in the course of the SF –DE–DM collapse for p̃s = 0.6,
+p̃k = 0.15, m2 = 0.1 and the varying amplitude of the dark matter complex scalar field are
+presented in figure 18. The obtained spacetimes contain dynamical wormholes. The central
+
+– 26 –
+
+(a)
+
+(b)
+
+(c)
+
+(d)
+
+Figure 18. (color online) Penrose diagrams of spacetimes formed during the gravitational evolution
+of the electrically charged scalar field of the amplitude p̃s = 0.6 in the presence of the phantom
+scalar field with p̃k = 0.15 and dark matter, whose model is described by the parameters m2 = 0.1
+and p̃h equal to (a) 10−3 , (b) 0.1, (c) 0.2 and (d) 0.25.
+
+spacelike r = 0 singularity bifurcates into two wormhole throats located along the lines
+r,v = 0 and r,u = 0 as v → ∞. The whole is surrounded by an apparent horizon r,v = 0,
+which coincides with the event horizon in the region, where the spacetime settles down
+after the dynamical stage of the process. The value of p̃h does not influence the type
+of the emerging spacetime, but it causes the event horizon to form earlier in terms of retarded
+time.
+The Penrose diagrams of spacetimes which stem from the studied collapse with a varying phantom field amplitude with p̃s = 0.6, p̃h = 0.15 and m2 = 0.1 are shown in figure 19.
+The spacetimes contain either wormholes or naked singularities. The former emerge for p̃k
+smaller than 0.23 and the latter for its larger values. The u-location of the event horizon increases with the value of the altering amplitude. The gravitational self-interaction
+strength of the phantom field decides about the type of a spacetime structure, which forms
+in the process.
+Figure 20 presents the results of the considered evolution for different negative values of the parameter m2 , when the initial field amplitudes are p̃s = 0.6, p̃k = 0.15
+and p̃h = 0.15. There exist dynamical wormholes in the emerging spacetimes for m2 ⩾ −2.1
+and Schwarzschild black holes for its smaller values. The collapse with positive m2 always
+results in a spacetime, which contains a dynamical wormhole.
+The above results indicate that when the field gravitational self-interaction strength
+is concerned, the role of dark energy coexists with the influence of dark matter. The dark
+energy component decides what type of an object forms. Dark matter does not interfere
+with the structure type, but regulates the amount of time which is needed for the intrinsic object to form. When the impact of the dark matter potential is considered,
+it turns out that the value of m2 influences the observed structure by controlling whether
+the wormhole throats remain open in the spacetime. Their absence results in the formation
+
+– 27 –
+
+(a)
+
+(b)
+
+(c)
+
+Figure 19. (color online) Penrose diagrams of spacetimes formed during the collapse of the electrically charged scalar field of the amplitude p̃s = 0.6 in the presence of dark matter with p̃h = 0.15,
+m2 = 0.1 and the phantom scalar field with p̃k equal to (a) 0.05, (b) 0.14 and (c) 0.25.
+(a)
+
+(b)
+
+(c)
+
+(d)
+
+Figure 20. (color online) Penrose diagrams of spacetimes formed during the SF –DE–DM collapse
+with p̃s = 0.6, p̃k = 0.15, p̃h = 0.15 and m2 equal to (a) −1, (b) −2, (c) −3 and (d) −5.
+
+of a Schwarzschild spacetime and the existence of a central singularity even after the dynamical phase of the collapse is finished. It should be emphasized that the dark sector
+suppresses the natural tendency of an electrically charged scalar field to form a dynamical
+Reissner-Nordström spacetime in the course of the gravitational collapse.
+6.2
+
+Fields behavior in spacetimes
+
+The (vu)-distributions of the stress-energy tensor components (2.25)–(2.28) for the dynamical spacetimes emerging from the SF –DE–DM evolutions characterized by the amplitudes
+p̃s = 0.6, p̃k = 0.15, p̃h = 0.15 and m2 equal to −1 and −3 are presented in figure 21 (the respective spacetime structures were presented in figures 20(a) and 20(c)). The spacetime
+
+– 28 –
+
+(a)
+
+(b)
+
+Figure 21. (color online) The stress-energy tensor components (2.25)–(2.28) in the (vu)-plane
+for SF –DE–DM evolutions with p̃s = 0.6, p̃k = 0.15, p̃h = 0.15 and m2 equal to (a) −1 and (b) −3.
+
+distributions of the moduli of the electrically charged scalar field, the dark matter complex
+scalar field and the phantom scalar field for the same cases are shown in figures 22 and 23.
+The Tuu and Tvv components of the stress-energy tensors are negative in the vicinity
+of wormhole throats when m2 = −1. The null energy condition (4.1) is violated there.
+In the case of m2 = −3 the components are positive nearby r = 0 and hence a black
+hole, not a dynamical wormhole arises in the spacetime. The obtained result strengthens
+the conclusion presented in section 4.2 that the violation of NEC is needed for the formation
+of wormholes during dynamical evolutions. Clearly, this statement is valid even for complicated matter-geometry systems evolutions, in which several types of interacting matter are
+involved.
+Similarly to the SF –DM case, the obtained spacetime type depends on the values
+of the evolving field functions in the vicinity of r = 0. The formation of a dynamical wormhole stems from a significant value of the modulus of the phantom scalar field in this region
+as v → ∞ (four orders of magnitude bigger than in the remaining spacetime) accompanied
+by a small value of the dark matter field modulus. When the modulus of the dark matter
+complex scalar field is bigger at v → ∞ nearby r = 0 (three orders of magnitude in relation to the rest of the spacetime in the considered case), the importance of the remaining
+fields is reduced and the dynamical Schwarzschild spacetime emerges. The structure type
+and the fields behavior in a spacetime depend on the value of the parameter m2 , not the initial amplitude of either of the collapsing fields.
+
+– 29 –
+
+(a)
+
+(b)
+
+(c)
+
+Figure 22. (color online) The (vu)-distribution of (a) the moduli of the electrically charged scalar
+field, |ψ|, (b) the moduli of the dark matter complex scalar field, |χ|, and (c) the phantom scalar
+field, φ, for the SF –DE–DM evolution with p̃s = 0.6, p̃k = 0.15, p̃h = 0.15 and m2 = −1.
+(a)
+
+(b)
+
+(c)
+
+Figure 23. (color online) The (vu)-distribution of (a) |ψ|, (b) |χ| and (c) φ for the SF –DE–DM
+evolution with p̃s = 0.6, p̃k = 0.15, p̃h = 0.15 and m2 = −3.
+
+6.3
+
+Properties of the emerging objects
+
+The influence of p̃h , p̃k and m2 on the event horizon u-locations, the masses and the radii
+of objects formed during the gravitational evolution of an electrically charged scalar field
+accompanied by dark matter and dark energy is shown in figure 24. The maximal value
+of the amplitude p̃h was determined by the event horizon location in the spacetime so as to begin the collapse outside it. The maximal considered value of the phantom scalar field amplitude was the biggest value not leading to the formation of a naked singularity in spacetime.
+As the dark matter complex scalar field amplitude increases, the wormholes appear earlier in u, their radii increase and masses decrease up to p̃h = 0.23 and increase for larger p̃h
+(figure 24(a)). In the case of an increasing p̃k , the values describing all the properties increase, apart from rEH for values of the amplitude exceeding 0.21 (figure 24(b)).
+Just as in the case of the SF –DE system, such behavior indicates the upcoming forma-
+
+– 30 –
+
+(a)
+
+(b)
+
+(c)
+
+Figure 24. (color online) The u-locations
+of the event horizons, uEH , the masses, mEH ,
+and the radii, rEH , of the objects formed
+during the SF –DE–DM collapse as functions
+of (a) p̃h with p̃k = 0.15, m2 = 0.1, (b) p̃k
+with p̃h = 0.15, m2 = 0.1 and (c) m2 with
+p̃k = 0.15, p̃h = 0.15. The green line indicates
+the border between spacetimes containing black
+holes of the Schwarzschild type (m2 < −2.1)
+and wormholes (m2 ⩾ −2.1).
+
+tion of a naked singularity in the spacetime. When m2 increases the event horizon forms
+later in terms of retarded time and the wormhole radii decrease with an inflection nearby
+m2 = −2.1, which is the point of the change between the wormhole and Schwarzschild
+spacetime structures (figure 24(c)). The behavior of masses is more complicated, as apart
+from the inflection around m2 = −2.1, there exists a minimal mass for m2 = −3.9.
+The non-monotonic behavior of the described characteristics is related to the fact that
+the investigated system consists of multiple components and the observed phenomena are
+a compromise among the tendencies characteristic for particular evolving matter types.
+
+7
+
+Conclusions
+
+The influence of dark matter and dark energy on the electrically charged scalar field collapse
+was investigated. Dark matter was described by a complex scalar field with a quartic
+potential, coupled to a U (1)-gauge field. Dark energy was modeled by a scalar field coupled
+to gravity in a phantom manner. The exponential relation of the scalar field with dark
+energy originated from the low-energy limit of the string theory. Dark matter was coupled
+with the electrically charged scalar field through a kinetic coupling between the two gauge
+
+– 31 –
+
+fields present in the system.
+The existence of phantom matter in spacetime can result in the formation of naked singularities or dynamical wormholes during the gravitational collapse of an electrically charged
+scalar field. The latter objects have two throats related to two travel directions and are
+surrounded by event horizons. The values of the phantom field are considerably bigger
+in the spacetime region situated nearby wormhole throats, in comparison to the surrounding
+area. This accumulation leads to the violation of the null energy condition, which is essential for the dynamical wormhole formation and the stabilization of its throats. The masses
+of wormholes, the radii of event horizons and wormhole throats increase when the amplitudes of both phantom and electrically charged scalar fields increase. The event horizon,
+wormhole throats and singularity origin appear later in terms of retarded time as p̃k increases while p̃s is constant and at smaller values of the u-coordinate in the opposite case.
+In the obtained wormhole spacetimes spacelike singularities situated along r = 0 exist
+during the dynamical stage of the evolution. They turn into wormhole throats as the spacetime tends towards the final stage of the collapse. This suggests that the considered spacetime shortcuts ensue from the process, during which a black hole gains exotic matter of negative energy. Thus the existence of duality between black holes and wormholes was confirmed
+in the course of fully non-linear computations.
+The spacetimes resulting from the examined collapse in the presence of dark matter are
+either non-singular or contain black holes, depending on the gravitational self-interaction
+strengths of both evolving fields, that is their initial amplitudes p̃s and p̃h . The type
+of an emerging object depends on the value of the square of mass parameter from the dark
+matter model. In general, the non-zero vev of the dark matter complex scalar field favors
+the formation of dynamical Schwarzschild spacetimes for m2 < −3.85, while for the vanishing vev the dynamical Reissner-Nordström black holes appear.
+The null energy condition is fulfilled in the vicinity of singularities in the emerging
+spacetimes, hence the stabilization of wormhole throats is impossible and such objects
+do not form. The values of the moduli of the electrically charged scalar field and the dark
+matter complex scalar field are considerably bigger nearby r = 0, where v → ∞, than
+in the remaining regions in spacetimes of Reissner-Nordström and Schwarzschild types,
+respectively. This indicates a repulsive character of the former and an attractive character
+of the latter field.
+The moment of a black hole formation, i.e., an appearance of an event horizon in terms
+of retarded time, as well as the black hole masses and radii are controlled by the values of p̃h
+and m2 . The event horizon u-locations increase and the remaining characteristics decrease
+as the dark matter complex scalar field initial amplitude raises. The opposite tendency
+is observed in the case of an increasing parameter m2 .
+The dark sector suppresses the tendency of a self-interacting electrically charged scalar
+field to form a dynamical Reissner-Nordström black hole during the gravitational evolution.
+In the case of its overall influence on the investigated process, the strength of the dark energy gravitational self-interaction prevails over the dark matter gravitational self-interaction
+strength. The dark energy component decides on the type of an object, while dark matter
+regulates the amount of time which is needed for it to form. The parameter m2 of the dark
+
+– 32 –
+
+matter potential influences the observed structures by controlling whether the wormhole
+throats appear in the spacetime. Their absence results in the formation of a Schwarzschildtype black hole, for the non-zero vev of the dark matter complex scalar field and m2 < −2.1.
+In the spacetimes resulting from the SF –DE–DM collapse the null energy condition
+is violated in the vicinity of wormhole throats and fulfilled nearby the singularities, just
+as in the previous cases. The formation of a wormhole requires values of a phantom scalar
+field considerably bigger nearby the throats in comparison to the rest of a spacetime. Large
+values of the modulus of the dark matter complex scalar field result in the emergence
+of a Schwarzschild-type object.
+The behavior of u-locations, masses and radii as functions of p̃h , p̃k and m2 are complicated due to the fact that the investigated system consists of multiple components, each
+of which displays a different tendency during the evolution. The electrically charged scalar
+field favors the Reissner-Nordström black hole formation, dark energy supports the emergence of wormholes or naked singularities and dark matter tends to form the Schwarzschildtype objects. The observed phenomena are a compromise among these tendencies characteristic for the involved matter types.
+The changes introduced by the dark sector to the electrically charged scalar field gravitational collapse are presented in table 1. It summarizes the obtained results in the context of the role of particular parameters in the studied evolution for the initial amplitude
+of an electrically charged scalar field, which solely leads to the formation of a black hole.
+The obtained outcomes confirm the previous conclusions regarding the role of dark energy
+during the gravitational collapse. It does not prevent the formation of singular spacetimes
+during the dynamical evolution when it is accompanied by other types of matter, in particular dark matter [18, 20]. The current studies also widened previous findings in this regard.
+They allowed us to describe the structures of objects existing in these singular spacetimes,
+which turned out to be wormholes, naked singularities or black holes of Schwarzschild
+or Reissner-Nordström types.
+The Penrose diagrams of spacetimes, on which the spacetime structures were presented
+in the current paper, are related to the Carter-Penrose diagrams via conformal transformation, which preserves the causal structure of a spacetime. The Carter-Penrose diagrams
+of both static and dynamical Schwarzschild and Reissner-Nordström spacetimes can be
+found, e.g., in [6, 8, 114]. In figure 25 we present such diagrams for the dynamical wormhole
+and naked singularity spacetimes, which stem from the performed analyses of the dynamical
+formation of these objects.
+Apart from investigations of spacetime structures formed during the collapse in the presence of the dark sector, other tantalizing questions are the mechanism of black hole formation and the behavior of matter accreting onto a nascent black hole taking the cosmological
+evolution into account. It was claimed that primordial black holes can accrete the surrounding dark energy, phantom energy or ghost condensate very effectively [130, 131]. However,
+the conducted analyses neglected cosmic expansion.
+Until now, there have been several attempts to find black hole solutions embedded
+in the expanding Universe, starting from the Einstein-Straus [132] and McVittie [133] solutions to the multi black hole Kastor-Traschen cosmological solution [134], which is a time-
+
+– 33 –
+
+Evolution
+
+p̃k %
+
+p̃h %
+
+m2 %
+
+SF –DE
+
+W H → N S → ns [16]
+uEH %
+rEH % mEH %
+
+−
+
+−
+
+RN
+uEH &
+rEH % mEH %
+WH
+uEH &
+rEH % mEH &%
+
+RN → S
+uEH %
+rEH & mEH &
+WH → S
+uEH %
+rEH & mEH &%
+
+SF –DM
+
+−
+
+SF –DE–DM
+
+WH → NS
+uEH %
+rEH %& mEH %
+
+Table 1. Spacetime structures formed during the gravitational collapse of an electrically charged
+scalar field with p̃s = 0.6 accompanied by dark energy and dark matter and the selected characteristics of the emerging objects. Symbols: ns – non-singular spacetime, S – Schwarzschild-type
+spacetime, RN – Reissner-Nordström-type spacetime, W H – wormhole, N S – naked singularity,
+uEH – u-location of an event horizon, rEH and mEH – radius and mass of the intrinsic object,
+respectively. Arrows: %/& – an increase/decrease of a value of the particular characteristic or amplitude, → – the change of the spacetime structure while the particular parameter varies.
+(a)
+(b)
+
+Figure 25. (color online) The Carter-Penrose diagrams of dynamical spacetimes, which contain
+(a) a wormhole and (b) a naked singularity. The red and blue solid lines are the r,v = 0 and r,u = 0
+horizons, respectively. The red and blue dashed line symbolizes wormhole throats. The meaning
+of the symbols is the same as in figure 1. The causal structure of the spacetime regions marked gray
+on the diagrams is impossible to interpret without any doubts due to the limitations of numerical
+computations in these areas.
+
+dependent generalization of the Majumdar-Papapetrou one. An exact analytical black hole
+solution in the expanding Universe was derived within the Einstein-scalar-Maxwell system
+with two U (1)-gauge fields and an exponential potential of the scalar field [135]. The dilaton black hole on a thick brane and a cosmological brane black hole solutions were studied
+in [136, 137], while the time-dependent solution from compactification of intersecting branes
+in higher-dimensional unified theories was found in [138]. As was already stated in the In-
+
+– 34 –
+
+troduction, the dynamical solutions may behave quite differently in comparison to their
+stationary cousins. Some realistic attempts to analytically describe the accretion of a matter field onto an evolving black hole were conducted in [139], where a time-dependent scalar
+field and a time-dependent black hole were considered. In order to correctly account for
+the scalar field accretion, the expansion in terms of a slow roll parameter was implemented.
+The only initial assumptions about the geometry were its SO(3) symmetry and the time
+and radial dependence of the line element. Hence, the presented method did not require
+a direct assumption about the form of the underlying black hole metric.
+The issues introduced above to be studied in the fully non-linear dynamical context are
+beyond of the scope of the presented research, as they require different methodology than
+the one employed in the paper. We hope to return to the announced problems in relation
+to the cosmological evolution of the Universe in the future researches.
+
+A
+
+Numerical computations
+
+The numerical simulations of the investigated process were conducted with the use of a modified version of the code, the specifics of which were presented in [14]. The scheme was broadened and adapted for the presently considered problem by including the phantom constant ξ
+and the additional sector (2.52)–(2.55), which refers to dark matter. Due to the coupling
+between the Pµ and Aµ fields, the module covering the Maxwell field evolution (2.51) was
+also modified. The module governing the geometry dynamics (2.44)–(2.47) was adjusted
+to the presently examined physical system.
+The inclusion of the additional sector in the code required posing adequate initial
+and boundary conditions for functions z1 , z2 , h1 , h2 , w1 , w2 , T , γ, κ1 and κ2 . The first two
+evolved along u according to equations H(Re) and H(Im) . The dynamics of h1 , h2 , w1 , w2 ,
+T and γ along v was governed by equations P 7, P 8, H(Re) , H(Im) , C2 and C1, respectively.
+The values of the remaining two quantities were calculated on the basis of their definitions
+included in (2.35).
+Initial conditions were posed on a null hypersurface denoted as u = 0. The profiles
+of functions h1 and h2 were assigned according to (3.2). The values of z1 and z2 were calculated analytically using the relations P 7 and P 8. The behavior of the rest of the quantities,
+i.e., w1 , w2 , T and γ, at the initial spacetime slice was resolved with the use of the threepoint Simpson method and the Newton method at the first point.
+The line u = v was the line of boundary conditions. Because of the fact that the collapsing physical system consists of a matter shell, the values of T and γ were equal to zero
+at the boundary, which refers to the non-singular r = 0 line. The quantities κ1 and κ2 also
+vanished due to the equations H(Re) and H(Im) . The flattening of the functions h1 and h2
+was imposed on the boundary, i.e., h1,r and h2,r were equal to zero there. The values
+of the quantities w1 and w2 were the same as z1 and z2 , respectively.
+The accuracy of the numerical code was checked indirectly, due to the fact that no analytical solutions exist for the investigated process. The tests were performed for the evolutions initiated with parameters p̃s = 0.6, p̃h = 0.15, m2 = 0.1, p̃k = 0.14 and p̃s = 0.6,
+p̃h = 0.15, m2 = −3, p̃k = 0.15. The respective spacetime structures are presented in fig-
+
+– 35 –
+
+(a)
+
+(b)
+
+Figure 26. (color online) The convergence of field functions. The phantom field, φ, and the moduli
+of complex scalar fields, |ψ| and |χ|, were plotted versus v for evolutions conducted with integration
+steps, which were multiples of h = 10−4 , along hypersurfaces of constant u equal to (a) 1.3504
+for evolution 1 and (b) 1.2504 for evolution 2.
+
+ures 19(b) and 20(c). For the purpose of testing the numerical code, these two cases will
+be referred to as evolutions 1 and 2, respectively. The analyses were done for spacetimes
+obtained within the SF –DE–DM physical system, which was the most comprehensive
+among those discussed in the paper. Hence, the performed code accuracy checks covered
+the operation of all the constituent modules of the code.
+The first test was based on checking the convergence of the obtained results. In order
+to monitor the convergence, the computations for evolutions 1 and 2 were conducted on four
+grids with integration steps being multiples of 10−4 . A step of a particular grid was twice
+the size of a denser one. The convergence was examined on u = const. hypersurfaces chosen
+for each case arbitrarily. The selected hypersurfaces were situated close to the emerging
+horizon, but in the region where the adaptive grid was yet inactive, which was necessary
+for performing a proper comparison of the outcomes.
+The field functions along the selected hypersurfaces of constant u are shown in figure 26. The areas in which the differences among functions obtained on various grids were
+most significant were magnified. The maximum observed discrepancy between the finest
+and coarsest grids was equal to 1.5%. Figure 27 presents the linear convergence of the numerical code. The maximal divergence between the field profiles obtained on two grids
+with a quotient of integration steps equal to 2 and their respective doubles was 5.7%.
+As expected, the errors became smaller linearly as the grid density increased. The overall convergence analysis revealed that both the algorithm and the numerical code were
+adequate for solving the system of equations (2.36)–(2.55).
+The second test of the numerical code was based on checking the mass and charge con-
+
+– 36 –
+
+(a)
+
+(b)
+
+Figure 27. (color online) The linear convergence of the code. The differences between the phantom
+field functions, ∆φ, and the moduli of complex scalar fields, ∆|ψ| and ∆|χ|, calculated on grids with
+different integration steps (multiples of h = 10−4 ) and their doubles were obtained along the same
+hypersurfaces of constant u as in figure 26 for (a) evolution 1 and (b) evolution 2.
+
+servation in the spacetime. The Hawking mass (3.4) and the charges related to both complex
+scalar fields coupled to the U (1)-gauge fields (2.14) and (2.17) as functions of retarded time
+along the line v = 7.5, which was a maximal value of advanced time achieved numerically,
+are presented in figure 28 for the investigated evolutions. Since during the process the matter was scattered by the gravitational potential barrier when the collapsing shell approached
+its gravitational radius, the physical quantities were not conserved during the whole evolution. The effect of the outgoing flux was negligible except for the vicinity of the event
+horizon. The deviation from the constancy increased with advanced time, as the horizon
+was approached. The maximal percentage deviations from the particular quantity conservation up to u = 1.25 were equal to 3.3%, 8.1% and 1.1% for the mass, the electric charge
+and the charge associated with the dark matter sector, respectively. The analysis of mass
+and charge conservation in spacetime led to the conclusion that the behavior of matter
+investigated numerically was correct within the domain of integration.
+
+Acknowledgments
+A. N. was supported by the Polish National Science Centre under doctoral scholarship
+ETIUDA DEC-2013/08/T/ST2/00007 and partially by the Polish National Science Centre grant no. DEC-2014/15/B/ST2/00089. M. R. was partially supported by the Polish National Science Centre grant no. DEC-2014/15/B/ST2/00089. Ł. N. was supported
+by the Polish National Science Centre under postdoctoral scholarship FUGA
+DEC-2014/12/S/ST2/00332.
+
+– 37 –
+
+Figure 28. (color online) Hawking masses, mf , and charges related to the U (1)-gauge fields, Qf
+and Tf , calculated along vf = 7.5 as functions of retarded time, u, for both tested evolutions.
+
+References
+[1] R. C. Tolman, Static solutions of Einstein’s field equations for spheres of fluid, Phys. Rev.
+55 (1939) 364.
+[2] J. R. Oppenheimer and G. M. Volkoff, On massive neutron cores, Phys. Rev. 55 (1939) 374.
+[3] E. Sorkin and T. Piran, The effects of pair creation on charged gravitational collapse,
+Phys. Rev. D 63 (2001) 084006.
+[4] E. Sorkin and T. Piran, Formation and evaporation of charged black holes, Phys. Rev. D 63
+(2001) 124024.
+[5] S. Hod and T. Piran, Mass inflation in dynamical gravitational collapse of a charged scalar
+field, Phys. Rev. Lett. 81 (1998) 1554.
+[6] Y. Oren and T. Piran, Collapse of charged scalar fields, Phys. Rev. D 68 (2003) 044013.
+[7] E. Poisson and W. Israel, Internal structure of black holes, Phys. Rev. D 41 (1990) 1796.
+[8] S. E. Hong, D. Hwang, E. D. Stewart, and D. Yeom, The causal structure of dynamical
+charged black holes, Class. Quant. Grav. 27 (2010) 045014.
+[9] D. Hwang and D. Yeom, Internal structure of charged black holes, Phys. Rev. D 84 (2011)
+064020.
+[10] D. Hwang and D. Yeom, Responses of the Brans-Dicke field due to gravitational collapses,
+Class. Quant. Grav. 27 (2010) 205002.
+[11] D. Hwang, B. Lee, and D. Yeom, Mass inflation in f(R) gravity: A conjecture
+on the resolution of the mass inflation singularity, JCAP 1112 (2011) 006.
+[12] J. Hansen and D. Yeom, Charged black holes in string-inspired gravity: I. Causal structures
+and responses of the Brans-Dicke field, JHEP 10 (2014) 040.
+[13] J. Hansen and D. Yeom, Charged black holes in string-inspired gravity: II. Mass inflation
+and dependence on parameters and potentials, arXiv:1506.05689 (2015).
+[14] A. Borkowska, M. Rogatko, and R. Moderski, Collapse of charged scalar field in dilaton
+gravity, Phys. Rev. D 83 (2011) 084007.
+
+– 38 –
+
+[15] A. Nakonieczna and M. Rogatko, Dilatons and the dynamical collapse of charged scalar
+field, Gen. Rel. Grav. 44 (2012) 3175.
+[16] A. Nakonieczna, M. Rogatko, and R. Moderski, Dynamical collapse of charged scalar field
+in phantom gravity, Phys. Rev. D 86 (2012) 044043.
+[17] P. A. R. Ade et al., Planck 2013 results. XVI. Cosmological parameters, Astron. Astrophys.
+571 (2014) A16.
+[18] R.-G. Cai and A. Wang, Black hole formation from collapsing dust fluid in a background of
+dark energy, Phys. Rev. D 73 (2006) 063005.
+[19] S. Chakraborty and T. Bandyopadhyay, Collapse dynamics of a star of dark matter and
+dark energy, Grav. Cosmol. 16 (2010) 151.
+[20] P. Rudra and U. Debnath, Gravitational collapse with dark energy and dark matter in
+Hořava-Lifshitz gravity, Int. J. Theor. Phys. 53 (2014) 2668.
+[21] Q. Wang and Z. Fan, Dynamical evolution of quintessence dark energy in collapsing dark
+matter halos, Phys. Rev. D 79 (2009) 123012.
+[22] D. F. Mota and C. van de Bruck, On the spherical collapse model in dark energy
+cosmologies, A&A 421 (2004) 71.
+[23] M. L. Delliou and T. Barreiro, Interacting dark energy collapse with matter components
+separation, JCAP 02 (2013) 037.
+[24] T. R. P. Caramês, J. C. Fabris, and H. E. S. Velten, Spherical collapse for unified dark
+matter models, Phys. Rev. D 89 (2014) 083533.
+[25] J. Fuller and C. D. Ott, Dark matter-induced collapse of neutron stars: a possible link
+between fast radio bursts and the missing pulsar problem, Mon. Not. Roy. Astron. Soc. 450
+(2015) L71.
+[26] D. R. Lorimer, M. Bailes, M. A. McLaughlin, D. J. Narkevic, and F. Crawford, A bright
+millisecond radio burst of extragalactic origin, Science 318 (2007) 777.
+[27] S. Johnston, M. Kramer, D. R. Lorimer, A. G. Lyne, M. McLaughlin, B. Klein, and R. N.
+Manchester, Discovery of two pulsars towards the Galactic Centre,
+Mon. Not. Roy. Astron. Soc. 373 (2006) L6.
+[28] J.-H. Choi, I. Shlosman, and M. C. Begelman, Supermassive black hole formation at high
+redshifts via direct collapse in a cosmological context, Mon. Not. Roy. Astron. Soc. 450
+(2015) 4411.
+[29] I. Shlosman, J.-H. Choi, M. C. Begelman, and K. Nagamine, Supermassive black hole seed
+formation at high redshifts: long-term evolution of the direct collapse, arXiv:1508.05098.
+[30] F. Zwicky, The redshift of extragalactic nebulae, Helv. Phys. Acta 6 (1933) 110.
+[31] V. C. Rubin and W. K. Ford, Rotation of the andromeda nebula from a spectroscopic survey
+of emission regions, Astrophys. J. 159 (1970) 379.
+[32] P. A. R. Ade et al., Planck 2013 results. XVII. Gravitational lensing by large-scale
+structure, Astron. Astrophys. 571 (2014) A17.
+[33] S. W. Randall, M. Markevitch, D. Clowe, A. H. Gonzalez, and M. Bradac, Constraints
+on the self-interaction cross section of dark matter from numerical simulations
+of the merging galaxy cluster 1E 0657–56, Astrophys. J. 679 (2008) 1173.
+
+– 39 –
+
+[34] P. Harvey, R. Massey, T. Kitching, A. Taylor, and E. Tittley, The nongravitational
+interactions of dark matter in colliding galaxy clusters, Science 347 (2015) 1462.
+[35] R. Massey et al., The behaviour of dark matter associated with four bright cluster galaxies
+in the 10 kpc core of the Abell 3827, Mon. Not. Roy. Astron. Soc. 449 (2015) 3393.
+[36] D. Hooper and L. Goodenough, Dark matter annihilation in the galactic center as seen
+by the Fermi gamma ray space telescope, Phys. Lett. B 697 (2011) 412.
+[37] K. N. Abazajian and M. Kaplinghat, Detection of a gamma-ray source in the galactic center
+consistent with extended emission from dark matter annihilation and concentrated
+astrophysical emission, Phys. Rev. D 86 (2012) 083511.
+[38] C. Gordon and O. Macias, Dark matter and pulsar model constraints from Galactic Center
+Fermi-LAT gamma-ray observations, Phys. Rev. D 88 (2013) 083521.
+[39] E. Bulbul et al., Detection of an unindentified emission line in the stacked X-ray spectrum
+of galaxy clusters, Astrophys. J. 789 (2014) 13.
+[40] A. Boyarsky, O. Ruchayskiy, D. Iakubovskyi, and J. Franse, An unidentified line in X-ray
+spectra of the Andromeda galaxy and Perseus galaxy cluster, Phys. Rev. Lett. 113 (2014)
+251301.
+[41] V. A. Mitsou, Shedding light on dark matter at colliders, Int. J. Mod. Phys. A. 28 (2013)
+1330052.
+[42] D. Abercrombie et al., Dark matter benchmark models for early LHC run-2 searches: report
+of the ATLAS/CMS dark matter forum, arXiv:1507.00966 (2015).
+[43] J. Bramante and T. Linden, Detecting dark matter with imploding pulsars in the galactic
+center, Phys. Rev. Lett. 113 (2014) 191301.
+[44] I. Lopes and J. Silk, A particle dark matter footprint on the first generation of stars,
+Astrophys. J. 786 (2014) 25.
+[45] C.-F. Chang, E. Ma, and T.-C. Yuan, Multilepton Higgs decays through the dark portal,
+JHEP 03 (2014) 054.
+[46] https://confluence.slac.stanford.edu/display/hpsg/Heavy+Photon+Search+Experiment.
+[47] J. P. Lees et al., Search for a dark photon in e+ e− collisions at BaBar, Phys. Rev. Lett. 113
+(2014) 201801.
+[48] S. Baek, P. Ko, and W.-I. Park, Singlet portal extensions of the standard seesaw models
+to a dark sector with local dark symmetry, JHEP 07 (2013) 013.
+[49] S. Baek, P. Ko, and W.-I. Park, An alternative to the standard model, AIP Conf. Proc.
+1604 (2014) 73.
+[50] S. Baek, P. Ko, and W.-I. Park, Local Z2 scalar dark matter model confronting galactic
+GeV-scale γ-ray, Phys. Lett. B 747 (2015) 255.
+[51] Ł. Nakonieczny and M. Rogatko, Analytic study on backreacting holographic
+superconductors with dark matter sector, Phys. Rev. D 90 (2014) 106004.
+[52] Ł. Nakonieczny, M. Rogatko, and K. I. Wysokiński, Magnetic field in holographic
+superconductor with dark matter sector, Phys. Rev. D 91 (2015) 046007.
+[53] Ł. Nakonieczny, M. Rogatko, and K. I. Wysokiński, Analytic investigation of holographic
+phase transitions influenced by dark matter sector, Phys. Rev. D 92 (2015) 066008.
+
+– 40 –
+
+[54] S. Perlmutter et al., Measurements of Ω and Λ from 42 high-redshift supernovae,
+Astrophys. J. 517 (1999) 565.
+[55] A. G. Riess et al., Observational evidence from supernovae for an accelerating universe
+and a cosmological constant, Astrophys. J. 116 (1998) 1009.
+[56] B. P. Schmidt et al., The high-z supernova search: Measuring cosmic deceleration and global
+curvature of the Universe using type Ia supernovae, Astrophys. J. 507 (1998) 46.
+[57] J. L. Tonry et al., Cosmological results from high-z supernovae, Astrophys. J. 594 (2003) 1.
+[58] R. R. Caldwell and M. Kamionkowski, The physics of cosmic acceleration,
+Ann. Rev. Nucl. Part. Sci. 59 (2009) 397.
+[59] R. R. Caldwell, A Phantom Menace? Cosmological consequences of a dark energy
+component with super-negative equation of state, Phys. Lett. B 545 (2002) 23.
+[60] G. W. Gibbons and D. A. Rasheed, Dyson pairs and zero-mass black holes, Nucl. Phys. B
+476 (1996) 515.
+[61] G. Clément, J. C. Fabris, and M. E. Rodrigues, Phantom black holes
+in Einstein-Maxwell-dilaton theory, Phys. Rev. D 79 (2009) 064021.
+[62] M. Azreg-Aïnou, G. Clément, J. C. Fabris, and M. E. Rodrigues, Phantom black holes
+and sigma models, Phys. Rev. D 83 (2011) 124001.
+[63] J. A. Wheeler, Geometrodynamics. Academic Press, New York, 1963.
+[64] M. S. Morris and K. S. Thorne, Wormholes in spacetime and their use for interstellar
+travel: A tool for teaching general relativity, Am. J. Phys. 56 (1988) 395.
+[65] F. S. N. Lobo, F. Parsael, and N. Riazi, New asymptotically flat phantom wormhole
+solutions, Phys. Rev. D 87 (2013) 084030.
+[66] J. P. S. Lemos, F. S. N. Lobo, and S. Q. de Oliveira, Morris-Thorne wormholes with
+a cosmological constant, Phys. Rev. D 68 (2003) 064004.
+[67] F. S. N. Lobo and M. A. Oliveiro, General class of vacuum Brans-Dicke wormholes,
+Phys. Rev. D 81 (2010) 067501.
+[68] E. F. Eiroa and C. Simeone, Thin-shell wormholes in dilaton gravity, Phys. Rev. D 71
+(2005) 127501.
+[69] J. A. Gonzáles, F. S. Guzmán, N. Montelongo-García, and T. Zannias, On wormholes
+supported by phantom energy, Phys. Rev. D 79 (2009) 064027.
+[70] S. Sushkov, Wormholes supported by phantom energy, Phys. Rev. D 71 (2005) 043520.
+[71] A. Das and S. Kar, The Ellis wormhole with tachyon matter, Class. Quant. Grav. 225
+(2005) 3045.
+[72] A. B. Balakin, J. P. S. Lemos, and A. E. Zayats, Nonminimal coupling for the gravitational
+and electromagnetic fields: Traversable electric wormholes, Phys. Rev. D 81 (2010) 084015.
+[73] P. Kanti, B. Kleihaus, and J. Kunz, Wormholes in dilatonic Einstein-Gauss-Bonnet theory,
+Phys. Rev. Lett. 107 (2011) 271101.
+[74] P. Kanti, B. Kleihaus, and J. Kunz, Stable Lorentzian wormholes in dilatonic
+Einstein-Gauss-Bonnet theory, Phys. Rev. D 85 (2012) 044007.
+
+– 41 –
+
+[75] T. Harko, F. S. N. Lobo, M. K. Mak, and S. V. Sushkov, Modified-gravity wormholes
+without exotic matter, Phys. Rev. D 87 (2013) 067504.
+[76] M. R. Mehdizadeh, M. K. Zangeneh, and F. S. N. Lobo, Einstein-Gauss-Bonnet traversable
+wormholes satisfying the weak energy condition, Phys. Rev. D 91 (2015) 084004.
+[77] M. Cataldo and P. Meza, Phantom evolving wormholes with big rip singularities,
+Phys. Rev. D 87 (2013) 064012.
+[78] M. K. Zangeneh, F. S. N. Lobo, and N. Riazi, Higher-dimensional evolving wormholes
+satisfying the null energy condition, Phys. Rev. D 90 (2014) 024072.
+[79] S. Pan and S. Chakraborty, Dynamic wormholes with particle creation mechanism,
+Eur. Phys. J. C 75 (2015) 1.
+[80] T. Damour and S. N. Solodukhin, Wormholes as black hole foils, Phys. Rev. D 76 (2007)
+024016.
+[81] C. Bambi, Can the supermassive objects at the centers of galaxies be traversable wormholes?
+The first test of strong gravity for mm/sub-mm VLBI facilities, Phys. Rev. D 87 (2013)
+107501.
+[82] Z. Li and C. Bambi, Distinguishing black holes and wormholes with orbiting hot spots,
+Phys. Rev. D 90 (2014) 024071.
+[83] K. S. Virbhadra and G. F. R. Ellis, Schwarzschild black hole lensing, Phys. Rev. D 62
+(2000) 084003.
+[84] K. S. Virbhadra and G. F. R. Ellis, Gravitational lensing by naked singularities,
+Phys. Rev. D 65 (2002) 103004.
+[85] K. S. Virbhadra and C. R. Keeton, Time delay and magnification centroid due to
+gravitational lensing by black holes and naked singularities, Phys. Rev. D 77 (2008) 124014.
+[86] K. S. Virbhadra, Relativistic images of Schwarzschild black hole lensing, Phys. Rev. D 79
+(2009) 083004.
+[87] Z. Kovács and T. Harko, Can accretion disk properties observationally distinguish black
+holes from naked singularities?, Phys. Rev. D 82 (2010) 124047.
+[88] P. S. Joshi, D. Malafarina, and R. Narayan, Distinguishing black holes from naked
+singularities through their accretion disc properties, Class. Quant. Grav. 31 (2014) 015002.
+[89] S. Sahu, M. Patil, D. Narasimha, and P. S. Joshi, Can strong gravitational lensing
+distinguish naked singularities from black holes?, Phys. Rev. D 86 (2012) 063010.
+[90] M. Rakhmanov, Dilaton black holes with electric charge, Phys. Rev. D 50 (1994) 5155.
+[91] A. Gupta, R. Primulando, and P. Saraswat, A new probe of dark sector dynamics
+at the LHC, JHEP 09 (2015) 079.
+[92] J. Suzuki, T. Horie, Y. Inoue, and M. Minowa, Experimental search for hidden photon CDM
+in the eV mass range with a dish antenna, JCAP 09 (2015) 042.
+[93] H. K. Dreiner, J.-F. Fortin, C. Hanhart, and L. Ubaldi, Supernova constraints on MeV dark
+sectors from e+ e− annihilations, Phys. Rev. D 89 (2014) 105015.
+[94] J. Blümlein and J. Brunner, New exclusion limits for dark gauge forces from beam-dump
+data, Phys. Lett. B 701 (2011) 155.
+
+– 42 –
+
+[95] J. Blümlein and J. Brunner, New exclusion limits on dark gauge forces from proton
+Bremsstrahlung in beam-dump data, Phys. Lett. B 731 (2014) 320.
+[96] G. Aad et al., Search for long-lived neutral particles decaying into lepton jets
+√
+in proton-proton collisions at s = 8 TeV with the ATLAS detector, JHEP 11 (2014) 088.
+[97] S. N. Gninenko, Constraints on sub-GeV hidden sector gauge bosons from a search
+for heavy neutrino decays, Phys. Lett. B 713 (2012) 244.
+[98] A. Mirizzi, J. Redondo, and G. Sigl, Microwave background constraints on mixing
+of photons with hidden photons, JCAP 03 (2009) 026.
+[99] A. Afanasev, O. Baker, K. Beard, G. Biallas, J. Boyce, M. Minarni, R. Ramdon, M. Shinn,
+and P. Slocum, New experimental limit on photon hidden-sector paraphoton mixing,
+Phys. Lett. B 679 (2009) 317.
+[100] F. Archilli et al., Search for a vector gauge boson in φ meson decays with the KLOE
+detector, Phys. Lett. B 706 (2012) 251.
+[101] D. Babusci, Limit on the production of a light vector gauge boson in φ meson decays with
+the KLOE detector, Phys. Lett. B 720 (2013) 111.
+[102] P. Adlarson et al., Search for a dark photon in the π 0 → e+ e− γ decay, Phys. Lett. B 726
+(2013) 187.
+[103] S. Abrahamyan et al., Search for a new gauge boson in electron-nucleus fixed-target
+scattering by the APEX experiment, Phys. Rev. Lett. 107 (2011) 191804.
+[104] H. Merkel et al., Search for light gauge bosons of the dark sector at the Mainz Microtron,
+Phys. Rev. Lett. 106 (2011) 251802.
+[105] G. Agakishiev et al., Searching a dark photon with HADES, Phys. Lett. B 731 (2014) 265.
+[106] T. Ortín, Gravity and Strings. Cambridge University Press, 2004.
+[107] E. Alvarez and J. Conde, Are the string and Einstein frames equivalent?,
+Mod. Phys. Lett. A 17 (2002) 413.
+[108] G. Veneziano, String Cosmology: The pre-Big Bang scenario, in The primordial universe L’univers primordial (P. Binétruy, R. Schaeffer, J. Silk, and F. David, eds.), vol. 71 of Les
+Houches - Ecole d’Ete de Physique Theorique, pp. 581–628. Springer Berlin Heidelberg,
+2002.
+[109] É. É. Flanagan, Palatini form of 1/R gravity, Phys. Rev. Lett. 92 (2004) 071101.
+[110] D. N. Vollick, On the viability of the Palatini form of 1/R gravity, Class. Quant. Grav. 21
+(2004) 3813.
+[111] G. Domènech and M. Sasaki, Conformal frame dependence of inflation, JCAP 04 (2015)
+022.
+[112] J. White, M. Minamitsuji, and M. Sasaki, Non-linear curvature perturbation in multi-field
+inflation models with non-minimal coupling, JCAP 09 (2013) 015.
+[113] T. Chiba and M. Yamaguchi, Conformal-frame (in)dependence of cosmological observations
+in scalar-tensor theory, JCAP 10 (2013) 040.
+[114] C. W. Misner, K. S. Thorne, and J. A. Wheeler, Gravitation. W. H. Freeman and
+Company, 1973.
+
+– 43 –
+
+[115] R. A. d’Inverno and J. Smallwood, Covariant 2+2 formulation of the initial-value problem
+in general relativity, Phys. Rev. D 225 (1980) 1223.
+[116] R. S. Hamadé and J. M. Stewart, The spherically symmetric collapse of a massless scalar
+field, Class. Quant. Grav. 13 (1996) 497.
+[117] S. Ayal and T. Piran, Spherical collapse of a massless scalar field with semiclassical
+corrections, Phys. Rev. D 56 (1997) 4768.
+[118] M. W. Choptuik, Universality and scaling in gravitational collapse of a massless scalar field,
+Phys. Rev. Lett. 70 (1993) 9.
+[119] V. P. Frolov and I. D. Novikov, Black hole physics: Basic concepts and new developments.
+Kluwer Academic Publishers, 1998.
+[120] S. W. Hawking, Gravitational radiation in an expanding universe, J. Math. Phys. 9 (1968)
+598.
+[121] D. Hochberg and M. Visser, Dynamic wormholes, antitrapped surfaces and energy
+conditions, Phys. Rev. D 58 (1998) 044021.
+[122] D. Hochberg and M. Visser, The null energy condition in dynamic wormholes,
+Phys. Rev. Lett. 81 (1998) 746.
+[123] H. Maeda, T. Harada, and B. J. Carr, Cosmological wormholes, Phys. Rev. D 79 (2009)
+044034.
+[124] S. A. Hayward, Dynamic wormholes, Int. J. Mod. Phys. D 8 (1999) 373.
+[125] S. A. Hayward, Wormhole dynamics in spherical symmetry, Phys. Rev. D 79 (2009) 124001.
+[126] H. Shinkai and S. A. Hayward, Fate of the first traversible wormhole: black hole collapse
+or inflationary expansion, Phys. Rev. D 66 (2002) 044005.
+[127] H. Koyama, S. A. Hayward, and S.-W. Kim, Construction and enlargement of dilatonic
+wormholes by impulsive radiation, Phys. Rev. D 67 (2003) 084008.
+[128] H. Koyama and S. A. Hayward, Construction and enlargement of traversable wormholes
+from Schwarzschild black holes, Phys. Rev. D 70 (2004) 084001.
+[129] H. Okawa, V. Cardoso, and P. Pani, Collapse of self-interacting fields in asymptotically flat
+spacetimes: do self-interactions render Minkowski spacetime unstable?, Phys. Rev. D 89
+(2014) 041502.
+[130] T. Harada, H. Maeda, and B. J. Carr, Nonexistence of self-similar solutions containing
+a black hole in a universe with a stiff fluid or scalar field or quintessence, Phys. Rev. D 74
+(2006) 024024.
+[131] B. J. Carr, K. Kohri, Y. Sendouda, and J. Yokoyama, New cosmological constraints
+on primordial black holes, Phys. Rev. D 81 (2010) 104019.
+[132] A. Einstein and E. G. Straus, The influence of the expansion of space on the gravitation
+fields surrounding the individual stars, Rev. Mod. Phys. 17 (1945) 120.
+[133] G. C. McVittie, The mass-particle in an expanding universe, Mon. Not. Roy. Astron. Soc.
+93 (1933) 325.
+[134] D. Kastor and J. Traschen, Cosmological multi-black-hole solutions, Phys. Rev. D 47 (1993)
+5370.
+
+– 44 –
+
+[135] G. W. Gibbons and K.-i. Maeda, Black holes in an expanding Universe, Phys. Rev. Lett.
+104 (2010) 131101.
+[136] M. Rogatko, Dilaton black holes on thick branes, Phys. Rev. D 64 (2001) 064014.
+[137] M. Rogatko, Cosmological black holes on branes, Phys. Rev. D 69 (2004) 044022.
+[138] K.-i. Maeda and M. Nozawa, Black hole in the expanding universe from intersecting branes,
+Phys. Rev. D 81 (2010) 044017.
+[139] S. Chadburn and R. Gregory, Time dependent black holes and scalar hair,
+Class. Quant. Grav. 31 (2014) 195006.
+
+– 45 –
+
+

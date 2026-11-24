@@ -1,0 +1,16 @@
+# zerilli_derivation: Zerilli potential from the linearized Einstein equations (part=all)
+# mutations on: x_gauge
+PASS PL.0a
+# [   0.2 s] PL.0a
+PASS PL.0b
+# [   0.3 s] PL.0b
+PASS PL.0c
+# [   0.4 s] PL.0c
+PASS PL.0d
+# [   0.8 s] PL.0d
+PASS PL.X.even
+# [   6.9 s] PL.X.even
+PASS PL.X.odd
+# [   8.9 s] PL.X.odd
+FAIL PL.X.gauge_even: route 1 (dual) and route 2 (covariant) differ at components [(0, 0), (1, 1), (1, 2), (2, 2), (3, 3)]
+# planted check failed: stop before any real data

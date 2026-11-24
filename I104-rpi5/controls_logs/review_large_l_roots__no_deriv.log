@@ -1,0 +1,6 @@
+review_large_l_roots, mutation=no_deriv
+PASS planted: one root near a verdict=CERTIFIED (certified)
+PASS planted: one root near b verdict=CERTIFIED (certified)
+PASS planted: two roots a, b = a + 1e-10 in one bracket verdict=REFUSED (no sign change)
+FAIL planted: three roots in one bracket verdict=CERTIFIED (certified)
+STOP first failure under mutation: planted: three roots in one bracket

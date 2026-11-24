@@ -1,0 +1,10 @@
+# review_lemma_a3_l4: L4, the DG mode and the intertwining
+# mutations on: cn_n4to3
+PASS PLL.1
+PASS PLL.2
+PASS L4.1
+PASS L4.2
+# numerator factored: (r + 2)*(c**2 + 2*c - 6*k)
+PASS L4.3
+FAIL L4.4[l=2]: psi_0,xx - V psi_0 = (-84*r**3 - 357*r**2 - 462*r - 168)/(32*r**3 - 96*r**2 + 72*r)
+# summary: 5 PASS, 1 FAIL, 0 DIFFERS

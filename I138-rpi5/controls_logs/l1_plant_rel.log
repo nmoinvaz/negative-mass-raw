@@ -1,0 +1,12 @@
+review_lemma_a_l1 (mutation: plant_rel)
+PASS PL3 exponents E2
+PASS PL3 exponents E3
+PASS PL3 exponents E4
+PASS PL3 exponents E5
+FAIL PL4 E2 y'/y = 2, y''/y = 10: {'yp': 2, 'ypp': 2, 'res_coef': 0, 'res_rest': 208}
+FAIL PL4 E2 resonance (coef 0, rest 0): {'yp': 2, 'ypp': 2, 'res_coef': 0, 'res_rest': 208}
+PASS PL4 E3 y'/y = 0, y''/y = 2
+FAIL PL4 E4 y'/y = 2, y''/y = 4/3: {'yp': 2, 'ypp': 0, 'res_coef': 5/2, 'res_rest': 0}
+STOP: planted check(s) failed: PL4 E2 y'/y = 2, y''/y = 10, PL4 E2 resonance (coef 0, rest 0), PL4 E4 y'/y = 2, y''/y = 4/3; no real data was examined
+
+exit 2

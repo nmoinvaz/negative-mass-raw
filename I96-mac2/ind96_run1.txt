@@ -1,0 +1,47 @@
+ind96 mutation=None
+== solve sigma R = 8, disc A (q = 1.15, Rout = 800, fnth = 1, fh = 1), v_c = 1.562434
+      m = 0.5: h = 0.0250, nth = 24, n = 11544, arpack (64 eigenvalues to |mu| v_c = 0.0715, residual 1e-14), leading mu v_c = 0.007231+0.299423j, 3 s
+    wall 3 s
+    all checks passed [3 s, exit 0]
+== solve sigma R = 8, disc B (q = 1.13, Rout = 1200, fnth = 1, fh = 1), v_c = 1.562434
+      m = 0.5: h = 0.0225, nth = 28, n = 15060, arpack (64 eigenvalues to |mu| v_c = 0.0748, residual 1e-14), leading mu v_c = 0.007231+0.299423j, 5 s
+    wall 5 s
+    all checks passed [5 s, exit 0]
+PASS G1 sR=8 m=0.5 v_c  1.5624337 against #96 1.562434
+PASS G2 sR=8 m=0.5 A and B agree on the leading |mu| v_c  A 0.29951072, B 0.29951077, rel 1.7e-07
+PASS G3 sR=8 m=0.5 leading and second |mu| v_c against #96  lead 0.29951072 vs 0.2995108 (rel 2.7e-07), next 0.224928 vs 0.22493 (rel 7.9e-06)
+== solve sigma R = 8, disc A (q = 1.15, Rout = 800, fnth = 1, fh = 1), v_c = 1.562434
+      m = 10.5: h = 0.0250, nth = 36, n = 16428, arpack (64 eigenvalues to |mu| v_c = 0.0502, residual 1e-14), leading mu v_c = 0.000000+0.102781j, 8 s
+    wall 8 s
+    all checks passed [8 s, exit 0]
+== solve sigma R = 8, disc B (q = 1.13, Rout = 1200, fnth = 1, fh = 1), v_c = 1.562434
+      m = 10.5: h = 0.0225, nth = 42, n = 21586, arpack (64 eigenvalues to |mu| v_c = 0.0512, residual 1e-14), leading mu v_c = -0.000000+0.102782j, 11 s
+    wall 11 s
+    all checks passed [11 s, exit 0]
+PASS G1 sR=8 m=10.5 v_c  1.5624337 against #96 1.562434
+PASS G2 sR=8 m=10.5 A and B agree on the leading |mu| v_c  A 0.10278143, B 0.10278158, rel 1.4e-06
+PASS G3 sR=8 m=10.5 leading and second |mu| v_c against #96  lead 0.10278143 vs 0.102782 (rel 5.5e-06), next 0.093655 vs 0.093657 (rel 2.3e-05)
+== solve sigma R = 16, disc A (q = 1.15, Rout = 800, fnth = 1, fh = 1), v_c = 0.985020
+      m = 0.5: h = 0.0125, nth = 24, n = 20124, arpack (64 eigenvalues to |mu| v_c = 0.0561, residual 2e-14), leading mu v_c = 0.002778+0.225064j, 4 s
+    wall 4 s
+    all checks passed [4 s, exit 0]
+== solve sigma R = 16, disc B (q = 1.13, Rout = 1200, fnth = 1, fh = 1), v_c = 0.985020
+      m = 0.5: h = 0.0113, nth = 28, n = 26040, arpack (64 eigenvalues to |mu| v_c = 0.0596, residual 2e-14), leading mu v_c = 0.002778+0.225064j, 7 s
+    wall 7 s
+    all checks passed [8 s, exit 0]
+FAIL G1 sR=16 m=0.5 v_c  0.9850202 against #96 0.98503
+PASS G2 sR=16 m=0.5 A and B agree on the leading |mu| v_c  A 0.22508094, B 0.22508104, rel 4.3e-07
+PASS G3 sR=16 m=0.5 leading and second |mu| v_c against #96  lead 0.22508094 vs 0.2250833 (rel 1.0e-05), next 0.184358 vs 0.184364 (rel 3.4e-05)
+== solve sigma R = 16, disc A (q = 1.15, Rout = 800, fnth = 1, fh = 1), v_c = 0.985020
+      m = 10.5: h = 0.0125, nth = 36, n = 28638, arpack (64 eigenvalues to |mu| v_c = 0.0474, residual 9e-15), leading mu v_c = 0.000000+0.102916j, 13 s
+    wall 13 s
+    all checks passed [13 s, exit 0]
+== solve sigma R = 16, disc B (q = 1.13, Rout = 1200, fnth = 1, fh = 1), v_c = 0.985020
+      m = 10.5: h = 0.0113, nth = 42, n = 37324, arpack (64 eigenvalues to |mu| v_c = 0.0485, residual 2e-14), leading mu v_c = 0.000000+0.102916j, 38 s
+    wall 38 s
+    all checks passed [39 s, exit 0]
+FAIL G1 sR=16 m=10.5 v_c  0.9850202 against #96 0.98503
+PASS G2 sR=16 m=10.5 A and B agree on the leading |mu| v_c  A 0.10291624, B 0.10291644, rel 2.0e-06
+PASS G3 sR=16 m=10.5 leading and second |mu| v_c against #96  lead 0.10291624 vs 0.102918 (rel 1.7e-05), next 0.095274 vs 0.095278 (rel 4.6e-05)
+FAILED: ['G1'] (91 s)
+rc=1

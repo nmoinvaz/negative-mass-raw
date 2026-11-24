@@ -1,0 +1,23 @@
+ind142 mutation=c5
+PASS H1 chi/r has no root in [0, inf) for l = 2..50, 75, 100 (Poly.intervals)
+    [H1 0.0 s]
+PASS H2a (Ks)^2 - (18(K-16))^2 - 6(K-24)^3 = 0 with s^2 = 6(K-18)  residual 0
+PASS H2a K - 24 = (l-2)(l+3)(l^2+l+4)  residual 0
+PASS H2a c3, c4, c5 = -K/32, K/96, K(K-24)/6144 for l = 2..60
+    [H2a 0.0 s]
+PASS H2b positive root of q'/r = 24/(s+6), l = 3..50  max rel 1.36e-61
+PASS H2b q(r0) = 4(K-18)(Ks-18(K-16))/(K-24)^3 > 0, l = 3..50; min chi/r >= q(r0) > 0, l = 3..30  max rel 5.9e-59, bad []
+PASS H2b l = 2: chi/r = 3/2 - (3/4)r^2 + (1/4)r^3, value 1/2 at r = 2  [Fraction(3, 2), Fraction(0, 1), Fraction(-3, 4), Fraction(1, 4)]
+    [H2b 3.7 s]
+PASS H3 r^4 Vhat = 12 + 2(l^2+l+3) r + l(l+1) r^2 + O(r^3), l = 2..12
+    [H3 2.0 s]
+PASS H4 Vhat = 3/(4x^2) + (l^2+l-1)/(4x^1.5) + 0/x + ..., not DG09 (61)'s -l(l+1)/(4x)  l=2: x^-1 coeff -4.65e-12 (DG -1.5), x^-3/2 coeff 1.25; l=3: x^-1 coeff -1.09e-11 (DG -3.0), x^-3/2 coeff 2.75; l=7: x^-1 coeff -5.67e-11 (DG -14.0), x^-3/2 coeff 13.75
+    [H4 0.0 s]
+PASS H5 H_Z Psi_DG = -(k/2)^2 Psi_DG, l = 2..8, 5 points each  max rel residual 2.26e-56
+    [H5 0.0 s]
+FAIL H6 crashed  IndexError: list index out of range
+    [H6 0.0 s]
+PASS H7 standard Zerilli V at M = -1 equals RESULTS' V
+PASS H7 r^2 V -> 2(lambda+1) = l(l+1) for any M  limit 2*(lambda**3 + lambda**2)/lambda**2
+    [H7 0.0 s]
+FAILED: ['H6'] (6 s)

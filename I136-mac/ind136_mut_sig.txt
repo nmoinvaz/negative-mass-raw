@@ -1,0 +1,21 @@
+ind136  mutation: sig
+[PASS] J1a: cs odd powers vanish True, monic True, c2 = printed True, E1 = printed True, E2 = printed (he_type3_output.txt) True, E2 cubic form in (X, gamma, y) True with 10 monomials
+[PASS] J1b: terms in (phi, A', B', w): E1 17, E2 42 (claim 17, 42)
+[PASS] J1c: Res_w(E1, E2) / ((27/256) phi^3 (A' - B')^3) exact True, irreducible True, 167 terms, total degrees [10, 12, 14, 16, 18] (0 s)
+[PASS] J1d: P equals I136-rpi5/P_table.tsv term by term: True (167 table rows)
+[PASS] J1e: (A', B')-degrees j + k of P: [9, 10, 11, 12, 13, 14, 15]; max B'-degree k = 9
+[PASS] J1f: P-hat has 358 terms, weights 24..66, weight-24 part 774144*delta**2*phi**8
+[FAIL] J2:le: 39751 radii, z step 1e-3: P 4 sign changes at r = ['0.99056773939', '1.006343674', '1.0239294861', '1.094644691'] (max |diff| 1.8e-5), y 1 at r = ['0.99211695606'] (|diff| 2.0e-6) (19 s)
+[FAIL] J3a:le: 3 admissible of 4 roots of P; r 0.99056773939: w 0.060072469072 (rel |E2| 2.3e-44, other root 0.0077), T -8.8103; r 1.006343674: w 58.459763022 (rel |E2| 4.0e-47, other root 0.47), T -0.7270158; r 1.0239294861: w 0.041001432048 (rel |E2| 5.3e-44, other root 0.44), T 7.908431; r 1.094644691: w 0.9128770766 (rel |E2| 1.2e-48, other root 0.41), T 22.03654
+[FAIL] J3b:le: r 0.9905677393852 (|diff| 1.5e-7), w 0.060072469072, residual 5.2e-81; r 1.023929486113 (|diff| 3.8e-6), w 0.041001432048, residual 2.9e-80; r 1.09464469104 (|diff| 1.8e-5), w 0.9128770766, residual 1.0e-81
+[PASS] J3c:le: at r = 0.99211695606: leading coefficients relative 1.2e-83, 3.3e-84; roots of E1 with |w| <= 1e4: 1, min relative |E2| there 0.82
+[FAIL] J4a:le: P/z^24 at z = 1e-3: 1.076064e-67 against 1.09451e-67 (relative 0.017); P > 0 at 500 points of [1e-3, 1/4]: True; y < 0 there: True
+[FAIL] J4b:le: min S over 1000 points of [40, 300]: 0.388248922 (bound 0.49998278); L_0 = 1/2 (4 v^3 = 1/2), L_1 = 1323/128; S(300) = 0.388248921969 against sum L_n 300^-n = 0.533204123424 (relative 0.27); y > 0: True
+[FAIL] J2:rodal: 59751 radii, z step 1e-3: P 6 sign changes at r = ['4.7145061209', '5.0204240125', '5.0337351602', '5.0710476903', '5.0763381', '5.1033504864'] (max |diff| 3.0e-5), y 1 at r = ['4.9937439918'] (|diff| 3.1e-6) (28 s)
+[FAIL] J3a:rodal: 3 admissible of 6 roots of P; r 4.7145061209: w 0.95767092688 (rel |E2| 1.1e-48, other root 0.15), T -4.520287; r 5.0204240125: w 4.1019316936 (rel |E2| 4.2e-47, other root 0.016), T 0.9007132; r 5.0337351602: w 8.7161053152 (rel |E2| 1.3e-46, other root 0.029), T 1.718723; r 5.0710476903: w 0.28485066795 (rel |E2| 8.9e-45, other root 0.064), T 3.727812; r 5.0763381: w 1.0299835408 (rel |E2| 1.2e-46, other root 1.0), T 3.966937; r 5.1033504864: w 0.97703960653 (rel |E2| 9.7e-49, other root 0.73), T 4.974147
+[FAIL] J3b:rodal: r 4.714506120908 (|diff| 2.1e-5), w 0.95767092688, residual 0.0; r 5.071047690303 (|diff| 1.9e-5), w 0.28485066795, residual 3.4e-80; r 5.103350486411 (|diff| 3.0e-5), w 0.97703960653, residual 1.7e-81
+[PASS] J3c:rodal: at r = 4.9937439918: leading coefficients relative 0.0, 2.6e-85; roots of E1 with |w| <= 1e4: 1, min relative |E2| there 0.0459
+[FAIL] J4a:rodal: P/z^24 at z = 1e-3: 5.998235e-169 against 6.58941e-169 (relative 0.09); P > 0 at 500 points of [1e-3, 1/4]: True; y < 0 there: True
+[FAIL] J4b:rodal: min S over 1000 points of [60, 300]: 2.56857568 (bound 3.9999386); L_0 = 4 (4 v^3 = 4), L_1 = 180; S(300) = 2.56857567911 against sum L_n 300^-n = 4.59001679459 (relative 0.44); y > 0: True
+FAILED: J2:le, J3a:le, J3b:le, J4a:le, J4b:le, J2:rodal, J3a:rodal, J3b:rodal, J4a:rodal, J4b:rodal  (49 s)
+rc=1

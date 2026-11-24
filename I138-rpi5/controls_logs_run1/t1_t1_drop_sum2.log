@@ -1,0 +1,19 @@
+review_lemma_a_t1 (mutation: t1_drop_sum2)
+PASS PL6 min on [0,3]
+PASS PL6 min on [2,3]
+PASS PL6 min on [-3,0]
+FAIL T1.1 identity for generic coefficients (degree 9) and termwise for symbolic n >= 5: degree-9 difference 6*r**4*(C5 + C6*r + C7*r**2 + C8*r**3 + C9*r**4); termwise 6*Cn
+FAIL T1.2 N - bracket = sum_{m>=4}(m-1)c_m r^{m-1}(6-cr) + sum_{j>=5} 6 c_j r^{j-1} with the actual c_n (exact)[l=3]: N - bracket - RHS = 45*r**4/4
+FAIL T1.2 N - bracket = sum_{m>=4}(m-1)c_m r^{m-1}(6-cr) + sum_{j>=5} 6 c_j r^{j-1} with the actual c_n (exact)[l=4]: N - bracket - RHS = 189*r**4*(2*r + 5)/8
+FAIL T1.2 N - bracket = sum_{m>=4}(m-1)c_m r^{m-1}(6-cr) + sum_{j>=5} 6 c_j r^{j-1} with the actual c_n (exact)[l=5]: N - bracket - RHS = 63*r**4*(20*r**2 + 78*r + 85)/8
+FAIL T1.2 N - bracket = sum_{m>=4}(m-1)c_m r^{m-1}(6-cr) + sum_{j>=5} 6 c_j r^{j-1} with the actual c_n (exact): 35 more failing l, last l=40
+PASS T1.3a bracket with closed-form c_3, c_4 equals 9 - (9/16)(1+2e)rho^2 + (1/16)(1+2e)(1+e)rho^3
+PASS T1.3b B'(rho) = (3/16)(1+2e) rho ((1+e) rho - 6)
+PASS T1.3c B(6/(1+e)) = 9 - (27/4)(1+2e)/(1+e)^2 = 9/4 + (27/4) e^2/(1+e)^2
+PASS T1.3d B(rho*) - (9 - 27/4) has a numerator with non-negative coefficients in e (so >= 0 for every e > 0)
+PASS T1.3e rho* = 6/(1+e) lies in (0, 6) for e > 0 (so the minimum on [0, 6] is at rho*)
+PASS T1.3f exact minimum on [0, 6] of B for e = 1/c equals the closed form and is >= 9/4 [l=2..40]
+PASS T1.4 N has no root in [0, r_s] (exact Sturm), N(0) = 9, N(r_s) = c chi(r_s) >= 9/4 [l=2..40]
+FAILED: 4 failing check(s), first T1.1 identity for generic coefficients (degree 9) and termwise for symbolic n >= 5
+
+exit 1

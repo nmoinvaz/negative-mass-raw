@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/E1Kgl3PGlsQwTPoIvi+lZ3OQLQ8</id>
+  <title>arXiv Query: search_query=(all:"negative mass" AND all:"numerical relativity") AND submittedDate:"202601010000 TO 202610202359"&amp;id_list=&amp;start=0&amp;max_results=100</title>
+  <updated>2026-11-24T01:39:38Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(all:%22negative+mass%22+AND+all:%22numerical+relativity%22)+AND+submittedDate:%22202601010000+TO+202610202359%22&amp;start=0&amp;max_results=100&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>100</opensearch:itemsPerPage>
+  <opensearch:totalResults>2</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2608.24577v2</id>
+    <title>The Bondi dipole in full numerical relativity: a self-accelerating positive-negative mass binary</title>
+    <updated>2026-10-26T10:34:45Z</updated>
+    <link href="https://arxiv.org/abs/2608.24577v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.24577v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Bondi showed in 1957 that a body of negative active gravitational mass and a positive one should accelerate together without limit while their total momentum stays zero. We test this prediction in full 3+1 numerical relativity, from constraint-satisfying initial data. The matter is two complex scalar fields with identical self-interactions, one of which enters the Einstein equations with the opposite sign; its stars have positive inertial and passive masses but negative active and Arnowitt-Deser-Misner (ADM) masses. To our knowledge, they are the first asymptotically flat bodies of negative ADM mass evolved in numerical relativity. A pair of stars with equal and opposite ADM masses accelerates as a single object at constant separation, and its total momentum stays zero to within 0.5%. The acceleration follows Newton's law of gravitation in both mass and separation, reverses when the stars are exchanged, and is absent in same-sign pairs and isolated stars. We detect no gravitational radiation. The results hold for head-on pairs released from rest, up to a few percent of the speed of light, and in the longest run the pair reaches a tenth of it with both stars intact.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="astro-ph.HE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-25T14:04:41Z</published>
+    <arxiv:comment>13 pages, 9 figures, 5 ancillary videos. Code, run matrix and packed data: https://github.com/Nikchik-coder/GRTeclyn (tag v2.0-bondi-dipole, doi:10.5281/zenodo.23662692). v2: fourth-order time integration and corrected initial data, all simulations rerun, resolution study added, second author added; the qualitative results are unchanged</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>Nikita M. Shirokov</name>
+    </author>
+    <author>
+      <name>Ilya Nachevsky</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.13210v2</id>
+    <title>Challenging the Weak Cosmic Censorship with Phantom Fields</title>
+    <updated>2026-11-06T18:02:06Z</updated>
+    <link href="https://arxiv.org/abs/2603.13210v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.13210v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Penrose's weak cosmic censorship conjecture asserts that spacetime singularities produced by gravitational collapse are generically hidden behind event horizons, thus preventing them from causally influencing distant observers and preserving the predictability of the exterior region. In this work, we probe this conjecture in a setup that deliberately violates one of its central assumptions - the dominant energy condition - by considering the spherical collapse of a phantom scalar field with negative energy density. In principle, such a field could produce a Schwarzschild geometry with negative mass and therefore no event horizon. Our aim is to assess whether, once the dominant energy condition is abandoned, the fully coupled evolution of matter and geometry can dynamically generate or expose naked singularities, thereby probing the robustness of cosmic censorship. To this end, we perform high-accuracy numerical relativity simulations based on fourth-order finite-difference schemes. Starting from smooth, asymptotically flat initial data representing regular phantom scalar wave packets, we follow their fully nonlinear evolution through collapse or dispersion. While an ordinary (positive-energy) scalar field exhibits the standard Choptuik critical behavior at the threshold of black-hole formation, the phantom field displays qualitatively different dynamics. For all amplitudes considered, we find no evidence for trapped surfaces, naked singularities, or alternative stationary end states. Instead, the phantom scalar field disperses in all the configurations studied. Within the parameter space explored, we find no dynamical violation of cosmic censorship.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="astro-ph.HE" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-13T17:46:09Z</published>
+    <arxiv:comment>15 pages, 18 figures; v2: version accepted for publication in Phys. Rev. D</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>Giovanni Caridi</name>
+    </author>
+    <author>
+      <name>Fabrizio Corelli</name>
+    </author>
+    <author>
+      <name>Paolo Pani</name>
+    </author>
+    <arxiv:doi>10.1103/3c7y-437m</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1103/3c7y-437m" title="doi"/>
+  </entry>
+</feed>

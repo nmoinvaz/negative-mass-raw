@@ -1,0 +1,3922 @@
+Binary Ellis–Bronnikov wormholes in 3+1 numerical relativity: mergers, fly-bys and
+gravitational waves
+Nikita M. Shirokov1, ∗ and Ilya Nachevsky2, †
+
+arXiv:2610.13206v2 [gr-qc] 24 Oct 2026
+
+1
+
+Moscow Institute of Physics and Technology, Moscow, Russia
+2
+Higher School of Economics, Moscow, Russia
+(Dated: October 27, 2026)
+
+We present what are, to our knowledge, the first three-dimensional numerical-relativity evolutions
+of wormhole binaries: pairs of massive Ellis–Bronnikov wormholes held open by a phantom scalar
+field, whose energy density is nowhere positive. We construct constraint-satisfying initial data for
+single throats and for pairs, at rest and with orbital momentum, and evolve them with adaptive
+mesh refinement. An isolated throat is unstable: depending on the sign of a small perturbation, it
+collapses to a black hole or inflates, at the rate that linear perturbation theory predicts to within
+1.9%. Two throats at rest repel when their scalar charges have the same sign and attract when the
+signs are opposite, with a strength ratio close to the scalar force law’s prediction, so only oppositesigned pairs merge. A head-on collision forms a common horizon around both throats while they are
+still open. The horizon then loses 28% of its area as it absorbs the scalar field, and approaches the
+Schwarzschild radius of the pair’s mass. Pairs that fly past each other form no horizon, and both
+throats inflate. Every encounter emits a short burst of gravitational waves and a scalar dipole wave
+of comparable, negative energy. An isolated collapsing throat rings at the quasinormal frequency
+of the black hole it becomes. No throat survives more than a few orbital periods, even when its
+initial perturbation is tiny, so these binaries do not inspiral. The results hold for one phantom-scalar
+model, equal masses, a single throat compactness and no spin.
+
+I.
+
+INTRODUCTION
+
+Wheeler’s spacetime foam is a sea of handles—
+wormholes that open and close on the Planck scale [1–
+3]. Several mechanisms promote them to macroscopic
+size: inflation stretches a Planck-scale Lorentzian wormhole with the background [4]; bubble and domainwall cosmologies produce post-inflationary regions joined
+through wormholes [5, 6, 78, 79]; and a gas of relic
+wormholes has been studied as a cosmology in its own
+right [7, 8]. The bubble and wall wormholes are not
+traversable and pinch off into black holes [6, 78]. None
+of this work evolves a traversable relic. This paper asks
+what one does, and what two do to each other.
+Two classical facts govern the dynamics. First, the
+simplest evolvable traversable wormhole is unstable [18,
+56, 74]. It is the Ellis–Bronnikov wormhole held open
+by a phantom scalar [9–12], which Ellis called a drainhole; we study its massive form, with nonzero Arnowitt–
+Deser–Misner (ADM) mass. Depending on the sign
+of the perturbation, the throat collapses to a black
+hole or inflates, on a timescale set by the throat radius [13, 17, 62, 73, 75, 77]. Evolutions in 3+1 dimensions
+confirm this nonlinearly for the massless throat [44]. As
+a quantum field coupled to gravity a ghost destabilises
+the vacuum unless its effective theory is cut off at low
+energy with Lorentz violation [60]; we treat it as a classical phenomenological model. Second, Geroch’s theorem
+forbids classical topology change [19, 20]: two wormholes
+
+∗ shirokov.nm@phystech.edu
+† ommnammashivaya@gmail.com
+
+cannot fuse into one, and none can be created classically.
+Creation is quantum [21], so our evolutions start at t = 0
+from the newly created state.
+These facts constrain how wormhole pairs can arise.
+No astrophysical assembly channel exists, because a
+throat decays faster than dynamical friction or radiation
+reaction could pair it. A primordial pair born from foam
+needs no assembly: it is born at a separation comparable to its throats, so its birth and its collision coincide.
+Its evolution is then a race between collision and throat
+decay. The scalar field sets a charge rule: a phantom
+field repels like charges and attracts opposite ones, so
+like-signed pairs scatter and opposite-signed pairs fall together. The instability sets a second rule: the sign of an
+isolated throat’s perturbation selects inflation or collapse
+to a black hole, a channel to primordial black holes beside the standard ones [22–24]. We map the resulting end
+states (merger, scattering, collapse, inflation, and a fast
+plunge to a merged core that the grid does not resolve)
+across separation, perturbation and relative sign (Fig. 1).
+Our binary has three asymptotic ends, since each of its
+two wormholes leads to its own far universe. A foam handle is one wormhole whose two mouths carry opposite
+charge, so our opposite-signed pairs share its charges but
+not its topology. A merger does not fuse two wormholes
+into one: both throats end behind one common horizon.
+The observable is not a chirp but a population of bursts
+from the merger epoch, redshifted into whatever band
+the mass scale selects [25–28]. No throat survives more
+than milliseconds to days (Sec. IV G), so neither LIGO
+nor LISA [94–96] can see a surviving wormhole. A population born in the early universe collapses or inflates
+soon after birth, and its bursts are redshifted far below
+both bands. A drainhole signal in these bands would
+
+2
+need throats born that late, which no known mechanism
+supplies. The epoch-independent result is the energy radiated per event and its spectrum, in units of the source’s
+ADM mass (Sec. IX B). The waveforms are extracted at
+finite radius in the near zone, without extrapolation to
+null infinity, and each energy carries the spread across
+extraction spheres as its error (Sec. VIII).
+Section II presents the model and the initial data. Section III describes the numerical methods. Sections IV–
+VII follow, in turn, the single wormhole, two throats at
+rest, the head-on merger and the orbital encounters. Section VIII treats the radiation of every encounter. Section IX discusses observational signatures. Section X
+draws the consequences. Section XI covers reproducibility and cost. Appendix A gives the convergence tests,
+and Appendix B supplementary measurements. All evolutions use GRTeclyn [41], the AMReX-based [42] GPU
+port of GRChombo [43], continuing Refs. [44, 45]. We
+use G = c = 1 and measure masses, lengths and times
+in units of the drainhole mass parameter m (Sec. II B).
+The results hold for a single minimally coupled phantom
+scalar, equal masses, one throat compactness (m/a =
+1/2) and no spin.
+II.
+
+THE MODEL
+
+A.
+
+Field equations
+
+The matter is a single real, massless phantom (ghost)
+scalar: gravity couples to minus the canonical stress tensor,
+
+
+V (ϕ) ≡ 0, (1)
+Tab = − ∇a ϕ ∇b ϕ − 21 gab ∇c ϕ∇c ϕ ,
+so the energy density
+ seen by normal observers, ρ =
+− 21 Π2 + γ ij ∂i ϕ ∂j ϕ with Π = (∂t ϕ − β i ∂i ϕ)/α, where
+α is the lapse, β i the shift and γij the spatial metric, is
+non-positive everywhere. The null energy condition fails
+wherever ϕ varies, and this exotic stress holds a throat
+open. The field itself obeys the canonical wave equation
+□ϕ = 0, evolved in first-order form in ϕ and Π. Table I
+collects the notation.
+B.
+
+Drainhole initial data
+
+Each body is a massive Ellis–Bronnikov drainhole [9,
+10]. In isotropic radius r about the throat centre, with
+X=
+
+r − a2 /4r
+,
+a
+
+Ω = 1+
+
+a2
+,
+4r2
+
+u=
+
+TABLE I. Notation. We use G = c = 1 and units of the
+drainhole mass parameter m.
+symbol
+
+meaning
+
+α, β i , γij
+
+lapse, shift, spatial metric
+
+Kij , K
+
+extrinsic curvature and its trace
+
+χ, hij
+
+conformal factor and conformal metric,
+γij = hij /χ
+
+Ψ, ψ
+
+conformal factors of the initial data, γij =
+Ψ4 δij , Ψ = e−u/2 ψ
+
+ϕ, Π
+
+phantom scalar field and its momentum
+
+H, Mi
+
+Hamiltonian and momentum constraints
+
+a, m
+
+throat scale and mass parameter of the
+drainhole
+
+r, rt
+
+isotropic radius about a throat centre; its
+value at the throat
+
+R, R⋆
+
+areal radius; throat radius of the static
+drainhole
+
+q, Q
+
+scalar charge; scalar-to-gravitational force
+ratio, Eq. (5)
+
+d, σ
+
+coordinate separation; relative sign of the
+two scalar charges
+
+p, v, γ
+
+momentum per
+Lorentz factor
+
+MADM , Mfar
+
+ADM mass; mass of a mouth’s far asymptotic end
+
+ε, ε2
+
+amplitudes of the spherical and quadrupolar perturbations
+
+throat,
+
+boost
+
+speed,
+
+τ
+
+e-folding time of the unstable mode
+
+θ± , MMS
+
+outgoing and ingoing null expansions;
+Misner–Sharp mass
+
+Ψ4 , EGW
+
+Weyl scalar; radiated gravitational-wave
+energy
+
+Eϕ
+
+radiated scalar-field energy
+
+L, ∆x
+
+side of the cubic domain; grid spacing
+
+σKO
+
+Kreiss–Oliger dissipation coefficient
+
+conformal factor χ = e2u Ω−2 and the conformal metric hij = δij , with γij = hij /χ. Both constraints hold
+identically at t = 0. Here a is the throat scale and m
+the ADM mass. The lapse, not the conformal factor,
+carries the mass, so χ at the throat stays in [0.15, 0.25]
+for m/a ≤ 1 and mass costs no√resolution.
+ The minimal surface sits at rt = 21 m + m2 + a2 , where X =
+√
+m/a,
+and its areal
+radius is Rmin = e−u(rt ) a2 + m2 =
+√
+
+a2 + m2 exp (m/a) arctan(a/m) , which is a at m = 0.
+Our fiducial throat, a =
+m = 1, has the throat
+√ 2 and
+1
+radius √R⋆ ≡ Rmin = 5 e 2 arctan 2 = 3.8895 at rt =
+1
+5) = 1.618. The point r → 0 is the compactified
+2 (1 +
+spatial infinity (χ ∼ r4 ) of the throat’s far asymptotic
+end, the asymptotic region beyond the throat. At m = 0
+the throat is ultrastatic (α ≡ 1, MADM = 0).
+
+m
+π
+arctan X − ,
+a
+2
+(2)
+
+C.
+
+Binary initial data
+
+the exact static solution of Eq. (1) is
+α = eu ,
+
+γij = e−2u Ω2 δij ,
+
+ϕ = C arctan X,
+
+(3)
+
+with 4πa2 C 2 = a2 + m2 , extrinsic curvature Kij = 0,
+Π = 0 and zero shift. The evolved variables are the
+
+Two throats at separation d (one-body radii rA , rB )
+start from their combined fields,
+u = uA + uB ,
+
+ψ = 1+
+
+p
+
+p
+
+
+ΩA − 1 +
+ΩB − 1 , (4)
+
+3
+outward, > 0
+
+born apart
++
++
+
++
++
+
+newborn throats
+at t = 0
+
+perturbation
+birth
+separation
+±
+
+like signs: repel
+±
+
+opposite signs: attract
+
++
+
+short d, small p
+the race
++
+
+a black hole
+
+GW: Schwarzschild ringdown
+
+open, anti-trapped, growing
+
+GW: none
+
+inflation
+
+inward, < 0
+
+relative sign
+
+born close
+
+collapse
+
++
+
+large p
+otherwise
+
++
+
+scattering
+
+recede, both throats inflate
+
+GW: no burst
+
+one horizon around both
+
+GW: one burst, no chirp
+
+merged core, no MOTS
+
+GW: one burst at contact
+
+both throats inflate
+
+GW: one burst at the encounter
+
+merger
+plunge
+
++
+
+inflation
+
+FIG. 1. Schematic of the end states of newly formed throats, whatever their origin. An isolated throat’s perturbation sign
+selects collapse or inflation (Sec. IV C). A pair’s relative charge sign selects repulsion or attraction (Sec. V A). The throats of
+a repelling pair inflate as it recedes (Sec. V C). An attracting pair merges if its common horizon forms early in the throats’
+inflation (Sec. VII B); in a fast plunge it collapses to a merged core around which no common horizon is found (Sec. VII A).
+Gold: horizons; right: sketched wave signals. Two end states give a black hole after a single burst without a chirp, the fast
+plunge gives a merged core, and in every other end state the throats inflate.
+
+with χ = e2u ψ −4 , α = eu and ϕ = ϕA +σ ϕB , σ = ±1; the
+constant tail of the arctan profiles is subtracted so that
+ϕ → 0 at the boundary. The constraint solve of Sec. II D
+turns this superposition into initial data. Momentum
+comes from the exact boost of Sec. II E. The throats sit
+at x = ∓d/2 with momenta P i = (0, ±p, 0), tangential to
+the separation and opposite on the two throats, with p in
+units of the one-body mass. The pair thus carries no net
+momentum and orbital angular momentum J = pd; p = 0
+is a release from rest. The relative sign σ is the pair’s
+one discrete parameter. Far from its throat each body
+is a mass m carrying the scalar charge q = Ca (ϕA ≃
+−q/rA once the constant tail is subtracted). A phantom
+mediator repels like charges and attracts opposite ones,
+so two throats at rest a large distance d apart attract
+with
+
+m2
+F = 2 1 − σQ ,
+d
+(5)
+4πq 2
+a2 + m2
+Fϕ
+=
+=
+>
+1
+Q≡
+Fgrav
+m2
+m2
+always (Q = 5 for the fiducial throat): a like-signed pair
+repels and never merges under its own gravity, and σ =
+−1 is the merger channel.
+D.
+
+Constraint solve and matched data
+
+Superposed throats violate the Hamiltonian constraint
+and distort each other’s mouths; we correct both. With
+Π = 0, K = 0 and γij = Ψ4 δij , where Ψ = e−u/2 ψ (so
+χ = Ψ−4 ), the Hamiltonian constraint H = 0 of Eq. (1)
+reads, in flat operators,
+∇2 Ψ − π|∇ϕ|2 Ψ + 18 Âij Âij Ψ−7 = 0.
+
+(6)
+
+Here Âij is the trace-free conformal extrinsic curvature.
+The single drainhole solves Eq. (6) exactly. For a pair we
+
+solve it for a correction w to the starting Ψ on the whole
+initial mesh hierarchy with AMReX’s multigrid [42], holding ϕ, Π and the lapse fixed (a Robin outer boundary);
+for a pair with momentum we solve the Hamiltonian and
+momentum constraints, H = 0 and Mi = 0, together
+(Sec. II E).
+Each mouth (the side of a throat facing our asymptotic
+region) is identified by the constants of its far asymptotic
+end. Near a throat’s centre Ψ = c/r + dc + O(r), and the
+inversion r′ = c2 /r turns this into an asymptotically flat
+end with ADM mass and scalar charge
+
+Mfar = 2c dc ,
+
+Qfar =
+
+4Cc2
+,
+a
+
+(7)
+
+both frozen in time, like a puncture’s individual mass.
+The isolated drainhole
+has Mfar√= −m eπm/a = −4.8105
+√
+2
+2
+and Qfar = a + m eπm/a / 4π = 3.0344. A pair
+(Mfar , Qfar ) names one isolated drainhole, and its nearside mass m′ is the mouth’s one-body mass.
+A second throat in the slice rescales each mouth: near
+A the companion’s constants multiply the throat’s own
+field, Ψ → e−uB (xA )/2 Ψ. Because ϕ fixes a static throat’s
+coordinate size, the puncture coefficient c alone cannot
+undo this. We call data matched when each mouth’s
+far-end mass and charge equal the isolated throat’s. The
+matched placement gives each throat a coordinate scale λ
+(a → λa and m → λm in ϕ, u and Ω; C is scale-free), sets
+λ = (c/ciso )2 with ciso = a2 eπm/2a , which holds Qfar at
+its isolated value, and iterates c until Mfar is isolated too.
+Each mouth is then locally the isolated static drainhole
+(Table II): its Rmin , which the solve does not constrain,
+lies within 0.06% of R⋆ , and m′ = 1. With momentum
+the iteration converges the same way.
+The pair’s ADM mass follows from Gauss’s theorem
+on Eq. (6), with Ψ → 1 + MADM /2r and punctures con-
+
+4
+TABLE II. Each mouth of the matched d = 8 pair at t = 0
+(L = 64, level 3) against the isolated throat: minimal areal
+radius, far-end mass [Eq. (7)], one-body mass m′ , and the
+throat’s own MADM from Eq. (8). The pair’s MADM is 2.3573
+on the fiducial L = 128 grid.
+data
+isolated throat
+matched pair, each mouth
+
+Rmin
+3.890
+3.892
+
+Mfar
+−4.810
+−4.810
+
+m′
+1
+1
+
+MADM
+1.001
+2.362
+
+TABLE III. Mass of matched pairs at rest [Eq. (8)] against
+two isolated throats on the same grid (L = 128, ∆x = 0.0625
+at the throats), and Eq. (9). λ: each throat’s coordinate scale.
+
+d
+8
+12
+16
+24
+48
+
+σ = −1 (attract)
+λ
+Eb
+Eq. (9)
+0.857 +0.357 +0.367
+0.906 +0.269 +0.274
+0.931 +0.214 +0.217
+0.955 +0.151 +0.152
+0.979 +0.080 +0.080
+
+σ = +1 (repel)
+λ
+Eb
+Eq. (9)
+0.906 −0.619 −0.616
+0.931 −0.437 −0.433
+0.946 −0.338 −0.335
+0.962 −0.233 −0.231
+0.980 −0.121 −0.120
+
+tributing −4πcX δX :
+MADM = 2
+
+X
+X
+
+1
+cX −
+2π
+
+Z 
+
+
+π|∇ϕ|2 Ψ − 18 Âij Âij Ψ−7 d3 x,
+
+(8)
+which returns the exact throat’s M = 1 to 0.14% and,
+unlike a fit to the monopole tail, does not read the outer
+boundary’s offset of w as mass. For matched pairs at rest
+(Table III) the excess over two isolated throats follows
+Eb ≡ MADM − 2m = −λ2
+
+
+m2
+1 + σQ
+d
+
+(9)
+
+for both signs, to 3% at d = 8. It is the Newto2 2
+nian
+R binding −λ m /d plus the phantom cross energy
+−σ ∇ϕA ·∇ϕB d3 x = −σλ2 (a2 + m2 )/d of two charges
+λq, with λ → 1 as d → ∞; the solve adds nothing else. In
+the merger channel σ = −1 the positive scalar term dominates, so the attracting pair weighs more than its parts
+(Eb d → +4) and the repelling pair less (Eb d → −6).
+Equation (9) is the ADM mass of data at fixed far-end
+constants, not the two-body potential; read as one, it
+gives the wrong sign in both channels. Equation (5) is
+the standard force for a phantom mediator, which reverses the sign of ordinary scalar exchange; Sec. V A tests
+it.
+Every binary starts from the matched, solved data
+above, so each mouth has one-body mass m′ = 1 to
+6 × 10−6 . A quoted momentum p is
+ptherefore per onebody mass, with boost speed v = p/ 1 + p2 . The pair’s
+mass is the MADM of Eq. (8) at rest and of Sec. II E in
+motion.
+
+E.
+
+Boosted throats
+
+A throat with ADM momentum
+p is the exact drainp
+2
+2
+hole boosted to v = p/ m + p and cut at t = 0.
+We boost the metric, Kij , ϕ and Π together, with the
+boosted lapse and shift, so the slice is an exact solution
+of both constraints and the scalar moves with its throat
+(Π ̸= 0). On the slice every χ contour, the throat’s included, is an
+p ellipsoid contracted along the motion by
+1/γ = m/ m2 + p2 , with γ the Lorentz factor, as a
+boosted black hole’s horizon is. The measured axis ratios follow this law to 6 × 10−5 at every p up to 0.45
+(Fig. 2).
+A pair is built from two boosted throats as in Sec. II D,
+with the companion’s Kij and Π tapered to zero inside
+each throat. The solve then corrects both constraints, for
+w and a vector potential W (Âij → Âij + (LW )ij , with
+L the conformal Killing operator). The taper acts only
+inside each throat, near its compactified infinity, so no
+unsolved defect is left to radiate (Sec. VIII). Three tests
+validate the boosted solve. On an isolated boosted throat
+on the fiducial grid the solve leaves the data unchanged
+(puncture correction |w0 | = 4.5 × 10−6 ). On the pair at
+rest it reproduces the scalar solve’s c, σ and w0 to 10−5 .
+On the opposite-signed d = 12, p = ±0.25 pair, each far
+asymptotic end comes out the isolated throat’s to 10−5 .
+Equation (8) needs conformally flat data with K = Π =
+0, so a moving pair’s mass is the boosted background’s
+ADM energy (each throat’s γλX m and its puncture shift)
+plus the monopole of w on the box faces. Where both
+apply, the face value reads 2.8% below Eq. (8). For the
+moving d = 12 pairs, a full ADM surface integral of the
+t = 0 slice lies 2.4–3.2% above this prescription, and we
+quote their energies per that measured mass.
+
+F.
+
+Initial perturbations
+
+We probe the instability with added perturbations of
+the conformal factor only, a Gaussian shell on the minimal surface,
+
+
+ψ → ψ 1 + ε g(r) ,
+
+2
+
+2
+
+g = e−(r−rt ) /s ,
+
+s = a/4, (10)
+
+which changes the throat’s areal radius by a fraction ≈2ε,
+and a quadrupolar factor
+
+
+ψ → ψ 1 + ε2 g(r) P2 (cos θ)
+(11)
+about the z axis through the throat. Neither perturbation is constraint-solved. Kij and Π stay untouched, so
+the momentum constraint holds at t = 0. The drainhole,
+however, solves the linear equation ∇2 Ψ = π|∇ϕ|2 Ψ,
+so the spherical perturbation leaves the defect H =
+−8ε Ψ−4 (1 + εg)−5 (∇2 g + 2∇ ln Ψ · ∇g). The defect is
+confined to the narrow shell and large there, with a peak
+of 0.93–0.94 × 16π|ρ| at ε = ±10−2 . The quadrupolar
+perturbation’s defect is pure ℓ = 2 at first order. CCZ4,
+
+5
+(b)
+
+1
+
+v = 0.7
+v = 0.95
+
+0
+1
+1
+
+0
+1
+x (across)
+
+1/ = 1 v 2
+measured (rc = 1.55)
+
+(c)
+
+1.00
+0.75
+0.50
+0.25
+0.00
+0.00
+
+rc = 1
+
+rc = 1.55
+
+rc = 2.5
+
+0.06
+
+103 (ratio 1/ )
+
+p=0
+p = 0.45 (v = 0.41)
+x 2 + 2 y 2 = 1.552
+
+axis ratio along/across
+
+y (along the motion)
+
+(a)
+
+0.25
+0.50
+0.75
+v (boost speed, c = 1)
+
+1.00
+
+0.04
+0.02
+0.00
+0.0
+
+0.1
+
+0.2
+v
+
+0.3
+
+0.4
+
+FIG. 2. Shape of the boosted throat at t = 0: χ contours and their axis ratio against boost speed v. (a) The χ contour just
+inside the throat, at rest and at p = 0.45, the latter on its analytic ellipse;
+√ fainter ellipses continue the law to v = 0.7 and 0.95.
+(b) Axis ratio (along/across the motion) against v, on the curve 1/γ = 1 − v 2 . (c) Residual from 1/γ at three contour levels.
+The boosted data carry the special-relativistic shape, and both constraints hold at the discretisation error of the exact solution.
+
+the conformal covariant Z4 formulation [37], feeds the
+defect into its constraint variable Θ and, within the first
+steps, into Mi (Fig. 11(b)). The constraint defect does
+not select the branch. The same ε = +0.1 perturbation,
+carried through the constraint solve (Sec. II D) as a larger
+puncture coefficient c = 1.1 ciso , is trapped already on its
+t = 0 slice. We encode it in c because the solve, unique
+at fixed ϕ, would remove a perturbation of the conformal factor. The unsolved +0.1 perturbation reaches the
+same branch at t = 1 (Sec. IV C). Above ε ≃ 0.025 the
+spherical perturbation turns the minimal surface into a
+maximum between two minima. The spherical perturbation selects the branch but cannot radiate, since a spherical collapse has no ℓ ≥ 2 moment. The quadrupolar
+perturbation, with no ℓ = 0 part at first order, leaves
+the branch to the spherical one and gives a collapsing
+throat a quadrupole to shed, an isolated throat’s only
+gravitational-wave signal (Sec. VIII A).
+
+III.
+
+NUMERICAL SETUP
+
+This section gives the evolution scheme, the grid and
+the diagnostics; Table IV summarises our simulations.
+
+A.
+
+Evolution scheme
+
+We evolved the CCZ4 system [37] with constraintdamping parameters (κ1 , κ2 , κ3 ) = (3, 0, 1), 1+ log slicing [38] and a Gamma-driver shift [39, 40, 64] with
+η = 1, both started from the initial data’s lapse and
+shift. We used fourth-order stencils, RK4 time integration and Kreiss–Oliger (KO) dissipation with coefficient
+σKO = 0.1. The time step ∆t = 0.02 ∆x, an order of magnitude below the usual CCZ4 Courant factor, keeps the
+evolution stable. Every resolution statement below is at
+fixed ∆t/∆x; Appendix A tests convergence in resolution
+and in extraction radius.
+
+B.
+
+Grid, boundaries and regularisation
+
+The domain is a cube of side L = 64 centred on
+the system, with a 1283 base grid (∆x = 0.5). Nested
+boxes, halving ∆x per level and centred on the tracked
+throats (half-width 4 per throat at the finest level of the
+main runs), are redrawn every 16 steps. The main runs
+used three refinement levels (finest ∆x = 1/16), higherresolution runs up to level 7. Every binary with more
+than three refinement levels, and two single-throat runs,
+use L = 128: the same cells in a box twice as wide. Level
+j thus means a finest cell ∆x = 0.5/2j . The one exception, the inflating throat (Sec. IV F), is evolved in an
+octant of an L = 512 box whose 5 levels give ∆x = 1/16,
+the resolution of our level-3 runs. Outer boundaries are
+Sommerfeld, backed by a spherical sponge over the outer
+quarter of the half-width, in which KO dissipation ramps
+to σsp = 4 as the fourth power of the depth. Every
+extraction sphere lies inside the sponge’s inner radius.
+The sponge damps grid-scale noise but is transparent to
+long-wavelength gauge and physical waves, which reflect
+from the box faces (Sec. VI B). The vacuum controls
+(Sec. VIII E) instead run GRTeclyn’s binary-black-hole
+example with its own numerical settings and no sponge.
+Each throat carries a compactified second infinity at
+its centre, where χ ∼ r4 , so the evolved variables are
+floored at χ ≥ 10−8 and α ≥ 10−10 . A variant (V) floors
+χ at 10−20 and applies 10−8 only where 1/χ is evaluated.
+Runs that differ only in the χ floor agree to four digits
+after touching it. In the runs Table V marks O, the
+1+ log source is off within coordinate radius 0.3 of each
+tracked throat centre (the compactified far asymptotic
+end) and restored by 0.8 (rt = 1.618), so that the moving
+puncture does not drive the slicing. In the runs it marks
+D, the scalar is damped exponentially wherever the lapse
+has collapsed below 3 × 10−2 : inside merged cores, and
+between fly-by mouths as they approach. The p = 0.45
+fly-by, rerun without damping to t = 70, matches the
+Weyl scalar Ψ4 of its damped counterpart to 2 × 10−7
+
+6
+TABLE IV. Summary of the 103 simulations, in groups that each vary one parameter against a named reference or repeat
+one run; the pairs start on constraint-solved, boosted data (Sec. II E). Left: the single throat and the initial-data construction.
+Right: the binaries and their controls. Unless stated, a = 2, m = 1 (Rmin = 3.89), σ = −1, d = 12 and L = 64 (128 for binaries
+with more than three refinement levels). The data release lists every run.
+group
+
+parameters varied
+
+runs
+
+Sec.
+
+group
+
+parameters varied
+
+runs
+
+Sec.
+
+single throat
+
+levels 2–4; χ floor; ∆t; L=128; 10
+m=0.5
+
+IV
+
+two throats at rest
+
+σ; a = 1–3; d = 12–18; one
+like-sign pair to t=100
+
+9
+
+V
+
+IV C
+
+head-on, d=8
+
+restart segments, levels 4–
+6; post-processing MOTS
+search;
+first-law window
+
+8
+
+VI
+
+−3
+
+−1
+
+spherical perturbations
+
+ε = ±10
+5
+
+. . . ± 10
+
+quadrupolar perturbations
+
+ε2 = 0.005–0.05; unperturbed
+run
+
+; levels 3– 10
+
+6
+
+VIII A d=6 merger
+
+p=0.10 tangential; levels 3–
+7;
+σKO ; χ floor; final restart
+segment
+
+7
+
+VII C
+
+4,
+
+3
+
+VIII G d=12 runs
+
+p = 0.12 tangential, 0.25 inward
+
+2
+
+VII B
+
+boosted throat
+
+p = 0–0.45 at t=0; paired collapse runs,
+levels 3/4
+
+7
+
+II E
+
+fly-by and EGW scan
+
+p = 0.25–0.90; χ-floor and
+level-5 extensions
+
+8
+
+VIII D
+
+solver tests
+
+boosted pairs at t=0 on the fiducial grid; the pair at level 3 to
+t=20; a perturbed single throat
+through the solve
+
+4
+
+II E
+
+vacuum binary black hole same d, p, masses; no scalar,
+no sponge
+
+5
+
+VIII E
+
+placement
+
+d = 6–48, one step each
+
+18
+
+II D
+
+convergence
+
+6
+
+A
+
+reruns with scalar extraction unperturbed,
+L=64/128;
+ε=+10−2
+
+level
+
+TABLE V. Numerical modifications per run beyond the defaults of Sec. III A (σKO = 0.1, χ ≥ 10−8 , 1+ log everywhere,
+no damping). Restart segments follow semicolons, with their
+start times in parentheses. V is the variant χ floor; “2nd run”
+marks a second run that differs only in that setting. Last
+column: 1+ log off near the throats (O), scalar damped (D).
+Run
+
+Levels
+
+χ floor; σKO
+
+Single throat
+
+2–4
+
+V (2nd run)
+
+–
+
+Moving throat
+
+3, 4
+
+–
+
+O
+
+O, D
+
+Rest pairs
+
+3
+
+–
+
+–
+
+Head-on
+
+5; 6 (35); 4 (50)
+
+V; 0.3 (2nd run)
+
+–
+
+Head-on, L = 512 5, 6, 7
+
+10−4 ; 0.3
+
+–
+
+d = 6 merger
+
+5; 5 (25, 30); 4 (35)
+
+10−4 (30); 1.0 (25) O, D
+
+p = 0.12
+
+4, 5
+
+–
+
+–
+
+p = 0.25
+
+5
+
+–
+
+O, D
+
+p = 0.45
+
+4
+
+–
+
+p = 0.60
+
+4; 4 (40, 50); 5 (40, 60) 10−4 (40)
+
+O, D
+
+p = 0.90
+
+4; 4, 5 (40)
+
+10−4 (40)
+
+O, D
+
+O, D
+
+of the peak. The damping first acts at t = 36, so this
+comparison covers only R ≲ 34: the burst peak, not the
+outer sphere the energy is read from.
+
+C.
+
+Diagnostics
+
+Every coarse step theR code writes the volumeaveraged
+norms ∥H∥ = ( H2 dV /L3 )1/2 and ∥M∥ =
+R
+( Mi Mi dV /L3 )1/2 , evaluated on the base grid over the
+whole domain after the finer levels are restricted onto
+
+head-on at three resolutions,
+L=512; σKO ;
+d=12 run at level 4, wave
+zone refined
+
+it. They do not resolve the throats, so they monitor the
+evolution rather than local accuracy and compare only
+within one box. At t = 0 they are set by the base grid’s
+stencils on the throat profiles, not by the data. We quote
+a run only while it is reliable: before its constraint norms
+begin to grow steeply (on the fly-bys, before ∥H∥ first exceeds 2.5 × 10−2 ) and before grid-scale noise appears in
+K and Ψ4 . We say the run is reliable up to that time.
+Both throat centres are tracked, and about each the
+areal radius R(r) is scanned on coordinate spheres out
+to a fixed edge. Its minimum is the throat; an inflating throat that outgrows the scan is bounded from above
+by the edge reading. On the same spheres the null expansions θ± are computed with the outward direction
+fixed by increasing areal radius, so that a dynamic throat
+is marginally anti-trapped [35, 62]. An in-code monitor
+that orients by coordinate radius, the wrong way beyond
+a throat, serves only for live checks.
+We call the round-sphere scan the search, about each
+centre, for the outermost coordinate sphere that is
+trapped everywhere (max θ+ = 0, θ− < 0). A trapped
+sphere lies inside the apparent horizon, so this sphere
+bounds the marginally outer trapped surface (MOTS,
+Sec. III D) from inside. On its spheres, as on the MOTS
+finder’s surfaces, we evaluate the areal radius R and the
+Hawking mass [34], the Misner–Sharp mass [33] on round
+spheres,
+2MMS
+R2 ⟨θ+ θ− ⟩
+= 1+
+,
+(12)
+R
+4
+with the product averaged over the sphere and θ± computed for the null normals k a = na + sa and la = na − sa
+
+7
+(na the slice’s unit normal, sa the sphere’s outward unit
+normal, so k · l = −2). On an exact MOTS MMS = R/2;
+on the scan’s spheres MMS exceeds R/2 by at most 3%
+about a single collapsed throat, which stays nearly round.
+Radiation is read from Ψ4 on three spheres from
+R = 10 to 18 on the single throats (a fourth on their
+wave runs), and on four from R = 20 to 44 on every
+L = 128 binary, the head-on adding the inner three.
+It is decomposed in spin-weight −2 harmonics about z,
+the orbital axis. The head-ons fall along x, so their
+quadrupole h′20 about the collision axis splits in the zbased modes: (2, 0) = −h′20 /2 carries a quarter
+of its
+p
+3/2 to 2%
+power and (2, ±2) the rest (|h22 /h20 | =
+on every sphere). We therefore quote their (2, 0) as h′20 .
+Every amplitude quoted is rΨ4 , and strain is its fixedfrequency integral [91]. On the head-on the in-code and
+post-processing extractions agree at the burst peak to
+0.4%. On the single throats the in-code extraction is dominated by its grid-scale floor, and only the post-processing
+one is used. The scalar field is extracted on the single
+throats’ spheres and, on the binaries, at R = 14, 20, 30
+and 44 (the head-on adding 10 and 18). It yields ϕ and
+Π in spin-weight-0 harmonics,
+H Aℓm = R ϕℓm , and the
+kinematic flux Fkin = −R2 Π ∂r ϕ dΩ, positive for an
+outgoing canonical wave (Sec. VIII F). An optional diagnostic records the cell and the one-step history of any
+floating-point failure.
+
+D.
+
+Marginally outer trapped surfaces
+
+A MOTS is a closed two-surface of the slice on which
+the outgoing null expansion vanishes, θ+ = 0, while the
+ingoing one is negative, θ− < 0; the outermost MOTS is
+the apparent horizon. Unlike the event horizon, a MOTS
+is read off a single slice. Since the phantom scalar violates
+the null energy condition, a MOTS need not lie inside an
+event horizon. Every “horizon” and “censored” in this paper refers to MOTSs on the evolved slices. “Black hole”
+names the region inside such a dynamical apparent horizon, whose area this matter can shrink (Sec. IV E), not a
+stationary black hole, which the remnants only approach
+(Sec. VI B).
+The MOTS finder runs in post-processing on every
+saved slice, so horizon coverage matches the output interval. It expands the surface about the tracked centre as r = h(θ, ϕ) in real spherical harmonics up to degree ℓmax = 6 on the head-on slices and ℓmax = 8 on
+the orbital ones, and solves θ+ [h] = 0 by Newton iteration on metric and extrinsic-curvature data interpolated from level 3 on the head-on and level 2 on the
+orbits, whatever the run’s finest level, with the areal
+orientation of Sec. III C. The first surface of a run is
+found by the damped fast flow [63]; each later slice
+warm-starts from the previous surface and converges in
+a few iterations, until every projected harmonic of θ+
+is below 10−6 . From p
+the converged surface we quote
+the areal radius R = A/4π, the Misner–Sharp mass
+
+of Eq. (12), and the harmonic content beyond ℓ = 0
+as the deformation. The flow method recovers Kerr–
+Schild Schwarzschild (R = 2M to 0.24%) and finds no
+trapped surface outside the time-symmetric Ellis throat.
+Every binary horizon number in this paper (formation
+times, R, MMS ) is read from these surfaces. The single throats’ nearly round collapse horizons come from
+the round-sphere scan (within 3%, Sec. III C). On a binary the scan under-reads a forming, deformed horizon
+or misses it, and serves only as a live monitor.
+
+IV.
+
+THE SINGLE WORMHOLE
+
+This section asks how an isolated massive throat leaves
+its static state, and how it ends.
+
+A.
+
+The static throat as a fixed point
+
+Without an added perturbation, the exact drainhole
+stays static until truncation error excites its unstable
+mode. At level 3 the throat stays at R⋆ to 0.1% for
+35 time units and to 1% until t ≃ 44 (Fig. 3(a)); at level
+4 it is exact to four digits at t = 30. Each halving of the
+cell delays the departure by 5.6–8.7 units, as expected
+when a mode of fixed growth rate starts from a smaller
+truncation error. Level 2 fails at the origin at t = 24.2,
+before the throat departs. The static phase scales with
+the mass: at level 3 the m = 0.5 throat stays within 0.1%
+only to t ≈ 17, against the fiducial m = 1 throat above,
+and fails at the origin at t = 26.3.
+
+B.
+
+The unstable mode
+
+The departure is a single exponential mode
+(Fig. 3(a,b)). Fits below 4% deviation give the efolding time τ = 5.12 (level 3) and 5.23 (level 4). In
+units of the throat’s light-crossing time, the proper-time
+e-folding time is T ≡ τ αth /R⋆ = 0.76 and 0.77, where
+αth = eu(rt ) = 0.575 is the static lapse at the throat.
+Our drainhole is the γ1 = m/a = 0.5 member of the
+static family of González, Guzmán and Sarbach (their
+metric with b = a, γ0 = −πγ1 /2), for which their linear
+analysis gives T = 0.758 [18]. We solved the linearised
+field equations of this solution ourselves, with their
+regularised master equation and, independently, in the
+gauge δϕ = 0; both give T = 0.7584, i.e. τlin = 5.13 M .
+The measured e-folding time agrees with it to 0.2%
+at level 3 and 1.9% at level 4; larger departures grow
+more slowly. The initial perturbation is truncation error,
+and its sign flips with resolution: level 3 collapses and
+level 4 inflates. These are the two branches found in
+spherically symmetric evolutions of the massless [13, 14]
+and massive [15, 17] throat and in 3D for the massless
+one [44]; here they are reached from exact massive data
+in 3D.
+
+8
+level 3
+
+(a)
+
+fitted rate
+
+death (NaN)
+
+R
+
+4
+
+level 2
+
+0
+
+8
+
+= 5.12
+
+2
+
+Rmin
+
+log10 |R R0 |/R0
+
+6
+
+1
+
+= 5.23
+
+3
+
+100
+
+50
+
+t
+
+100
+
+(d)
+
+4.0
+
+6
+
+2 t×
+0
+
+moving, p = 0.45
+
+3.9
+
+= 0.01
+
+4
+
+4
+50
+t
+
+scan loses the throat
+
+(c)
+
+0
+
+8
+
+Rmin
+
+level 4
+
+(b)
+
+e t/
+
+at rest
+
+3.8
+
+= 0.001
+R
+
+R
+
+3.7
+
+= +0.001 (NaN) 3.6
+= ±0.1
+
+50
+t
+
+= +0.01
+
+100
+
+3.5
+
+0
+
+20
+
+t
+
+40
+
+FIG. 3. Minimal areal radius Rmin of the isolated throat against time, from exact static data. (a) Levels 2–4 without an added
+perturbation: level 3 (dashed), level 4 (solid) and level 2 (grey, failing first at the cross); dotted, R⋆ . Dots mark where the
+radius scan loses the throat; muted lines continue its last reading. (b) |R − R0 |/R0 at levels 3 and 4, with small-amplitude
+exponential fits (gold). (c) Level 3 with added perturbations, Eq. (10): ε = ±10−2 (heavy), ±10−3 (light) and ±0.1 (heaviest);
+dashed, outward (ε > 0); gold, local exponential fits; crosses, failures at the compactified origin. Constraint norms: Fig. 11(a,b).
+(d) The Lorentz-boosted throat (dash-dot, p = 0.45, level 3) against the resting level-3 run (grey). The throat leaves its static
+state on one exponential mode, the sign of the initial perturbation selects collapse or inflation, and uniform motion changes
+neither.
+
+C.
+
+Branching: collapse versus inflation
+
+An added perturbation, Eq. (10), overrides the truncation error (Fig. 3(c)). At ε = ±10−2 and ±10−3 an
+outward perturbation (ε > 0) always collapses and an inward one always inflates. The radii of each ±ε pair cross
+at the ε-independent t× ≃ 13.0. A tenfold smaller perturbation reaches equal horizon radius 11–12 units later,
+as linear response on one mode predicts. The branching
+survives refinement: at level 4, +10−2 still forms a horizon at t = 11 and −10−2 still inflates, the pair crossing at
+t = 12.99 against level 3’s 13.01. The amplitude also sets
+the collapse time: horizons form at t = 11 (ε = +10−2 )
+and t = 25 (+10−3 ), against t ≤ 61 for the unperturbed
+throat (its first output slice after the departure already
+contains a MOTS). At ε = ±0.1 both runs collapse. The
++0.1 run is trapped from t = 1; the −0.1 run re-expands,
+then collapses, unlike the smaller inward perturbations,
+and is trapped from t = 6. Both later fail at the compactified origin with a NaN (a floating-point failure). Linear
+response holds up to |ε| = 10−2 .
+
+D.
+
+The throat in motion
+
+A uniformly moving throat keeps the resting throat’s
+branch and rate. The Lorentz-boosted p = 0.45 throat
+(Sec. II E; level 3, v = 0.41) stays at R⋆ until it falls 1%
+below its start at t = 36.8, against the resting throat’s
+t ≃ 44. It then collapses on the resting throat’s mode,
+with τ = 5.0–6.1 against 5.12 at rest, and fails at the
+same numerical endpoint (t = 44.67, Fig. 3(d)). Time
+dilation (γ = 1.10) predicts τ = 5.6 in coordinate time,
+which the fit cannot separate from the resting value.
+
+E.
+
+The collapse endpoint
+
+The collapse branch ends in a black hole that consumes
+its supporting field. On the unperturbed level-3 run the
+horizon’s areal radius falls 3.23 → 2.37 over 39 units;
+the ε = +10−2 run continues without failure to t = 100
+behind its horizon. Ref. [44] evolved the massless throat
+with the phantom’s stress-energy halved; its bounce and
+horizon shedding are artifacts of the halving and do not
+occur here. The pure-quadrupole run (ε2 = 10−2 , no
+radial perturbation; Fig. 4) has a MOTS from t = 33,
+whose radius shrinks 3.80 → 2.50 by t = 60, while |K|
+grows inward and the lapse collapses to zero at the centre.
+The shrinking horizon is consistent with phantom accretion [58, 72]. In spherical symmetry a massless phantom scalar can only shrink a horizon. With the doublenull metric −2e−f du dv + R2 dΩ2 , Tuv = 0 and Tvv =
+−(∂v ϕ)2 , so the Misner–Sharp mass on a marginally
+trapped tube obeys ∂v m = 4πR2 ef (∂v ϕ)2 ∂u R ≤ 0 and
+∂u m = 0. The tube is timelike or null [57, 61], so R = 2m
+can only fall. The runs perturbed with ε = +10−2 shrink
+by 40% in areal radius to a floor at t ≈ 47. Their later regrowth tracks the Hamiltonian-constraint violation of the
+added perturbation (Sec. II F) as it reaches the horizon;
+the pure-quadrupole run, whose constraint violation has
+no ℓ = 0 part, does not regrow (Fig. 4(a)). The shrinking
+takes minutes even at 106 M⊙ (Table VI). Hawking’s area
+law assumes the null energy condition [36, 59], which the
+phantom violates.
+
+F.
+
+The inflation branch
+
+The inflation branch forms no trapped surface. We
+evolved the ε = −10−2 throat on an octant of an L = 512
+
+9
+
+Rareal
+
+6
+
+departs by 10 % at t = 42
+unperturbed run
+
+4
+2
+
+MOTS from t = 33
+
+(a)
+minimal-surface areal radius
+
+MOTS (round-sphere scan)
+
+0
+
+20
+
+40
+(c)
+
+min
+
+10 1
+10 2
+0
+
+40
+
+t
+
+(e)
+
+10 5
+10 7
+
+60
+
+0
+
+20
+
+t
+
+0.75
+
+t = 33 55, light = early
+
+0.5
+0.0
+
+40
+
+0
+
+1
+
+2
+r
+
+3
+
+neck, full metric (quoted to t = 218)
+exponential in the neck's proper time (t = 16 40)
+
+(a)
+15.0
+
+0
+
+20
+
+40
+
+t
+
+(f)
+
+60
+
+0.50
+0.25
+0.00
+
+4
+
+0.5
+0.0
+
+60
+
+100
+
+(d)
+
+1.0
+
+per shell
+
+1.0
+
+|K| per shell
+
+20
+
+80
+
+max|K|
+
+min (origin)
+
+(b)
+
+60
+
+t
+
+0
+
+1
+
+2
+r
+
+3
+
+fit R0 (1 + Ae t/ ), = 5.7, t = 16 28
+slower in t: 1+log freezes the neck's clock
+
+4
+fit, extrapolated
+
+Rareal
+
+12.5
+10.0
+7.5
+5.0
+
+neck
+fit, HR0 = 1.22
+massless throat, Ha = 1.1
+linear, HR0 = 1.30
+fit window
+
+10
+
+20
+
+neck's proper time
+(f)
+10 1
+
+(c)
+50
+20
+10
+5
+
+75
+k = 0, to t = 212
+l =0
+neck
+
+0
+
+per shell
+
+10 4
+100
+t
+
+100
+t
+t=
+
+min , the origin
+
+0
+
+100
+
+200
+
+(g)
+101
+
+125
+
+t
+
+0
+120
+
+0
+40
+160
+
+100
+t
+
+20
+
+r
+
+40
+
+200
+t=
+
+80
+200
+
+10 3
+0
+
+175
+
+at the neck
+min , finest box
+
+(d)
+10 1
+10 3
+200
+
+150
+
+|K|
+
+50
+
+(h)
+
+per shell
+
+(b)
+101
+100
+10 1
+10 2
+
+25
+
+Rareal
+
+R/R0 1
+
+0
+
+60
+
+(e)
+0.05
+0.00
+
+200
+
+max|K|, finest box
+
+0
+
+0
+120
+
+100
+t
+40
+160
+
+200
+80
+200
+
+10 2
+0
+
+20
+
+r
+
+40
+
+60
+
+FIG. 4. Top: the collapsing pure-quadrupole run (ε2 = 0.01, no radial perturbation) against time. (a) Minimal-surface areal
+radius (ink) and MOTS radius (gold); grey, the unperturbed level-4 run, from which this run departs by 10% only at t = 42,
+through the quadrupole’s second-order effect. (b)–(d) Global min α, min χ (at the origin, the compactified far asymptotic end)
+and max |K|. (e),(f) Radial profiles of |K| and α over 128 shells, t = 33–55 (light = early). Constraint norms: Fig. 11(c). Movie:
+Video 1; youtu.be/Cc87mHcBPOA. The throat collapses to a black hole whose horizon then shrinks. Bottom: the inflating
+ε = −10−2 run against time, to t = 218. (a) Neck areal radius; gold, the exponential onset; shaded, exponential growth in
+the neck’s proper time (gold) and the slower growth in t once the 1+ log slicing freezes the neck’s lapse (grey). (b) The neck’s
+proper-time growth rate HR0 , against the massless throat’s [13] and the linear mode’s. (c) Areal radii of the θ− = 0 and
+θ+ = 0 surfaces. (d) Lapse at the neck; dashed, its minimum on the finest level. (e),(f) max |K| and min χ on the finest level.
+(g),(h) χ and α per shell (light = early). Constraint norms: Fig. 11(d). Movie: Video 2; youtu.be/RIQCitu4tSc. The throat
+keeps growing and stays anti-trapped.
+
+10
+domain with finest ∆x = 1/16, the resolution of our
+L = 64 level-3 runs (Fig. 4). Its neck grows to the
+end of the run, by a factor 3.8 at t = 218, and stays
+anti-trapped [62]: the θ− = 0 horizon sits on the neck
+and the θ+ = 0 surface moves outward, to R ≈ 73 by
+t = 212. Until t ≈ 40 the neck grows exponentially in
+its own proper time at a rate H, with HR0 = 1.22 (locally 1.0–1.3), where R0 = 3.81 is the perturbed neck’s
+initial radius. This is 6% below our linear mode’s 1.30,
+which the local rate reaches. Spherical evolutions find the
+same proper-time exponential: Ha ≈ 1.1 for the massless
+throat [13] and exponential growth for massive ones [17].
+After that the 1+ log slicing freezes the lapse at the neck
+(0.57 → 0.015): only ≈ 5 units of its proper time pass by
+t = 218, and its growth per unit t slows. This slowdown
+is a property of the slicing, not of the throat.
+The inflating throat sheds its own support: the
+monopole scalar flux through every sphere grows quasiexponentially while the run is reliable (Sec. VIII G). It
+draws on a store that, outside the static throat, is a
+Misner–Sharp deficit R⋆ /2 − m = 0.94. While the exterior slicing is still quiet, the runs of Sec. VIII G shed
+0.03 of it through R = 18, a few percent. Rmin (t) has
+not turned down by t = 218.
+
+G.
+
+Lifetime and physical scale
+
+A static throat survives for about τ ln(1/ε), so its lifetime grows only logarithmically as the perturbation ε
+shrinks. At fixed m/a the solution is scale-free, and the
+measured e-folding time in proper time is τ αth = 0.76–
+0.77 R⋆ , about one light-crossing time of the throat. The
+delay at equal horizon radius (Sec. IV C) puts the cost of
+each decade in ε at 11–12 M ≃ τ ln 10. The unperturbed
+throat’s horizon time places the level-3 truncation error
+at ε ≳ 6 × 10−7 . Table VI converts these to physical
+units. No static throat of astrophysical mass survives: a
+stellar-mass drainhole leaves its static state within milliseconds, a supermassive one within minutes, and only
+at 109 M⊙ does the lifetime reach days. The logarithm
+makes this robust: a perturbation ten decades smaller
+extends a 30 M⊙ throat’s lifetime only from 1.6 to 19
+ms.
+
+H.
+
+Type-I criticality
+
+In the language of critical collapse the static throat
+is consistent with a type-I critical solution [80]: a static
+solution with a single unstable mode (Sec. IV B) on the
+threshold between two end states. Here these are collapse
+and inflation, where the standard problem has collapse
+and dispersal. Two perturbation amplitudes show both
+type-I signatures but do not establish the scaling. The
+first is time scaling: data a distance ε from threshold stay
+near the critical solution for a time τ ln(1/ε), which is
+the lifetime law of Table VI. Both branches leave along
+
+TABLE VI. Size, e-folding time τ = 5.12 M (Sec. IV B) and
+time to a horizon of the fiducial throat (R⋆ = 3.89 M ) in
+physical units, for four ADM masses M . The horizon times
+are measured for the two added perturbations, both outward
+(ε > 0, which collapses; Fig. 3(c)), and bounded from above
+for the unperturbed throat (Sec. IV C). Other amplitudes
+follow tBH ≃ 11 M + τ ln(10−2 /ε) at equal horizon radius:
+22.8 M at 10−3 , whose first MOTS forms smaller, at 25 M .
+time to a horizon
+M
+30 M⊙
+
+R⋆
+
+τ
+
+172 km
+
+ε = +10−2 +10−3 unperturbed (≤)
+
+0.76 ms
+
+1.6 ms
+
+3.7 ms
+
+103 M⊙ 5.7 × 103 km
+
+25 ms
+
+54 ms
+
+0.12 s
+
+0.30 s
+
+106 M⊙ 5.7 × 106 km
+
+25 s
+
+54 s
+
+2.1 min
+
+5.0 min
+
+109 M⊙
+
+7.0 h
+
+15 h
+
+1.4 d
+
+3.5 d
+
+38 AU
+
+9.0 ms
+
+the same mode, each ±ε pair crossing at the same t×
+(Sec. IV C). The second is a mass gap: black-hole formation turns on at finite mass, as at the static Bartnik–
+McKinnon solution of Yang–Mills collapse [81], not at
+the vanishing mass of type-II scaling. The ε = +10−2
+and +10−3 horizons form at R = 3.88 and 3.81, both
+close to the throat’s own R⋆ : a tenfold smaller perturbation leaves the black hole’s mass at formation almost
+unchanged, where type-II scaling would shrink it as a
+power of ε. Shinkai and Hayward found evidence for critical solutions with a definite black-hole mass in spherical
+evolutions of the massless throat [13]; here the critical
+solution is the static throat itself.
+
+V.
+
+TWO THROATS AT REST
+A.
+
+The sign rule
+
+Two identical throats released from rest push apart;
+reversing one throat’s scalar (σ = +1 → −1 in Eq. (5))
+turns the push into a pull (Fig. 5(a,b)). Gravity and the
+scalar force share one radial law, so their ratio Q does not
+depend on separation: no separation, mass or approach
+speed lets a like-signed pair fall together. The sign reversal leaves Tab , and with it the one-body geometry, unchanged. The measured pull-to-push ratio at a = 2 is
+1.462 ± 0.022 (scatter over 15 slices), against the pointcharge, large-separation value (Q + 1)/(Q − 1) = 3/2 of
+Eq. (5). The throat mass is equal in all runs, but λ and
+MADM differ between the two runs (Table III), a systematic not included in this scatter.
+
+B.
+
+The force law
+
+To measure how the push falls with distance (Fig. 5(c)),
+we released Four like-signed pairs from rest, identical except for the separation d = 12/14/16/18, and compared
+them at a common t = 11.5. For displacements this
+small, the separation change δd at a fixed time is pro-
+
+11
+
+0
+1
+0
+
+t
+
+10
+
+d at t = 11.5
+
+(b)
+1.6
+
+| d |/ d +
+
+d
+
+(a)
+1
+
+1.5
+1.4
+
+0
+
+t
+
+10
+
+(c)
+0.5
+
+measured
+(d+ ) 2
+
+measured
+
+0.4
+0.3
+0.2
+
+a 1.4
+a2
+
+(d)
+
+d 2
+
+d at t = 11.5
+
+= +1
+= 1
+
+measured
+excluded
+3/2
+settling
+
+12 14 16 18
+d
+
+0.8
+0.4
+0.2
+1
+
+1.5 2
+a
+
+3
+
+FIG. 5. Separation changes of throats released from rest, for matched pairs (Sec. II D): the sign rule (a,b), the force law (c) and
+its growth with throat width (d). (a) Separation change of two d = 12 pairs that differ only in the sign of one scalar: like-signed
+(σ = +1, dashed) and opposite-signed (σ = −1, solid). Separations are inverse-χ-weighted centroids of the midplane χ minima,
+one per throat. (b) Pull-to-push ratio against the prediction (Q+1)/(Q−1) = 3/2 (gold), with Q the scalar-to-gravity force
+ratio of Eq. (5). Excluded: the gauge-settling window t < 3.5 (grey) and t > 10.5 (open circles), where the closing pair
+has closed 4.6% of its separation. (c) Separation change by t = 11.5 of like-signed pairs at d = 12/14/16/18 (dots), against
+inverse-square in d scaled through d = 12 (grey, dashed) and A/(d + δ)2 fitted on d = 12–16 (gold; dotted at d = 18). (d) The
+same at d = 12 against throat width a = 1/1.5/2/3, on logarithmic axes, with a2 scaled through a = 2 (grey, dashed) and a
+power-law fit (gold). Opposite-signed throats attract, and the like-signed push falls more slowly than inverse-square in d and
+grows more slowly than a2 .
+
+portional to the force, so under the inverse-square law
+of Eq. (5) δd d2 would be the same at every separation.
+Instead it rises monotonically, from 69.0 to 78.0, which excludes inverse-square in the coordinate separation. The
+law F ∝ (d + δ)−2 describes the data: δ fitted on d = 12–
+16 alone predicts 0.242 at d = 18, where inverse-square
+gives 0.213 and the measurement is 0.2406. The fit to all
+four separations gives δ = 2.65. Since δ is a sizable fraction of the mouth radius R⋆ = 3.89, the force is inversesquare in a separation that exceeds the coordinate one by
+most of a throat radius. At d = 12 the push grows with
+throat width a = 1/1.5/2/3 (Fig. 5(d)), as a power law
+δd ∝ an with n = 1.2–1.4 when fitted over t = 8–11.5.
+Point charges, whose net push (Q − 1) m2 /d2 is a2 /d2 by
+Eq. (5), would give n = 2.
+
+C.
+
+The repulsion branch
+
+A like-signed pair keeps receding, and each of its
+throats ends as an isolated throat perturbed inward does:
+both inflate (Video 12; youtu.be/FnbDs-0n5zw). Released from rest at d = 12, the pair’s separation grows
+from 11.9 to 26.4 by t = 60. Each mouth opens from
+Rmin = 3.88 to 4.78 by t = 30, with both null expansions positive on its minimal surface. It is therefore antitrapped, on the inflation branch of Sec. IV F. The MOTS
+finder finds no MOTS about the mouth after t = 16. The
+pair radiates no burst: its ℓ = 2 Ψ4 keeps one sign and
+drifts smoothly over the whole interval in which the run
+is reliable.
+
+VI.
+A.
+
+THE HEAD-ON MERGER
+
+Contact and the common horizon
+
+We released the pair from rest (p = 0) at d = 8 with
+opposite scalar signs, on matched, solved data (MADM =
+2.3573). The pair falls together, and the MOTS finder
+(Sec. III D) finds a common MOTS around both mouths
+from t = 18 (Fig. 6). It forms while the χ minima are
+still ∼3.5 apart, with R = 5.634 and 1.05 times the two
+throats’ summed area. No surface ever closes about either mouth alone: the horizon forms around both mouths
+at once. At formation R/2 = MMS exceeds MADM by
+19.5%, violating the Penrose inequality. The phantom
+permits this, since the inequality presupposes the nonnegative energy density it lacks [65, 66]. Each throat’s
+own Misner–Sharp mass, R⋆ /2 = 1.94, already exceeds
+its ADM mass by the negative energy of the field outside
+it. After formation the horizon shrinks overall (Sec. VI B).
+The round-sphere scan finds the horizon 4 units late and
+11% small, and it finds no surface while the horizon is
+strongly deformed (Fig. 6(a)); this is the scan-versusMOTS offset of Sec. III C.
+
+B.
+
+The remnant black hole
+
+The remnant’s horizon shrinks as it swallows the phantom field that held the throats open (Fig. 6(e)). It loses
+28% of its initial area, falling to R = 4.7787 at t = 100.
+Gravitational waves carry only 4.7% of the Misner–Sharp
+mass it loses: the radiated gravitational-wave energy is
+EGW = 8.5 × 10−3 M (Sec. VIII B). The rest is the
+negative-energy field falling into the black hole. The level5 run fails (a NaN) inside the horizon at t = 38.845, the
+
+5
+
+4
+
+2 R : both throats' area
+
+3D finder
+2MADM
+
+4
+
+3.00
+
+6
+
+round scan (inner bound)
+one throat, R
+
+(b)
+
+2.75
+2.50
+2.25
+
+MADM
+
+20
+
+40
+
+60
+t
+
+80
+
+100
+
+(c)
+10 5
+
+6
+
+5
+0
+
+(d)
+
+4
+
+max|K|
+
+level 5
+
+-pit separation
+
+(a)
+
+max| |, max| |
+
+horizon mass MMS
+
+horizon areal radius R
+
+12
+
+(e)
+
+| |
+
+level 5
+
+6
+
+4
+
+100
+10 1
+
+merged pit
+
+100
+
+5
+
+101
+
+6
+
+4
+
+10 1
+10 2
+
+| |
+
+0
+
+20
+
+40
+
+t
+
+60
+
+80
+
+100
+
+FIG. 6. Areal radius and Misner–Sharp mass of the common MOTS of the head-on merger against time (d = 8 from rest,
+opposite signs). The run has three restart segments (dashed rules at t = 35 and 50.8; levels named in each panel). Level 5
+runs to a NaN in h11 at the merged core at t = 38.845, inside the MOTS (grey after it, up to the failure cross in (c)–(e)); level
+6 restarts from the t = 35 checkpoint; level 4 continues to t = 100 with no NaN. (a) Areal radius and (b) Misner–Sharp mass.
+Gold: the MOTS finder (Sec. III D; post-processing MOTS search, one point per output slice), with the horizon forming at
+t = 18 with MMS = 2.817 and regrowing by at most 0.34%; at t = 100, MMS = 2.3894. Grey dashes: the round-sphere
+√ scan,
+late and small at formation and finding no surface over t = 26–35 (Sec. VI A). Rules: one isolated throat, R⋆ = 3.89; 2R⋆ , a
+sphere with both throats’ area; 2MADM (MADM in (b)). (c) Separation of the χ minima. (d) max |K|. (e) Grid maxima of |ϕ|
+(solid) and |Π| (dashed). Gold dotted rule: horizon formation. Movie: Video 3; youtu.be/3sx9GHRTYVs. The horizon shrinks
+toward the Schwarzschild radius of the pair’s mass.
+
+interior failure of Sec. VII D. Restart segments at level 6
+and then level 4 carry it to t = 100, and the horizon’s
+radius is continuous across the restart times.
+
+The first law of Sec. IV E, evaluated on this surface,
+shrinks it under a phantom influx (Tab k a k b < 0) and
+grows it through the outgoing shear. Over t = 51–60,
+rerun with every output slice kept, the law brackets the
+observed ∆R = −4.1 × 10−3 : the phantom influx alone
+gives −7.0 × 10−3 , and adding the shear’s growth term
+gives −2.5 × 10−3 . By t = 90–100 the influx is spent: the
+phantom rate on the surface is 69-fold below its t = 45–
+55 value, while the radius still falls at 7.7 × 10−4 per unit
+time.
+
+At t = 100 the horizon’s radius is 1.4% above 2MADM ,
+and it is still shrinking. If it settles at the pair’s Bondi
+mass, then R = 2(MADM − EGW − Eϕ ), where Eϕ is the
+radiated scalar-field energy. With the measured EGW
+this gives Eϕ ≈ −0.052, of the sign and order of the
+flux integrals of Sec. VIII G. In spherical symmetry, a
+collapsed Ellis–Bronnikov throat settles to Schwarzschild
+on both sides once it has expelled the phantom field [16].
+The d = 6 merger’s remnant lies within 2.2% of the same
+radius at t = 100 (Sec. VII C), consistent with an end
+state set by the pair’s mass.
+
+VII.
+
+THE ORBITAL CHANNEL
+A.
+
+Merger or fly-by
+
+We varied the tangential momentum p at d = 12 on
+boosted, solved data (Videos 4–6, at p = 0.25, 0.60 and
+0.90: youtu.be/fh3pU7xCU_I, youtu.be/-ejFKpetL1Y,
+youtu.be/yzvwjC46lJY). At p = 0.25 the pair passes at
+closest separation 2.32 and recedes. At p = 0.45 it passes
+closer, at 2.18, and also recedes. Both fly-bys reach their
+stop times with no NaN, and the MOTS finder finds no
+trapped surface on either. The slowest run, p = 0.12,
+reaches contact (Sec. VII B). The two fastest plunge to
+a merged core on which no common MOTS converges
+(Sec. VII D). The plunge boundary thus lies between 90%
+and 120% of the circular momentum under the combined
+pull of Eq. (5), 1 + Q times gravity’s, and so brackets the
+circular value. This pull is central, so a pair that misses
+contact keeps its angular momentum and swings past.
+From p = 0.25 up, closest approach shrinks as p grows,
+whereas a Newtonian pericentre grows with J = pd. Capture here is therefore contact, not an innermost orbit.
+Both fly-by pairs start below the circular momentum and
+stay bound in Newtonian terms. What follows a pass is
+set by the throats, which inflate (Sec. VII B).
+The recession after the turn is not that of two compact
+throats. On both fly-bys the mouths inflate, and the
+runs stop being reliable as they do, at t = 63.3 and 67.6
+(Sec. III C); nothing later is quoted, from the runs or their
+waves (Sec. VIII D).
+
+13
+B.
+
+Merger against throat inflation
+
+No d = 12 pair forms a common horizon. The slowest
+run, p = 0.12, reaches contact at t ≈ 37 and inflates.
+The MOTS finder, run from t = 51 until the run stops
+being reliable at t = 56.5, finds no common MOTS. In a
+test run with inward momentum (p = 0.25) the mouths
+inflate faster than the orbit closes. Their Rmin grows by
+72% by t = 24, while the infall stalls near separation 2.2,
+and the finder finds no common MOTS on any output
+slice.
+The companion selects the branch, as an added perturbation does for an isolated throat (Sec. IV C), which
+collapses when perturbed outward and inflates when perturbed inward. The companion acts on each mouth like
+an inward perturbation. Each mouth starts in the isolated throat’s shape (Table II) yet grows like an isolated
+throat with εeff ≈ −0.4% for d = 12 at rest and −1.2%
+for d = 8. Every pair’s mouths therefore start on the
+inflation branch, at any momentum, and grow on the
+throat’s e-folding time τ ≈ 5.12 (Sec. IV B). A merger is
+a race against this inflation. The common horizon forms
+after 3.5 e-folding times for the head-on and 2.5 for the
+d = 6 merger (Sec. VII C). The d = 12 approach takes 9
+e-folding times to its closest pass and forms no horizon.
+An off-axis merger therefore needs a short separation and
+a small tangential momentum.
+
+C.
+
+The d = 6 merger
+
+We therefore chose d = 6 with a small tangential momentum, p = 0.10 per mouth (about 14% of circular). A
+level-3 test run merges, and the main run repeats it in
+the L = 128 domain (Fig. 7). The MOTS finder finds a
+common MOTS around both mouths from t = 13, while
+the χ minima are still 3.6 apart. It forms with R = 5.60
+and shrinks by 12.8% to R = 4.883 at t = 100, still
+falling. The result is a black hole reached from an off-axis
+approach. As in the head-on, the horizon forms around
+both mouths at once and swallows the pair mid-inflation.
+The run was restarted three times to pass the interior
+failure (Sec. VII D): level 5 from t = 0 to t = 26.26;
+σKO = 1.0 to t = 30.5; a χ floor (min χ = 10−4 ) to
+t = 36.7; and level 4 with both settings reverted to t =
+100, with no NaN. The floor acts only inside the horizon,
+over t = 30–36.7. Every quoted number comes from the
+finder’s surface outside it.
+
+D.
+
+Interior failure after horizon formation
+
+Two failure modes appear in merged cores, and each
+is removed by a change of setting. The first is a NaN in
+the metric component h11 at the core’s centre, with the
+global constraint norms clean to the last step. It occurs
+on the level-5 head-on run, on the d = 6 run and on
+the p = 0.60 plunge. Refinement does not remove it: on
+
+the d = 6 run the level-7 restart fails earlier than the
+level-6 one (t = 27.5 against 29.4), because a finer grid
+follows the collapse further. Raising the dissipation to
+σKO = 1.0 does not remove it either. What removes it
+is the χ floor: with min χ capped at 10−4 , the runaway
+of the 1/χ terms cannot complete. With the floor, both
+the d = 6 run and the p = 0.60 plunge pass their failure
+times and reach t = 100. The second mode is a runaway
+of max |K| at the merging core, from 93 to 172 in one
+step on the p = 0.90 run at t = 45.3. Level 6 removes it
+on the d = 6 run. On the p = 0.90 run a level-5 restart
+removes it, but that run fails at t = 45.28.
+Where a horizon forms, the failure occurs inside it. The
+core fails only after a common MOTS encloses it: the
+d = 6 NaNs arrive 15–18 units after its horizon forms,
+and the head-on’s 21 after its. Isolated throats that collapse at level 3 also fail behind their horizons (ε = +10−3 ,
+15 units after; ε = +10−2 combined with ε2 = 10−2 , 14
+after), and none fails at level 4. The failure is local, the
+exterior is already set, and the finder’s surface passes
+every failure time unmoved. What diverges is the coordinate representation of a merged interior, behind the
+horizon.
+Our simulations thus test weak cosmic censorship
+outside the physically reasonable matter it is posed
+for [82, 83]: every resolved collapse fails, if at all, only
+inside a MOTS. This is evidence for censorship under
+null-energy violation, not a proof, since the failure is a coordinate blow-up on the slice and not a located curvature
+singularity. The plunges whose horizon never converges
+(Sec. VII A) leave their failures outside any horizon on
+the slice, at the edge of what the grid resolves.
+
+VIII.
+
+GRAVITATIONAL WAVES
+
+Every channel radiates. Of the energies measured,
+the horizonless fly-by’s at the capture boundary is the
+largest, and the plunge’s is a lower bound. Figure 8
+shows the peak |rΨ4 | of each channel. Each signal propagates outward at v/c = 0.82–1.00 between neighbouring
+spheres (Fig. 8, right; Sec. VIII E). The inner spheres
+lie in the near zone: the dominant periods are comparable to the extraction radii, so the peak rΨ4 falls across
+the spheres. The radiated energy converges outward instead (Fig. 10(d) in Appendix A). On the head-on run
+it is constant to 1.5% on the outer spheres and exceeds
+that by 28% only at the innermost. Each energy is therefore read at the outermost sphere that covers its window, with its change from the next sphere in as its error
+(Fig. 9(d)). The waveforms drawn in Sec. IX are the
+innermost sphere’s, whose near-zone excess in rms amplitude is 13%.
+Each burst arrives with its physical trigger (collapse,
+contact or closest pass), tens of units after the first lightcrossing time t ≈ R (Fig. 8, right). The transient of the
+constraint-solved initial data is small: on every binary
+the first light-crossing window, t − R ≤ 10, carries at
+
+level 4
+
+3D finder
+
+5
+
+head-on remnant
+one throat, R
+
+4
+
+3.00
+
+(c)
+
+2 R : both throats' area
+
+(b)
+
+2.75
+2.50
+
+head-on remnant
+
+2.25
+20
+
+40
+
+t
+
+60
+
+80
+
+100
+
+5
+
+6
+
+(d)
+
+4
+
+max|K|
+
+level 5
+
+-pit separation
+
+(a)
+
+max| |, max| |
+
+horizon mass MMS
+
+horizon areal radius R
+
+14
+
+4
+2
+0
+
+(e)
+
+| |
+
+4
+6, 7: dashed
+: solid
+
+100
+10 1
+
+merged pit
+
+100
+
+5
+
+101
+
+5
+
+level 4
+
+10 1
+10 2
+
+| |
+
+0
+
+20
+
+40
+
+t
+
+60
+
+80
+
+100
+
+FIG. 7. Common-horizon properties, separation, max |K| and field maxima against time for the off-axis merger (d = 6,
+tangential p = 0.10, opposite signs, boosted, constraint-solved data). The run has four restart segments (faint dashed rules at
+the restart times t = 25, 30 and 35): level 5, σKO = 1.0, the χ floor, and level 4 to t = 100. (a) Areal radius and (b) Misner–
+Sharp mass of the common√MOTS (gold; Sec. III D); dash-dotted rules, the head-on remnant’s values. Dotted rules in (a): R⋆
+of one isolated throat and 2R⋆ , the radius of both throats’ total area. (c) Separation of the χ minima (grey: segment 1 past
+its restart time). (d) max |K| of every run: the segments used in ink, the level-6 and level-7 restarts grey dashed, the σKO = 1.0
+restart grey solid; crosses mark failures. (e) Grid maxima of |ϕ| (solid) and |Π| (dashed). Gold dotted rule: horizon formation.
+Movie: Video 7, youtu.be/jNnMAXPjyRA. The common horizon shrinks toward the head-on remnant’s radius and mass, and
+it swallows the field.
+
+most 2.7% of the quoted band energy. For the perturbed
+single throats the wave comes from the throat, not from
+the initial shell of the perturbation (Sec. VIII A).
+Each channel is compared with black holes at its own d
+and p (grey in Fig. 8(b)–(d)). The vacuum merger peaks
+at the drainhole merger’s retarded time, 3.0× lower. The
+fly-by’s control is unbound in vacuum: the black holes
+start at periapsis and coast apart, radiating a single cycle. The drainhole pair instead falls in to d = 2.18 and
+outradiates it by 73–74×. For scale, the closest nonmerging black-hole encounters computed in vacuum radiate ≈2 × 10−2 of their total mass in all multipoles [67].
+
+A.
+
+Collapsing throat
+
+An isolated throat radiates only if its collapse is not
+spherical. The spherically perturbed run emits nothing
+above the ℓ = 2 numerical floor. Adding a quadrupole of
+amplitude ε2 = 0.05 gives a burst of peak |rΨ4 | = 2.9 ×
+10−3 , 44× the floor of the level-4 control, carrying 2.5 ×
+10−5 M (integrated to t = 58, before the floor dominates).
+The burst moves outward at 0.8–1.0 c and is linear in
+the perturbation to 1–16% over ε2 = 0.005–0.05. With
+the radial perturbation removed, the quadrupole radiates
+the same amplitude to 2%, only earlier: the deformation
+sets the wave and the radial perturbation only its timing.
+We read the ringdown at ε2 = 0.05, since the weaker
+perturbation’s burst stands only a few times above the
+numerical floor. The remnant rings at period 20.6 M
+(dashed in Fig. 8(a)), with no drift across the window.
+This is the Schwarzschild fundamental mode of a black
+
+hole of mass 1.226 ± 0.009 [69], near the horizon’s late
+mass (1.16–1.21) rather than its mass at the window’s
+start (1.47).
+
+B.
+
+Head-on ringdown
+
+The head-on signal is a ringing with no chirp. The
+(2, 0) mode rings with a half-period stretching from 15.5
+to 18.8 and moves outward at 0.92 c across all three
+spheres. Its frequency falls with time (Fig. 9(c)). Bandintegrated about its peak, it carries EGW /M = 8.5×10−3
+at the outermost sphere. The vacuum control, two equal
+black holes released from rest at the same separation,
+rings in the same (2, 0) mode with 14× less energy and
+crests 28 units later. Figure 9(d) compares it with the
+published value for infall from rest at infinity [76]. Without the scalar’s attraction, the holes fall more slowly and
+collide less violently.
+
+C.
+
+Merger burst
+
+The d = 6 merger’s (2, 2) burst is launched at contact,
+when the common MOTS forms at t = 13 (Sec. VII C).
+It peaks at |rΨ4 | = 2.1 × 10−2 on the innermost sphere,
+and its envelopes fold onto one curve across the spheres.
+The remnant’s ringdown carries the waveform to t = 100
+on the final restart segment (Fig. 8(c)).
+
+15
+(a) collapsing throat,
+
+2 = 5 × 10
+
+2
+
+2 × 10 3
+
+2, 0
+4 , R = 10
+
+v/c = 0.94, 0.97, 0.95
+
+R = 10--22
+
+2, 0
+4 , R = 10
+
+v/c = 0.89, 0.94, 0.96
+
+R = 10--150
+
+2, 2
+4 , R = 20
+
+v/c = 0.86, 0.88, 0.94
+
+R = 20--44
+
+v/c = 0.91, 1.00, 1.00
+
+R = 20--44
+
+v/c = 0.83
+
+R = 20--28
+
+numerical floor
+
+0
+2 × 10 3
+
+ringdown fit
+
+(b) head-on, = 1, d = 8
+4 × 10 2
+0
+4 × 10 2
+
+2 × 10 2
+
+r Re
+
+4
+
+m
+
+(c) merger, p = 0.10, d = 6
+0
+
+vacuum BBH merger
+
+2 × 10 2
+
+2, 2
+4 , R = 20
+
+(d) fly-by, p = 0.45, d = 12
+vacuum BBH fly-by
+
+6 × 10 2
+
+envelope |r 4 m |
+
+vacuum BBH head-on
+
+reliable up to the cap
+
+0
+6 × 10 2
+2, 2
+4 , R = 20
+
+(e) plunge, p = 0.60, d = 12
+5 × 10 2
+
+reliable up to the cap
+
+0
+5 × 10 2
+
+20
+
+0
+
+20
+
+t Rext
+
+40
+
+60
+
+80
+
+20
+
+0
+
+20 40
+t Rext
+
+60
+
+80
+
+FIG. 8. Gravitational waveforms of every scenario against retarded time, one row per run. Left: r Re Ψ4 of the dominant
+mode at the innermost sphere, each row on its own scale. Row (a) is the collapsing throat at ε2 = 0.05, with the ringdown
+fit of Sec. VIII A dashed. Caps mark where each drawn waveform ends: for the collapsing throat, before its numerical floor
+exceeds 14% of the burst peak; for the fly-by and the plunge, where each run stops being reliable. Row (b) is the head-on
+run in the larger domain (L = 512, spheres to R = 150). The merger’s waveform runs through the ringdown, interpolated
+linearly across one restart time. Grey under (b)–(d): the vacuum controls, black holes at the same d and p, on the same scale.
+Right: the amplitude envelope at every sphere against its own retarded time (ink to faint, inner to outer), the upper envelope
+of |rΨ4 | for the complex (2, 2) modes and the analytic-signal envelope for the real (2, 0) modes. Gold dots mark the correlated
+wavefront (Sec. VIII E). Movies of the head-on run in the larger domain and of the vacuum head-on and fly-by: Videos 11
+youtu.be/vesOxaP5GSg, 8 youtu.be/aRWvD4W8OOg and 9 youtu.be/65_3kw4obvE. Every signal is outgoing and reaches the
+spheres in order of radius.
+
+D.
+
+Fly-by and plunge bursts
+
+Each orbital run emits one (2, 2) burst at its closest
+pass or plunge; the fly-bys form no remnant and show
+no ringdown. Through the outermost sphere that covers
+each burst (R = 28; for the plunge, R = 20), EGW /M =
+3.53 × 10−2 at p = 0.25, 7.6 × 10−2 at p = 0.45 (damped
+run, Sec. III B), and at least 4.1 × 10−2 at p = 0.60. Each
+is in units of its own pair’s measured mass (Sec. II E). At
+the capture boundary (Sec. VII A) the pass is deepest and
+slowest: the p = 0.45 pulse carries 2.2× the shallower flyby’s energy and 1.9× the plunge’s lower bound. Each
+fly-by’s pulse is integrated to the end of its run’s reliable
+interval (t − R ≤ 63.3 and 67.6). The plunge run is
+reliable only to 12 units past its R = 20 peak, so its
+energy is a lower bound and the boundary-to-plunge ratio
+an upper bound.
+
+E.
+
+Vacuum control
+
+The chirping reference is a vacuum binary of equal
+masses at d = 12 and p = 0.12, with no scalar field. It
+merges, climbs the point-mass chirp from 299 to 473 Hz
+and turns toward the equal-mass Kerr mode (Sec. IX A).
+It also calibrates the wavefront timing: its flat-topped
+merger envelope defeats peak timing, which reads 0.57c
+on it against 0.82c from its whole-waveform lag. Every speed quoted here except the plunge’s is therefore
+a whole-waveform lag.
+
+F.
+
+Scalar radiation and its sign
+
+The Weyl scalar Ψ4 does not measure scalar radiation. Two opposite scalar charges (every merging pair
+
+16
+collapsing throat
+head-on
+
+(a)
+
+vacuum control
+BBH inspiral (analytic)
+
+(b)
+
+10 1
+
+103
+
+10 3
+
+10 21
+10 22
+10 23
+10 24
+
+25
+
+0
+
+25
+
+(t Rext tpeak )/ M
+
+f [Hz]
+
+10 2
+
+10 25
+
+aLIGO design
+vacuum control (d)
+
+(c)
+
+10 20
+
+Sh (f) [Hz 1/2 ]
+
+|r 4 | M
+
+merger
+fly-by
+
+30 M , 10 Mpc
+
+102
+103
+f [Hz]
+
+(d)
+fly-by
+
+ringdown
+
+literature
+circular
+head-on
+
+ISCO
+
+vacuum
+p = 0.12
+literature
+head-on
+throat
+
+merger
+
+102 point-mass
+chirp
+
+25
+
+0
+
+25
+
+(t Rext tpeak )/ M
+
+10 5
+
+10 3
+10 1
+Erad /M
+
+FIG. 9. Waveforms, spectra, frequencies and energies of every run, for a source of total mass 30 M⊙ at 10 Mpc, each in units
+of its own total mass. The vacuum control is two black holes with the separation and momentum of the d = 12, p = 0.12
+run (Sec. VII A). (a) Upper envelopes of |rΨ4 |M at the innermost sphere, aligned at each peak. (b) Strain amplitude spectral
+densities against the Advanced LIGO (aLIGO) design sensitivity (gold), each from its own low-frequency corner (one cycle per
+waveform, ticked). The curves are falling power laws with no resolved maximum, so any apparent peak is the corner frequency
+1/T of a waveform of duration T . Faint line: the Newtonian inspiral of the same binary, |h̃| ∝ f −7/6 , up to its innermost
+stable circular orbit (ISCO) at 147 Hz. (c) Instantaneous frequency against the point-mass chirp (gold), the ISCO and the
+equal-mass Kerr ringdown (599 Hz); the vacuum control climbs the chirp and peaks at f M = 0.065, with f the frequency and
+M the total mass (Sec. IX A). (d) Energy radiated in the dominant multipole at the outermost sphere covering each waveform’s
+window, the tick its change from the next sphere in; grey under each source, its vacuum control at the same d and p. Open
+−4
+gold bars: published equal-mass vacuum values, all multipoles, for head-on infall
+R from rest at infinity, 5.5 × 10 [76], and
+for quasi-circular inspiral and merger, 4.84 × 10−2 [70]. Each energy integrates | rΨ4 dt′ |2 over one retarded window, ending
+at the end of its reliable interval or where noise dominates, and is doubled for ±m; gravitational channel only. Movie of the
+vacuum control: Video 10, youtu.be/NkcpGiJIxXI. Only the vacuum control climbs the chirp; no wormhole run does.
+
+here, Sec. V) carry a dipole, whereas a vacuum binary’s
+leading moment is the quadrupole. On every binary
+the scalar field is extracted on the same spheres as the
+post-processing Ψ4 (Sec. III C), so the two channels compare sphere by sphere (Fig. 12 in Appendix B). The
+recorded kinematic flux Fkin approximates the scalar energy crossing SR per coordinate time, the flux through
+the world tube of SR , of the canonical energy current
+J µ ≡ −T (ϕ)µ ν tν , with tµ = αnµ + β µ [47, 48]:
+I
+√
+Fϕgeo =
+α si J i q d2 x
+SR
+I
+(13)
+√
+=−
+α ∂t ϕ sj ∂j ϕ q d2 x + O(β),
+SR
+
+positive for an outgoing canonical wave (si is the sphere’s
+√
+outward unit normal, q its area element, and ∂t ϕ =
+i
+αΠ + β ∂i ϕ). At R = 30 the background’s area mean of
+α2 χ−1/2 is ≈ 0.94, so Fkin overstates the geometric flux
+by about 6%, neglecting shift terms.
+The channel is dipole-dominated and comparable to
+the gravitational one. On the fly-by at R = 30, ℓ = 1
+carries all but one part in 106.2 of the scalar power, since
+symmetry forbids ℓ = 0 and ℓ = 2 for σ = −1; the
+remainder measures numerical symmetry breaking. It
+leaves as a single outward pulse, complete within the
+sphere’s reliable interval (Fig. 12(a)). Over that interval |Eϕ | = 4.7 × 10−2 M , 0.56 times the gravitational energy that crosses the sphere with it (Fig. 12(a)). Part of
+
+that energy is not radiation. Before the pulse, Fkin rises
+on every sphere at once, ahead of any signal from the
+throats, and falls with radius as R−2.5 . This is the near
+field of the moving charges, 14% of |Eϕ |; the pulse alone
+gives |Eϕ |/EGW = 0.48. Below we use only the channel’s
+multipole, direction, sign and order of magnitude.
+
+Gravity couples to minus the canonical stress tensor,
+Eq. (1), so the physical energy flux is −Fkin . The outgoing ℓ = 1 wave therefore carries negative energy, on
+the fly-by and, once their horizons form, on the head-on
+and the d = 6 merger. If the ADM energy balance holds
+with this term, a bound pair emitting it gains energy and
+radiation reaction is anti-damped. This is the classical
+form of the standard objection to ghosts [60, 84]. The
+head-on remnant, slightly above MADM and still shrinking at t = 100, is consistent with this balance (Sec. VI B).
+The dipole’s physical angular-momentum flux is opposite
+to that of the gravitational waves, so it returns angular
+momentum to the orbit. It does not invert the nonlinear
+memory [88–90]. Per unit energy, an equatorial dipole
+projects onto the (2, 0) memory with the opposite sign
+to a quadrupole, so the negative scalar flux adds to the
+gravitational memory, by 0.34–0.46 of it on the fly-by.
+
+17
+G.
+
+Scalar emission after horizon formation
+
+In the head-on run the scalar-field extraction covers the
+whole evolution, and the horizon switches the channel off
+(Fig. 12 in Appendix B). After the common MOTS forms
+(t = 18), the mouths’ remaining scalar charge leaves as
+a single ℓ = 1 pulse along the collision axis. The pulse
+crests later at each sphere in causal order, and its envelope then decays. Underneath, the remnant’s scalar
+dipole rings down. Fitted from t = 40 as one damped
+oscillation, its frequency agrees to 1% with the ℓ = 1
+scalar quasinormal mode of a Schwarzschild black hole of
+the final MOTS mass [69], for fits started anywhere over
+t = 35–45. Its damping is 10% slower. Integrated from
+where each sphere’s flux turns outgoing to t = 80, the
+energies keep the sign of Sec. VIII F.
+The d = 6 merger, the only other encounter that forms
+a horizon (common MOTS from t = 13; Sec. VII), loses
+its scalar charge the same way over its restart segments.
+Its dipole crests and then falls exponentially, with efolding time 22. Without a horizon nothing switches the
+channel off. The fly-by radiates its pulse as the mouths
+swing past one another, and the emission ends with the
+encounter itself. The mouths leave intact, still carrying
+the charges that source the dipole.
+The isolated throat shows the same contrast. We
+evolved the ε = +10−2 throat again at level 4 with scalarfield extraction. It collapses at the expected time, with
+a permanent MOTS from t = 11, and its scalar envelope
+falls across the spheres after the burst, with late e-folding
+times of 6–7. The unperturbed level-4 throat inflates
+with no trapped surface found by the round-sphere scan
+or the MOTS finder. Its ℓ = 0 scalar monopole instead
+grows quasi-exponentially, with e-folding time ≈4.6. The
+same run with the domain doubled to L = 128 agrees to
+3%, so the growth is the throat’s and not the boundary’s
+or the sponge’s. The constraint norms grow later, so we
+use only t ≲ 80. The contrast cannot be separated from
+the end state: the runs without a horizon are also those
+whose mouths inflate toward the spheres. What we measure is that the scalar channel shuts off behind a horizon
+and grows while a throat inflates.
+
+IX.
+
+OBSERVATIONAL SIGNATURES
+A.
+
+The frequency track
+
+The frequency track separates a drainhole burst from
+a binary black hole by what comes before the ringdown
+(Fig. 9(c)). Waveform shape alone does not: binaryblack-hole templates (IMRPhenomD [92, 93]) match the
+truncated near-zone bursts in aLIGO design noise [94]
+with fitting factors of 0.893–0.995, as they match the
+vacuum control. The vacuum control climbs the pointmass track to a peak at f M = 0.065 and turns toward
+the equal-mass Kerr mode at f M = 0.0885 [68, 69], so
+its frequency rises monotonically and then stays fixed.
+
+TABLE VII. Gravitational-wave energy per event in units of
+the source’s ADM mass M , in the dominant multipole about
+the source’s axis, read as in Fig. 9(d); last column, the change
+from the next sphere in.
+EGW /M
+7.6 × 10−2
+4.2 × 10−3
+8.5 × 10−3
+2.5 × 10−5
+2.4 × 10−3
+
+source
+fly-by, p = 0.45
+d = 6 merger
+head-on, d = 8
+collapsing throat
+vacuum control
+
+change (%)
+1.9
+1.1
+1.4
+3.6
+10
+
+No drainhole run follows it. The head-on’s frequency
+falls from contact onto the ℓ = 2 quasinormal mode of a
+Schwarzschild black hole of its final MOTS mass, which
+it reaches to 3% at the track’s minimum before a late upturn. The remnant does not spin, and the shrinking of its
+horizon would raise that mode, not lower it. The fly-by’s
+frequency falls as the pair separates, and the merger’s
+rises after contact. Wherever a remnant’s ringdown is
+resolved (the isolated throat’s, Sec. VIII A; the head-on’s
+and its scalar dipole, Sec. VIII G), it is the ordinary quasinormal spectrum of the black hole left behind, as in any
+catalogue event [32]. The wormhole’s imprint lies in the
+burst before the ringdown.
+
+B.
+
+Energy per event
+
+Table VII lists the detector-independent result, the
+gravitational-wave energy per event. The background’s
+energy density per logarithmic frequency interval in units
+of the critical density, ΩGW , scales as event density times
+energy per event. These energies therefore turn any
+bound on ΩGW [28, 29], or the rate-density limits of the
+LIGO–Virgo–KAGRA (LVK) all-sky burst search of the
+third observing run (O3) [71], into a bound on the abundance of primordial drainhole encounters, if the phantom
+scalar exists at that epoch. The scalar radiation adds
+comparable energy of opposite sign (Sec. VIII F).
+
+X.
+
+DISCUSSION
+
+Every end state listed in Sec. I occurs, the fast plunge
+included, and each is selected by a measured rule. The
+relative scalar sign separates scattering from merger
+(Sec. V), the sign of the perturbation separates collapse from inflation (Sec. IV), and the orbital momentum separates plunge from fly-by at 90–120% of circular
+(Sec. VII). For detection, three results matter: the binaries do not inspiral (Sec. X A), the wormhole phase is a
+burst with no chirp ahead of it whose frequency falls or
+drifts until the remnant’s ordinary ringdown takes over
+(Sec. IX A), and the scalar counterpart decays once a horizon forms (Sec. VIII G). A wormhole signature is there-
+
+18
+fore a drifting-frequency burst with a scalar counterpart.
+A ringdown without a scalar counterpart comes from the
+black hole that remains.
+
+A.
+
+No wormhole inspiral
+
+We find that a drainhole binary does not live long
+enough to radiate an inspiral. An inspiral needs many
+orbits, but each throat lives only t ≈ τ ln(1/ε), with τ =
+5.1–5.2 in isolation. Under the combined pull of Eq. (5),
+softened as (d+δ)−2 at the separations evolved (Sec. V B),
+a circular orbit at d = 12 has period Porb ≈ 75–93. The
+companion acts on each throat like an inward perturbation of 0.4% (Sec. VII B), which leaves a lifetime of 28–29
+units, under half a period. Even ε = 10−15 would give
+only 1.9–2.4 periods, and each further factor of ten in
+ε adds only τ ln 10 ≈ 12 units. The period grows with
+separation as d3/2 and the lifetime only as ln(1/ε), and
+no binary is free of its companion’s perturbation.
+Radiation reaction does not help either. The leading radiative moment, the scalar dipole, carries negative energy comparable to the gravitational radiation
+(Sec. VIII F), which, if the ADM balance holds, pumps
+the orbit rather than draining it. Pumping acts over
+many orbits, whereas each encounter evolved here is settled within one passage by the conservative pull and contact (Sec. VII A). Over the fly-by the scalar radiation
+carries only 0.56 of the gravitational energy (Sec. VIII F),
+so a close pass loses energy on net. Pumping matters for
+the slow, wide orbits an inspiral needs, where the dipole
+dominates as the lower multipole, and no throat survives
+to reach them.
+The signal specific to wormholes is therefore a short
+transient. Within a few tens of M each mouth collapses
+or inflates, so the plunge, burst and collapse to a black
+hole of Secs. VI–VIII are all this source emits while its
+throats are open. Any long chirp belongs to the objects the throats become. The argument holds while
+the throat’s unstable mode exists, as for the minimally
+coupled phantom scalar without spin of the González–
+Guzmán–Sarbach analysis. Rotation can remove that
+mode, in five dimensions above a critical angular momentum [50] and in four as perturbative analyses indicate [51–
+53]; spinning Ellis wormholes exist up to an extremal
+limit [49]. Other supports are radially stable [54, 55], so
+a spinning or differently supported pair that outlives an
+inspiral is not excluded here. The same lifetimes rule
+out a static phantom-supported throat as a long-lived
+black-hole mimicker of the kind ringdown and echo tests
+target [85, 86].
+
+B.
+
+ergy condition [87]. A traversable wormhole evades it
+only by violating that condition, and the two branches
+end the evasion in opposite ways. On the collapse branch,
+alone or in a merger, the throats end inside a MOTS
+while the phantom field outside is swallowed or radiated
+away (Secs. IV E, VI B and VIII G). The wormholes are
+not removed (no classical evolution changes the number
+of asymptotic ends [19]) but end hidden behind a horizon, as the theorem would have them. On the inflation
+branch no trapped surface forms and the throat stays
+open (Sec. IV F). The evasion persists, and a distant observer meets an expanding anti-trapped region with no
+horizon in front of it up to the end of the run.
+
+C.
+
+Scope
+
+Our results rest on one matter model and one family of
+data: a single minimally coupled phantom scalar, equal
+masses, one throat compactness (m/a = 1/2), no spin,
+and constraint-solved, matched initial data whose momentum is an exact boost (Secs. II D and II E). Horizons
+here are MOTSs on the evolved slices, which for matter violating the null energy condition need not lie inside
+event horizons (Sec. III D). Within this family the instability rules out survival from an early formation epoch
+to late times. A long-lived relic needs spin or a radially
+stable support (Sec. X A), both outside this family. Nonlinear evolutions of rotating throats find that rotation
+slows the radial instability and, above a threshold spin,
+show no evidence of it over the evolved times [46].
+
+XI.
+
+REPRODUCIBILITY AND COST
+
+Every figure is regenerated by a script from the
+archived diagnostic time series of the evolutions in Table IV; the archive and the code are listed under Declarations. The evolutions are bit-for-bit reproducible on
+the same hardware: a single-throat run repeated with
+checkpoint output gives byte-identical diagnostics over
+633 output times.
+Every evolution ran on one NVIDIA H100 80 GB device, with GRTeclyn built CUDA-native against AMReX 26.02. The 103 evolutions total 592 GPU-hours,
+each run’s cost recomputed from the speed and time span
+in its archived logs.
+
+Topological censorship
+ACKNOWLEDGMENTS
+
+Topological censorship forbids an observer at infinity from probing the topology of a globally hyperbolic,
+asymptotically flat spacetime that satisfies the null en-
+
+The authors acknowledge the GRTL Collaboration for
+GRChombo, GRTresna, and GRTeclyn.
+
+19
+
+10 2
+
+(c)
+
+10
+
+t
+
+15
+
+|r 22
+4 | at R = 20
+
+, rescaled
+5
+
+10 4
+10 5
+10 6
+
+20
+
+head-on
+d = 6 merger
+fly-by
+
+0
+
+vacuum head-on
+vacuum d = 6
+
+5
+
+10
+
+t
+
+15
+
+1.0
+5
+
+10
+
+R/M
+
+15
+
+10 6
+10 8
+0
+
+x = 1/64
+1/16 1/32
+1/32 1/64
+
+(e)
+
+(f)
+5.0
+
+at t = 100
+
+10 4
+10 6
+
+104
+
+|r 20
+4 | at R = 10
+
+E(R)/E(Rout )
+
+1.1
+
+10 4
+
+20
+
+10 2
+1.2
+
+level 5
+level 4 level 5
+refined wave zone level 4
+
+10 2
+
+10 3
+
+0
+(d)
+
+level 2
+level 3 ×24
+level 4 ×28
+
+(b)
+
+L2
+
+radius differences
+
+Q2 (R3 R4 )
+Q4 (R3 R4 )
+
+R2 R3
+Q3 (R3 R4 )
+
+(a)
+
+10 8
+20
+
+40
+
+t
+
+60
+
+80
+
+100
+
+20
+
+t
+
+30
+
+40
+
+50
+
+x = 1/16
+x = 1/32
+x = 1/64
+
+4.5
+4.0
+3.5
+3.0
+2.5
+
+0
+
+10
+
+MOTS
+
+4
+
+5
+
+r
+
+6
+
+7
+
+FIG. 10. (a) The static throat from exact data at levels 2, 3 and 4: the difference R2 − R3 of its minimal areal radius between
+levels 2 and 3 (ink), and R3 − R4 multiplied by Qn = 2n for n = 2, 3, 4 (grey), against time; the curve that overlays R2 − R3
+gives the order, and the dip at t = 16 is one level-2 output time. (b) The L2 norm of the momentum constraint for the same
+runs, multiplied by 24 for each level above level 2, the factor for fourth-order convergence. (c) |rΨ22
+4 | at R = 20 for the d = 12,
+p = 0.12 binary from Bowen–York initial data (not the boosted data used elsewhere) at throat level 5, its difference from level
+4, and the change from refining the wave zone to half the base cell. (d) Radiated energy on each sphere over that on the
+outermost sphere, against R/M , for the head-on run, the d = 6 merger and the fly-by (ink) and two vacuum controls (grey).
+(e) |rΨ20
+4 | at R = 10 for the head-on runs in the larger domain of Fig. 8(b), at finest ∆x = 1/16, 1/32 and 1/64, and each
+neighbouring pair’s difference (at most 0.55%, then 0.54%, of the peak); all three form the common MOTS at t = 18. (f) Shell
+averages of HADM against r outside the common MOTS (gold rule, its largest coordinate extent) for the same three runs at
+t = 100, on the shared level-4 grid. The static throat converges at order 3.0–3.3 and its momentum constraint between third
+and fourth order, the head-on energy at order 1.7 and HADM at order 1.7, so the interior’s constraint violation does not leak
+past the horizon.
+
+DECLARATIONS
+
+Appendix A: Convergence and constraint monitoring
+
+Funding.
+This work was supported by Gravity
+Frontiers (https://www.gravityfrontiers.org/en), which
+funded the underlying research and the development of
+the numerical-simulation software.
+Competing interests. The authors declare no competing interests.
+Data availability. The parameter files, diagnostic time
+series and figure scripts of every simulation are archived
+at https://doi.org/10.5281/zenodo.23257999.
+Code availability.
+The evolution and analysis code is the GRTeclyn [41] fork at https:
+//github.com/Nikchik-coder/GRTeclyn,
+tag
+v1.0.1-wormhole-merger, archived with the data.
+It contains the drainhole initial data, constraint solve
+and boost, the perturbations of Sec. II F, the MOTS
+finder, the extraction and figure scripts, and a matchedfilter search of public strain [30, 31].
+
+Figure 10 tests convergence. For grid spacings h1 >
+h2 > h3 , a quantity f that converges at order n has
+(f1 − f2 )/(f2 − f3 ) = Qn ≡ (h1n − h2n )/(h2n − h3n ), and
+Qn = 2n when each level halves the cell. The static
+throat, the one configuration with an exact answer, is
+evolved at levels 2, 3 and 4. Its minimal areal radius converges at order 2.2–2.3 while the error of reading the exact
+data dominates and at order 3.0–3.3 once the evolution’s
+own error dominates (Fig. 10(a)), between the fourth order of the stencils and the second of the time interpolation at refinement boundaries. Rescaling a constraint
+norm by 2n between two resolutions is valid because its
+exact value is zero. The momentum constraint vanishes
+identically for the static throat, so its norm measures
+only the error the evolution adds. Rescaled for fourth
+order, the norms at the three levels agree to within a
+small factor, a convergence between third and fourth or-
+
+20
+pure quadrupole,
+2 = 0.01, level 4
+
+same runs;
+weight = | |
+| | = 0.001, level 3
+| | = 0.1, level 3
+failure (NaN)
+
+(c)
+10 1
+
+L 2 norms
+
+10 2
+
+L2
+
+L2
+
+10 3
+10 5
+10 7
+0
+
+50
+t
+
+6
+
+4
+
+L 2 norms
+
+L2
+
+5
+
+10 3
+
+0
+
+50
+t
+
+0
+
+50
+t
+
+100
+
+5
+
+10 2
+
+0
+
+50
+t
+
+10 3
+10 4
+0
+
+50
+t
+
+100
+
+0
+
+50
+t
+
+10 5
+0
+
+t
+
+200
+
+fly-by, p = 0.45, level 4
+reliable to t = 67.6
+waves at R = 20
+to t = 87.6
+
+(h)
+101
+
+level 4
+
+100
+10 1
+10 2
+10 3
+
+10 3
+
+100
+
+plunge, p = 0.60, ;
+floor from t = 50
+used
+level-5 restart
+no floor
+(g)
+reliable to t = 80
+101
+
+4
+
+10 3
+10 4
+
+10 2
+
+100
+
+merger, d = 6,
+used, levels 5-4
+levels 6, 7, failed
+segments run past use
+, last segment
+MOTS, t = 13
+(f)
+
+head-on,
+used, levels 5-6-4
+level 5, run past use
+failure (NaN)
+MOTS, t = 18
+
+(e)
+
+10 4
+
+100
+
+L2
+
+10 3
+
+inflation, = 0.01,
+L = 512 octant,
+finest x = 1/16
+
+(d)
+10 1
+
+L 2 norms
+
+(b)
+
+MOTS, t = 33
+reliable to t = 60
+
+L 2 norms
+
+isolated throat;
+dash = sign of
+= 0.01, level 4
+= +0.01, level 4
+unperturbed, level 4
+stopped by hand
+(a)
+10 1
+
+100
+
+10 1
+10 3
+0
+
+50
+t
+
+100
+
+FIG. 11. L2 norms of the Hamiltonian (H, ink) and momentum (M, grey dashed) constraints against time for every run drawn
+in the main-text figures, each at its highest refinement level. The norms are base-grid averages and compare only within one
+domain (Sec. III C). (a),(b) The single throat of Fig. 3: level 4 for the unperturbed throat and ε = ±10−2 (+10−2 stopped, dot),
+level 3 for ±10−3 and ±0.1 (dash style gives the sign, line weight the amplitude; grey, unperturbed; crosses, failures). At t = 0
+the norms carry the discretisation error of the exact data plus the perturbation’s own constraint violation, 0.090 |ε| (Sec. II F).
+The runs with |ε| ≤ 10−2 then follow the unperturbed norms until the end states part; ε = ±0.1 starts higher and fails by
+overflow at the compactified origin. (c) The pure-quadrupole collapse of Fig. 4 (gold, its MOTS from t = 33; dotted, reliable to
+t = 60); the late rise comes after that time. (d) The inflating throat of Fig. 4 to t = 218. (e) The head-on run of Fig. 6 (rules at
+the restart times, levels per restart segment). Its level-5 segment fails (a NaN inside the horizon) at t = 38.845 (cross), with its
+norm below its value at horizon formation (gold rule, t = 18). (f) The d = 6 merger of Fig. 7: the restart segments used in ink,
+each failed restart in grey up to its failure (levels 6 and 7 dashed; times in Fig. 7(d)). (g) The p = 0.60 plunge at level 4: the
+run without a χ floor (grey) fails by a NaN in the merged core at t = 55.5 with its norm at its floor, the restart with a χ floor
+reaches t = 100, and a level-5 restart (grey dashed) passes the merger (dotted, reliable to t = 80). (h) The p = 0.45 fly-by: the
+norms stay at their floor through the pass and grow as the mouths inflate (rule, reliable to t = 67.6). The short peaks in (g),
+(h) and the p = 0.25 run come from the base-grid norm sampling the moving throats’ χ minima: on the p = 0.25 test pair, four
+cells next to the minima carry 99.99% of a peak, and neither max |K| nor the waves show it. At every failure the Hamiltonian
+norm sits at or below its starting value, so each failure is the interior NaN of Sec. VII D, not a constraint blow-up.
+
+der (Fig. 10(b)). The Hamiltonian-constraint norm, a
+base-grid average, is the same at all three levels, since
+the base grid’s own error in the static data sets it. The
+Bowen–York d = 12 binary of Fig. 10(c) at throat levels 4 and 5 agrees in rΨ4 to 0.4% of its burst peak, and
+refining its wave zone moves it by 0.15%.
+Figure 11 shows the constraint norms of every run
+drawn in the main-text figures. The norms are volume
+averages on a base grid that does not resolve the throats
+(Sec. III C), so the throats set their absolute scale, and the
+norms serve as monitors, not as wave-zone error bars. At
+every failure the norm sits at or below its earlier value.
+The head-on runs in the larger domain (L = 512) of
+Fig. 10(e),(f) test whether the interior affects the waves.
+These three runs differ only in the throats’ finest cell (all
+
+with χ ≥ 10−4 and σKO = 0.3, unlike the main head-on
+run; Table V). They agree pairwise to sub-percent level in
+the exterior waveform, the horizon track, the radiated energy and the Hamiltonian constraint outside the MOTS,
+so the interior’s resolution does not affect the exterior.
+
+Appendix B: Scalar radiation
+
+Figure 12 shows the radiated scalar energy, its multipoles and the time range over which it is reliable
+(Sec. VIII F), and how a horizon shuts off the scalar flux
+(Sec. VIII G).
+
+21
+(a)
+2.4 1.8 1.2
+
+fly-by, R = 30
+
+0.0
+
+= 0 and = 2,
+106 × down
+
+10 7
+
+0.5
+0
+
+25
+
+50
+t
+
+75
+
+10 13
+
+100
+
+0
+
+25
+
+head-on, R = 18
+fly-by, R = 30
+
+50
+t
+
+fly-by, R = 30
+
+75
+
+100
+
+merger, R = 20
+isolated throat, collapsed
+
+(a)
+
+mouths inflating
+
+10 4
+10 6
+
+10 11
+
+scalar, ghost sign
+
+R = 14, near zone:
+
+R = 14
+
+10 2
+
+10 9
+
+head-on, R = 10
+head-on, R = 14
+
+10 8
+
+R = 30
+
+0
+
+25
+
+50
+t
+
+75
+
+100
+
+isolated throat, inflated
+common MOTS, t = 18
+
+(b)
+
+10 2
+
+|F | envelope
+
+(c)
+of the blue rule the inner sphere
+100 left
+is still clear of the inflating mouths
+
+= 1, dipole
+
+10 5
+
+|A m |2
+
+0.5
+
+(b)
+
+10 3
+
+gravitational
+
+1.0
+
+1.0
+
+10 1
+
+0.6
+
+|F |
+
+|E |/EGW at t =
+
+m
+
+E( < t)/ EGW (t = 97.6)
+
+1.5
+
+10 1
+10 2
+
+10 3
+10 3
+10 4
+
+0
+
+20
+
+40
+
+t
+
+60
+
+80
+
+100
+
+10 4
+
+0
+
+20
+
+40
+
+t
+
+60
+
+80
+
+100
+
+FIG. 12. Top: energy, multipoles and flux of the scalar field on the Ψ4 extraction spheres, for the fly-by. (a) Energy through
+R = 30 against time, in units of the gravitational energy that has crossed it by t = 97.6 (reliable to t − R = 67.6): gravitational
+(ink) and scalar with its physical sign (gold, Sec. VIII F). The printed ratio |Eϕ |/EGW falls to 0.56 over the whole record.
+(b) Multipole content: ℓ = 1 carries all but 10−6.2 of the power; ℓ = 0 and ℓ = 2, forbidden by symmetry, measure numerical
+symmetry breaking. (c) |Fϕ | at both spheres, each to t − R = 67.6. After the blue rule (t = 60) the inner sphere reads the
+inflating mouths’ near field, which has no counterpart at R = 30 one light-crossing time later, so that stretch is dashed. The
+scalar energy leaves as a dipole pulse that arrives before the gravitational burst. Bottom: envelope of the scalar flux |Fϕ |
+against time, for runs with and without a horizon: a running maximum over 25 units, smoothed in log amplitude, since the raw
+flux changes sign every ∼13 units. (a) The head-on run (all restart segments joined) at R = 10/14/18. The common MOTS
+forms at t = 18 (dotted). The remaining scalar charge then leaves as one ℓ = 1 pulse, peaking later at each sphere, and decays
+(dashed, exponential fits). Before the rule the flux, from the open mouths’ static scalar charge, is canonically ingoing; only
+the outgoing part is integrated. (b) One sphere per end state (one extraction radius each). The merger, behind its horizon
+from t = 13, decays like the head-on (dotted fit). The fly-by, without a horizon, shows its complete single pulse (reliable to
+t−R = 67.6). Mid-grey: the single throat twice, the ε = +10−2 level-4 collapse (solid, MOTS from t = 11) and the unperturbed
+level-4 throat (dotted), which inflates without a horizon and grows in the monopole. A horizon switches the scalar flux off
+exponentially; without one, the flux ends only with the encounter, or grows while a throat inflates.
+
+[1] J. A. Wheeler, “Geons,” Phys. Rev. 97, 511 (1955).
+[2] J. A. Wheeler, “On the nature of quantum geometrodynamics,” Ann. Phys. (N.Y.) 2, 604 (1957).
+[3] C. W. Misner and J. A. Wheeler, “Classical physics as
+geometry,” Ann. Phys. (N.Y.) 2, 525 (1957).
+[4] T. A. Roman, “Inflating Lorentzian wormholes,” Phys.
+Rev. D 47, 1370 (1993).
+[5] J. Garriga, A. Vilenkin, and J. Zhang, “Black holes and
+the multiverse,” J. Cosmol. Astropart. Phys. 02, 064
+(2016).
+[6] H. Deng, J. Garriga, and A. Vilenkin, “Primordial black
+hole and wormhole formation by domain walls,” J. Cosmol. Astropart. Phys. 04, 050 (2017).
+[7] A. A. Kirillov and E. P. Savelova, “Dark matter from a
+gas of wormholes,” Phys. Lett. B 660, 93 (2008).
+
+[8] A. A. Kirillov and E. P. Savelova, “Density perturbations
+in a gas of wormholes,” Mon. Not. R. Astron. Soc. 412,
+1710 (2011).
+[9] H. G. Ellis, “Ether flow through a drainhole: A particle model in general relativity,” J. Math. Phys. 14, 104
+(1973).
+[10] K. A. Bronnikov,
+“Scalar-tensor theory and scalar
+charge,” Acta Phys. Polon. B 4, 251 (1973).
+[11] M. S. Morris and K. S. Thorne, “Wormholes in spacetime
+and their use for interstellar travel: A tool for teaching
+general relativity,” Am. J. Phys. 56, 395 (1988).
+[12] M. Visser, Lorentzian Wormholes: From Einstein to
+Hawking (AIP Press, Woodbury, NY, 1995).
+[13] H. Shinkai and S. A. Hayward, “Fate of the first
+traversible wormhole: Black-hole collapse or inflationary
+expansion,” Phys. Rev. D 66, 044005 (2002).
+
+22
+[14] K. Calhoun, B. Fay, and B. Kain, “Matter traveling
+through a wormhole,” Phys. Rev. D 106, 104054 (2022).
+[15] A. Xu, X. Y. Chew, and D.-h. Yeom, “Dynamics of
+Bronnikov–Ellis wormhole with double-null simulation,”
+arXiv:2503.07610 [gr-qc] (2025).
+[16] B. Kain, “Dynamical wormholes,” Class. Quantum Grav.
+43, 045014 (2026).
+[17] J. A. González, F. S. Guzmán, and O. Sarbach, “Instability of wormholes supported by a ghost scalar field. II.
+Nonlinear evolution,” Class. Quantum Grav. 26, 015011
+(2009).
+[18] J. A. González, F. S. Guzmán, and O. Sarbach, “Instability of wormholes supported by a ghost scalar field.
+I. Linear stability analysis,” Class. Quantum Grav. 26,
+015010 (2009).
+[19] R. Geroch, “Topology in general relativity,” J. Math.
+Phys. 8, 782 (1967).
+[20] F. J. Tipler, “Singularities and causality violation,” Ann.
+Phys. (N.Y.) 108, 1 (1977).
+[21] S. W. Hawking, “Wormholes in spacetime,” Phys. Rev.
+D 37, 904 (1988).
+[22] Ya. B. Zel’dovich and I. D. Novikov, “The hypothesis of
+cores retarded during expansion and the hot cosmological
+model,” Sov. Astron. 10, 602 (1967).
+[23] B. J. Carr and S. W. Hawking, “Black holes in the early
+Universe,” Mon. Not. R. Astron. Soc. 168, 399 (1974).
+[24] B. Carr, K. Kohri, Y. Sendouda, and J. Yokoyama, “Constraints on primordial black holes,” Rep. Prog. Phys. 84,
+116902 (2021).
+[25] C. Caprini and D. G. Figueroa, “Cosmological backgrounds of gravitational waves,” Class. Quantum Grav.
+35, 163001 (2018).
+[26] G. Agazie et al. (NANOGrav Collaboration), “The
+NANOGrav 15 yr data set: Evidence for a gravitationalwave background,” Astrophys. J. Lett. 951, L8 (2023).
+[27] P. Amaro-Seoane et al., “Laser Interferometer Space Antenna,” arXiv:1702.00786 [astro-ph.IM] (2017).
+[28] R. Abbott et al. (LIGO Scientific, Virgo and KAGRA Collaborations), “Upper limits on the isotropic
+gravitational-wave background from Advanced LIGO
+and Advanced Virgo’s third observing run,” Phys. Rev.
+D 104, 022004 (2021).
+[29] L. Pagano, L. Salvati, and A. Melchiorri, “New constraints on primordial gravitational waves from Planck
+2015,” Phys. Lett. B 760, 823 (2016).
+[30] S. A. Usman et al., “The PyCBC search for gravitational waves from compact binary coalescence,” Class.
+Quantum Grav. 33, 215004 (2016).
+[31] R. Abbott et al. (LIGO Scientific, Virgo and KAGRA
+Collaborations), “Open data from the third observing
+run of LIGO, Virgo, KAGRA and GEO,” Astrophys. J.
+Suppl. 267, 29 (2023).
+[32] R. Abbott et al. (LIGO Scientific, Virgo and KAGRA
+Collaborations), “GWTC-3: Compact binary coalescences observed by LIGO and Virgo during the second
+part of the third observing run,” Phys. Rev. X 13, 041039
+(2023).
+[33] C. W. Misner and D. H. Sharp, “Relativistic equations for
+adiabatic, spherically symmetric gravitational collapse,”
+Phys. Rev. 136, B571 (1964).
+[34] S. W. Hawking, “Gravitational radiation in an expanding
+universe,” J. Math. Phys. 9, 598 (1968).
+[35] D. Hochberg and M. Visser, “Dynamic wormholes, antitrapped surfaces, and energy conditions,” Phys. Rev. D
+
+58, 044021 (1998).
+[36] S. W. Hawking, “Gravitational radiation from colliding
+black holes,” Phys. Rev. Lett. 26, 1344 (1971).
+[37] D. Alic, C. Bona-Casas, C. Bona, L. Rezzolla, and
+C. Palenzuela, “Conformal and covariant formulation of
+the Z4 system with constraint-violating solutions,” Phys.
+Rev. D 85, 064040 (2012).
+[38] C. Bona, J. Massó, E. Seidel, and J. Stela, “New formalism for numerical relativity,” Phys. Rev. Lett. 75, 600
+(1995).
+[39] M. Campanelli, C. O. Lousto, P. Marronetti, and Y. Zlochower, “Accurate evolutions of orbiting black-hole binaries without excision,” Phys. Rev. Lett. 96, 111101
+(2006).
+[40] J. G. Baker, J. Centrella, D.-I. Choi, M. Koppitz, and
+J. van Meter, “Gravitational-wave extraction from an
+inspiraling configuration of merging black holes,” Phys.
+Rev. Lett. 96, 111102 (2006).
+[41] GRTL Collaboration, GRTeclyn, https://github.com/
+GRTLCollaboration/GRTeclyn.
+[42] W. Zhang et al., “AMReX: a framework for blockstructured adaptive mesh refinement,” J. Open Source
+Softw. 4, 1370 (2019).
+[43] T. Andrade et al., “GRChombo: an adaptable numerical
+relativity code for fundamental physics,” J. Open Source
+Softw. 6, 3703 (2021).
+[44] N. M. Shirokov, “Wormhole dynamics: nonlinear collapse
+and gravitational-wave emission,” arXiv:2604.00071 [grqc] (2026).
+[45] N. M. Shirokov, “The Bondi dipole in full numerical relativity: a self-accelerating positive–negative mass binary,”
+arXiv:2608.24577 [gr-qc] (2026).
+[46] N. M. Shirokov and I. Nachevsky,
+“Rotation
+slows the instability of Ellis–Bronnikov wormholes,”
+arXiv:2610.29941 [gr-qc] (2026).
+[47] K. Clough, “Continuity equations for general matter:
+applications in numerical relativity,” Class. Quantum
+Grav. 38, 167001 (2021).
+[48] E. Gourgoulhon, 3+1 Formalism in General Relativity:
+Bases of Numerical Relativity, Lecture Notes in Physics
+Vol. 846 (Springer, Berlin, 2012).
+[49] B. Kleihaus and J. Kunz, “Rotating Ellis wormholes in
+four dimensions,” Phys. Rev. D 90, 121503(R) (2014).
+[50] V. Dzhunushaliev, V. Folomeev, B. Kleihaus, J. Kunz,
+and E. Radu, “Rotating wormholes in five dimensions,”
+Phys. Rev. D 88, 124028 (2013).
+[51] B. Azad, J. L. Blázquez-Salcedo, F. S. Khoo, and J. Kunz,
+“Are slowly rotating Ellis-Bronnikov wormholes stable?,”
+Phys. Lett. B 848, 138349 (2024).
+[52] B. Azad, J. L. Blázquez-Salcedo, F. S. Khoo, and J. Kunz,
+“Radial perturbations of Ellis-Bronnikov wormholes in
+slow rotation up to second order,” Phys. Rev. D 109,
+124051 (2024).
+[53] F. S. Khoo, B. Azad, J. L. Blázquez-Salcedo,
+L. M. González-Romero, B. Kleihaus, J. Kunz, and
+F. Navarro-Lérida, “Quasinormal modes of rapidly rotating Ellis-Bronnikov wormholes,” Phys. Rev. D 109,
+084013 (2024).
+[54] E. Poisson and M. Visser, “Thin-shell wormholes: Linearization stability,” Phys. Rev. D 52, 7318 (1995).
+[55] P. Kanti, B. Kleihaus, and J. Kunz, “Wormholes in dilatonic Einstein-Gauss-Bonnet theory,” Phys. Rev. Lett.
+107, 271101 (2011).
+
+23
+[56] K. A. Bronnikov, J. C. Fabris, and A. Zhidenko, “On the
+stability of scalar-vacuum space-times,” Eur. Phys. J. C
+71, 1791 (2011).
+[57] S. A. Hayward, “Gravitational energy in spherical symmetry,” Phys. Rev. D 53, 1938 (1996).
+[58] E. Babichev, V. Dokuchaev, and Yu. Eroshenko, “Black
+hole mass decreasing due to phantom energy accretion,”
+Phys. Rev. Lett. 93, 021102 (2004).
+[59] A. Ashtekar and B. Krishnan, “Isolated and dynamical
+horizons and their applications,” Living Rev. Relativ. 7,
+10 (2004).
+[60] J. M. Cline, S. Jeon, and G. D. Moore, “The phantom
+menaced: Constraints on low-energy effective ghosts,”
+Phys. Rev. D 70, 043543 (2004).
+[61] S. A. Hayward, “General laws of black-hole dynamics,”
+Phys. Rev. D 49, 6467 (1994).
+[62] S. A. Hayward, “Dynamic wormholes,” Int. J. Mod. Phys.
+D 8, 373 (1999).
+[63] C. Gundlach, “Pseudospectral apparent horizon finders:
+An efficient new algorithm,” Phys. Rev. D 57, 863 (1998).
+[64] M. Alcubierre et al., “Gauge conditions for long-term
+numerical black hole evolutions without excision,” Phys.
+Rev. D 67, 084023 (2003).
+[65] G. Huisken and T. Ilmanen, “The inverse mean curvature
+flow and the Riemannian Penrose inequality,” J. Differ.
+Geom. 59, 353 (2001).
+[66] M. Mars, “Present status of the Penrose inequality,”
+Class. Quantum Grav. 26, 193001 (2009).
+[67] T. Damour, F. Guercilena, I. Hinder, S. Hopper, A. Nagar, and L. Rezzolla, “Strong-field scattering of two black
+holes: Numerics versus analytics,” Phys. Rev. D 89,
+081503(R) (2014).
+[68] E. Berti, V. Cardoso, and C. M. Will, “Gravitationalwave spectroscopy of massive black holes with the space
+interferometer LISA,” Phys. Rev. D 73, 064030 (2006).
+[69] E. Berti, V. Cardoso, and A. O. Starinets, “Quasinormal
+modes of black holes and black branes,” Class. Quantum
+Grav. 26, 163001 (2009).
+[70] M. A. Scheel, M. Boyle, T. Chu, L. E. Kidder,
+K. D. Matthews, and H. P. Pfeiffer, “High-accuracy waveforms for binary black hole inspiral, merger, and ringdown,” Phys. Rev. D 79, 024003 (2009).
+[71] R. Abbott et al. (LIGO Scientific, Virgo and KAGRA
+Collaborations), “All-sky search for short gravitationalwave bursts in the third Advanced LIGO and Advanced
+Virgo run,” Phys. Rev. D 104, 122004 (2021).
+[72] C. Gao, X. Chen, V. Faraoni, and Y.-G. Shen, “Does
+the mass of a black hole decrease due to the accretion of
+phantom energy?,” Phys. Rev. D 78, 024008 (2008).
+[73] A. Doroshkevich, J. Hansen, I. Novikov, and A. Shatskiy,
+“Passage of radiation through wormholes,” Int. J. Mod.
+Phys. D 18, 1665 (2009).
+[74] F. Cremona, F. Pirotta, and L. Pizzocchero, “On the
+linear instability of the Ellis–Bronnikov–Morris–Thorne
+wormhole,” Gen. Relativ. Gravit. 51, 19 (2019).
+[75] S. A. Hayward, “Wormhole dynamics in spherical symmetry,” Phys. Rev. D 79, 124001 (2009).
+[76] H. Witek, M. Zilhão, L. Gualtieri, V. Cardoso,
+C. Herdeiro, A. Nerozzi, and U. Sperhake, “Numerical
+relativity for D dimensional space-times: Head-on collisions of black holes and gravitational wave extraction,”
+Phys. Rev. D 82, 104014 (2010).
+
+[77] I. D. Novikov and D. I. Novikov, “Collapse of a wormhole
+and its transformation into black holes,” J. Exp. Theor.
+Phys. 129, 495 (2019).
+[78] H. Deng and A. Vilenkin, “Primordial black hole formation by vacuum bubbles,” J. Cosmol. Astropart. Phys.
+12, 044 (2017).
+[79] Y. Gouttenoire and E. Vitagliano, “Primordial black
+holes and wormholes from domain wall networks,” Phys.
+Rev. D 109, 123507 (2024).
+[80] C. Gundlach and J. M. Martín-García, “Critical phenomena in gravitational collapse,” Living Rev. Relativ. 10, 5
+(2007).
+[81] M. W. Choptuik, T. Chmaj, and P. Bizoń, “Critical
+behavior in gravitational collapse of a Yang-Mills field,”
+Phys. Rev. Lett. 77, 424 (1996).
+[82] R. Penrose, “Gravitational collapse: The role of general
+relativity,” Riv. Nuovo Cimento 1, 252 (1969) [Gen. Relativ. Gravit. 34, 1141 (2002)].
+[83] R. M. Wald, “Gravitational collapse and cosmic censorship,” in Black Holes, Gravitational Radiation and the
+Universe, edited by B. R. Iyer and B. Bhawal (Springer,
+Dordrecht, 1999), p. 69.
+[84] S. M. Carroll, M. Hoffman, and M. Trodden, “Can the
+dark energy equation-of-state parameter w be less than
+−1?,” Phys. Rev. D 68, 023509 (2003).
+[85] V. Cardoso, E. Franzin, and P. Pani, “Is the gravitationalwave ringdown a probe of the event horizon?,” Phys. Rev.
+Lett. 116, 171101 (2016); 117, 089902(E) (2016).
+[86] P. Bueno, P. A. Cano, F. Goelen, T. Hertog, and B. Vercnocke, “Echoes of Kerr-like wormholes,” Phys. Rev. D
+97, 024040 (2018).
+[87] J. L. Friedman, K. Schleich, and D. M. Witt, “Topological censorship,” Phys. Rev. Lett. 71, 1486 (1993); 75,
+1872(E) (1995).
+[88] D. Christodoulou, “Nonlinear nature of gravitation and
+gravitational-wave experiments,” Phys. Rev. Lett. 67,
+1486 (1991).
+[89] K. S. Thorne, “Gravitational-wave bursts with memory:
+The Christodoulou effect,” Phys. Rev. D 45, 520 (1992).
+[90] M. Favata,
+“Post-Newtonian corrections to the
+gravitational-wave memory for quasi-circular, inspiralling compact binaries,” Phys. Rev. D 80, 024002
+(2009).
+[91] C. Reisswig and D. Pollney, “Notes on the integration of
+numerical relativity waveforms,” Class. Quantum Grav.
+28, 195015 (2011).
+[92] S. Husa, S. Khan, M. Hannam, M. Pürrer, F. Ohme,
+X. Jiménez Forteza, and A. Bohé, “Frequency-domain
+gravitational waves from nonprecessing black-hole binaries. I. New numerical waveforms and anatomy of the
+signal,” Phys. Rev. D 93, 044006 (2016).
+[93] S. Khan, S. Husa, M. Hannam, F. Ohme, M. Pürrer,
+X. Jiménez Forteza, and A. Bohé, “Frequency-domain
+gravitational waves from nonprecessing black-hole binaries. II. A phenomenological model for the advanced detector era,” Phys. Rev. D 93, 044007 (2016).
+[94] LIGO Scientific Collaboration, “Advanced LIGO anticipated sensitivity curves,” LIGO Document T0900288-v3
+(2010).
+[95] T. Robson, N. J. Cornish, and C. Liu, “The construction
+and use of LISA sensitivity curves,” Class. Quantum
+Grav. 36, 105011 (2019).
+[96] E. Thrane and J. D. Romano, “Sensitivity curves for
+searches for gravitational-wave backgrounds,” Phys. Rev.
+D 88, 124032 (2013).
+
+

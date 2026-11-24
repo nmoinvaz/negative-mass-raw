@@ -1,0 +1,21 @@
+ind136  mutation: drop
+[PASS] J1a: cs odd powers vanish True, monic True, c2 = printed True, E1 = printed True, E2 = printed (he_type3_output.txt) True, E2 cubic form in (X, gamma, y) True with 10 monomials
+[PASS] J1b: terms in (phi, A', B', w): E1 17, E2 42 (claim 17, 42)
+[FAIL] J1c: Res_w(E1, E2) / ((27/256) phi^3 (A' - B')^3) exact True, irreducible True, 166 terms, total degrees [10, 12, 14, 16, 18] (0 s)
+[FAIL] J1d: P equals I136-rpi5/P_table.tsv term by term: False (167 table rows)
+[PASS] J1e: (A', B')-degrees j + k of P: [9, 10, 11, 12, 13, 14, 15]; max B'-degree k = 9
+[FAIL] J1f: P-hat has 378 terms, weights 20..66, weight-24 part 359424*delta**2*phi**8 - 1492992*delta*phi**8*psi - 1244160*phi**8*psi**2
+[FAIL] J2:le: 39751 radii, z step 1e-3: P 5 sign changes at r = ['0.062175539746', '0.98962959803', '1.0064974423', '1.0132114132', '1.1047801843'] (max |diff| +inf), y 1 at r = ['0.99211496671'] (|diff| 6.1e-12) (21 s)
+[FAIL] J3a:le: 1 admissible of 5 roots of P; r 0.062175539746: w -1.1421755969e+16 (rel |E2| 0.026, other root 0.77), T -0.0001561619; r 0.98962959803: w -2107.4663649 (rel |E2| 0.011, other root 0.33), T -9.275427; r 1.0064974423: w 57.498505284 (rel |E2| 0.00065, other root 0.47), T -0.6487262; r 1.0132114132: w 27.453589975 (rel |E2| 0.078, other root 0.48), T 2.760376; r 1.1047801843: w 0.88777842642 (rel |E2| 0.0034, other root 0.39), T 21.35005
+[PASS] J3b:le: r 0.9905678898056 (|diff| 4.4e-13), w 0.060051764677, residual 4.9e-80; r 1.023933261108 (|diff| 1.5e-12), w 0.040986879749, residual 9.7e-80; r 1.094662309316 (|diff| 3.6e-12), w 0.91286667657, residual 1.3e-81
+[PASS] J3c:le: at r = 0.99211496671: leading coefficients relative 1.2e-83, 4.4e-84; roots of E1 with |w| <= 1e4: 1, min relative |E2| there 0.82
+[FAIL] J4a:le: P/z^24 at z = 1e-3: -3.518093e-56 against 1.09451e-67 (relative 3.2e+11); P > 0 at 500 points of [1e-3, 1/4]: False; y < 0 there: True
+Traceback (most recent call last):
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/r136/ind136.py", line 282, in <module>
+    vq = sp.Rational(W['v'])
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/sympy/core/cache.py", line 72, in wrapper
+    retval = cfunc(*args, **kwargs)
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/sympy/core/numbers.py", line 1341, in __new__
+    raise TypeError('invalid input: %s' % p)
+TypeError: invalid input: 0.50000000000000000000000000000000000000000000000000000000000000000000000000000000
+rc=1

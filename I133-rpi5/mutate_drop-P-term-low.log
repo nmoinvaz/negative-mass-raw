@@ -1,0 +1,24 @@
+he_type3_count.py: python 3.14.10, sympy 1.14.0, mpmath 1.3.0
+control drop-P-term-low: the last term of P's table (total degree 10) is dropped everywhere; targets ['tables', 'small_z', 'points', 'cross', 'assembly']
+[PASS] identity: Le: jets within 1.86e-50 of the tanh form, derivatives within 5.7e-51 of mp.diff, series within 3.37e-51; Rodal: jets within 5.71e-50 of the tanh form, derivatives within 3.5e-50 of mp.diff, series within 4.6e-51
+    (identity: 0 s)
+[FAIL] tables: Res = (27/256) phi^3 (A' - B')^3 P exactly: False (166 terms of P); Sylvester determinant in fractions equals the same product at 5 rational points, and exactly as polynomials on 3 random lines: False; E1, E2 equal c2^2 - 3 c1 and 27 c0 - c2^3 of the printed frame table (u = 1): True; (A', B') degrees 9 to 15, total degrees [10, 12, 14, 16, 18]: True; weighted expansion in (phi, psi, delta): minimum weight 20, leading part {(10, 0, 0): '-110592'}: False
+    (tables: 19 s)
+[PASS] planted: P_pl (the factor z - 11/5 carried by the spurious factor y_pl) and y_pl have 9 positive roots by a Sturm sequence (exact); the cover finds 8 root leaves of P_pl and 1 of y_pl over [0, 23] (tiles True True, 0 unresolved, 19800 evaluations; Cauchy tail proved True); admissible points 6 found, 6 expected (2 roots with w outside (0, 1), 1 with T = 0); positions within 1e-20: True; unresolved boxes 0
+    (planted: 35 s)
+[FAIL] small_z: Le: a term of weight below 24; Rodal: a term of weight below 24
+    (small_z: 0 s)
+[PASS] tail_z: Le: P z_t = 40, c_{9,9} >= 0.5, sum_(k<9) |c| z_t^(k-9) <= 0.331127, higher degrees <= 0.000176277, L >= 0.16869717; y kappa_t = C e^-z_t <= 1.88757e-11, beta >= 1.0; Rodal: P z_t = 60, c_{9,9} >= 3.9999997, sum_(k<9) |c| z_t^(k-9) <= 3.25228, higher degrees <= 0.22323, L >= 0.52449182; y kappa_t = C e^-z_t <= 1.03058e-9, beta >= 1.0
+    (tail_z: 0 s)
+[PASS] cover: Le: 766 leaves tile [1/4, 40]: True, 0 unresolved, 5 root leaves, tanh-form P changes sign 5 times at the leaf ends (agreement True) and across each shrunk root cell (True), 2818 evaluations, 18 s; Rodal: 1297 leaves tile [1/4, 60]: True, 0 unresolved, 3 root leaves, tanh-form P changes sign 3 times at the leaf ends (agreement True) and across each shrunk root cell (True), 4702 evaluations, 31 s
+    (cover: 78 s)
+[PASS] spurious: Le: 26 leaves tile: True, 0 unresolved, 1 root leaves, tanh-form y changes sign 1 times (agreement True, across each shrunk root cell True); y = 0 at z in [15.87383947, 15.87383947] (r = 0.9921149667), common roots 0, w in []; admissible points at y-roots 0, unresolved boxes 0, cells disjoint from the P cells True ... Rodal: 38 leaves tile: True, 0 unresolved, 1 root leaves, tanh-form y changes sign 1 times (agreement True, across each shrunk root cell True); y = 0 at z in [39.94992687, 39.94992687] (r = 4.993740859), common roots 0, w in []; admissible points at y-roots 0, unresolved boxes 0, cells disjoint from the P cells True
+    (spurious: 4 s)
+[FAIL] points: Le (sigma = 8.0, R_b = 1, v = 1/2): 5 P-root cells, 0 admissible points (table radii within 5e-7: False), 0 with w outside [0, 1]: w = [], unresolved boxes 0, boxes disjoint True. Cells: P-root r = 0.0621755397464 (z = 0.994808635942, width 2.0e-24): no common root, w in [-1e4, 1e4] | P-root r = 0.989629598027 (z = 15.8340735684, width 4.5e-26): no common root, w in [-1e4, 1e4] | P-root r = 1.00649744226 (z = 16.1039590761, width 3.3e-23): no common root, w in [-1e4, 1e4] | P-root r = 1.01321141324 (z = 16.2113826119, width 5.8e-26): no common root, w in [-1e4, 1e4] | P-root r = 1.10478018433 (z = 17.6764829494, width 7.1e-34): no common root, w in [-1e4, 1e4]. Admissible:  ... Rodal (sigma = 4.0, R_b = 5, v = 1): 3 P-root cells, 0 admissible points (table radii within 5e-7: False), 0 with w outside [0, 1]: w = [], unresolved boxes 0, boxes disjoint True. Cells: P-root r = 0.124350968052 (z = 0.99480774442, width 4.0e-24): no common root, w in [-1e4, 1e4] | P-root r = 4.66553819306 (z = 37.3243055444, width 9.1e-23): no common root, w in [-1e4, 1e4] | P-root r = 5.12375084813 (z = 40.990006785, width 1.3e-21): no common root, w in [-1e4, 1e4]. Admissible: 
+    (points: 0 s)
+[FAIL] cross: Le: radii and cos(theta) of the 0 admissible points within 0.0 of he_type3_output.txt (limit 1e-11); Rodal: radii and cos(theta) of the 0 admissible points within 0.0 of he_type3_output.txt (limit 1e-11)
+    (cross: 0 s)
+[FAIL] assembly: (0, z_s] by small_z, [z_s, z_t] by cover and spurious, [z_t, infinity) by tail_z: small_z not passed, tail_z PASS, cover PASS, spurious PASS
+    (assembly: 0 s)
+control drop-P-term-low: failed ['tables', 'small_z', 'points', 'cross', 'assembly'], targets ['tables', 'small_z', 'points', 'cross', 'assembly'] -> FIRED on exactly its targets
+wall 135.4 s

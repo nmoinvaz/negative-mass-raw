@@ -1,0 +1,1000 @@
+Journal of Physics:
+Conference Series
+
+You may also like
+
+OPEN ACCESS
+
+Wormhole Dynamics
+
+- Dynamical wormholes
+Ben Kain
+
+To cite this article: Hisa-aki Shinkai and Takashi Torii 2015 J. Phys.: Conf. Ser. 574 012056
+
+- Study of exponential wormhole metric in
+f(R) gravity
+Partha Pratim Nath and Debojit Sarma
+
+View the article online for updates and enhancements.
+
+- New Yukawa-corrected Casimir
+wormholes in curvature-matter coupled
+gravitational framework
+Saira Waheed
+
+This content was downloaded from IP address 75.84.200.141 on 24/11/2026 at 01:08
+
+IC-MSQUARE 2014
+Journal of Physics: Conference Series 574 (2015) 012056
+
+IOP Publishing
+doi:10.1088/1742-6596/574/1/012056
+
+Wormhole Dynamics
+Hisa-aki Shinkai1,2 , Takashi Torii 3
+1
+
+Faculty of Information Science and Technology, Osaka Institute of Technology, Hirakata,
+Osaka 573-0196, Japan
+2
+Computational Astrophysics Laboratory, Institute of Physical & Chemical Research
+(RIKEN), Hirosawa, Wako, Saitama, 351-0198 Japan
+3
+Faculty of Engineering, Osaka Institute of Technology, Osaka, Osaka 535-8585, Japan
+E-mail: hisaaki.shinkai@oit.ac.jp
+E-mail: takashi.torii@oit.ac.jp
+Abstract. Wormholes are theoretical products in general relativity, and are popular tools in
+science fictions. We know numerically the four-dimensional Ellis wormhole solution (the socalled Morris-Thorne’s traversable wormhole) is unstable against an input of scalar-pulse from
+one side. We investigate this feature for higher-dimensional versions, both in n-dimensional
+general relativity and in Gauss-Bonnet gravity. We derived Ellis-type wormhole solution in ndimensional general relativity, and found existence of unstable modes in its linear perturbation
+analysis. We also evolved it numerically in dual-null coordinate system, and confirmed its
+instability. The wormhole throat will change into black-hole horizon for the input of (relatively)
+positive energy, while it will change into inflationary expansion for (relatively) negative energy
+input. If we add Gauss-Bonnet terms (higher curvature correction terms in gravity), then
+wormhole tends to expand (or change to black-hole) if the coupling constant α is positive
+(negative).
+
+1. Introduction
+Wormhole is hypothetical object such as a short-cut tunnel connecting two points in space-time.
+The idea is essential in science fictions as a way for rapid interstellar travel, warp drives, and
+time machines. However, wormhole is also a theoretical research topic with long history.
+The first appearance of a “tunnel structure” was in 1916 by Flamm [1] just after the
+discovery of Schwarzschild’s black-hole solution. Einstein and Rosen [2] proposed a “bridge
+structure” between black-holes in order to obtain a regular solution without a singularity. The
+name “wormhole” was coined by John A. Wheeler in 1957, and its fantastic applications are
+popularized after the influential study of traversable wormholes by Morris and Thorne [3].
+They considered “traversable conditions” for human travel through wormholes responding to
+Carl Sagan’s idea for his novel Contact, and concluded that such a wormhole solution is available
+if we allow “exotic matter” (negative-energy matter).
+The introduction of exotic matter sounds to be unusual for the first time, but such matter
+appears in quantum field theory and in alternative gravitational theories such as scalar-tensor
+theories. The Morris-Thorne solution is constructed with a massless Klein-Gordon field whose
+gravitational coupling takes the opposite sign to normal, which is found in Ellis’s earlier work
+[4], so that we call it Ellis wormhole, hereafter. (See a review e.g. by Visser [5] for earlier works;
+See also e.g. Lobo [6] for recent works).
+Content from this work may be used under the terms of the Creative Commons Attribution 3.0 licence. Any further distribution
+of this work must maintain attribution to the author(s) and the title of the work, journal citation and DOI.
+Published under licence by IOP Publishing Ltd
+1
+
+IC-MSQUARE 2014
+Journal of Physics: Conference Series 574 (2015) 012056
+
+IOP Publishing
+doi:10.1088/1742-6596/574/1/012056
+
+Ellis wormhole solution was studied in many contexts. Among them, we focus on its
+dynamical features. The first numerical simulation on its stability behavior was reported by
+one of the authors [7]. They use a dual-null formulation for spherically symmetric space-time
+integration, and observed that the wormhole is unstable against Gaussian pulses in either exotic
+or normal massless Klein-Gordon fields. The wormhole throat suﬀers a bifurcation of horizons
+and either explodes to form an inflationary universe or collapses to a black hole, if the total input
+energy is negative or positive, respectively. These basic behaviors were repeatedly confirmed by
+other groups [8, 9].
+
+x minus
+
+throat
+
+"throat"
+
+Black Hole
+or
+Inflationary
+expansion
+
+pulse
+input
+
+x plus
+
+Figure 1. Partial Penrose diagram of the evolved
+space-time. Suppose we live in the right-side
+region and input a pulse to an Ellis-wormhole in
+the middle of the diagram. The wormhole throat
+suﬀers a bifurcation of horizons and either explodes
+to form an inflationary universe or collapses to a
+black hole, if the total input energy is negative or
+positive, respectively [7].
+
+The changes of wormhole either to a black hole or an expanding throat supports an unified
+understanding of black holes and traversable wormholes proposed by Hayward [10]. His
+proposal is that the two are dynamically interconvertible, and that traversable wormholes are
+understandable as black holes under the existence of negative energy density.
+In this article, we introduce our extensional works of [7], mainly its stability behavior in
+higher-dimensional space-time. The higher-dimensional theories such as string/M theories are
+applied for various unsolved problems in gravitational phenomena and cosmology, and gain
+new insights into them. We believe that wormholes will also give us new fundamental physical
+landscapes. We therefore demonstrate wormhole dynamics also in Gauss-Bonnet gravity, which
+is one of the modified gravity theory including higher-order corrections of curvatures, one of the
+string-motivated gravity theories.
+Wormhole study in higher-dimensional space-time is not a new topic. We can find the articles
+from 80s [12, 13], and the recent studies are including higher-curvature terms (see e.g. [14] and
+[15] and references therein). Most of the researches concern the solutions and their energy
+conditions mainly, but to our knowledge there is no general discussion on the stability analysis
+of the solutions.
+The main four contents in this article are: (a) constructing Ellis solutions in higherdimensional general relativity, (b) stability analysis using linear perturbation method [16], (c)
+stability analysis using numerical evolution method, and (d) dynamical eﬀects of Gauss-Bonnet
+coupling in 5-dimensional wormhole solution.
+In §2, we derive the simplest wormhole solution with ghost scalar field in spherically
+symmetric, higher-dimensional space-time. We then study its stability using linear perturbation
+analysis, and find that there is at least one unstable mode in any dimensional space-time.
+In §3, we try to confirm the prediction of instability using numerical evolutions. We
+implemented numerical code in [7] as it can treat higher-dimensional versions. We also
+demonstrate the wormhole structure in Gauss-Bonnet gravity theory.
+
+2
+
+IC-MSQUARE 2014
+Journal of Physics: Conference Series 574 (2015) 012056
+
+IOP Publishing
+doi:10.1088/1742-6596/574/1/012056
+
+2. Wormhole solutions in higher-dimensional general relativity
+2.1. Field equations
+We start from the n-dimensional Einstein-Klein-Gordon system
+∫
+
+S=
+
+√
+d x −g
+
+[
+
+n
+
+]
+
+1
+1
+R − ϵ(∇ϕ)2 − V (ϕ) ,
+2
+2κn
+2
+
+(1)
+
+where κ2n is a n-dimensional gravitational constant. The scalar field ϕ is the normal (or ghost)
+field if ϵ = 1 (−1).
+The metric of the space-time is assumed to be
+ds2 = −f (t, r)e−2δ(t,r) dt2 + f (t, r)−1 dr2 + R(t, r)2 hij dxi dxj ,
+
+(2)
+
+where hij dxi dxj represents the line element of a unit (n − 2)-dimensional constant curvature
+space with curvature k = ±1, 0 and volume Σk . In order to construct a static wormhole solution,
+we restrict the metric function as f = f (r), R = R(r), ϕ = ϕ(r), and δ = 0 in this subsection.
+The Klein-Gordon equation becomes
+1
+dV
+.
+(Rn−2 f ϕ′ )′ = −ϵ
+Rn−2
+dϕ
+
+(3)
+
+Hereafter, we construct the solution with the massless ghost scalar field (V (ϕ) = 0 and ϵ = −1).
+The Klein-Gordon equation (3) is integrated as
+ϕ′ =
+
+C
+,
+f Rn−2
+
+(4)
+
+where C is an integration constant. The Einstein equations are reduced to
+(n − 2)R′ [ f ′ (n − 3)R′ ] (n − 2)(n − 3)k
+κ2n C 2
++
+−
+=
+−
+,
+R
+f
+R
+f R2
+f 2 R2(n−2)
+
+(5)
+
+κ2 C 2
+(n − 2)R′′
+= 2 n2(n−2) .
+R
+f R
+
+(6)
+
+The throat of the wormhole is at r = 0, and a is the radius of the throat, i.e. R(0) = a. The
+regularity conditions at the throat is written as R(0) = a > 0, and f (0) = f0 > 0, where f0 is a
+constant. Here we can assume a = 1 and f0 = 1 without loss of generality, but we keep a in the
+equations in this section for later convenience. We assume the reflection symmetry with respect
+to the throat: R′ (0) = 0, and f ′ (0) = 0. We also impose ϕ(0) = 0 by a shift symmetry of the
+scalar field. With these conditions, the integration constant C is determined as
+κ2n C 2 = (n − 2)(n − 3)ka2(n−3) .
+
+(7)
+
+This relation implies that there is no wormhole solution for the cases k = 0 and k = −1. Hence
+we investigate the spherically symmetric case k = 1.
+The solution of Eqs. (4)–(6) is obtained as
+f
+
+≡ 1,
+
+R′ =
+
+1−
+√
+
+ϕ =
+
+(8)
+
+√
+
+( a )2(n−3)
+
+R
+
+,
+
+(n − 2)(n − 3) n−3
+a
+κn
+3
+
+(9)
+∫
+
+1
+dr.
+R(r)n−2
+
+(10)
+
+IC-MSQUARE 2014
+Journal of Physics: Conference Series 574 (2015) 012056
+
+IOP Publishing
+doi:10.1088/1742-6596/574/1/012056
+
+Figure 2. The n-dimensional wormhole solutions; (a) The circumference radius R and (b) the
+scalar field ϕ are plotted as a function of the radial coordinate r.
+The eq. (9) is integrated to give
+√
+πΓ[1 − m]
+1)
+,
+−
+2
+Γ[m(n − 4)]
+
+(
+
+r(R) = −mBz − m,
+
+(11)
+
+where m =∫ 1/2(n − 3) and z = Rm . Bz (p, q) is the incomplete beta function defined by
+Bz (p, q) := √0z tp−1 (1 − t)q−1
+n = 4, this solution reduces to Ellis’s wormhole solution
+√dt. For
+−1
+2
+2
+f ≡ 1, R = r + a , ϕ = 2 tan (r/a).
+At the throat
+n−3
+,
+R (a) =
+a
+′′
+
+√
+
+and
+
+′
+
+ϕ (a) =
+
+(n − 2)(n − 3)
+.
+κn a
+
+(12)
+
+These indicate that the throat of the wormhole has larger curvature and the scalar field ϕ
+becomes steeper as n goes higher. We plotted these behaviors in Figure 2. For n → ∞, the
+functions have the limiting solution, R = r + a and ϕ = π/2 (r > 0).
+2.2. Stability analysis
+In this subsection, we investigate the linear stability of the higher-dimensional wormhole. We
+follow the analysis in [9], where the throat radius is not fixed since it is shown that the instability
+occurs by resolution of the degeneracy of a double trapping horizon [7].
+We focus on the “spherical” modes, where the (n − 2)-dimensional constant curvature space
+is not perturbed. In the time-dependent metric ansatz eq. (2) we write the perturbed functions
+as
+f (t, r) =
+δ(t, r) =
+R(t, r) =
+ϕ(t, r) =
+
+f0 (r) + εf1 (r)eiωt ,
+δ0 (r) + εδ1 (r)eiωt ,
+R0 (r) + εR1 (r)eiωt ,
+ϕ0 (r) + εϕ1 (r)eiωt ,
+
+(13)
+(14)
+(15)
+(16)
+
+where ε is an infinitesimal parameter, and the variables with subscript 0 denote the static
+solution.
+By introducing the new variable,
+n−2
+
+ψ1 = R0 2
+
+(
+
+ϕ1 −
+
+4
+
+ϕ′0 )
+R1 ,
+R0′
+
+(17)
+
+IC-MSQUARE 2014
+Journal of Physics: Conference Series 574 (2015) 012056
+
+IOP Publishing
+doi:10.1088/1742-6596/574/1/012056
+
+the first-order equations give the single master equation,
+−ψ1′′ + V (r)ψ1 = ω 2 ψ1 ,
+
+(18)
+
+with the potential,
+[
+
+]
+
+(n − 4)R0′2
+2(n − 3)2
+n−2 n−3
++
++
+.
+V (r) =
+2(n−2)
+2(n−2) ′ 2
+2
+2R02
+R0
+R0
+R0
+
+(19)
+
+Here we have assumed a = 1. The variable ψ1 is gauge invariant under the spherically symmetric
+ansatz. Since R0′ is zero at the throat and the potential V diverges there, we regularize the master
+equation (18).
+(
+
+n−4
+2
+
+Using the 0-mode solution of the master equtaion (18), ψ̄1 = R0
+of diﬀerential operators, D± = ±
+
+R0′
+
+)−1
+
+, we define a pair
+
+d
+ψ̄ ′
+− 1 . Then the master equation, (18), can be written as
+dr ψ̄1
+D− D+ ψ1 = ω 2 ϕ1 .
+
+(20)
+
+Operating D+ from the left and defining the new variable Ψ1 = D+ ψ1 , we find the regularized
+master equation
+−Ψ′′1 + W (r)Ψ1 = ω 2 Ψ1 ,
+where
+W (r) = −
+
+]
+1 [ 3(n − 2)2
+−
+(n
+−
+4)(n
+−
+6)
+.
+4R02 R2(n−3)
+
+(21)
+
+(22)
+
+0
+
+Now the potential function is regular everywhere. For n = 4, W (r) has the minimum at the
+throat and is negative definite. For n ≥ 5, W (r) has the minimum at the throat, while it
+increases apart from the throat and becomes positive for large r.
+We search eigenfunctions Ψ1 (r) of eq. (21), and find that in any dimension n. There exists
+one negative eigenvalue for ω 2 , which are listed in Table 1. The existence of the eigenfunction
+with negative ω 2 implies that the solution is unstable. We find large negative ω 2 for higher n,
+which indicates the timescale of instability becomes shorter.
+
+n
+4
+5
+6
+7
+8
+9
+
+Table 1. The negative eigenvalues ω 2 .
+ω2
+n
+ω2
+− 1.39705243371511
+10
+−12.0442650147438
+− 2.98495893027790
+11
+−13.9552091676647
+− 4.68662054299460
+20
+−31.5751101285105
+− 6.46258414126318
+50
+−91.3457759137153
+− 8.28975936306259
+100
+− 191.283017729717
+− 10.1535530451867
+
+5
+
+IC-MSQUARE 2014
+Journal of Physics: Conference Series 574 (2015) 012056
+
+IOP Publishing
+doi:10.1088/1742-6596/574/1/012056
+
+3. Numerical evolutions of wormhole solutions
+The purpose of this section is to confirm the prediction of instability of wormholes using
+numerical evolutions. We developed our numerical code as it can treat higher-dimensional
+versions. We also implemented it for studying the wormhole structure in Gauss-Bonnet
+gravity theory, which is one of the modified gravity theory including higher-order corrections of
+curvatures.
+We begin describing Gauss-Bonnet theory briefly in §3.1, then explain our strategy in §3.2.
+The results will be shown in §3.3 and §3.4.
+3.1. Einstein-Gauss-Bonnet gravity
+Einstein-Gauss-Bonnet (EGB) gravity is derived from the superstring theory, with additional
+higher-order curvature correction terms to general relativity. Such higher-order corrections can
+be treated as an expansion of R in the action, but the Gauss-Bonnet term,
+LGB = R2 − 4Rµν Rµν + Rµνρσ Rµνρσ ,
+
+(23)
+
+has good properties such that it is ghost-free combinations[11] and does not give higher derivative
+equations but an ordinary set of equations with up to the second derivative in spite of the higher
+curvature combinations.
+The EGB action in n-dimensional space-time (M, gµν ) is described as
+∫
+
+√
+
+[
+
+]
+
+1
+d X −g
+{αGR (R − 2Λ) + αGB LGB } + Lmatter ,
+2κ2
+M
+n
+
+S=
+
+(24)
+
+where κ2 is the n-dimensional gravitational constant, R, Rµν , Rµνρσ and Lmatter are the ndimensional scalar curvature, Ricci tensor, Riemann curvature and the matter Lagrangian,
+respectively. This action reproduces the standard n-dimensional Einstein gravity, if we set
+the coupling constant αGB equals to zero.
+The action (24) gives the gravitational equation as
+αGR Gµν + αGB Hµν + gµν Λ = κ2 Tµν ,
+
+(25)
+
+where
+1
+Gµν = Rµν − gµν R,
+2
+
+(26)
+
+[
+
+]
+
+1
+Hµν = 2 RRµν − 2Rµα Rαν − 2Rαβ Rµανβ + Rµαβγ Rναβγ − gµν LGB ,
+2
+δLmatter
+Tµν = −2
++ gµν Lmatter .
+δg µν
+
+(27)
+(28)
+
+The higher-order curvature terms are considered as correction terms from string theory. These
+terms are known to produce two solution branches normally, only one of which has generalrelativity limit. The theory is expected to have singularity-avoidance features in the context of
+gravitational collapses and/or cosmology, but as far as we know there is no studies so far using
+fully numerical evolutions. (Numerical studies on critical phenomena are recently reported for
+small αGB [17, 18, 19]).
+Studies on wormholes in Gauss-Bonnet gravity have long histories. Several solutions and
+their classifications are reported in [20, 21], while their energy conditions are considered in [14].
+Similar researches are extended to the Lovelock gravity[22], and also to the dilatonic GaussBonnet system [23].
+
+6
+
+IC-MSQUARE 2014
+Journal of Physics: Conference Series 574 (2015) 012056
+
+IOP Publishing
+doi:10.1088/1742-6596/574/1/012056
+
+3.2. Dual-null evolution system
+We implemented our evolution code [7] for higher-dimensional space-time, and with GaussBonnet gravity terms. The system we consider is spherical symmetry, and expressed using dualnull coordinate. The use of dual-null coordinate simplifies the treatment of horizon dynamics
+and radiation propagation clearly.
+We adopt the line element
+−
+
+ds2 = −2ef (x ,x ) dx+ dx− + r2 (x+ , x− )γij dz i dz j ,
++
+
+(29)
+
+where the coordinate (x+ , x− ) are along to null propagation directions, and γij dxi dxj is the
+metric of the (n − 2)-dimensional unit constant curvature space with k = ±1, 0.
+For writing down the Einstein equations, we introduced the variables
+1
+,
+r
+= (n − 2)∂± r
+= ∂± f
+
+Ω =
+
+(30)
+
+ϑ±
+ν±
+
+(31)
+(32)
+
+which are conformal factor, expansions, and in-aﬃnities, respectively. We also define
+(
+
+η = Ω2
+
+)
+
+(n − 2)(n − 3)
+2
+ke−f +
+ϑ+ ϑ− .
+2
+(n − 2)2
+
+(33)
+
+The non-zero Einstein tensor components, then, are
+G++ = −Ω(∂+ ϑ+ + ϑ+ ν+ ),
+(34)
+G−− = −Ω(∂− ϑ− + ϑ− ν− ),
+(35)
+G+− = Ω∂− ϑ+ + η,
+(36)
+{ [
+]
+}
+(n
+−
+3)(n
+−
+4)
+∂
+ν
+2(n
+−
+3)
+(n
+−
+3)(n
+−
+4)
++ −
+Gij = γij ef
+∂− ϑ+ −
+−
+ϑ+ ϑ− − k
+(. 37)
+Ω2
+(n − 2)Ω
+(n − 2)2
+2
+The EGB equation, (25), becomes
+∂+ ϑ+ = −ϑ+ ν+ +
+∂− ϑ−
+∂− ϑ+ = ∂+ ϑ−
+∂+ ν− = ∂− ν+
+
+1
+
+(αGB H++ − κ2 T++ ),
+αGR Ω
+1
+= −ϑ− ν− +
+(αGB H−− − κ2 T−− ),
+αGR Ω
+η
+1
+= − +
+(κ2 T+− − αGB H+− + e−f Λ),
+Ω αGR Ω
+(n − 3)(n − 4) 2
+(n − 3)(n − 4) 2
+2(n − 3)
+= −
+η+
+Ω ϑ+ ϑ− + k
+Ω
+2
+(n − 2)
+(n − 2)
+2ef
+2(n − 3) 1
++
+(κ2 T+− − αGB H+− + e−f Λ)
+(n − 2) αGR
+)
+Ω2 ( 2
++ f
+κ Tzz − αGB Hzz − r2 Λ ,
+e αGR
+
+(38)
+(39)
+(40)
+
+(41)
+
+where Hµν components are lengthy and we omit them in this article.
+We assume ghost scalar field ϕ(x+ , x− ),
+(
+
+Tµν = −∂µ ϕ∂ν ϕ − gµν
+
+)
+
+1
+− (∇ϕ)2 + V (ϕ) ,
+2
+
+7
+
+(42)
+
+IC-MSQUARE 2014
+Journal of Physics: Conference Series 574 (2015) 012056
+
+IOP Publishing
+doi:10.1088/1742-6596/574/1/012056
+
+which obeys the Klein-Gordon equation,
+⊔
+⊓ϕ =
+
+dV
+.
+dϕ
+
+(43)
+
+1
+∂± ϕ,
+Ω
+
+(44)
+
+If we define scalar momentum as
+p± = r∂± ϕ =
+
+then non-zero Tµν components are T++ = −Ω2 p2+ ,
+Tzz = −ef p+ p− − Ω−2 V . The eq. (43) becomes
+(
+
+T−− = −Ω2 p2− ,
+
+T+− = e−f V ,
+
+and
+
+)
+
+1
+1
+1
+1 dV
+−
+Ωϑ+ p− − Ωϑ− p+ − f
+,
+n−2 2
+2
+2e Ω dϕ
+(
+)
+1
+1
+1
+1 dV
+= − Ωϑ+ p− +
+−
+Ωϑ− p+ − f
+.
+2
+n−2 2
+2e Ω dϕ
+
+∂+ p− =
+
+(45)
+
+∂− p+
+
+(46)
+
+These equations complete the system.
+
+Σ+
+
+Σ−
+
+x minus
+
+x plus
+
+S
+wormhole throat
+
+Figure 3. Numerical grid structure. Initial data
+are given on null hypersurfaces Σ± (x∓ = 0, x± >
+0) and their intersection S. [7].
+
+The basic idea of numerical integration is as follows. We prepare our numerical integration
+range as drawn in Figure 3. The grid will cover both universes connected by the wormhole throat
+x+ = x− . We give initial data on a surface S and the two null hypersurfaces Σ± generated from
+it. Generally the initial data have to be given as
+(Ω, f, ϑ± , ϕ) on S: x+ = x− = 0
+(ν± , p± ) on Σ± : x∓ = 0, x± > 0.
+
+(47)
+(48)
+
+We then evolve the data u = (Ω, ϑ± , f, ν± , ϕ, p± ) on a constant-x− slice to the next.
+Due to the dual-null decomposition, the causal region of a grid is clear, and there are in-built
+accuracy checks: the integrability conditions or consistency conditions ∂− ∂+ u = ∂+ ∂− u. In
+order to update a point N (north), we have two routes from the points E (east) and W (west).
+The set of equations, (38)-(41) and (45)-(46), gives us x+ -direction (W to N) and x− -direction
+(E to N) integrations together with the consistency conditions.
+As a virtue of the dual-null scheme, we can follow the wormhole throat or black-hole horizons
+easily. They are both trapping horizons, hypersurfaces where ϑ+ = 0 or ϑ− = 0 [24, 25]. Another
+benefit is the singular point excision technique, since the causal region of each grid point is
+apparent. When a grid point is inside a black-hole horizon and near to the singularity, we can
+exclude that point and grid points in its future null cone from further numerical computation.
+8
+
+IC-MSQUARE 2014
+Journal of Physics: Conference Series 574 (2015) 012056
+
+IOP Publishing
+doi:10.1088/1742-6596/574/1/012056
+
+In order to evaluate the energy, we apply the Misner-Sharp mass in n-dimensional EGB
+gravity[14],
+(
+
+[
+
+En =
+
+(n − 2)An−2
+Λ
+2
+1
++ k+
+ef ϑ+ ϑ−
+Ω − 22
+2κ2n
+Ω (n − 1)(n − 2)
+(n − 2)2
+(
+
++(n − 3)(n − 4)αGB Ω
+
+2
+
+2
+k+
+ef ϑ+ ϑ−
+(n − 2)2
+
+)
+
+)2 ]
+
+.
+
+(49)
+
+3.3. Evolutions of 4, 5, and 6-dimensional wormhole solutions in GR
+We checked our numerical code whether it reproduces the static wormhole solution, obtained in
+§2. We express our n-dimensional Ellis wormhole solutions in dual-null coordinate and evolved.
+We find that numerical truncation error can quite easily destroy the stability, but this stability
+can be controlled with fine resolution. All the results below are obtained after we confirmed
+the resolution of the code which does not destroy the stability of wormhole throat structure by
+numerical errors within the evolution (in x− -direction ) shown in the figure.
+We put perturbations of the static wormhole in the form of Gaussian pulses, input from the
+right-hand universe. The perturbation is put in the scalar field momentum on its initial data
+on Σ+
+δp+ = c1 exp(−c2 (l − c3 )2 ),
+(50)
+with all the other initial data as the the static wormhole solution. Here c1 , c2 , c3 are parameters,
+and we show the cases with small amplitude and width c1 = ±0.01 and c2 = 3, and the initial
+location c3 = 1. That is, the pulse will hit the wormhole throat at x+ = x− = 1. Positive (or
+negative) c1 corresponds enhancing (or reducing) the supporting ghost field.
+
+Figure 4. Location of the expansion ϑ+ (red lines) and ϑ− (blue lines) for evolutions of a
+solution in 4, 5, and 6-dimensional General Relativity (αGB = 0) as a function of (x+ , x− ). The
+throat begins expanding if we input negative energy scalar flux (left panel), while the throat
+turns to be a black hole if we input positive energy scalar flux (right panel).
+Figure 4 shows the results of n = 4, 5, and 6 dimensional wormhole solution with above
+perturbation. The plot shows where the vanishing locations of expansions, ϑ± = 0, in (x+ , x− )
+plane. We see first the wormhole throat is the location both ϑ± = 0, but after a small pulse hit
+
+9
+
+IC-MSQUARE 2014
+Journal of Physics: Conference Series 574 (2015) 012056
+
+IOP Publishing
+doi:10.1088/1742-6596/574/1/012056
+
+it, then the throat (or horizon) split into two (ϑ+ = 0 and ϑ− = 0), depending on the signature
+of the energy of pulse.
+If the location of ϑ+ is outer (in x+ -direction) than that of ϑ− , then the region ϑ− < x < ϑ+
+is judged as a black-hole. Otherwise the region ϑ+ < x < ϑ− can be judged as an expanding
+throat. The throat begins expanding if we input negative energy scalar flux (left panel in Figure
+4), while the throat turns to be a black hole if we input positive energy scalar flux (right panel).
+3.4. Evolutions of 5-dimensional wormhole solution in EGB gravity
+We also evolve the same initial data with Gauss-Bonnet terms αGB ̸= 0 and study their eﬀects
+to the evolutions.
+Figure 5 shows the case of 5-dimensional EGB gravity. The initial data of wormhole on
+Σ± = 0 are obtained numerically, solving the set of equations. The evolutions with αGB ̸= 0 are
+quite unstable, and we are hard to keep its static configurations long enough. We see if αGB > 0
+the throat begins expansion (left panel in Figure 5). On the contrary, if αGB < 0, then the
+throat turns to be black-hole (right panel).
+
+Figure 5. The same with Figure 4, but for 5-dimensional Einstein-Gauss-Bonnet gravity. When
+αGB > 0 (left panel), the throat begins expanding (left panel), while the throat turns to be a
+black hole for αGB < 0 (right panel).
+
+4. Conclusions and Discussions
+We studied the simplest wormhole solutions and their stability.
+The space-time is assumed to be static and spherically symmetric, has ghost scalar field,
+and has reflection symmetry at the throat. The four-dimensional version is known to the Ellis
+(Morris-Thorne) solution, and we derived its extension in the n-dimensional space-time.
+Using the linear perturbation technique, we showed that the solutions have at least one
+negative mode, which concludes that all wormholes are linearly unstable. The time scale of
+instability becomes shorter as n becomes large.
+We, next, confirm the instability with numerical evolutions. Our code uses dual-null
+coordinate system, which is well-suited for studying horizon structure. At the throat, both the
+ingoing and outgoing expansions vanish, which means that the throat consists of a degenerate
+horizon. If we put a small amplitude scalar pulse to the throat, then the wormhole throat
+
+10
+
+IC-MSQUARE 2014
+Journal of Physics: Conference Series 574 (2015) 012056
+
+IOP Publishing
+doi:10.1088/1742-6596/574/1/012056
+
+bifurcates, its horizon structure changes into a black-hole or an expanding throat depending the
+pulse energy is positive or negative, respectively. We also investigated the eﬀect of the higherorder curvature corrections using Gauss-Bonnet terms, and found that such corrections do not
+work for stabilization of wormholes.
+All the behavior of wormholes may be explained simply with energy balance. In [7], for
+small perturbations, an existence of critical solution is suggested. The similar behaviors are also
+observed in our investigations, which will be reported elsewhere.
+We guess a wormhole with exotic matter is a disguise to avoid public notice, and does prefer
+to appear as a black-hole or an expanding universe.
+Acknowledgments
+This work was supported in part by the Grant-in-Aid for Scientific Research Fund of the JSPS
+(C) No. 25400277. Numerical computations were carried out on SR16000 at YITP in Kyoto
+University, and on the RIKEN Integrated Cluster of Clusters (RICC).
+References
+[1] L. Flamm, Physik Z. 17, 448 (1916).
+[2] A. Einstein & N. Rosen, Phys. Rev. 48, 73 (1935).
+[3] M. S. Morris & K. S. Thorne, Am. J. Phys. 56, 395 (1988).
+[4] H. G. Ellis, J. Math. Phys. 14, 395 (1973).
+[5] M. Visser, Lorentzian Wormholes (AIP Press, 1995).
+[6] F. S. N. Lobo, in Classical and Quantum Gravity Research (Nova Sci. Pub., 2008). [arXiv:0710.4474]
+[7] H. Shinkai & S.A. Hayward, Phys. Rev. D 66, 044005 (2002).
+[8] A. Doroshkevich, J. Hansen, I. Novikov, & A. Shatskiy, Int. J. Mod. Phys. D 18, 1665 (2009)
+[9] J. A. Gonzalez, F. S. Guzman & O. Sarbach, Class. Quant. Grav. 26, 015010, 015011 (2009); Phys. Rev. D
+80, 024023 (2009). O. Sarbach & T. Zannias, Phys. Rev. D 81, 047502 (2010).
+[10] S A Hayward, Int. J. Mod. Phys. D 8, 373 (1999).
+[11] B. Zwiebach, Phys. Lett. B 156, 315 (1985).
+[12] A. Chodos & S. Detweiler, Gen. Rel. Grav. 14, 879 (1982).
+[13] G. Clément, Gen. Rel. Grav. 16, 131 (1984).
+[14] H. Maeda & M. Nozawa, Phys. Rev. D 78, 024005 (2008).
+[15] P. Kanti, B. Kleihaus & J. Kunz, Phys. Rev. Lett. 107, 271101 (2011); Phys. Rev. D 85, 044007 (2012).
+[16] T. Torii & H. Shinkai, Phys. Rev. D 88, 064027 (2013).
+[17] S. Golod & T. Piran, Phys. Rev. D 85, 104015 (2012).
+[18] F. Izaurieta & E. Rodriguez, Class. Quant. Grav. 30 155009 (2013).
+[19] N. Deppe, C. D. Leonard, T. Taves, G. Kunstatter, & R. B. Mann, Phys. Rev. D 86, 104011 (2012).
+[20] B. Bhawal & S. Kar, Phys. Rev. D 46, 2464 (1992).
+[21] G. Dotti, J. Oliva & R. Troncoso, Phys. Rev. D 76, 064038 (2007).
+[22] M H Dehghani & Z Dayyani, Phys. Rev. D79, 064010 (2009).
+[23] P Kanti, B Kleihaus & J Kunz, Phys. Rev. Lett 107, 271101 (2011); Phys. Rev. D 85, 044007 (2012).
+[24] S A Hayward, Class. Quant. Grav. 15, 3147 (1998).
+[25] S A Hayward, Phys. Rev. D 49, 6467 (1994).
+
+11
+
+

@@ -1,0 +1,8 @@
+review_he_type3_count.py  mutation: profile-typo  bits: 160
+check profile
+  tanh form = (1 + C)/(cosh z + C), exact rational identity in (q, k): difference simplifies to 0
+  f_z = -(1+C) sinh z / D^2 and f_zz = -(1+C)(-cosh^2 z + C cosh z + 2)/D^3 (D = cosh z + C): differences 0 0
+  (phi, A', B') and T from the tanh definition (sympy derivatives, mpmath 60 digits) against the enclosures at 2 x 12 radii: 38 misses
+  -> FAIL (1 s)
+
+summary: 1 checks run, 1 failed ['profile'], 1 s

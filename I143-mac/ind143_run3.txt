@@ -1,0 +1,11 @@
+[PASS] Y0: (a) h = d_M g: delta R = 0 True; (b) pure gauge, even and odd xi: delta R = 0 True; (c) h_tt = r e^st P: nonzero components [(0, 0), (1, 1), (1, 2), (2, 2), (3, 3)]  (2 s)
+[PASS] Y1: h1 = r Psi / F, s h0 = F (F h1)', Psi_xx = (V_RW + s^2) Psi; all 10 components vanish: l = 2: nonzero []; l = 3: nonzero []; l = 4: nonzero []  (4 s)
+[PASS] Y2: DG06 (3)-(4), H0 = H2, psi_xx = (V + s^2) psi with DG06 (6); all 10 components vanish: l = 2: nonzero []; l = 3: nonzero []; l = 4: nonzero []  (51 s)
+  l = 2 (i) H0 - H2: rank 7 of 19 forms, certificate of 7 coefficients exact True, denominators 3
+  l = 2 (ii) Z: rank 15 of 57 forms, certificate of 15 coefficients exact True, denominators 3*r**2*(3*M + 2*r)**2
+  l = 3 (i) H0 - H2: rank 7 of 16 forms, certificate of 7 coefficients exact True, denominators 63
+  l = 3 (ii) Z: rank 15 of 48 forms, certificate of 15 coefficients exact True, denominators 1386*r**2*(5*r - 3)**2
+[PASS] Y3: l = 2 (i) H0 - H2: rank 7 of 19 forms, certificate of 7 coefficients exact True, denominators 3; l = 2 (ii) Z: rank 15 of 57 forms, certificate of 15 coefficients exact True, denominators 3*r**2*(3*M + 2*r)**2; l = 3 (i) H0 - H2: rank 7 of 16 forms, certificate of 7 coefficients exact True, denominators 63; l = 3 (ii) Z: rank 15 of 48 forms, certificate of 15 coefficients exact True, denominators 1386*r**2*(5*r - 3)**2  (67 s)
+[PASS] Y4: (9) of the map (3)-(4) minus psi = 0, symbolic in r, lambda, M, s  (71 s)
+[PASS] Y5: (a) DG06 (6) = #143's form True; (b) at M = -1 = RESULTS 4.2's V True; (c) (lambda r + 3M)^2 V at r = -3M/lambda = 2*lambda**2*(2*lambda + 3)**2/9, = (L-2)^2 (L+1)^2 / 18 True; -3M/lambda = 6/c at M = -1 True  (71 s)
+ALL PASS (71 s)

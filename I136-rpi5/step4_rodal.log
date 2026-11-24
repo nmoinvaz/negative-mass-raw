@@ -1,0 +1,39 @@
+review_he_type3_count.py  mutation: None  bits: 160
+check small_z:rodal
+  P(phi, psi - 2 phi, delta + psi - 2 phi): 358 terms, least weight 24 (phi: 2, psi, delta: 4), weight-24 part {(8, 0, 2): 774144}
+  closed forms Phi, Psi, Delta of the weights (exact, sympy): z^2 Phi - phi, z^4 Psi - (A' + 2 phi), z^4 Delta - (B' - A') = [0, 0, 0]
+  series coefficients of K1, S, K2, K3 against the Taylor expansions of their closed forms (11 coefficients each): True
+  Phi, Psi, Delta enclosures against mpmath (100 digits) at z = 1/1000, 1/20, 1/8, 1/4: 0 misses
+  [0, 0.25]: 1 cells, G > 0 and Delta < 0 on each (smallest lower bound of G 6.5688e-169, largest upper bound of Delta -2.8278e-18); 0 cells fail; 0.0 s
+  so P = z^24 G > 0 and y = z^4 Delta < 0 on (0, 0.25]
+  -> PASS (5 s)
+check tail:rodal
+  with e = e^-z, cosh = (1 + e^2)/(2e), sinh = (1 - e^2)/(2e): phi - v phih, A' + tau alphah, B' - tau z betah (exact) = [0, 0, 0]
+  P(v phih, -tau alphah, tau z betah) = (tau z)^9 S(1/z, tau, phih, alphah, betah) at 5 random rational points (exact): 0 mismatches
+  z >= 60: e <= 8.757e-27, tau <= 1.237e-7, phih in [1.0, 1.0], betah in [0.99999999, 1.0]
+  S = P/(tau z)^9 over 64 cells of s = 1/z in (0, 1/60]: smallest lower bound 3.9999386 (leading term 4 v^3 = 4.0); 0.6 s
+  y = tau (z betah + alphah) > 0: betah, alphah lower bounds 1.0, 1.0 -> True
+  the enclosure of S contains the true S (mpmath, 120 digits) at z = 1, 2, 3, 5 times 60: 0 misses
+  -> PASS (1 s)
+check cover:rodal
+  P on [1/4, 60]: 2735 leaves {'excl': 2723, 'mono': 6, 'root': 6}; tiling True; 6 roots (statement: 6); 210 s
+     tanh-form function (mpmath, 80 digits): sign at a point of every leaf vs the leaf sign: 0 disagreements
+     refined root enclosures (width <= 3.04e-31) contain the mpmath root of the tanh form: 0 misses; r = ['4.714485178', '5.020434866', '5.033740947', '5.071066343', '5.076353993', '5.103380564']
+  y on [1/4, 60]: 58 leaves {'excl': 53, 'mono': 4, 'root': 1}; tiling True; 1 roots (statement: 1); 1 s
+     tanh-form function (mpmath, 80 digits): sign at a point of every leaf vs the leaf sign: 0 disagreements
+     refined root enclosures (width <= 1.05e-48) contain the mpmath root of the tanh form: 0 misses; r = ['4.993740859']
+  -> PASS (226 s)
+check points:rodal
+  rodal: 6 P roots, 6 Krawczyk boxes in (z, w) (K(X) inside X), every other point of z in the root cell x w in [-1e4, 1e4] excluded: True; 18 s
+  admissible (0 < w < 1, T != 0): 3 (statement: 3)
+     r = 4.71448517823 (statement 4.71448517823, |diff| 1.4e-12), w in [0.9576393947, 0.9576393947], T = -4.51919; box half-widths z 1.0e-26, w 1.0e-20 -> ok
+     r = 5.07106634302 (statement 5.07106634302, |diff| 1.8e-12), w in [0.2847666782, 0.2847666782], T = 3.7259; box half-widths z 1.0e-26, w 1.0e-20 -> ok
+     r = 5.10338056385 (statement 5.10338056385, |diff| 3.3e-12), w in [0.9770299367, 0.9770299367], T = 4.97171; box half-widths z 1.0e-26, w 1.0e-20 -> ok
+  the other P roots have their common root at w = ['1.030003', '4.1006549', '8.7172638'] (statement: ['103/100', '41007/10000', '87173/10000'])
+  -> PASS (18 s)
+check spurious:rodal
+  the root of y at r = 4.9937409 (statement 4.9937): leading coefficient of E1 in w, phi^2 y^2 / 4, encloses 0.0 .. 1.13e-92
+  common roots with z in the root cell and |w| <= 1e4: 0 (complete True)
+  -> PASS (0 s)
+
+summary: 5 checks run, 0 failed [], 250 s

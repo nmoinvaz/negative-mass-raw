@@ -1,0 +1,1877 @@
+Dynamics of Bronnikov-Ellis wormhole with double-null simulation
+Anyuan Xua∗ , Xiao Yan Chewa† and Dong-han Yeomb,c,d,e‡
+a
+b
+
+School of Science, Jiangsu University of Science and Technology, Zhenjiang 212100, China
+
+Department of Physics Education, Pusan National University, Busan 46241, Republic of Korea
+c
+
+Research Center for Dielectric and Advanced Matter Physics,
+
+Pusan National University, Busan 46241, Republic of Korea
+d
+
+Leung Center for Cosmology and Particle Astrophysics,
+
+arXiv:2503.07610v1 [gr-qc] 10 Mar 2025
+
+National Taiwan University, Taipei 10617, Taiwan
+e
+
+Department of Physics and Astronomy, University of Waterloo, Waterloo, ON N2L 3G1, Canada
+We investigate the dynamical collapse of Bronnikov-Ellis (BE) wormhole using the double-null
+formalism, where its throat is characterized by the coincidence of two curves r,u = 0 and r,v = 0. The
+emission of two ingoing pulses: normal scalar and phantom fields in the wormhole spacetime reveals
+two distinct instability scenarios: a normal scalar field triggers gravitational collapse into a black hole
+where the singularity r = 0 hidden by the event horizon (r,u = 0 and r,v = 0); while a phantom field
+drives inflationary expansion of wormhole, decoupling two asymptotic regions with the cosmological
+horizon (r,u = 0 and r,v = 0). The process of two scenarios can be accelerated by increasing the
+amplitude of pulses but can be delayed by increasing the wormhole’s mass. Additionally, the collisions
+of two identical pulses from ingoing and outgoing null directions in the massless BE wormhole fail to
+cure the instabilities because the two scenarios can still occur, but the formation of a black hole
+can be delayed for the collision of normal and phantom fields. Interestingly, the strategic tuning of
+emission timing for outgoing phantom field to collide with ingoing normal scalar field can temporarily
+stabilize the wormhole throat by restoring the coincidence of r,u and r,v again after their separation.
+This offers us valuable insights into extending the lifetime of a traversable wormhole.
+
+∗ 1103697451@qq.com
+† xiao.yan.chew@just.edu.cn
+‡ innocent.yeom@gmail.com
+
+2
+Contents
+
+I. Introduction
+
+2
+
+II. BE wormhole in the double-null formalism
+
+3
+
+A. Analytical form of the BE wormhole
+
+4
+
+B. Double-null formalism
+
+5
+
+C. Boundary conditions
+
+6
+
+D. Free parameters in the simulation
+
+7
+
+III. Dynamics of BE wormhole
+
+9
+
+A. Static solution (without pulse)
+
+9
+
+1. Massless limit
+
+9
+
+2. Massive Case
+
+9
+
+B. Destabilization of wormhole
+
+10
+
+1. By a single pulse
+
+10
+
+2. By collision of two pulses at the wormhole throat
+
+13
+
+IV. Conclusion
+
+16
+
+Appendix A: convergence and consistency of numerical computation
+
+17
+
+Acknowledgment
+
+19
+
+References
+
+19
+
+I.
+
+INTRODUCTION
+
+In General Relativity (GR), traversable wormholes are intriguing astrophysical objects that can connect two
+distant universes through a narrow tunnel with minimal surface area, known as the throat. They do not contain
+a singularity or an event horizon in spacetime. However, their existence typically requires violating energy
+conditions, often achieved by introducing exotic matter at the throat to prevent collapse.
+One of the simplest forms of exotic matter can be represented by a phantom field, which is actually a
+scalar field whose kinetic term has the wrong sign in the Lagrangian, where it has been used to describe the
+accelerated expansion of the universe [1–4]. It also has been employed to construct the analytical solution for the
+prominent example of the static and spherically symmetric traversable wormhole in GR—the Bronnikov-Ellis
+(BE) wormhole [5–7], subsequently has been generalized to higher dimensions [8], and include rotation in four
+dimensions [9–13] and five dimensions [14]. The generalization of BE wormholes can be easily achieved by
+minimally coupling a phantom field with gravitational theories, for example, a BE wormhole immersed in
+bosonic matter [15–17], mixed neutron star-wormhole systems [18–20] and other generalizations can be found in
+
+3
+Refs. [21–37]. Besides, recent construction of traversable wormholes in some gravity theories, for instance, in the
+Einstein-3-form [38–40], Einstein-Dirac [41–43] and Einstein-scalar-Gauss-Bonnet [44–47] have demonstrated
+that the inclusion of the phantom field is no longer necessary, this has offered us the new insights on the
+construction of traversable wormholes in some classical gravitational theories.
+However, the static BE wormhole has been shown to possess notorious unstable radial modes in four and
+higher dimensions when spherical perturbation is performed in the background of the wormhole spacetime and
+phantom field [8, 48–51]. Nevertheless, the inclusion of rotation at the wormhole throat might stabilize these
+static wormholes, as demonstrated by some investigation of mode analysis for rotating BE wormholes in four
+dimensions [52, 53] and with equal angular momenta in five dimensions [14]. These studies reveal that at the
+onset of rotation, the unstable radial modes bifurcated from the static limit and then increased to approach zero
+at a critical value of the angular momentum, leaving sufficiently rapidly rotating wormholes without unstable
+radial modes. Besides, the whole spectra of quasinormal modes during the ringdown stage in the emission of
+gravitational waves for the BE wormhole has been studied [51, 54–57].
+Thus, one might wonder whether nonlinear dynamics can stabilize the unstable static wormholes. While
+achieving full stability remains theoretically challenging, exploring nonlinear dynamics might give us some
+insights into the possible suppression of instabilities, potentially extending the lifetime of wormholes. To
+investigate this, we employ the double-null formalism [58]—a numerical framework extensively used in modeling
+black hole formation [59–62], bubble dynamics [63, 64], and wormhole collapse [65]. We study the collapse of
+the BE wormhole by emitting ingoing pulses of normal scalar and phantom fields to the throat. Moreover, we
+introduce colliding pulses—an outgoing pulse of phantom field intersecting the ingoing ones—to explore the
+mechanism of instability suppression. Our results reveal novel pathways for modulating wormhole stability
+through nonlinear pulse interactions.
+The content of our paper is organized as follows: In Sec. II, we briefly introduce the BE wormhole in the
+double-null coordinates and the implementation of double-null formalism, including the derivation of partial
+differential equations (PDEs) and assignment of boundary conditions. We present and discuss our numerical
+results in Sec. III. In Sec. IV, we conclude our work and discuss some possible outlooks from this work.
+
+II.
+
+BE WORMHOLE IN THE DOUBLE-NULL FORMALISM
+
+In this section, we briefly introduce the analytical solution of the BE wormhole in the double-null coordinates
+and then its implementation in the double-null simulation, including the assignment of boundary conditions and
+free parameters.
+
+4
+
+FIG. 1: The embedding diagram of BE wormhole with r0 = 1 and different masses M : M = −1 (left); M = 0 (middle);
+M = 1 (right)
+
+A.
+
+Analytical form of the BE wormhole
+
+In general, we consider a massless phantom field ϕ to be minimally coupled with a massless scalar field ψ
+with the proper sign of kinetic term in the Einstein-Klein-Gordon theory:
+
+
+Z
+√
+1
+1
+1
+R + g µν ϕ;µ ϕ;ν − g µν ψ;µ ψ;ν ,
+S = dx4 −g
+16π
+2
+2
+
+(1)
+
+where R is the Ricci scalar, and the semicolon (; ) denotes the covariant derivative of a function. The variation
+of the above action concerning the metric gµν , ϕ, and ψ yields the Einstein equation and two Klein-Gordon
+equations, respectively:
+Gµν = 8πTµν ,
+
+(2)
+
+ϕ;µν g µν = 0,
+
+(3)
+
+ψ;µν g µν = 0,
+
+(4)
+
+where the energy-momentum tensor Tµν is given by
+1
+1
+Tµν = −ϕ;µ ϕ;ν + ϕ;ρ ϕ;σ g ρσ gµν + ψ;µ ψ;ν − ψ;ρ ψ;σ g ρσ gµν .
+2
+2
+
+(5)
+
+If we set ψ = 0, then the analytical form of static and spherically symmetric BE wormhole is given by [51]
+
+
+Q
+η
+π
+arctan
+−
+,
+(6)
+ϕ(η) =
+η0
+η0
+2
+
+
+
+ds2 = −eF (η) dt2 + e−F (η) dη 2 + η 2 + η02 dθ2 + sin2 θdφ2 ,
+(7)
+where
+F (η) =
+
+2M
+η0
+
+
+arctan
+
+η
+π
+−
+η0
+2
+
+
+,
+
+(8)
+
+with η0 is the throat parameter, M is the Arnowitt-Deser-Misner (ADM) mass of wormhole, Q is the scalar
+charge of ϕ(η). These parameters are constrained by the simple relation M 2 + η02 = Q2 . The range of radial
+coordinate η is −∞ < η < ∞; hence the BE wormhole possesses two asymptotically flat regions when η → ±∞.
+It is obvious F (η) → 1 and ϕ(η) → 0 as η → ∞. However, we can reparametrize the coordinate as t̄ = eπM/η0 t,
+
+5
+η̄ = e−πM/η0 η, so that the metric function F (η) becomes asymptotically flat when η → −∞. As we observe
+from the solution of the BE wormhole, we could scale all the parameters by η0 .
+The geometry of the BE wormhole is relatively simple; first, we can define its circumferential radius on the
+equatorial plane (θ = π/2) as
+Re =
+
+√
+
+= e−f /2
+
+gφφ
+
+q
+
+η 2 + η02 .
+
+(9)
+
+θ=π/2
+
+Then, we inspect that Re contains a global minimum, which indicates it only possesses a single throat at the
+radial coordinate η = 2M . The shape of the wormhole throat can be visualized in Fig. 1 by embedding the
+throat on the equatorial plane to the three-dimensional cylindrical coordinate (z, ρ, φ) in the Euclidean space,
+e−f dη 2 + e−f (η 2 + η02 )dφ2 = dz 2 + dρ2 + ρ2 dφ2 ,
+
+(10)
+
+which yields
+Z
+
+s
+
+z=±
+
+e−f −
+
+
+
+d −f 2
+e (η + η02 )
+dη
+
+2
+dη ,
+
+(11)
+
+where + sign denotes the upper part of the wormhole and − sign denotes the lower part of the wormhole. The
+structure of the BE wormhole is symmetric for the massless case (M = 0) but asymmetric for the massive case
+(M ̸= 0).
+
+B.
+
+Double-null formalism
+
+The most generic expression for a spherically symmetric metric is employed as an ansatz in the double-null
+formalism:
+ds2 = −α2 (u, v)dudv + r2 (u, v)dΩ2 ,
+
+(12)
+
+where the embedded coordinate is [u, v, θ, φ] with u and v denote ingoing and outgoing null directions, respectively.
+The direct substitution of the above metric into the equations of motion, Eqs. (2)-(4) can yield a set of secondorder PDEs, thus we can reduce second-order derivative of functions as first-order derivatives of functions for
+the sake of numerical computation by redefining several functions as α,u /α ≡ h, α,v /α ≡ d, r,u ≡ f , r,v ≡ g,
+√
+√
+4πψ ≡ s, s,u ≡ w, s,v ≡ z, 4πϕ ≡ S, S,u ≡ W , and S,v ≡ Z. Then, the non-vanishing components of the
+Einstein tensor Gµν obtained as follows [58]:
+2
+Guu = − (f,u − 2f h) ,
+r
+
+1
+Guv = 2 4rf,v + α2 + 4f g ,
+2r
+2
+Gvv = − (g,v − 2gd) ,
+r 
+
+r2
+f,v
+,
+Gθθ = −4 2 d,u +
+α
+r
+
+(13)
+(14)
+(15)
+(16)
+
+6
+and the components of the energy-momentum tensor Tµν :
+
+1
+w2 − W 2 ,
+4π
+Tuv = 0,
+
+1
+z2 − Z 2 ,
+Tvv =
+4π
+r2
+Tθθ =
+(wz − W Z) .
+2πα2
+Tuu =
+
+(17)
+(18)
+(19)
+(20)
+
+Note that Gθθ = sin−2 θGφφ due to the spherical symmetry, hence we do not need to consider the φφ-component
+in the computation.
+We obtain the following PDEs by algebraically manipulating Gµν = Tµν :
+
+f,u = 2f h − r w2 − W 2 ,
+
+g,v = 2gd − r z 2 − Z 2 ,
+
+(21)
+(22)
+
+2
+
+f,v = g,u = −
+
+fg
+α
+−
+,
+4r
+r
+
+h,v = d,u = − (wz − W Z) −
+
+(23)
+f,v
+,
+r
+
+(24)
+
+and the two Klein-Gordon equations as:
+fz
+gw
+−
+,
+r
+r
+fZ
+gW
+Z,u = W,v = −
+−
+.
+r
+r
+z,u = w,v = −
+
+(25)
+(26)
+
+We solve Eqs. (23), (24), (25), and (26) for the functions r, α, ϕ, and ψ, respectively. Thus, the remaining
+equations, Eqs. (21) and (22) are the constraint equations, which can be assigned as the boundary conditions in
+the numerical computation.
+
+C.
+
+Boundary conditions
+
+To solve the PDEs, we need to impose initial conditions for functions α, h, d, r, f, g, s, w, z, S, W, Z on the
+initial surfaces u = ui and v = vi . We can choose ui = vi = 0 for simplicity. Besides, a direct comparison of the
+metric of static BE wormhole with double-null coordinate yields
+r(u, v) =
+
+p
+
+Re .
+
+(27)
+
+First, we impose the analytical solution of BE wormhole on the initial hypersurfaces (u, 0) and (0, v) in the
+double-null coordinates as:
+p
+
+
+M 2 + η02
+η
+π
+arctan
+−
+,
+η0
+η0
+2
+
+
+
+q
+M
+η
+π
+r(η) =
+η 2 + η02 exp −
+arctan
+−
+.
+η0
+η0
+2
+
+ϕ(η) =
+
+(28)
+(29)
+
+For simplicity, we also assume a gauge choice of η as a simple combination of u and v as:
+η=
+
+u − v + 2M
+.
+2
+
+(30)
+
+7
+Thus, this allows us to set the analytical solution of BE wormhole as boundary conditions for f (u, 0), s(u, 0),
+and w(u, 0) on the ingoing null surface and g(0, v), s(0, v), and z(0, v) on the outgoing null surface. (Regarding
+the assignment of boundary condition for α(0, 0), see also [63, 66, 66]):
+
+
+
+u/2
+M
+u + 2M
+π
+f (u, 0) = r,u |v=0 = 
+arctan
+−
+,
+1/2 exp − η
+2η0
+2
+2
+0
+4η02 + (u + 2M )
+
+
+
+
+2 M 2 + η02
+M
+u + 2M
+π
+f,u (u, 0) = r,uu |v=0 = 
+arctan
+−
+,
+3/2 exp − η
+2η0
+2
+2
+0
+4η02 + (u + 2M )
+
+
+
+M
+v/2
+−v + 2M
+π
+exp
+−
+g(0, v) = r,v |u=0 = 
+arctan
+−
+,
+1/2
+η0
+2η0
+2
+2
+4η02 + (−v + 2M )
+
+
+
+
+2 M 2 + η02
+M
+−v + 2M
+π
+g,v (0, v) = r,vv |u=0 = 
+exp
+−
+arctan
+−
+,
+3/2
+η0
+2η0
+2
+2
+4η02 + (−v + 2M )
+ 
+
+1
+M
+M
+π
+p
+g,u (0, 0) = f,v (0, 0) = r,uv |u=v=0 = −
+exp
+− arctan
++
+.
+η0
+η0
+2
+4 M 2 + η02
+
+(31)
+
+(32)
+
+(33)
+
+(34)
+
+(35)
+
+The boundary condition for α(0, 0) is derived from Eq. (23) with r,u (0, 0) = r,v (0, 0) = 0, thus we obtain
+α2 (0, 0) = −4r(0, 0)r,uv (0, 0) as
+
+
+M
+α(0, 0) = exp
+η0
+
+
+
+M
+π
+− arctan
++
+η0
+2
+
+
+.
+
+(36)
+
+By having the above sufficient information, we can determine the boundary conditions for the remaining
+functions as follows:
+Ingoing null surface: S(u, 0) and W (u, 0) can be chosen by hand. By plugging them into Eq. (21), we obtain
+h(u, 0) = 0. We obtain d(u, 0) from Eq. (24), g(u, 0) from Eq. (23), z(u, 0) from Eq. (25), and Z(u, 0)
+from Eq. (26).
+Outgoing null surface: S(0, v) and W (0, v) can be chosen by hand. By plugging them into Eq. (22), we
+obtain d(0, v) = 0. We obtain h(0, v) from Eq. (24), f (0, v) from Eq. (23), w(0, v) from Eq. (25), and
+W (0, v) from Eq. (26).
+After solving the PDEs numerically, we check the convergence of our numerical results and present them in
+Appendix A.
+
+D.
+
+Free parameters in the simulation
+
+We briefly describe the tuning of some parameters in our simulation. The BE wormhole can be characterized
+by two parameters, which are M and η0 from the constraint M 2 + η02 = Q2 . It can be conveniently described
+by only one parameter M if we scale M by η0 as M/η0 . In the simulation, the collapse of BE wormhole is
+triggered by the propagation of pulses in the form of normal scalar Z(0, v) and phantom z(0, v) fields in the
+spacetime, then we introduce their analytical expressions along the outgoing null direction (u = 0) for the range
+
+8
+vi ≤ v ≤ v f :
+
+
+π sv0
+v − vi
+z(0, v) = −
+sin π
+,
+2 vf − vi
+vf − vi
+
+
+π S0v
+v − vi
+Z(0, v) = −
+sin π
+,
+2 vf − vi
+vf − vi
+
+(37)
+(38)
+
+and along the ingoing null direction (v = 0) for ui ≤ u ≤ uf :
+
+
+u − ui
+π su0
+sin π
+,
+w(u, 0) = −
+2 uf − ui
+uf − ui
+
+
+π S0u
+u − ui
+W (u, 0) = −
+sin π
+,
+2 uf − ui
+uf − ui
+
+(39)
+(40)
+
+We explain in detail the parameters in the above expressions:
+– Amplitudes of pulses: ingoing scalar field sv0 , ingoing phantom field S0v , outgoing scalar field su0 , and
+outgoing phantom field S0u .
+– Time interval of pulses: ingoing pulse only exists in vi ≤ v ≤ vf ; outgoing pulse only exists in ui ≤ u ≤ uf .
+M=0, r
+
+Tuu
+
+0.01
+0.005
+
+8
+
+0.00
+
+8
+
+-0.005
+6
+
+r,v=0
+
+u
+
+4
+
+4
+
+2
+
+2
+
+2
+
+4
+
+v
+
+-0.01
+
+6
+
+r,u=0
+
+u
+
+6
+
+8
+
+2
+
+4
+
+v
+
+6
+
+8
+
+6
+
+8
+
+Tθθ
+
+Tvv
+
+8
+
+8
+
+6
+
+6
+
+u
+
+u
+4
+
+4
+
+2
+
+2
+
+2
+
+4
+
+v
+
+6
+
+8
+
+2
+
+4
+
+v
+
+FIG. 2: Some characteristics of massless BE wormhole (M = 0) in the double-null coordinates (clockwise direction):
+r(u, v), Tuu (u, v), Tvv (u, v), and Tθθ (u, v). r,v = 0 (blue) and r,u = 0 (red) represent apparent horizons for an outgoing
+and an ingoing null direction, respectively. The overlapping of r,v = r,u = 0 denotes the wormhole throat. The negative
+values of Tuu and Tvv are described by the color gradient of blue, but the positive values of Tθθ are described by the
+color gradient of red and yellow.
+
+9
+III.
+
+DYNAMICS OF BE WORMHOLE
+
+There are two main parts in this section. The first part introduces some properties of the static BE wormhole
+in the double-null coordinates. Then, we study the gravitational collapse of the BE wormhole, which is triggered
+by the emissions of normal scalar and phantom pulses in the second main part.
+
+A.
+
+Static solution (without pulse)
+
+1.
+
+Massless limit
+
+Fig. 2 illustrates the main features of the BE wormhole for the massless case M = 0, where the spacetime
+exhibits symmetry about η = 0. The contour plot of r(u, v) depicts curves of constant areal radius r, with the
+wormhole throat identified by the overlap of the apparent horizons r,v = 0 and r,u = 0 [67]. The throat forms
+approximately 45◦ angle with the outgoing horizontal (u = constant, v) and ingoing vertical (u, v = constant)
+null directions, divides the whole wormhole spacetime into two identical structures, analogous to the middle
+figure of Fig. 1. Note that the areal radius r increases monotonically when moving away from the wormhole
+throat to the lower or upper part of the wormhole. Thus, an ingoing observer (constant v) can observe r
+decreases to a minimum value at the throat when moving from past infinity toward the throat, and then r
+increases monotonically when crossing the throat, since r,u changes its sign at the throat, marking the transition
+of wormhole geometry from contraction to expansion. An outgoing observer (constant u) also observes a similar
+effect when crossing from the past infinity to the future infinity where r,v changes its sign at the throat.
+The existence of BE wormhole requires the violation of energy conditions; thus, it would be interesting to
+analyze its energy-momentum tensor components: Tuu , Tvv , and Tθθ . Here, Tuu quantifies the ingoing energy
+flux as measured by an outgoing observer, while Tvv corresponds to the outgoing energy flux as seen by an
+ingoing observer. The null energy condition (NEC) holds only if both Tuu and Tvv are positive. However, Fig. 2
+demonstrates that both components are negative throughout the spacetime, confirming the violation of NEC for
+all ingoing and outgoing observers. The color gradient further reveals that this violation is maximum at the
+wormhole throat, where the phantom field is most concentrated, and gradually diminishes to zero at infinity.
+
+2.
+
+Massive Case
+
+Fig. 3 exhibits the contour plot of r(u, v) for the BE wormhole with varying M . As M increases, the throat
+gradually deviates from the 45◦ alignment, as observed in the massless case, causing the wormhole’s upper and
+lower parts to be no longer identical. Such deviation can also be analogously seen in the embedding diagrams
+(Fig. 1), where the wormhole structure is asymmetric when M > 0. However, it is possible to restore the 45◦
+alignment of curves r(u, v) with the ingoing and outgoing null directions for a massive BE wormhole since there
+is a gauge freedom to reparametrize the wormhole solution.
+
+10
+
+FIG. 3: The contour plot of r(u, v) for massive BE wormhole by varying M = 0, 0.05, 0.1, 0.15, 0.3, and 0.5.
+
+B.
+
+Destabilization of wormhole
+
+1.
+
+By a single pulse
+
+We investigate the stability of BE wormhole under the influence of ingoing normal scalar and phantom pulses
+along the outgoing null hypersurface v, as demonstrated numerically in Figs. 4 and 5. For the M = 0 case
+(Fig. 4), the left and right panel figures depict normal scalar and phantom pulses with varying amplitudes,
+respectively.
+In the normal scalar pulse scenario, the curves r,v = 0 and r,u = 0, which initially coincide at the wormhole
+throat to form an apparent horizon, diverge when a pulse of normal scalar field with the amplitude sv0 = 0.05
+is emitted from (u = 0, vi = 5) and propagates toward the apparent horizon. This splits the throat into two
+distinct apparent horizons r,v = 0 and r,u = 0, destabilizing the wormhole geometry. Consequently, a curvature
+singularity forms at r = 0, hidden by these horizons with r,v = 0 and r,u = 0. Observers located in the lower
+asymptotically flat region (right side) detect r,v = 0 horizon, while observers in the upper region (left side)
+detect r,u = 0. Both independently indicate the collapse of the BE wormhole into a Schwarzschild black hole, as
+the throat no longer connects the two asymptotic regions (see left of Fig. 6). As we increase the amplitudes
+of pulses sv0 to 0.075 and 0.1, the singularity appears relatively earlier, and this is related to the fact that we
+increase the energy of the pulse, which can accelerate the process. Besides, two observers on opposite sides of
+the wormhole can communicate with each other if they stay outside the event horizon, as shown in Fig. 6 (left).
+In the phantom pulse scenario, the curves r,v = 0 and r,u = 0 initially coincide at the wormhole throat,
+
+11
+M=0, vi=5, vf=6
+Sv0=0.05
+
+v
+
+s 0=0.05
+r=0 singularity
+8
+
+8
+
+6
+
+6
+
+r,u=0
+
+u
+
+r,v=0
+
+u
+
+r,v=0
+4
+
+4
+
+2
+
+2
+
+2
+
+4
+
+v
+
+6
+
+2
+
+8
+
+r=0 singularity
+
+6
+r,u=0
+
+4
+
+8
+
+8
+
+6
+u
+
+6
+
+v
+
+Sv0=0.075
+
+sv0=0.075
+
+8
+
+4
+
+r,u=0
+
+r,v=0
+r,u=0
+
+u
+r,v=0
+
+4
+
+2
+
+2
+
+2
+
+4
+
+v
+
+6
+
+2
+
+8
+
+v
+
+6
+
+8
+
+Sv0=0.1
+
+sv0=0.1
+
+8
+
+4
+
+8
+
+r=0 singularity
+
+6
+
+6
+u
+
+u
+
+r,u=0
+4
+
+r,v=0
+r,u=0
+
+4
+
+r,v=0
+
+2
+
+2
+
+2
+
+4
+
+v
+
+6
+
+8
+
+2
+
+4
+
+v
+
+6
+
+8
+
+FIG. 4: Destabilization of the massless BE wormhole (M = 0) induced by a single pulse along the ingoing null direction
+from vi = 5 to vf = 6. The left and right figures correspond to the pulses of normal scalar sv0 and phantom fields S0v with
+different amplitudes, respectively.
+
+forming the apparent horizon. Unlike the normal scalar case, no black hole and curvature singularity form when
+a phantom pulse with the amplitude S0v = 0.05 is emitted from (u = 0, vi = 5) and propagates toward the
+apparent horizon, even though the apparent horizon splits into distinct r,v = 0 and r,u = 0 curves. Observers
+in the lower region of the wormhole (right side) detect r,u = 0 horizon, while those in the upper region (left
+side) observe r,v = 0. These distinct horizons show inflationary dynamics in the BE wormhole, which ultimately
+decouples the two asymptotic regions by the cosmological horizon with r,u = 0 and r,v = 0 (see right of Fig. 6).
+Consequently, the BE wormhole retains traversability only temporarily immediately after the phantom pulse as
+the spacetime geometry begins to separate. The inflationary expansion irreversibly destroys the throat as time
+passes, permanently cutting the connection.
+
+12
+M=0.1, vi=5, vf=6
+Sv0=0.05
+
+v
+
+s 0=0.05
+
+8
+
+8
+r,u=0
+
+r,v=0
+
+r,u=0
+
+r,v=0
+6
+
+6
+u
+
+u
+4
+
+4
+
+2
+
+2
+
+2
+
+4
+
+v
+
+6
+
+2
+
+8
+
+sv0=0.075
+
+8
+r,u=0
+
+6
+
+v
+
+6
+
+8
+
+Sv0=0.075
+
+r=0 singularity
+
+8
+
+4
+
+r,v=0
+
+r,u=0
+
+6
+
+r,v=0
+
+u
+
+u
+4
+
+4
+
+2
+
+2
+
+2
+
+4
+
+v
+
+6
+
+2
+
+8
+
+4
+
+v
+
+6
+
+8
+
+Sv0=0.1
+
+sv0=0.1
+r=0 singularity
+8
+
+8
+r,u=0
+
+6
+
+r,v=0
+
+r,v=0
+
+6
+
+u
+
+u
+4
+
+4
+
+2
+
+2
+
+2
+
+4
+
+v
+
+6
+
+8
+
+2
+
+4
+
+r,u=0
+
+v
+
+6
+
+8
+
+FIG. 5: Destabilization of the massive BE wormhole with M = 0.1 induced by a single pulse along the ingoing null
+direction from vi = 5 to vf = 6. The left and right figures correspond to the pulses of normal scalar sv0 and phantom
+fields S0v with different amplitudes, respectively.
+
+Fig. 5 demonstrates the destabilization of the massive BE wormhole with M = 0.1 via a single-pulse emission
+of an ingoing normal scalar field (left panel) and phantom field (right panel) for vi = 5 to vf = 6. Increasing the
+amplitude sv0 of the normal scalar field accelerates the formation of a black hole with an event horizon and a
+spacelike singularity r = 0. Meanwhile, increasing the amplitude S0v of the phantom field widens the separation
+between the apparent horizons r,u = 0 and r,v = 0. Hence, the stability of the massive wormhole cannot be
+enhanced, and it becomes worse in this scenario.
+
+13
+
+FIG. 6: The Penrose diagrams illustrate the causal structure of the BE wormhole, which is destabilized by a single pulse
+along the ingoing null direction (black arrow) of a normal scalar field (left) and a phantom field (right). Separation of
+the apparent horizons r,u = 0 (red) and r,v = 0 (blue) leads to two distinct outcomes: for the normal field, an event
+horizon (green dashed) forms, shielding a r = 0 spacelike singularity; for the phantom field, a cosmological horizon (green
+dashed) terminates at future null infinity r = ∞, avoiding singularity formation.
+M=0, vi=5, vf=6
+sv0=0.075, Su0=0.075, ui=5, uf=6
+
+sv0=0.075, su0=0.075, ui=5, uf=6
+
+Sv0=0.075, Su0=0.075, ui=5, uf=6
+
+r=0
+singularity
+8
+
+8
+
+r=0 singularity
+
+6
+
+6
+r,u=0
+
+u
+
+6
+
+r,u=0
+
+u
+
+r,v=0
+
+r,u=0
+
+4
+
+4
+
+2
+
+2
+
+2
+
+4
+
+v
+
+6
+
+8
+
+2
+
+4
+
+v
+
+6
+
+r,v=0
+
+u
+
+r,v=0
+
+4
+
+2
+
+FIG. 7:
+
+8
+
+8
+
+2
+
+4
+
+v
+
+6
+
+8
+
+Destabilization of the massless BE wormhole M = 0 via collisions of two pulses with equal magnitude of
+
+amplitude at the throat. Pulses are emitted along ingoing (vi = 5 to vf = 6) and outgoing (ui = 5 to uf = 6) null
+directions with amplitudes (sv0 , S0v ) and (su0 , S0u ), respectively, for three cases: (left) two normal scalar fields (sv0 , su0 );
+(middle) normal scalar sv0 and phantom fields S0u ; (right) two phantom fields (S0v , S0u ).
+
+2.
+
+By collision of two pulses at the wormhole throat
+
+Previously, we observed that a single pulse destabilizes the BE wormhole, triggering either black hole formation
+for a normal scalar pulse or permanent separation of the asymptotic regions for a phantom pulse. Here, we
+investigate scenarios where two pulses collide with perfect timing at the wormhole throat. By adjusting the
+parameters of the pulses, we explore whether their interaction could counteract the destabilizing effects as
+observed in single-pulse cases. Specifically, can fine-tuned collisions stabilize the throat, delaying or preventing
+horizon formation and maintaining traversability?
+Fig. 7 illustrates collisions of two scalar pulses in combinations of normal scalar and phantom fields at the
+throat of a massless BE wormhole M = 0. In this framework, sv0 and su0 denote normal scalar pulses propagating
+in the ingoing v-direction and outgoing u-direction, respectively, while S0v and S0u represent phantom scalar
+
+14
+M=0.1, vi=5, vf=6
+v
+
+v
+
+s 0=0.075, Su0=0.075, ui=7, uf=8
+
+u
+
+s 0=0.075, s 0=0.075, ui=7, uf=8
+
+Sv0=0.075, Su0=0.075, ui=7, uf=8
+
+r=0 singularity
+8
+
+8
+
+8
+r,v=0
+
+6
+
+6
+
+r,u=0
+
+u
+
+r,u=0
+
+4
+
+4
+
+2
+
+2
+
+2
+
+2
+
+4
+
+v
+
+6
+
+r,u=0
+
+u
+
+4
+
+v
+
+r,v=0
+
+6
+
+u
+
+r,v=0
+
+2
+
+8
+v
+
+u
+
+4
+
+v
+
+6
+
+8
+
+2
+
+u
+
+v
+
+s 0=0.075, S 0=0.075, ui=8, uf=9
+
+s 0=0.075, s 0=0.075, ui=8, uf=9
+
+4
+
+v
+
+6
+
+8
+
+u
+
+S 0=0.075, S 0=0.075, ui=8, uf=9
+
+r=0 singularity
+
+r,u=0
+
+r,u=0
+
+6
+
+6
+
+r,v=0
+
+u
+
+r,v=0
+
+r,v=0
+
+6
+
+4
+
+4
+
+2
+
+2
+
+2
+
+4
+
+v
+
+6
+
+8
+
+r,u=0
+
+u
+
+u
+
+4
+
+2
+
+FIG. 8:
+
+8
+
+8
+
+8
+
+2
+
+4
+
+v
+
+6
+
+8
+
+2
+
+4
+
+v
+
+6
+
+8
+
+Destabilization of the massive BE wormhole M = 0.1 via collisions of two pulses with equal magnitude of
+
+amplitude at the throat. Pulses are emitted along ingoing (vi = 5 to vf = 6) and outgoing (upper: ui = 7 to uf = 8;
+lower: ui = 8 to uf = 9) null directions with amplitudes (sv0 , S0v ) and (su0 , S0u ), respectively, for three panels: (left) two
+normal scalar fields (sv0 , su0 ); (middle) normal scalar sv0 and phantom fields S0u ; (right) two phantom fields (S0v , S0u ).
+
+pulses in the same directions. When both ingoing and outgoing pulses are normal scalar fields (left panel),
+the collision forms a Schwarzschild black hole and a curvature singularity at r = 0, replicating the dynamics
+observed in single-pulse scenarios. Conversely, collisions of two phantom pulses (right panel) trigger inflationary
+expansion of spacetime, decoupling two asymptotic regions by cosmological horizons, also analogous to the
+single phantom pulse case.
+A notable feature arises in the middle panel of Fig. 7, which depicts a collision at the throat of two pulses with
+identical magnitude and timing but opposite types: an ingoing normal scalar pulse sv0 and an outgoing phantom
+scalar pulse S0u . We might naively expect that this collision can prevent the formation of a (Schwarzschild)
+black hole and curvature singularity in the wormhole spacetime, but they eventually exist. However, the
+curvature singularity forms later where the wormhole spacetime can be maintained slightly longer than the
+purely normal-pulse collision (left panel of Fig. 7). This indicates that the collision of mixed pulses does not
+stabilize the wormhole; it just temporarily extends the traversability of the wormhole by delaying singularity
+formation. Thus, the wormhole geometry remains unstable in this hybrid scenario, but its lifetime is prolonged
+compared to other cases in Figs. 7 and 8.
+The dynamics of pulse collisions can be extended to BE wormhole with non-vanishing mass M =
+̸ 0, as shown
+in Fig. 8 for M = 0.1. While the amplitudes of both pulses are set to be equal, the asymmetric geometry
+
+15
+of the throat requires us to precisely tune the timing of outgoing pulse (ui , uf ) relative to the ingoing pulse.
+Though the left and right panels of Fig. 8 confirm instability in all cases, modest enhancements in stability are
+achievable: the formation of black holes and decoupling of two asymptotics regions can be delayed, analogous to
+some earlier results. In particular, the middle panel demonstrates that while the wormhole remains eventually
+unstable, strategic timing alignment of pulses temporarily sustains traversability by postponing the throat’s
+collapse. This implies that even for M =
+̸ 0, hybrid pulse interactions can reduce but do not cure the instability,
+offering only limited extensions to the wormhole’s lifetime.
+M=0.1, vi=5, vf=6
+sv0=0.075, Su0=0.075, ui=8, uf=9
+
+Tuu
+
+0.01
+0.005
+
+r,u=0
+
+8
+
+0.00
+
+8
+
+r,v=0
+
+-0.005
+6
+
+-0.01
+
+6
+
+u
+
+u
+4
+
+4
+
+2
+
+2
+
+2
+
+4
+
+v
+
+6
+
+8
+
+2
+
+4
+
+v
+
+6
+
+8
+
+6
+
+8
+
+Tθθ
+
+Tvv
+
+8
+
+8
+
+6
+
+6
+
+u
+
+u
+4
+
+4
+
+2
+
+2
+
+2
+
+4
+
+v
+
+6
+
+8
+
+2
+
+4
+
+v
+
+FIG. 9: The components of energy-momentum tensor in clockwise direction: Tuu , Tθθ , and Tvv to describe collisions
+(top-left panel) of a normal scalar field with sv0 = 0.075 (the red spike in Tvv ) and phantom field with S0u = 0.075 (the
+blue spike in Tθθ ) at the throat of the massive BE wormhole with M = 0.1. Pulses are emitted along ingoing (vi = 5 to
+vf = 6) and outgoing (ui = 7 to uf = 8) null directions.
+
+Fig. 9 shows the components of energy-momentum tensor: Tuu , Tθθ , and Tvv to depict the dynamics of areal
+radius r(u, v) under the collisions of two pulses from the bottom-middle panel of Fig. 8. The appearance of
+a red spike in the entirely negative of Tvv corresponds to the ingoing normal scalar field, which destroys the
+coincidence of the apparent horizons r,v = 0 and r,u = 0. Conversely, the appearance of a blue spike in entirely
+positive of Tθθ corresponds to the outgoing phantom field that temporarily binds the curves r,v = 0 and r,u = 0
+before their final separation, thus exhibiting quasi-oscillatory behavior of throat. Additionally, the phantom
+field amplifies the violation of weak energy condition in Tuu by expanding its negative region along the emission
+of the phantom field.
+
+16
+IV.
+
+CONCLUSION
+
+Our paper employs the double-null formalism to investigate the stability of the Bronnikov-Ellis (BE) wormhole,
+utilizing boundary conditions derived from the analytical solution of the Bronnikov-Ellis (BE) wormhole. The
+throat of the BE wormhole can be identified when the two apparent horizons r,u = 0 and r,v = 0 coincide. We
+probe the destabilization mechanisms of the BE wormhole by emitting ingoing and outgoing pulses composed
+of normal scalar and phantom fields into the wormhole spacetime. Our results demonstrate that a single
+propagating pulse triggers the BE wormhole to become unstable with the separation of r,v = 0 and r,u = 0 for
+two outcomes: BE wormhole collapses into a black hole for normal scalar field or induces inflationary expansion
+to decouple two asymptotic regions for the phantom field. These two scenarios can happen relatively earlier if
+the amplitude of pulses increases.
+Next, we consider collisions between two pulses with equal amplitude emitted from ingoing and outgoing null
+directions; we find that the two scenarios also occur for identical pulses. However, the increase in the wormhole’s
+mass can delay the two scenarios, temporarily prolonging the stability of the wormhole before its inevitable
+collapse. Notably, the strategic emission of the outgoing phantom pulse for massive BE wormhole induces the
+apparent horizons r,u = 0 and r,v = 0, initially separated by the ingoing normal scalar field, can temporarily
+coincide by exhibiting oscillating behavior. This oscillation extends the traversability of the wormhole, providing
+insight into reducing instability through controlled interactions of fields.
+Our work addresses a longstanding issue of traversable wormholes, i.e., their instability, by proposing a
+hypothetical stabilization protocol: one observer traverses the wormhole while another strategically emits
+a phantom pulse to counteract destabilizing normal scalar field pulse. Though speculative, this highlights
+the potential for engineered pulse sequences to stabilize wormhole geometries, necessitating rigorous future
+exploration.
+Finally, the double-null formalism proves to be a robust framework for probing the stability of BE wormhole.
+This formalism offers more profound insights into spacetime stability than linear perturbation theory by directly
+addressing the nonlinear dynamics in spacetime. For future work, it enables us to study the stability of other
+compact objects with either analytical or numerical solutions.
+
+17
+Appendix A: convergence and consistency of numerical computation
+
+We check our numerical convergence and consistency for the case M = 0.1, employing progressively refined
+resolutions: the primary resolution r(1) , used as our default grid, is compared against a 2 × 2-finer simulation
+r(2) with halved step sizes along u and v-directions, and a 4 × 4-finer simulation r(4) with step sizes reduced to
+one-fourth of r(1) . By computing
+r(1) − r(2)
+r(2) − r(4)
+
+(41)
+
+for several u = const. slices as shown in Fig. 10. As the results approach approximately 2, we can confirm that
+this simulation converges the second-order; this indicates that our numerical algorithm used the second-order
+method.
+
+3
+
+|r (1 )- r (2 )|/ |r (2 )- r (4 )|
+
+u = 2
+u = 4
+u = 6
+u = 8
+2
+
+1
+
+0
+0
+
+2
+
+4
+
+6
+
+8
+
+1 0
+
+v
+
+FIG. 10: r(1) − r(2) / r(2) − r(4) for the M = 0.1 case.
+
+0.01
+
+1E-3
+
+1E-4
+
+Guu, u=2
+Guu, u=4
+Guu, u=6
+Guu, u=8
+Gvv, u=2
+Gvv, u=4
+Gvv, u=6
+Gvv, u=8
+
+1E-5
+
+1E-6
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+v
+
+FIG. 11: Eq. (42) (first 4 curves, denoted by Guu ) and Eq. (43) (next 4 curves, denoted by Gvv ) for the M = 0.1 case.
+
+To examine the consistency, we compute the following two expressions formed by the components of the
+
+18
+Einstein equation:
+
+2
+r
+
+|Guu − 8πTuu |
+,
+(|f,u | + |2f h|) + |8πTuu |
+
+(42)
+
+2
+r
+
+|Gvv − 8πTvv |
+.
+(|g,v | + |2gd|) + |8πTvv |
+
+(43)
+
+Notice that we did not solve the above expressions in the numerical calculation; we only use them to impose the
+boundary condition; hence, in principle, these constraints must vanish automatically when we have obtained the
+numerical solutions. However, as shown in Fig. 11 for several slices of u = const., their numerical residuals are
+orders of magnitude below unity across the entire computational domain, confirming the consistency of our
+numerical results.
+
+19
+Acknowledgment
+
+DY was supported by the National Research Foundation of Korea (Grant No. : 2021R1C1C1008622,
+2021R1A4A5031460). XYC was supported by the starting grant of Jiangsu University of Science and Technology
+(JUST). AX was supported by JUST for the research trip to Pusan National University. We also acknowledged
+having valuable discussions with Jakob Hansen and Igor Novikov during the early stage of this research.
+
+[1] R. R. Caldwell, Phys. Lett. B 545, 23 (2002) [astro-ph/9908168].
+[2] S. M. Carroll, M. Hoffman and M. Trodden, Phys. Rev. D 68, 023509 (2003) [astro-ph/0301273].
+[3] G. W. Gibbons, hep-th/0302199.
+[4] S. Hannestad, Int. J. Mod. Phys. A 21, 1938 (2006) [astro-ph/0509320].
+[5] H. G. Ellis, J. Math. Phys. 14, 104-118 (1973).
+[6] H. G. Ellis, Gen. Rel. Grav. 10, 105-123 (1979).
+[7] K. A. Bronnikov, Acta Phys. Polon. B4, 251-266 (1973).
+[8] T. Torii and H. a. Shinkai, Phys. Rev. D 88, 064027 (2013) [arXiv:1309.2058 [gr-qc]].
+[9] P. E. Kashargin and S. V. Sushkov, Grav. Cosmol. 14, 80 (2008). [arXiv:0710.5656 [gr-qc]].
+[10] P. E. Kashargin and S. V. Sushkov, Phys. Rev. D 78, 064071 (2008). [arXiv:0809.1923 [gr-qc]].
+[11] B. Kleihaus and J. Kunz, Phys. Rev. D 90 (2014) 121503 [arXiv:1409.1503 [gr-qc]].
+[12] X. Y. Chew, B. Kleihaus and J. Kunz, Phys. Rev. D 94 (2016) no.10, 104031 [arXiv:1608.05253 [gr-qc]].
+[13] X. Y. Chew, B. Kleihaus and J. Kunz, Phys. Rev. D 97 (2018) no.6, 064026 [arXiv:1802.00365 [gr-qc]].
+[14] V. Dzhunushaliev, V. Folomeev, B. Kleihaus, J. Kunz and E. Radu, Phys. Rev. D 88, 124028 (2013). [arXiv:1309.2448
+[gr-qc]].
+[15] V. Dzhunushaliev, V. Folomeev, C. Hoffmann, B. Kleihaus and J. Kunz, Phys. Rev. D 90, no. 12, 124038 (2014)
+[arXiv:1409.6978 [gr-qc]].
+[16] C. Hoffmann, T. Ioannidou, S. Kahlen, B. Kleihaus and J. Kunz, Phys. Rev. D 97, no. 12, 124019 (2018)
+[arXiv:1803.11044 [gr-qc]].
+[17] P. B. Ding, T. X. Ma, T. F. Fang and Y. Q. Wang, JHEP 04 (2024), 033 [arXiv:2305.19819 [gr-qc]].
+[18] V. Dzhunushaliev, V. Folomeev, B. Kleihaus and J. Kunz, JCAP 1104, 031 (2011) [arXiv:1102.4454 [astro-ph.GA]].
+[19] A. Aringazin, V. Dzhunushaliev, V. Folomeev, B. Kleihaus and J. Kunz, JCAP 1504, no. 04, 005 (2015)
+[arXiv:1412.3194 [gr-qc]].
+[20] V. Dzhunushaliev, V. Folomeev, B. Kleihaus and J. Kunz, Phys. Rev. D 107 (2023) no.4, 044060 [arXiv:2210.04425
+[gr-qc]].
+[21] X. Y. Chew, V. Dzhunushaliev, V. Folomeev, B. Kleihaus and J. Kunz, Phys. Rev. D 100 (2019) no.4, 044019
+[arXiv:1906.08742 [gr-qc]].
+[22] X. Y. Chew and K. G. Lim, Phys. Rev. D 102 (2020) no.12, 124068 [arXiv:2009.13334 [gr-qc]].
+[23] X. Y. Chew and K. G. Lim, Phys. Rev. D 105 (2022) no.8, 084058 [arXiv:2109.00262 [gr-qc]].
+[24] C. Martinez and M. Nozawa, Phys. Rev. D 103 (2021) no.2, 024003 [arXiv:2010.05183 [gr-qc]].
+[25] P. Dutta Roy, S. Aneesh and S. Kar, Eur. Phys. J. C 80 (2020) no.9, 850 [arXiv:1910.08746 [gr-qc]].
+[26] V. Sharma and S. Ghosh, Eur. Phys. J. Plus 137 (2022) no.8, 881 [arXiv:2205.08865 [gr-qc]].
+
+20
+[27] H. Huang, H. Lü and J. Yang, Class. Quant. Grav. 39 (2022) no.18, 185009 [arXiv:2010.00197 [gr-qc]].
+[28] J. L. Blázquez-Salcedo, X. Y. Chew, J. Kunz and D. H. Yeom, Eur. Phys. J. C 81 (2021) no.9, 858 [arXiv:2012.06213
+[gr-qc]].
+[29] T. Karakasis, E. Papantonopoulos and C. Vlachos, Phys. Rev. D 105 (2022) no.2, 024006 [arXiv:2107.09713 [gr-qc]].
+[30] A. A. A. Filho, J. Furtado, J. A. A. S. Reis and J. E. G. Silva, Class. Quant. Grav. 40 (2023) no.24, 245001
+[arXiv:2302.05492 [gr-qc]].
+[31] K. Lin and W. L. Qian, Eur. Phys. J. C 82 (2022) no.6, 529 [arXiv:2203.03081 [gr-qc]].
+[32] P. A. González, E. Papantonopoulos, Á. Rincón and Y. Vásquez, Phys. Rev. D 106 (2022) no.2, 024050
+[arXiv:2205.06079 [gr-qc]].
+[33] C. H. Hao, X. Su and Y. Q. Wang, [arXiv:2404.11002 [gr-qc]].
+[34] C. Gao and J. Qiu, Universe 10 (2024) no.8, 328 [arXiv:2407.14184 [gr-qc]].
+[35] H. Yang, Z. W. Xia and Y. G. Miao, [arXiv:2406.00377 [gr-qc]].
+[36] C. Ding, C. Liu, Y. Xiao and J. Chen, [arXiv:2407.16916 [gr-qc]].
+[37] H. C. Liu and R. X. Miao, [arXiv:2501.02324 [hep-th]].
+[38] M. Bouhmadi-López, C. Y. Chen, X. Y. Chew, Y. C. Ong and D. h. Yeom, JCAP 10 (2021), 059 [arXiv:2108.07302
+[gr-qc]].
+[39] B. J. Barros and F. S. N. Lobo, Phys. Rev. D 98 (2018) no.4, 044012 [arXiv:1806.10488 [gr-qc]].
+[40] T. Tangphati, B. Chaihao, D. Samart, P. Channuie and D. Momeni, Nucl. Phys. B 999 (2024), 116446
+[arXiv:2307.13968 [gr-qc]].
+[41] J. L. Blázquez-Salcedo and C. Knoll, Eur. Phys. J. C 80 (2020) no.2, 174 [arXiv:1910.03565 [gr-qc]].
+[42] M. S. Churilova, R. A. Konoplya, Z. Stuchlik and A. Zhidenko, JCAP 10 (2021), 010 [arXiv:2107.05977 [gr-qc]].
+[43] Y. Q. Wang, S. W. Wei and Y. X. Liu, [arXiv:2206.12250 [gr-qc]].
+[44] P. Kanti, B. Kleihaus and J. Kunz, Phys. Rev. D 85 (2012), 044007 [arXiv:1111.4049 [hep-th]].
+[45] R. Ibadov, B. Kleihaus, J. Kunz and S. Murodov, Phys. Rev. D 102 (2020) no.6, 064010 [arXiv:2006.13008 [gr-qc]].
+[46] P. Cañate, Phys. Rev. D 108 (2023) no.10, 104048 [arXiv:2310.08758 [gr-qc]].
+[47]
+[47] M. Ilyas and K. Bamba, JCAP 10 (2023), 038 [arXiv:2308.11004 [gr-qc]].
+[48] J. A. Gonzalez, F. S. Guzman, and O. Sarbach, Class. Quant. Grav. 26, 015010 (2009). [arXiv:0806.0608 [gr-qc]].
+[49] J. A. Gonzalez, F. S. Guzman, and O. Sarbach, Class. Quant. Grav. 26, 015011 (2009). [arXiv:0806.1370 [gr-qc]].
+[50] K. A. Bronnikov, R. A. Konoplya and A. Zhidenko, Phys. Rev. D 86 (2012), 024028 [arXiv:1205.2224 [gr-qc]].
+[51] J. L. Blázquez-Salcedo, X. Y. Chew and J. Kunz, Phys. Rev. D 98, no. 4, 044035 (2018) [arXiv:1806.03282 [gr-qc]].
+[52] B. Azad, J. L. Blazquez-Salcedo, F. S. Khoo and J. Kunz, Phys. Lett. B 848 (2024), 138349 [arXiv:2301.05243
+[gr-qc]].
+[53] B. Azad, J. L. Blázquez-Salcedo, F. S. Khoo and J. Kunz, Phys. Rev. D 109 (2024) no.12, 124051 [arXiv:2403.08387
+[gr-qc]].
+[54] S. W. Kim, Prog. Theor. Phys. Suppl. 172 (2008), 21-29
+[55] F. S. Khoo, B. Azad, J. L. Blázquez-Salcedo, L. M. González-Romero, B. Kleihaus, J. Kunz and F. Navarro-Lérida,
+Phys. Rev. D 109 (2024) no.8, 084013 [arXiv:2401.02898 [gr-qc]].
+[56] B. Azad, J. L. Blázquez-Salcedo, X. Y. Chew, J. Kunz and D. h. Yeom, Phys. Rev. D 107 (2023) no.8, 084024
+[arXiv:2212.12601 [gr-qc]].
+[57] D. Batic and D. Dutykh, Eur. Phys. J. C 85 (2025) no.2, 144 [arXiv:2502.05486 [gr-qc]].
+
+21
+[58] A. Nakonieczna, L. Nakonieczny and D. Yeom, Int. J. Mod. Phys. D 28 (2018) no.03, 1930006 [arXiv:1805.12362
+[gr-qc]].
+[59] B. Waugh and K. Lake, Phys. Rev. D 34, 2978-2984 (1986).
+[60] S. E. Hong, D. Hwang, E. D. Stewart and D. Yeom, Class. Quant. Grav. 27 (2010), 045014 [arXiv:0808.1709 [gr-qc]].
+[61] D. Hwang, B. H. Lee and D. Yeom, JCAP 01 (2013), 005 [arXiv:1210.6733 [gr-qc]].
+[62] X. Y. Chew and D. h. Yeom, J. Korean Phys. Soc. 85 (2024) no.12, 1050-1061 [arXiv:2308.09225 [gr-qc]].
+[63] J. Hansen, D. Hwang and D. Yeom, JHEP 11 (2009), 016 [arXiv:0908.0283 [gr-qc]].
+[64] D. Hwang, B. H. Lee, W. Lee and D. Yeom, JCAP 07 (2012), 003 [arXiv:1201.6109 [gr-qc]].
+[65] A. Doroshkevich, J. Hansen, I. Novikov and A. Shatskiy, Int. J. Mod. Phys. D 18 (2009), 1665-1691 [arXiv:0812.0702
+[gr-qc]].
+[66] D. Hwang, H. B. Kim and D. Yeom, Class. Quant. Grav. 29 (2012), 055003 [arXiv:1105.1371 [gr-qc]].
+[67] A. Ashtekar and B. Krishnan, Living Rev. Rel. 7, 10 (2004) [arXiv:gr-qc/0407042 [gr-qc]].
+
+
