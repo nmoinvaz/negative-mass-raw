@@ -1,0 +1,2 @@
+# WebSearch reruns (standard mode)
+Each file `NN.tsv`: one query per block; lines `query<TAB>mode<TAB>UTC date`, then the result URLs the tool returned (as shown, `arxiv.org` mirrors collapsed to the id) and a `NEW:` line with the records posted after 2026-10-21 and what was done with them. The tool returns no posting dates; an arXiv id is dated by its listing (`rerun_queries.py` KNOWN requests and `date_ids.py`). Queries are those of RESULTS.md "Queries used" with " 2026" appended where the original had no date.

@@ -58,3 +58,27 @@ searches by hand. Output: `queries.md` (every query with UTC date, source, hit c
 ## Files
 
 Written during the run; this list is completed at the end.
+
+## Run log (UTC, 2026-11-24)
+
+- 01:29–01:38 metadata and publisher pages for the four items (`fetch.log`). Price 1993, Cao 2012 and Paranjape 2025 full texts
+  are unavailable (publisher 403 or paywall; no arXiv version; OpenAlex and Semantic Scholar list no open copy). The abstract
+  and reference list of Paranjape's chapter and the abstract and reference list of Cao 2012 were read (`quotes.md`).
+  DG08 §V (Summary) read in v1, v2 and v3 from #149's TeX (`quotes.md`, `make_quotes.py`).
+- `quotes.md` is written by `make_quotes.py` (47 quotes, each found verbatim in its source; `--mutate=textual` exits 1,
+  `mutate_quotes.log`).
+- Controls of `rerun_queries.py`, run 1 (`run1/`): three planted papers were wrong (2603.04400 for B01: its abstract has no
+  "boson star"; 2608.24577 for I02 and I03: its abstract has neither "negative mass" nor "boson"). Cause found by reading the
+  abstracts (`run1/`). The plants were replaced, not the criteria: B01 and I02 lost their plant, I03 keeps 2605.10976, and B10
+  plants 2603.04400 on terms its abstract holds (ghost, scalar, neutron stars). Run 2 (`ctl_plain.log`): PASS; `--mutate=window`
+  (`ctl_window.log`): FAIL on C2 as designed; `--mutate=terms` (`ctl_terms.log`): FAIL on C1 as designed. The raw responses of the
+  control runs are not kept (`queries.json` of each holds the parsed hits).
+- INSPIRE abstract-field queries: `abstracts.value:"negative mass" and arxiv:<id>` returns the id whatever the first clause says
+  (`abstracts.value:"zzzzzz" and arxiv:2608.24577` returned 1), so the first clause is ignored when ANDed with an `arxiv:` clause;
+  such tests are not used as controls. The phrase query on its own works (I03 found 2605.10976).
+- arXiv API: `lastUpdatedDate` is rewritten by the server to `submittedDate`, so revisions of known papers are read from an
+  `id_list` request instead (section K of `queries.json`).
+- Web searches: `websearch/01.tsv` to `06.tsv` (37 queries, standard mode).
+- Post-window items opened: Shirokov 2608.24577 v2 (2026-10-26), Laguna 2611.14482 (2026-11-10, "Singustars"), and Ivanov
+  1204.1269v2 (re-read for the Havas–Goldberg sentence); the files are `shirokov_v1`, `shirokov_v2`, `new_2611_14482_*`,
+  `ivanov_*`.

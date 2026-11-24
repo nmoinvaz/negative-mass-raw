@@ -1,0 +1,1580 @@
+{
+ "generated": "2026-11-24T01:44Z",
+ "mutate": "terms",
+ "subset": "control",
+ "new_start": "2026-10-21",
+ "runs": [
+  {
+   "qid": "A01",
+   "section": "A",
+   "source": "arxiv",
+   "window": "NEW",
+   "query": "ti:\"positive mass\"",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28ti%3A%22positive+mass%22%29+AND+submittedDate%3A%5B202610210000+TO+202611242359%5D",
+   "http": 200,
+   "raw": "0001_arxiv.xml",
+   "sha256": "5988012814124c1d0c1e80133decd0d959ebb7c8203c1992da70c56475688979",
+   "utc": "2026-11-24T01:44Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "A01",
+   "section": "A",
+   "source": "arxiv",
+   "window": "CTRL",
+   "query": "ti:\"positive mass\"",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28ti%3A%22positive+mass%22%29+AND+submittedDate%3A%5B202601010000+TO+202610202359%5D",
+   "http": 200,
+   "raw": "0002_arxiv.xml",
+   "sha256": "d22105894fb500cfa9c365085fad3e9e323ad42fbb86bfad180388e54d5e9235",
+   "utc": "2026-11-24T01:44Z",
+   "total": 31,
+   "hits": [
+    {
+     "id": "2610.28168",
+     "ver": 1,
+     "title": "Finiteness of planar central configurations of five bodies with positive masses",
+     "published": "2026-10-20T13:09:52Z",
+     "updated": "2026-10-20T13:09:52Z",
+     "authors": [
+      "Kefeng Liu",
+      "Yangshanshan Liu"
+     ],
+     "summary": "We prove that, for every choice of positive masses, the planar Newtonian five-body problem has finitely many central configurations up to similarity. After normalization and removal of the translation and rotation freedoms, every physical configuration is isolated in the complex solution variety. The proof combines the classification of singular sequences by Albouy and Kaloshin with a lower bound for the potential, asymptotic estimates, and local analytic reductions."
+    },
+    {
+     "id": "2610.23329",
+     "ver": 1,
+     "title": "Finiteness of planar central configurations of six bodies for all positive masses: Part I, exceptional-mass first limits",
+     "published": "2026-10-16T11:32:48Z",
+     "updated": "2026-10-16T11:32:48Z",
+     "authors": [
+      "Zhe Chen",
+      "Zhicheng Tong"
+     ],
+     "summary": "We separate the generic positive-mass finiteness problem for planar six-body central configurations from finiteness on exceptional mass loci. The Chang--Chen diagram enumeration has 117 graphs. The arguments below confine 40 first-limit diagram obligations to proper necessary mass loci. In particular, a direct function-field argument establishes the No.~66 mass condition for both zero and nonzero drift. We establish the algebraic reduction from an infinite positive family to a germ with an unbounded seven-product, and use the stated diagram rules and computational certificates to confine its mass vector to the union of these loci. Finiteness on the exceptional positive mass loci, the proposed subject of Part II, will be discussed in another paper."
+    },
+    {
+     "id": "2610.16107",
+     "ver": 4,
+     "title": "Finiteness of planar central configurations of five bodies for all positive masses: On Smale's sixth problem",
+     "published": "2026-10-12T03:15:15Z",
+     "updated": "2026-10-29T01:15:32Z",
+     "authors": [
+      "Zhe Chen",
+      "Zhicheng Tong"
+     ],
+     "summary": "Combining local boundary analysis, algebraic curves and the computational statements specified in the appendix, we prove that the planar Newtonian five-body problem has finitely many central configurations up to rotation, translation and scaling for every choice of positive masses. This gives the five-body statement of Smale's sixth problem. We use the singular-sequence classification of Albouy and Kaloshin and resolve the corresponding boundary equations through weighted blow-up charts, rank calculations and local compatibility conditions. For the two remaining diagrams, we prove that the product $\u0394$ of all squared mutual distances vanishes. On a hypothetical solution curve containing a positive arc, a pole of a four-product therefore gives a zero of $\u0394$. A pole of $\u0394$ elsewhere on the completed curve, together with $\u0394^4=\\prod_{i<j}p_{ij}$, then contradicts the same local vanishing result. The computational statements for Diagrams~2, 3 and~6 involve exact algebra, interval arithmetic and ball arithmetic."
+    },
+    {
+     "id": "2610.08615",
+     "ver": 1,
+     "title": "Coordinate isoperimetric mass and a positive mass theorem for distributional scalar curvature",
+     "published": "2026-10-06T16:15:44Z",
+     "updated": "2026-10-06T16:15:44Z",
+     "authors": [
+      "Melanie Graf",
+      "Eduardo Hafemann"
+     ],
+     "summary": "Extending the well-known Riemannian positive mass theorem to low-regularity metrics is an ongoing effort, starting from the early 2000s, that has recently seen renewed interest. Contrary to many other approaches we do not wish to assume smoothness at infinity nor to introduce a new definition of mass tailored to our approach, but rather go back to the coordinate isoperimetric mass originally proposed by Huisken. We establish new asymptotic expressions for the coordinate isoperimetric mass of continuous asymptotically flat metrics, which constitute the main ingredient in proving a finiteness criterion, coordinate invariance and equality to the generalized ADM mass of Lee and LeFloch under reasonable assumptions. In particular, for $W^{1,p}_{-\u03c4}$ asymptotically flat metrics, with $p>n$, $\u03c4>(n-2)/2$, and nonnegative distributional scalar curvature, the coordinate isoperimetric mass is indeed coordinate invariant, and we establish a positive mass theorem in this regularity without any topological assumptions aside from asymptotic flatness. Our proof relies on a density theorem similar to that of Lee, Lesourd, and Unger, but under a weaker regularity and decay assumption, which may be of independent interest."
+    },
+    {
+     "id": "2609.32383",
+     "ver": 2,
+     "title": "Gromov-Hausdorff instability of the positive mass theorem for K\u00e4hler manifolds",
+     "published": "2026-09-26T08:58:26Z",
+     "updated": "2026-10-26T10:21:06Z",
+     "authors": [
+      "Romy Marie Merkel"
+     ],
+     "summary": "We construct a sequence of AE K\u00e4hler metrics on $\\mathbb{C}^2$ with nonnegative and integrable scalar curvature whose ADM mass tends to zero but which, for a suitable choice of basepoints, fails to converge to Euclidean space in the pointed Gromov-Hausdorff sense."
+    },
+    {
+     "id": "2609.27444",
+     "ver": 1,
+     "title": "A Positive Mass Type Theorem for a Singular Toroidal Static Model",
+     "published": "2026-09-23T07:10:13Z",
+     "updated": "2026-09-23T07:10:13Z",
+     "authors": [
+      "Zhixin Wang"
+     ],
+     "summary": "We study positive mass and related Brown--York type inequalities for three-dimensional manifolds modeled on a static space with flat toroidal slices. Using inverse mean curvature flow, we first derive an inequality relating the asymptotic geometry at infinity to the size of an interior singularity. This inequality admits a natural interpretation as a positive mass type theorem. We then combine this global inequality with a Shi--Tam type construction to obtain a Brown--York type inequality for boundaries isometric to flat tori. In contrast to the Schwarzschild setting, our argument does not extend directly to general boundary surfaces, and we identify several obstructions to such a generalization. Finally, we discuss examples illustrating the relationship between negative mass, the strength of interior singularities, and the topology of the interior."
+    },
+    {
+     "id": "2609.25550",
+     "ver": 1,
+     "title": "A continuous Positive Mass Theorem for perturbations of Euclidean space",
+     "published": "2026-09-22T01:29:11Z",
+     "updated": "2026-09-22T01:29:11Z",
+     "authors": [
+      "Paula Burkhardt-Guim"
+     ],
+     "summary": "We prove a Positive Mass Theorem for $C^0$-asymptotically flat Riemannian metrics with nonnegative scalar curvature in a weak sense that are sufficiently uniformly close to Euclidean space. More precisely, we show that a $C^0$-asymptotically flat Riemannian metric that is a $C^0$ perturbation of Euclidean space with nonnegative scalar curvature in the sense of Ricci flow has nonnegative mass, where the mass is given by a $C^0$ analog of the classical ADM mass previously introduced by the author."
+    },
+    {
+     "id": "2609.19711",
+     "ver": 1,
+     "title": "Spacetime Positive Mass Theorem with Boundary for Multiple Time Dimensions",
+     "published": "2026-09-17T05:05:33Z",
+     "updated": "2026-09-17T05:05:33Z",
+     "authors": [
+      "Changwen Fang"
+     ],
+     "summary": "We prove a positive mass theorem for one-ended asymptotically flat spin initial data with multiple time directions and a smooth compact boundary. Assuming the trace-norm dominant energy condition and pairwise commutativity of the second fundamental forms, a fixed auxiliary time direction on each boundary component determines a local chirality condition. We identify the surviving mixed boundary term and obtain the inequality $E\\geq\\|\\mathcal P\\|_{\\mathrm{tr}}$ under the boundary condition $H+\\operatorname{tr}_\u03a3k^T+\\|\\mathcal Q_T\\|_{\\mathrm{tr}}\\leq0$. The proof constructs a Dirac--Witten harmonic spinor in an affine energy space and evaluates the mass identity by approximation. We also establish the pointwise sharpness of this boundary condition for the fixed projector and give two-time data with a nonzero mixed boundary term."
+    },
+    {
+     "id": "2609.01540",
+     "ver": 2,
+     "title": "Stability of the Riemannian positive mass theorem in all dimensions",
+     "published": "2026-09-01T17:05:50Z",
+     "updated": "2026-09-21T16:17:20Z",
+     "authors": [
+      "Gaoming Wang",
+      "Yiyue Zhang"
+     ],
+     "summary": "We prove stability of the Riemannian positive mass theorem in all dimensions, extending the Dong-Song stability theorem. For a sequence of complete asymptotically flat manifolds with nonnegative scalar curvature and ADM masses tending to zero, excising domains whose boundary areas tend to zero yields exterior regions converging to Euclidean space in the pointed measured Gromov-Hausdorff topology. The proof constructs global coordinates from minimal graphs and controls their Hessians using scalar solutions of the conformal Laplace equation on the associated graph metrics."
+    },
+    {
+     "id": "2608.29427",
+     "ver": 1,
+     "title": "Positive mass and rigidity for asymptotically flat tangent bundles",
+     "published": "2026-08-29T20:09:05Z",
+     "updated": "2026-08-29T20:09:05Z",
+     "authors": [
+      "Sajjad Lakzian"
+     ],
+     "summary": "Let $(M,g)$ be an asymptotically flat manifold such that its tangent bundle $TM$ is diffeomorphically asymptotically Euclidean. We prove a positive mass theorem and a positive mass rigidity theorem for a natural class of asymptotically flat metrics $\\widetilde g$ on $TM$ exhibiting slow asymptotic decay. These metrics are constructed by interpolating, along the horizontal distribution of $TM$, between the Euclidean metric and the base metric $g$ near infinity. The main difficulty is that the induced metrics on $TM$ decay below the standard threshold for the ADM mass in dimension $2n$; nevertheless, we show that their asymptotic mass is well-defined in a generalized sense and is determined by geometric data on the underlying manifold $M$."
+    },
+    {
+     "id": "2608.22997",
+     "ver": 1,
+     "title": "Positive Mass Theorem with Arbitrary Ends and Noncompact Boundary",
+     "published": "2026-08-24T09:00:27Z",
+     "updated": "2026-08-24T09:00:27Z",
+     "authors": [
+      "Caiyan Li"
+     ],
+     "summary": "We prove a positive mass theorem for complete Riemannian manifolds with noncompact boundary, a distinguished asymptotically flat half-space end, and finitely many additional complete ends with no prescribed asymptotics. If $3\\leq n\\leq7$, $R_g\\geq0$, and $H_{\\partial M}\\geq0$, then $ \\mathfrak m(M,g,\\mathcal E)\\geq0$. Moreover, equality holds if and only if $(M,g)$ is isometric to the Euclidean half-space. The proof combines a density deformation near the distinguished end with doubling across the noncompact boundary, local smoothing, and a conformal correction. We also obtain the sharp Riemannian Penrose inequality when a compact outermost minimal hypersurface separates $\\mathcal E$ from all the remaining ends; equality holds precisely when the exterior region is a Schwarzschild half-space exterior."
+    },
+    {
+     "id": "2608.09067",
+     "ver": 3,
+     "title": "Torus and Positive Mass stability for metrics with Ricci curvature lower bound",
+     "published": "2026-08-10T03:14:49Z",
+     "updated": "2026-09-02T14:09:41Z",
+     "authors": [
+      "Edward Bryden",
+      "Zhizhang Xie"
+     ],
+     "summary": "Consider a sequence of metrics $g_i$ on the torus whose members have uniform lower bounds on their first stable systoles and Ricci curvatures, and have a uniform upper bound on their diameters. If the $L^1$ norm of the negative part of the scalar curvatures vanishes along this sequence, then we show there is a subsequence of the metrics which converges in the measured-Gromov-Hausdorff topology to a flat metric on the torus. Something analogous holds for sequences of asymptotically flat spin Riemannian manifolds with a uniform lower bound on Ricci curvature and nonnegative scalar curvature: if the ADM masses of the distinguished ends tend to zero along the sequence, then the manifolds converge to Euclidean space in the pointed measured Gromov-Hausdorff sense."
+    },
+    {
+     "id": "2608.01682",
+     "ver": 3,
+     "title": "Positive mass theorems for singular asymptotically hyperbolic manifolds",
+     "published": "2026-08-03T04:16:32Z",
+     "updated": "2026-10-08T08:47:30Z",
+     "authors": [
+      "Yuguang Shi",
+      "Chengzhang Sun",
+      "Zijun Wang"
+     ],
+     "summary": "Through a careful analysis of the Yamabe equation on singular spaces, we establish a positive mass theorem for singular asymptotically hyperbolic manifolds with arbitrary ends. We also derive a rigidity result that is novel even in the smooth setting."
+    },
+    {
+     "id": "2607.27007",
+     "ver": 1,
+     "title": "The positive mass theorem under a spectral scalar curvature bound on spin manifolds",
+     "published": "2026-07-29T15:04:45Z",
+     "updated": "2026-07-29T15:04:45Z",
+     "authors": [
+      "Xiangsheng Wang"
+     ],
+     "summary": "On spin manifolds, we give a proof of Brendle and Wang's refined positive mass theorem using the Dirac operator method. In the course of this proof, we discuss the origin of the special coefficient appearing in Brendle and Wang's spectral positivity condition for scalar curvature from the perspective of spin geometry."
+    },
+    {
+     "id": "2607.19320",
+     "ver": 1,
+     "title": "A spacetime positive mass theorem with corners via mollification",
+     "published": "2026-07-21T17:40:41Z",
+     "updated": "2026-07-21T17:40:41Z",
+     "authors": [
+      "Hyun Chul Jang",
+      "Aidan F. Wood"
+     ],
+     "summary": "We prove a strict dominant energy deformation theorem for asymptotically flat initial data with corners along a hypersurface $\u03a3$. The deformation preserves a corner condition on the Bartnik data across $\u03a3$. We show that if the dominant energy condition holds on each side of $\u03a3$ and the Bartnik data satisfy this corner condition, then the exterior end satisfies $E \\ge |P|$ in every dimension $n \\ge 3$."
+    },
+    {
+     "id": "2607.17236",
+     "ver": 2,
+     "title": "Rigidity of positive mass theorem with fast metric decay",
+     "published": "2026-07-19T13:00:33Z",
+     "updated": "2026-09-03T07:18:08Z",
+     "authors": [
+      "Jianchun Chu",
+      "Man-Chun Lee",
+      "Jingbo Wan"
+     ],
+     "summary": "In this work, we consider metrics on Euclidean space with nonnegative scalar curvature and rapid decay at infinity. We show that, in dimensions four and higher, any such metric is necessarily flat if its decay rate exceeds that of the Schwarzschild metric. This complements recent works by Mazurowski-Yao and You-Zhang, thereby establishing Gromov's conjecture on the rigidity of the positive mass theorem under fast metric decay in all dimensions. Our method also extend naturally to weakly asymptotically flat manifolds."
+    },
+    {
+     "id": "2606.23529",
+     "ver": 2,
+     "title": "Riemannian Positive Mass Theorem in All Dimensions in the Presence of Low-Codimension Singularities",
+     "published": "2026-06-22T16:09:23Z",
+     "updated": "2026-07-06T07:04:20Z",
+     "authors": [
+      "Marcus Khuri",
+      "Jian Wang",
+      "Jinmin Wang"
+     ],
+     "summary": "We prove the Riemannian positive mass theorem in all dimensions for asymptotically flat $L^\\infty$-metrics with subcritical singular sets. More precisely, we consider complete asymptotically flat manifolds whose metrics are smooth away from a compact singular set of Minkowski dimension less than $n-3+\\frac{2}{n}$, and whose scalar curvature is nonnegative on the regular set. We show that the ADM mass of each asymptotically flat end is nonnegative, and that the mass vanishes in some end only in the Euclidean case. For the rigidity statement, we require additionally that the Minkowski dimension of the singular set is not larger than $n-3+\\frac{1}{n-1}$. This gives an asymptotically flat analogue of Schoen's codimension-three conjecture for positive scalar curvature. The proof combines a density theorem for singular asymptotically flat metrics, capacity estimates across the singular set, conformal blow-up inspired by Bi-Hao-He-Shi-Zhu [3], and a $\u03bc$-bubble dimension-descent argument adapted from Brendle-Wang [6]."
+    },
+    {
+     "id": "2606.23272",
+     "ver": 1,
+     "title": "Spaces with distributional scalar curvature bounded from below: Optimal regularity and positive mass",
+     "published": "2026-06-22T12:50:32Z",
+     "updated": "2026-06-22T12:50:32Z",
+     "authors": [
+      "Man-Chun Lee",
+      "Florian Litzinger",
+      "Miles Simon"
+     ],
+     "summary": "In this work, we study the positive mass theorem under critical low regularity assumptions using Ricci flow smoothing. We show that asymptotically flat manifolds $(M^n,g)$ of regularity $L^\\infty\\cap W^{1,n}$ with non-negative distributional scalar curvature have non-negative ADM mass. Furthermore, when the ADM mass vanishes, the manifold is globally isometric to Euclidean space with respect to an integral distance introduced by De~Cecco-Palmieri. This extends the recent work of Hafemann to the critical regularity case. Our approach is based on showing that Riemannian metrics of regularity $L^\\infty\\cap W^{1,n}$, whose scalar curvature is bounded from below in the distributional sense, admit a Ricci flow smoothing whose scalar curvature is bounded from below by the same initial lower bound in the classical sense. In contrast, Cecchini-Frenck-Zeidler constructed examples of metrics which are in $L^\\infty\\cap W^{1,p}$ for all $2<p<n$, and whose distributional scalar curvature is bounded from below, that cannot be approximated by smooth metrics with the same scalar curvature lower bound. In this sense, our result is optimal."
+    },
+    {
+     "id": "2606.19858",
+     "ver": 1,
+     "title": "Spectral Positive Mass Theorem for Asymptotically Hyperbolic 3-manifolds with Toroidal Infinity",
+     "published": "2026-06-18T07:09:49Z",
+     "updated": "2026-06-18T07:09:49Z",
+     "authors": [
+      "Xiaoxiang Chai",
+      "Yimin Chen",
+      "Juncheol Pyo"
+     ],
+     "summary": "We define a mass invariant adapted to the spectral scalar curvature for asymptotically hyperbolic 3-manifolds with toroidal infinity and show its positivity under a lower bound on the spectral scalar curvature. In addition, we show a rigidity theorem and some band width estimates under similar assumptions."
+    },
+    {
+     "id": "2606.19801",
+     "ver": 1,
+     "title": "Positive mass theorem and the Yamabe equation on CR manifolds",
+     "published": "2026-06-18T05:12:39Z",
+     "updated": "2026-06-18T05:12:39Z",
+     "authors": [
+      "Jih-Hsin Cheng"
+     ],
+     "summary": "Our goal is to survey the development of positive mass theorem and the Yamabe equation on CR manifolds in recent years. We introduce the notion of the mass in several complex variables or CR geometry. We then consider the Yamabe problem on CR manifolds to find a minimizer for the CR-Sobolev quotient. The positive mass theorem plays a key role in finding a solution to the Yamabe equation with minimum energy for the positive curvature case. We mainly focus on the team works in the following three papers [CMY17], [CMY23] and [CC22], on a positive mass theorem in 3-dimensional CR geometry, the CR-Sobolev quotient of Rossi spheres, and the 5-dimensional situation, respectively."
+    },
+    {
+     "id": "2606.19123",
+     "ver": 1,
+     "title": "A Positive Mass Theorem for Continuous Metrics",
+     "published": "2026-06-17T14:36:25Z",
+     "updated": "2026-06-17T14:36:25Z",
+     "authors": [
+      "Liam Mazurowski",
+      "Xuan Yao"
+     ],
+     "summary": "Let $g$ be a continuous metric on $\\mathbb R^3$ which is asymptotically flat in the sense that $\\vert g_{ij}(x) - \u03b4_{ij}\\vert = O(\\vert x\\vert^{-\u03c4})$ for some $\u03c4> \\frac{1}{2}$. Further assume that $g$ can be uniformly approximated on compact sets by smooth metrics with almost non-negative scalar curvature. For such a metric $g$, we define a synthetic ADM mass $m(g)$ using harmonic functions. The harmonic mass $m(g)$ coincides with the usual ADM mass whenever $g$ is smooth and decays rapidly enough that the latter is defined. The harmonic mass can also be computed as a limit of the $C^0$ local mass introduced by Burkhardt-Guim. Our main result is a positive mass theorem: the harmonic mass satisfies $m(g)\\geq 0$ and if $m(g) = 0$ then $g$ is flat."
+    },
+    {
+     "id": "2606.15372",
+     "ver": 2,
+     "title": "Gromov's Euclidean Endpoint $C^0$ Rigidity for the Positive Mass Theorem",
+     "published": "2026-06-13T16:08:50Z",
+     "updated": "2026-06-16T13:19:58Z",
+     "authors": [
+      "Jiangcheng You",
+      "Heng Zhang"
+     ],
+     "summary": "We prove Gromov's Euclidean endpoint $C^0$ rigidity conjecture. Let $g$ be a smooth complete metric on $\\R^3$ with non-negative scalar curvature. If $$ |g-g_{\\Euc}|=o(r^{-1}),\\qquad r=|x|\\to\\infty, $$ then $(\\R^3,g)$ is isometric to Euclidean space."
+    },
+    {
+     "id": "2605.29915",
+     "ver": 2,
+     "title": "Rigidity in the Positive Mass Theorem with $C^0$ Decay",
+     "published": "2026-05-28T13:31:00Z",
+     "updated": "2026-06-19T13:27:08Z",
+     "authors": [
+      "Liam Mazurowski",
+      "Xuan Yao"
+     ],
+     "summary": "Let $g$ be a smooth metric on $\\mathbb R^3$ with non-negative scalar curvature. We show that if $g$ satisfies $\\vert g(x)-g_{\\text{euc}}(x)\\vert = O(\\vert x\\vert^{-1-\u03c4})$ for some $\u03c4> 0$ then $g$ must be flat."
+    },
+    {
+     "id": "2604.26978",
+     "ver": 2,
+     "title": "Positive mass theorem for initial data sets with arbitrary ends",
+     "published": "2026-04-28T12:54:54Z",
+     "updated": "2026-05-02T01:40:39Z",
+     "authors": [
+      "Tin-Yau Tsang"
+     ],
+     "summary": "We showed a positive energy theorem for asymptotically flat initial data sets with the concept of spectral PSC by He-Shi-Yu, Bi-Hao-He-Shi-Zhu and Brendle-Wang; and the Jang equation in Schoen-Yau, Eichmair and Jang. Then, we proved a quantitative shielding theorem concerning the causal property of the energy-momentum vector of an asymptotically hyperbolic manifold. As a result, we established the positive mass theorem for complete asymptotically hyperbolic manifolds satisfying the dominant energy condition. As corollaries, we also obtained corresponding results for manifolds with asymptotically locally hyperbolic ends with a certain symmetry."
+    },
+    {
+     "id": "2604.24746",
+     "ver": 2,
+     "title": "The Hyperboloidal and Spacetime Positive Mass Theorem in All Dimensions",
+     "published": "2026-04-27T17:48:01Z",
+     "updated": "2026-05-19T06:43:13Z",
+     "authors": [
+      "Sven Hirsch",
+      "Marcus Khuri",
+      "Martin Lesourd",
+      "Yiyue Zhang"
+     ],
+     "summary": "Using the recent work of Brendle--Wang on the Riemannian positive mass theorem, we prove the spacetime positive mass theorem for asymptotically flat and asymptotically hyperboloidal initial data sets in arbitrary dimensions."
+    },
+    {
+     "id": "2604.08473",
+     "ver": 2,
+     "title": "A dimension descent scheme for the positive mass theorem in arbitrary dimension",
+     "published": "2026-04-09T17:12:03Z",
+     "updated": "2026-04-20T17:39:25Z",
+     "authors": [
+      "S. Brendle",
+      "Y. Wang"
+     ],
+     "summary": "We describe how the Schoen-Yau proof of the positive mass theorem can be extended to arbitrary dimensions. To overcome the problem of singularities, we propose a new inductive scheme. To carry out the inductive step, we use a combination of several techniques, including the shielding principle of Lesourd-Unger-Yau, as well as a conformal blow-up argument in the spirit of Bi-Hao-He-Shi-Zhu. Our arguments also rely on the Cheeger-Naber bound for the Minkowski dimension of the singular set."
+    },
+    {
+     "id": "2603.02769",
+     "ver": 2,
+     "title": "A proof for the Riemannian positive mass theorem up to dimension 19",
+     "published": "2026-03-03T09:10:05Z",
+     "updated": "2026-03-27T01:05:18Z",
+     "authors": [
+      "Yuchen Bi",
+      "Tianze Hao",
+      "Shihang He",
+      "Yuguang Shi"
+     ],
+     "summary": "In this paper, we prove the Riemannian positive mass theorem up to dimension $19$, building on a combination of torical symmetrization and the singularity blow-up technique developed in [HSY26], together with the generic regularity theory for area-minimizing hypersurfaces established in [CMS23, CMSW25]. Similar ideas are also employed to investigate the Geroch conjecture up to dimension $12$."
+    },
+    {
+     "id": "2602.20081",
+     "ver": 2,
+     "title": "The Spacetime Positive Mass Theorem with Multiple Time Dimensions",
+     "published": "2026-02-23T17:47:38Z",
+     "updated": "2026-03-09T15:26:00Z",
+     "authors": [
+      "Sven Hirsch",
+      "Alec Payne",
+      "Yiyue Zhang"
+     ],
+     "summary": "We generalize the spacetime positive mass theorem to include multiple time dimensions. In particular, we show that the mass remains nonnegative in the sense that the energy $E$ is bounded from below by the trace norm of the linear momenta $J^1,...,J^m$. Equality in this energy inequality implies a foliation by flat submanifolds of a generalized initial data set. Moreover, under an additional umbilicity assumption, we find that the initial data set isometrically embeds into a generalized pp-wave."
+    },
+    {
+     "id": "2602.11372",
+     "ver": 1,
+     "title": "$X$-ADM Mass and $X$-Positive Mass Theorem",
+     "published": "2026-02-11T21:03:34Z",
+     "updated": "2026-02-11T21:03:34Z",
+     "authors": [
+      "Carlo Mantegazza",
+      "Francesca Oronzio"
+     ],
+     "summary": "For a given admissible vector field $X$, we define a geometric quantity for asymptotically flat $3$--manifolds, called $X$--ADM mass and we establish a relative positive mass theorem via a monotonicity formula along the level sets of a suitable Green's function. Under different assumptions on $X$, we obtain generalizations of the ``classical'' positive mass theorem, like the one for weighted manifolds and the one ``with charge'' under some topological restrictions. Finally, we also discuss the rigidity cases."
+    },
+    {
+     "id": "2602.08789",
+     "ver": 2,
+     "title": "Positive mass theorems for manifolds with asymptotically locally hyperbolic toroidal ends",
+     "published": "2026-02-09T15:27:33Z",
+     "updated": "2026-10-02T16:49:00Z",
+     "authors": [
+      "Gregory J. Galloway",
+      "Tin-Yau Tsang"
+     ],
+     "summary": "In [Classical Quantum Gravity 35, 115015 (2018)], P. Chru\u015bciel, L. Nguyen, T.-T. Paetz and the first-named author obtained a positive mass theorem for asymptotically locally hyperbolic manifolds with boundary, having a toroidal end. The proof made use of properties of marginally outer trapped surfaces (MOTS). Here we present some new positive mass results for such manifolds, but without boundary, which allow for other more general ends. The proofs, while still MOTS-based, involve a more elaborate technique (related to $\u03bc$-bubbles) introduced in work of D. A. Lee, M. Lesourd, and R. Unger [Calculus Var. Part. Differ. Equations 62(7), 194 (2023)] for manifolds with an asymptotically flat end, and further developed by the second-named author in [arXiv:2604.26978 (2026)] for manifolds with an asymptotically hyperbolic end."
+    },
+    {
+     "id": "2602.03451",
+     "ver": 2,
+     "title": "A low-regularity Riemannian positive mass theorem for non-spin manifolds with distributional curvature",
+     "published": "2026-02-03T12:15:22Z",
+     "updated": "2026-09-11T10:00:01Z",
+     "authors": [
+      "Eduardo Hafemann"
+     ],
+     "summary": "This article establishes a low-regularity Riemannian positive mass theorem for non-spin manifolds whose metrics are only $C^0 \\cap W_{\\mathrm{loc}}^{1,n}$ and smooth outside a compact set. The main theorem asserts that asymptotically flat manifolds with nonnegative distributional scalar curvature have nonnegative ADM mass. The proof uses smooth approximations of the metric together with a Sobolev version of Friedrichs' Lemma, which yields improved convergence for commutators between differentiation and convolution operators. Rigidity in the metric-space sense is obtained via the volume comparison theory of $\\sf{RCD}$-spaces after establishing that zero ADM mass implies Ricci flatness, which fundamentally relies on these improved estimates. In essence, a version of the main theorem of Lee-LeFloch is presented in which the spin condition is removed under the assumption that the metric is smooth outside a compact set."
+    }
+   ]
+  },
+  {
+   "qid": "A01",
+   "section": "A",
+   "source": "inspire",
+   "window": "NEW",
+   "query": "t \"positive mass\" and de > 2026-10-20",
+   "url": "",
+   "http": 200,
+   "raw": "0003_inspire.json",
+   "sha256": "c15701fad3fd7a83aded01cdca2950ab23f481b1326bbb90ff89d284c948cfe9",
+   "utc": "2026-11-24T01:44Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "A01",
+   "section": "A",
+   "source": "inspire",
+   "window": "CTRL",
+   "query": "t \"positive mass\" and de > 2025-12-31 and de < 2026-10-21",
+   "url": "",
+   "http": 200,
+   "raw": "0004_inspire.json",
+   "sha256": "03dc6f371fae423b6ed1bde9cf933b8b89fcce0ef2ea23ea0419f947c952f456",
+   "utc": "2026-11-24T01:44Z",
+   "total": 10,
+   "hits": [
+    {
+     "id": "2610.08615",
+     "recid": 3214030,
+     "title": "Coordinate isoperimetric mass and a positive mass theorem for distributional scalar curvature",
+     "date": "2026-10-06",
+     "authors": [
+      "Graf, Melanie",
+      "Hafemann, Eduardo"
+     ],
+     "pub": null,
+     "summary": "Extending the well-known Riemannian positive mass theorem to low-regularity metrics is an ongoing effort, starting from the early 2000s, that has recently seen renewed interest. Contrary to many other approaches we do not wish to assume smoothness at infinity nor to introduce a new definition of mass tailored to our approach, but rather go back to the coordinate isoperimetric mass originally proposed by Huisken. We establish new asymptotic expressions for the coordinate isoperimetric mass of continuous asymptotically flat metrics, which constitute the main ingredient in proving a finiteness cr"
+    },
+    {
+     "id": "2609.19711",
+     "recid": 3204715,
+     "title": "Spacetime Positive Mass Theorem with Boundary for Multiple Time Dimensions",
+     "date": "2026-09-17",
+     "authors": [
+      "Fang, Changwen"
+     ],
+     "pub": null,
+     "summary": "We prove a positive mass theorem for one-ended asymptotically flat spin initial data with multiple time directions and a smooth compact boundary. Assuming the trace-norm dominant energy condition and pairwise commutativity of the second fundamental forms, a fixed auxiliary time direction on each boundary component determines a local chirality condition. We identify the surviving mixed boundary term and obtain the inequality $E\\geq\\|\\mathcal P\\|_{\\mathrm{tr}}$ under the boundary condition $H+\\operatorname{tr}_\u03a3k^T+\\|\\mathcal Q_T\\|_{\\mathrm{tr}}\\leq0$. The proof constructs a Dirac--Witten harmon"
+    },
+    {
+     "id": "2607.27007",
+     "recid": 3184274,
+     "title": "The positive mass theorem under a spectral scalar curvature bound on spin manifolds",
+     "date": "2026-07-29",
+     "authors": [
+      "Wang, Xiangsheng"
+     ],
+     "pub": null,
+     "summary": "On spin manifolds, we give a proof of Brendle and Wang's refined positive mass theorem using the Dirac operator method. In the course of this proof, we discuss the origin of the special coefficient appearing in Brendle and Wang's spectral positivity condition for scalar curvature from the perspective of spin geometry."
+    },
+    {
+     "id": "2607.19320",
+     "recid": 3182269,
+     "title": "A spacetime positive mass theorem with corners via mollification",
+     "date": "2026-07-21",
+     "authors": [
+      "Jang, Hyun Chul",
+      "Wood, Aidan F."
+     ],
+     "pub": null,
+     "summary": "We prove a strict dominant energy deformation theorem for asymptotically flat initial data with corners along a hypersurface $\u03a3$. The deformation preserves a corner condition on the Bartnik data across $\u03a3$. We show that if the dominant energy condition holds on each side of $\u03a3$ and the Bartnik data satisfy this corner condition, then the exterior end satisfies $E \\ge |P|$ in every dimension $n \\ge 3$."
+    },
+    {
+     "id": "2606.23529",
+     "recid": 3171070,
+     "title": "Riemannian Positive Mass Theorem in All Dimensions in the Presence of Low-Codimension Singularities",
+     "date": "2026-06-22",
+     "authors": [
+      "Khuri, Marcus",
+      "Wang, Jian",
+      "Wang, Jinmin"
+     ],
+     "pub": null,
+     "summary": "We prove the Riemannian positive mass theorem in all dimensions for asymptotically flat $L^\\infty$-metrics with subcritical singular sets. More precisely, we consider complete asymptotically flat manifolds whose metrics are smooth away from a compact singular set of Minkowski dimension less than $n-3+\\frac{2}{n}$, and whose scalar curvature is nonnegative on the regular set. We show that the ADM mass of each asymptotically flat end is nonnegative, and that the mass vanishes in some end only in the Euclidean case. For the rigidity statement, we require additionally that the Minkowski dimension "
+    },
+    {
+     "id": "2604.26978",
+     "recid": 3150558,
+     "title": "Positive mass theorem for initial data sets with arbitrary ends",
+     "date": "2026-04-28",
+     "authors": [
+      "Tsang, Tin-Yau"
+     ],
+     "pub": null,
+     "summary": "We showed a positive energy theorem for asymptotically flat initial data sets with the concept of spectral PSC by He-Shi-Yu, Bi-Hao-He-Shi-Zhu and Brendle-Wang; and the Jang equation in Schoen-Yau, Eichmair and Jang. Then, we proved a quantitative shielding theorem concerning the causal property of the energy-momentum vector of an asymptotically hyperbolic manifold. As a result, we established the positive mass theorem for complete asymptotically hyperbolic manifolds satisfying the dominant energy condition. As corollaries, we also obtained corresponding results for manifolds with asymptotical"
+    },
+    {
+     "id": "2604.24746",
+     "recid": 3149382,
+     "title": "The Hyperboloidal and Spacetime Positive Mass Theorem in All Dimensions",
+     "date": "2026-04-27",
+     "authors": [
+      "Hirsch, Sven",
+      "Khuri, Marcus",
+      "Lesourd, Martin",
+      "Zhang, Yiyue"
+     ],
+     "pub": null,
+     "summary": "Using the recent work of Brendle--Wang on the Riemannian positive mass theorem, we prove the spacetime positive mass theorem for asymptotically flat and asymptotically hyperboloidal initial data sets in arbitrary dimensions."
+    },
+    {
+     "id": "2602.20081",
+     "recid": 3122908,
+     "title": "The Spacetime Positive Mass Theorem with Multiple Time Dimensions",
+     "date": "2026-02-23",
+     "authors": [
+      "Hirsch, Sven",
+      "Payne, Alec",
+      "Zhang, Yiyue"
+     ],
+     "pub": null,
+     "summary": "We generalize the spacetime positive mass theorem to include multiple time dimensions. In particular, we show that the mass remains nonnegative in the sense that the energy $E$ is bounded from below by the trace norm of the linear momenta $J^1,...,J^m$. Equality in this energy inequality implies a foliation by flat submanifolds of a generalized initial data set. Moreover, under an additional umbilicity assumption, we find that the initial data set isometrically embeds into a generalized pp-wave."
+    },
+    {
+     "id": "2602.08789",
+     "recid": 3117731,
+     "title": "Positive mass theorems for manifolds with asymptotically locally hyperbolic toroidal ends",
+     "date": "2026-02-09",
+     "authors": [
+      "Galloway, Gregory J.",
+      "Tsang, Tin-Yau"
+     ],
+     "pub": "J.Math.Phys.",
+     "summary": "In [Classical Quantum Gravity 35, 115015 (2018)], P. Chru\u015bciel, L. Nguyen, T.-T. Paetz, and the first-named author obtained a positive mass theorem for asymptotically locally hyperbolic manifolds with boundary, having a toroidal end. The proof made use of properties of marginally outer trapped surfaces (MOTS). Here we present some new positive mass results for such manifolds, but without boundary, which allow for other more general ends. The proofs, while still MOTS-based, involve a more elaborate technique (related to \u03bc-bubbles) introduced in work of D. A. Lee, M. Lesourd, and R. Unger [Calcu"
+    },
+    {
+     "id": "2602.03451",
+     "recid": 3115078,
+     "title": "A low-regularity Riemannian positive mass theorem for non-spin manifolds with distributional curvature",
+     "date": "2026-02-03",
+     "authors": [
+      "Hafemann, Eduardo"
+     ],
+     "pub": null,
+     "summary": "This article establishes a low-regularity Riemannian positive mass theorem for non-spin manifolds whose metrics are only $C^0 \\cap W_{\\mathrm{loc}}^{1,n}$ and smooth outside a compact set. The main theorem asserts that asymptotically flat manifolds with nonnegative distributional scalar curvature have nonnegative ADM mass. The proof uses smooth approximations of the metric together with a Sobolev version of Friedrichs' Lemma, which yields improved convergence for commutators between differentiation and convolution operators. Rigidity in the metric-space sense is obtained via the volume compari"
+    }
+   ]
+  },
+  {
+   "qid": "B10",
+   "section": "B",
+   "source": "arxiv",
+   "window": "NEW",
+   "query": "all:canonical AND all:scalar AND (all:\"proton star\" OR all:\"proton stars\")",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28all%3Acanonical+AND+all%3Ascalar+AND+%28all%3A%22proton+star%22+OR+all%3A%22proton+stars%22%29%29+AND+submittedDate%3A%5B202610210000+TO+202611242359%5D",
+   "http": 200,
+   "raw": "0005_arxiv.xml",
+   "sha256": "1f7f0594e7bbedd2c23c3972ecf702ec5d936a0d843f146e14cdf2dad0f40798",
+   "utc": "2026-11-24T01:44Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "B10",
+   "section": "B",
+   "source": "arxiv",
+   "window": "CTRL",
+   "query": "all:canonical AND all:scalar AND (all:\"proton star\" OR all:\"proton stars\")",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28all%3Acanonical+AND+all%3Ascalar+AND+%28all%3A%22proton+star%22+OR+all%3A%22proton+stars%22%29%29+AND+submittedDate%3A%5B202601010000+TO+202610202359%5D",
+   "http": 200,
+   "raw": "0006_arxiv.xml",
+   "sha256": "1eae2b9c8140fa17a7d0df989db91ecf524c8856aed96ae7ddf0213c2667eb44",
+   "utc": "2026-11-24T01:45Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "B02",
+   "section": "B",
+   "source": "arxiv",
+   "window": "NEW",
+   "query": "(all:\"positive ADM mass\" OR all:\"positive active mass\") AND (all:scalar OR all:fermion OR all:canonical)",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28%28all%3A%22positive+ADM+mass%22+OR+all%3A%22positive+active+mass%22%29+AND+%28all%3Ascalar+OR+all%3Afermion+OR+all%3Acanonical%29%29+AND+submittedDate%3A%5B202610210000+TO+202611242359%5D",
+   "http": 200,
+   "raw": "0007_arxiv.xml",
+   "sha256": "39e780c507357267fe8d6a8a708c58f3e79779372e4c9238fbafa1da0e98d355",
+   "utc": "2026-11-24T01:45Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "B02",
+   "section": "B",
+   "source": "arxiv",
+   "window": "CTRL",
+   "query": "(all:\"positive ADM mass\" OR all:\"positive active mass\") AND (all:scalar OR all:fermion OR all:canonical)",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28%28all%3A%22positive+ADM+mass%22+OR+all%3A%22positive+active+mass%22%29+AND+%28all%3Ascalar+OR+all%3Afermion+OR+all%3Acanonical%29%29+AND+submittedDate%3A%5B202601010000+TO+202610202359%5D",
+   "http": 200,
+   "raw": "0008_arxiv.xml",
+   "sha256": "6178aafea8ad00513f923e66a8d9257d968fb6717b00497777650d824cb10d1b",
+   "utc": "2026-11-24T01:45Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "C04",
+   "section": "C",
+   "source": "arxiv",
+   "window": "NEW",
+   "query": "all:\"positive mass\" AND (all:\"two-body\" OR all:\"two body\" OR all:binary)",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28all%3A%22positive+mass%22+AND+%28all%3A%22two-body%22+OR+all%3A%22two+body%22+OR+all%3Abinary%29%29+AND+submittedDate%3A%5B202610210000+TO+202611242359%5D",
+   "http": 200,
+   "raw": "0009_arxiv.xml",
+   "sha256": "4e96ff1cde6a4e131dde2cecea9f4c27a34b9dedabf05f863db95fb25d06a6db",
+   "utc": "2026-11-24T01:45Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "C04",
+   "section": "C",
+   "source": "arxiv",
+   "window": "CTRL",
+   "query": "all:\"positive mass\" AND (all:\"two-body\" OR all:\"two body\" OR all:binary)",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28all%3A%22positive+mass%22+AND+%28all%3A%22two-body%22+OR+all%3A%22two+body%22+OR+all%3Abinary%29%29+AND+submittedDate%3A%5B202601010000+TO+202610202359%5D",
+   "http": 200,
+   "raw": "0010_arxiv.xml",
+   "sha256": "9b565e829459e08dbc4f6bcb8aab54d9b8780226c33ec4c56f045792f32836d5",
+   "utc": "2026-11-24T01:45Z",
+   "total": 3,
+   "hits": [
+    {
+     "id": "2609.25091",
+     "ver": 1,
+     "title": "Algebraic Proof of Completeness of a Positional Numeral System in the Normalized Mersenne Basis",
+     "published": "2026-09-19T12:50:26Z",
+     "updated": "2026-09-19T12:50:26Z",
+     "authors": [
+      "E. Dyachenko"
+     ],
+     "summary": "This paper introduces and investigates a non-classical positional numeral system constructed on the normalized Mersenne basis $M_k = (2^k-1)/3$, structurally linking the classical Mersenne sequence (OEIS \\textbf{A000225}) with the integer sequence of alternating binary bitmasks (OEIS \\textbf{A002450}). The main objective of this study is to provide a rigorous algebraic proof of the system's completeness---specifically, theorems on the existence and absolute uniqueness of a canonical representation for any natural number. We show that the internal dynamics of the basis are deterministically governed by the splitting identity $3M_k = M_{k+1} + 2M_{k-1}$, which strictly restricts the valid alphabet of coefficients to the set $\\{0, 1, 2\\}$. Based on the lemma concerning the supremum of lower-order digits and a constructive greedy algorithm, it is proven that the proposed basis forms a closed and unambiguous algebraic space, entirely precluding the overlap of positional masses."
+    },
+    {
+     "id": "2608.08431",
+     "ver": 1,
+     "title": "Optimal Finite Interval Discrepancy via Binary Refinement",
+     "published": "2026-08-09T03:02:14Z",
+     "updated": "2026-08-09T03:02:14Z",
+     "authors": [
+      "Arthur F. Ramos",
+      "David B. Hulak",
+      "Ruy J. G. B. de Queiroz"
+     ],
+     "summary": "DeLeo, Henderschedt, and Wells introduced a finite-horizon version of the classical de Bruijn--Erdos interval discrepancy problem. Starting from the unit interval, one repeatedly splits an existing interval into two until $n$ intervals are present, and one minimizes the largest ratio between the longest and shortest intervals over all intermediate partitions. They constructed the lex-merge strategy, whose discrepancy is $2^{1-1/\\lceil n/2\\rceil}$, and conjectured that this value is optimal for every $n$. We prove the conjecture. More generally, we establish a sharp lower bound for arbitrary binary refinement processes of positive masses: any process that starts with one positive mass, repeatedly replaces one mass by two positive masses with the same total, and terminates with $n$ masses must at some stage have largest-to-smallest ratio at least $2^{1-1/\\lceil n/2\\rceil}$. The proof tracks the minimum mass under refinement and uses the forced survival of a piece near the midpoint of the process. We also record the corresponding universal lower bound for $r$-ary refinements."
+    },
+    {
+     "id": "2605.16177",
+     "ver": 2,
+     "title": "Observational signatures of negative mass wormholes through their shadows",
+     "published": "2026-05-15T16:57:51Z",
+     "updated": "2026-07-31T17:43:08Z",
+     "authors": [
+      "Shin'ichi Nojiri",
+      "Sergei D. Odintsov",
+      "Diego S\u00e1ez-Chill\u00f3n G\u00f3mez"
+     ],
+     "summary": "Systems containing objects with negative mass (NMOs) are considered. Such a system consists of one object with positive mass and one NMO, where a bound state exists even though the force exerted by the NMO on the object with positive-mass is repulsive. Unlike standard binaries composed of positive-mass objects, the emitted gravitational waves exhibit decreasing frequency and amplitude over time. We propose a model that removes the ghost appearing in the construction of the Ellis-Bronnikov wormhole, a candidate for a NMO. Furthermore, we perform numerical simulations to obtain the optical appearance of such NMOs. The observed luminosity is also compared with the Schwarzschild black hole and with the Simpson-Visser wormhole, revealing clear differences in the photon ring substructure around the central object."
+    }
+   ]
+  },
+  {
+   "qid": "C05",
+   "section": "C",
+   "source": "arxiv",
+   "window": "NEW",
+   "query": "all:Planck AND all:\"positive mass\"",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28all%3APlanck+AND+all%3A%22positive+mass%22%29+AND+submittedDate%3A%5B202610210000+TO+202611242359%5D",
+   "http": 200,
+   "raw": "0011_arxiv.xml",
+   "sha256": "58de703e60967abdf53c192dae19692961af8ee6ef67bdbf15a04e8e0a462d03",
+   "utc": "2026-11-24T01:45Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "C05",
+   "section": "C",
+   "source": "arxiv",
+   "window": "CTRL",
+   "query": "all:Planck AND all:\"positive mass\"",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28all%3APlanck+AND+all%3A%22positive+mass%22%29+AND+submittedDate%3A%5B202601010000+TO+202610202359%5D",
+   "http": 200,
+   "raw": "0012_arxiv.xml",
+   "sha256": "a939fe1cb1a268ebf83114955b1a13bda68c5f6b010135dd2c6810d2048c5cd1",
+   "utc": "2026-11-24T01:45Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "C09",
+   "section": "C",
+   "source": "arxiv",
+   "window": "NEW",
+   "query": "all:\"positive mass\" AND (all:\"gravitational wave\" OR all:\"gravitational waves\") AND all:binary",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28all%3A%22positive+mass%22+AND+%28all%3A%22gravitational+wave%22+OR+all%3A%22gravitational+waves%22%29+AND+all%3Abinary%29+AND+submittedDate%3A%5B202610210000+TO+202611242359%5D",
+   "http": 200,
+   "raw": "0013_arxiv.xml",
+   "sha256": "43ecb1318e0cd7558b67dedb547b83cb0a36bb34a0f46faed6c7885a54fece1b",
+   "utc": "2026-11-24T01:45Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "C09",
+   "section": "C",
+   "source": "arxiv",
+   "window": "CTRL",
+   "query": "all:\"positive mass\" AND (all:\"gravitational wave\" OR all:\"gravitational waves\") AND all:binary",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28all%3A%22positive+mass%22+AND+%28all%3A%22gravitational+wave%22+OR+all%3A%22gravitational+waves%22%29+AND+all%3Abinary%29+AND+submittedDate%3A%5B202601010000+TO+202610202359%5D",
+   "http": 200,
+   "raw": "0014_arxiv.xml",
+   "sha256": "52c0140726cbcfa0dd97cfcbacb0a6d635aa6b4e8228ca17884bd5d5e1678ef0",
+   "utc": "2026-11-24T01:45Z",
+   "total": 1,
+   "hits": [
+    {
+     "id": "2605.16177",
+     "ver": 2,
+     "title": "Observational signatures of negative mass wormholes through their shadows",
+     "published": "2026-05-15T16:57:51Z",
+     "updated": "2026-07-31T17:43:08Z",
+     "authors": [
+      "Shin'ichi Nojiri",
+      "Sergei D. Odintsov",
+      "Diego S\u00e1ez-Chill\u00f3n G\u00f3mez"
+     ],
+     "summary": "Systems containing objects with negative mass (NMOs) are considered. Such a system consists of one object with positive mass and one NMO, where a bound state exists even though the force exerted by the NMO on the object with positive-mass is repulsive. Unlike standard binaries composed of positive-mass objects, the emitted gravitational waves exhibit decreasing frequency and amplitude over time. We propose a model that removes the ghost appearing in the construction of the Ellis-Bronnikov wormhole, a candidate for a NMO. Furthermore, we perform numerical simulations to obtain the optical appearance of such NMOs. The observed luminosity is also compared with the Schwarzschild black hole and with the Simpson-Visser wormhole, revealing clear differences in the photon ring substructure around the central object."
+    }
+   ]
+  },
+  {
+   "qid": "D05",
+   "section": "D",
+   "source": "arxiv",
+   "window": "NEW",
+   "query": "(all:canonical OR all:canonical) AND all:scalar AND all:\"numerical relativity\"",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28%28all%3Acanonical+OR+all%3Acanonical%29+AND+all%3Ascalar+AND+all%3A%22numerical+relativity%22%29+AND+submittedDate%3A%5B202610210000+TO+202611242359%5D",
+   "http": 200,
+   "raw": "0015_arxiv.xml",
+   "sha256": "a574f9bea3d6fa9617e379022427161ddacc4dbfeaf1a929405ba7c7d8cdbd54",
+   "utc": "2026-11-24T01:45Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "D05",
+   "section": "D",
+   "source": "arxiv",
+   "window": "CTRL",
+   "query": "(all:canonical OR all:canonical) AND all:scalar AND all:\"numerical relativity\"",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28%28all%3Acanonical+OR+all%3Acanonical%29+AND+all%3Ascalar+AND+all%3A%22numerical+relativity%22%29+AND+submittedDate%3A%5B202601010000+TO+202610202359%5D",
+   "http": 200,
+   "raw": "0016_arxiv.xml",
+   "sha256": "51f123694f6e267033d0f6086377610b6b608d074d45f912c1c842a2982e6262",
+   "utc": "2026-11-24T01:45Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "E01",
+   "section": "E",
+   "source": "arxiv",
+   "window": "NEW",
+   "query": "all:Smith AND all:\"numerical relativity\"",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28all%3ASmith+AND+all%3A%22numerical+relativity%22%29+AND+submittedDate%3A%5B202610210000+TO+202611242359%5D",
+   "http": 200,
+   "raw": "0017_arxiv.xml",
+   "sha256": "fe64753657a5f6e70710f36fab35e8de7b2c5f6755cec6adf8c2350edcb55e5f",
+   "utc": "2026-11-24T01:45Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "E01",
+   "section": "E",
+   "source": "arxiv",
+   "window": "CTRL",
+   "query": "all:Smith AND all:\"numerical relativity\"",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28all%3ASmith+AND+all%3A%22numerical+relativity%22%29+AND+submittedDate%3A%5B202601010000+TO+202610202359%5D",
+   "http": 200,
+   "raw": "0018_arxiv.xml",
+   "sha256": "05320b3243fa9505c449633bf810902a28813896f841d40508c1af2fbde9e721",
+   "utc": "2026-11-24T01:45Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "E02",
+   "section": "E",
+   "source": "arxiv",
+   "window": "NEW",
+   "query": "all:\"positive mass\" AND all:\"numerical relativity\"",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28all%3A%22positive+mass%22+AND+all%3A%22numerical+relativity%22%29+AND+submittedDate%3A%5B202610210000+TO+202611242359%5D",
+   "http": 200,
+   "raw": "0019_arxiv.xml",
+   "sha256": "7b31a8bf42ea167ecfb4a6f5a5abfe335a870e6f2ecfd44909fffc7e66f61068",
+   "utc": "2026-11-24T01:45Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "E02",
+   "section": "E",
+   "source": "arxiv",
+   "window": "CTRL",
+   "query": "all:\"positive mass\" AND all:\"numerical relativity\"",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28all%3A%22positive+mass%22+AND+all%3A%22numerical+relativity%22%29+AND+submittedDate%3A%5B202601010000+TO+202610202359%5D",
+   "http": 200,
+   "raw": "0020_arxiv.xml",
+   "sha256": "a4eed86a39f22e8af2b778d5742dfa2bbcffe1c2508833134966652f5b83fdaa",
+   "utc": "2026-11-24T01:45Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "E03",
+   "section": "E",
+   "source": "arxiv",
+   "window": "NEW",
+   "query": "all:binary AND all:pulsar AND all:\"numerical relativity\"",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28all%3Abinary+AND+all%3Apulsar+AND+all%3A%22numerical+relativity%22%29+AND+submittedDate%3A%5B202610210000+TO+202611242359%5D",
+   "http": 200,
+   "raw": "0021_arxiv.xml",
+   "sha256": "d385aa20deee50009dda4643b4fa10ebb31026e4964c4a77f7ebfca3946e5d48",
+   "utc": "2026-11-24T01:46Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "E03",
+   "section": "E",
+   "source": "arxiv",
+   "window": "CTRL",
+   "query": "all:binary AND all:pulsar AND all:\"numerical relativity\"",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28all%3Abinary+AND+all%3Apulsar+AND+all%3A%22numerical+relativity%22%29+AND+submittedDate%3A%5B202601010000+TO+202610202359%5D",
+   "http": 200,
+   "raw": "0022_arxiv.xml",
+   "sha256": "b768962f2fc875975a1fd9e699f506814fdef50c0689689c60f7c788b8caf74d",
+   "utc": "2026-11-24T01:46Z",
+   "total": 1,
+   "hits": [
+    {
+     "id": "2607.11670",
+     "ver": 1,
+     "title": "Extending the infrastructure of the BAM code towards resistive general-relativistic magnetohydrodynamics: tests and first applications",
+     "published": "2026-07-13T15:12:18Z",
+     "updated": "2026-07-13T15:12:18Z",
+     "authors": [
+      "Matthew Beaudoin",
+      "Maximilano Ujevic",
+      "Ramon Jaeger",
+      "Anna Neuweiler"
+     ],
+     "summary": "Many astrophysical phenomena, including pulsars and short gamma-ray bursts, are associated with the extremely strong magnetic fields present in neutron stars and neutron star mergers. While the ideal magnetohydrodynamic approximation, which assumes infinite conductivity, provides an excellent description of the neutron-star interior, it cannot capture non-ideal processes such as Ohmic dissipation and magnetic reconnection. To overcome this limitation, we present an extension of the numerical-relativity code BAM incorporating a resistive general-relativistic magnetohydrodynamic (GRMHD) description. We validate the new implementation through an extensive suite of special-relativistic magnetohydrodynamic benchmark tests and by performing stable simulations of isolated and binary neutron star systems. For the latter, we investigate the impact of finite conductivity on magnetic-field amplification, mass ejection, and non-ideal GRMHD effects. In particular, we find that the component of the electric field parallel to the magnetic field, which is zero in the ideal case, can reach up to 10% of the total electric field strength. This highlights the potential importance of non-ideal effects for accurately modeling the long-term evolution of post-merger remnants, particularly in low-density regions. Although the present study is restricted to simplified piecewise-polytropic equations of state, it demonstrates the capabilities of the new resistive GRMHD framework and paves the way for future investigations employing more realistic microphysics."
+    }
+   ]
+  },
+  {
+   "qid": "Z01",
+   "section": "Z",
+   "source": "arxiv",
+   "window": "NEW",
+   "query": "all:xyzzyqwertyplugh",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28all%3Axyzzyqwertyplugh%29+AND+submittedDate%3A%5B202610210000+TO+202611242359%5D",
+   "http": 200,
+   "raw": "0023_arxiv.xml",
+   "sha256": "054cd901cd2c7485293232ca1021134902e0441e1617cde64a9793c1f61339cf",
+   "utc": "2026-11-24T01:46Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "Z01",
+   "section": "Z",
+   "source": "arxiv",
+   "window": "CTRL",
+   "query": "all:xyzzyqwertyplugh",
+   "url": "https://export.arxiv.org/api/query?max_results=100&start=0&sortBy=submittedDate&sortOrder=descending&search_query=%28all%3Axyzzyqwertyplugh%29+AND+submittedDate%3A%5B202601010000+TO+202610202359%5D",
+   "http": 200,
+   "raw": "0024_arxiv.xml",
+   "sha256": "66b1a8eb40784f28eff4671592ea58fc1964c8aa36eda5a45a5dafa5a3f33619",
+   "utc": "2026-11-24T01:46Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "Z01",
+   "section": "Z",
+   "source": "inspire",
+   "window": "NEW",
+   "query": "xyzzyqwertyplugh and de > 2026-10-20",
+   "url": "",
+   "http": 200,
+   "raw": "0025_inspire.json",
+   "sha256": "a49619545b2704dd944971b87fd248332ef1d6b52c012bfa3fd57a3b1f4ba8d6",
+   "utc": "2026-11-24T01:46Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "Z01",
+   "section": "Z",
+   "source": "inspire",
+   "window": "CTRL",
+   "query": "xyzzyqwertyplugh and de > 2025-12-31 and de < 2026-10-21",
+   "url": "",
+   "http": 200,
+   "raw": "0026_inspire.json",
+   "sha256": "3aebc6486b3865832bffbc12f211f7aeaf1b18b6b6ccb11319d2ba15c9cde2cd",
+   "utc": "2026-11-24T01:46Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "I03",
+   "section": "B",
+   "source": "inspire",
+   "window": "NEW",
+   "query": "abstracts.value:\"positive mass\" and de > 2026-10-20",
+   "url": "",
+   "http": 200,
+   "raw": "0027_inspire.json",
+   "sha256": "2567f60e74e1b70121f9a59a1728de1f1954433beecea0170b79eb52cc00829c",
+   "utc": "2026-11-24T01:46Z",
+   "total": 8,
+   "hits": [
+    {
+     "id": "2611.21722",
+     "recid": 3230181,
+     "title": "Cosmic Censorship in the Landscape of SUSY-Broken AdS Vacua",
+     "date": "2026-11-16",
+     "authors": [
+      "Engelhardt, Netta",
+      "Nally, Richard"
+     ],
+     "pub": null,
+     "summary": "We investigate signatures of weak cosmic censorship in non-supersymmetric vacua of both IIA and IIB string theory. In particular, we examine the Penrose Inequality, which can be proven holographically using Ryu-Takayanagi, and can be independently proven in SUSY AdS vacua for spherically symmetric initial data. We prove that any EFT of scalars coupled to gravity in AdS, including in particular those of string compactifications, satisfies both the Penrose Inequality and a positive mass theorem if a function that we call a \"weak fake superpotential\" exists. We demonstrate that this condition is "
+    },
+    {
+     "id": "2611.14625",
+     "recid": 3227630,
+     "title": "Conic Tilings of Black Hole Images by Radial Closest Approach",
+     "date": "2026-11-10",
+     "authors": [
+      "Wong, George N.",
+      "Mummery, Andrew"
+     ],
+     "pub": null,
+     "summary": "Each point in a black hole image corresponds to a light ray, whose minimum radial coordinate when traced backward from the observer measures how deeply it probes the spacetime. We show that contours of constant closest-approach radius form arcs of conic sections in standard Bardeen image coordinates for Kerr, and in natural local image coordinates for finite-radius observers in the broader Plebanski-Demianski (PD) family of Einstein-Maxwell solutions. At each radius, the condition of vanishing radial velocity defines a complete conic; the physical contour consists of those points whose rays re"
+    },
+    {
+     "id": "2611.08382",
+     "recid": 3225504,
+     "title": "When Can Pulsar Timing Distinguish a Propagation Mass from a Weak Longitudinal Background?",
+     "date": "2026-11-05",
+     "authors": [
+      "Zhou, Kun",
+      "Li, Jin"
+     ],
+     "pub": null,
+     "summary": "A weak longitudinal background can imitate the angular response of a gravitational-wave propagation mass. We quantify this ambiguity in a compressed Gaussian experiment constructed from the NANOGrav 15-year timing data. At a false-alarm probability of $10^{-3}$, allowing a weak longitudinal component in a massless background costs at least 16.29 percentage points of optimal rejection power for a specified source in a 20-pulsar subarray. Expanding the array to 40 pulsars at the same background level recovers at least 7.62 points. In a separate low-background experiment, we allow the same contin"
+    },
+    {
+     "id": "2611.05485",
+     "recid": 3222918,
+     "title": "The quasi-topological space of quasi-topological gravities",
+     "date": "2026-11-03",
+     "authors": [
+      "Bueno, Pablo",
+      "Hennigar, Robie A.",
+      "Marrone, Matteo G.",
+      "Murcia, \u00c1ngel J."
+     ],
+     "pub": null,
+     "summary": "We investigate general properties of quasi-topological theories of gravity involving infinite towers of polynomial densities and of their regular vacuum black hole solutions. We show that every positive-mass regular vacuum solution necessarily possesses a de Sitter core, while Minkowski and anti-de Sitter cores are excluded. Regarding the horizon structure, we prove that asymptotically flat and anti-de Sitter regular black holes always admit extremal configurations. We find that there is no upper bound on the number of horizons and that horizons of arbitrarily high degeneracy can arise. These "
+    },
+    {
+     "id": "2611.02133",
+     "recid": 3222166,
+     "title": "$C^0$-inextendibility of a class of Vaidya spacetimes",
+     "date": "2026-11-01",
+     "authors": [
+      "Mosani, Karim",
+      "S\u00e4mann, Clemens",
+      "Solanki, Kharanshu N."
+     ],
+     "pub": null,
+     "summary": "We prove the future $C^0$-inextendibility of a broad subclass of ingoing Vaidya spacetimes with positive mass function satisfying the weak energy condition, building on methods introduced and developed by Sbierski for the Schwarzschild spacetime."
+    },
+    {
+     "id": "2610.35012",
+     "recid": 3218763,
+     "title": "The $C^0$-inextendibility of Kerr spacetimes",
+     "date": "2026-10-26",
+     "authors": [
+      "Gunara, Bobby Eka"
+     ],
+     "pub": null,
+     "summary": "We prove the $C^0$-inextendibility of the full Kerr realizations considered in this paper and all their connected covering spacetimes. The result holds for positive mass and nonzero rotation in the subextremal, extremal, and overextremal regimes. The obstruction at the singular ring is expressed by unbounded proper time in a fixed-endpoint causal homotopy class. It persists under every positive continuous conformal rescaling and under continuous widening of the Kerr causal cones, without any global causality assumption. We give sharp bounds in a fixed coordinate norm for stationary and axisymm"
+    },
+    {
+     "id": null,
+     "recid": 3221180,
+     "title": "Regular hairy black holes by gravitational decoupling: De Sitter and Minkowski cores",
+     "date": "2026-10-26",
+     "authors": [
+      "Berkimbayev, Daulet"
+     ],
+     "pub": "Nucl.Phys.B",
+     "summary": "Two regular black hole cores are covered by the same exponentially localized anisotropic sector. A Bardeen seed with positive mass produces a de Sitter core, whereas an exponential hollow seed produces a Minkowski core. The comparison examines how adding or redistributing the finite mass carried by the hair changes horizons and capture from infinity. Holding the seed mass or the Arnowitt\u2013Deser\u2013Misner mass fixed defines different paths through the same family. Joint diagrams in seed mass and hair amplitude resolve regions with four horizons, cusp configurations, and two simultaneous double hori"
+    },
+    {
+     "id": "2610.33928",
+     "recid": 3218751,
+     "title": "Gravitational Radiation Coupled to a real massive scalar Field",
+     "date": "2026-10-24",
+     "authors": [
+      "Ma, Yue",
+      "Wu, Xianghao",
+      "Zhang, Weidong"
+     ],
+     "pub": null,
+     "summary": "We study the asymptotic behavior of small-data global solutions to the Einstein--Klein--Gordon system with a positive-mass real scalar field in wave gauge. We show that the linearized trace component of the metric perturbation admits a $\\hat t^{-1}\\simeq t^{-1}$ optimal decreasing rate. Moreover, a quantitative one-point observability estimate is established: the initial Klein-Gordon energy is controlled by this leading order coefficient."
+    }
+   ]
+  },
+  {
+   "qid": "I03",
+   "section": "B",
+   "source": "inspire",
+   "window": "CTRL",
+   "query": "abstracts.value:\"positive mass\" and de > 2025-12-31 and de < 2026-10-21",
+   "url": "",
+   "http": 200,
+   "raw": "0028_inspire.json",
+   "sha256": "664b42f1e1ecae3b83a367cc944de649c5b10afaf2e836734e31fffaa77c01fa",
+   "utc": "2026-11-24T01:46Z",
+   "total": 38,
+   "hits": [
+    {
+     "id": "2610.31691",
+     "recid": 3218360,
+     "title": "Finite Mass Response to Vanishing Perturbations at Cauchy Horizons",
+     "date": "2026-10-20",
+     "authors": [
+      "Li, Yi-kun"
+     ],
+     "pub": null,
+     "summary": "Smooth transverse perturbations with vanishing $L^p$ norm, for fixed finite $p\\ge4$, can leave a finite positive mass increment at a Cauchy horizon. We prove this at a critical surface-gravity relation in the spherical Einstein--Maxwell--scalar system with positive cosmological constant. Each solution has bounded mass and local finite-energy weak extensions. The response escapes every fixed time window. An analytic law determines its delay and duration, and resolves enhancement or cancellation for overlapping packets."
+    },
+    {
+     "id": "2610.23133",
+     "recid": 3215900,
+     "title": "Uniqueness of Static Black Holes in Lovelock Gravity",
+     "date": "2026-10-16",
+     "authors": [
+      "Sharma, Chanchal",
+      "Sarkar, Sudipta"
+     ],
+     "pub": null,
+     "summary": "Black hole uniqueness is one of the fundamental predictions of general relativity: the spherically symmetric Schwarzschild--Tangherlini spacetime is the unique regular, asymptotically flat, static vacuum black hole solution of Einstein's equations. We show that an analogous result holds perturbatively in Lovelock gravity. Assuming the appropriate positive-mass rigidity statement, any regular, asymptotically flat, static vacuum black hole solution of Lovelock gravity on a generic branch admitting a regular Taylor expansion about general relativity is uniquely determined, at fixed ADM mass, by t"
+    },
+    {
+     "id": "2610.12510",
+     "recid": 3213647,
+     "title": "On the notion of kinetic energy in a space\u2013time of maximal proper acceleration",
+     "date": "2026-10-07",
+     "authors": [
+      "Gallego Torrom\u00e9, Ricardo"
+     ],
+     "pub": "Proc.Roy.Soc.Lond.A",
+     "summary": "<jats:title>Abstract</jats:title> It is shown in this work that in spacetimes of maximal proper acceleration, there are situations where a particle decelerates and simultaneously increases its kinetic energy. To illustrate the effect, a classical one-dimensional electric cavity-like scheme is discussed. The gain in kinetic energy by deceleration suggests an equivalence between velocity and acceleration from the energetic point of view. Such an equivalence is stated in a form resembling the Born reciprocity principle but formulated in the framework of higher order jet space\u2013time geometry. We al"
+    },
+    {
+     "id": "2610.08615",
+     "recid": 3214030,
+     "title": "Coordinate isoperimetric mass and a positive mass theorem for distributional scalar curvature",
+     "date": "2026-10-06",
+     "authors": [
+      "Graf, Melanie",
+      "Hafemann, Eduardo"
+     ],
+     "pub": null,
+     "summary": "Extending the well-known Riemannian positive mass theorem to low-regularity metrics is an ongoing effort, starting from the early 2000s, that has recently seen renewed interest. Contrary to many other approaches we do not wish to assume smoothness at infinity nor to introduce a new definition of mass tailored to our approach, but rather go back to the coordinate isoperimetric mass originally proposed by Huisken. We establish new asymptotic expressions for the coordinate isoperimetric mass of continuous asymptotically flat metrics, which constitute the main ingredient in proving a finiteness cr"
+    },
+    {
+     "id": "2609.29919",
+     "recid": 3207295,
+     "title": "Six-point consistency and uniqueness of the Veneziano amplitude",
+     "date": "2026-09-24",
+     "authors": [
+      "Sung, Ilmo"
+     ],
+     "pub": null,
+     "summary": "We establish uniqueness of the Veneziano four-point amplitude in a meromorphic class by combining six-point consistency with a known low-order supersymmetry relation. We consider planar tree-level scattering in four dimensions with a massless maximally supersymmetric vector multiplet and an additional scalar parity condition. A difference of supersymmetry Ward identities isolates massless factorization residues and eliminates every permitted contribution regular in a common kinematic limit. The resulting functional equation holds at every derivative order and fixes all angular dependence from "
+    },
+    {
+     "id": "2609.19711",
+     "recid": 3204715,
+     "title": "Spacetime Positive Mass Theorem with Boundary for Multiple Time Dimensions",
+     "date": "2026-09-17",
+     "authors": [
+      "Fang, Changwen"
+     ],
+     "pub": null,
+     "summary": "We prove a positive mass theorem for one-ended asymptotically flat spin initial data with multiple time directions and a smooth compact boundary. Assuming the trace-norm dominant energy condition and pairwise commutativity of the second fundamental forms, a fixed auxiliary time direction on each boundary component determines a local chirality condition. We identify the surviving mixed boundary term and obtain the inequality $E\\geq\\|\\mathcal P\\|_{\\mathrm{tr}}$ under the boundary condition $H+\\operatorname{tr}_\u03a3k^T+\\|\\mathcal Q_T\\|_{\\mathrm{tr}}\\leq0$. The proof constructs a Dirac--Witten harmon"
+    },
+    {
+     "id": null,
+     "recid": 3206352,
+     "title": "SPARC-calibrated galactic wormholes in Einstein\u2013Cartan gravity with Dekel\u2013Zhao and Hernquist dark-matter halos",
+     "date": "2026-09-16",
+     "authors": [
+      "Soibam, Yohenba",
+      "Zeeshan Gul, M.",
+      "Priyokumar Singh, Kangujam"
+     ],
+     "pub": "Phys.Dark Univ.",
+     "summary": "We construct static, spherically symmetric galactic wormholes in Einstein\u2013Cartan gravity using dark-matter halo distributions calibrated from SPARC rotation curves. The Dekel\u2013Zhao (DZ) and Hernquist profiles are fitted to NGC3198 and DDO154 through Bayesian posterior sampling. Hernquist is mildly favored for NGC3198, whereas DZ is preferred for DDO154. Joint posterior samples preserving parameter covariance are propagated into the Einstein\u2013Cartan reconstruction, with both halo families used to assess model dependence. The throat radius is parameterized by <math altimg=\"si67.svg\"><mrow><msub><m"
+    },
+    {
+     "id": "2609.17361",
+     "recid": 3203768,
+     "title": "Compact Proof of the Positivity of Quasi-Local Masses for a class of Initial Data",
+     "date": "2026-09-15",
+     "authors": [
+      "Mondal, Puskar",
+      "Yau, Shing-Tung"
+     ],
+     "pub": null,
+     "summary": "We prove a purely quasi-local positivity theorem for the Wang--Yau mass for a class of initial data whose Jang deformation, after a boundary-preserving conformal reduction to zero scalar curvature, lies in a sufficiently small transverse--traceless (TT) perturbative neighborhood of a strictly convex Euclidean fill-in.We explicitly construct a nontrivial class of physical initial data whose admissible Jang reductions realize this TT-generated sector. The argument reduces the Wang--Yau energy to the Brown--York mass of the resulting scalar-flat compact metric, together with nonnegative bulk term"
+    },
+    {
+     "id": "2609.08893",
+     "recid": 3201757,
+     "title": "ALP-mediated inelastic dark matter and the LUX-ZEPLIN high-recoil candidate event LZ230616",
+     "date": "2026-09-08",
+     "authors": [
+      "Yuan, Guan-Wen",
+      "Zhang, Bo",
+      "Cao, Wen-Yu",
+      "Feng, Lei"
+     ],
+     "pub": null,
+     "summary": "The LUX-ZEPLIN (LZ) Collaboration has reported a high-energy candidate event LZ230616 with a reconstructed nuclear recoil energy $E_R=248\\pm23_{\\rm stat}\\pm23_{\\rm sys}~{\\rm keV}$. We investigate a possible interpretation in terms of inelastic scattering between two Majorana dark matter states mediated by an axionlike particle coupled to gluons. The positive mass splitting suppresses low-energy recoils, while the momentum dependence of the interaction reshapes the high-energy spectrum. We treat the dark-sector and gluonic couplings independently and retain the momentum-dependent nucleon form f"
+    },
+    {
+     "id": "2608.29259",
+     "recid": 3197882,
+     "title": "Embedding dependence of fermion mass hierarchies in $S_3$-symmetric Yukawa sectors",
+     "date": "2026-08-29",
+     "authors": [
+      "Zhou, Ye"
+     ],
+     "pub": null,
+     "summary": "When irreducible representations occur with multiplicity, a family symmetry fixes the representation content of a Yukawa sector but need not fix its embedding in the space of generation tensors. We study the spectral consequences of this additional embedding data for complex-symmetric three-family tensors with the $S_3$ assignment $V=\\mathbf{1}\\oplus\\mathbf{2}$. Since $\\operatorname{Sym}^2V=2\\,\\mathbf{1}\\oplus2\\,\\mathbf{2}$, three-dimensional invariant Yukawa subspaces of type $\\mathbf{1}\\oplus\\mathbf{2}$ form a continuous $\\mathbb{CP}^1\\times\\mathbb{CP}^1$ family, denoted $\\mathcal L_{t,\u03ba}$ o"
+    },
+    {
+     "id": "2608.27900",
+     "recid": 3197333,
+     "title": "Compact Core--Shell Equilibria in Gravitational Vlasov--Poisson Systems with Positive and Negative Mass",
+     "date": "2026-08-28",
+     "authors": [
+      "Sato, Naoki"
+     ],
+     "pub": null,
+     "summary": "We construct regular, spherically symmetric, compact energy-cutoff equilibria for gravitational Vlasov--Poisson systems sourced by positive and negative mass distributions in the context of stellar dynamics. Motivated by Bondi's notion of negative mass and its relation to the weak field limit of Einstein gravity with a signed mass--energy source, we show that the internal structure of the steady states depends qualitatively on the type of negative mass present. In the Bondi convention, the signs of inertial, passive gravitational, and active gravitational mass are reversed together, preserving"
+    },
+    {
+     "id": "2608.22395",
+     "recid": 3195794,
+     "title": "Weighted decomposition of vector fields, $X$-ADM mass, and higher-dimensional mass-charge inequalities",
+     "date": "2026-08-23",
+     "authors": [
+      "Oronzio, Francesca"
+     ],
+     "pub": null,
+     "summary": "We study the $X$-ADM mass on complete, one-ended asymptotically flat Riemannian manifolds without boundary in arbitrary dimension $n\\geqslant 3$. Starting from a weighted gradient--divergence-free decomposition of the vector field $X$, we construct a conformal metric whose scalar curvature is governed by the critical modified scalar curvature $\\mathrm{R}_{X}^{(1-n)}$ associated with $X$. This yields an exact decomposition of the $X$-ADM mass into the ADM mass of the conformal metric plus a nonnegative defect term, which vanishes precisely when $X$ is a gradient, thereby giving an alternative d"
+    },
+    {
+     "id": "2608.21118",
+     "recid": 3194593,
+     "title": "Mannheim\u2013Kazanas Black Holes: Horizons, Temperatures and Thermodynamics",
+     "date": "2026-08-21",
+     "authors": [
+      "L\u00fctf\u00fco\u011flu, Bekir Can"
+     ],
+     "pub": "Int.J.Grav.Theor.Phys.",
+     "summary": "Static black holes in conformal Weyl gravity differ from their Einstein counterparts in a simple but important way: the Mannheim\u2013Kazanas geometry is encoded in a Bach-flat lapse function whose radial dependence is richer than that of Schwarzschild\u2013de Sitter. We study the de Sitter branch of this solution in the Schwarzschild gauge, keeping the characteristic linear term together with the quadratic de Sitter term. In the branch continuously connected to the positive-mass Schwarzschild\u2013de Sitter spacetime, a regular static region between a black-hole horizon and a cosmological horizon exists pre"
+    },
+    {
+     "id": "2608.18213",
+     "recid": 3192574,
+     "title": "A more general exact solution for the Schwarzschild black hole in a Bertotti-Robinson-Bonnor-Melvin universe",
+     "date": "2026-08-18",
+     "authors": [
+      "Di Pinto, Andrea"
+     ],
+     "pub": null,
+     "summary": "We begin by introducing a new parameterization for the Ovcharenko-Podolsk\u00fd family of exact solutions of the Einstein-Maxwell equations describing uncharged and non-accelerating static black holes immersed in an external Bertotti-Robinson electromagnetic field. The new spacetime is, in general, different from the original Ovcharenko-Podolsk\u00fd one, in particular on the branches solving the field equations, for which the original parameterization can lead to black holes with a negative mass, whereas the new one always leads to black holes with a positive mass. Moreover, by introducing additional g"
+    },
+    {
+     "id": "2607.27007",
+     "recid": 3184274,
+     "title": "The positive mass theorem under a spectral scalar curvature bound on spin manifolds",
+     "date": "2026-07-29",
+     "authors": [
+      "Wang, Xiangsheng"
+     ],
+     "pub": null,
+     "summary": "On spin manifolds, we give a proof of Brendle and Wang's refined positive mass theorem using the Dirac operator method. In the course of this proof, we discuss the origin of the special coefficient appearing in Brendle and Wang's spectral positivity condition for scalar curvature from the perspective of spin geometry."
+    },
+    {
+     "id": "2607.05980",
+     "recid": 3178052,
+     "title": "Charged parallel spinors and applications to mass--charge inequalities",
+     "date": "2026-07-07",
+     "authors": [
+      "Raulot, Simon"
+     ],
+     "pub": null,
+     "summary": "We investigate the equality case of the spin positive mass theorem with charge in the Riemannian setting. This leads naturally to the notion of charged parallel spinor, which plays a central role in the analysis of extremal charged manifolds. As an application, we characterize the equality case of the mass--charge inequality in terms of the extremal Reissner--Nordstr\u00f6m geometry for asymptotically flat manifolds with connected boundary and for manifolds with a single asymptotically cylindrical end."
+    },
+    {
+     "id": "2607.04291",
+     "recid": 3177540,
+     "title": "Rigidity and the interpretation of mass with a positive cosmological constant",
+     "date": "2026-07-05",
+     "authors": [
+      "Aranguren, Eneko",
+      "Vera, Ra\u00fcl"
+     ],
+     "pub": null,
+     "summary": "We provide an explicit counterexample to the rigidity properties underlying the interpretation of mass in the presence of a positive cosmological constant $\u039b$. Specifically, we construct a family of regular static stellar configurations satisfying the dominant and strong energy conditions, and containing no surface layers, for which the mass parameter of the outer Schwarzschild-de Sitter region can be positive, zero, or negative. The zero-mass configuration is precisely the one for which the outer vacuum region becomes exactly de Sitter, yielding a spacetime in which a de Sitter domain coexist"
+    },
+    {
+     "id": "2607.03629",
+     "recid": 3177526,
+     "title": "A conformal reduction for the X-ADM mass",
+     "date": "2026-07-02",
+     "authors": [
+      "McCormick, Stephen"
+     ],
+     "pub": null,
+     "summary": "The X-ADM mass is a generalisation of the ADM mass for asymptotically flat manifolds, recently introduced by Mantegazza and Oronzio [arXiv:2602.11372], who proved a positive mass theorem for this quantity in dimension $3$ under a certain topological condition. In this article, we prove the X-positive mass theorem with rigidity in all dimensions $n\\geq3$ without any topological restrictions. To this end, we first prove that the scalar curvature condition appearing in the X-positive mass theorem implies the metric is of positive Yamabe type. We then show that the X-ADM mass of the given metric i"
+    },
+    {
+     "id": "2606.28689",
+     "recid": 3174497,
+     "title": "Conformal boundary rigidity from null geodesic travel times",
+     "date": "2026-06-27",
+     "authors": [
+      "Paternain, Gabriel",
+      "Woolgar, Eric"
+     ],
+     "pub": null,
+     "summary": "The gravitational field of a distant, isolated system is manifested by the conformally invariant Weyl tensor. Thus the conformal structure far from the system encodes the system's gravitational mass. It also encodes the causal structure, thereby linking it to the mass. For asymptotically anti-de Sitter (AdS) spacetimes, this link led to a novel positive mass theorem of Page, Surya, and the second author \\cite{PSW} which did not rely on any traditional energy condition. Here we ask whether that theorem has a rigidity case. Specifically, we consider all null geodesics in an asymptotically AdS sp"
+    },
+    {
+     "id": "2606.23529",
+     "recid": 3171070,
+     "title": "Riemannian Positive Mass Theorem in All Dimensions in the Presence of Low-Codimension Singularities",
+     "date": "2026-06-22",
+     "authors": [
+      "Khuri, Marcus",
+      "Wang, Jian",
+      "Wang, Jinmin"
+     ],
+     "pub": null,
+     "summary": "We prove the Riemannian positive mass theorem in all dimensions for asymptotically flat $L^\\infty$-metrics with subcritical singular sets. More precisely, we consider complete asymptotically flat manifolds whose metrics are smooth away from a compact singular set of Minkowski dimension less than $n-3+\\frac{2}{n}$, and whose scalar curvature is nonnegative on the regular set. We show that the ADM mass of each asymptotically flat end is nonnegative, and that the mass vanishes in some end only in the Euclidean case. For the rigidity statement, we require additionally that the Minkowski dimension "
+    },
+    {
+     "id": "2606.03414",
+     "recid": 3164874,
+     "title": "Hidden-sector accretion and warped black-string seeds for high-redshift supermassive black holes",
+     "date": "2026-06-02",
+     "authors": [
+      "Lin, Chunshan"
+     ],
+     "pub": null,
+     "summary": "The earliest massive black holes are often discussed in terms of heavy baryonic seeds, primordial black holes, or super-Eddington accretion. We develop a different possibility: a compact object on a hidden donor brane forms a common five-dimensional horizon whose intersection with our brane is observed as a black-hole seed. Donor-side matter accretes onto the common five-dimensional horizon, increases the horizon radius, and consequently enlarges its intersection with our brane. As a result, the gravitational mass inferred by an observer living on our brane grows. We slice the five-dimensional"
+    },
+    {
+     "id": "2606.02393",
+     "recid": 3164330,
+     "title": "Geometric Saturation of the Scale Function in Black-Bounce Spacetimes: Spherical, Planar, and Hyperbolic Transverse Sections",
+     "date": "2026-06-01",
+     "authors": [
+      "Estrada, Milko"
+     ],
+     "pub": null,
+     "summary": "We present a new construction for black-bounce spacetimes based on a deformation of the scale function that acts as a geometric saturation rather than introducing a prescribed constant minimal length, as in conventional black-bounce models. This function encodes the gravitational information of the underlying vacuum counterpart, keeping the geometric quantities of the deformed metric finite in the short-distance region where tidal forces and curvature invariants of the vacuum geometry diverge. The deformation saturates at short scales, suppressing curvature divergences without requiring a pote"
+    },
+    {
+     "id": "2605.16177",
+     "recid": 3156697,
+     "title": "Observational signatures of negative mass wormholes through their shadows",
+     "date": "2026-05-15",
+     "authors": [
+      "Nojiri, Shin'ichi",
+      "Odintsov, Sergei D.",
+      "S\u00e1ez-Chill\u00f3n G\u00f3mez, Diego"
+     ],
+     "pub": "Eur.Phys.J.C",
+     "summary": "Systems containing objects with negative mass (NMOs) are considered. Such a system consists of one object with positive mass and one NMO, where a bound state exists even though the force exerted by the NMO on the object with positive-mass is repulsive. Unlike standard binaries composed of positive-mass objects, the emitted gravitational waves exhibit decreasing frequency and amplitude over time. We propose a model that removes the ghost appearing in the construction of the Ellis\u2013Bronnikov wormhole, a candidate for a NMO. Furthermore, we perform numerical simulations to obtain the optical appea"
+    },
+    {
+     "id": "2605.12352",
+     "recid": 3154836,
+     "title": "A Comparison Theorem For the Mass of ALE and ALF Toric 4-Manifolds",
+     "date": "2026-05-12",
+     "authors": [
+      "Alaee, Aghil",
+      "Khuri, Marcus",
+      "Kunduri, Hari"
+     ],
+     "pub": null,
+     "summary": "We establish sharp lower bounds for the mass of asymptotically locally Euclidean (ALE) and asymptotically locally flat (ALF) toric 4-manifolds, in terms of equilibrium geometries consisting of gravitational instantons. More precisely, the mass of a complete ALE or ALF toric 4-manifold with nonnegative scalar curvature is bounded below by a sum comprised of the following quantities: the mass of the corresponding toric gravitational instanton having the same orbit space (rod) structure as the original ALE/ALF manifold, and an expression determined by the conical angle defects of totally geodesic"
+    },
+    {
+     "id": "2605.09651",
+     "recid": 3154239,
+     "title": "A minimization theorem for the Koide ratio and its Standard Model calibration",
+     "date": "2026-05-10",
+     "authors": [
+      "H\u00fcbner, K."
+     ],
+     "pub": null,
+     "summary": "The charged-lepton Koide relation remains a striking empirical regularity in Standard-Model flavor data. We prove that for any positive mass set with Koide ratio $Q_0$, the one-particle extension $Q(m_1,\\ldots,m_N,x)$ has a unique global minimum $Q_\\text{min}=Q_0/(1+Q_0)$ at $m^*=\\bigl[(\\sum_i m_i)/(\\sum_i \\sqrt{m_i})\\bigr]^2$. This exact kinematic result defines a unique extension benchmark. For the measured charged leptons it gives $m_*^\\ell = 1.255\\,34(16)\\,\\text{GeV}$ and $Q_{4,\\min}^{\\mathrm{exp}} = 0.399\\,997\\,8(43)$; in the ideal Koide limit $Q_\\ell^{\\mathrm{K}}=2/3$, the corresponding "
+    },
+    {
+     "id": "2604.26978",
+     "recid": 3150558,
+     "title": "Positive mass theorem for initial data sets with arbitrary ends",
+     "date": "2026-04-28",
+     "authors": [
+      "Tsang, Tin-Yau"
+     ],
+     "pub": null,
+     "summary": "We showed a positive energy theorem for asymptotically flat initial data sets with the concept of spectral PSC by He-Shi-Yu, Bi-Hao-He-Shi-Zhu and Brendle-Wang; and the Jang equation in Schoen-Yau, Eichmair and Jang. Then, we proved a quantitative shielding theorem concerning the causal property of the energy-momentum vector of an asymptotically hyperbolic manifold. As a result, we established the positive mass theorem for complete asymptotically hyperbolic manifolds satisfying the dominant energy condition. As corollaries, we also obtained corresponding results for manifolds with asymptotical"
+    },
+    {
+     "id": "2604.24746",
+     "recid": 3149382,
+     "title": "The Hyperboloidal and Spacetime Positive Mass Theorem in All Dimensions",
+     "date": "2026-04-27",
+     "authors": [
+      "Hirsch, Sven",
+      "Khuri, Marcus",
+      "Lesourd, Martin",
+      "Zhang, Yiyue"
+     ],
+     "pub": null,
+     "summary": "Using the recent work of Brendle--Wang on the Riemannian positive mass theorem, we prove the spacetime positive mass theorem for asymptotically flat and asymptotically hyperboloidal initial data sets in arbitrary dimensions."
+    },
+    {
+     "id": "2604.05026",
+     "recid": 3140632,
+     "title": "Quantum solitons",
+     "date": "2026-04-06",
+     "authors": [
+      "Hennigar, Robie A.",
+      "Patra, Ayan K.",
+      "Ross, Simon F."
+     ],
+     "pub": "JHEP",
+     "summary": "We construct geometries describing the quantum backreaction of thermal fields in AdS$_{3}$. The solutions are obtained from branes in a four-dimensional AdS C-metric. They can be viewed as solutions of the semiclassical effective theory on the brane, which couples three-dimensional gravity to the CFT dual to the four-dimensional bulk. This brane construction is related by a double analytic continuation to earlier studies of quantum BTZ solutions. There are two families of solutions, labelled by the asymptotic mass. Solutions with negative mass correspond to the back-reaction of a thermal CFT s"
+    },
+    {
+     "id": "2603.25470",
+     "recid": 3136460,
+     "title": "Quasinormal modes and AdS/CFT correspondence of a rotating BTZ-like black hole in the Einstein-bumblebee gravity",
+     "date": "2026-03-26",
+     "authors": [
+      "Quan, Fangli",
+      "Xia, Zhong-Wu",
+      "Ding, Rui",
+      "Pan, Qiyuan"
+     ],
+     "pub": "Eur.Phys.J.C",
+     "summary": "We obtain exact expressions for the quasinormal modes (QNMs) of the massive scalar, fermionic and vector perturbations around a rotating BTZ-like black hole in the Einstein-bumblebee gravity. We find that the Lorentz symmetry breaking (LSB) parameter $\\ell $ leaves its imprint only on the imaginary parts of the quasinormal frequencies and the corresponding perturbation field decays more slowly for a larger $\\ell $, except for the left-moving quasinormal frequencies $\\omega _L$ with positive mass and the right-moving ones $\\omega _R$ with negative mass for the fundamental modes under the vector"
+    },
+    {
+     "id": "2603.16707",
+     "recid": 3130247,
+     "title": "Curvature inequalities and rigidity for constant mean curvature and spacetime constant mean curvature surfaces",
+     "date": "2026-03-17",
+     "authors": [
+      "Diaz, Alejandro Pe\u00f1uela"
+     ],
+     "pub": null,
+     "summary": "We establish curvature inequalities and rigidity results for surfaces satisfying constant mean curvature type conditions in both Riemannian and Lorentzian geometry. In the Riemannian setting, we study constant mean curvature (CMC) surfaces. Building on the Christodoulou-Yau inequality $H^2\\leq 16\u03c0/ |\u03a3|$ (with $H$ the mean curvature and $|\u03a3|$ the area) for CMC surfaces on three-dimensional manifolds with nonnegative scalar curvature, we show that the inequality holds under a weaker stability condition controlling only the constant mode of the second variation. Combined with an extrinsic curvatu"
+    },
+    {
+     "id": "2603.01543",
+     "recid": 3124695,
+     "title": "Mass-type invariants in the presence of a cosmological constant",
+     "date": "2026-03-02",
+     "authors": [
+      "Agostiniani, Virginia",
+      "Borghini, Stefano",
+      "Mazzieri, Lorenzo"
+     ],
+     "pub": null,
+     "summary": "In this paper, we introduce a new family of mass-type invariants for time-symmetric initial data in space-times satisfying the Dominant Energy Condition. For positive cosmological constant, these invariants, unlike the total Hawking mass, turn out to be genuinely effective in providing new characterizations of the de Sitter solution. From a theoretical standpoint, this opens a new perspective on how one might refine the rigidity statement originally proposed by Min-Oo in his well known conjecture, later refuted by the counterexamples of Brendle, Marques, and Neves. Via a formal limiting proced"
+    },
+    {
+     "id": "2602.20081",
+     "recid": 3122908,
+     "title": "The Spacetime Positive Mass Theorem with Multiple Time Dimensions",
+     "date": "2026-02-23",
+     "authors": [
+      "Hirsch, Sven",
+      "Payne, Alec",
+      "Zhang, Yiyue"
+     ],
+     "pub": null,
+     "summary": "We generalize the spacetime positive mass theorem to include multiple time dimensions. In particular, we show that the mass remains nonnegative in the sense that the energy $E$ is bounded from below by the trace norm of the linear momenta $J^1,...,J^m$. Equality in this energy inequality implies a foliation by flat submanifolds of a generalized initial data set. Moreover, under an additional umbilicity assumption, we find that the initial data set isometrically embeds into a generalized pp-wave."
+    },
+    {
+     "id": "2602.15058",
+     "recid": 3121019,
+     "title": "May negative mass objects exist in the sky?",
+     "date": "2026-02-13",
+     "authors": [
+      "Nojiri, Shin'ichi",
+      "Odintsov, S.D."
+     ],
+     "pub": "Phys.Dark Univ.",
+     "summary": "We conjecture the possibility of negative mass objects (NMOs) existing in the sky. It is shown that they may not be so exotic as usually expected. We show that NMOs appear as solutions of standard gravitational equations if we consider the system of a compact positive mass object, cosmological fluid and negative cosmological constant. We also construct models which generate such NMOs as solutions within the two-scalar theory and scalar-Einstein-Gauss-Bonnet gravity inspired by string theory. The orbits of the photon and massive particles are investigated in the background, where there is a neg"
+    },
+    {
+     "id": "2602.08789",
+     "recid": 3117731,
+     "title": "Positive mass theorems for manifolds with asymptotically locally hyperbolic toroidal ends",
+     "date": "2026-02-09",
+     "authors": [
+      "Galloway, Gregory J.",
+      "Tsang, Tin-Yau"
+     ],
+     "pub": "J.Math.Phys.",
+     "summary": "In [Classical Quantum Gravity 35, 115015 (2018)], P. Chru\u015bciel, L. Nguyen, T.-T. Paetz, and the first-named author obtained a positive mass theorem for asymptotically locally hyperbolic manifolds with boundary, having a toroidal end. The proof made use of properties of marginally outer trapped surfaces (MOTS). Here we present some new positive mass results for such manifolds, but without boundary, which allow for other more general ends. The proofs, while still MOTS-based, involve a more elaborate technique (related to \u03bc-bubbles) introduced in work of D. A. Lee, M. Lesourd, and R. Unger [Calcu"
+    },
+    {
+     "id": "2602.03451",
+     "recid": 3115078,
+     "title": "A low-regularity Riemannian positive mass theorem for non-spin manifolds with distributional curvature",
+     "date": "2026-02-03",
+     "authors": [
+      "Hafemann, Eduardo"
+     ],
+     "pub": null,
+     "summary": "This article establishes a low-regularity Riemannian positive mass theorem for non-spin manifolds whose metrics are only $C^0 \\cap W_{\\mathrm{loc}}^{1,n}$ and smooth outside a compact set. The main theorem asserts that asymptotically flat manifolds with nonnegative distributional scalar curvature have nonnegative ADM mass. The proof uses smooth approximations of the metric together with a Sobolev version of Friedrichs' Lemma, which yields improved convergence for commutators between differentiation and convolution operators. Rigidity in the metric-space sense is obtained via the volume compari"
+    },
+    {
+     "id": "2601.10617",
+     "recid": 3105716,
+     "title": "Surgery and total mean curvature",
+     "date": "2026-01-15",
+     "authors": [
+      "Frenck, Georg",
+      "Hanke, Bernhard",
+      "Hirsch, Sven"
+     ],
+     "pub": null,
+     "summary": "We prove Gromov's conjecture on the total mean curvature of fill-ins in various cases. Our methods are based on surgery to reduce the statement to fill-ins of spheres, which can be treated by instances of the positive mass theorem. For spin fill-ins, where we permit the mean curvature to take negative values, we build on a classical surgery result of Lawson-Michelsohn and a recent positive mass theorem with creases by Kazaras-Khuri-Lin. For non-spin fill-ins of spin manifolds, where we assume the mean curvature to be non-negative, we develop a novel quantitative surgery process to reduce the g"
+    },
+    {
+     "id": "2601.00565",
+     "recid": 3096864,
+     "title": "Uniqueness of electric-magnetic spacetimes with massive particle spheres",
+     "date": "2026-01-02",
+     "authors": [
+      "Rogatko, Marek"
+     ],
+     "pub": "Phys.Rev.D",
+     "summary": "Uniqueness of the four-dimensional static, asymptotically flat, Einstein-Maxwell spacetime with both electric and magnetic charges, containing nonextremal massive particle sphere, being an inner boundary in it, has been proved. It is isometric to Reissner-Nordstr\u00f6m spacetime with electric/magnetic charges. In contrast to the previous results concerning the classification of photon spheres, it describes the existence of the entire set of spacetme foliations, a set of massive particle spheres addressed to the various energies of the particles. The conformal positive energy, positive mass theorem"
+    },
+    {
+     "id": null,
+     "recid": 3157638,
+     "title": "Natural Electroweak Symmetry Breaking via a Partially Composite, Two Higgs Doublet Model",
+     "date": "2026",
+     "authors": [
+      "Kolengowski, Ben"
+     ],
+     "pub": null,
+     "summary": "A model of natural electroweak symmetry breaking which does not introduce fine-tuning to account for the experimental non-observance of superpartners or heavy vector resonances has been a goal of high energy physics for decades. The model presented in this thesis evades experimental constraints by raising the supersymmetry breaking and technicolor scales above 1 TeV while requiring a fine-tuning of only 10%.The model consists of bosonic technicolor (TC) with nf=2 technifermions and two fundamental Higgs doublets as required by supersymmetry (SUSY). The UV theory possesses a global SU(4) symmet"
+    }
+   ]
+  },
+  {
+   "qid": "I05",
+   "section": "E",
+   "source": "inspire",
+   "window": "NEW",
+   "query": "a Smith and t \"numerical relativity\" and de > 2026-10-20",
+   "url": "",
+   "http": 200,
+   "raw": "0029_inspire.json",
+   "sha256": "bdf59bc8f9ab0b23a8500377aa6f56c400509c96cc788ccbcb322aa10623fac6",
+   "utc": "2026-11-24T01:46Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "I05",
+   "section": "E",
+   "source": "inspire",
+   "window": "CTRL",
+   "query": "a Smith and t \"numerical relativity\" and de > 2025-12-31 and de < 2026-10-21",
+   "url": "",
+   "http": 200,
+   "raw": "0030_inspire.json",
+   "sha256": "6c98eecbac0b6f6666de8c76c3efd12ae72daed548f3fdb080f4518aac1a369f",
+   "utc": "2026-11-24T01:46Z",
+   "total": 0,
+   "hits": []
+  },
+  {
+   "qid": "T:Shirokov 2608.24577",
+   "section": "T",
+   "source": "inspire",
+   "window": "ALLTIME",
+   "query": "refersto:recid:3195733",
+   "url": "",
+   "http": 200,
+   "raw": "0031_inspire.json",
+   "sha256": "96102972bdd9f7bbc15c2008449e97785ec0bb01bc9dc7b384d428371967afc5",
+   "utc": "2026-11-24T01:46Z",
+   "total": 1,
+   "hits": [
+    {
+     "id": "2610.13206",
+     "recid": 3213722,
+     "title": "Binary Ellis-Bronnikov wormholes in 3+1 numerical relativity: mergers, fly-bys and gravitational waves",
+     "date": "2026-10-09",
+     "authors": [
+      "Shirokov, Nikita M.",
+      "Nachevsky, Ilya"
+     ],
+     "pub": null,
+     "summary": "We present what are, to our knowledge, the first three-dimensional numerical-relativity evolutions of wormhole binaries: pairs of massive Ellis-Bronnikov wormholes held open by a phantom scalar field, whose energy density is nowhere positive. We construct constraint-satisfying initial data for single throats and for pairs, at rest and with orbital momentum, and evolve them with adaptive mesh refinement. An isolated throat is unstable: depending on the sign of a small perturbation, it collapses to a black hole or inflates, at the rate that linear perturbation theory predicts to within 1.9%. Two"
+    }
+   ]
+  }
+ ],
+ "control_failures": [
+  "C1 A01: arXiv CTRL missing ['2601.22910', '2605.10976', '2608.24577']",
+  "C1 B10: arXiv CTRL missing ['2603.04400']",
+  "C1 B02: arXiv CTRL missing ['2608.24577']",
+  "C1 C04: arXiv CTRL missing ['2605.10976']",
+  "C1 C05: arXiv CTRL missing ['2601.22910']",
+  "C1 C09: arXiv CTRL missing ['2605.10976']",
+  "C1 D05: arXiv CTRL missing ['2603.13210']",
+  "C1 E01: arXiv CTRL missing ['2608.24577', '2610.13206']",
+  "C1 E02: arXiv CTRL missing ['2608.24577']",
+  "C1 E03: arXiv CTRL missing ['2610.13206']",
+  "C1 I03: INSPIRE CTRL missing ['2605.10976']",
+  "C1 I05: INSPIRE CTRL missing ['2610.13206']"
+ ]
+}
