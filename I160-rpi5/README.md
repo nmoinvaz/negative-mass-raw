@@ -203,3 +203,14 @@ Verdict logic: traveling v != 0 is "no solution" iff C13 to C21 and the static c
 the identity with - P q_R gives s = 0, a = 0, and with + P q_R it also gives s^2 = 0, s a = 0 and a^2 = -2 a^2, i.e. a = 0, so the target does not change. It is still run once as written, its log is kept, and it is reported as silent,
 not counted among the fired controls. Its replacement, target C17 unchanged: `m-unit-v` evaluates part (i) at v = 1/3 and v = -1 instead of v = 1 and v = -1 (F_1 is not 0 at v = 1/3, so (i) fails).
 The other new controls (`m-exp-sign`, `m-dg-sign`, `m-exp-allow`, `m-y0-p1`, `m-laurent-coef`, `m-pole-theta`) were checked by hand for the same kind of silence before this amendment; `m-dg-sign` gives the extra solution a_2 = s_1/3 with q != 0.
+
+## Runs of record
+
+| log | command | exit | result |
+|---|---|---|---|
+| `dev_01.log` | `mult_classify.py --no-controls` (before A3 to A7) | 1 | 13 of 14 checks pass, `add_perturbed` fails (A2) |
+| `dev_02.log` (`dev_02.time`) | `--no-controls`, 22 checks | 1 | 21 of 22 pass, `add_perturbed` fails as in `dev_01`; 76 s, 79 MB |
+| `run_01.log` = `notes/warp/mult_classify_output.txt` (`run_01.time`, `run_01.stderr` empty) | `mult_classify.py --logdir=$RAW`, the 22 checks then the controls | 1 | 21 of 22 checks pass; 21 of 21 controls fire on their target and on no other check except the baseline failure; `m-unit-sign` silent as declared in A7; 29 min 31 s, 79 MB peak |
+| `ctl_<name>.log` | each control's own stdout, written by the run of record | 1 each | exit codes are printed on the control lines of `run_01.log` (the script runs the controls itself, so there are no separate `.rc` files) |
+
+Exit code 1 of the run of record is caused by `add_perturbed` (coordinator's ruling, A3). The failed and the silent results are kept as they are.
