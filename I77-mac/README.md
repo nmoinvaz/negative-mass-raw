@@ -53,4 +53,57 @@ Mutations, each must exit 1 with its target failing:
 
 ## Results
 
-Written after the runs.
+| file | what |
+|---|---|
+| `rerun/three_scalars_full.*` | the rerun at 12e13c0: stdout, `/usr/bin/time -l`, exit code |
+| `rpi5_output.txt` | `three_scalars_output.txt` at 12e13c0, for the comparison and B2's q |
+| `ind77_run1.*` | run 1: B0 passes, then a crash in B1 (mpmath's `det` on a minor with a zero pivot column) |
+| `ind77_run2.*` | run 2: B0 and B2 pass, B1 fails, then a crash in B3 |
+| `ind77_run3.py`, `.txt` | run 3: every criterion passes (`ind77.py` is the same version) |
+| `ind77_mut_*.txt` | its 10 mutations, on run 3's version |
+
+**Rerun** (exit 0, 2 min 20 s, 100 MB peak): 23 of 23 checks pass and 20 of 20 controls fire, each with rpi5's
+failed-check list. The output equals rpi5's line for line apart from the timings and the Python version (3.14.7 here,
+3.14.10 there).
+
+**ind77, runs 1 and 2.** Both are kept. In each, the failure was in the coordinator's own code, not in #77's claims:
+
+- Run 1 crashed in B1. mpmath's `det` (LU) fails on a 3 × 3 minor whose pivot column is zero. Run 2 uses explicit
+  cofactor determinants.
+- Run 2 failed B1 twice:
+  - *sphere x time.* The test put θ in the third coordinate slot with dθ² weighted by sin²θ, a flat 1D
+    reparametrization. Run 3 orders the coordinates (t, θ, ϕ).
+  - *P2.* "L_K M rel 1.0" where 0 was planted. Every term of L_K M was rounding noise of order 1e-62, and the
+    relative size divided by the sum of those same terms, 0/0. Run 3 divides by the size of the ingredients:
+    ‖K‖(‖∂R‖ + |λ| ‖∂g‖ + |∂λ| ‖g‖) + 2‖N‖ ‖∂K‖, and for K(λ) by ‖K‖ Σ|adj N| (|∂R| + |λ| |∂g|) / |P_λ|.
+- Run 2 then crashed in B3 on a NaN. `sp.Integer(2/3)` truncated one random point's radius to 0. Run 3 uses `sp.S`.
+
+The criteria and thresholds did not change. The README did not fix how a relative size is normalized; run 3's choice
+is recorded above.
+
+**ind77 run 3** (exit 0, 6 s):
+
+| criterion | run 3 |
+|---|---|
+| B0 | Painlevé–Gullstrand Ricci-flat; P1 and P2: R = λg + κ² Σ s_I dX^I dX^I exactly |
+| B1 | flat polar Ric = 0; S² × time diag(0, 1, sin²θ); P1, P2 blocks flat and D1 not, at 3 points; P2 L_K M 6.6e-59 (0 planted), D2′ 0.1; (L_K M)(K, ·) ≤ 4e-59 |
+| B2 | R_ϕμ = 0, (I2) = 0, 16 r³ det R₃ = (1 − c²) q(c²) with #77's printed q (30 terms), mod the circle |
+| B3 | 43 points: λ = 0 kernel ∂_ϕ, h nondegenerate, pattern by the sign of D (bump A, tanh B, explicit and random both), Ric(h) ≠ 0 at 43 of 43 (exact at 25, 60 digits at the 18 tanh points) |
+| B4 | 1 admissible root λ ≠ 0 at each of the 21 points; pattern B with λ > 0 at the bump points, A with λ < 0 at the tanh points; L_K M relative 0.15 to 0.32 at all 21; (L_K M)(K, ·) ≤ 1.1e-59; K(λ) = 0 (relative 0.0) at the 4 roots with c = 0 and 0.053 to 0.95 at the other 17 |
+| B5 | accelerating: R_zμ = 0, h nondegenerate, Ric(h) ≠ 0 at 3 of 3; the scalar curvature of h at the cross-check point is −73510601484451756798/891938727913647987 by both routes |
+
+Re-solve: B4, the 21 roots λ ≠ 0 and their L_K M, with the coordinator's Jacobi derivative and bordered system in
+place of #77's central differences.
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `pg` | 1 | B0 | yes |
+| `p2lam` | 1 | B0 | yes |
+| `sph` | 1 | B1 | yes |
+| `d2shell` | 1 | B1 | yes |
+| `qtyped` | 1 | B2 | yes |
+| `flat` | 1 | B3 | yes |
+| `nodk` | 1 | B4 | yes |
+| `refl` | 1 | B4 | yes |
+| `xcheck` | 1 | B5 | yes |
+| `accflat` | 1 | B5 | yes |
