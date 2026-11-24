@@ -1,0 +1,8 @@
+# zerilli_certificate: certificate of the Zerilli forward direction (part=planted, L=symbolic, order=2)
+# mutations on: den_allow_M
+PASS PL.0c
+# [   0.1 s] PL.0c
+PASS PL.0d
+# [   0.5 s] PL.0d
+FAIL PL.D.1: classifier verdicts [True, True, True, False, False, True, False, False, False, True, False], expected [True, True, True, False, False, False, False, False, False, True, False]
+# planted check failed: stop before any real data

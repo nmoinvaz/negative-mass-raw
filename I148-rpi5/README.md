@@ -168,3 +168,14 @@ Controls runner: `zerilli_certificate_controls.py` (baseline `--part=all` unmuta
   with a forbidden denominator factor L − 2. The final control run is a single complete run of the runner on the final code, so that the controls output is one coherent file;
   its exploratory family (drop_tt, drop_tr, drop_rr, drop_tx, drop_rx, dropeq_trace) runs at `--L=6`, acceptance rule as before.
 
+2026-11-23, steps 4 and 5, final.
+- Final run `final.log` (= `phase2/dg_proof/zerilli_certificate_output.txt`): `--part=all`, exit 0, 16 PASS, 81 s, peak rss 155 MB, code d0eaab3.
+- Final controls `controls_final.log` (= `zerilli_certificate_controls_output.txt`, per-run logs in `controls_final_logs/`), one complete run of the runner on d0eaab3, 1146 s, exit 1:
+  baseline exit 0, 16 PASS; **17 of 18 required pairs on target** (the 17 pre-registered rows except `drop_traceless`, and `drop_second`); `drop_traceless` MISS (exit 1 as predicted, first FAIL E.den,
+  target E.cert; the expectation written after part 1, E.den with a forbidden factor L − 2, is met); exploratory family at L = 6: 6 of 6 accepted outcomes
+  (`drop_tt`, `drop_tr`, `drop_rr`, `drop_tx`, `drop_rx` silent, `dropeq_trace` fires at E.den with a factor s in all 23 column orders).
+- Part 3 (`drop_traceless` at symbolic L with a cap of 3000 s) was not run: the `--attempts=2` run of the final controls already gives its first FAIL and the factor.
+- Earlier control runs kept: `aborted_controls_run1/` (stopped by me to add print lines to the script, 8 pairs on target), `controls_part1.log`, `controls_part2.log`, `dev_print.log`.
+- Peak rss of the controls batch 820 MB (the largest process of the tree, `/usr/bin/time -v`); no stop condition depends on memory.
+- No target or threshold was changed after a run. Mutation names `drop_second` and `dropeq_trace` and the options of the runner were added after the part named in each bullet above.
+
