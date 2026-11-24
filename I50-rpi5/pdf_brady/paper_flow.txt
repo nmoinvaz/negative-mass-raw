@@ -1,0 +1,362 @@
+NCL93-TP17
+
+Does scalar field collapse produce “zero mass” black holes?
+Patrick R. Brady
+
+arXiv:gr-qc/9402023v1 10 Feb 1994
+
+Department of Physics, University of Newcastle, Newcastle upon Tyne NE1 7RU
+(December 14, 1993)
+
+Abstract
+An exact one parameter (α) family of solutions representing scalar field collapse is presented. These solutions exhibit a type of critical behaviour which
+has been discussed by Choptuik. The three possible evolutions are outlined.
+For supercritical evolution (when black holes form) I show that a quantity
+related to the mass of the black hole exhibits a power law dependence on α,
+for near critical evolution M ≃ |α − αcrit |1/2 . Based on the properties of the
+solution some comments are also made on conjectures of Choptuik.
+
+Typeset using REVTEX
+1
+
+The spherically symmetric collapse of a scalar field provides an ideal model in which to investigate strong field dynamics of General Relativity. This model has therefore been considerably exploited both analytically [1] and numerically [2,3]. In particular Christodoulou [1]
+has established many general features of the solutions to the Einstein-scalar field equations,
+while numerical studies [2,3] have provided some useful insights into black hole formation.
+Choptuik [3] has produced some of the most fascinating results thus far. His analysis of the
+problem highlights several intriguing non-linear phenomena and motivates the present work.
+This Letter describes some analytic results of an investigation of the collapse problem, and
+a search for a theoretical explanation of the behaviour discovered by Choptuik [3].
+In order to make some progress I assume that the collapse is self-similar: i.e. there exists
+a vector field, ξ, such that the spacetime metric g, satisfies Lξ g = 2g where Lξ denotes
+the Lie derivative with respect to ξ. Homothetic gravitational collapse has been studied in
+great detail [4], and many examples of naked singularities fall into this class. In this case
+it allows me to obtain a one parameter family of solutions representing scalar field collapse.
+This family exhibits some of the properties discussed by Choptuik [3] and Christodoulou [1].
+Specifically the solutions exhibit critical behaviour: if α is the parameter which characterises
+the solutions then when α > 0 the scalar field collapses, interacts and disperses leaving
+behind nothing but flat space. The exactly critical case is αcrit = 0 and corresponds to a
+spacetime which is asymptotically flat but which contains a null, scalar-curvature singularity
+at r = 0. The remaining case, α < 0, corresponds to black hole formation. Unfortunately, as
+occurs in other spacetimes with a homothetic symmetry, the black hole eventually grows to
+infinite mass. It would therefore seem difficult to obtain any information about the scaling
+law for black hole mass discovered by Choptuik [3]. However, when the quantity M (defined
+in Eq. (18), roughly, the ratio of the mass at the apparent horizon, to the mass function at
+past null infinity) is calculated one obtains the remarkable relation
+M = 2|α|1/2 (1 − 4α)1/2 .
+
+(1)
+
+Since αcrit ≡ 0 in this solution, evolutions which are sufficiently close to critical exhibit an
+2
+
+approximate power law in α − αcrit . The exponent is significantly different from that found
+by Choptuik however.
+I do not claim that the solution below is the universal strong field solution which Choptuik [3] conjectures may exist. The goal of this work is only to present the family of solutions
+in which some of the strong field features can be explicitly seen, a more general analysis of
+homothetic scalar field collapse will appear elsewhere.
+The solution is most easily understood in terms of null coordinates on the radial two
+space. Therefore I write
+ds2 = −2e2σ dudv + r 2 dΩ2 ,
+
+(2)
+
+where σ and r are functions of both u and v, and dΩ2 is the line element on the unit sphere.
+The Einstein-scalar field equations are then
+(r 2 ),uv = −e2σ ,
+
+(3)
+
+2σ
+
+2σ,uv −
+
+2r,u r,v
+e
+=
+− 2φ,u φ,v ,
+r2
+r2
+
+(4)
+
+r,vv − 2σ,v r,v = −r(φ,v )2 ,
+
+(5)
+
+r,uu − 2σ,u r,u = −r(φ,u )2 ,
+
+(6)
+
+and the wave equation for the scalar field φ
+2φ,uv + (ln r 2 ),v φ,u + (ln r 2 ),u φ,v = 0 .
+
+(7)
+
+Here a comma (,) denotes a partial derivative. Notice that these equations are invariant
+in form under reparametrizations of the null coordinates u and v. Due to the spherical
+symmetry of the problem it is possible to introduce a local mass function m(u, v) by
+1−
+
+2m(u, v)
+:= 2g uv r,u r,v .
+r
+
+(8)
+
+This mass function agrees with both the ADM and Bondi masses in the appropriate limits.
+A solution to Eqs. (3)-(7) is
+
+3
+
+r 2 = αv 2 + βu2 − uv ,
+
+(9)
+
+e2σ = 1 ,
+
+(10)
+
+where the scalar field is given by
+
+φ=
+
+q
+
+
+
+1 − 4αβ)
+2αv
+−
+u(1
++
+
+
+q
+ ± 12 ln
+
+2αv − u(1 −
+
+
+
+
+ ± 1 ln β − v
+2
+u
+
+1 − 4αβ)
+
+α 6= 0
+
+(11)
+
+α=0
+
+It is assumed that φ ≡ 0 for v < 0, where v is standard advanced time. The mass function
+as defined by (8) is
+m(u, v) = −uv(1 − 4αβ)/4r ,
+
+(12)
+
+and the homothetic vector field is
+ξ=u
+
+∂
+∂
++v
+.
+∂u
+∂v
+
+(13)
+
+It was the presence of this symmetry which enabled the integration of the equations initially.
+In order to discuss the problem of collapse we can set β = 1 without loss of generality. 1
+The solutions now fall into three distinct classes depending on the value of the parameter α.
+In the language used by Choptuik [3] these are subcritical (0 < α < 1/4), critical (α = 0)
+and supercritical (α < 0). We consider the influx of scalar field to be turned on at the
+advanced time v = 0 so that to the past of this surface the spacetime is Minkowskian and
+the spacetime metric is therefore C 1 at this surface. Moreover notice when α = 1/4 the
+solution is simply flat space.
+Let us now consider each of the three classes in turn:
+(i) Subcritical (0 < α < 1/4): Fig. 1 shows a conformal diagram for a typical spacetime
+in this class. The scalar field is initially dispersed, collapsing from past null infinity and
+
+1 By adjusting β one obtains the time reverse of the solutions discussed below, that is one obtains
+
+white hole spacetimes, along with some other self-similar cosmological solutions.
+
+4
+
+interacting gravitationally. However, the collapse never forms a black hole. The mass
+function is identically zero on u = 0 (as it is along v = 0) and there is no flux of scalar field
+across this surface. In fact the only non-vanishing component of stress-energy at u = 0 is
+Tuu =
+
+v 2 (1 − 4αβ)
+.
+4r 4
+
+(14)
+
+Thus the spacetime is flat for u > 0.
+The solution represents a scalar field collapse in which the gravitational interaction is
+never strong enough to form a black hole. The existence of such solutions has been established previously by Christodoulou [1].
+(ii) Critical (α = 0): In this spacetime the initial configuration is again collapse of scalar
+field from past null infinity with a flat, vacuum interior region. The collapse now proceeds
+to a singularity at r = 0. Using Eq. (9) with α = 0 we see that this corresponds to u = 0,
+and the singularity is therefore null (see Fig. 2). One easily checks that the mass function
+(12) tends to zero as u → 0, however the curvature diverges there: |Ψ2 | = m/r 3 ∼ u−3/2
+along an ingoing null ray.
+It is also straightforward to check that all outgoing null rays reach infinity; there is no
+apparent horizon in this spacetime. In particular
+2m
+1
+lim 1 −
+= .
+u→0
+r
+2
+
+
+
+
+(15)
+
+More will be said about this in a moment. Finally I wish to emphasise that the spacetime
+does not violate the strong cosmic censorship hypothesis [5] since no observer can see the
+singularity without actually reaching it. Of course by waiting long enough an observer can
+always “see” regions of arbitrarily large curvature.
+(iii) Supercritical (α < 0): Fig. 3 shows the global structure of these spacetimes. In the
+past they behave the same as in the previous two cases, however there is now an apparent
+horizon surrounding a spacelike r = 0 singularity. Unfortunately, the mass of the resulting
+black hole is infinite and the entire spacetime ultimately gets trapped. These spacetimes
+are unphysical (as black hole spacetimes) unless the influx of scalar field from past infinity
+5
+
+is turned off at some finite advanced time. Something more can however be said if one
+examines the mass function along the apparent horizon of the spacetime.
+The locus of the apparent horizon is r = 2m, or in terms of the coordinates
+u = 2αv .
+
+(16)
+
+Substituting this into (12) we find that
+mAH =
+
+v√ √
+−α 1 − 4α ,
+2
+
+(17)
+
+where the subscript AH indicates that this is along the apparent horizon. Let us define a
+dimensionless quantity related to the mass of this black hole as follows
+M=
+
+2|α|1/2
+mAH
+.
+=√
+m|u=−∞
+1 − 4α
+
+(18)
+
+We notice that M exhibits a power-law dependence on the parameter α. This rings of the
+observation which Choptuik [3] and others [6] have made about the masses of the black holes
+formed in nearly critical collapse. It also seems reasonable that the quantity defined in (18)
+should in fact agree with that measured by Choptuik as v → ∞. There is a discrepancy
+though, the exponent has been calculated numerically to be approximately .37 and not 1/2
+as found here. Whether this has any significance is the subject of further investigations.
+As a final comment on the black hole mass in near critical evolutions let me mention a
+possible explanation for the difference in exponents above. For a nearly critical evolution
+one may imagine turning off the influx from infinity at some finite advanced time v1 > 0,
+say, then the mass of the resulting black hole will be
+m|v→∞ =
+
+v1 √ q
+−α 1 − 4αβ + ∆m ,
+2
+
+(19)
+
+where 2∆m is the amount by which the apparent horizon increases in radius during the
+evolution from v1 to ∞. For black holes formed in nearly critical collapse it is entirely
+possible that this “correction” term dominates, since much of the scalar field remains outside
+the apparent horizon up to the advanced time v1 . It would therefore seem worthwhile to
+estimate ∆m. To date I have been unable to do so.
+6
+
+I wish also to point out the connection between this solution and two conjectures which
+have been made about the near critical evolution, and black hole formation. In previous
+numerical searches [2] there appeared to be a lower bound on the masses of black holes formed
+in supercritical evolution, however the more recent surveys of scalar field collapse [3,6] have
+been capable of far greater resolution and the results led to the following two conjectures:
+(1) Black holes initially form with infinitesmal mass. (2) The exactly critical evolution is a
+“zero mass” black hole.
+The above solution [Eqs. (9)-(11)] clearly lends support to the first of these conjectures.
+Provided one cuts off the influx from infinity at some finite advanced time, it then seems
+that one can make the mass of the resulting black hole as small as one likes.
+On the second conjecture, we have seen that the evolution does not really form a black
+hole at all. The spacetime contains no apparent horizon, not even at r = 0 as shown by (15),
+while the mass function actually becomes infinite on future null infinity. Thus, it certainly
+could not be interpreted as a zero-mass black hole. More generally I suggest that the exactly
+critical evolution will stand distinct from either the supercritical or subcritical cases.
+It is a pleasure to thank Viqar Husain, Erik Martinez and Dario Nunez for stimulating
+discussions during a short visit to the University of Alberta. I also acknowledge financial
+support from the Scientific and Engineering Research Council of Great Britain. After the
+completion of this work Werner Israel drew my attention to M.D. Roberts, Gen. Relativ.
+Grav. 21, 907 (1989) where the solution (9)-(11) was previously discussed in the context of
+counter-examples to cosmic censorship.
+
+7
+
+REFERENCES
+[1] D. Christodoulou, Commun. Math. Phys. 105, 337 (1986); 106, 587 (1986); 587 (1986);
+109, 591 (1987); 109, 613 (1987).
+[2] M.W. Choptuik, in Frontiers in Numerical Relativity, C.R. Evans, L.S. Finn and D.W.
+Hobill (eds.), Cambridge University Press, Cambridge (1989); A. Goldwirth and T. Piran,
+Phys. Rev. D36, 3575 (1987); R. Gómez and J. Winicour, in Frontiers in Numerical
+Relativity, C.R. Evans, L.S. Finn and D.W. Hobill (eds.), Cambridge University Press,
+Cambridge (1989); R. Gómez, R.A. Isaacson and J. Winicour, J. Comp. Phys. 98, 11
+(1992).
+[3] M.W. Choptuik, Phys. Rev. Letters 70, 9 (1993).
+[4] M.E. Cahill and A.H. Taub, Commun. Math. Phys. 21,1 (1971); D.M. Eardley and L.
+Smarr, Phys. Rev. D19, 2239 (1979); D. Christodoulou, Commun. Math. Phys. 93, 171
+(1984); R.P.A.C. Newman, Class. Quantum Grav. 3, 527 (1986); A. Ori and T. Piran,
+Phys. Rev. D42, 1068 (1990); R.N. Henriksen and K. Patel, Gen. Relativ. Grav. 23, 527
+(1991); K. Lake and T. Zannias, Phys. Rev. D41, 3866 (1990).
+[5] R. Penrose, in An Einstein Centenary Survey, S.W. Hawking and W. Israel (eds.), Cambridge University Press, Cambridge (1979).
+[6] C. Gundlach, R. Price and J. Pullin, Late-time behaviour of stellar collapse and explosions: II. Nonlinear evolution, preprint NSF-ITP-93-85, gr-qc/9307010.
+
+8
+
+FIGURES
+FIG. 1.
+
+This is the diagram for a subcritical evolution (0 < α, 1/4). The spacetime is
+
+topologically trivial. Indicated are the lines v = 0 where the scalar field influx is turned on, and
+u = 0 where the spacetime beyond which the spacetime returns to flat space. The shaded region
+is where the scalar field is non-zero. M4 indicates regions which are Minkowski.
+FIG. 2.
+
+The exactly critical solution (α = 0). The initial configuration is similar to the
+
+subcritical case; v = 0 is where the scalar field influx is turned on with flat space (M4 ) to the past
+of it. The shaded region is where the scalar field is non-zero. Indicated is the null scalar curvature
+singularity. Notice that all r = const. lines terminate at P , which is future timelike infinity.
+FIG. 3. Supercritical evolutions (α < 0) lead to the entire spacetime becoming trapped. The
+initial configuration is once again very similar to the subcritical case; v = 0 is where the scalar
+field influx is turned on. AH is the apparent horizon, notice that it is spacelike everywhere and
+“surrounds” the spacelike r = 0 singularity.
+
+9
+
+This figure "fig1-1.png" is available in "png" format from:
+http://arxiv.org/ps/gr-qc/9402023v1
+
+This figure "fig1-2.png" is available in "png" format from:
+http://arxiv.org/ps/gr-qc/9402023v1
+
+

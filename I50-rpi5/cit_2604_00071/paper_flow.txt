@@ -1,0 +1,1744 @@
+WORMHOLE DYNAMICS: NONLINEAR COLLAPSE AND
+GRAVITATIONAL-WAVE EMISSION
+NIKITA M. SHIROKOV∗
+
+arXiv:2604.00071v1 [gr-qc] 31 Mar 2026
+
+Independent Researcher, Moscow, Russia
+(Dated: April 2, 2026)
+We present 3D numerical-relativity evolutions of the unstable Ellis–Bronnikov wormhole using
+GRTeclyn, starting from exact isotropic initial data for the coupled Einstein–phantom-scalar system.
+With a flat initial lapse (α = 1) and full phantom support, truncation-level noise eventually drives the
+rarefactive instability and rapid throat expansion. To force a clean collapse while breaking spherical
+symmetry, we reduce the phantom stress-energy support to Ssupport = 0.5 and add a quadrupolar
+scalar-field perturbation (Aϕ = +0.02, σϕ = 0.5). The resulting compressive evolution forms a
+trapped surface and emits a gravitational-wave signal whose peak propagates between extraction
+radii at v ≈ c, distinct from superluminal CCZ4 constraint modes. After horizon formation the
+swallowed phantom matter triggers a violent rebound (“phantom bounce”) that launches an outward
+curvature shock. For the moderate perturbation amplitude simulated here, an intermediate-mass
+(103 M⊙ ) wormhole at D = 1 Mpc falls slightly below the Advanced LIGO design sensitivity;
+detection requires either closer sources, larger initial asymmetries, or next-generation detectors.
+
+I.
+
+INTRODUCTION
+
+Wormholes—topological bridges connecting distinct
+spacetime regions—have been studied since Flamm [1],
+Einstein and Rosen [2], and Wheeler [3]. The canonical
+traversable solution, supported by a phantom scalar field,
+was found independently by Ellis [4] and Bronnikov [5].
+(a) Initial Traversable Wormhole
+
+(d) Initial Traversable Wormhole
+
+(b) Dynamical Constriction
+
+(e) Dynamical Expansion
+
+(c) Pinch-off & Black Holes
+
+(f) Expanded Wormhole
+
+FIG. 1. Embedding diagram illustrating the two instability
+pathways: compressive collapse (top) and rarefactive expansion (bottom). Note that classical GR evolution mathematically preserves the underlying spatial topology (R × S 2 ). The
+“pinch-off” depicts a metric degeneration where the throat’s
+areal radius shrinks and an apparent horizon forms, severing
+causal contact between the two asymptotic regions without
+tearing the manifold itself.
+
+Static traversable wormholes require exotic matter violating the null energy condition [6]. If such defects were
+produced in spacetime foam and stretched to macroscopic scales during inflation [7, 8], the relevant ques-
+
+∗ shirokov.nm@phystech.edu
+
+tion is their nonlinear dynamical fate. Shinkai and Hayward [9] showed in 1D spherical symmetry that the
+Ellis–Bronnikov geometry is highly unstable: rarefactive
+perturbations trigger expansion, while compressive ones
+force collapse (Fig. 1). However, spherical symmetry prohibits gravitational radiation (the lowest radiative multipole is ℓ = 2), so 3D simulations are needed to quantify
+any gravitational-wave signal.
+
+We evolve the coupled Einstein–phantom-scalar system in 3D from exact Ellis–Bronnikov initial data and
+extract the gravitational-wave signal via the Weyl scalar
+Ψ4 at multiple radii. A propagation-speed test separates
+physical gravitational radiation (v ≈ c) from superluminal CCZ4 constraint-damping features, and the contrast between unperturbed and perturbed runs provides
+a built-in null test.
+
+Following recent 3D studies of exotic geometries [10],
+we adopt an approach in which the exotic source is reduced at t=0, initiating a dynamical relaxation problem
+with an initial Hamiltonian constraint defect. Furthermore, any primordial wormhole that survived inflation
+would also acquire aspherical volume changes from tidal
+interactions, reheating, and cosmological expansion; the
+quadrupolar scalar-field profile perturbation we impose
+at t=0 models this physically expected post-inflationary
+state.
+
+With gravitational-wave astronomy now operational [11–13], understanding the dynamics of Exotic
+Compact Object candidates [14] is essential for any
+detection strategy.
+
+2
+II.
+A.
+
+FORMALISM AND METHODOLOGY
+
+3+1 Decomposition and the CCZ4 Formulation
+
+We follow the standard numerical-relativity approach
+to solving the Einstein Equations,
+1
+Gµν = Rµν − Rgµν = 8πTµν ,
+2
+
+(1)
+
+as an initial value problem, using the 3+1 decomposition [15] and setting G = c = 1. The four-dimensional
+spacetime manifold, which topologically is M = R2 × S 2 ,
+is foliated into a family of spacelike hypersurfaces Σt with
+topology R × S 2 , parametrized by a time coordinate t.
+The line element is written in terms of the lapse function
+α, the shift vector β i (which controls how the spatial coordinates propagate between time slices), and the spatial
+metric γij as:
+
+ds2 = −α2 + βi β i dt2 + 2βi dtdxi + γij dxi dxj . (2)
+The dynamical evolution is governed by the coupled
+Einstein–scalar-field system, implemented within the
+GRTeclyn framework using the conformal and covariant Z4 (CCZ4) formulation with matter source terms.
+Our objective is to start from the exact Ellis–Bronnikov
+wormhole solution—geometry and its phantom scalar
+field support—and evolve the full coupled system selfconsistently, so that the initial data satisfy the Hamiltonian and momentum constraints to truncation error.
+
+B.
+
+Initial Data: Ellis–Bronnikov Wormhole in
+Isotropic Coordinates
+
+The general static, spherically symmetric traversable
+wormhole is described by the Morris–Thorne line element [6]:
+ds2 = −e2Φ(r) dt2 +
+
+dr2
++ r2 (dθ2 + sin2 θdϕ2 ). (3)
+1 − b(r)/r
+
+Setting the redshift function to zero (Φ(r) = 0) and
+choosing the shape function b(r) = b20 /r yields the
+Ellis–Bronnikov wormhole [4, 5], a canonical massless
+phantom-scalar-field solution. As emphasized in Ellis’s
+original formulation, the vanishing redshift ensures the
+initial unperturbed geometry is a geodesically complete,
+horizonless manifold. This property sets the proper time
+of Eulerian observers equal to coordinate time at t = 0,
+and eliminates radial tidal forces at the throat; b0 is the
+throat radius; and the choice of b(r) guarantees asymptotic flatness as r → ∞.
+In standard Schwarzschild-like coordinates, the metric
+component grr = (1 − b20 /r2 )−1 diverges at the throat
+(r = b0 ), and this chart only covers one asymptotic half
+of the manifold. To resolve this coordinate singularity
+and map the entire R × S 2 spatial manifold onto a single
+
+punctured Euclidean grid (R3 \ {0}), we transform to
+isotropic coordinates. We introduce thepisotropic radius
+r̄, related to the proper distance ℓ = ± r2 − b20 via the
+relation ℓ = b0 sinh(ln(2r̄/b0 )).
+To initialize the wormhole on a 3D Cartesian grid, we
+apply this isotropic coordinate transformation. Expand2
+ing the hyperbolic relation and using r2 = ℓ2 + b
+0 yields
+2
+b0
+the explicit radial coordinate map r = r̄ 1 + 4r̄2 . Substituting this into the standard line element yields a conformally flat representation of the spatial geometry of the
+Ellis–Bronnikov wormhole [16]:
+
+2
+ 2
+
+b2
+ds2 = −dt2 + 1 + 02
+dr̄ + r̄2 (dθ2 + sin2 θdϕ2 ) .
+4r̄
+(4)
+From this isotropic form, the physical spatial metric γij
+can be explicitly extracted. Comparing this to the standard 3+1 conformal decomposition γij = ψ 4 γ̃ij over a
+flat background (γ̃ij = δij ), the CCZ4 conformal factor
+ψ is strictly given by:
+r
+b2
+ψ = 1 + 02 .
+(5)
+4r̄
+Unlike the Brill–Lindquist black-hole puncture [17],
+where ψ diverges at a point singularity, the conformal
+factor here represents a genuine topological bridge. In
+this chart, the two asymptotically flat ends are treated
+differently to fit on the grid: the primary asymptotic region (“primary universe”) extends to r̄ → ∞ (ψ → 1),
+the throat is a 2-sphere located at r̄ = b0 /2, and the secondary asymptotic region (“secondary universe”) is compactified such that its spatial infinity maps exactly to
+the grid origin r̄ → 0 (ψ → ∞). Here, the diverging conformal factor geometrically restores the infinite proper
+volume of the secondary region on the finite Cartesian
+grid.
+
+C.
+
+Transformation to CCZ4 Variables and
+Regularization
+
+Directly evolving the physical metric γij or the standard conformal factor ψ would immediately crash a numerical code due to the r̄ → 0 coordinate divergence.
+The CCZ4 formulation elegantly bypasses this by factoring out the divergent volume element. The physical
+spatial metric is decomposed into a well-behaved conformal metric γ̃ij with unit determinant, and a regularized
+conformal variable χ:
+γ̃ij = ψ −4 γij = δij ,
+
+−2
+b2
+χ = ψ −4 = 1 + 02
+.
+4r̄
+
+(6)
+(7)
+
+While ψ → ∞ at the compactified origin, its inverse
+power χ remains perfectly finite. To strictly avoid
+
+3
+division-by-zero floating-point errors on the discrete computational grid near r̄ = 0, the exact initial data for χ is
+algebraically rewritten and implemented as:
+2
+
+4r̄2
+.
+(8)
+χ=
+4r̄2 + b20
+This formulation ensures that χ smoothly vanishes at
+the origin (χ → 0). By evolving χ rather than γij , the
+CCZ4 framework adopts the “moving-puncture” philosophy, providing a completely regular, numerically stable
+way to dynamically evolve the infinite secondary universe
+as a single point on the Cartesian grid.
+D.
+
+Phantom Scalar Field and Self-Consistent
+Matter Evolution
+
+The Ellis–Bronnikov wormhole is supported by a massless phantom (ghost) scalar field ϕ. As originally demonstrated by Ellis [4], reversing the coupling polarity between this field and the spacetime geometry produces
+a strictly negative-definite energy density, providing the
+necessary anti-gravity to keep the throat open. The resulting stress-energy tensor used for dynamical evolutions [9, 18] is
+
+
+1
+Tµν = − ∇µ ϕ ∇ν ϕ − gµν ∇α ϕ ∇α ϕ − gµν V (ϕ) ,
+2
+(9)
+where the overall minus sign relative to the canonical
+scalar field ensures violation of the null energy condition,
+as required for a traversable wormhole. By enforcing the
+contracted Bianchi identity ∇µ T µν = 0, the scalar field
+obeys the standard Klein–Gordon equation:
+□ϕ =
+
+dV
+,
+dϕ
+
+(10)
+
+which is identical in form to that of a normal scalar field;
+only the gravitational coupling (the sign of Tµν ) is reversed.
+In the 3+1 decomposition, the scalar field is represented by the field value ϕ and its conjugate momentum Π ≡ nµ ∇µ ϕ, where nµ is the unit timelike normal. This sign convention matches the evolved variable Pi in GRTeclyn (note that some references define
+Π = −nµ ∇µ ϕ). Both are evolved alongside the CCZ4
+geometric variables at every Runge–Kutta substep via
+the CCZ4RHSWithMatter module in GRTeclyn, ensuring
+full self-consistency between the matter and gravitational
+sectors.
+For the exact Ellis–Bronnikov solution with V (ϕ) = 0,
+the scalar field profile in isotropic coordinates is
+
+
+1
+r̄ − b20 /(4r̄)
+ϕ(r̄) = √ arctan
+,
+(11)
+b0
+4π
+with Π(t=0) = 0 (static solution). This profile, together
+with the conformal geometry of Eqs. (5)–(7), constitutes
+
+an exact solution of the coupled Einstein–phantom-scalar
+system. For an unperturbed background, the Hamiltonian and momentum constraints are therefore satisfied to
+the level of floating-point round-off and finite-difference
+discretization error on the grid. However, to explicitly
+force the compressive instability branch in our perturbed
+evolutions, we globally scale down the stress-energy contribution of this exact profile, intentionally breaking the
+saddle-point equilibrium.
+E.
+
+Perturbation and Collapse Triggering
+
+To study gravitational-wave emission from the known
+linear instability [9, 18], we must break spherical symmetry while steering the wormhole into a definite dynamical branch. The choice of which field to perturb is
+dictated by the initial-value constraints. For a phantom
+scalar field the momentum density is Si = −Π ∂i ϕ, and
+the momentum constraint reads ∇j K ij − ∇i K = 8πS i .
+Perturbing Kij directly would violate both constraints,
+injecting spin-2 artifacts entangled with the physical Ψ4
+signal; perturbing Π alone would make Si ̸= 0, violating
+the momentum constraint.
+Perturbing only the scalar field profile ϕ while keeping
+Π(t=0) = 0 and Kij (t=0) = 0 satisfies the momentum
+constraint exactly:
+∇j K ij − ∇i K = 8π
+|
+{z
+}
+=0
+
+Si
+|{z}
+
+= 0.
+
+(12)
+
+= −Π ∂ i ϕ
+
+A flat initial lapse α(t=0) = 1 is required to maintain
+Π = 0 (see Sec. II G).
+Our perturbation has two components. First, we globally scale the phantom stress-energy tensor by a factor Ssupport = 0.5 in the right-hand-side source terms
+(Tµν → Ssupport Tµν ). This halves the repulsive support, forcing the wormhole into the compressive branch.
+Second, a quadrupolar perturbation breaks the spherical
+symmetry of the initial scalar profile itself:
+!
+r̄2
+ϕ(r̄, θ, φ) t=0 = ϕEB (r̄) + Aϕ Y20 (θ, φ) exp − 2 ,
+σϕ
+(13)
+where Aϕ = 0.02 and σϕ = 0.5. Together, the profile
+perturbation and support reduction introduce a small
+Hamiltonian constraint residual at t = 0. Because this
+residual is purely scalar (spin-0), it does not project onto
+the transverse-traceless spin-2 Weyl scalar Ψ4 ; the CCZ4
+Θ field damps it independently. The aspherical gradients dynamically generate Π and Kij through the coupled
+Klein–Gordon and Einstein equations, physically radiating ℓ = 2 curvature.
+F.
+
+Apparent Horizon Detection
+
+In the absence of a production elliptic horizon finder
+in GRTeclyn, we implement a trapped-surface proxy on
+
+4
+coordinate spheres. The outgoing null expansion for a
+conformally flat metric γij = χ−1 δij is
+√
+2 χ ∂r̄ χ
+2
+− √ + Ãrr − K.
+(14)
+θ+ =
+r̄
+χ
+3
+A trapped surface is identified when θ+ ≤ 0; the maximum radius satisfying this condition gives the apparenthorizon proxy rAH .
+G.
+
+Gauge Conditions
+
+The shift vector β i is evolved with the Gamma-driver
+condition from β i (t=0) = 0. The lapse obeys 1 + log
+slicing, ∂t α − β i ∂i α = −2αK, with
+α(t=0) = 1.
+
+(15)
+
+A flat initial lapse is essential for the phantom scalar field:
+because ∂t Π contains terms ∝ ∇α · ∇ϕ, a spatially varying profile such as α = χ would induce immediate slicing
+shear, violating the Π(t=0) = 0 condition and destabilizing the grid. The covariant scaling of the CCZ4 damping
+parameters is disabled (covariantZ4 = 0) to avoid extreme stiffness when α → 0 during horizon formation.
+
+H.
+
+Collapse diagnostics
+
+All diagnostic quantities are evaluated on the finest
+AMR level; definitions are summarized here and physical interpretation is given in the figure captions. The
+lapse α → 0 signals black-hole formation; χ → 0 indicates infinite metric stretching; K encodes local volume
+change:
+√
+√
+√
+(16)
+∂t ( γ) = −αK γ + ∇i β i γ,
+with K > 0 denoting contraction and K < 0 expansion.
+The throat areal radius, a gauge-independent collapse
+indicator, is
+
+time indicates a coherent outgoing wavefront. The onesided power spectral density (PSD) is computed via the
+Discrete Fourier Transform (DFT) of the windowed signal:
+
+∆t2 
+2
+2
+SΨ4 (f ) =
+|F{w(t)Re(Ψ4 )}| + |F{w(t)Im(Ψ4 )}| ,
+T
+(18)
+where F denotes the DFT and w(t) is a Tukey window
+(with shape parameter α = 0.25) applied in the time domain to suppress spectral leakage. To resolve the chronological evolution of the emission frequencies, we supplement the time-averaged spectra with a time-frequency
+spectrogram computed via a Continuous Wavelet Transform (CWT) using a Morlet wavelet.
+Propagation speed analysis. The critical test for distinguishing physical radiation from numerical artifacts
+is:
+v=
+
+Rareal (r̄) = p
+
+χ(r̄)
+
+.
+
+fphys =
+
+fcode
+,
+M · M⊙,sec
+
+Shphys (f ) = Shcode (f ) · M · M⊙,sec ·
+
+(20)
+
+
+M · M⊙,m
+D
+
+2
+, (21)
+
+where M⊙,sec ≈ 4.93 × 10−6 s√and M⊙,m ≈ 1477 m. The
+characteristic strain hchar = f Sh is compared against
+the Advanced LIGO design sensitivity [19]; an SNR ≳ 8
+is required for detection.
+NUMERICAL SETUP
+
+(17)
+
+Tracking the extrema of K and Rareal at late times reveals whether the remnant settles or undergoes a phantom bounce.
+
+I.
+
+(19)
+
+where tpeak
+is the time of the dominant peak in |rΨ4 |
+i
+at radius Ri . Physical gravitational waves give v = 1
+(in geometrized units); CCZ4 constraint-damping modes
+propagate superluminally.
+Strain and detectability. The strain PSD is Sh (f ) =
+SΨ4 (f )/(2πf )4 , with a 4th-order Butterworth high-pass
+roll-off below flow = 0.05 fmax to suppress low-frequency
+drift. Physical rescaling uses:
+
+III.
+
+r̄
+
+Ri+1 − Ri
+,
+peak
+ti+1 − tpeak
+i
+
+Gravitational-wave extraction
+
+We decompose the Weyl scalar Ψ4 (satisfying Ψ4 =
+ḧ+ − iḧ× in the wave zone) into spin-weighted spherical
+harmonics; the (ℓ, m) = (2, 0) mode dominates for our
+axisymmetric deformation. The radius-scaled quantity
+rΨ4 is plotted in both simulation time and retarded time
+u = t−Rext ; alignment across extraction radii in retarded
+
+Evolutions use the GRTeclyn codebase [20, 21], built
+on the AMReX library [22] for block-structured AMR with
+GPU acceleration. Production runs used NVIDIA H100
+GPUs with one MPI rank per GPU.
+The domain spans Lfull = 64 with Nfull = 256 coarse
+cells (dxcoarse = 0.25). Octant symmetry (x, y, z ≥ 0)
+is exploited with parity conditions on the inner faces
+and Sommerfeld conditions at the outer boundary. Up
+to 5 levels of 2:1 AMR, regridded on χ gradients, give
+dxfine ≈ 7.8 × 10−3 . Time integration uses 4th-order
+Runge–Kutta with dt_multiplier = 0.02. The domain size keeps the outer boundary causally disconnected
+from the extraction region (Rext ≤ 24) for the full evolution (tstop = 30). Wall-clock time per t = 30M run is
+∼24 hours on 8 H100 GPUs.
+
+5
+IV.
+
+RESULTS
+
+We present two representative configurations: an unperturbed baseline exhibiting noise-driven expansion,
+and a perturbed run (Ssupport = 0.5, Aϕ = +0.02,
+σϕ = 0.5) that forces collapse and enables GW emission.
+All diagnostics are evaluated on the finest AMR level.
+TABLE I. Parameters for the two representative configurations. All shared settings: b0 = 0.5, exactly static initial lapse
+α(t=0) = 1, χmin = 10−8 , κ1 = 3.0, κ2 = 0, covariantZ4 = 0,
+σKO = 2.0, Lfull = 64, Nfull = 256, max_level = 5, dxfine ≈
+7.8 × 10−3 , and phantom_mass = 0.0.
+Parameter Unperturbed (Noise-Driven) Perturbed (Collapse)
+Ssupport
+1.0
+0.5
+Aϕ
+0
++0.02
+σϕ
+—
+0.5
+
+A.
+
+Unperturbed evolution: Noise-driven expansion
+
+The unperturbed run serves as a critical numerical validation of the defined physical problem. With exact initial data and a flat initial lapse (α(t=0) = 1), the 3D
+AMR grid successfully holds the highly precarious saddlepoint geometry in strict static equilibrium (Rareal = 0.50,
+dRareal /dt = 0, Π = 0) for t ≲ 1.5M . This confirms that
+the analytical balance of the coupled Einstein–phantomscalar system is resolved to machine precision. Eventually, the numerical floor χmin = 10−8 at the compactified origin (r̄ = 0) introduces microscopic positive-energy
+truncation noise that propagates to the throat and physically breaks this balance. The accumulated noise naturally triggers the rarefactive (expansion) branch, and the
+throat grows exponentially with λ ≈ 9.012 M −1 (Fig. 2).
+The expansion velocity reaches v > 0.6c by t ≈ 2.7M .
+At this point the moving-puncture gauge—designed to
+freeze collapsing singularities (K > 0)—cannot handle the inflating geometry (K ≪ 0): the lapse “anticollapses,” coordinate stretching outruns the AMR hierarchy, and the run terminates with constraint violation.
+Table II shows the inflated throat size at t = 5M
+(the collapse timescale of the compressive branch). The
+growth factor e45.06 ∼ 3.7 × 1019 represents a metric
+expansion of space itself—not restricted by causality—
+analogous to early-universe inflation.
+
+B.
+
+Perturbed evolution: Global collapse and the
+phantom bounce
+
+With Ssupport = 0.5, the halved phantom support
+forces the wormhole into the compressive branch, while
+the quadrupolar perturbation (Aϕ = +0.02) breaks
+
+spherical symmetry to seed ℓ = 2 radiation. The multipanel diagnostics (Fig. 3) reveal a highly dynamic, multistage evolution.
+During the initial crush (t < 4M ), gravity overwhelmingly dominates. The throat areal radius (Panel g)
+plunges from 0.50 to a minimum of Rareal ≈ 0.14 by
+t ≈ 2M . An apparent horizon proxy forms almost immediately, indicated by the sharp spike in rAH (Panel
+d), enacting cosmic censorship. The scalar field is violently squeezed during this phase, dynamically generating a massive conjugate momentum peaking at Π ≈ 0.4
+(Panel k) from exactly zero initial data.
+However, the massless phantom field violates the null
+energy condition and lacks a stabilizing potential well. As
+the remnant phantom matter is crushed inside the newly
+formed horizon, its repulsive negative pressure skyrockets. At t ≈ 4M , this extreme anti-gravity overpowers the
+inward gravitational compression, initiating the “phantom bounce.” The areal radius (Panel g) reverses course
+and steadily expands, plateauing near Rareal ≈ 0.28.
+Concurrently, the trapped surface proxy (Panel d) inflates massively to rAH > 0.4, driven by the outward
+phantom pressure.
+This interior bounce generates an expanding shockwave of extrinsic curvature (K > 0, Panel c), the spatial
+propagation of which is explicitly tracked in Fig. 5. By
+t ≈ 18.5M , this shockwave fundamentally disrupts the
+local coordinate foliation: the extreme negative pressure
+obliterates the trapped surface entirely (rAH abruptly
+drops to zero in Panel d), and the lapse function α (Panel
+a) crashes into the 10−10 numerical floor. While this
+shock-like gradient exhausts the AMR grid’s resolving
+capabilities at late times, the exterior gravitational-wave
+emission completes cleanly beforehand.
+
+C.
+
+Gravitational-wave signatures
+
+The extracted Weyl scalar (Ψ4 ) provides definitive
+proof of physical curvature radiation (Fig. 4). The timedomain waveform (Panel a) exhibits a clear, oscillatory
+ringdown that propagates cleanly across the extraction
+radii (Rext ∈ [12, 24]). When shifted by the retarded time
+t−Rext (Panel b), the waveforms align perfectly, confirming a coherent outgoing wavefront. The late-time tail is
+fit to a Quasi-Normal Mode (QNM) template with a characteristic frequency f ≈ 0.403 M −1 , consistent with the
+fundamental ℓ = 2 Schwarzschild mode (ωR /(2πMBH ) ≈
+0.374/MBH ) for a remnant mass somewhat below the initial wormhole mass. However, the fit yields an effectively
+infinite damping time (τ ∼ 5 × 106 M ). Rather than
+indicating a true, undamped physical ringing, this is an
+artifact of the expanding “phantom bounce” shockwave
+contaminating the local grid and preventing the remnant
+from settling into a stable, quiescent state. A definitive
+QNM identification would require longer evolutions with
+the phantom field fully absorbed or dissipated.
+Propagation speed analysis (Panel d) between the ex-
+
+6
+TABLE II. Characteristics of the noise-driven rarefactive expansion branch at various mass scales, assuming an initial throat
+radius b0 = 0.5M . The measured instability growth rate is λ ≈ 9.012 M −1 (e-folding time t ≈ 0.111M ). By t = 5M , the metric
+growth factor is e45.06 ≈ 3.7 × 1019 , stretching the throat to cosmic scales.
+Scale
+Stellar
+Intermediate
+Supermassive
+Cosmological
+
+Mass (M )
+30 M⊙
+103 M⊙
+106 M⊙
+109 M⊙
+
+Initial Throat (b0 )
+∼ 22 km
+∼ 740 km
+∼ 7.4×105 km
+∼ 5 AU
+
+traction spheres yields v ≈ 0.995c in the inner zone, with
+minor numerical dispersion further out (v ≈ 1.085c).
+This v ≈ c propagation confirms the signal is true
+gravitational radiation, distinct from superluminal CCZ4
+constraint-damping artifacts. The PSD (Panel c) confirms the radiated energy is concentrated at low frequencies (f ≲ 1.0M −1 ).
+To resolve this emission chronologically, the CWT
+spectrogram (Panel e) reveals a distinct phenomenological fingerprint: a broadband burst of low-frequency energy (0.2 ≲ f ≲ 1.2M −1 ) tracking the violent spacetime
+crush at t − Rext ≈ 0. Crucially, unlike the extended,
+upward-sweeping “chirp” characteristic of a long binary
+black hole inspiral, the wormhole collapse presents as an
+extremely concentrated burst event that is heavily localized in time. This morphology implies that initial detection of such exotic compact objects would benefit from
+unmodeled burst pipelines (such as coherent WaveBurst),
+since no standard compact-binary coalescence templates
+exist for this signal class; however, numerically generated wormhole-collapse templates could also be used in
+targeted matched-filter searches (see Sec. IV E). As the
+dynamics settle, this chaotic burst rapidly condenses into
+a highly stable, constant-frequency horizontal band. This
+persistent horizontal tail provides definitive visual confirmation of the f ≈ 0.403 M −1 Quasi-Normal Mode ringing of the remnant.
+Figure 4(f) projects the characteristic strain for
+a hypothetical intermediate-mass wormhole progenitor
+(1000 M⊙ ) located at a distance of D = 1 Mpc. The peak
+emission maps directly into the 100−300 Hz band. While
+the signal for this moderate perturbation (Aϕ = +0.02)
+sits slightly below the Advanced LIGO design sensitivity
+curve at 1 Mpc, it demonstrates that the asymmetric collapse of macroscopic topological defects produces distinct
+transients that could be detectable for closer sources or
+larger perturbation amplitudes.
+
+D.
+
+Final state characterisation
+
+Bounce extrema and horizon destruction. Rather
+than settling into a stationary trumpet-slice remnant, the
+perturbed collapse (Ssupport = 0.5) reaches a transient.
+Our 3D evolutions confirm a minimum areal radius of
+Rareal,min ≈ 0.14 at t ≈ 2M . Because the massless phan-
+
+e-folding Time
+∼ 0.016 ms
+∼ 0.55 ms
+∼ 0.55 s
+∼ 9.1 min
+
+Size at t = 5M
+∼ 87 Mly
+∼ 2.9 Gly
+∼ 2.9×1012 ly
+∼ 2.9×1015 ly
+
+tom field generates an overwhelming negative pressure,
+the geometry undergoes a violent rebound, expanding to
+Rareal ≈ 0.28. The complete geometric evolution—from
+the initial topological pinch-off to the violent inflation of
+the throat—is captured by the throat-radius and horizon diagnostics in Fig. 3 and by the curvature snapshots
+in Fig. 5. Although the term “pinch-off” is used to describe the metric degeneration, the manifold does not
+mathematically tear. The moving-puncture gauge condition (1 + log slicing) smoothly handles the singularity
+formation: as the curvature diverges, the local lapse α
+collapses into the 10−10 numerical floor. This effectively
+“freezes” the local time evolution at the singularity, isolating it within the newly formed horizon while preserving the continuous R × S 2 topology of the computational
+grid. Later in the evolution, the propagating interior
+shockwave ultimately destroys the trapped surface entirely (rAH → 0) and drives the local lapse into this same
+numerical floor.
+Instability timescales. The unperturbed rarefactive
+expansion branch exhibits an extreme growth rate of
+λ ≈ 9.012 M −1 (e-folding time ≈ 0.111M ; Table II). Conversely, the perturbed compressive branch completes the
+initial topological transition (the violent crush and horizon formation) within t ≈ 5M . For a stellar-mass wormhole (M = 30 M⊙ ), this corresponds to a total collapse
+time of approximately 0.74 ms (Table III). The subsequent instability (the phantom bounce) evolves at a much
+slower measured rate of λ ≈ 0.1283 M −1 .
+TABLE III. Total collapse time (t ≈ 5M ) for the perturbed
+compressive branch at various mass scales, assuming an initial throat radius b0 = 0.5M . This timescale captures the
+full dynamical transition from the initial static state to the
+maximum spacetime crush and horizon formation.
+Scale
+Mass (M ) Throat (b0 ) Total Collapse Time
+Stellar
+30 M⊙
+∼ 22 km
+∼ 0.74 ms
+Intermediate 103 M⊙
+∼ 740 km
+∼ 25 ms
+Supermassive 106 M⊙ ∼ 7.4×105 km
+∼ 25 s
+Cosmological 109 M⊙
+∼ 5 AU
+∼ 6.8 hours
+
+Detectability. For a hypothetical M = 30 M⊙ remnant, the physical frequency of the collapse signal places
+it above the most sensitive Advanced LIGO band. How-
+
+7
+(a) Minimum lapse:
+
+(b) Minimum conformal factor:
+
+(c) Maximum curvature: |K|
+
+100
+
+101
+
+10 6
+
+9.995×10 1
+
+100
+
+9.985×10 1
+
+max(|K|)
+
+min( )
+
+min( )
+
+9.99×10 1
+10 7
+
+10 2
+
+9.98×10 1
+9.975×10 1
+
+10 3
+10 8
+
+9.97×10 1
+
+(d) Max trapped surface radius: + 0
+
+0
+
+0.50
+
+(f) Radius at min +
+0.25
+
+0.35
+
+10
+
+0.20
+
+15
+
+0.15
+
+rmin +
+
+0.40
+
+min( + )
+
+20
+
+0.10
+
+0.30
+
+25
+
+0.05
+
+0.25
+
+30
+
+(g) Throat areal radius Rareal
+
+0.00
+
+(i) |K| decay and lifetime
+
+(h) Expansion velocity
+1.00
+
+0.64
+
+c=1
+
+0.62
+
+0.50
+dRareal /dt (c)
+
+0.60
+0.58
+0.56
+
+100
+
+0.25
+0.00
+0.25
+
+0.54
+
+0.50
+
+0.52
+
+0.75
+
+0.50
+
+1.00
+
+10 3
+
+(k) Scalar field momentum
+
+(l) Instability growth ( )
+
+0.0
+
+10 4
+10 6
+
+0.4
+
+| Rareal |
+
+max( )
+min( )
+
+0.0
+
+0.6
+
+10 12
+
+0.8
+
+1.0
+
+1.5
+t
+
+2.0
+
+2.5
+
+3.0
+
+1.0
+
+10 8
+10 10
+
+0.2
+0.4
+
+| Rareal |
+Fit: = 9.0120
+
+10 2
+
+0.2
+
+0.2
+
+0.5
+
+10 1
+10 2
+
+(j) Scalar field profile
+0.4
+
+0.0
+
+max|K|
+Fit: = 0.462
+
+101
+
+0.75
+
+max(|K|)
+
+rAH
+
+(e) Minimum null expansion proxy: +
+
+5
+
+0.45
+
+Rareal, min
+
+10 1
+
+10 14
+
+max( )
+min( )
+
+0.0
+
+0.5
+
+1.0
+
+1.5
+t
+
+2.0
+
+2.5
+
+3.0
+
+0.0
+
+0.5
+
+1.0
+
+1.5
+t
+
+2.0
+
+2.5
+
+3.0
+
+FIG. 2. Diagnostics of the unperturbed, noise-driven evolution (Aϕ =0, b0 =0.5, α(t=0)=1). (a) min(α) remains perfectly flat
+near 1.0 during the static phase, but undergoes “anti-collapse” (rising above 1.0) during late-time inflation, as the movingpuncture gauge fails to handle the expanding geometry. (b) min(χ) sits at the 10−8 floor until high-frequency numerical noise
+from the compactified origin disrupts the grid. (g) Rareal,min sits in perfect saddle-point equilibrium at exactly 0.50 for the first
+t ≈ 1.5M , before grid noise knocks it into the expansion branch, causing exponential growth. (h) dRareal /dt starts at exactly
+zero, then accelerates continuously to v > 0.6c as the throat inflates. (j, k) The scalar field momentum Π remains exactly
+zero while the wormhole is static, confirming perfect analytical initial balance, but grows rapidly once the inflating geometry
+begins to shear the scalar field. (l) Instability growth rate (λ ≈ 9.012 M −1 ): The departure from equilibrium ∆Rareal reveals
+a violent, exponential inflationary runaway.
+
+ever, scaling the system to an intermediate-mass wormhole progenitor (M = 103 M⊙ ) shifts the signal directly into the most sensitive LIGO frequency band
+(∼ 100–200 Hz). For the moderate quadrupolar pertur-
+
+bation simulated here (Aϕ = +0.02), our strain analysis confirms that the signal from a 103 M⊙ collapsing
+wormhole at D = 1 Mpc falls slightly below the Advanced LIGO design sensitivity threshold, restricting de-
+
+8
+(a) Minimum lapse:
+
+(b) Minimum conformal factor:
+
+10 3
+
+(c) Maximum curvature: |K|
+101
+
+10 1
+10 4
+10 3
+
+100
+
+max(|K|)
+
+min( )
+
+min( )
+
+10 5
+10 5
+
+10 6
+
+10 7
+
+10 1
+
+10 7
+10 9
+10 8
+
+(d) Max trapped surface radius: + 0
+
+(e) Minimum null expansion proxy: +
+
+min( + )
+
+rAH
+
+0.3
+0.2
+
+0.10
+
+20
+
+0.08
+
+40
+
+0.06
+
+60
+
+0.1
+
+0.04
+
+80
+
+0.0
+
+0.02
+
+100
+
+(g) Throat areal radius Rareal
+
+(i) |K| decay and lifetime
+
+(h) Expansion velocity
+
+0.50
+
+6
+
+0.45
+
+4
+
+0.40
+
+2
+
+0.30
+0.25
+
+c=1
+
+0
+2
+
+100
+
+10 1
+
+4
+
+0.20
+
+max|K|
+Fit: = 0.003
+
+101
+
+max(|K|)
+
+0.35
+
+dRareal /dt (c)
+
+Rareal, min
+
+(f) Radius at min +
+
+0
+
+rmin +
+
+0.4
+
+6
+
+0.15
+
+(j) Scalar field profile
+
+(k) Scalar field momentum
+0.4
+
+0.4
+
+10 2
+
+0.3
+0.2
+
+10 4
+
+0.1
+
+0.2
+
+0.0
+max( )
+min( )
+
+0.4
+0
+
+5
+
+10
+
+15
+t
+
+20
+
+25
+
+30
+
+| Rareal |
+
+0.2
+
+0.0
+
+(l) Instability growth ( )
+
+100
+
+max( )
+min( )
+
+10 6
+10 8
+10 10
+10 12
+
+0.1
+
+10 14
+0
+
+5
+
+10
+
+15
+t
+
+20
+
+25
+
+30
+
+| Rareal |
+Fit: = 0.1283
+
+0
+
+5
+
+10
+
+15
+t
+
+20
+
+25
+
+30
+
+FIG. 3. Fine-level diagnostics of the perturbed collapse (Ssupport = 0.5, Aϕ = +0.02). (g) The throat areal radius rapidly
+plunges to ∼ 0.14, but physically rebounds at t ≈ 4M due to the extreme phantom pressure, expanding to a plateau of ∼ 0.28.
+(k) The scalar momentum Π starts exactly at zero and is dynamically generated to ∼ 0.4 by the initial crush. (d, a) The
+apparent horizon proxy rAH forms rapidly, dips, and then significantly inflates during the phantom bounce. At t ≈ 18.5M , the
+interior shockwave completely destroys the trapped surface (rAH → 0) and drives the minimum lapse α into the 10−10 numerical
+floor. (c) The maximum extrinsic curvature |K| grows steadily at late times, reflecting the intensifying interior shockwave.
+
+tectability of such minor perturbations to the local galactic neighborhood (D ≲ 50 kpc). However, since the radiated energy scales as O(A2ϕ ), a highly asymmetric primordial interaction (with |Aϕ | ∼ O(1)) would produce
+a vastly stronger signal detectable at much greater distances, while supermassive wormholes (∼ 108 M⊙ ) would
+
+be primary targets for the space-based LISA observatory.
+
+9
+
+(a) Waveform r Re(Ψ24, 0 )
+
+(b) Waveform r Re(Ψ24, 0 ) (retarded) + QNM fit
+R = 12
+R = 16
+R = 20
+R = 24
+
+0.015
+0.010
+
+QNM fit: f = 0.403, τ = 5030678.63
+
+0.010
+
+¢
+
+¢
+
+r Re Ψ 24, 0
+
+0.005
+
+r Re Ψ 24, 0
+
+0.005
+
+R = 12
+R = 16
+R = 20
+R = 24
+
+0.015
+
+0.000
+
+¡
+
+¡
+
+0.000
+
+0.005
+
+0.005
+
+0.010
+
+0.010
+
+0.015
+
+0.015
+0
+
+5
+
+10
+
+15
+
+t
+
+20
+
+25
+
+30
+
+(c) Power Spectral Density of Ψ4
+R = 12
+R = 16
+R = 20
+R = 24
+
+10 5
+10 7
+
+20
+
+0.0175
+
+t − Rext
+
+0
+
+10
+
+20
+
+(d) Propagation speed analysis
+R = 12
+R = 16
+R = 20
+R = 24
+
+R = 12→16: v = 0.995 c
+
+0.0150 R = 16→20: v = 1.028 c
+0.0125
+
+R = 20→24: v = 1.085 c
+
+|r Ψ 24, 0 |
+
+0.0100
+
+10 11
+
+£
+
+PSD r Ψ 24, 0
+
+¤
+
+10 9
+
+10
+
+0.0075
+
+10 13
+
+0.0050
+
+10 15
+
+0.0025
+
+10 17
+0.0
+3.0
+
+2.5
+
+5.0
+
+7.5
+
+10.0 12.5
+f (M −1 )
+
+15.0
+
+17.5
+
+(e) Spectrogram (time-frequency, R = 12)
+
+20.0
+
+0.0000
+
+0.4
+
+0.2
+0.1
+
+0.2
+
+10
+
+5
+
+0
+
+5
+
+Retarded time t − Rext
+
+10
+
+15
+
+0.0
+
+10
+
+20
+
+Signal (M=1000 M ¯ , D=1 Mpc)
+Advanced LIGO design
+
+10 25
+
+p
+
+Strain noise, 1/ Hz
+
+Normalized amplitude
+
+f (M −1 )
+
+0.5
+
+0
+
+10 23
+
+0.8
+
+0.6
+
+10
+
+Retarded time t − Rext
+
+(f) Strain vs.\ Advanced LIGO sensitivity
+
+1.0
+
+2.0
+1.0
+
+20
+
+10 27
+10 29
+10 31
+101
+
+102
+
+f (Hz)
+
+103
+
+FIG. 4. Gravitational-wave extraction analysis (Ψ4 ) for the perturbed collapse. (a, b) Raw and retarded-time waveforms for
+the dominant ℓ = 2, m = 0 mode. The perfect alignment in retarded time (t − Rext ) confirms a coherent outgoing wavefront,
+with the late-time tail fit to a QNM template (f ≈ 0.403, τ ≈ 5.03 × 106 ). The effectively infinite damping time is an artifact of
+the grid being contaminated by the expanding phantom bounce, which prevents the remnant from settling into a quiescent state.
+(c) The Power Spectral Density (PSD) peaks strongly at low frequencies (f ∼ 0.5M −1 ). (d) Tracking the waveform peaks
+yields a propagation speed of v ≈ 0.995c between R = 12 and R = 16, confirming physical radiation rather than superluminal
+gauge modes. (e) A Continuous Wavelet Transform (CWT) spectrogram of the R = 12 extraction, visualizing the broadband
+initial crush at t−Rext ≈ 0 transitioning into a constant-frequency QNM ringdown. (f ) The characteristic strain projection. An
+intermediate-mass wormhole (1000 M⊙ ) at 1 Mpc produces a signal peaking in the most sensitive frequency band (100−300 Hz)
+of the Advanced LIGO design sensitivity, though closer proximity or a larger perturbation amplitude is required for detection.
+
+10
+
+FIG. 5. Evolution snapshots of the trace of the extrinsic curvature (K) in the z=0 plane for the perturbed collapse (Ssupport =
+0.5, Aϕ = +0.02). At t = 0.10, the initial scalar perturbation has already generated a prompt K < 0 (red) response at the
+origin. By t = 5.01, the global reduction in phantom support drives the initial collapse, generating a compressive, positive-K
+core. Between t = 10.01 and t = 15.01, the interior “phantom bounce” initiates, launching a massive interior expansion (K < 0,
+dark red) that drives an outward-propagating compressive shockwave (K > 0, blue ring) driven by the extreme repulsive
+pressure of the crushed phantom matter. By t = 22.50, this shockwave dominates the grid, eventually disrupting the local
+coordinate foliation.
+
+E.
+
+Physical and Astrophysical Implications
+
+Because the instability timescale is ∼ O(5M )—the
+throat light-crossing time—naturally occurring Ellis–
+Bronnikov wormholes cannot survive even a single stellarmass perturbation without active phantom-energy stabilization.
+For the rarefactive branch, the inflating throat would
+dilute the phantom energy density; if it drops below
+the ambient cosmological background, the Null Energy
+Condition may be locally restored. Under those conditions, the Penrose singularity theorems would imply gravitational turnaround and eventual topological pinch-off,
+though this outcome depends on the coupling between
+the phantom field and the cosmological expansion. Determining this late-time evolution requires placing the
+wormhole in an FLRW background—an open problem
+beyond our asymptotically flat grid.
+Gravitational-wave emission does not require an imposed perturbation: a rotating wormhole (e.g. the Teo geometry [23]) inherently possesses a non-zero quadrupole
+moment. Collapse of such a configuration would radiate ℓ = 2 modes, and rapidly spinning cases may also
+develop bar-mode (m = 2) instabilities, making collapsing primordial rotating wormholes distinct sources for
+gravitational-wave observatories.
+
+F.
+
+Computational Feasibility
+
+These simulations are heavily memory-bandwidth
+bound. A single 8×H100 node completes a t = 30M evolution in ∼24 hours. The simulation requires up to ∼15
+GB of VRAM per GPU at late times due to the massive grid refinement triggered by the expanding “phantom bounce” shockwave; otherwise, the initial dynamics could be computed with significantly fewer GPU resources. The GPU configuration operates at roughly 15–
+60% of the cost of an equivalent CPU cluster, demon-
+
+strating that GRTeclyn’s GPU-accelerated AMR is highly
+suited to these extreme topologies.
+
+V.
+
+DISCUSSION AND CONCLUSION
+
+Our 3D evolutions confirm the 1D bifurcation of
+Shinkai and Hayward [9] and extend it by enabling full
+3D gravitational-wave extraction and propagation-speed
+analysis to separate physical radiation from constraintdamping artifacts.
+In the perturbed configuration,
+Ssupport selects the dynamical branch while Aϕ controls
+asphericity and the strength of the ℓ = 2 signal. While
+extracted at finite radii, the signals exhibit the expected
+v ≈ c propagation characteristic of genuine gravitational
+waves; the limited number of extraction radii precludes a
+precise measurement of the 1/r amplitude fall-off, though
+the retarded-time alignment is fully consistent with it.
+The instability timescale is set by the throat lightcrossing time tlc = b0 /c. For M ∼ 30 M⊙ (b0 ∼
+22 km), collapse completes in ∼10 light-crossing times
+(∼ 0.74 ms); the expansion branch e-folds in microseconds (Table II). While quantum backreaction may stabilize Planck-scale defects [24], macroscopic wormholes are
+inherently unstable, providing a natural explanation for
+their absence in the late universe.
+The propagation speed v ≈ c at the inner extraction pairs is the strongest evidence for physical GW content. In the unperturbed run the signal is over an order
+of magnitude weaker with grossly superluminal speeds
+(v ≈ 2–114c), confirming that the perturbed signal cannot be attributed to constraint-damping modes alone.
+The rapid instability also explains the violent scalar-field
+dynamics: Π must be generated from exactly zero within
+∼ 5M , leaving no adiabatic regime.
+In a cosmological context, phantom inflation [25] or
+non-minimal coupling could temporarily provide NECviolating support during the inflationary epoch, stretching primordial wormholes to macroscopic scales. At re-
+
+11
+heating, the inflaton decays into positive-energy particles (w > 0), removing the phantom support—precisely
+the mechanism modeled by our Ssupport reduction. The
+resulting microsecond-timescale collapse would leave primordial black holes and a stochastic background of highly
+redshifted gravitational waves.
+Furthermore, because the extracted waveforms have
+been fully evaluated in the time-frequency domain,
+these numerical templates can be directly injected into
+matched-filtering pipelines (e.g., PyCBC) to conduct targeted, archival searches for exotic compact object transients in public Advanced LIGO/Virgo datasets.
+Future work. Fully constraint-satisfying initial data
+(via an elliptic solver) would eliminate the O(Aϕ ) Hamiltonian residual and enable large-amplitude studies. Extracting Ψ4 at larger radii or via Cauchy-characteristic
+extraction would provide asymptotic waveform templates. The ultimate fate of the expansion branch requires cosmological slicing and an FLRW background
+to determine whether phantom-energy dilution triggers
+a gravitational turnaround or permanent inflation.
+
+VI.
+
+CODE AND DATA AVAILABILITY
+
+The GRTeclyn C++ source code routines, initialization
+parameters, extracted simulation data (including the Ψ4
+waveforms and constraint norms), and the Python analysis scripts used to generate the figures and execute the
+LIGO matched-filter searches in this work are publicly
+available on GitHub [26].
+
+VII.
+
+ACKNOWLEDGEMENTS
+
+This work was supported by Gravity Frontiers (https:
+//www.gravityfrontiers.org/en), which provided funding
+for the underlying research and the development of the
+numerical simulation software. The author extends their
+sincere gratitude to Ilya Nachevsky for generously providing the high-performance computing resources essential to this work. Furthermore, the author is grateful to
+Ilya Shirokov for his meticulous review of the manuscript
+and for providing insightful comments that significantly
+improved the clarity of this work.
+
+12
+Hamiltonian Constraint:
+
+Appendix: Numerical validation and convergence
+
+L2
+
+10 1
+
+10 2
+
+L2
+
+Momentum Constraint:
+
+i
+
+10 1
+10 2
+10 3
+10 4
+10 5
+10 6
+10 7
+10 8
+
+L2
+
+0.0
+
+0.5
+
+1.0
+
+1.5
+
+t [M]
+
+2.0
+
+2.5
+
+3.0
+
+Hamiltonian Constraint:
+L2
+
+10 1
+L2
+
+To rigorously bound outward-propagating errors,
+global constraint violations are evaluated as volumeweighted RMS averages
+unrefined domain (AMR
+Pover theP
+Level 0): L2 (C) = ( i Ci2 Vi / i Vi )1/2 . Initial norms
+are marginally nonzero due to grid interpolation and
+the O(Aϕ ) scalar residual, though the initial momentum
+norm (∼ 10−5 ) confirms machine-precision satisfaction
+by the exact Π=0, Kij =0 state. As shown in Fig. 7, both
+norms remain strictly bounded during the physical emission phase (t < 8M ) prior to late-time coordinate disruption.
+Figure 6 demonstrates Richardson convergence for the
+perturbed collapse. The Hamiltonian constraint initially
+exhibits 2nd-order convergence but drops toward 1storder as the violent “phantom bounce” generates severe,
+shock-like scalar gradients. The Momentum constraint,
+analytically zero at t=0, remains an order of magnitude
+smaller and is completely dominated by non-convergent
+(0th -order) AMR boundary interpolation noise.
+
+L2
+
+10 2
+
+Hamiltonian Constraint Convergence:
+
+Momentum Constraint:
+
+Medium (N = 192)
+High (N = 256) ×3.16 (4th order)
+High (N = 256) ×1.77 (2nd order)
+High (N = 256) (unscaled)
+
+3×10 2
+
+L2
+
+10 2
+L2
+
+L2
+
+2×10 2
+
+i
+
+10 3
+10 2
+
+10 4
+
+Momentum Constraint Convergence:
+
+i
+
+L2
+
+10 2
+
+10 3
+
+10 4
+0
+
+1
+
+2
+
+t [M]
+
+3
+
+Medium (N = 192)
+High (N = 256) ×3.16 (4th order)
+High (N = 256) ×1.77 (2nd order)
+High (N = 256) (unscaled)
+4
+5
+
+FIG. 6. Constraint convergence analysis between medium
+(N =192) and high (N =256) base resolutions. Top: The
+Hamiltonian constraint violation initially exhibits 2nd-order
+convergence, closely tracking the 2nd-order scaled high resolution (dash-dotted line). As the non-linear “phantom bounce”
+generates severe gradients (t > 0.5M ), the scheme degrades
+toward 1st-order to maintain stability. Bottom: The Momentum constraint is analytically zero at t = 0; its subsequent violation is completely dominated by non-convergent
+(0th -order) interpolation noise at the AMR refinement boundaries, evidenced by the perfect overlap of the unscaled high
+and medium resolution curves.
+
+0
+
+5
+
+10
+
+15
+
+t [M]
+
+20
+
+25
+
+30
+
+FIG. 7. Constraint norms for the unperturbed evolution
+(top, Aϕ =0) and perturbed collapse (bottom, Ssupport =0.5).
+Top: Norms remain flat during the initial saddle-point phase
+(t ≲ 1.5M ) but exhibit a rapid, exponential spike near
+t ≈ 2.5M as the geometry enters the inflationary expansion
+branch, causing the moving-puncture gauge to fail. Bottom:
+Constraints remain strictly bounded during the initial crush
+and gravitational-wave emission phase (t < 8M ). The growth
+at late times (t > 10M ) is a direct physical consequence of
+the “phantom bounce” generating severe, shock-like gradients
+that exhaust the resolution of the AMR grid.
+
+13
+
+[1] L. Flamm, Physikalische Zeitschrift 17, 448 (1916).
+[2] A. Einstein and N. Rosen, Physical Review 48, 73 (1935).
+[3] C. W. Misner and J. A. Wheeler, Annals of Physics 2,
+525 (1957).
+[4] H. G. Ellis, Journal of Mathematical Physics 14, 104
+(1973).
+[5] K. A. Bronnikov, Acta Physica Polonica B 4, 251 (1973).
+[6] M. S. Morris and K. S. Thorne, American Journal of
+Physics 56, 395 (1988).
+[7] N. S. Kardashev, I. D. Novikov, and A. A. Shatskiy, International Journal of Modern Physics D 16, 909 (2007).
+[8] J. García-Bellido, arXiv preprint arXiv:1603.08466
+(2016).
+[9] H.-a. Shinkai and S. A. Hayward, Phys. Rev. D 66,
+044005 (2002).
+[10] K. Clough, T. Dietrich, and S. Khan, arXiv preprint
+arXiv:2406.02466 (2024), arXiv:2406.02466 [gr-qc].
+[11] B. P. Abbott et al. (LIGO Scientific Collaboration and
+Virgo Collaboration), Phys. Rev. Lett. 116, 061102
+(2016).
+[12] B. P. Abbott et al. (LIGO Scientific Collaboration and
+Virgo Collaboration), Phys. Rev. X 9, 031040 (2019),
+first released 2018.
+[13] R. Abbott et al. (LIGO Scientific, Virgo and KAGRA
+Collaborations), Phys. Rev. X 13, 041039 (2023).
+[14] V. Cardoso and P. Pani, Living Reviews in Relativity 22,
+4 (2019).
+[15] T. W. Baumgarte and S. L. Shapiro, Numerical Relativity: Solving Einstein’s Equations on the Computer (Cambridge University Press, 2010).
+[16] K. K. Nandi, Y. Z. Zhang, R. G. Cai, and A. Panchenko,
+
+arXiv preprint arXiv:0809.4143 (2008), arXiv:0809.4143
+[gr-qc].
+[17] D. R. Brill and R. W. Lindquist, Physical Review 131,
+471 (1963).
+[18] J. A. Gonzalez, F. S. Guzman, and O. Sarbach, Class.
+Quant. Grav. 26, 015010 (2009), arXiv:0806.0608 [gr-qc].
+[19] J. Aasi et al. (LIGO Scientific), Classical and Quantum
+Gravity 32, 074001 (2015).
+[20] GRTeclyn Collaboration, GRTeclyn: Port of GRChombo
+to AMReX, https://github.com/GRTLCollaboration/
+GRTeclyn (2024), under active development.
+[21] T. Andrade, L. A. Salo, J. C. Aurrekoetxea, J. Bamber,
+K. Clough, R. Croft, E. de Jong, A. Drew, A. Duran,
+P. G. Ferreira, P. Figueras, H. Finkel, T. França, B.-X.
+Ge, C. Gu, T. Helfer, J. Jäykkä, C. Joana, M. Kunesch,
+K. Kornet, E. A. Lim, F. Muia, Z. Nazari, M. Radia, J. Ripley, P. Shellard, U. Sperhake, D. Traykova,
+S. Tunyasuvunakool, Z. Wang, J. Y. Widdicombe, and
+K. Wong, Journal of Open Source Software 6, 3703
+(2021).
+[22] W. Zhang, A. Almgren, M. Day, T. Nguyen, J. Shalf, and
+G. Weirs, J. Open Source Softw. 4, 1370 (2019).
+[23] E. Teo, Physical Review D 58, 024014 (1998).
+[24] H. Mehulic and T. Prokopec, arXiv preprint
+arXiv:2603.11724 (2026), arXiv:2603.11724 [hep-th].
+[25] Y.-S. Piao and X. Zhang, Physical Review D 70, 063513
+(2004).
+[26] N. M. Shirokov, Wormhole Dynamics: Nonlinear Collapse and Gravitational-Wave Emission, https://github.
+com/Nikchik-coder/GRTeclyn/tree/develop (2026).
+
+
