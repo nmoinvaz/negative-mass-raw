@@ -47,4 +47,48 @@ Mutations, each must exit 1 with its target failing:
 
 ## Results
 
-Written after the runs.
+| file | what |
+|---|---|
+| `rerun/det_classify_full.*` | the rerun at af5f269: stdout, `/usr/bin/time -l`, exit code |
+| `ind80_run1.py`, `.txt` | run 1: every criterion passes (`ind80.py` is the same version) |
+| `ind80_mut_*.txt` | its 10 mutations |
+
+**Rerun** (exit 1, 6 min 22 s, 90 MB peak). As #80 reports: `bessel_pert` and `conical_limit` fail, 13 of 15 checks
+pass, and 19 of 19 controls fire on their targets only. The output equals rpi5's line for line apart from the timings
+and the Python version.
+
+**ind80 run 1** (exit 0, 3 s):
+
+| criterion | run 1 |
+|---|---|
+| K0 | Painlevé–Gullstrand Ricci-flat |
+| K1 | P = a_x and Y = ½(b_x b_ρ − a_ρ); planar h = Q = Z = Y = 0 and D = 0 |
+| K2 | traveling D(B(x − vt, ρ)) = D_static(B + v); Galilean covariance |
+| K3 | R = (uu′)′g₂ ⊕ 0; −(1 − u²) dp dq = g₂; R_pq = −Φ/2; s′ = 2/(1 − u²) |
+| K4 | the factorization of D for u = cx + g(ρ); the Bessel reduction for ε = ±1; largest \|D\| at 8 own points 4.4e-60 |
+| K5 | D = hE and E = Σ f_i g_i |
+| K6 | the conical entries; the parts of degree 3 and 4 as printed, lower parts 0; leading coefficient at η⁻⁸ is −64c³(c + 2F_∞) |
+| K7 | on the branch a₂ = −2F_∞: η⁻⁹ gives a₃ = 0, η⁻¹⁰ gives −512 F_∞⁴(F_∞² + 7) = 0 |
+| K8 | far field: ε⁰, ε¹, ε² vanish; the ε³ coefficient as printed |
+| K9 | R − Kg = −K(dy² + dz²) for a planar static shift, so (+,+) iff K < 0 |
+
+Re-solve: K7, #80's series observation, by its own order-by-order solve.
+
+Two findings:
+- K7 puts the condition F_∞⁴(F_∞² + 7) = 0 at η⁻¹⁰, the *second* order after the leading η⁻⁸. det_classify.md §6
+  says the third.
+- K9 has the sign that #78's Lemma S needs: M = −K(dy² + dz²). det_classify.md §12's remark for #158 says
+  M = K(dy² + dz²).
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `pg` | 1 | K0 | yes |
+| `ysign` | 1 | K1 | yes |
+| `travel` | 1 | K2 | yes |
+| `null` | 1 | K3 | yes |
+| `bessel` | 1 | K4 | yes |
+| `addf` | 1 | K5 | yes |
+| `cone3` | 1 | K6 | yes |
+| `series` | 1 | K7 | yes |
+| `far` | 1 | K8 | yes |
+| `msign` | 1 | K9 | yes |
