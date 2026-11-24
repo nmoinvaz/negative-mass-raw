@@ -187,3 +187,49 @@ e_t <= 1e-11, |L'(10) - 2 h j| <= 1e-5 (the README's own tolerance, unchanged), 
 (the README's own slack 1e-9). E4 `E_hol` stays as worded and FAILED (coordinator ruling), and the run of record exits 1
 because of it and of C2 (iv). Control `E-hol` (expects L'(10) = h j) has target `E_hol_b`; effect computed by hand before
 the first run: |L'(10) - h j| = 2.25 against the tolerance 1e-5, so it fails, and the run will confirm it.
+
+**A8 (written after the run of record `run_final.run1`, before the control it adds is run).** Control `E-ext` (support of J' is
+[0, 2], target `E_ext`) was **SILENT** in `run_final.run1.log`: only `crit_pg_iv` failed. Cause, computed afterwards: I had
+predicted that the geodesics with s = 3, 4, 5, 6 enter the support of K, which is wrong. A normal geodesic of S0 reaches
+p = 0 at q = sqrt2 s, so it meets supp K only if sqrt2 s < (end of the support of J'); with the end at 2 that needs s < 1.41,
+and E3 tests |s| = 3 .. 6 only. The README's prediction was a guess and is recorded as such. Added control `E-ext5` (the support
+of J' is [0, 5], J(q) = j S(q/5); target `E_ext`). Its effect, computed before declaring it, in a scratch copy of the script
+(not of record): `E_ext` fails, max |A - 1| = 1.61e-2, A' != 0 for s in [-0.46, 3.28] at t = 10. `E-ext5` is run alone as a
+supplementary run (`ctl_E-ext5.run1.log`); `run_final.run1` stays the run of record, and the script differs from its commit
+only by this one mutation entry. The same run shows `E-norm` and `E-kneg` firing with extras: `E-norm` also fails `E_hol_b`
+and `E_geo`, `E-kneg` also fails `E_hol_b` and `E_geo` (A4's prediction named extras for `E-kneg` only; those for `E-norm` were
+not predicted).
+
+**A9 (order of events for E-ext5).** The first run of `E-ext5`, `ctl_E-ext5.run1.log`, was made before the script change was
+committed; the coordinator asked for the commit first. The change is now its own commit (0707d9c on `wip/i161-planar-closure`) and
+the control was rerun from that commit as `run_ctl_E-ext5.run1.log` (all checks with the mutation, no control loop). Both logs
+are kept. The coordinator accepted A8: `E-ext` is recorded as SILENT (the geodesics with s >= 1.41 miss K), `run_final.run1`
+stays the run of record, no full rerun.
+
+**A10 (correction of A8, and the result of the supplementary run).** A8 says that A4 predicted extras for `E-kneg`. That is wrong:
+A4 is the amendment for `ext-geo`. No prediction of extras was written in this README for any control; the table above names one
+target per control and says that extras are reported. I had expected extras for `E-kneg` privately (it changes A in the ODE
+only, so `E_hol_b` and `E_geo` follow) and had not expected them for `E-norm`. Both fired on target with the same extras,
+`E_hol_b` and `E_geo`. `run_ctl_E-ext5.run1.log`: `E-ext5` fires on target (`E_ext`: max |A - 1| = 1.61e-2, exit 1) and
+also fails `E_hol_b` (L'(10) - 2 h j = -1.59e-4: with the support of J' to 5 the slice at t = 10 is not above it), besides the
+two baseline failures. Summary of the run of record `run_final.run1` (script commit 20d1fa4, 91 s for the checks, about 33 min
+with the controls, exit 1): 12 of 14 checks pass; `crit_pg_iv` and `E_hol` fail as worded (rulings A of 2026-11-24); 19 controls:
+16 fire on target only, 2 fire with extras (`E-norm`, `E-kneg`), 1 is silent (`E-ext`, A8).
+
+**A11 (correction of A10).** The run of record took 31 min 0 s from the start of the unit to its exit code file (12:15:33 to 12:46:33), not "about 33 min".
+
+## Results (written after `run_final.run1`; the criteria above are unchanged)
+
+Branch `wip/i161-planar-closure`: script and run of record at 20d1fa4, control `E-ext5` at 0707d9c, note and output at ef1947b.
+
+| file | what |
+|---|---|
+| `run_final.run1.log`, `.rc`, `.commit`, `final_mut1/mut_*.log` | the run of record (stdout = `notes/warp/planar_closure_output.txt`), exit 1 (31 min 0 s), the logs of its 19 controls |
+| `run_final.sh` | the launcher (systemd user unit `nm-i161-final1`, nice 10) |
+| `run_ctl_E-ext5.run1.log` | supplementary run of the control `E-ext5` from commit 0707d9c (A8, A9); `ctl_E-ext5.run1.log` is the same run before the commit |
+| `dev_*.log` | development runs, including the failed ones (A1, A5): `dev_crit_null.run1.log` (helper defect), `dev_pg_horizon.run1.log` (stopped after 13 min), `dev_crit_pg.run2.log` (C2 (iv) fails), `dev_E.run1.log` (E_hol fails), `dev_E_hol_b.run1.log`, `dev_ctl_ext-geo.run1.log` |
+| `diag_E_hol.run1.log`, `scratch/` | the s-spacing study behind A5 and the scratch scripts (`explore1.py` is the exploration of "What was explored before this README") |
+
+Outcome: 12 of 14 checks pass; `crit_pg_iv` (C2 (iv)) and `E_hol` (E4) fail as worded, by the coordinator's rulings. Controls: 16 fire on
+target only, `E-norm` and `E-kneg` fire with extras (`E_hol_b`, `E_geo`), `E-ext` is silent (A8), `E-ext5` fires with `E_hol_b` as an
+extra. `E_hol_b`: L'(10) - 2 h j = +2.12e-12, e_q = 2.4e-12, e_t = 3.6e-13.
