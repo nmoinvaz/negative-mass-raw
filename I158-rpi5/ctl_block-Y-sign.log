@@ -1,0 +1,7 @@
+one_sign_classify.py, issue #158. sympy 1.14.0, python 3.14.10. mutation: block-Y-sign (builds Y as +n(b_rho)/2 + b_x b_rho)
+
+== 1. The block R_3 of a generic b(t, x, rho); traveling = static; the gauge ==
+[FAIL] block: coordinate Ricci of an undefined b(t, x, rho) on the frame (n, d_x, d_rho, d_phi/rho) equals [[P-h, Q, Z], [Q, -P-h, Y], [Z, Y, h]] with P = n(b_x) - b_x^2 = a_x, a = b_t - b b_x; R(e_phi, .) = 0 and (I2) hold; nonzero differences: ['R12'] (1 s)
+[PASS] travel: (P, Q, Z, Y, h) of b = B(x - v t, rho) minus those of the static u = B + v: [0, 0, 0, 0, 0]; of b~(t, x) = b(t, x - D(t)) - D'(t) minus those of b at (t, x - D): [0, 0, 0, 0, 0]. So a traveling shift is a static one, and the classification is up to the gauge x -> x + D(t)
+
+2 checks, 1 pass, FAILED: ['block'] (1 s)
