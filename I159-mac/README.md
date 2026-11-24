@@ -43,4 +43,43 @@ Mutations, each must exit 1 with its target failing:
 
 ## Results
 
-(after the runs)
+| file | what |
+|---|---|
+| `rerun/conical_limit_full.*` | the rerun at ad8dab9: stdout, `/usr/bin/time -l`, exit code |
+| `ind159_run1.py`, `.txt`, `.time` | run 1 |
+| `ind159_diag_m2.py`, `.txt` | the diagnostic of run 1's M2 failure (not a criterion) |
+| `ind159_run2.py`, `.txt`, `.time` | run 2, after the fix below (`ind159.py` is the same version) |
+| `ind159_mut_*.txt` | run 2's 6 mutations |
+
+**Rerun** (exit 0, 169 s, 89 MB peak): 12 of 12 checks pass and 14 of 14 controls fire. The output equals rpi5's apart
+from the timings.
+
+**ind159 run 1** (exit 1, 17 s). M2 fails on one clause: "N through ν¹⁵ zero: False". Everything else passes.
+
+**The M2 failure** (`ind159_diag_m2.txt`) is a defect of the check code. `N_series` truncates the products at ν^M and
+then shifts A₁ and A₂ by ν² and ν⁴. The residual therefore held incomplete terms at ν¹⁶ and ν¹⁸, and the code tested
+them although the criterion says "through ν¹⁵". There is no nonzero term at m ≤ 15. Fix: the residual test keeps
+m ≤ 15. No criterion changed. Run 2 equals run 1 apart from that line and the timings.
+
+**ind159 run 2** (exit 0, 17 s, 78 MB peak):
+
+| criterion | run 2 |
+|---|---|
+| M1 | 8ρ⁶D from the own block equals A₀ + ν²A₁ + ν⁴A₂ as printed |
+| M2 | every stage n = 3 … 9 solvable; free: a₄,₀ only; a₄,₁ = F_∞(F_∞² + 7) and a₆,₀, a₆,₁, a₆,₂, a₈,₃ as printed; odd coefficients zero; N zero through ν¹⁵; without logs, stage 4 is left with −512F_∞⁴(F_∞² + 7) |
+| M3 | against the n ≤ 9 series at η = 200 and 100, for (1, 0), (−3/2, 1), (2, 1/2): largest \|ΔG\| 4.8e-14, \|Δp\| 4.4e-13. Richardson h-spread ≤ 1.9e-13. At η = 50 for (2, 1/2): against the n ≤ 9 series \|Δp\| = 2.24e-10, as in #159's dev run; against the own n ≤ 13 series \|ΔG\| 2.3e-15, \|Δp\| 4.9e-14 |
+| M4 | ε⁰ … ε² vanish; ε³ is §7's formula; x⁸/ρ² limits of ε³ … ε⁶: 128U⁴, −128U⁴, 0, 0 |
+| M5 | R polynomial in σ; R(G, r, s, 0) = −s²(r² + 2Gs); at (4G, −8G) R = 0, ∂R/∂s = −128G³; ∂S/∂r = −4, ∂S/∂G = 8; eigenvalues 0, −2, −2 |
+
+Re-solve: M3, the integration by the own RK4. It also settles #159's README amendment A2. The 2.24e-10 at η = 50 that
+led #159 to move its comparison points is truncation of the n ≤ 9 series: against the n ≤ 13 series the integration
+agrees to 5e-14.
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `Ysign` | 1 | M1 | yes |
+| `A1` | 1 | M1, M2 (the series uses the typed A₁) | yes |
+| `b` | 1 | M2 | yes |
+| `rk` | 1 | M3 | yes |
+| `ff` | 1 | M4 | yes |
+| `eig` | 1 | M5 | yes |

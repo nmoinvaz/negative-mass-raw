@@ -1,0 +1,16 @@
+== M1: N and its theta-form ==
+[PASS] M1: 8 rho^6 D = A0 + nu^2 A1 + nu^4 A2 with the printed A0, A1, A2: True  (0 s)
+
+== M2: the series with logarithms ==
+[PASS] M2: stages solvable: True; free: ['a_4_0']; printed coefficients match: {(4, 1): True, (6, 0): True, (6, 1): True, (6, 2): True, (8, 3): True}; odd zero: True; N through nu^15 zero: True; pure series stops at n = 4 with [-512*F_inf**4*(F_inf**2 + 7)]: True  (1 s)
+
+== M3: numerical integration ==
+[FAIL] M3: (F, C) = (1, 0) eta = 200: |dG| 2.49e-10, |dp| 9.94e-10 vs n<=9 series; Richardson h-spread 2.47e-10; (F, C) = (1, 0) eta = 100: |dG| 4.09e-9, |dp| 1.63e-8 vs n<=9 series; Richardson h-spread 4.05e-9; (F, C) = (-3/2, 1) eta = 200: |dG| 3.73e-10, |dp| 1.49e-9 vs n<=9 series; Richardson h-spread 3.7e-10; (F, C) = (-3/2, 1) eta = 100: |dG| 6.13e-9, |dp| 2.45e-8 vs n<=9 series; Richardson h-spread 6.07e-9; (F, C) = (2, 1/2) eta = 200: |dG| 4.97e-10, |dp| 1.99e-9 vs n<=9 series; Richardson h-spread 4.93e-10; (F, C) = (2, 1/2) eta = 100: |dG| 8.16e-9, |dp| 3.25e-8 vs n<=9 series; Richardson h-spread 8.08e-9; (F, C) = (2, 1/2) eta = 50: |dG| 1.29e-7, |dp| 5.12e-7 vs n<=9 series; vs n<=13 series |dG| 1.29e-7, |dp| 5.13e-7; Richardson h-spread 1.27e-7  (19 s)
+
+== M4: the far field ==
+[PASS] M4: eps^0..2 vanish: True; eps^3 is section 7's formula: True; x^8/rho^2 limits of eps^3..6: [128*U**4, -128*U**4, 0, 0]  (19 s)
+
+== M5: the reduced system ==
+[PASS] M5: R polynomial in sigma = nu^2: True; R(G, r, s, 0) = -s^2(r^2 + 2Gs): True; R = 0, dR/ds = -128*G**3 at (4G, -8G); dS/dr = -4, dS/dG = 8; eigenvalues {-2: 2, 0: 1}  (19 s)
+
+checks failed: ['M3']; 19 s; mutation: rk
