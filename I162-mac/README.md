@@ -38,4 +38,37 @@ Mutations, each must exit 1 with its target failing:
 
 ## Results
 
-(after the runs)
+| file | what |
+|---|---|
+| `rerun/bessel_closure_full.*` | the rerun at 115fc31: stdout, `/usr/bin/time -l`, exit code |
+| `ind162_run1.py`, `.txt`, `.time` | run 1 (`ind162.py` is the same version) |
+| `ind162_mut_*.txt` | its 5 mutations |
+
+**Rerun** (exit 0, 14 min, 80 MB peak): 10 of 10 checks pass and 13 of 13 controls fire on target only. The output
+equals rpi5's apart from the timings.
+
+**ind162 run 1** (exit 1, 3.5 s, 71 MB peak). R3 fails as worded; everything else passes.
+
+| criterion | run 1 |
+|---|---|
+| R0 | Painlevé–Gullstrand Ricci-flat |
+| R1 | the own Ricci tensor on the ODE equals a ⊗ a − b ⊗ b for ε = ±1 |
+| R2 | the own Frobenius coefficients equal the printed O_k, O_m for ε = ±1; their sum is 2g′(g′² + 4c²) without the ODE; g″ = 2εc² at g′ = 0; planted dρ, dt, d(t + x) give 0 and dt + x dρ gives 1 |
+| R3 | **fails as worded**: in all four cases N / ((G² + 2c²)P) = 1/(G² + 2c²), that is, **N = P exactly** |
+| R4 | (−2, 1, 4/39, +1) → (0, 34), (2, 1, 4/39, +1) → (34, 0); #80's six jets all have (O_k, O_m) ≠ (0, 0), and (1/8, 1/8) = g′³ at c = 0 |
+
+Re-solve: R4, the exact jets, and R3's elimination, by the coordinator's own code.
+
+**R3's failure.** The criterion asked for N to be a monomial multiple of (G² + 2c²)P, as #162 prints N = −(G² + 2c²)P.
+The coordinator's elimination gives N = P itself, the same monic degree-12 polynomial, without the factor G² + 2c².
+That factor depends on how the denominators are cleared: sympy's `together` cancels it here. It is positive, so it
+does not change Theorem 2. Theorem 2 needs only N ≢ 0 as a polynomial in G, and that holds. R3 stays failed: the
+criterion fixed a factor that the computation does not reproduce.
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `pg` | 1 | R0 (R3 at baseline) | yes |
+| `bsign` | 1 | R1, R2, R4 (R3 at baseline) | yes |
+| `frob` | 1 | R2, R4 (R3 at baseline) | yes |
+| `poly` | 1 | R3, which fails at baseline; informative, because the quotient is no longer 1/(G² + 2c²) | yes |
+| `jet` | 1 | R4 (R3 at baseline) | yes |

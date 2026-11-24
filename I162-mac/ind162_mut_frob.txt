@@ -1,0 +1,16 @@
+== R0: planted Ricci ==
+[PASS] R0: Painleve-Gullstrand Ricci-flat  (0 s)
+
+== R1: R = a a - b b on the ODE ==
+[PASS] R1: own Ricci on the ODE equals a a - b b for eps = +1, -1: [True, True]  (1 s)
+
+== R2: the Frobenius coefficients ==
+[FAIL] R2: (O_k as printed, O_m as printed, sum = 2g'(g'^2+4c^2) without the ODE) for eps = +1, -1: [(False, False, False), (False, False, False)]; g'' = 2 eps c^2 at g' = 0: [True, True]; planted dr, dt, d(t+x), dt + x dr: [0, 0, 0, 1]: True  (1 s)
+
+== R3: Theorem 2's elimination ==
+[FAIL] R3: N / ((G^2 + 2c^2) P) is a nonzero monomial: [('k', 1, False, '1/(G**2 + 2*c**2)'), ('k', -1, False, '1/(G**2 + 2*c**2)'), ('m', 1, False, '1/(G**2 + 2*c**2)'), ('m', -1, False, '1/(G**2 + 2*c**2)')]  (2 s)
+
+== R4: exact jets ==
+[FAIL] R4: (-2, 1, 4/39, +1) -> (4, 62), (2, 1, 4/39, +1) -> (62, 4): False; #80's six jets: [((2, 1, 1), (1097/15, -107/15), True), ((2, 1, -1), (-163/15, 1153/15), True), ((6, 17, 1), (2196349/95, -332639/95), True), ((6, 17, -1), (-381191/95, 2244901/95), True), ((0, 1/2, 1), (1/8, 1/8), True), ((0, 1/2, -1), (1/8, 1/8), True)]  (2 s)
+
+checks failed: ['R2', 'R3', 'R4']; 2 s; mutation: frob
