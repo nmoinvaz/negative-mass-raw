@@ -1,0 +1,23 @@
+== N0: E = 8D/R'^2 and its sum-of-squares form ==
+[PASS] N0: E/X^2 = s^2 - delta^2 - tau^2: True  (0 s)
+
+== N1, N2: the separations ==
+[PASS] N1: E(v=0) = R^2 X^4 sum f_i g_i: True; Lemma K coefficient R^2(c+4l^2)(c+5l^2): True  (0 s)
+[PASS] N2: E/X^2 = sum_(i<=10) F_i G_i for symbolic v: True  (0 s)
+
+== N3: Lemma X ==
+[PASS] N3: beta = (am+b)(cm+d)/(ad-bc): True; Psi not in span{1, m, 1/(cm+d)} (unit ideal): True; c = 0: rho Theta cubic with m^3 coefficient 18a/d: True  (0 s)
+
+== N4: the consistency identity (step 2) ==
+[PASS] N4: q^2 - (P_R/2) q + P q_R = 0 by the chain rule: True; polynomial P, S force q = 0 (1 solution families): True  (0 s)
+
+== N5: pole order (step 4) ==
+[PASS] N5: beta = X m_X/2: True; leading pole coefficients for k = 1..4: [-X1s**2*mu**2, -4*X1s**2*mu**2, -9*X1s**2*mu**2, -16*X1s**2*mu**2]: True  (0 s)
+
+== N6: robust exponent count (step 5) ==
+[FAIL] N6: admissible top exponents b: [-4, -3, -2, -1, 0, 1, 5]; bottom exponents a: [-4, -3, -2, -1, 0, 1, 5]  (0 s)
+
+== N7: the Laurent step (step 6) ==
+[PASS] N7: X^6 coefficient 20 R^4 k1^2: True; with k1 = 0 the X^4 coefficient R^4(c+4k0)(c+5k0): True; unit ideal in the branches k0 = -kappa^2/4, -kappa^2/5: [True, True]  (0 s)
+
+checks failed: ['N6']; 0 s; mutation: expo58

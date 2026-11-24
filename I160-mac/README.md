@@ -46,4 +46,57 @@ Mutations, each must exit 1 with its target failing:
 
 ## Results
 
-(after the runs)
+| file | what |
+|---|---|
+| `rerun/mult_classify_full.*` | the rerun at ab9cefd: stdout, `/usr/bin/time -l`, exit code |
+| `ind160_run1.py`, `.txt`, `.time` | run 1; `ind160_mut_*_run1.txt` its 8 mutations |
+| `ind160_run2.py`, `.txt`, `.time` | run 2, with `expo2` added; `ind160_mut_*_run2.txt` its 9 mutations |
+| `ind160_run3.py`, `.txt` | run 3, with `expo58` added; `ind160_mut_expo58_run3.txt` (`ind160.py` is the same version as run 3) |
+
+**Rerun** (exit 1, 13 min, 93 MB peak): 21 of 22 checks pass, and `add_perturbed` fails as #160 reports. 21 controls
+fire on their targets; `m-unit-sign` is silent, as declared in #160's README A7. The output equals rpi5's apart from
+the timings.
+
+**ind160 run 1** (exit 0, 0.6 s): every criterion passes.
+
+| criterion | run 1 |
+|---|---|
+| N0 | E/X₀² = s² − δ² − τ² from the own block |
+| N1 | the six-term static separation; Lemma K's coefficient R²(c + 4λ²)(c + 5λ²) |
+| N2 | the ten-term traveling separation, symbolic v |
+| N3 | β = (am + b)(cm + d)/(ad − bc); Ψ ∉ span{1, m, 1/(cm + d)} (unit ideal); c = 0: m³ coefficient 18a/d |
+| N4 | the consistency identity by the chain rule; polynomial P, S force q ≡ 0 |
+| N5 | β = X m_X/2; leading pole coefficients −k²X₁²μ² for k = 1 … 4 |
+| N6 | admissible top and bottom exponents both exactly {−2, −1, 0, 1} |
+| N7 | X⁶ coefficient 20R⁴k₁²; X⁴ coefficient R⁴(c + 4k₀)(c + 5k₀); unit ideal in both branches |
+
+Re-solve: steps 4 to 6 of #160's §4. They were reviewed by hand and recomputed: the pole order (N5), the exponent range
+by a different count (N6) and the Laurent unit ideals (N7).
+
+N6 is the coordinator's own form of step 5. Only F₅ = X², F₈ = X⁴ and F₆ have leading coefficients that never vanish at
+integer b. F₆'s factor is −b² + 3b/2 + 13, and F₁₀'s factor 20 + b − b² vanishes only at b = 5 and −4. So the count
+does not depend on v. #160's step 5 used tables that include F₁ and F₃, whose leading coefficients vanish at special v
+(F₃'s at b = 0, v² = 1/3). Its conclusion, exponents in [−2, 1], is the same.
+
+**Silent mutations.**
+- In run 1, `expo` (F₁₀'s exponent counted as 4 + b) was **silent**: 4 + b always lies in {b + 1, …, b + 4}, and F₁₀ is
+  never decisive in the count.
+- In run 2 the coordinator added `expo2` (at most two exponents outside), predicted by guess rather than computed. It
+  was also **silent**: every excluded b has three exponents outside.
+- In run 3 `expo58` (F₅ and F₈ dropped from the count) was added after computing its effect. It fires: the admissible
+  set becomes {−4, …, 1, 5}.
+
+None of these changed a criterion. Runs 2 and 3 equal run 1 apart from the timings.
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `Dsign` | 1 | N0, N1, N2 | yes |
+| `theta` | 1 | N1 | yes |
+| `trav` | 1 | N2 | yes |
+| `mob` | 1 | N3 | yes |
+| `qid` | 1 | N4 | yes |
+| `pole` | 1 | N5 | yes |
+| `expo` | 0 | none | **silent** |
+| `expo2` | 0 | none | **silent** |
+| `expo58` | 1 | N6 | yes |
+| `lau` | 1 | N7 | yes |
