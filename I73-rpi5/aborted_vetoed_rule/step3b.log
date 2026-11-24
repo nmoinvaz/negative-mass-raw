@@ -1,0 +1,17 @@
+he_accel.py, issue #73. sympy 1.14.0, numpy 2.5.4, mpmath 1.3.0, python 3.14.10. mutation: none. grids: full
+
+== 1. Planted truth: #64's nine tensors of known type through he_type_exact ==
+                 perfect fluid mu = 3/2, p = 1/5: D =              0, type   I, expected I
+                                     dust mu = 2: D =              0, type   I, expected I
+                anisotropic fluid (2, 1/3, -1/7): D =     16900/3969, type   I, expected I
+  Type IV canonical (rho, nu, p) = (1/2, 2/3, 1/7): D = -2289169/1750329, type  IV, expected IV
+   Type IV canonical (rho, nu, p) = (-3, 1/9, 5): D = -422500/531441, type  IV, expected IV
+                   null dust + lam eta + q e2 e2: D =              0, type  II, expected II
+                             null dust + lam eta: D =              0, type  II, expected II
+       Le's Type III example l m + m l + lam eta: D =              0, type III, expected III
+                                         lam eta: D =              0, type   I, expected I
+[PASS] planted_cls: every planted tensor gets its type from D and the rank test; wrong: []
+
+== 2. Route N': planted against he_type's route N (constant speed) and against route E (accelerating) ==
+[PASS] routeN_planted: route N' for b = -v f(x - v t, y, z), v = 3/4, equals ht.einstein_N's mixed G at 40 random points, t = 0.35 (relative error 4.6e-15)
+[PASS] routeN_vs_E: route N''s mixed Ricci tensor has the characteristic polynomial of route E's (exact rationals, explicit v_s, x_s, f) at 6 points with t != 0 (worst relative coefficient error 4.7e-15)

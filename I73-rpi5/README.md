@@ -119,13 +119,24 @@ unresolved, here 602 flagged. So the result of the check as written is FAIL. It 
 the numerics: both give "not Type IV", and `rest` gives Type I at the exact points of this locus (he_type_exact, rank test).
 The written criterion did not say what a point with D = 0 exactly is, and #64's classification says the rank test decides.
 
-Changes made after seeing this, before the rerun, each stricter or neutral for the points that did not fail:
+Changes made after seeing this, before run 2:
 
-1. In the 50-digit recheck, a point with |D| ≤ 1e-40 scale⁶ is D = 0 and is not Type IV; route N′ must then show no complex
-   eigenvalue (as before, |Im| ≤ 1e-30 scale). Points with larger |D| are unchanged.
-2. The recheck cap of 100 points per grid is raised to 1000, so every flagged point of a grid is rechecked.
+1. **How D = 0 is decided in the recheck: exact factor, option (a) of the coordinator.** At a flagged point, D = 0 only if the
+   closed form has an exact vanishing factor: at v = 0 exactly (the slice value tanh 0 is exactly 0), D = α⁶ f′⁶ s⁴/16, proved in
+   `structure`, and s⁴ = (1 − c²)² is evaluated in exact rationals from the float c. It is zero exactly at c = ±1. Such a point
+   is D = 0, hence not Type IV, and route N′ must then show no complex eigenvalue (|Im| ≤ 1e-30 scale at 50 digits, as before).
+   Every other flagged point is classified by the sign of its 50-digit D, so a tiny negative D stays Type IV. No tolerance decides
+   D = 0. A D = 0 point off this locus would be reported as unresolved. My first version of this change, "|D| ≤ 1e-40 scale⁶ is
+   D = 0", was vetoed by the coordinator (a tolerance chosen after seeing the data, which would also pass a tiny negative D). A
+   rerun with it began and was stopped by me in section 2 before it reached any grid; its files are in `aborted_vetoed_rule/` and
+   it is not a result.
+2. The recheck cap of 100 points per grid is raised to 1000, so every flagged point of a grid is rechecked. This is a resource
+   limit, not a pass criterion.
 3. New check `parity`: D(v, −α, u; −c) = D(v, α, u; c) as an exact identity, seen in the tables of the first run (the Type I fraction is
    even in α). Control `parity-break` (c not flipped) → `parity`.
 
-The first run's other results are unchanged by these changes. The rerun is `step3b.log`.
+The criterion of `closed_vs_numeric` is otherwise as written above. Run 1's `closed_vs_numeric` FAIL (`step3.log`) stands as the result of
+the check as written; run 2 is `step3b.log`.
+
+The first run's other results are unchanged by these changes.
 
