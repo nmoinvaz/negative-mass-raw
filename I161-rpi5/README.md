@@ -233,3 +233,5 @@ Branch `wip/i161-planar-closure`: script and run of record at 20d1fa4, control `
 Outcome: 12 of 14 checks pass; `crit_pg_iv` (C2 (iv)) and `E_hol` (E4) fail as worded, by the coordinator's rulings. Controls: 16 fire on
 target only, `E-norm` and `E-kneg` fire with extras (`E_hol_b`, `E_geo`), `E-ext` is silent (A8), `E-ext5` fires with `E_hol_b` as an
 extra. `E_hol_b`: L'(10) - 2 h j = +2.12e-12, e_q = 2.4e-12, e_t = 3.6e-13.
+
+Peak memory, measured afterwards by `/usr/bin/time -v` on the checks alone (`run_nocontrols.run1.log`, `.time`): 95204 kB resident, 92 s, exit 1, same output as `run_final.run1` apart from timings.
