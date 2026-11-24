@@ -149,3 +149,7 @@ ell = [1/5, 1/3, 1/2, 2/3, 1, 3/2, 2, 5/2, 3, 4] is scanned in order; a point is
 (the exact rational value of K is nonzero); the first 5 taken are the test points; fewer than 5 available means the check
 fails. Pass iff C[u](xi) != 0 (exact) at all 15 taken points. Control `ivb-flat`: u1 is replaced by the constant 1/3, so
 K = (u u')' = 0 at every point of ell, no point is taken, and the check fails (computed from K = 0, not run).
+
+**A4 (new control, written before its first run).** C5 (ii), the derivation of A_tau tau = K A from the geodesic equations, was
+not touched by `ext-hol` or `ext-null`. Control `ext-geo` changes the geodesic equation used there to p'' = -sigma_p p'^2
+(coefficient 1 in place of 2, in the rule for p' and in the derived p_tau_tau_s). Target: `exterior`.
