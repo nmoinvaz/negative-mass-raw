@@ -44,7 +44,7 @@ solver therefore checks the full residual (C7) and takes the log degree jmax = k
    (d = i + b + c, m). For g ~ c nu^k T^alpha the weight of a point is k d + m. The lower hull gives the exponents k
    for which two or more points balance (edges), and the vertex polynomial in (k, c) when one point alone dominates
    (p -> -k c, q -> k^2 c for the leading nu^k).
-5. Numerics: mpmath (40 digits), `odefun` (tolerance 1e-25, degree 14) in t = ln eta (reversed to integrate inward)
+5. Numerics: mpmath (30 digits, A1), `odefun` (tolerance 1e-20, degree 10, A1) in t = ln eta (reversed to integrate inward)
    on the state (G, p); q is the root of N(G, p, q, e^-t) = 0 found by `findroot` from the leading guess
    q = -p^2/(2 G nu^2). The series is the K = 9 series (through eta^-9, residual checked to nu^15).
 
@@ -63,9 +63,26 @@ Every criterion is exact (sympy) unless it says "numerical".
 | C7 | `series_log` | Solver with jmax = k/2 (rounded down, at least 1), through k = 9: every stage solved; exactly one free parameter, C = a_{4,0}; a_{4,1} = F_inf (F_inf^2 + 7); odd coefficients a_{3,j} = a_{5,j} = a_{7,j} = a_{9,j} = 0; the series substituted into N leaves zero residual in every order up to and including nu^15 (the first possibly nonzero order is nu^16); a_{4,1} != 0 for every real F_inf != 0 (the only real zero of F_inf (F_inf^2 + 7) is 0). |
 | C8 | `reduced_system` | The reduced first-order system: with p = nu^2 r the equation divided by nu^8 is solved for r' (implicit function theorem: the partial derivative of the divided equation in r' at (G, r, nu^2) = (F_inf, 4 F_inf, 0) is nonzero for F_inf != 0), and the system G' = nu^2 r, r' = f(G, r, nu^2), (nu^2)' = -2 nu^2 has the line of equilibria r = 4 G, nu^2 = 0 with Jacobian eigenvalues (0, -2, -2). |
 | C9 | `linear_modes` | The linearization of N about the C7 series: A = dN/dq, B = dN/dp, C = dN/dG at the series; the leading-order characteristic polynomial for delta ~ nu^k, A k^2 - B k + C, has roots k = 0 and k = 4 only, and A != 0 (so the linearized equation is a regular second-order equation and has no exponentially small, exp(-kappa eta), modes). |
-| C10 | `num_inward` | Numerical. Four cases (F_inf, C) = (1, 0), (-1, 2), (1/3, -1), (2, 1/2) (C = a_{4,0}). Start at eta_1 = 1000 from the K = 9 series (values of G and p), integrate N = 0 inward, compare at eta_2 in {100, 50} with the K = 9 series: |G_num - G_series| <= 1e-10 and |p_num - p_series| <= 1e-10 (the issue's tolerance). The error bar reported is the spread of the comparison with the K = 8 series (a truncation estimate, not an enclosure). |
+| C10 | `num_inward` | Numerical. Four cases (F_inf, C) = (1, 0), (-1, 2), (1/3, -1), (2, 1/2) (C = a_{4,0}). Start at eta_1 = 1000 from the K = 9 series (values of G and p), integrate N = 0 inward, compare at eta_2 in {200, 100} (A2) with the K = 9 series: |G_num - G_series| <= 1e-10 and |p_num - p_series| <= 1e-10 (the issue's tolerance). The error bar reported is the size of the nu^8 terms (K = 9 minus K = 7; a truncation estimate, not an enclosure, A2). |
 | C11 | `num_outward` | Numerical. From eta_0 = 100 take (G, p) = (G_s + 1/100, p_s * 6/5) of the (1, 0) series and integrate N = 0 outward to eta = 1e5 (t from 4.6 to 11.5). Fit (F_inf', C') by a 2 x 2 root find so that the K = 9 series matches (G, p) at eta = 1e5; then |G_num - G_series(F_inf', C')| <= 1e-10 and |p_num - p_series| <= 1e-10 at eta in {1e3, 1e4}. F_inf' != 1 is expected and reported (the limit of that solution). |
 | C12 | `farfield_scale` | det_classify.md section 7's far-field condition uses the epsilon^3 coefficient of D for u = u_inf + epsilon w. For w = -2 u_inf rho^2/x^2 (the leading conical term) the epsilon^3 and epsilon^4 coefficients of D are both nonzero and proportional to rho^2/x^8, and their sum is zero at that order. (A discrepancy with section 7's "leading order" wording, reported not fixed.) |
+
+## Amendments (all made before the first run of record; the dev logs they cite are kept)
+
+- **A1** (`dev_05_num.note`, `dev_05_num.note2`). The first numerical dev run was stopped by hand after 11 min with no output:
+  `q_root`'s Newton tolerance followed `odefun`'s raised working precision (it evaluates F at (1 + degree) times the
+  precision). A second fault was found in a scratch timing run: the series function returned g = F - F_inf without
+  F_inf. Method item 5 changes from "40 digits, tolerance 1e-25, degree 14" to "30 digits, tolerance 1e-20, degree 10". The
+  criteria and their tolerance 1e-10 are unchanged.
+- **A2** (`dev_06_num.log`, a dev run, not of record). Of the eight comparisons of C10 at eta_2 in {100, 50}, seven passed
+  and one did not: (F_inf, a_4) = (2, 1/2) at eta_2 = 50 gave |dG| = 2.5e-11 and |dp| = 2.24e-10, above 1e-10. The
+  series is truncated at eta^-9 (error of order nu^10 T^4 times a coefficient that grows like (F_inf^2 + 7)^4), so at eta_2 = 50
+  the comparison tests the series, not the integration. My statement above that the values were chosen so that the truncation
+  error is far below 1e-10 had been checked for F_inf = 1 only. C10 now compares at eta_2 in {200, 100}; the tolerance
+  1e-10, the cases, eta_1 = 1000 and the K = 9 series are unchanged, and the dev_06 numbers at eta_2 = 50 are reported in the
+  note. The same dev run showed that the K = 8 series equals the K = 9 series (the odd coefficients vanish), so the
+  "spread with the K = 8 series" of C10 was always 0; the reported error bar is now the size of the nu^8 terms (K = 9 minus
+  K = 7), which is an estimate of the series truncation, not an enclosure.
 
 ## Planted truth
 
