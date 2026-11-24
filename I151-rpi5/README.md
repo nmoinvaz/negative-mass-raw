@@ -65,7 +65,7 @@ paper [TS13] itself is not re-read here.
 ## 3. What is computed
 
 β(γ₁), the largest root of −χ_ρρ + Wχ = −β²χ (decaying at both ends), and T(γ₁) as above, at γ₁ = 0 (control) and γ₁ = 1/2, and a
-table for γ₁ ∈ {0, 0.1, …, 2.0} (the first row of [GGS09a] Table I; the second row, γ₁ ≥ 2.5, is not computed: x(ρ) ~ ρ e^{πγ₁}
+table at the 16 values of the first row of [GGS09a] Table I (γ₁ = 0, 0.1, …, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0; the second row, γ₁ ≥ 2.5, is not computed: x(ρ) ~ ρ e^{πγ₁}
 reaches 10¹³ at γ₁ = 10 and the printed W loses all digits there).
 
 - **Method A (shooting).** `scipy.integrate.solve_ivp` (DOP853, rtol 1e-13, atol 1e-16) on the system for (χ, P = χ_ρ, x) in the
