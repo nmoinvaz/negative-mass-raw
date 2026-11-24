@@ -111,4 +111,21 @@ map along a journey, any lapse other than 1, Lean statements (#135). The lemma l
 
 ## Added after the first run
 
-(nothing yet)
+**First full run** (`step3.log`, `--no-controls`, exit 1, 178 s, 11 of 12 checks pass): `closed_vs_numeric` FAILS, with 86 float64
+disagreements and 516 unresolved points, all of them on Rodal's axis at P2 t = 0. There v = 0 and s = 0, so D = al⁶ f′⁶ s⁴/16 = 0
+exactly and R^a_b is diagonal. Route N′'s eigenvalues are real (max |Im| = 0), as Type I requires. The check read the sign of
+D = −8e-59 at 50 digits (rounding noise) as Type IV, and `compare` counts every flagged point beyond the first 100 per grid as
+unresolved, here 602 flagged. So the result of the check as written is FAIL. It is not a disagreement between the closed form and
+the numerics: both give "not Type IV", and `rest` gives Type I at the exact points of this locus (he_type_exact, rank test).
+The written criterion did not say what a point with D = 0 exactly is, and #64's classification says the rank test decides.
+
+Changes made after seeing this, before the rerun, each stricter or neutral for the points that did not fail:
+
+1. In the 50-digit recheck, a point with |D| ≤ 1e-40 scale⁶ is D = 0 and is not Type IV; route N′ must then show no complex
+   eigenvalue (as before, |Im| ≤ 1e-30 scale). Points with larger |D| are unchanged.
+2. The recheck cap of 100 points per grid is raised to 1000, so every flagged point of a grid is rechecked.
+3. New check `parity`: D(v, −α, u; −c) = D(v, α, u; c) as an exact identity, seen in the tables of the first run (the Type I fraction is
+   even in α). Control `parity-break` (c not flipped) → `parity`.
+
+The first run's other results are unchanged by these changes. The rerun is `step3b.log`.
+
