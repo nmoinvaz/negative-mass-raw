@@ -19,4 +19,6 @@ run check_plain 0 $PY -I check_quotes.py
 for m in quote pdf cite dangling sha number absent cell quoted bullet entry loc lacks also diff anchor keep answer; do run check_$m 1 $PY -I check_quotes.py --mutate=$m; done
 run recompute_plain 0 $PY -I recompute_jc.py
 for m in delta cross area w table min; do run recompute_$m 1 $PY -I recompute_jc.py --mutate=$m; done
+run scan_plain 0 $PY -I scan_ai_text.py
+run scan_plant 1 $PY -I scan_ai_text.py --plant
 exit $bad

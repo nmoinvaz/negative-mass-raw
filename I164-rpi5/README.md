@@ -97,9 +97,10 @@ Scripts and data written in steps 2 and 3 (all run with `python3 -I`, stdlib onl
 | `quotes.txt` | 105 records (quotes and absence records), the data; `quotes.md` is generated from it by `check_quotes.py --write` |
 | `check_quotes.py` | C1 to C10; 18 `--mutate=` controls |
 | `recompute_jc.py`, `recompute_run1.log` | CALC1: J_c/A and the mode crossing from the printed tables, normalization of J, minimal surface; 6 controls |
+| `scan_ai_text.py`, `scan_ai_text.log` | searches the TeX and PDF text of the four papers (and two citing papers) for text addressed to an AI agent: 0 hits in 17 files; `--plant` adds one sentence and the scan exits 1 on it. A disclosure of the authors' own AI use (a paragraph of [BGKKKN26]) is not a pattern |
 | `make_diff.py` | derives the unified diff of `proposal.md` against the base note; `--check` is C9 |
 | `proposal.md` | the proposed text (40 sentences with quote ids), the diff, the answers, what is not settled |
-| `run_controls.sh`, `run_controls.out` | runs every check and every control (26 runs, all `ok`); logs in `controls/` |
+| `run_controls.sh`, `run_controls.out` | runs every check and every control (28 runs, all `ok`); logs in `controls/` |
 | `src/critical_ghost_dffa582.md` | `notes/critical_ghost.md` at main dffa582, the base of the diff (pinned in `sha256sums.txt`) |
 | `pdftext/` | `pdftotext` output of each PDF, pinned in `sha256sums.txt`, used only when `pdftotext` is missing (the Mac) |
 
@@ -165,9 +166,9 @@ bullet groups of the §1.2 [SN26b] block, 3 for the "Not read" entry), the deriv
 ids, what the papers do not settle and what is not carried. `check_quotes.py` exits 0: 105 records, 40 sentences, 28
 numbers and 40 quoted strings checked against their cited records, 37 quoted strings of the narrative sections checked
 against all records, 1 {KEEP} sentence found in the base note, the diff applied by `patch --dry-run`. It also exits 0 on
-a machine without `pdftotext`, from the `pdftext/` cache (tested here with `PATH` stripped). `run_controls.sh`: 26 runs,
-26 `ok` (`run_controls.out`): 18 mutations of `check_quotes.py` and 6 of `recompute_jc.py` each exit 1 on their named
-target. No control was silent.
+a machine without `pdftotext`, from the `pdftext/` cache (tested here with `PATH` stripped). `run_controls.sh`: 28 runs,
+28 `ok` (`run_controls.out`): 18 mutations of `check_quotes.py`, 6 of `recompute_jc.py` and the planted sentence of
+`scan_ai_text.py` each exit 1 on their named target. No control was silent.
 
 Slips of this session, none in a posted number: the first `run_controls.sh` run used the system python, which has no sympy,
 so the `recompute_plain` run reported `NOT RUN` (exit 3) and was rerun with the venv python (`PY=`); a first draft of
