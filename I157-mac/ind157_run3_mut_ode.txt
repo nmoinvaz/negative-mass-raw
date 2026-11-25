@@ -1,0 +1,13 @@
+Ric(g) and the jets of h built (1 s)
+[PASS] P1: Ric(g)(d_phi, .) = 0 at 3 random exact points, and Ric(g) = 0 for constant w: failures [] (1 s)
+[PASS] P2: Rindler -X^2 dT^2 + dX^2 + dY^2 at X = 2: det^2 Ric = 0: True (1 s)
+[PASS] P3: stereographic unit 3-sphere at y = (1/2, 1/3, 1/5): det^2 Ric = 2 det^2 h: True (1 s)
+[PASS] C1: det h on L, reduced mod S^2 + c^2 - 1: 0; at u = (1/3, 2/7, -1/5), theta with c = 3/5: -2227573072/2068048828125 (1 s)
+[PASS] C2: N_theta_theta on L (u1, u3, u4 free), mod S^2 + c^2 - 1: 0 (15 s)
+[PASS] C4: components not identically 0 on L: [(1, 1)] (t = 0, r = 1, theta = 2) (15 s)
+[PASS] C3: u = (2/5, 1, -2/5, -83/75, 0), theta = pi/2: N_ab = ['0', '0', '0', '0', '0', '0'], det h = 0 (15 s)
+[FAIL] C6: 2w = r w' gives w = C1*r**2; then r w' + r^2 w'' = 0, which vanishes on an interval only for [], so w' = [] (15 s)
+[PASS] C7: at r0 = 2 and 3/2 with random jets, all six components: failures [] (16 s)
+[FAIL] C5: (u1, u3, u4), number of N'_22 coefficients, reduced lex basis in (u0, u2), equal to (a, b^2): [('-3', '4', '6/5', 5, ['U0 + 3/2', 'U2**2 - 6*U2 + 9'], False), ('-1', '0', '-8', 5, ['U0 + 1/2', 'U2**2 - 2*U2 + 1'], False), ('3/2', '-1', '3/7', 5, ['U0 - 3/4', 'U2**2 + 3*U2 + 9/4'], True)] (198 s)
+checks: 8 passed, 2 failed ['C6', 'C5']. mutation: ode. 198 s
+exit 1

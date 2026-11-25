@@ -71,3 +71,7 @@ that basis.
 
 The coordinator stopped its scratch profile with `pkill -f prof_c5.py`, a stop by name pattern that the runners' rules
 forbid; it matched only that scratch process. Later stops in this review are by PID.
+| `ind157_run3.py`, `.txt`, `ind157_run3_mut_*.txt` | ind157 run 3, exit 1: 9 of 10 checks pass, **C5 fails**, by a defect of the coordinator's code. In trials 1 and 2 (u1 = −3, −1) FGLM returns the basis of (2u0 − u1, (u1 + u2)²), `U0 + 3/2`, `U2**2 - 6*U2 + 9` and `U0 + 1/2`, `U2**2 - 2*U2 + 1`. But the expected basis was computed from integer generators over ℤ, where sympy keeps it primitive (`2*U0 + 3`), so the lists differ. Trial 3 (u1 = 3/2, over ℚ) matches. With C5 failing unmutated, the `H-b` control means nothing in run 3; the other five reach their targets (C1, P3, C3, C6, C7), and `ric-sign` then crashes in C5's divisibility assertion after P3 failed |
+
+**Run 4** builds the expected basis over ℚ (`domain=QQ`), so both are monic; nothing else changes. The six mutations are
+rerun with run 4's code.
