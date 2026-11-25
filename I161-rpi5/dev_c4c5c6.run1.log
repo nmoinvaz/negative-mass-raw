@@ -1,0 +1,13 @@
+[PASS] jacobi: (i) R = (A_tt/A) g for -dt^2 + A^2 ds^2: True; (ii) x = X(t, s), X_s = A, b = -X_t: n = d_t|_s True, metric = PG form True, b_x = -A_t/A True, n(b_x) - b_x^2 = -A_tt/A True, a = -X_tt and -a_x = A_tt/A True; (iii) integral of K dx = a_- - a_+ = -beta' for b = gamma + beta (1 + tanh x)/2: True
+  (3 s)
+[PASS] exterior: (i) R_pq = -2 H'J', K e^(2 sigma) = 2 H'J': True; Gamma^p_pp = 2 sigma_p, Gamma^q_qq = 2 sigma_q, no others: True; (ii) A = p_s/p_tau and A_tau tau = K A from the geodesic equations: True; (iii) S(1 - x) + S(x) = 1, S' = positive sum, S(0+) = 0, S(1-) = 1, integral of K dA = 2*h*j = 2*h*j: True
+  (0 s)
+  (F*G)(2t) = 4*tt**3*(96*tt**4 - 336*tt**3 + 420*tt**2 - 210*tt + 35)/105 on [0, 1/2] and -4*(tt - 1)**3*(96*tt**4 - 48*tt**3 - 12*tt**2 - 6*tt + 5)/105 on [1/2, 1]
+[PASS] limits_necessary: (i) C[eps b1] = (-d_t^2 + d_x^2) ln|K1| + O(eps), K1 = -b1_tx, exactly: True; (ii) integral of F(t - x) G(t + x) dx = (F*G)(2t) on both pieces: True; (iii) F*G is not identically zero for the sign-changing compactly supported F = G = u(1 - u)(1 - 2u): True
+  (1 s)
+
+checks: 3 passed, 0 failed []. 4 s
+
+real	0m5.111s
+user	0m5.242s
+sys	0m0.078s

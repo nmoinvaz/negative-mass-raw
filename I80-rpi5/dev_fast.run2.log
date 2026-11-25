@@ -1,0 +1,7 @@
+# cmd: python3 notes/warp/det_classify.py --only=planar_traveling,additive  (run2, 2026-11-24T02:52:47-08:00)
+[PASS] planar_traveling: for a static planar shift u(xi): the null coordinates p = t - A, q = t + B, A' = 1/(1 - u), B' = 1/(1 + u) give -(1 - u^2) dp dq = the metric: True; R_ab = (u u')' g_ab, so R_pq = -Phi/2 with Phi = (u u')' (1 - u^2): True; d_p d_q Lam(q - p) = -Lam'': True
+  (0 s)
+[PASS] additive: b = X + R: D = h [(h + X'^2)^2 - ((X + R) X'')^2 - Q^2]: True; E = sum f_i g_i with the five f_i, g_i: True; Wronskian of (1, R, R^2) = 2 R'^3: True; elimination step with X'' = s m, s = +-1: the equations and m t = 1 generate the unit ideal ([True, True]): True; X'' = 0 gives ((R'^2 + 2c^2)^2 - S^2)/4: True
+  (0 s)
+
+checks: 2 passed, 0 failed []. 0 s

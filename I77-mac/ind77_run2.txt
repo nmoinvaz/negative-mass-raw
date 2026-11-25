@@ -1,0 +1,12 @@
+== B0: planted metrics, own Ricci routine ==
+[PASS] B0: Painleve-Gullstrand Ricci-flat: True; R = lam g + kappa^2 sum s_I dX dX exactly: [('P1', True), ('P2', True)]  (2 s)
+
+== B1: planted 3D Ricci and L_K M ==
+[FAIL] B1: flat polar: True; sphere x time: False; P1 block flat at 3 points = True: True; P2 block flat at 3 points = True: True; D1 block flat at 3 points = False: True; P2: lam = -3.0, L_K M rel 1.0, (L_K M)(K,.) rel 1.64e-57: False; D2': lam = -2.6666667, L_K M rel 1.0, (L_K M)(K,.) rel 3.92e-58: True  (4 s)
+
+== B2: the wall, comoving polar coordinates (t, r, theta, phi), generic w(r) ==
+  own Ricci in 5 s; g g^-1 = 1: True
+[PASS] B2: R_phi,mu = 0: True; R_00 + R_11 + 2 R_rho,rho = 0; 16 r^3 det R_3 - (1 - c^2) q(c^2) = 0 mod the circle: True (q has 30 terms)  (5 s)
+  derivatives built in 5 s
+
+== B3: lam = 0 at the off-axis points: kernel, pattern, Ric(h) ==

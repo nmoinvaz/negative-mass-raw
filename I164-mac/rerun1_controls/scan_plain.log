@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-raw/I164-mac/rerun/scan_ai_text.py", line 23, in <module>
+    text = f.read_text(encoding="utf-8", errors="replace")
+  File "/Users/nathan/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/nathan/Source/negative-mass-raw/I164-mac/rerun/../I152-rpi5/src/2610.29941v2/research.tex'

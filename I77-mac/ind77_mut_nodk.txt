@@ -1,0 +1,46 @@
+== B0: planted metrics, own Ricci routine ==
+[PASS] B0: Painleve-Gullstrand Ricci-flat: True; R = lam g + kappa^2 sum s_I dX dX exactly: [('P1', True), ('P2', True)]  (2 s)
+
+== B1: planted 3D Ricci and L_K M ==
+[PASS] B1: flat polar: True; sphere x time: True; P1 block flat at 3 points = True: True; P2 block flat at 3 points = True: True; D1 block flat at 3 points = False: True; P2: lam = -3.0, L_K M rel 6.56e-59, (L_K M)(K,.) rel 5.81e-63: True; D2': lam = -2.6666667, L_K M rel 0.1, (L_K M)(K,.) rel 4.21e-59: True  (5 s)
+
+== B2: the wall, comoving polar coordinates (t, r, theta, phi), generic w(r) ==
+  own Ricci in 5 s; g g^-1 = 1: True
+[PASS] B2: R_phi,mu = 0: True; R_00 + R_11 + 2 R_rho,rho = 0; 16 r^3 det R_3 - (1 - c^2) q(c^2) = 0 mod the circle: True (q has 30 terms)  (5 s)
+  derivatives built in 5 s
+
+== B3: lam = 0 at the off-axis points: kernel, pattern, Ric(h) ==
+      bump: 3 points, patterns ['A'], Ric(h) != 0 at 3, all conditions at 3
+      tanh: 18 points, patterns ['B'], Ric(h) != 0 at 18, all conditions at 18
+  explicit: 18 points, patterns ['A', 'B'], Ric(h) != 0 at 18, all conditions at 18
+    random: 4 points, patterns ['A', 'B'], Ric(h) != 0 at 4, all conditions at 4
+[PASS] B3: 43 points: lam = 0 kernel d_phi with h nondegenerate, pattern by sign of 16 r^3 det R_3 (bump A, tanh B), Ric(h) != 0 at 43 of 43  (6 s)
+
+== B4: lam != 0 roots: count, sign by pattern, L_K M, K(lam) ==
+   bump c != 0: pattern B, lam =   0.1060926737, L_K M rel    0.201, (L_K M)(K,.)    0.034, K(lam) rel    0.293, bordered residual 9.4e-60, ok False
+   bump c != 0: pattern B, lam =   0.2198931668, L_K M rel    0.166, (L_K M)(K,.)    0.017, K(lam) rel    0.229, bordered residual 8.0e-61, ok False
+   bump c = 0: pattern B, lam =   0.5211843083, L_K M rel   0.0302, (L_K M)(K,.)    0.034, K(lam) rel      0.0, bordered residual 1.6e-61, ok False
+   tanh c != 0: pattern A, lam =  -0.8677096964, L_K M rel   0.0114, (L_K M)(K,.)   0.0017, K(lam) rel    0.407, bordered residual 6.6e-59, ok False
+   tanh c != 0: pattern A, lam =  -0.1997091033, L_K M rel   0.0171, (L_K M)(K,.)   0.0057, K(lam) rel    0.137, bordered residual 5.4e-60, ok False
+   tanh c != 0: pattern A, lam =   -8.031176217, L_K M rel    0.072, (L_K M)(K,.)   0.0025, K(lam) rel    0.952, bordered residual 4.3e-56, ok False
+   tanh c != 0: pattern A, lam =  -0.8677096964, L_K M rel   0.0114, (L_K M)(K,.)   0.0017, K(lam) rel    0.407, bordered residual 6.6e-59, ok False
+   tanh c != 0: pattern A, lam =  -0.1997091033, L_K M rel   0.0171, (L_K M)(K,.)   0.0057, K(lam) rel    0.137, bordered residual 5.4e-60, ok False
+   tanh c != 0: pattern A, lam =   -8.031176217, L_K M rel    0.072, (L_K M)(K,.)   0.0025, K(lam) rel    0.952, bordered residual 4.3e-56, ok False
+   tanh c = 0: pattern A, lam =   -5.745970295, L_K M rel  0.00403, (L_K M)(K,.)  0.00071, K(lam) rel      0.0, bordered residual 1.1e-58, ok False
+   tanh c = 0: pattern A, lam =   -1.232051717, L_K M rel  0.00236, (L_K M)(K,.)   0.0011, K(lam) rel      0.0, bordered residual 1.0e-59, ok False
+   tanh c = 0: pattern A, lam =   -53.74959687, L_K M rel    0.048, (L_K M)(K,.)  0.00039, K(lam) rel      0.0, bordered residual 3.2e-54, ok False
+   tanh c != 0: pattern A, lam =   -4.916841638, L_K M rel   0.0103, (L_K M)(K,.)   0.0035, K(lam) rel   0.0623, bordered residual 1.7e-58, ok False
+   tanh c != 0: pattern A, lam =   -1.075270367, L_K M rel   0.0158, (L_K M)(K,.)    0.015, K(lam) rel   0.0534, bordered residual 4.6e-59, ok False
+   tanh c != 0: pattern A, lam =   -45.88706597, L_K M rel   0.0597, (L_K M)(K,.)  0.00043, K(lam) rel    0.212, bordered residual 1.4e-54, ok False
+   tanh c != 0: pattern A, lam =   -4.916841638, L_K M rel   0.0103, (L_K M)(K,.)   0.0035, K(lam) rel   0.0623, bordered residual 1.7e-58, ok False
+   tanh c != 0: pattern A, lam =   -1.075270367, L_K M rel   0.0158, (L_K M)(K,.)    0.015, K(lam) rel   0.0534, bordered residual 4.6e-59, ok False
+   tanh c != 0: pattern A, lam =   -45.88706597, L_K M rel   0.0597, (L_K M)(K,.)  0.00043, K(lam) rel    0.212, bordered residual 1.4e-54, ok False
+   tanh c != 0: pattern A, lam =   -3.713572871, L_K M rel    0.012, (L_K M)(K,.)   0.0038, K(lam) rel    0.115, bordered residual 2.6e-58, ok False
+   tanh c != 0: pattern A, lam =  -0.8291466035, L_K M rel   0.0195, (L_K M)(K,.)    0.018, K(lam) rel   0.0733, bordered residual 1.8e-59, ok False
+   tanh c != 0: pattern A, lam =   -34.55655245, L_K M rel   0.0858, (L_K M)(K,.)   0.0003, K(lam) rel    0.403, bordered residual 2.3e-55, ok False
+[FAIL] B4: admissible rank-3 roots lam != 0 per point [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] (sum 21); L_K M != 0 at 21 of 21; K(lam) = 0 at the 4 roots with c = 0: True; K(lam) != 0 at the other 17 of 17  (6 s)
+
+== B5: Cartesian route: accelerating bubble and the cross-check of the two routes ==
+[PASS] B5: accelerating: R_z,mu = 0, h nondegenerate and Ric(h) != 0 at 3 of 3 points [('0', '1/2', '1/2'), ('0', '-1/3', '1'), ('1/2', '1', '2/3')]; scalar curvature of h, Cartesian -73510601484451756798/891938727913647987 vs polar -73510601484451756798/891938727913647987: equal True  (6 s)
+
+checks failed: ['B4']; 6 s; mutation: nodk

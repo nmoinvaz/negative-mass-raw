@@ -1,0 +1,7 @@
+P1 closed const O_k 0 O_m 0 closure True omega closed om [0, 0, 0, 0] 0.0
+P2 boosted O_k 0 O_m 0 closure True omega closed om [0, c, Derivative(g(rho), rho), 0] 0.5
+P3 frob fail O_k 1 O_m -1 closure False no chi: omega ^ k = -dk and omega ^ m = dm have no common solution om [0, -1/(2*x), 0, 0] 0.1
+P4 compat fail O_k 0 O_m 0 closure False omega = d chi needed but d omega != 0 om [rho/(rho*t + 1), 0, 0, 0] 0.0
+planar O_k 0 O_m 0 closure False omega = d chi needed but d omega != 0 om [c*(-c*x - d), -c, 0, 0] 0.5
+eps 1 nu+ ^ d nu+: Derivative(g(rho), rho) nu- ^ dnu-: Derivative(g(rho), rho) g'= Derivative(g(rho), rho)
+eps -1 nu+ ^ d nu+: Derivative(g(rho), rho) nu- ^ dnu-: Derivative(g(rho), rho) g'= Derivative(g(rho), rho)

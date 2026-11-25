@@ -1,0 +1,13 @@
+# cmd: python3 notes/warp/det_classify.py --only=d_block,travel,farfield,planar_traveling,additive  (run1, 2026-11-24T02:52:16-08:00)
+[PASS] d_block: coordinate Ricci of a generic b(t, x, rho), frame (n, d_x, d_rho, d_phi/rho): block = [[P-h, Q, Z], [Q, -P-h, Y], [Z, Y, h]], P = a_x, Y = (b_x b_rho - a_rho)/2, a = b_t - b b_x, R(e_phi, .) = 0, det = D; nonzero differences: none
+  (2 s)
+[PASS] travel: D of b = B(x - v t, rho) minus D of the static u = B + v: 0; D of b(t, x + c t, rho) + c minus D of b: 0. So a traveling shift is a static one, with u -> v at infinity for a bubble
+  (0 s)
+[FAIL] planar_traveling: for a static planar shift u(xi): the null coordinates p = t - A, q = t + B, A' = 1/(1 - u), B' = 1/(1 + u) give -(1 - u^2) dp dq = the metric: False; R_ab = (u u')' g_ab, so R_pq = -Phi/2 with Phi = (u u')' (1 - u^2): False; d_p d_q Lam(q - p) = -Lam'': True
+  (0 s)
+[PASS] additive: b = X + R: D = h [(h + X'^2)^2 - ((X + R) X'')^2 - Q^2]: True; E = sum f_i g_i with the five f_i, g_i: True; Wronskian of (1, R, R^2) = 2 R'^3: True; elimination step has no solution with X'' = +-m, m != 0 (0 solutions, 0 with m != 0): True; X'' = 0 gives ((R'^2 + 2c^2)^2 - S^2)/4: True
+  (0 s)
+[PASS] farfield: u = u_inf + e w: the e^0, e^1, e^2 coefficients of D vanish ([True, True, True]) and the e^3 coefficient is -u_inf Z^2 [(1 - u_inf^2) w_xx + Delta_perp w], Z = w_x,rho/2: True
+  (0 s)
+
+checks: 4 passed, 1 failed ['planar_traveling']. 2 s

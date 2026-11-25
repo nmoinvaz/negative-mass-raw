@@ -1,0 +1,28 @@
+== K0: planted Ricci ==
+[PASS] K0: Painleve-Gullstrand Ricci-flat  (0 s)
+
+== K1: the block for b(t, x, rho) ==
+[FAIL] K1: own frame Ricci equals the printed block: False; R(e_phi, .) = 0: True  (0 s)
+
+== K2: Lemma R ==
+[PASS] K2: N = -v v^T at h + v2^2: True; h - (v0^2+v1^2)/2 = A/(2YZ), P + v0^2 + v2^2 = B/(QY): True; A = 0 gives QYZ = -2h Y^2 Z^2/(Z^2+Y^2) < 0: True; v-blocks with the single root h + v2^2: 30/30; generic blocks with none: 30/30  (0 s)
+
+== K3: b(rho) ==
+[PASS] K3: P = Z = Y = 0, Q = -(b'' + b'/rho)/2: True; C ln rho + b0 has Q = 0: True; kernel dimension 2, involutive: False  (0 s)
+
+== K4: planar shifts and Theorem P ==
+[PASS] K4: planar block diag(P, -P, 0): True; rank-1 iff lambda = -P (gcd of minors Ps + lambda): True; X-coefficients cosh/kappa sinh and cos/-kappa sin: True  (0 s)
+
+== K5: additive shifts ==
+[PASS] K5: additive block: True; v0, S, u X'' in the radical (saturated by X'R'v2): [True, True, True]; involutive (kernel dim): {(2, '3/2'): (False, 2), (3, '1'): (False, 2), (0, '3/2'): (True, 2)}  (0 s)
+
+== K6: multiplicative shifts ==
+[FAIL] K6: F identity: False; quadratic coefficients with 1 - t R R' generate the unit ideal: True  (0 s)
+
+== K7: conical shifts ==
+[FAIL] K7: scaled entries as printed: False; E_a, E_b in the saturation (power of the saturating product needed): [1, 1]; G = C eta/(eta^2+1) solves E_b and factors E_a: True; F' - G at the critical F as printed: True  (1 s)
+
+== K8: static u_x rho != 0, jet compatibility ==
+[PASS] K8: static points (n sol2, det3, rank coef4, rank aug4): [(1, 950958352413313875/1171134538128572416, 5, 6), (1, 4077/5120000, 5, 6), (1, 549428629762296337/3637216545341440000, 5, 6)]; planted consistent (1, 1, 5, 5); planted inconsistent (1, 1, 5, 6)  (2 s)
+
+checks failed: ['K1', 'K6', 'K7']; 2 s; mutation: Ysign

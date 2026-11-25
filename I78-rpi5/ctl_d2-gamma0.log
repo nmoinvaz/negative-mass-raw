@@ -1,0 +1,33 @@
+same_sign_scalars.py, issue #78. sympy 1.14.0, mpmath 1.3.0, python 3.14.10. mutation: d2-gamma0 (sets gamma = 0 in D2, so that M = 0)
+
+== 1. Planted truth: R = lam eta + s (a a + b b) passes for s = +1 and -1, other forms fail ==
+[PASS] planted_pass: 12 random lam eta + s (a a + b b), six with s = +1 and six with s = -1, transformed: lam recovered with rank 2 and the planted pattern in all but 0 []
+[PASS] planted_fail: 12 random forms with squares (+,-), (-,+), (+,+,+), (-,-,-), (+,+,-), (+,-,-): no admissible root in all but 0 []
+
+== 2. Lemma: with R_a3 = 0 and (I2), the form holds iff R_3 - lam eta_3 has rank 1 for a real lam != 0 ==
+[PASS] lemmaS_samples: 24 random tensors with (I1), (I2) in random Lorentz frames (8 of the form lam eta_3 + eps n n^T, 8 mixed rank 2, 8 generic): the 4 x 4 test and the 3 x 3 rank-1 criterion give the same roots and patterns (lam < 0 is (+,+), lam > 0 is (-,-)), none at lam = 0, in all but 0 []
+
+== 3. Planted metrics: (2D Lorentzian space of constant curvature) x (plane), sheared polar coordinates ==
+  P1: AdS_2 x R^2, ds^2 = (-dto^2 + dzo^2)/zo^2 + dRo^2 + Ro^2 dTho^2, two normal scalars, lam = -1
+  P2: dS_2 x R^2, ds^2 = (-dto^2 + dzo^2)/to^2 + dRo^2 + Ro^2 dTho^2, two phantoms, lam = +1
+[PASS] p1_algebraic: lam = [-1.0, -1.0, -1.0] is a real root of the rank-<=2 locus with inertia (2, 0) at 3 exact points; found [[(-1.0, (2, 0)), (0.0, (1, 1))], [(-1.0, (2, 0)), (0.0, (1, 1))], [(-1.0, (2, 0)), (0.0, (1, 1))]] (0 s)
+[PASS] p1_closed: kernel dimension 2; [K_1, K_2] = 0: True; L_X M = 0 for both: True; Ricci of the quotient block zero: True; Lambda = J A^T (A A^T)^-1 from a 60-digit factorization at 3 points: max error 6.22e-61 in Lambda A = J, Lambda^T Lambda = 1, J^T J = s M; Lambda differs between points by 1.89 (0 s)
+[PASS] p1_potential: K_1(lam) = 0, K_2(lam) = 0, lam = -1
+[PASS] p1_residual: G_ab - 8 pi T_ab with a^I = dX^I, signs [1, 1], V = lam/(8 pi), substituted back: 0 (0 s)
+[PASS] p2_algebraic: lam = [1.0, 1.0, 1.0] is a real root of the rank-<=2 locus with inertia (0, 2) at 3 exact points; found [[(0.0, (1, 1)), (1.0, (0, 2))], [(0.0, (1, 1)), (1.0, (0, 2))], [(0.0, (1, 1)), (1.0, (0, 2))]] (0 s)
+[PASS] p2_closed: kernel dimension 2; [K_1, K_2] = 0: True; L_X M = 0 for both: True; Ricci of the quotient block zero: True; Lambda = J A^T (A A^T)^-1 from a 60-digit factorization at 3 points: max error 6.22e-61 in Lambda A = J, Lambda^T Lambda = 1, J^T J = s M; Lambda differs between points by 0.929 (0 s)
+[PASS] p2_potential: K_1(lam) = 0, K_2(lam) = 0, lam = 1
+[PASS] p2_residual: G_ab - 8 pi T_ab with a^I = dX^I, signs [-1, -1], V = lam/(8 pi), substituted back: 0 (1 s)
+  (4 s)
+
+== 3b. Deformed metrics: D1 curves the plane, D2 puts the Lorentzian factor off shell ==
+  D1: AdS_2 x (plane with Ro^2 -> Ro^2 (1 + Ro^2/10)): kernel integrable, L_X M = 0, quotient not flat
+  D2: ds^2 = -dto^2 + dzo^2 + E^2 (dX^2 + dY^2), E = 1 + gamma (zo^2 - to^2), lam = -4 gamma/E: R - lam g = gamma^2 4 (to^2 - zo^2) (dX^2 + dY^2)
+[PASS] d1_algebraic: lam = [-1.0, -1.0, -1.0] is a real root of the rank-<=2 locus with inertia (2, 0) at 3 exact points; found [[(-1.0, (2, 0)), (-0.18017888069152832, (1, 1))], [(-1.0, (2, 0)), (-0.1938774585723877, (1, 1))], [(-1.0, (2, 0)), (-0.1869509220123291, (1, 1))]] (0 s)
+[PASS] d1_closure_fails: kernel dimension 2, integrable True, L_X M = 0: True, quotient flat: False (1 s)
+[FAIL] d2_algebraic: lam = [0.0, 0.0, 0.0] is a real root of the rank-<=2 locus with inertia (2, 0) at 3 exact points; found [[(0.0, (0, 0))], [(0.0, (0, 0))], [(0.0, (0, 0))]] (0 s)
+[FAIL] d2_closure_fails: kernel dimension 4, integrable False, L_X M = 0: False, K(lam) = [None, None] (0 s)
+  (5 s)
+
+checks: 13 passed, 2 failed ['d2_algebraic', 'd2_closure_fails']. 5 s
+control d2-gamma0: target checks ['d2_algebraic', 'd2_closure_fails'], fired ['d2_algebraic', 'd2_closure_fails']

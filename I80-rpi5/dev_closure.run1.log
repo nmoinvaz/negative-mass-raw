@@ -1,0 +1,11 @@
+# cmd: python3 notes/warp/det_classify.py --only=planar_closure  (run1, 2026-11-24T02:53:21-08:00)
+  sigma = sin(p) e^(q/2)/3: R = (a a - b b) True, closure True, criterion True, expected True
+  sigma = p q + p^2 q: R = (a a - b b) True, closure True, criterion True, expected True
+  sigma = (p + q)^2/5: R = (a a - b b) True, closure True, criterion True, expected True
+  sigma = p^2 q/2 + p q^2/2: R = (a a - b b) True, closure False, criterion False, expected False
+  sigma = e^(p q): R = (a a - b b) True, closure False, criterion False, expected False
+  sigma = p^3 q^2/6 + p q: R = (a a - b b) True, closure False, criterion False, expected False
+[PASS] planar_closure: (i) 3 planted passes and 3 planted failures of the null-coordinate criterion d_p d_q ln|R_pq| = 0 agree with `closure`: True; (ii) d omega_(t xi) = 1/2 Theta' for an undefined u: True; (iii) a jet with Theta'(0) = 0 has d omega_(t xi)(0) = 0: True; the 1+1 bubble u = (1/2)(1 - 1/(1 + xi^2)^2) has Theta' != 0 at 5 exact points: True
+  (14 s)
+
+checks: 1 passed, 0 failed []. 14 s

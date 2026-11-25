@@ -1,0 +1,10 @@
+[PASS] a2_zero: g = nu^k (u0 + u1 T + u2 T^2) from g = 0, k = 1..8, F_inf symbolic nonzero and F_inf = 0: only u = 0 except (F_inf != 0, k = 2) with u = (-2 F_inf, 0, 0); F_inf != 0, k = 1: lowest order nu^4, nonzero solutions []; F_inf != 0, k = 2: lowest order nu^8, nonzero solutions [(-2*Fi, 0, 0)]; F_inf != 0, k = 3: lowest order nu^11, nonzero solutions []; F_inf = 0, k = 1: lowest order nu^4, nonzero solutions []; F_inf = 0, k = 4: lowest order nu^16, nonzero solutions []
+  (15 s)
+[PASS] series_pure: pure series F_inf - 2 F_inf/eta^2 + ...: a_3 = 0 at eta^-9: True; at eta^-10 no unknown is left and the condition is -512*Fi**4*(Fi**2 + 7) = 0, which is -512 times F_inf^4 (F_inf^2 + 7): True
+  (0 s)
+
+checks: 2 passed, 0 failed []. 15 s
+
+real	0m15.817s
+user	0m15.678s
+sys	0m0.071s

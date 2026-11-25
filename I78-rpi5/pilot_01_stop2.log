@@ -1,0 +1,15 @@
+same_sign_scalars.py, issue #78. sympy 1.14.0, mpmath 1.3.0, python 3.14.10. mutation: none
+
+== 1. Planted truth: R = lam eta + s (a a + b b) passes for s = +1 and -1, other forms fail ==
+[PASS] planted_pass: 12 random lam eta + s (a a + b b), six with s = +1 and six with s = -1, transformed: lam recovered with rank 2 and the planted pattern in all but 0 []
+[PASS] planted_fail: 12 random forms with squares (+,-), (-,+), (+,+,+), (-,-,-), (+,+,-), (+,-,-): no admissible root in all but 0 []
+
+== 2. Lemma: with R_a3 = 0 and (I2), the form holds iff R_3 - lam eta_3 has rank 1 for a real lam != 0 ==
+[PASS] lemmaS_samples: 24 random tensors with (I1), (I2) in random Lorentz frames (8 of the form lam eta_3 + eps n n^T, 8 mixed rank 2, 8 generic): the 4 x 4 test and the 3 x 3 rank-1 criterion give the same roots and patterns (lam < 0 is (+,+), lam > 0 is (-,-)), none at lam = 0, in all but 0 []
+
+checks: 3 passed, 0 failed []. 2 s
+
+real	0m3.246s
+user	0m3.172s
+sys	0m0.063s
+exit 0

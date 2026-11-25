@@ -1,0 +1,8 @@
+ellis_efold.py --only=P-C2b --mutate=deltaphi  python 3.14.10 numpy 2.5.4 sympy 1.14.0 mpmath 1.3.0 on aarch64
+mutation: deltaphi (the 2 in 2 e^{2(d-c)}/c' of method C becomes 1)
+FAIL  P-C2b: gamma_1 = 2.5: manufactured C* through method C's path (b = 1.526710344, r = 1.19): right + upper arc 5.5e+01, right + lower arc 5.5e+01, left segment 5.0e-01; worst rel error 5.53e+01
+FAIL  P-C2b: gamma_1 = 4.0: manufactured C* through method C's path (b = 1.626362434, r = 1.658): right + upper arc 5.2e+01, right + lower arc 5.2e+01, left segment 4.4e-01; worst rel error 5.22e+01
+FAIL  P-C2b: gamma_1 = 6.0: manufactured C* through method C's path (b = 1.666064333, r = 2.362): right + upper arc 4.4e+01, right + lower arc 4.4e+01, left segment 4.1e-01; worst rel error 4.36e+01
+FAIL  P-C2b: gamma_1 = 8.0: manufactured C* through method C's path (b = 1.680554378, r = 3.092): right + upper arc 3.7e+01, right + lower arc 3.7e+01, left segment 3.9e-01; worst rel error 3.74e+01
+FAIL  P-C2b: gamma_1 = 10.0: manufactured C* through method C's path (b = 1.687370771, r = 3.831): right + upper arc 3.3e+01, right + lower arc 3.3e+01, left segment 3.7e-01; worst rel error 3.34e+01
+only P-C2b under mutation deltaphi: failed ids ['P-C2b']

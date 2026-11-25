@@ -1,0 +1,2250 @@
+Radial perturbations of Ellis-Bronnikov wormholes in slow
+rotation up to second order
+Bahareh Azad,1, ∗ Jose Luis Blázquez-Salcedo,2, † Fech Scen Khoo,1, ‡ and Jutta Kunz1, §
+1 Institute of Physics, University of Oldenburg, D-26111 Oldenburg, Germany
+
+arXiv:2403.08387v1 [gr-qc] 13 Mar 2024
+
+2 Departamento de Fı́sica Teórica and IPARCOS, Facultad de Ciencias Fı́sicas,
+
+Universidad Complutense de Madrid, 28040 Madrid, Spain
+(Dated: March 14, 2024)
+We consider slowly rotating Ellis-Bronnikov wormholes and investigate their radial
+perturbations (l = 0), expanding up to second order in rotation. We present the
+detailed derivations in the general case, including symmetric and non-symmetric
+wormholes. The calculations show that the unstable mode present in the static
+case becomes less unstable with increasing rotation, until it reaches zero and then
+disappears. This indicates that wormhole solutions may become linearly mode stable
+at sufficiently fast rotation.
+
+∗
+
+bahareh.azad@uni-oldenburg.de
+
+†
+
+jlblaz01@ucm.es
+fech.scen.khoo@uni-oldenburg.de
+
+‡
+§
+
+jutta.kunz@uni-oldenburg.de
+
+2
+I.
+
+INTRODUCTION
+
+The prospects of obtaining traversable wormhole solutions have inspired much work in
+General Relativity and generalized theories of gravity. In General Relativity traversable
+wormholes require either the presence of exotic matter [1–6] or of fermionic fields [7, 8], in
+order to violate the energy conditions. On the other hand, in generalized theories of gravity
+this violation can arise directly from the gravitational fields as discussed, for instance, in
+[9, 10].
+Among the numerous aspects of wormholes that have been considered, in particular, their
+observational signatures are of great importance. In this respect already the earliest studies
+have considered gravitational lensing effects of wormholes [11–18, 21–24]. Within the last
+decade and the associated observations of the EHT collaboration [19, 20] the investigation
+of wormhole shadows has attracted much interest [22, 25–30], and likewise the study of
+wormhole accretion disks or of their corresponding quasi-periodic oscillations [31–37].
+Depending on the respective wormhole solution and its associated environment, these
+observational signatures of wormholes may lead to quite unique predictions. On the other
+hand the predictions for such wormhole properties may also mimic the corresponding predictions of the properties of black holes, making their observational identification more difficult
+[22, 38–44, 46, 47, 52].
+One of the crucial desired properties of traversable wormholes is their stability [5]. However, static spherically symmetric wormholes are haunted by a radial instability, as explicitly
+shown for the well-known Ellis-Bronnikov wormholes in General Relativity [48–52] or for the
+wormholes in certain generalized gravity theories [53]. On the other hand, it has been conjectured, that rotation might stabilize wormholes [54].
+When Ellis-Bronnikov wormholes are set into rotation, the resulting spacetimes are only
+known perturbatively [55, 56] or numerically [57, 58] despite efforts to obtain the rapidly
+rotating solutions in closed form [59]. We note though, that non-asymptotically flat rotating wormholes have been obtained in closed form [60], that correspond to Barceló-Visser
+wormholes [61] in a swirling universe.
+The fate of the radial instability has been investigated first for rotating wormholes in
+higher dimensions [62]. Here the restriction to odd dimensions and equal magnitude angular
+momenta has provided a substantial simplification of the problem, leading to a system of
+
+3
+ordinary differential equations. In this setting the unstable radial mode of static EllisBronnikov wormholes becomes more stable with increasing rotation, while at the same time
+a second unstable radial mode arises from a zero mode in the static limit. At a critical value
+of the rotation speed both unstable radial modes then merge and disappear.
+Aiming at the goal of demonstrating the analogous behaviour for Ellis-Bronnikov wormholes in four dimensions, we have recently performed a perturbative analysis of the radial
+instability of these wormholes in second order in rotation [63]. Our study has shown that, as
+in higher dimensions, the unstable mode becomes more stable with increasing rotation, while
+a second unstable mode arises from a zero mode in the static limit, as well. Of course, being
+limited to slow rotation and thus allowing only for a quadratic dependence on the angular
+momentum, prevents the two modes from smoothly merging. For the latter to happen we
+would have to resort to a more sophisticated numerical scheme.
+Here we present the details of the calculations of the unstable radial-led modes in second order in rotation. In particular, we present all formulae also for the non-symmetric
+wormholes, which have been omitted in [63]. In section II we provide the theoretical setting, specifying the action and presenting the second order solutions for the slowly rotating
+wormholes. We then consider the radial perturbations around these background solutions
+in section III, and also present the effective potential and the perturbation equations. We
+explain the numerical method in section IV and discuss the results in section V. Section VI
+gives our conclusions.
+
+II.
+
+THEORETICAL SETTING
+
+A.
+
+Action and field equations
+
+We consider General Relativity minimally coupled to a phantom scalar field Φ. The
+action reads
+
+1
+S =
+16πG
+
+Z
+
+i
+√ h
+µ
+d x −g R + 2∂µ Φ ∂ Φ ,
+4
+
+(1)
+
+4
+with curvature scalar R and Newton’s constant G. Variation of the action leads to the set
+of coupled field equations
+Rµν = −2∂µ Φ∂ν Φ ,
+∂µ ∂ µ Φ = 0 .
+
+B.
+
+(2)
+(3)
+
+Static background solutions
+
+The static background solution for Ellis-Bronnikov wormholes is given by
+
+ds2 = −ef dt2 + e−f dr 2 + e−f R2 dθ2 + sin2 (θ)dϕ2 ,
+
+(4)
+
+with metric function f (r)
+C
+f (r) =
+r0
+
+ 
+
+
+π
+r
+−1
+tan
+−
+,
+r0
+2
+
+(5)
+
+asymmetry parameter C, and R2 = r 2 + r02 . The static background scalar field Φ is given by
+φ(r) =
+with Q0 =
+
+p
+
+Q0 f
+,
+C
+
+(6)
+
+C 2 /4 + r02 .
+
+Ellis-Bronnikov wormholes are asymptotically flat. This is, however, only obvious for
+r → +∞, since the metric function f tends to zero there, f → 0. For r → −∞ asymptotic
+flatness becomes only apparent after a coordinate transformation
+− Cπ
+
+t̄ = e 2r0 t ,
+
+Cπ
+
+r̄ = e 2r0 r ,
+
+(7)
+
+unless C = 0. In that case the wormhole is symmetric with respect to reflection of r → −r
+at the throat r = 0.
+The parameter C not only determines the asymmetry of the wormhole, but it is also
+associated with its global charges, that can be read off from the asymptotic expansions of
+the solution. For r → +∞ one then finds the wormhole mass M0 = C/2 and the scalar
+charge Q0 . In the symmetric case C = 0, the static wormhole is massless, whereas in the
+non-symmetric case C 6= 0, the wormhole carries mass. The parameter r0 is associated with
+the size of the throat. For C = 0, the throat is located at r = 0, while for C 6= 0 it is shifted
+to one of the sides as seen by determining the minimal surface. Finally we recall, that there
+
+5
+is a relation between wormhole solutions with positive values of the asymmetry parameter
+C and those with a negative C,
+πC
+,
+r0
+πQ0
+.
+φ(r, C) = −φ(−r, −C) −
+r0
+f (r, C) = f (−r, −C) −
+
+C.
+
+(8)
+(9)
+
+Background solutions up to second order in rotation
+
+We now present the background solution up to second order in rotation for a finite
+asymmetry parameter, C > 0. Denoting the expansion parameter ǫr , the metric reads
+
+
+
+
+ds2 = −ef 1 + ǫ2r 2 (h0 (r) + h2 (r)P2 (θ)) dt2 + e−f 1 + ǫ2r 2 (b0 (r) + b2 (r)P2 (θ)) dr 2
+
+ 
+
+(10)
++ e−f R2 1 + ǫ2r 2 (k0 (r) + k2 (r)P2 (θ)) × dθ2 + sin2 (θ) [dϕ − ǫr w(r)dt]2 ,
+with Legendre polynomial P2 (θ) = (3 cos2 (θ) − 1) /2. The phantom scalar field up to second
+order in rotation is given by
+Φ = φ(r) + ǫ2r (φ20 (r) + φ22 (r)P2 (θ)) .
+
+(11)
+
+In our calculations, we apply the gauge k0 = 0, and redefine k2 = h2 − ν2 . Thus we
+are left with two sets of background functions, P0 = {h0 , b0 , φ20 }, and P2 = {h2 , b2 , ν2 , φ22 }.
+These two sets decouple. Radial perturbations only require the P0 functions. Nonetheless,
+for completeness we provide in the following the solutions to the P2 functions as well. These
+would be necessary for a calculation of the quasinormal modes in second order in rotation
+for non-radial perturbations [64].
+a. First order (C > 0): To first order a single background function is present, w(r),
+which reads
+
+
+ 
+3J
+C + r 2f
+w(r) =
+.
+1 − 1 + 2C
+e
+2C(C 2 + r02 )
+R2
+Here J is the angular momentum of the wormhole solution, read off for r → ∞.
+
+(12)
+
+6
+b. Second order (P0 , C > 0): We obtain for the functions in the set P0 = {h0 , b0 , φ20 }
+the solutions
+
+
+
+C
+C
+
+−1
+2
+3J 2 
+2 − r0 π−2 tan
+2r0
+C 4 − r02 (C 2 − 4r02 )
+− 17R e
+h0 (r) =
+α
+17
+ 
+
+r
+× − 8rQ20 tan−1
++ (πr − 2r0 )C 2 + 4πrr02
+r0
+
+
+2 2f
+2
+3
++ 4Q0 e α1 C (−C + 2rC 2 + (6r 2 − r02 )C + 5r 3 + rr02 ) + 2rr02R2
+ 
+
+
+
+
+
+
+r 
+C 
+C
+2r02
+−1
+2
+−1
+2
+2
+− tan
+2rQ0 tan
++ Cr0 r −
+,
++ 20R C +
+5
+2r0
+r0
+2
+(13)
+
+b0 (r) = −
+×
+
+
+
+51J 2 rr0 R2 rC (2 tan−1 2rC −π)+f
+0
+
+e 0
+r − C2 Cα
+
+
+
+
+4Q20 (Cr + 2r02)f − 8rCr02 + C 4 + 8r02 C 2
+
+
+
+
+
+2 2 2
+8 4
+4
+C − r0 C + r0
+17
+17
+
+ 3f
+
+
+e
+C
+10Q20
+2
+−1
+β − 2(r0 RC)2 + 6rr02R2 C − 4r04 r 2 − 4r06
+[−8Q0 C tan
+−
+17
+2r0
+5
+
+
+2
+ 1
+
+2r
++ C 2 + 0 ef R2 (Cr + 2r02 ) + β + 8r02 R2 Ce3f (−C 2 + 3rC − 2r02 )(πQ20 − Cr0 )
+5
+5
+
+2 
+(14)
++ 4Q20 ef R2 2r0 f (Cr + 2r02 ) + C((πr + 2r0 )C + 2r0 (πr0 − 2r)) C 2 + r02 ] ,
+5
+where
+β = C 3 (−3C 3 + (2r 2 − 7r02 )C + 3r(r 2 − r02 )) ,
+
+(15)
+
+and
+φ20 (r) = −
+
+6J 2
+fα
+
+
+
+
+
+C
+2 2 2
+8 4
++π)
+− C (−2 tan−1 2r
+4
+0
+×
+C − r0 C + r0 r0 R 2 e r 0
+17
+17
+
+
+
+C
+2
+2
+2
+2
+2
+−1
++ 4Q0 − 8Q0 C − R (−3C + Cr − r0 ) tan
+2r
+ 0
+
+
+C
++ e2f − C 2 (C + r)2 + rR2 C − R2 r02 tan−1
++ 4C(πQ20 − Cr0 )
+2r0
+
+
+2
+− R2 − 10r0 f C 2 + r02 (Cr + 2r02 ) + C(−3C 4 π + (πr + 2r0 )C 3
+5
+
+2
+− (13πr0 + 4r)r0 C + 4πr02 (rC − r02 ))
+,
+(16)
+
+
+− 34((Cr + 2r02 )f + C 2 )
+
+where
+
+
+2
+C
+Q0 CR(C 2 + r02 ) α1 ,
+α = 64 r −
+2
+
+(17)
+
+7
+
+25
+
+h0(r)/J2
+
+20
+C=0
+C=0.1
+C=0.5
+C=1.0
+C=1.4
+
+C=0
+C=0.1
+C=0.5
+C=1.0
+C=1.4
+
+15
+10
+5
+0
+
+−5
+
+0
+r
+
+5
+
+−5
+−10
+
+10
+
+−5
+
+0
+r
+
+5
+
+10
+
+1
+0
+
+b0(r)/J2
+
+2
+0
+−2
+−4
+−6
+−8
+−10
+−12
+−14
+−16
+−10
+
+30
+
+φ20(r)/J2
+
+w(r)/J
+
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+−10
+
+−1
+
+C=0
+C=0.1
+C=0.5
+C=1.0
+C=1.4
+
+−5
+
+0
+
+C=0
+C=0.1
+C=0.5
+C=1.0
+C=1.4
+
+−2
+−3
+
+5
+
+−4
+−10
+
+10
+
+−5
+
+r
+
+0
+
+5
+
+10
+
+r
+
+FIG. 1: Scaled first order background function w(r)/J, eq. (12), second order background
+functions h0 (r)/J 2, eq. (13), b0 (r)/J 2 , eq. (14), and φ20 (r)/J 2 , eq. (16), vs radial
+coordinate r for several values of the asymmetry parameter C for r0 = 1. Scaling
+parameter is the angular momentum J.
+and
+α1 = −2Q20 tan−1
+
+
+
+C
+2r0
+
+
+
++ πQ20 − 4Cr0 .
+
+(18)
+
+The background functions are illustrated in Figure 1 for several values of the asymmetry
+parameter C. We note that in the symmetric case C = 0, the P0 functions are simpler.
+They can be found in [63].
+To second order in rotation, we obtain a correction to the mass,
+M = M0 + ǫ2r ∆M .
+
+(19)
+
+Evaluation of the correction for r → ∞ yields
+∆M =
+
+12J 2 R2 (r − C/2)  3 − rC (π−2 tan−1 (C/2r0 ))
+(17C 4 − 2C 2 r02 + 8r04 )
+2r0 e 0
+α
+
+
+C
+2
+4
+2 2
+4
+−1
++4Q0 − 2C(C + 5r0 C + 4r0 ) tan
+2r0
+
+5
+4
+2 3
+3 2
++πC − 4r0 C + 5πr0 C − 14r0 C + 4πr04 C − 4r05 .
+
+(20)
+
+1.3
+1.2
+1.1
+1
+0.9
+0.8
+0.7
+0.6
+0.5
+0.4
+0.3
+0.2
+0.1
+0
+
+C=0
+C=0.1
+C=0.5
+C=1.0
+C=1.4
+Q
+
+M
+
+8
+
+0
+
+0.05
+
+0.1
+
+0.15
+
+0.2
+
+0.25
+
+0.3
+
+1.25
+1.2
+1.15
+1.1
+1.05
+1
+0.95
+0.9
+0.85
+0.8
+0.75
+
+0.35
+
+C=0
+C=0.1
+C=0.5
+C=1.0
+C=1.4
+0
+
+0.05
+
+0.1
+
+J
+
+0.15
+
+0.2
+
+0.25
+
+0.3
+
+0.35
+
+J
+
+FIG. 2: Mass M, eq. (19) (left), and scalar charge Q, eq. (21) (right) at positive infinity vs
+angular momentum J for several values of the asymmetry parameter C for r0 = 1.
+Analogously, the scalar charge also receives a correction,
+Q = Q0 + ǫ2r ∆Q ,
+
+(21)
+
+where ∆Q = −∆M. The mass M and the scalar charge Q are illustrated in Figure 2 for
+several values of the asymmetry parameter C.
+c. Second order (P2 , C = 0): Setting C = 0, we find for the set of functions in
+P2 = {h2 , b2 , ν2 , φ22 }
+(C=0)
+h2
+(r)
+
+(C=0)
+b2
+(r)
+
+ 2
+
+ 
+r
+r
+3J 2  1
+2
+2
+−1
+−1
+− 6r tan
+= 5 − (3r + r0 ) tan
+r0
+r0
+r0
+r0
+
+1
++
+π 2 r 2 (3r 2 + 4r02 ) + r02 (π 2 r02 − 12r 2 − 8r02 ) ,
+2
+4r0 R
+ 2
+
+ 
+r
+r
+3J 2 r  1
+2
+2
+−1
+−1
+(3r + r0 ) tan
++ 6r tan
+=
+5
+r0 r0
+r0
+r0
+1
+−
+π 2 r 2 (3r 4 + 7r 2 r02 + 5r04 )
+4r0 R4
+
++ r02 (π 2 r04 − 12r 4 − 20r 2 r02 − 16r04) ,
+(C=0)
+
+ν2
+
+(C=0)
+
+φ22
+
+(r) = −
+
+(r) = −
+
+3J 2
+,
+R4
+
+6J 2 r
+.
+r0 R4 (π − 2 tan−1 (r/r0 ))
+
+(22)
+
+(23)
+
+(24)
+
+(25)
+
+9
+d. Second order (P2 , C > 0): For C > 0, we find
+9J 2
+4C 2 R4 π(C 2 + r02 )2
+
+h
+
+11C 2 7r02 4
++
+)r + C 3 + 4Cr02 r 3
+× − 2πe2f r 6 + 2Cr 5 + (
+6
+3
+ r C 6 7C 2 r04 r06 
+1 4
+5
++ ( C + 3C 2 r02 + r04 )r 2 − C C 4 − 2C 2 r02 − 6r04
+−
++
++
+3
+3
+3
+3
+6
+3
+i
+(26)
++ R2 χ1 (e−2Cπ/r0 + 1) + χ2 (−e−2Cπ/r0 + 1) ,
+
+h2 (r) =
+
+where
+π 2
+π
+(C − 8r02 )r 2 − r02 (C 2 − 2r02 ) ,
+6
+6
+2
+2
+1
+r
+r
+C
++ 0 ) tan−1 ( ) + 2r 3 r0 + (2r03 − C 2 r0 )r ,
+χ2 = 2R2 (r 2 −
+6
+3
+r0
+3
+χ1 = πr 4 −
+
+(27)
+(28)
+
+9re−2Cπ/r0 J 2
+2C 2 R4 π(C 2 + r02 )2
+
+h 1 
+−1
+−1
+× − R2 χ1 (e(C(2 tan (r/r0 )+3π))/2r0 + ef ) + χ2 (e(C(2 tan (r/r0 )+3π))/2r0 − ef )
+2
+C(6 tan−1 (r/r0 )+π)
+11C 2 7r02 4
+2r0
++ e
++
+)r + (C 3 + 4Cr02 )r 3
+π r 6 + 2Cr 5 + (
+6
+3
+5 4 2 Cr 4
+r06
+5C 2 r04 8C 4 r02 i
+1 4
+2 2
+2 2
+4
+6
+,
+(C − 2C r0 − 6r0 ) +
++C +
++
++ ( C + 3C r0 + r0 )r −
+3
+3
+3
+3
+2
+3
+(29)
+
+b2 (r) =
+
+
+h
+
+9J 2
+1
+2f
+−
+2πe
+r 5 + 2Cr 4 + 2 C 2 + r02 (r 3 + Cr02 )
+2 2
+4
+2
+4πR C(C + r0 )
+3
+
+ i
+h
+
+2
+2 4 8 2 2
++ r 2 2C 3 + 5Cr02 +
+C + C r0 + r04 r + R2 πrR2 (e−2Cπ/r0 + 1)
+3
+3
+3
+ 
+i
+4r 3
+r
++ 2r 2 r0 + 0 )(−e−2Cπ/r0 + 1) ,
+(30)
++ (2rR2 tan−1
+r0
+3
+
+ν2 (r) = −
+
+3r0 J 2
+2πR4 (C 2 + r02 )2 (−2r0 f )
+h
+× − 2πe2f (r04 + (4C 2 + 4Cr + 2r 2 )r02 + r 4 + 2r 3 C + 2C 2 r 2 + 2C 3 r + 2C 4 )
+i
+
+r
+(31)
++ R2 πR2 (e−2Cπ/r0 + 1) + (2R2 tan−1 ( ) + 2rr0)(−e−2Cπ/r0 + 1) .
+r0
+
+φ22 (r) =
+
+e. Transformations to C < 0: In order to obtain the above set of functions for negative
+values of the asymmetry constant, one has to derive the appropriate transformations, for
+instance,
+− 2πC
+r
+
+w(r, C) = −e
+
+0
+
+
+
+2πC
+3J
+r0
+(1
+−
+e
+w(−r, −C) +
+)
+2
+2C(C 2 + r0 )
+
+
+
+.
+
+(32)
+
+10
+III.
+
+RADIAL PERTURBATIONS
+
+In order to obtain the perturbation equations for the radial perturbations, we start from
+the slowly rotating (sr) background discussed above. We then perturb the fields linearly in
+first order in the perturbation parameter ǫq . The perturbed metric reads
+(sr)
+gµν = gµν
++ ǫq δhµν (t, r, θ, ϕ)
+
+
+(sr)
+(P )
+= gµν
++ ǫq δh(A)
+µν (t, r, θ, ϕ) + δhµν (t, r, θ, ϕ) ,
+
+(33)
+
+with parity even, i.e., polar (P ), and parity odd, i.e., axial (A), contributions, and the
+perturbed phantom field is given by
+Φ = Φ(sr) + ǫq δφ(P ) (t, r, θ, ϕ) .
+
+(34)
+
+Following closely the detailed derivations in [64], where the general formalism was developed and then applied to Kerr-Newman black holes, we now decompose these perturbations
+in terms of spherical harmonics Y [l, m](θ, ϕ), where l and m denote the multipole numbers.
+Rotation leads to an entanglement of even (polar) and odd (axial) perturbations, allowing
+for decoupling only in the static limit. At the same time we obtain, in general, an infinite
+tower of equations labeled by the multipole number l, coupling the perturbation functions
+in the expansions. Only the multipole number m remains unaffected by rotation, i.e., different values of m are not coupled because of the axial symmetry of the rotating background
+solution.
+Here, we will not construct the general set of modes of the rotating Ellis-Bronnikov wormholes. Instead we are only interested in the so-called radial-led perturbations, that reduce in
+the static limit to the well-known unstable mode. Thus we focus on l = 0, m = 0 polar-led
+perturbations. Since we restrict to second order in rotation, the infinite sum with respect
+to l is truncated already at l = 1. Indeed, these l = 0, m = 0 polar-led perturbations
+couple only to axial l = 1 perturbations [64], simplifying the problem considerably. Employing a harmonic time dependence with frequency ω, the metric perturbations can then
+be parametrized as follows,
+
+
+NY0
+
+0
+
+0
+
+S0 Y θ
+
+
+
+
+
+ 0 LY
+
+0
+S
+Y
+0
+1 θ
+
+iωt 
+δhµν = e 
+
+2
+ 0
+
+0 R T Y0
+0
+
+
+2
+S0 Y θ S1 Y θ
+0
+R2 T sin θY0
+
+,
+
+(35)
+
+11
+where we have introduced the five radial functions N, L, T, S0 , S1 , and the abbreviations Y0 =
+p
+√
+Y [0, 0] = 1/ 4π and Yθ = sin θ ∂θ Y [1, 0] = − sin2 θ 3/4π. A suitable parameterization of
+the phantom field perturbation is given by
+
+δφ(P ) = eiωt φ1 (r)Y0 ,
+
+(36)
+
+with radial function φ1 (r). Restricting to second order in the rotation parameter ǫr , these
+perturbations lead to a consistent set of equations.
+Insertion of the perturbations into the general set of field equations provides us with the
+set of ordinary differential equations for the six radial perturbation functions N, L, T, S0 , S1
+and φ1 (r) to be solved numerically. To fix the gauge, we set S0 and φ1 (r) = 0. The remaining
+four unknown functions are then determined by solving a set of differential equations for
+dN/dr, dL/dr, dT /dr and an algebraic relation for S1 . In the following we present these
+equations for C > 0,
+−1
+12e−2f
+dL
+5
+4
+2 3
+3 2
+2
+2 2
+=
+4r
+−
+10Cr
++
+10C
+r
+−
+5C
+r
++
+2(Q
+−
+r
+)
+(10r
+−
+C)
+0
+0
+dr
+rr0 R4
+ 2 3f 2 dφ20 2 2
+r
+π dφ20
+Q0 R κ1 (tan−1 ( ) −
+e rR T
+)
+×
+3
+dr
+r0
+2 dr
+r2
++ r0 (Q20 κ1 φ20 (r) + r 6 − 3Cr 5 + (4C 2 + 0 )r 4 − (3C 2 + r02 )Cr 3
+2
+39
+9
++ (21Q40 − 21r04 − C 2 r02 )r 2 − 5Cr(Q40 − r04 − C 2 r02 )
+4
+20
+f
+
+1
+e
++ (Q20 − r02 )2 (C 2 + r02 )) − κ2 r0 R4 (2ω 2 R2 rT (h0 (r) − 1/2) + Lb0 (r))
+2
+3
+2 2
+3
+9C
+r
+5C 3 r (Q20 − r02 )2
+7r
+C
++
+−
++
+)
+− 4e5f rr0 T J 2 (r 4 −
+4
+8
+16
+2
+1
+dφ20 r0 f
+− R2 e2f Q20 rR2 κ2
+L
+3
+dr C
+r 2 29C 2 4
+3
+45
+11Cr 5
++( 0 +
+)r + (− Cr02 − C 3 )r 3
++ r0 (−4b0 (r)[r 6 −
+4
+2
+8
+4
+16
+39
+41 4 41 4 79 2 2 2
++ (− r0 + Q0 − C r0 )r − 5C(Q40 − r04 − C 2 r02 )r + 2(Q20 − r02 )3 ]T
+2
+2
+8
+80
+5
+2
+11Cr
+13C
+17
++ Lr(Q20 κ2 φ20 (r) − 2r 6 +
+− (r02 +
+)r 4 + ( C 3 + 2Cr02 )r 3
+2
+2
+4
+1
+9
+23
++ (−26Q40 + 26r04 + C 2 r02 )r 2 + (11Cr(Q40 − r04 − C 2 r02 ))
+2
+2
+22
+
+4
+(37)
+− 2Q60 + 5r02 Q40 − 3r06 − C 2 r04 )) + κ2 r0 (J 2 re4f L + ω 2 R6 b0 (r)T ) ,
+3
+
+12
+3
+
+2 2
+
+3
+
+2 2
+
+3
+
+where κ1 = r 4 − 5r2 C + 9C4 r − 7C8 r +2(Q20 −r02 )2 , and κ2 = r 4 −2r 3 C + 3C2 r − C2 r +(Q20 −r02 )2 ,
+ dφ20 2 2
+dN
+e−2f
+e3f
+= −
+{−
+rT (r − C/2)
+4Q0 R r0 f
+3
+2
+dr
+(r − C/2) rr0 R
+4
+dr
+
+1
+− 8r0 − Q20 φ20 (r)C + (r − C/2)(h0 (r) + 1/2)(Cr + r02 )
+2
+
++ (r − C/2) (r − C/2)r0 ef (rω 2R4 T + b0 (r)((−Cr + r 2 − r02 )L − 2NR2 ))
+re2f
+dφ20 r0 f
+[4R2 Q20 (r − C/2)
+(L + 2N)
+4
+dr C
++ 4r0 (2b0 (r)R2 T + (r − C/2)([Q20 φ20 (r) + (Cr + 2r02)(h0 (r) + 1/2)]L
+
+
++ 2Q20 φ20 (r)N))] + 2(r − C/2)r0 R4 ω 2b0 (r)T }
++
+
+3e−2f J 2
+2C 2 R4 (r − C/2)3 (C 2 + r02 )2
+
+C2 6
+13
+35
+3Cr 7
++ (2r0 2 +
+)r + ( Cr0 2 + C 3 )r 5
+× 3e5f T r 8 +
+2
+4
+3
+24
+3
+1 2 2 7 4
+Cr
+33
+31
++ ( C r0 + C − r04 + 2Q40 )r 4 −
+(C 4 + C 2 r02 − 24Q40 + r04 )
+6
+6
+3
+4
+2
+79r04
+8C 6 67C 4 r02
+−
++ (−
++ 16Q40 )C 2 + 4r02 Q40 − 4r06 )r 2
++ (−
+3
+6
+4
+485r04 2
+C8
+Cr 6
+(C + 45C 4 r02 + (−96Q40 +
+)C − 48r02Q40 + 48r06 ) −
+−
+6
+4
+6
+6 2
+
+2C r0
+−
+− 4r04 C 4 + (8r02Q40 − 9r06 )C 2 + 2r04 Q40 − 2r08
+3
+3C 2
+31
+1
+9
+7
+Cr 5
++ (−
++ r02 )r 4 + ( C 3 + Cr02 )r 3 − ( C 4 + C 2 r02 )r 2
+− 6R2 e3f T r 6 −
+2
+4
+24
+6
+8
+4
+6
+
+1
+9
+C
+4
+11
++ ( C 5 + C 3 r02 )r −
+− 2C 4 r02 + (4Q40 − r02 Q20 − r04 )C 2 + 2r02 Q40 − 2r06
+2
+8
+3
+3
+3
+9 2 2 7 3
+5 3
+4
+2 2
+4 f
+4
++ 3R e T (r − r C + C r − C r − 2r0 − C r0 + 2Q40 )
+2
+4
+8
+ 8
+4f
+7
+2
+2
++ e (r + 2Cr + (2r0 + 3C /2)r 6 + (4Cr02 + 3C 3 /2)r 5 + (C 2 r02 /2 + Q40 )r 4
++
+
+− C(C 4 + 2C 2 r02 − 4Q40 + 2r04 )r 3 + (−5C 6 /2 − 17C 4 r02 /2
+
++ (−23r04 /2 + 8Q40 )C 2 + 2r02 Q40 − 2r06 )r 2 + C(C 6 − 2C 4 r02
++ (8Q40 − 19r04 /2)C 2 + 4r02 Q40 − 4r06 )r − C 8 /2 − 5C 6 r02 /2 + (4Q40 − 6r04 )C 4
++ (−9r06 /2 + 4r02 Q40 )C 2 + r04 Q40 − r08 )L
+
+− 4CN(C 2 + r02 )(r 3 + 3Cr 2 /2 + (C 2 + r02 )r + Cr02 /2) (r − C/2)2
+
+− 2R2 e2f (r 6 + (−C 2 /2 + r02 )r 4 + C 3 r 3 /2 + (−3C 2 r02 /2 − 15C 4 /16)r 2
+3
++ (C 3 r02 + 5C 5 /8)r − C 6 /4 − C 4 r02 + (−r02 Q20 + 2Q40 − r04 )C 2 + r02 Q40 − r06 )L
+2
+
+− 2CN(C 2 + r02 ) (r − C/2)3
+
+3
+1
+1
+1
+(38)
+− LR2 (r 4 − 2r 3C + C 2 r 2 − C 3 r + Q40 − r04 − C 2 r02 ) ,
+2
+2
+2
+2
+
+13
+2
+ 2
+3e2f
+r C2
+R2
+dT
+2 −3f Cr
+2
+−
+=
+r
+R
+e
+((
+−
+(
++
+r
+))L
++
+b0 (r)T )
+0
+dr
+rr0 R4 (C/2 − r)
+3
+2
+2 4
+2
+2
++ e−4f r0 R2 b0 (r)(Cr − r 2 − C 2 /4)L
+3
+
+rR2 e−2f
+Crr0
+dφ20 r0 f
++
+−
++ R2 Q20
++ r0 (Q20 φ20 (r) + r 2 ) T
+3
+2
+dr C
+2
++ J r0 rT ,
+
+(39)
+
+and finally
+√
+ −f
+
+1 2
+R2
+i 3e2f J
+e
+[
+−
+C
+(C
++
+r)
+−
+(2r
++
+3C)
+L + C(C 2 + r02 )N]
+S1 (r) =
+2
+ωCR2(C 2 + r0 )
+2
+4
+
+1
+C
++ e−3f R2 (r − )L + R2 (r − C)e−2f − 2C 3 − C(r 2 + 3r02 ) − rR2 T .
+2
+2
+
+(40)
+
+The background functions φ20 (r), b0 (r), and h0 (r) are taken from equations (13), (14), (16),
+respectively. In the symmetric case C = 0 the equations (37) - (40) simplify. They can be
+found in [63].
+We now show how to cast the above system of equations into a master equation, i.e., a
+single second order ordinary differential equation, with the remaining set of perturbation
+functions determined by algebraic relations. To begin with we note that equation dT /dr
+(39) and equation dL/dr (37) are not coupled to the perturbation function N. We then
+take the derivative of equation dT /dr (39). Next we make use of equations dT /dr (39) and
+dL/dr (37) to express the function L and its derivative dL/dr in terms of the function T
+and its derivative dT /dr. In this way we obtain a second order equation for the function T
+of the form
+dT
+d2 T
++
+A(r)
++ B(r)T = 0 ,
+dr 2
+dr
+
+(41)
+
+with the coefficient functions A(r) and B(r).
+These coefficient functions A(r) and B(r) are obtained as combinations of the coefficients
+present in the perturbation equations dT /dr (39) and dL/dr (37). For convenience, we
+express these functions in the following form,
+α′
+r∗′′
+,
++
+2
+r∗′
+α
+
+(42)
+
++ (r∗′ )2 (V − ω 2) ,
+
+(43)
+
+A(r) =
+α′′ r∗′′ α′
+− ′ −2
+B(r) =
+α
+r∗ α
+
+
+
+α′
+α
+
+2
+
+14
+where we have introduced a tortoise coordinate r∗ and an amplitude α. The tortoise coordinate r∗ is defined by
+
+
+
+∂r r∗ = e−f 1 + ǫ2r (e−f b0 − h0 ) ,
+
+(44)
+
+and the amplitude α by
+
+(∂r φ)2 R2 + ǫ2r [2e−f b0 − e−2f R4 (∂r w)2 /6]
+∂r α
+p
+=
+.
+α
+r − R2 (∂r φ)2 − r02
+
+(45)
+
+Here we have kept the expansion parameter ǫr to indicate the second order contributions.
+For completeness, we now outline how to obtain the remaining perturbation functions,
+once the equation for the function T has been solved. Once the function T and the derivative
+dT /dr are known, we may express the perturbation function L in terms of T and dT /dr via
+equation (39). Subsequently, we may obtain the function N via equation (38), which yields
+a relation of the form N = −L − 2T + O(J 2 ). Finally, we may obtain the function S1 via
+equation (40).
+Taking T = αZ, the perturbation equation can be expressed as a single standard stationary Schrödinger-like equation with a potential V (r),
+
+d2 Z
++ (ω 2 − V (r))Z = 0 ,
+dr∗2
+
+(46)
+
+where the eigenvalue ω corresponds to the mode frequency. For C > 0 the potential V (r) is
+
+15
+given by
+e2f
+(C 4 − 8rC 3 + 4C(r 2 − r02 )(3C − 4r) − 16r02 (3r 2 + 2r02 ))
+4R8 (C − 2r)5α
+
+C
+2C
+8
+2
+(tan−1 ( rr )+tan−1 ( 2r
+)−π)
+0
+0
+(C 4 − C 2 r02 + r04 )
++ J 2 − 408R2 e r0
+17
+17
+ 
+r
+1
+1
+1
+5
+1
+×[8γR2 Q20 tan−1
++ C 6 (− R2 π + rr0 ) + C 5 ( πrR2 + r03 − r 2 r0 )
+r0
+4
+2
+4
+2
+2
+1
++3C 4 (− πR4 + rr0 (r 2 − 4r02 ))
+2
+3 5
++C (r π − πrr04 − 2r 4 r0 + 50r03r 2 + 12r05 )
+
+V (r) =
+
++C 2 (−6πr 4 r02 − 14πr 2 r04 − 8πr06 − 68r 3 r03 − 8r05r)
++4r02C(r 5 π − πr 3 r02 − 2πrr04 + 12r 4r0 + 8r03 r 2 + 8r05 )
+−16r03 (πr 2 r03 + π r05 + r 5 + 2rr02 R2 )]
+
+35r02 8
+103 3
+7C 10 41C 9 r
++ 96Q20 e4f α1 −
++
+− (25r 2 +
+)C + (
+r + 34r r02 )C 7
+4
+4
+4
+4
+57
+151 4 6
+15
+97
+153 4 5
+−( r 4 + 64r 2 r02 +
+r0 )C + (− r 5 + r 3 r02 +
+r r0 )C
+8
+8
+4
+2
+4
+19
+29
+45
+133 2 4 77 6
+r0 r + r0 + 63r 2 r04 + r 6 )C 4 + r( r06 + r02 r 4 + 36r 2r04 + 13r 6)C 3
+−(
+4
+4
+2
+2
+2
+8
+2 6
+6 2
+4 4
+2
+5 4
+−(6r0 + 31r r0 + 11r r0 + 36r r0 )C + (24r r0 + 26r 3 r06 + 12r r08 + 10r 7 r02 )C
+
+−8r06 R4
+ 
+
+
+r
+C
+2r02
+−1
+2 2
+−1
+2 2f
+2
+− tan
+)
+) 4R Q0 γ(tan
+−[10R e (C +
+5
+2r0
+r0
+C
+C 5r
+r2
+3
+7
+−2r0 (r − )(−
++ ( − r02 )C 4 + (− r 3 + rr02)C 3 + (r 4 − 13r 2r02 − 4r04 )C 2
+2
+8
+4
+2
+2
+
+3 2
+2 4
+2 2
+4
++10r r0 C − 4r0 (r + 2r0 r + 2r0 )) ] ,
+(47)
+where
+γ=
+
+3r 2
+C 4 C 3r
+−
++(
++ r02 )C 2 − (r 3 − 2r r02 )C + 4r04 .
+8
+4
+2
+
+(48)
+
+For C = 0 the potential is given in [63].
+The potential V (r) consists of the static part Vstatic (r) and the rotational correction term
+V2 (r), entering V (r) in second order
+V (r) = Vstatic (r) + J 2 V2 (r) ,
+
+(49)
+
+with no linear term arising. We exhibit in Figure 3 the static term Vstatic (r) and the correction term V2 (r) in equation (49), scaled with (r − C/2)2 , for several values of the asymmetry
+parameter C (for throat parameter r0 = 1).
+
+16
+
+2
+15
+
+1
+
+C=0
+C=0.1
+C=0.2
+
+C=0
+C=0.1
+C=0.2
+
+10
+~
+V2
+
+~
+Vstatic
+
+1.5
+
+0.5
+
+5
+
+0
+0
+-0.5
+-10
+
+-5
+
+0
+
+5
+
+-10
+
+-5
+
+r
+
+0
+
+5
+
+r
+
+FIG. 3: Static part Ṽstatic = Vstatic (r − C/2)2 (left), and correction part Ṽ2 = V2 (r − C/2)2
+(right) of the potential vs radial coordinate r for several values of the asymmetry
+parameter C for r0 = 1.
+IV.
+
+NUMERICAL METHOD
+
+We now explain the numerical method we employ to obtain unstable modes. For unstable
+modes the frequency ω entering via the harmonic time dependence of the perturbations
+becomes a purely imaginary number, ω = iωI with ωI < 0, leading to exponential growth in
+time. Thus we have to solve the Schrödinger-like equations (46), looking for bound states.
+The boundary conditions for the perturbation function T (r) obtained from an asymptotic
+analysis show, that T (r) should decay exponentially at both asymptotic infinities,
+lim T (r) = 0 .
+
+r→±∞
+
+(50)
+
+We then compactify the radial coordinate according to
+r = r0 tan(πx/2) .
+
+(51)
+
+Thus the new radial coordinate takes values in the interval −1 ≤ x ≤ +1, mapping the
+corresponding two radial infinities, r = ±∞, to the interval boundaries, x = ±1. After
+performing this coordinate transformation we solve the Schrödinger-like equation for the
+function T (x).
+In fact, we solve this second order equation for T (x) together with a first order equation,
+that is an auxiliary equation for the eigenvalue E = ω 2
+E′ = 0 ,
+
+(52)
+
+17
+with the prime indicating differentiation with respect to x. Since the equation for T (x) is
+linear, and we are looking for a non-trivial solution, we choose an arbitrary point xc within
+the domain of integration, where we impose a finite value for the perturbation function T (x).
+Altogether, we then impose the following three boundary conditions
+T (±1) = 0,
+
+T (xc ) = 1 .
+
+(53)
+
+For the numerical calculation we employ the ordinary differential equation solver COLSYS [65]. COLSYS is a solver for boundary value problems that employs a spline collocation
+method, has automatic mesh adaptation, and calculates solutions with a user defined accuracy. Since COLSYS uses a Newton-Raphson method it needs an initial guess. As guess
+we give a Gaussian-like function for the perturbation function T (x), satisfying the above
+boundary conditions, and a constant value for the eigenvalue E(x) in the auxiliary equation. In order to achieve convergence, a good guess for the eigenvalue is usually needed.
+The typical accuracy of the solutions is on the order of 10−12 . We illustrate the solutions in
+Figure 4, where we show the perturbation function T (r) for several values of the asymmetry
+parameter C.
+1.2
+C=0.1
+C=0.5
+C=1
+
+1
+0.8
+
+T
+
+0.6
+0.4
+0.2
+0
+-0.2
+-1
+
+-0.8 -0.6 -0.4 -0.2
+
+0
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1
+
+r
+
+FIG. 4: Perturbation function T (r) vs radial coordinate r for several values of the
+asymmetry parameter C for r0 = 1.
+
+In second order in rotation, we expect to obtain a quadratic dependence of the eigenvalue
+
+18
+ω on the angular momentum J of the rotating background configuration,
+(0)
+
+(2)
+
+ωI = ωI + J 2 ∆ωI ,
+(0)
+
+where the eigenvalue ωI
+
+(54)
+
+of the static background solution is corrected by the quadratic
+(2)
+
+(2)
+
+angular momentum term with coefficient ∆ωI . In order to determine this coefficient ∆ωI
+
+and thus the correction term of the unstable mode, we start from the static case J = 0.
+Employing fixed values for the asymmetry parameter C and the wormhole parameter r0 , we
+then solve for the eigenvalue numerically for successively increasing values of the angular
+momentum J.
+
+V.
+
+RESULTS
+
+0
+
+ωI√
+A
+
+-1
+
+-2
+C=0
+C=0.1
+C=0.2
+C=0.3
+C=0.4
+C=0.5
+C=0.6
+
+-3
+
+-4
+0
+
+0.005
+
+0.01
+
+0.015
+
+C=0.7
+C=0.8
+C=0.9
+C=1.0
+C=1.2
+C=1.4
+
+0.02
+
+J/A
+√
+FIG. 5: Scaled main unstable mode ωI A vs scaled angular momentum J/A for several
+values of the asymmetry parameter C and r0 = 1. Scaling parameter is the throat area A.
+We now turn to the discussion of the numerical results, obtained in second order in rotation. We first focus on the unstable mode, present already in the static case. In the
+following we refer to this mode as the main unstable mode. In order to deal with dimensionless quantities, we employ the area of the throat A of the rotating background solutions,
+
+19
+C
+
+(0)
+
+ωI
+
+(2)
+
+∆ωI
+
+0 -1.182 16.358
+0.1 -1.016 10.663
+0.2 -0.882 7.036
+0.3 -0.774 4.691
+0.4 -0.686 3.162
+0.5 -0.613 2.155
+0.6 -0.552 1.488
+0.7 -0.501 1.040
+0.8 -0.458 0.736
+0.9 -0.422 0.528
+1.0 -0.390 0.384
+1.2 -0.338 0.210
+1.4 -0.298 0.121
+
+(0)
+
+(2)
+
+TABLE I: Static term ωI and correction term ∆ωI of the main unstable radial-led mode,
+eq. (54), for a set of values of the asymmetry parameter C in second-order in rotation.
+
+as a scaling parameter. We illustrate the dependence of the main scaled unstable mode
+√
+ωI A on the scaled angular momentum J/A in Figure 5, selecting a set of values of the
+asymmetry parameter C and keeping r0 = 1.
+√
+Figure 5 shows a monotonic increase of the scaled eigenvalue ωI A with increasing scaled
+angular momentum J/A, for all values of the asymmetry parameter C considered. In particular, for all values of C the eigenvalue reaches zero at some critical value of the scaled
+angular momentum. Denoting this critical value by Jc /A we exhibit its dependence on the
+asymmetry parameter C in Figure 6 for the range of values studied, where Jc /A exhibits a
+monotonic decrease with increasing C.
+To put these critical values into perspective we recall a crucial property of rapidly rotating
+Ellis-Bronnikov wormholes. When the angular momentum J of the wormholes is increased
+the associated set of wormholes approaches an extremal Kerr black hole for any given value
+of the asymmetry parameter C [57, 58]. Extracting the scaled angular momentum J/A (here
+
+20
+0.0225
+
+Jc/A
+
+0.02
+
+0.0175
+
+0.015
+
+0.0125
+
+0
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1
+
+1.2
+
+1.4
+
+C
+
+FIG. 6: Critical angular momentum scaled with the throat area Jc /A vs the asymmetry
+parameter C.
+
+A denotes the horizon area of the extremal Kerr black hole) for this limiting solution yields
+J/A → 1/(8π) ≈ 0.0397. Thus the critical angular momentum Jc /A is about 50% or less of
+the limiting value for the values of C studied.
+The monotonic increase of the eigenvalue ωI with increasing angular momentum J, seen
+(2)
+
+in Figure 5, shows that all values of the second order correction ∆ωI
+
+are positive in the
+
+considered range of the asymmetry parameter C. We exhibit the values of the static con(0)
+
+tribution ωI
+
+(2)
+
+and the associated correction ∆ωI
+
+entering the second order expansion for
+
+ωI from equation (54) for a set of values of the asymmetry parameter C in Table I. Since
+(2)
+
+the correction ∆ωI is positive, the mode becomes more stable with increasing angular momentum. This indicates that rotation indeed can have a stabilizing effect on Ellis-Bronnikov
+wormholes.
+Currently, there are no higher order or exact numerical results available for the unstable
+mode of rapidly rotating wormholes, to check the range of validity of the second order
+calculations. However, the present method has been developed and applied before for Kerr
+and Kerr-Newman black holes [64]. There it was shown that the second order results are
+excellent approximations of the exact results up to 50-60% of the bound given by the extremal
+black holes. By analogy we conclude, that the second order results for Ellis-Bronnikov
+
+21
+wormholes should be excellent approximations for most of the range J/A < Jc /A of the
+angular momentum.
+We also remark that we have looked for the possible presence of a first order correction.
+However, our numerical analysis showed, that such a first order correction is compatible
+with zero, in particular, it is always smaller than 10−7 in our calculations. This is of course
+fully consistent within our formalism, since a linear correction would be proportional to the
+angular number m, and m = 0 for the radial-led modes (see e.g. [64]).
+0
+
+ω2 A
+
+−2
+
+−4
+
+−6
+
+C=0
+C=0.05
+C=0.1
+C=0.2
+
+−8
+0
+
+0.006
+
+0.012
+J/A
+
+FIG. 7: Second unstable mode vs scaled angular momentum J/A for several values of the
+asymmetry parameter C. Scaling parameter is the throat area A.
+
+ω2 A
+
+0
+
+−9
+
+C=0
+C=0.05
+C=0.1
+C=0.2
+
+−18
+0
+
+0.006
+
+0.012
+J/A
+
+FIG. 8: Scaled squared main unstable mode ωI2 A (solid) and second unstable mode
+(dotted) vs scaled angular momentum J/A for C = 0, 0.05, 0.1 and 0.2. Scaling parameter
+is the throat area A.
+Besides the main unstable radial-led mode the slowly rotating Ellis-Bronnikov wormholes
+feature a second radial-led unstable mode. This feature was first observed for rotating Ellis-
+
+22
+Bronnikov wormholes in 5 dimensions, carrying equal magnitude angular momenta [62]. As
+in higher dimensions [62], here this second unstable mode arises also from a zero mode,
+present in the static limit. With increasing angular momentum of the wormholes this mode
+then becomes more unstable, i.e., ωI decreases. We exhibit this second unstable mode in
+Figure 7 for a set of values of the asymmetry parameter C and r0 = 1.
+(2)
+
+Clearly, for the second unstable mode the correction term ωI
+(2)
+
+the correction term ∆ωI
+
+is negative. But since
+
+is rather small, this second unstable mode has a rather small
+(2)
+
+magnitude for small angular momenta. Table II gives ωI
+
+for several values of C. Since,
+
+independent of C, this second unstable mode starts from a zero mode in the static limit,
+(2)
+
+only ∆ωI is given in Table II. We have also checked that the second unstable mode features
+no linear dependence.
+(2)
+
+C
+
+∆ωI
+
+0
+
+-28.185
+
+0.05 -21.431
+0.1 -16.697
+0.2 -10.220
+
+(2)
+
+TABLE II: Correction term ∆ωI of the second unstable radial-led mode, eq. (54), for a
+set of values of the asymmetry parameter C in second-order in rotation.
+
+Since the main unstable mode increases with increasing angular momentum while the
+second unstable mode decreases, both modes are bound to cross. This is illustrated in
+Figure 8, where both modes are shown for a set of values of the asymmetry parameter C.
+The respective crossing points J× /A necessarily occur at values of J/A smaller than the
+respective critical values Jc /A. In particular, for the values of C shown in the figure the
+crossing takes place around J/A ≈ 0.013, which slightly exceeds 30% of the limiting value
+of J/A.
+For each value of the asymmetry parameter C, we have truncated both branches of
+unstable modes at the respective crossing point J× /A in Figure 8. The reason for this
+truncation is, that we expect that the two branches merge at some special value Js /A of the
+angular momentum J/A and disappear. This is what is observed in the non-perturbative
+
+23
+calculations in 5 dimensions [62], and we conclude by analogy that this will also hold for the
+wormholes in 4 dimensions. Consequently these rotating wormholes then no longer feature
+a radial instability for J/A > Js /A.
+We attribute the crossing of the branches that we observe in 4 dimensions to a deficiency
+of the current perturbative approach, and expect to see a smooth merging of the modes also
+in 4 dimensions in a non-perturbative study. Clearly, the applied quadratic approximation
+excludes a smooth merging of the branches, since this would require higher order terms
+in the angular momentum. To verify the conjectured behavior a newly developed method
+might be employed, that is based on the spectral method [66, 67].
+
+VI.
+
+CONCLUSIONS
+
+In this work we have investigated the influence of rotation on the radial instability of
+Ellis-Bronnikov wormholes. The presence of this instability in static wormholes had been
+noticed already long ago [48–50] and the possibility of a stabilization by rotation had been
+suggested [54]. Indeed, the disappearance of the radial instability with sufficiently rapid
+rotation of Ellis-Bronnikov wormholes could later be demonstrated in 5 dimensions for the
+special case of equal magnitude angular momenta [62].
+Here we have presented a detailed derivation and demonstration of the dependence of the
+radial instability of Ellis-Bronnikov wormholes in 4 dimensions in the case of slow rotation.
+We have resorted to this perturbative study since the angular dependence does not factorize
+in 4 dimensions, making the study of the linear mode stability of rotating wormholes much
+more challenging than in the special 5-dimensional case. Still, our study demonstrates great
+similarity of the dependence of the radial instability on the angular momentum of these
+wormholes in 4 and 5 dimensions.
+Working in second order in rotation, the radial polar l = 0, m = 0 perturbations of the
+static case acquire a contribution from the axial l = 1, m = 0 perturbations, representing
+thus radial-led perturbations. Solving the resulting Schrödinger-like master equation for the
+modes then yields a quadratic dependence of the eigenvalues on the angular momentum of
+the wormholes.
+Our numerical analysis reveals a positive correction term to the static eigenvalue for the
+unstable radial mode, present in the limiting static case, for all values of the asymmetry
+
+24
+parameter of the wormholes considered. Consequently, there arises always a critical angular
+momentum, when the mode reaches zero. At the same time, a second unstable arises from a
+zero mode in the static limit, that decreases quadratically with increasing angular momentum. Necessarily both modes cross at a value of the angular momentum below the critical
+value.
+In contrast, in 5 dimensions the two unstable modes smoothly merge at a critical value of
+the angular momentum and disappear beyond this critical value. This is indeed the behavior,
+that we also conjecture to be present in 4 dimensions. However, this behavior cannot be
+realized within the employed second order approximation, since in order to generate a smooth
+merging of the modes higher order terms in the angular momentum would be necessary.
+Therefore we only conjecture here, that the true critical angular momentum, where the
+radial instability of the rotating Ellis-Bronnikov wormholes will disappear, is slightly smaller
+than the angular momentum, where the two perturbatively obtained branches of unstable
+radial modes cross.
+A verification of this conjecture will need more sophisticated methods than perturbation
+theory. Indeed, the radial-led modes will have to be calculated based on the exact (numerically known) rotating background solutions [57, 58]. Likewise, the determination of the
+modes will have to proceed by solving numerically the resulting systems of coupled partial
+differential equations. Application of the recently developed spectral scheme [66, 67] will
+hopefully provide the desired evidence. However, as first calculations have already revealed,
+a different parametrization of the wormholes will probably be necessary.
+
+ACKNOWLEDGEMENT
+
+We gratefully acknowledge support by DAAD, DFG project Ku612/18-1, FCT project
+PTDC/FIS-AST/3041/2020, and MICINN project PID2021-125617NB-I00 “QuasiMode”.
+JLBS gratefully acknowledges support from Santander-UCM project PR44/21-29910.
+
+[1] H. G. Ellis, J. Math. Phys. 14, 104 (1973)
+[2] H. G. Ellis, Gen. Rel. Grav. 10, 105 (1979)
+[3] K. A. Bronnikov, Acta Phys. Polon. B 4, 251 (1973)
+
+25
+[4] M. S. Morris, K. S. Thorne and U. Yurtsever, Phys. Rev. Lett. 61, 1446 (1988)
+[5] M. S. Morris and K. S. Thorne, Am. J. Phys. 56, 395 (1988)
+[6] M. Visser, Woodbury, USA: AIP (1995)
+[7] J. L. Blázquez-Salcedo, C. Knoll and E. Radu, Phys. Rev. Lett. 126, 101102 (2021)
+[8] R. A. Konoplya and A. Zhidenko, Phys. Rev. Lett. 128, 091104 (2022)
+[9] P. Kanti, B. Kleihaus and J. Kunz, Phys. Rev. Lett. 107, 271101 (2011)
+[10] M. Alcubierre and F. S. N. Lobo, Fundam. Theor. Phys. 189 (2017)
+[11] J. G. Cramer, R. L. Forward, M. S. Morris, M. Visser, G. Benford and G. A. Landis, Phys.
+Rev. D 51, 3117 (1995)
+[12] M. Safonova, D. F. Torres and G. E. Romero, Phys. Rev. D 65, 023001 (2002)
+[13] V. Perlick, Phys. Rev. D 69, 064017 (2004)
+[14] K. K. Nandi, Y. Z. Zhang and A. V. Zakharov, Phys. Rev. D 74, 024020 (2006)
+[15] F. Abe, Astrophys. J. 725, 787 (2010)
+[16] Y. Toki, T. Kitamura, H. Asada and F. Abe, Astrophys. J. 740, 121 (2011)
+[17] K. Nakajima and H. Asada, Phys. Rev. D 85, 107501 (2012)
+[18] N. Tsukamoto, T. Harada and K. Yajima, Phys. Rev. D 86, 104062 (2012)
+[19] K. Akiyama et al. [Event Horizon Telescope], Astrophys. J. Lett. 875, L1 (2019)
+[20] K. Akiyama et al. [Event Horizon Telescope], Astrophys. J. Lett. 930, L12 (2022)
+[21] P. K. F. Kuhfittig, Eur. Phys. J. C 74, 2818 (2014)
+[22] C. Bambi, Phys. Rev. D 87, 107501 (2013)
+[23] R. Takahashi and H. Asada, Astrophys. J. 768, L16 (2013)
+[24] N. Tsukamoto and T. Harada, Phys. Rev. D 95, 024030 (2017)
+[25] P. G. Nedkova, V. K. Tinchev and S. S. Yazadjiev, Phys. Rev. D 88, 124019 (2013)
+[26] T. Ohgami and N. Sakai, Phys. Rev. D 91, 124020 (2015)
+[27] R. Shaikh, Phys. Rev. D 98, 024044 (2018)
+[28] G. Gyulchev, P. Nedkova, V. Tinchev and S. Yazadjiev, Eur. Phys. J. C 78, 544 (2018)
+[29] M. Guerrero, G. J. Olmo, D. Rubiera-Garcia and D. Gómez Sáez-Chillón, Phys. Rev. D 105,
+084057 (2022)
+[30] H. Huang, J. Kunz, J. Yang and C. Zhang, Phys. Rev. D 107, 104060 (2023)
+[31] T. Harko, Z. Kovacs and F. S. N. Lobo, Phys. Rev. D 78, 084005 (2008)
+[32] T. Harko, Z. Kovacs and F. S. N. Lobo, Phys. Rev. D 79, 064001 (2009)
+
+26
+[33] C. Bambi, Phys. Rev. D 87, 084039 (2013)
+[34] M. Zhou, A. Cardenas-Avendano, C. Bambi, B. Kleihaus and J. Kunz, Phys. Rev. D 94,
+024036 (2016)
+[35] F. Lamy, E. Gourgoulhon, T. Paumard and F. H. Vincent, Class. Quant. Grav. 35, 115009
+(2018)
+[36] E. Deligianni, J. Kunz, P. Nedkova, S. Yazadjiev and R. Zheleva, Phys. Rev. D 104, 024048
+(2021)
+[37] E. Deligianni, B. Kleihaus, J. Kunz, P. Nedkova and S. Yazadjiev, Phys. Rev. D 104, 064043
+(2021)
+[38] T. Damour and S. N. Solodukhin, Phys. Rev. D 76, 024016 (2007)
+[39] M. Azreg-Ainou, JCAP 1507, 037 (2015)
+[40] V. Dzhunushaliev, V. Folomeev, B. Kleihaus and J. Kunz, JCAP 1608, 030 (2016)
+[41] V. Cardoso, E. Franzin and P. Pani, Phys. Rev. Lett. 116, 171101 (2016); Erratum: [Phys.
+Rev. Lett. 117, 089902 (2016)]
+[42] R. A. Konoplya and A. Zhidenko, JCAP 1612, 043 (2016)
+[43] K. K. Nandi, R. N. Izmailov, A. A. Yanbekov and A. A. Shayakhmetov, Phys. Rev. D 95,
+104011 (2017)
+[44] P. Bueno, P. A. Cano, F. Goelen, T. Hertog and B. Vercnocke, Phys. Rev. D 97, 024040
+(2018)
+[45] J. L. Blázquez-Salcedo, X. Y. Chew and J. Kunz, Phys. Rev. D 98, 044035 (2018)
+[46] B. Azad, F. Loran and A. Mostafazadeh, Eur. Phys. J. C 80, 1097 (2020)
+[47] B. Azad, J. L. Blázquez-Salcedo, X. Y. Chew, J. Kunz and D. h. Yeom, Phys. Rev. D 107,
+084024 (2023)
+[48] H. a. Shinkai and S. A. Hayward, Phys. Rev. D 66, 044005 (2002)
+[49] J. A. Gonzalez, F. S. Guzman and O. Sarbach, Class. Quant. Grav. 26, 015010 (2009)
+[50] J. A. Gonzalez, F. S. Guzman and O. Sarbach, Class. Quant. Grav. 26, 015011 (2009)
+[51] F. Cremona, F. Pirotta and L. Pizzocchero, Gen. Rel. Grav. 51, 19 (2019)
+[52] J. L. Blázquez-Salcedo, X. Y. Chew and J. Kunz, Phys. Rev. D 98, 044035 (2018)
+[53] M. A. Cuyubamba, R. A. Konoplya and A. Zhidenko, Phys. Rev. D 98, 044040 (2018)
+[54] T. Matos and D. Nunez, Class. Quant. Grav. 23, 4485 (2006)
+[55] P. E. Kashargin and S. V. Sushkov, Grav. Cosmol. 14, 80 (2008)
+
+27
+[56] P. E. Kashargin and S. V. Sushkov, Phys. Rev. D 78, 064071 (2008)
+[57] B. Kleihaus and J. Kunz, Phys. Rev. D 90, 121503 (2014)
+[58] X. Y. Chew, B. Kleihaus and J. Kunz, Phys. Rev. D 94, 104031 (2016)
+[59] M. S. Volkov, Phys. Rev. D 104, 124064 (2021)
+[60] A. Cisterna, K. Müller, K. Pallikaris and A. Viganò, Phys. Rev. D 108, 024066 (2023)
+[61] C. Barcelo and M. Visser, Class. Quant. Grav. 17, 3843 (2000)
+[62] V. Dzhunushaliev, V. Folomeev, B. Kleihaus, J. Kunz and E. Radu, Phys. Rev. D 88, 124028
+(2013)
+[63] B. Azad, J. L. Blázquez-Salcedo, F. S. Khoo and J. Kunz, Phys. Lett. B 848, 138349 (2024)
+[64] J. L. Blázquez-Salcedo and F. S. Khoo, Phys. Rev. D 107, 084031 (2023)
+[65] U. Ascher, J. Christiansen and R. D. Russell, Math. Comput. 33, 659 (1979)
+[66] J. L. Blázquez-Salcedo, F. S. Khoo, J. Kunz and L. M. González-Romero, Phys. Rev. D 109,
+no.6, 064028 (2024)
+[67] F. S. Khoo, B. Azad, J. L. Blázquez-Salcedo, L. M. González-Romero, B. Kleihaus, J. Kunz
+and F. Navarro-Lérida, [arXiv:2401.02898 [gr-qc]].
+
+

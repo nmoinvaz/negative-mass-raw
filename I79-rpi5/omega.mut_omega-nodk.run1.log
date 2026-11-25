@@ -1,0 +1,16 @@
+review_two_scalars_omega.py, issue #79. sympy 1.14.0, mpmath 1.3.0, python 3.14.10. mutation: omega-nodk
+
+== 1. Planted pairs: k = e^{-chi} (d phi1 + d phi2), m = e^{chi} (d phi1 - d phi2), omega = d chi ==
+[FAIL] omega_planted: 0 of 8 planted pairs: the candidate equals d chi at the point for two different (K, M), solves omega ^ k = -dk and omega ^ m = dm, and d omega = 0 for the symbolic field on 0 of them; failing samples [0, 1, 2, 3, 4, 5, 6, 7]
+
+== 2. Pairs with k ^ dk != 0: no chi exists, the candidate must violate omega ^ k = -dk ==
+[PASS] omega_planted_fail: 4 of 4 planted non-closable pairs: the candidate violates omega ^ k = -dk or omega ^ m = dm
+
+== 3. Ellis-Bronnikov with a normal scalar: my coordinate Ricci, lambda = 2 kappa^2, omega = 0 and omega = -d chi ==
+[FAIL] omega_eb: R_ab = lambda g_ab + a a - b b with lambda = 2*kappa**2 (symbolic in l, kappa, beta; identically zero residual: True); phi2' = C/r^2 against the arctan formula at 6 random points (80 digits): True; G - 8 pi T = 0: True; omega = 0 for the closed split: True; omega = -d chi after the boost chi = t l + l^2/3 (50 digits at 3 points, kappa = 3/5, beta = 1/3): False
+
+== 4. b(rho) with b'' + b'/rho = eps b'^2: the split, the candidate omega and the Frobenius obstruction ==
+[PASS] omega_brho: for b'' + b'/rho = eps b'^2, eps = +-1, exact in (b, b', rho): R_ab = h ((d rho)^2 - ((1 + eps b) dt + eps dx)^2); for both signs of sqrt(h) the candidate omega violates omega ^ k = -dk or omega ^ m = dm; (nu ^ d nu)_{t x rho} = b' (eps, split, violation, Frobenius): [(1, True, [True, True], True), (-1, True, [True, True], True)]
+
+checks: 2 passed, 2 failed ['omega_planted', 'omega_eb']. 14 s
+control omega-nodk: targets ['omega_planted'] FIRED

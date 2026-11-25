@@ -1,0 +1,35 @@
+[PASS] e_from_d: E = 8D/R'^2 equals det_classify.E_mult_poly: True; E/X^2 = s^2 - delta^2 - tau^2 (symbolic v): True; v = 0: E = R^2 X^4 Ehat: True; numerical-derivative D vs E at 10 points, worst relative error 4.19e-131: True
+  (0.3 s)
+[PASS] decomp_static: v = 0: Ehat = sum_(i<=6) f_i g_i with f = (X^2, X^2 m, X^2 Theta, m, Psi, 1), g = (R^2 c^2, 9 R^2 c, R^2, c - 6 s2, 1, -s2^2): True; exact rank of E in x-monomials (9) x rho-monomials (7) = 6: True
+  (0.0 s)
+[PASS] rank_lemma: 5 planted draws, r = 6: sum f_i g_i = 0 with d_F = 4, d_G = 2 (d_F + d_G <= 6): True; with d_G = 3 (sum 7 > 6) the sum is nonzero at a sample point in every draw: True; per draw (identity, d_F, d_G, 7-case nonzero) = [(True, 4, 2, True), (True, 4, 2, True), (True, 4, 2, True), (True, 4, 2, True), (True, 4, 2, True)]
+  (0.1 s)
+[PASS] lemma_x: Moebius step beta = (am+b)(cm+d)/(ad-bc): True; c != 0: t, m rho, rho in span: True, Psi cubic coefficient -2ac/(ad-bc): True, at a = 0 quadratic coefficient -2: True; c = 0: cubic coefficient of rho Theta is 18a/d: True; smallest exact rank of the six functions over 1170 parameter sets = 4 (needs >= 4; at (Fraction(-2, 1), Fraction(-2, 1), Fraction(0, 1), Fraction(-2, 1)))
+  (1.8 s)
+[PASS] lemma_rho: (alpha + gamma y)^2 = p y + q y^2 forces alpha = 0: True; coefficient of 1/rho^2 in s2^2 for exp(kappa rho) is kappa^2: True; numerical ranks of the six g_i (need >= 3): {'exp(rho/2)': 4, 'exp(-rho)': 4, 'exp(2 rho)': 4, 'rho^(1/2)': 6, 'rho': 4, 'rho^2': 5, 'rho^3': 6, '1/rho': 4, 'rho^(5/2)': 6, 'rho^4': 6, 'rho^2+1': 5, 'rho+rho^3': 6, 'cosh(rho)': 5}
+  (0.3 s)
+[PASS] const_m: coefficient of X^2 in Ehat (m = lam^2, beta = 0) is R^2 (c + 4 lam^2)(c + 5 lam^2): True; (c + 4 lam^2)(c + 5 lam^2) > 0 for c = +n/10 (n <= 60), lam = k/4 (k <= 8): True; numerical d_f at lam in {1/2, 1, 3/2} = {'0.5': 2, '1.0': 2, '1.5': 2}: True
+  (0.1 s)
+[PASS] mult_subcases: X1 = X2 = 0: E = X0^6 R1^4 - X0^4 S0^2 (rank 2 = True): True; E = 0 on R = -(eps/X0) ln(C1 + C2 ln rho), eps = +1, -1: [True, True]; planar R1 = S0 = 0: D = 0: True
+  (0.1 s)
+[PASS] add_decomp: E_add = D/h equals det_classify.E_add_poly: True; E_add = sum_(i<=5) f_i g_i: True; exact rank 5 (needs 5)
+  (0.0 s)
+[PASS] add_stratum: elimination of {f_i(a) - k_i} with X0 free: conditions on k [k3, -k4, k4, -k2**2 + k5, k2**2*k3 - k3*k5 - k4**2]; X2^2 in the ideal (so X2 = 0): True; k5 - k2^2 in the ideal: True; k2 (= c^2) unconstrained: True
+  (0.0 s)
+[PASS] add_planted: u = c x - eps ln(J0(z) + 0.3 Y0(z)) + d, c in {3/10, 1/2, 1, 3/2, 2}, eps = +-1, 5 z-points each: largest relative residual of f0.g 9.03e-131 (needs <= 1e-50); d_F = 1; numerical d_G per case [4, 4, 4, 4, 4, 4, 4, 4, 4, 4] (needs <= 4); amplitude c >= 3/10: True
+  (20.2 s)
+[FAIL] add_perturbed: R + delta, delta in {rho^2/10, rho^3/10}: smallest relative residual over 100 points 0.000372 (needs >= 1e-3)
+  (11.6 s)
+[PASS] add_xperturbed: X = c x + x^2/10: exact d_F per case [3, 3, 3, 3, 3, 3, 3, 3, 3, 3] (needs >= 2); numerical d_G [4, 4, 4, 4, 4, 4, 4, 4, 4, 4] (needs 4); d_F + d_G > 5 so Lemma L rejects it: True
+  (13.4 s)
+[PASS] trav_decomp: E/X0^2 = sum_(k=1..4) U^k E_k: True; ten-term separation F.G = E/X0^2: True; exact ranks of E at v = 1/3, 2, 5/7, 3/2, -2: {'1/3': 10, '2': 10, '5/7': 10, '3/2': 10, '-2': 10} (needs 10). Observation, rank at v = 0, 1, -1: {'0': 6, '1': 9, '-1': 9}
+  (0.2 s)
+[PASS] trav_gap: v = 1/3, R = rho^2: numerical d_G of the ten rho-functions = 5 (needs 5): the rank bound d_F + d_G <= 10 alone does not exclude the traveling case
+  (0.1 s)
+
+verdicts:
+  static v = 0: no solution with X X' R R' != 0 (d_F >= 4 unless m is constant, d_G >= 3, 4 + 3 > 6; m constant: c >= 0 against a positive product)
+  planted additive truth through the same code: NOT established
+  traveling v != 0: not decided here (rank 10, d_F + d_G <= 10, the bound alone does not exclude it)
+
+checks: 13 passed, 1 failed ['add_perturbed']. 48 s

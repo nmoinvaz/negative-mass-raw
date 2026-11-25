@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-raw/I77-mac/ind77_run2.py", line 434, in <module>
+    npos, nneg = inertia_exact(h)
+                 ~~~~~~~~~~~~~^^^
+  File "/Users/nathan/Source/negative-mass-raw/I77-mac/ind77_run2.py", line 106, in inertia_exact
+    return sc(p), sc([p[0], -p[1], p[2], -p[3]])
+           ~~^^^
+  File "/Users/nathan/Source/negative-mass-raw/I77-mac/ind77_run2.py", line 105, in <lambda>
+    sc = lambda cs: sum(1 for a, b in zip([x for x in cs if x != 0], [x for x in cs if x != 0][1:]) if a * b < 0)
+                    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-raw/I77-mac/ind77_run2.py", line 105, in <genexpr>
+    sc = lambda cs: sum(1 for a, b in zip([x for x in cs if x != 0], [x for x in cs if x != 0][1:]) if a * b < 0)
+                                                                                                       ^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/sympy/core/decorators.py", line 248, in _func
+    return func(self, other)
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/sympy/core/expr.py", line 400, in __lt__
+    return StrictLessThan(self, other)
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/sympy/core/relational.py", line 850, in __new__
+    raise TypeError("Invalid NaN comparison")
+TypeError: Invalid NaN comparison
+real 5.74
+user 5.70
+sys 0.03

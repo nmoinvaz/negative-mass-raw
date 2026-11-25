@@ -1,0 +1,14 @@
+  sigma = sin(p) e^(q/2)/3: R = a a - b b False, closure True, C = 0 True, expected True
+  sigma = p q + p^2 q: R = a a - b b False, closure True, C = 0 True, expected True
+  sigma = (p + q)^2/5: R = a a - b b False, closure True, C = 0 True, expected True
+  sigma = p^2 q/2 + p q^2/2: R = a a - b b False, closure False, C = 0 False, expected False
+  sigma = e^(p q): R = a a - b b False, closure False, C = 0 False, expected False
+  sigma = p^3 q^2/6 + p q: R = a a - b b False, closure False, C = 0 False, expected False
+[FAIL] crit_null: (i) R = K g, K = 2 sigma_pq e^(-2 sigma), R_pq = -2 sigma_pq: False; box f = -2 e^(-2 sigma) f_pq: True; d_p d_q ln|R_pq| = -e^(2 sigma)/2 C: True; (ii) 3 planted passes and 3 planted failures agree with `closure` and with C = 0: False
+  (3 s)
+
+checks: 0 passed, 1 failed ['crit_null']. 3 s
+
+real	0m4.052s
+user	0m4.205s
+sys	0m0.068s

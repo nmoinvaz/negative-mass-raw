@@ -1,0 +1,17 @@
+  (iv) u1 = (1 - 1/(1 + xi^2)^2)/2: K != 0 and C != 0 at the 5 points: True
+  (iv) u2 = 1/(2(1 + xi^2)): K != 0 and C != 0 at the 5 points: True
+  (iv) u3 = 1/(3(1 + xi^2)^2): K != 0 and C != 0 at the 5 points: False; K = 0 or C = 0 at xi = 1/3
+  (iv-b) u1 = (1 - 1/(1 + xi^2)^2)/2: points taken ['1/5', '1/3', '1/2', '2/3', '1'], C != 0 at all: True
+  (iv-b) u2 = 1/(2(1 + xi^2)): points taken ['1/5', '1/3', '1/2', '2/3', '1'], C != 0 at all: True
+  (iv-b) u3 = 1/(3(1 + xi^2)^2): points taken ['1/5', '1/2', '2/3', '1', '3/2'], C != 0 at all: True
+  planted jets c0..c8 = ['1/3', '1/2', '1/5', '2/7', '785237/1489600', '2305586117/792467200', '17578614477761/4215925504000', '4883040383638843/44857447362560', '-602823069212981242459/2983020249610240000']
+[PASS] crit_pg: (i) R = K g, K = -(b_tx - b b_xx - b_x^2): True; (ii) C[u] = Theta' for an undefined static u: True; (iii) the obstruction of `closure` is Theta'/2: True; (v) a formal solution of C = 0 with C = O(xi^5): True, the same with c6 + 1/7 has a nonzero xi^2 coefficient: True
+[FAIL] crit_pg_iv: (iv) 3 subluminal traveling bubbles have K != 0 and C != 0 at 5 fixed exact points each: False (as worded in the README; coordinator ruling A keeps it as worded)
+[PASS] crit_pg_ivb: (iv-b) the same 3 profiles at the first 5 points of a fixed list where K != 0 is verified exactly: C != 0 at all 15 points: True
+  (29 s)
+
+checks: 2 passed, 1 failed ['crit_pg_iv']. 29 s
+
+real	0m29.632s
+user	0m29.674s
+sys	0m0.093s

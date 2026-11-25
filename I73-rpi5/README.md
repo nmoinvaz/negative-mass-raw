@@ -111,4 +111,72 @@ map along a journey, any lapse other than 1, Lean statements (#135). The lemma l
 
 ## Added after the first run
 
-(nothing yet)
+**First full run** (`step3.log`, `--no-controls`, exit 1, 178 s, 11 of 12 checks pass): `closed_vs_numeric` FAILS, with 86 float64
+disagreements and 516 unresolved points, all of them on Rodal's axis at P2 t = 0. There v = 0 and s = 0, so D = al⁶ f′⁶ s⁴/16 = 0
+exactly and R^a_b is diagonal. Route N′'s eigenvalues are real (max |Im| = 0), as Type I requires. The check read the sign of
+D = −8e-59 at 50 digits (rounding noise) as Type IV, and `compare` counts every flagged point beyond the first 100 per grid as
+unresolved, here 602 flagged. So the result of the check as written is FAIL. It is not a disagreement between the closed form and
+the numerics: both give "not Type IV", and `rest` gives Type I at the exact points of this locus (he_type_exact, rank test).
+The written criterion did not say what a point with D = 0 exactly is, and #64's classification says the rank test decides.
+
+Changes made after seeing this, before run 2:
+
+1. **How D = 0 is decided in the recheck: exact factor, option (a) of the coordinator.** At a flagged point, D = 0 only if the
+   closed form has an exact vanishing factor: at v = 0 exactly (the slice value tanh 0 is exactly 0), D = α⁶ f′⁶ s⁴/16, proved in
+   `structure`, and s⁴ = (1 − c²)² is evaluated in exact rationals from the float c. It is zero exactly at c = ±1. Such a point
+   is D = 0, hence not Type IV, and route N′ must then show no complex eigenvalue (|Im| ≤ 1e-30 scale at 50 digits, as before).
+   Every other flagged point is classified by the sign of its 50-digit D, so a tiny negative D stays Type IV. No tolerance decides
+   D = 0. A D = 0 point off this locus would be reported as unresolved. My first version of this change, "|D| ≤ 1e-40 scale⁶ is
+   D = 0", was vetoed by the coordinator (a tolerance chosen after seeing the data, which would also pass a tiny negative D). A
+   rerun with it began and was stopped by me in section 2 before it reached any grid; its files are in `aborted_vetoed_rule/` and
+   it is not a result.
+2. The recheck cap of 100 points per grid is raised to 1000, so every flagged point of a grid is rechecked. This is a resource
+   limit, not a pass criterion.
+3. New check `parity`: D(v, −α, u; −c) = D(v, α, u; c) as an exact identity, seen in the tables of the first run (the Type I fraction is
+   even in α). Control `parity-break` (c not flipped) → `parity`.
+
+The criterion of `closed_vs_numeric` is otherwise as written above. Run 1's `closed_vs_numeric` FAIL (`step3.log`) stands as the result of
+the check as written; run 2 is `step3b.log`.
+
+The first run's other results are unchanged by these changes.
+
+## Added before the control runs (step 4), after run 2
+
+- **First control queue stopped.** The first `disc-sign` control, with the recheck cap of 1000, took about 11 min, because every grid
+  of a mutated run has tens of thousands of float64 disagreements and 1000 of them were rechecked at 50 digits. I stopped the queue
+  and set its files aside in `aborted_slow_controls/` (not a result).
+- **No recheck when more than 1000 points are in doubt.** Then the check fails whatever the first 1000 rechecks give, because
+  every point beyond the cap counts as unresolved, so the pass/fail result is unchanged and only the time is saved. A grid with at
+  most 1000 flagged points is rechecked in full, as in run 2. Every grid of run 2 was in that case.
+- The script also prints the list of monomials of 64 r⁶ D (section 5). No check changes.
+- The controls are the single runs of `launch_controls.sh`, one `--mutate=NAME` per process, log `ctl_NAME.log`, exit code
+  `ctl_NAME.rc`. Their targets are the table above.
+- **Second stop, `accel-lapse`.** The control with the lapse 1 + b was still in `structure` after 6 min, doing symbolic algebra on a
+  block with rational entries that violates (I2). I stopped the queue (`aborted_lapse_structure/`, not a result). `structure` and
+  `parity` now fail at once, without computing, for a block that fails (I1) or (I2): the shifted form of D is not defined for it. For
+  the unmutated block nothing changes (a dev run of sections 1 to 7 gives the same output). `accel-lapse` and `alc-drop-w2` break
+  (I2), so `structure` and `parity` fire for them by this rule and not by their content. They are not targets of those two controls.
+  Controls already finished before this change: `disc-sign`, `no-rank`, `num-drop-w2`, `num-static`, `accel-static`; their blocks satisfy (I2).
+- **Third stop, `accel-lapse` again.** With the guard in place the control passed `const_limit` (it fails there) and then did not finish
+  the symbolic axis check on its rational entries within 6 min. I stopped it (`aborted_lapse_axis/`; its log already shows `entries_E`
+  and `decouple` failing, but it is not a result). `--mutate=accel-lapse` now stops after section 3, where both of its targets
+  are decided, unless `--stop` is given. The output of that run says so. No other control or check changes.
+
+## Result and files (2026-11-23)
+
+Final run: `he_accel.py` at 79d7f00 (repository, branch `wip/i73-he-accel`; sha256 5611b27b…), stdout in the repository as
+`notes/warp/he_accel_output.txt` and copied here as `he_accel_output_final.txt`, exit 0 (`final.rc`), 40 min, 13 of 13 checks pass,
+13 of 13 controls fire, and `phantom_source.py --mutate=accel-static` fires.
+
+| file | what it is |
+|---|---|
+| `step2.log`, `he_accel_step2.py` | sections 1 to 7 at c7fe197, exit 0, 80 s, 10 checks pass |
+| `step3.log` | **run 1** of the grids at c7fe197, exit 1, `closed_vs_numeric` FAILS (see "Added after the first run") |
+| `step3b.log`, `he_accel_step3b.py` | run 2 at 7d4519a, exit 0, 13 of 13 pass, 188 s |
+| `ctl_<name>.log`, `.rc`, `.err`, `controls_queue.log`, `launch_controls.sh` | the 13 controls and phantom_source's control, one process each, at 79d7f00 (`disc-sign`, `no-rank`, `num-drop-w2`, `num-static`, `accel-static` at b83762c, which lacks only the later guards listed above; the others at 79d7f00) |
+| `final.err` | stderr of the final run (empty) |
+| `aborted_vetoed_rule/`, `aborted_slow_controls/`, `aborted_lapse_structure/`, `aborted_lapse_axis/` | runs I stopped, each for the reason given above. Not results. |
+
+The control table of this README against the observed outcome: every control failed all of its listed targets. Failures besides the
+targets are in `he_accel.md` and `he_accel_output.txt`. No target was SILENT.
+

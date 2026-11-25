@@ -1,0 +1,11 @@
+# cmd: python3 notes/warp/det_classify.py --only=planar,conical,multiplicative,bubble  (run1, 2026-11-24T02:52:51-08:00)
+[PASS] planar: b(t, x): R_3 = diag(P, -P, 0), D = 0 symbolically: True; 8 of 8 exact points of 3 planar shifts have P != 0 and pass the algebraic stage with lam = 0; 8 of 8 points of the same shifts + rho^2/10 fail it with D != 0
+  (3 s)
+[PASS] multiplicative: u = X R + v: 8D/R'^2 = the printed polynomial: True; v = 0: E0 = R^2 X^4 [X^2 R^2 A + B]: True; R' = 0 gives D = 0 and X' = 0 gives h (h^2 - Q^2): True; the first compatibility conditions have equal numerators (relation Gamma of degree 17 after removing the factors c1 p1 T+ T-): True. A classification is NOT claimed
+  (3 s)
+[FAIL] conical: b = F(x/rho): 8 rho^6 D = N(F, F', F''; eta), cubic in F'': True; its part of degree 3 in (F', F'') is 2 F w^2 (F^2 F'' - eta w), w = F' + eta F'': False; with all of (F, F', F'') small its lowest part has degree 4 and equals -w^2 ((eta^2 + 1)(eta^2 + 2) F'^2 + 2 eta F w): False
+  (1 s)
+[PASS] bubble: u = w(r): 16 r^3 D is a cubic in c^2 with the printed c^0 and c^6 coefficients: True; its coefficients and (2w - r w', (w' + r w'')^2) generate the same ideal after inverting r w' (inclusions True, True); differentiating 2 w = r w' and adding w' + r w'' = 0 gives w' = 0: True. So D = 0 on no open set of the constant-speed wall
+  (2 s)
+
+checks: 3 passed, 1 failed ['conical']. 9 s

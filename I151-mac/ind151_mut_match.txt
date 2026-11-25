@@ -1,0 +1,37 @@
+== E0: planted Ricci ==
+[PASS] E0: Painleve-Gullstrand Ricci-flat  (0 s)
+
+== E1: the background ==
+[PASS] E1: R - kappa dPhi dPhi = 0 at kappa Phi_1^2 = -2*gamma1**2 - 2: True; nonzero at 2*gamma1**2 + 2: True; box Phi = 0: True  (0 s)
+
+== E2: the map [SN26] -> [GGS09a] ==
+[PASS] E2: d rho_E = Omega dr: True; Omega^2 r^2 = rho_E^2 + a^2: True; homothety a^2 e^(pi gamma): True ; M_+ = m: True; d ln R/dx = (x - gamma)/(1 + x^2): True; {'R(gamma) = R_star': 'sympy did not close it; worst at 5 points (50 digits) 2.28E-159', 'T identity': 'sympy did not close it; worst at 5 points (50 digits) 1.53E-151'}; R_star(2, 1) = 3.889549, alpha_th = 0.574891: True  (0 s)
+
+== E3: linearization in the gauge dPhi = 0 ==
+   perturbed Ricci built (1 s)
+   linearized (1 s)
+   tt: largest coefficient 9.10E-159 (1 s)
+   tx: largest coefficient 0 (1 s)
+   xx: largest coefficient 9.10E-159 (2 s)
+   thth: largest coefficient 4.55E-159 (2 s)
+   scalar: largest coefficient 0 (2 s)
+[PASS] E3: residuals on the reduced system (largest coefficient at 6 points): {'tt': 9.104419837890877e-159, 'tx': 0.0, 'xx': 9.104419837890877e-159, 'thth': 4.552209918945439e-159, 'scalar': 0.0}; #151's printed ODE gives the same G': 0.0; P, Q continuous across the throat (rel jump at 1e-20): 8.8e-21; G'' absent from thth: True  (2 s)
+   P, Q quadratic in beta: residual 0
+
+== E4: the potential ==
+[PASS] E4: W(gamma=0) = -3/(1+x^2)^2: True; typed W vs -V + 2(dPsi0/Psi0)^2: 0.0e+00; d^2 Psi0 = V Psi0: 1.8e-172; W(gamma) printed: 0.0e+00  (2 s)
+
+== E5: planted, route 1 ==
+[PASS] E5: ell = 1.3: beta = 1.2999999999995, rel 4.2e-13 (h-spread 4.4e-14, roots in scan 2); ell = 2.4: beta = 2.3999999999989, rel 4.6e-13 (h-spread 7.8e-14, roots in scan 3); map |rho_quad(x_n) - rho_n| worst 2.3e-11  (3 s)
+
+== E6: planted, route 2 ==
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-raw/I151-mac/ind151.py", line 534, in <module>
+    bs.append(route2_refine(Spl, co_pl, h, L, DEL, target - 0.3, target + 0.3))
+              ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-raw/I151-mac/ind151.py", line 486, in route2_refine
+    return refine(fun, a, b)
+  File "/Users/nathan/Source/negative-mass-raw/I151-mac/ind151.py", line 290, in refine
+    c = (a * fb - b * fa) / (fb - fa)
+        ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+ZeroDivisionError: division by zero

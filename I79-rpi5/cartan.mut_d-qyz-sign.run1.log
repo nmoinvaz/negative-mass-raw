@@ -1,0 +1,24 @@
+review_two_scalars_cartan.py, issue #79. sympy 1.14.0, python 3.14.10. mutation: d-qyz-sign
+imports from review_cartan.py: Jets, axisymmetric_shift, cartan_ricci (module MUT = '')
+
+== 1. Planted truth: de Sitter (flat slicing) and Ellis-Bronnikov, through both routines ==
+[PASS] cartan_planted: imported Cartan routine: de Sitter R = 3H^2 eta True, Ellis-Bronnikov R_ll = -2a^2/(l^2+a^2)^2 True
+[PASS] coord_planted: my coordinate routine: de Sitter R = 3H^2 g True, Ellis-Bronnikov R_ll = -200/2809 (expected -200/2809), others 0: True
+
+== 2. Cartan routine, b = G(t, x, y^2 + z^2): the blocks of R_3 and D, exact in the jets of G ==
+[PASS] blocks_jets: R_00 = P-h, R_11 = -P-h, R_01 = Q, R_0rho = Z, R_1rho = Y, R_rho,rho = h, R_a,phi = 0; structure-equation violations 0; nonzero differences []
+[FAIL] D_cartan_jets: det R_3 (Cartan, in the frame n, d_x, e_rho at y = rho, z = 0) minus D(printed), exact in the jets of G: -8*G_000*G_001*G_011**2*rho**2 - 8*G_000*G_002*G_011**2*rho**4 - 16*G_001**2*G_010*G_011*rho**2 - 16*G_001*G_002*G_010*G_011*rho**4 + 8*G_001*G_011*G_101*rho**2 + 8*G_002*G_011*G_101*rho**4 (39 terms in D)
+  D = rho**2*(G_000**3*G_011**2*G_020 + 2*G_000**2*G_001**2*G_011**2*rho**2 - 2*G_000**2*G_001**2*G_020**2 + 4*G_000**2*G_001*G_010*G_011*G_020 + G_000**2*G_010**2*G_011**2 - G_000**2*G_011**2*G_110 - 2*G_000**2*G_011*G_020*G_101 + 8*G_000*G_001**3*G_010*G_011*rho**2 - 4*G_000*G_001**2*G_011*G_101*rho**2 + 4*G_000*G_001**2*G_020*G_110 + 4*G_000*G_001*G_010**3*G_011 - 4*G_000*G_001*G_010*G_011*G_110 - 4*
+
+== 3. det of the printed blocks, and the axis ==
+[FAIL] D_identity: det [[P-h, Q, Z], [Q, -P-h, Y], [Z, Y, h]] - D(printed) = 4*Q*Y*Z
+[PASS] axis_D: on y = z = 0: R(E_2, .), R(E_3, .) = 0, det R_3 = 0, D(printed)(rho = 0) = 0
+
+== 4. Coordinate-Christoffel Ricci at exact points: the entries of R_3 and D against the printed formulas ==
+[FAIL] D_coordinate: 2 of 9 (shift, point) pairs agree exactly in every entry of R_3 and in D; D != 0 at 2 of them; frame orthonormal
+
+== 5. Planted D: b = k rho^2 (D = h (h^2 - 4k^2)) and b = -eps ln|C - eps ln rho| (D = 0), both routes ==
+[PASS] planted_D: b = k rho^2: both routes give D = 2048*rho**2*(2*rho - 3)*(2*rho + 3)*(4*rho**2 + 9)/531441 at three points; four b(rho) solutions have D = 0 (coordinate route 80 digits, jet route 60 digits): [True, True, True, True, True, True, True, True, True, True, True]
+
+checks: 5 passed, 3 failed ['D_cartan_jets', 'D_identity', 'D_coordinate']. 7 s
+control d-qyz-sign: targets ['D_identity', 'D_cartan_jets', 'D_coordinate'] FIRED

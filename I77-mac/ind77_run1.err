@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-raw/I77-mac/ind77_run1.py", line 265, in <module>
+    out = lie_KM(Rv, gv, dR, dg, lam0, nodk=(MUT == 'nodk'))
+  File "/Users/nathan/Source/negative-mass-raw/I77-mac/ind77_run1.py", line 197, in lie_KM
+    adj[i, j] = (-1) ** (i + j) * mp.det(minor)
+                                  ~~~~~~^^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/mpmath/matrices/linalg.py", line 545, in det
+    R, p = ctx.LU_decomp(A)
+           ~~~~~~~~~~~~~^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/mpmath/matrices/linalg.py", line 140, in LU_decomp
+    ctx.swap_row(A, j, p[j])
+    ~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/mpmath/matrices/matrices.py", line 880, in swap_row
+    A[i,k], A[j,k] = A[j,k], A[i,k]
+                     ~^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/mpmath/matrices/matrices.py", line 490, in __getitem__
+    if key[0] >= self.__rows or key[1] >= self.__cols:
+       ^^^^^^^^^^^^^^^^^^^^^
+TypeError: '>=' not supported between instances of 'NoneType' and 'int'
+real 4.32
+user 4.28
+sys 0.03

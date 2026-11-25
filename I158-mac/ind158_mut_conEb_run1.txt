@@ -1,0 +1,23 @@
+== K0: planted Ricci ==
+[PASS] K0: Painleve-Gullstrand Ricci-flat  (0 s)
+
+== K1: the block for b(t, x, rho) ==
+[PASS] K1: own frame Ricci equals the printed block: True; R(e_phi, .) = 0: True  (0 s)
+
+== K2: Lemma R ==
+[PASS] K2: N = -v v^T at h + v2^2: True; h - (v0^2+v1^2)/2 = A/(2YZ), P + v0^2 + v2^2 = B/(QY): True; A = 0 gives QYZ = -2h Y^2 Z^2/(Z^2+Y^2) < 0: True; v-blocks with the single root h + v2^2: 30/30; generic blocks with none: 30/30  (0 s)
+
+== K3: b(rho) ==
+[PASS] K3: P = Z = Y = 0, Q = -(b'' + b'/rho)/2: True; C ln rho + b0 has Q = 0: True; kernel dimension 2, involutive: False  (0 s)
+
+== K4: planar shifts and Theorem P ==
+[PASS] K4: planar block diag(P, -P, 0): True; rank-1 iff lambda = -P (gcd of minors Ps + lambda): True; X-coefficients cosh/kappa sinh and cos/-kappa sin: True  (0 s)
+
+== K5: additive shifts ==
+[PASS] K5: additive block: True; v0, S, u X'' in the radical (saturated by X'R'v2): [True, True, True]; involutive (kernel dim): {(2, '3/2'): (False, 2), (3, '1'): (False, 2), (0, '3/2'): (True, 2)}  (0 s)
+
+== K6: multiplicative shifts ==
+[PASS] K6: F identity: True; quadratic coefficients with 1 - t R R' generate the unit ideal: True  (0 s)
+
+== K7: conical shifts ==
+stopped by the coordinator after 13 min wall (11 min CPU) in K7's membership loop; exit by SIGTERM

@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-raw/I164-mac/rerun/check_quotes.py", line 586, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nathan/Source/negative-mass-raw/I164-mac/rerun/check_quotes.py", line 562, in main
+    check_sha()
+    ~~~~~~~~~^^
+  File "/Users/nathan/Source/negative-mass-raw/I164-mac/rerun/check_quotes.py", line 216, in check_sha
+    got = hashlib.sha256((HERE / name.strip()).read_bytes()).hexdigest()
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/nathan/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/nathan/Source/negative-mass-raw/I164-mac/rerun/../I152-rpi5/src/2610.38659/main.tex'

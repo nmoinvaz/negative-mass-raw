@@ -1,0 +1,17 @@
+== P0: sources ==
+[PASS] P0: 15 of 15 files match; differ: []  (0.0 s)
+
+== P1: metadata ==
+[PASS] P1: 2301.05243: title True, authors True, latest v2 23 Nov 2023 True, journal 'Phys.Lett.B 848 138349' True; 2403.08387: title True, authors True, latest v1 13 Mar 2024 True, journal 'Phys.Rev.D 109 124051' True; 2510.11406: title True, authors True, latest v2 13 Mar 2026 True, journal 'Phys.Lett.B 875 140335' True; 2607.18399: title True, authors True, latest v2 8 Oct 2026 True, journal 'Phys.Rev.D 114 084019' True  (0.0 s)
+
+== P2: quoted strings ==
+[PASS] P2: 23 of 23 found; missing: []  (0.0 s)
+
+== P3: absent strings ==
+[PASS] P3: 12 of 12 absent as required; present: []  (0.0 s)
+
+== P4: re-solve from the printed tables ==
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-raw/I164-mac/ind164.py", line 187, in <module>
+    Jx = math.sqrt(-w0c / ((Dc + Ds) if MUT == 'cross' else (Dc - Ds)))
+ValueError: expected a nonnegative input, got -0.09994081339308364

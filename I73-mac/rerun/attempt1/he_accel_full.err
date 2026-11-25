@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/wt73/notes/warp/he_accel.py", line 811, in <module>
+    failed = main()
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/wt73/notes/warp/he_accel.py", line 759, in main
+    return finish(t0)
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/27911ca3-2259-460a-98f6-94387039554a/scratchpad/wt73/notes/warp/he_accel.py", line 764, in finish
+    rss = [ln for ln in open("/proc/self/status") if ln.startswith("VmHWM")]
+                        ~~~~^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/proc/self/status'

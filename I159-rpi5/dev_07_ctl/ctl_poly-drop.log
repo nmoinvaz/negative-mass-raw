@@ -1,0 +1,34 @@
+[PASS] n_build: N = 8 rho^6 D from the jets of F(x/rho) equals det_classify.conical_N(): True; lowest part in (F', F'') is the printed degree-3 part 2 F w^2((F^2 - 1)F'' - eta w), lower parts 0: True; lowest part in (F, F', F'') is the printed degree-4 part -w^2((eta^2+1)(eta^2+2)F'^2 + 2F(eta w + F'')), lower parts 0: True; D from direct derivatives of F(x/rho) = (x/rho)^3 - 2x/rho + 1/3 equals N/(8 rho^6) at 5 exact points: True
+  (1 s)
+[PASS] theta_parity: N(G, p, q, nu) has the powers nu^[0, 2, 4] and equals A0 + nu^2 A1 + nu^4 A2 with A0 = p^2 (p^2 - q)(p^2 + q), A1 = G^2 p^2 q^2 + 4G p^4 q - 2G q^3 + 4p^6 - 3p^2 q^2, A2 = 2(G(q - p) + p^2)(G^2 q^2 + 2G p^3 + 2G p^2 q + 2p^4 - q^2): True; N(F0, -F1, F2; -eta) = N(F0, F1, F2; eta), so F(-eta) solves N = 0 when F(eta) does: True
+  (0 s)
+[PASS] planted: P1 F'' + 2F'/eta = 0 gives exactly F_inf + c1/eta through eta^-8, no other coefficient: True; P2 the terms c (ln eta)^j, j = 1..3, are rejected: True; P3 F'' + F'/eta = 0 accepts one c ln eta (a0_1 free, j = 2, 3 zero): True, and c1/eta is then an obstruction (c1 = 0): True; P4 q + 4p = 8 nu^4: the pure series fails at nu^4: True, with logs g = (a4_0 - 2 T) nu^4 and nothing else through nu^8: True
+  (0 s)
+[FAIL] polygon: F_inf != 0: points (d, m) [(3, 2), (3, 4), (4, 2), (4, 4), (5, 2), (5, 4), (6, 0), (6, 2), (6, 4)], edges [('2/3', {2**(1/3)*Fi**(1/3): 1, -2**(1/3)*Fi**(1/3)/2 - 2**(1/3)*sqrt(3)*I*Fi**(1/3)/2: 1, -2**(1/3)*Fi**(1/3)/2 + 2**(1/3)*sqrt(3)*I*Fi**(1/3)/2: 1, 0: 3})], vertex balances with k > 0 []; F_inf = 0: points (d, m) [(4, 2), (4, 4), (6, 0), (6, 2), (6, 4)], edges [('1', {-sqrt(5): 1, sqrt(5): 1, 0: 4})], vertex balances with k > 0 []
+  (0 s)
+[PASS] a2_zero: g = nu^k (u0 + u1 T + u2 T^2) from g = 0, k = 1..8, F_inf symbolic nonzero and F_inf = 0: only u = 0 except (F_inf != 0, k = 2) with u = (-2 F_inf, 0, 0); F_inf != 0, k = 1: lowest order nu^4, nonzero solutions []; F_inf != 0, k = 2: lowest order nu^8, nonzero solutions [(-2*Fi, 0, 0)]; F_inf != 0, k = 3: lowest order nu^11, nonzero solutions []; F_inf = 0, k = 1: lowest order nu^4, nonzero solutions []; F_inf = 0, k = 4: lowest order nu^16, nonzero solutions []
+  (14 s)
+[PASS] series_pure: pure series F_inf - 2 F_inf/eta^2 + ...: a_3 = 0 at eta^-9: True; at eta^-10 no unknown is left and the condition is -512*Fi**4*(Fi**2 + 7) = 0, which is -512 times F_inf^4 (F_inf^2 + 7): True
+  (0 s)
+[PASS] series_log: with logs every stage k = 3..9 is solvable: True; free parameters ['a4_0']; a_{4,1} = F_inf (F_inf^2 + 7), nonzero for every real F_inf != 0: True; odd coefficients zero: True; the series through eta^-9 leaves N nonzero only from nu^16 on (orders <= nu^15 that do not vanish: [])
+  series (g = F - F_inf, nu = 1/eta, T = ln eta):
+    nu^2 T^0: -2*Fi
+    nu^4 T^0: a4_0
+    nu^4 T^1: Fi*(Fi**2 + 7)
+    nu^6 T^0: -(107*Fi**6 - 134*Fi**4 + 48*Fi**3*a4_0 + 587*Fi**2 - 384*Fi*a4_0 + 144*a4_0**2)/(216*Fi)
+    nu^6 T^1: -2*(Fi**2 + 7)*(Fi**3 - 8*Fi + 6*a4_0)/9
+    nu^6 T^2: -2*Fi*(Fi**2 + 7)**2/3
+    nu^8 T^0: -(1647*Fi**9 - 5893*Fi**7 - 8424*Fi**6*a4_0 - 17651*Fi**5 + 21072*Fi**4*a4_0 - 4320*Fi**3*a4_0**2 + 78089*Fi**3 - 104424*Fi**2*a4_0 + 41184*Fi*a4_0**2 - 6912*a4_0**3)/(13824*Fi**2)
+    nu^8 T^1: (Fi**2 + 7)*(351*Fi**6 - 878*Fi**4 + 360*Fi**3*a4_0 + 4351*Fi**2 - 3432*Fi*a4_0 + 864*a4_0**2)/(576*Fi)
+    nu^8 T^2: (Fi**2 + 7)**2*(15*Fi**3 - 143*Fi + 72*a4_0)/48
+    nu^8 T^3: Fi*(Fi**2 + 7)**3/2
+  (13 s)
+[PASS] reduced_system: N/nu^8 = -s^2 (r^2 + 2 G s) + O(nu^2) with s = r' - 2r: True; at (r, s, nu^2) = (4G, -8G, 0) the equation holds and its derivative in s is -128*G**3 != 0, so r' = 2r + s(G, r, nu^2) is analytic there: True; the line r = 4G, nu^2 = 0 is a line of equilibria of (G' = nu^2 r, r', (nu^2)' = -2 nu^2) with eigenvalues {-2: 2, 0: 1} (d s/d r = -4, d s/d G = 8): True
+  (0 s)
+[PASS] linear_modes: dN/dq = -128*Fi**3 nu^6, dN/dp = -512*Fi**3 nu^6, dN/dG is of order nu^8, smaller; for delta ~ nu^k the leading characteristic polynomial A k^2 - B k = -128*Fi**3*k*(k - 4) has the roots [0, 4] (k = 0 shifts F_inf, k = 4 shifts a_4); A != 0, so the linearization is a regular second-order equation with no exp(-kappa eta) modes: True
+  (1 s)
+[PASS] farfield_scale: u = U + eps w, w = -2 U rho^2/x^2: the eps^0, eps^1, eps^2 coefficients of D vanish: True; the eps^3 coefficient is section 7's -U Z^2[(1 - U^2) w_xx + Delta_perp w]: True; at fixed rho and x -> infinity (x^8/rho^2) times the eps^3, eps^4, eps^5, eps^6 coefficients tends to 128*U**4, -128*U**4, 0, 0, so the eps^3 and eps^4 terms are of the same order in 1/x and cancel at that order: True
+  (0 s)
+
+checks: 9 passed, 1 failed ['polygon']. 30 s
+control poly-drop: target checks ['polygon'], fired ['polygon']

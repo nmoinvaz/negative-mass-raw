@@ -1,0 +1,18 @@
+== F0: planted metrics, own Ricci routine ==
+[PASS] F0: Painleve-Gullstrand Ricci-flat: True; [('P1', True), ('P2', True), ('D2', True)]  (0 s)
+
+== F1: the wall, comoving polar coordinates, generic w(r) ==
+[PASS] F1: entries as printed: True; F = s^2 c^2 B/(8 r^3): True; B affine in s^2: True; constant term -2 w' (u^2 + V^2): True; certificate R_0rho m_d + R_1rho m_e + F = 0: True  (0 s)
+
+== F2: wall points: R_3 indefinite, no lam with rank(R_3 - lam eta_3) <= 1 ==
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-raw/I78-mac/ind78.py", line 258, in <module>
+    ok = any(e > 0 for e in ev) and any(e < 0 for e in ev) and not common_real_root_mp(M3)
+                                                                   ~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/nathan/Source/negative-mass-raw/I78-mac/ind78.py", line 91, in common_real_root_mp
+    rts = [mp.re(z) for z in mp.polyroots(co, extraprec=200) if abs(mp.im(z)) < mp.mpf(10) ** -40]
+                             ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/mpmath/calculus/polynomials.py", line 196, in polyroots
+    raise ctx.NoConvergence("Didn't converge in maxsteps=%d steps." \
+            % maxsteps)
+mpmath.libmp.libhyper.NoConvergence: Didn't converge in maxsteps=50 steps.
