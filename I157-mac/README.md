@@ -75,3 +75,29 @@ forbid; it matched only that scratch process. Later stops in this review are by 
 
 **Run 4** builds the expected basis over ℚ (`domain=QQ`), so both are monic; nothing else changes. The six mutations are
 rerun with run 4's code.
+| `ind157_run4.py`, `.txt`, `ind157_mut_*.txt` | **ind157 run 4, exit 0: 10 of 10 criteria pass; all 6 mutations fire on target.** `ind157.py` is the same version |
+
+| criterion | run 4 |
+|---|---|
+| P1 | Ric(g)(∂_ϕ, ·) = 0 at 3 points; Ric(g) = 0 for constant w |
+| P2, P3 | Rindler numerator 0; stereographic sphere gives 2 det² h |
+| C1 | det h ≡ 0 on L mod circle; −2227573072/2068048828125 at the off-L jet |
+| C2 | N_θθ ≡ 0 on L mod circle |
+| C4 | on L only N_rr is not identically 0 (the other five vanish), as J_all's unit ideal modulo 32003 requires |
+| C3 | at u = (2/5, 1, −2/5, −83/75, 0), θ = π/2: all six N_ab and det h are 0 |
+| C5 | at (u1, u3, u4) = (−3, 4, 6/5), (−1, 0, −8), (3/2, −1, 3/7): 5 coefficients of N′_θθ each, reduced lex basis (u0 − u1/2, (u2 + u1)²) in all three |
+| C6 | w = C r², r w′ + r² w″ = 4C r², so C = 0 and w′ = 0 |
+| C7 | the six weights hold exactly at r0 = 2 and 3/2 |
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `det-L` | 1 | C1, C2 | yes |
+| `ric-sign` | 1 | P2, P3, then a crash in C5's divisibility assertion | yes (P3 failed before the crash) |
+| `point` | 1 | C3 | yes |
+| `ode` | 1 | C6 | yes |
+| `H-b` | 1 | C5 | yes |
+| `weight` | 1 | C7 | yes |
+
+Re-solve: C3, R1's certificate point, from the coordinator's own numerators. C5 is evidence for #157's hypothesis H at
+three specialized points, not H: a component of V(I₂₂) off L whose projection to (u1, u3, u4) is not dense would be
+missed.
