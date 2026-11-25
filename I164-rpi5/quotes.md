@@ -9,10 +9,10 @@ Source keys: L1 = arXiv:2301.05243 v1; L2 = arXiv:2301.05243 v2; M1 = arXiv:2403
 
 | question | ids |
 |---|---|
-| Q1 | S04, L06, L09, L10, L11, L12, L15, M01, M03, M08, M09, M11, M12, M13, M18 |
-| Q2 | S05, L01, L02, L03, L07, L08, L16, L17, L18, M01, M02, M03, M10, M16, M17, M19, M20, H04, H12, H22, N09 |
-| Q3 | S06, A10, H01, H02, H03, H04, H05, H06, H07, H08, H09, H10, H11, H12, H13, H14, H15, H16, H17, H18, H19, H20, H21, H22, H23, H24, H25, H26, N01, N02, N03, N04, N05, N06, N07, N08, N09, N10, N11, N12, N14, N16, N15, G01 |
-| Q4 | X01, X02, X03, X04, X05, L04, L05, L08, L10, L12, L13, L14, L15, L19, M04, M05, M06, M07, M09, M13, M14, M15, M21, H18, N13, N14, N16 |
+| Q1 | S04, L06, L09, L10, L11, L12, L15, M01, M03, M08, M09, M11, M12, M13, M18, L20, M22 |
+| Q2 | S05, L01, L02, L03, L07, L08, L16, L17, L18, M01, M02, M03, M10, M16, M17, M19, M20, H04, H12, H22, N09, N20, L22 |
+| Q3 | S06, A10, H01, H02, H03, H04, H05, H06, H07, H08, H09, H10, H11, H12, H13, H14, H15, H16, H17, H18, H19, H20, H21, H22, H23, H24, H25, H26, N01, N02, N03, N04, N05, N06, N07, N08, N09, N10, N11, N12, N14, N16, N15, G01, H27, H28, G02 |
+| Q4 | X01, X02, X03, X04, X05, L04, L05, L08, L10, L12, L13, L14, L15, L19, M04, M05, M06, M07, M09, M13, M14, M15, M21, H18, N13, N14, N16, M23, X06, X07, N17, N18, N19 |
 
 ### S04: arXiv:2610.29941 v2 ([SN26b]), Sec. I
 PDF p. 1; TeX line 85 of `../I152-rpi5/src/2610.29941v2/research.tex`; Q1.
@@ -489,3 +489,72 @@ Q3.
 PDF p. 1; TeX line 100 of `../I152-rpi5/src/2610.38659/main.tex`; Q3.
 
 > Although this merger was not interpreted in terms of exceptional-point topology in Refs.~\cite{Blazquez-Salcedo:2025dit,Blazquez-Salcedo:2026cps}, it can now be recognized as the same characteristic spectral mechanism.
+
+### L20: arXiv:2301.05243 v2, Sec. 5, third paragraph
+PDF p. 7; TeX line 951-953 of `src/2301.05243v2/paper8.tex`; Q1.
+
+> We checked numerically that the first order correction is compatible with zero, finding that it is always smaller than $10^{-7}$
+
+Not in arXiv:2301.05243 v1 (checked).
+
+### M22: arXiv:2403.08387 v1, Sec. V
+PDF p. 21; TeX line 1191 of `src/2403.08387v1/main.tex`; Q1.
+
+> However, our numerical analysis showed, that such a first order correction is compatible with zero, in particular, it is always smaller than $10^{-7}$ in our calculations.
+
+### M23: arXiv:2403.08387 v1, Sec. II B
+PDF p. 4; TeX line 133-142 of `src/2403.08387v1/main.tex`; Q4.
+
+> ds^2 &=& -e^{f} dt^2 + e^{-f} dr^2 + {e^{-f}} R^2 \left( d\theta^2+\sin^2{(\theta)}d\varphi^2 \right) \ , \label{metric_b} \end{eqnarray} with metric function $f(r)$ \begin{eqnarray} f(r) = \frac{{C}}{r_0} \left(\tan^{-1} \! \left(\frac{r}{r_0}\right)-\frac{\pi}{2}\right) \ , \end{eqnarray} asymmetry parameter $C$, and $R^2=r^2+r_0^2$.
+
+### X06: arXiv:2610.29941 v2 ([SN26b]), Sec. I
+PDF p. 1; TeX line 85 of `../I152-rpi5/src/2610.29941v2/research.tex`; Q4.
+
+> a later slow-rotation study derives the equations for quadrupole perturbations~\cite{azad2025quad}.
+
+### X07: arXiv:2610.29941 v2 ([SN26b]), Sec. II, list item (a)
+PDF p. 3; TeX line 150 of `../I152-rpi5/src/2610.29941v2/research.tex`; Q4.
+
+> its end-mass asymmetry is $C=1$ in the notation of Refs.~\cite{azad2023,azad2024}.
+
+### H27: arXiv:2510.11406 v2, run-in "Radial perturbations"
+PDF p. 2; TeX line 269 of `src/2510.11406v2/main.tex`; also in arXiv:2510.11406 v1; Q3.
+
+> Unstable modes are characterized by $\omega_I>0$
+
+### N17: arXiv:2301.05243 v1, arXiv:2301.05243 v2, arXiv:2403.08387 v1, Abstract and body
+Q4.
+
+> absent (TeX and PDF text, case-insensitive): nearly symmetric ; near-symmetric ; almost symmetric ; small asymmetry ; slightly asymmetric. Present, as a control: asymmetry parameter.
+
+### N18: arXiv:2301.05243 v1, arXiv:2301.05243 v2, arXiv:2403.08387 v1, Abstract and body
+Q4.
+
+> absent (TeX and PDF text, case-insensitive): re:\bG *= *1\b ; geometrized ; geometric units. Present, as a control: Kerr.
+
+### N19: arXiv:2403.08387 v1, Abstract and body
+Q4.
+
+> absent (TeX and PDF text, case-insensitive): re:\bA *= *[0-9\\]|\\mathrm\{A\} *=. Present, as a control: throat area.
+
+### N20: arXiv:2301.05243 v1, arXiv:2301.05243 v2, arXiv:2403.08387 v1, Abstract and body
+Q2.
+
+> absent (TeX and PDF text, case-insensitive): reliable range ; reliable regime ; reliable region ; range of validity of the quadratic. Present, as a control: quadratic approximation.
+
+### H28: arXiv:2510.11406 v1, run-in "Results"
+PDF p. 4; TeX line 422 of `src/2510.11406v1/main.tex`; Q3.
+
+> Instead, a bifurcation arises at the critical value, where the two modes obtain non-vanishing real parts $\pm \omega_R$ (see also \cite{Gonzalez:2009hn}).
+
+Not in arXiv:2510.11406 v2 (checked).
+
+### G02: arXiv:2610.38659 v1 ([BGKKKN26]), run-in "Introduction"
+PDF p. 1; TeX line 97 of `../I152-rpi5/src/2610.38659/main.tex`; Q3.
+
+> To the best of our knowledge, the present case provides the first explicit identification, including eigenvector coalescence, of an exceptional point formed by two dynamically unstable modes, and the first such identification in the perturbation spectrum of a fully self-gravitating horizonless compact object.
+
+### L22: arXiv:2301.05243 v2, Sec. 6
+PDF p. 8; TeX line 1074 of `src/2301.05243v2/paper8.tex`; also in arXiv:2301.05243 v1; Q2.
+
+> but we have given first evidence here, that it can indeed happen for wormholes in four space-time dimensions, where rotation implies significant loss of symmetry (associated with the technical challenge).

@@ -43,13 +43,15 @@ verify the ids). Sections "Files" and "Id verification" are filled from the fetc
 | C6 | every double-quoted string in a proposed sentence occurs in a cited quote | exit 0 | `--mutate=quoted` |
 | C7 | a claim that a phrase is absent from a paper (for example "oscillating growth") is checked by a search of the TeX and the PDF text, not by reading | `@lacks` terms (plain, or `re:` regex) occur in none of the record's sources; its `@has` term occurs in all (the search can find things) | `--mutate=lacks` adds the record's `@has` term to its `@lacks` list |
 | C8 | the section label of every quote is computed from the TeX headings (`\section`, `\subsection`, run-in `\prlsec`, `\noindent{\textbf{}}`, `\paragraph`) | the quote's `@loc` starts with the computed label | `--mutate=loc` |
-| CALC1 | `recompute_jc.py` recomputes J_c/A, the mode crossing and the normalization of J from the printed tables (a recompute, labelled as such) | P1 to P5 in its docstring, fixed before the first run | `--mutate=delta`, `cross`, `area`, `w`, `table` |
+| C9 | the diff block of `proposal.md` is the diff that `make_diff.py` derives from the sentences and the stored base note (`src/critical_ghost_dffa582.md`, the note at main dffa582); `patch --dry-run` applies it; a sentence tagged {KEEP} occurs in the base note | exit 0 | `--mutate=diff` (an extra word in the first derived line), `anchor` (shifts an anchor line, so its prefix check fails), `keep` |
+| C10 | every double-quoted string in the narrative sections of `proposal.md` (answers, what is not settled, what is not carried) occurs in some record | exit 0 | `--mutate=answer` |
+| CALC1 | `recompute_jc.py` recomputes J_c/A, the mode crossing and the normalization of J from the printed tables (a recompute, labelled as such) | P1 to P6 in its docstring, fixed before the first run (the Fig. 6 readings were taken before the script ran; the area formula was chosen after seeing that the plot matched it) | `--mutate=delta`, `cross`, `area`, `w`, `table`, `min` |
 
 `run_controls.sh` runs C0 to CALC1 and every control and exits non-zero if any control behaves wrongly (`SILENT` for a
 mutation that exits 0, `NOT RUN` for a check that could not run). `check_quotes.py` exits 3, not 1, when neither
-`pdftotext` nor the `pdftext/` cache is available, so a missing tool is never mistaken for a control firing. The seven
-proposal controls (`cite` to `entry`) fire only on the target once `proposal.md` exists; before that they exit 1 because
-the file is absent, which is not a result.
+`pdftotext` nor the `pdftext/` cache is available, so a missing tool is never mistaken for a control firing. Without
+`proposal.md` the proposal controls (`cite` to `answer`) exit 1 because the file is absent, which is not a result; with it, each
+fires on its named target (`controls/check_<name>.log`).
 
 ## Predictions, written before the papers' bodies were read (a miss is reported, not adjusted)
 
@@ -92,10 +94,13 @@ Scripts and data written in steps 2 and 3 (all run with `python3 -I`, stdlib onl
 
 | file | what |
 |---|---|
-| `quotes.txt` | 92 records, the data; `quotes.md` is generated from it by `check_quotes.py --write` |
-| `check_quotes.py` | C1 to C8 and the proposal checks C3, C5, C6; 14 `--mutate=` controls |
-| `recompute_jc.py`, `recompute_run1.log` | CALC1: J_c/A and the mode crossing from the printed tables, normalization of J; 5 controls |
-| `run_controls.sh` | runs every check and every control; logs in `controls/` |
+| `quotes.txt` | 105 records (quotes and absence records), the data; `quotes.md` is generated from it by `check_quotes.py --write` |
+| `check_quotes.py` | C1 to C10; 18 `--mutate=` controls |
+| `recompute_jc.py`, `recompute_run1.log` | CALC1: J_c/A and the mode crossing from the printed tables, normalization of J, minimal surface; 6 controls |
+| `make_diff.py` | derives the unified diff of `proposal.md` against the base note; `--check` is C9 |
+| `proposal.md` | the proposed text (40 sentences with quote ids), the diff, the answers, what is not settled |
+| `run_controls.sh`, `run_controls.out` | runs every check and every control (26 runs, all `ok`); logs in `controls/` |
+| `src/critical_ghost_dffa582.md` | `notes/critical_ghost.md` at main dffa582, the base of the diff (pinned in `sha256sums.txt`) |
 | `pdftext/` | `pdftotext` output of each PDF, pinned in `sha256sums.txt`, used only when `pdftotext` is missing (the Mac) |
 
 ## Id verification (Q0, C0)
@@ -120,14 +125,14 @@ matches the published one; the journal references the notes would print for them
 ## Step 2 and 3 findings (what the sources say; answers and the proposed text follow in step 4)
 
 The four papers are read in full (both versions of 2301.05243, 2510.11406 and 2607.18399 where they exist; the TeX
-diffs between versions were read). 92 records in `quotes.txt` (`quotes.md` has locations, PDF pages and TeX lines). The
+diffs between versions were read). 105 records in `quotes.txt` (`quotes.md` has locations, PDF pages and TeX lines). The
 predictions above against the bodies:
 
 | prediction | result |
 |---|---|
 | 1 both halves of S04 are in 2403.08387; 2301.05243 may treat one asymmetry only | both halves are in both papers. 2301.05243 also covers several C (Table 1: C = 0 to 1.0; "for every value of C we have studied", L06). Wrong about 2301.05243. "Nearly symmetric" is not in either text: the second mode is "independent of C" (M12) and is shown only for C = 0, 0.05, 0.1, 0.2 (L14, L15, M13, M14) |
 | 2 S05's conjecture is hedged; "merge" may not occur in 2301.05243 or 2403.08387 | wrong. "merge and disappear" is in 2301.05243 Sec. 5 and 6 (L17, L18) and in 2403.08387 Sec. I, V, VI (M02, M16, M19), in both versions of 2301.05243. "beyond the reliable range of the quadratic approximation" is [SN26b]'s paraphrase: the sources say the crossing "is indicating a deficiency of the applied quadratic approximation" (L16, M17) and, in the same paper, that second order "should be excellent" for "most of the range J/A < J_c/A" (M10) |
-| 3 2510.11406 conjectures the complex pair by analogy; the two papers disagree | confirmed. 2510.11406: "whereas one might be tempted to conjecture that the radial instability disappears at the critical value, this is not the case" (H12) and "can only be confirmed by a non-perturbative study" (H22). 2403.08387 (Mar 2024): the instability disappears (M16, M19). 2510.11406 is later (v1 13 Oct 2025) and never says the earlier conjecture is withdrawn. 2607.18399 (Jul 2026) conjectures that the 4D radial instability "will therefore be relaxed" (N09), not that it disappears |
+| 3 2510.11406 conjectures the complex pair by analogy; the two papers disagree | confirmed. 2510.11406: "whereas one might be tempted to conjecture that the radial instability disappears at the critical value, this is not the case" (H12) and "can only be confirmed by a non-perturbative study" (H22). 2403.08387 (Mar 2024): the instability disappears (M16, M19). 2510.11406 is later (v1 13 Oct 2025); as read, it neither mentions nor withdraws the earlier "disappear" conjecture (read, not searched). 2607.18399 (Jul 2026) conjectures that the 4D radial instability "will therefore be relaxed" (N09), not that it disappears |
 | 4 "reaches zero only in the extremal limit" is in 2510.11406; 2607.18399 adds no radial statement | half wrong. Neither paper says "only". Closest: "while not yet fully radially stable" (H17), "the instability does not seem to completely vanish as long as M/r_T<1" (N05, subcritical), omega_I "tends to zero very quickly in the limit" (N04, H16). 2607.18399 has a radial subsection per class (Sec. 5.2.3, 5.3.3, 5.4.3) with the same merger statement (N06) |
 | 5 the 33 % is the zero of the C = 1 second-order rate in 2403.08387 | wrong. "33" as a percentage occurs in none of the seven TeX sources (N13, N14, N16). Printed: crossing "around J/A = 0.013, slightly above 30 %" for C = 0, 0.05, 0.1, 0.2 (L13, M15); "around 1/3" for the merger (H18). Recompute (`recompute_run1.log`): the crossing is 32.6 to 33.0 % of 1/(8 pi); the zero of the main-mode rate at C = 1 is 41.9 % (J_c/A = 0.0167, which reproduces Fig. 6 of 2403.08387 within 0.0001 at C = 0, 1.0, 1.4), not 33 % |
 
@@ -153,11 +158,31 @@ Other facts found, for the notes:
 - J is read off at infinity (M05) and w -> 2 J / r^3 for r -> infinity (recompute, P5), which is G = 1; neither paper
   states G (M21, N13). The limit J/A -> 1/(8 pi) is that of the extremal Kerr black hole (L05, M07).
 
+## Step 4: proposal and checks
+
+`proposal.md` holds 40 sentences (17 for a new §1.1 row on slowly rotating 4D wormholes, 6 for the charged row, 14 in two
+bullet groups of the §1.2 [SN26b] block, 3 for the "Not read" entry), the derived diff, the answers to Q1 to Q4 with quote
+ids, what the papers do not settle and what is not carried. `check_quotes.py` exits 0: 105 records, 40 sentences, 28
+numbers and 40 quoted strings checked against their cited records, 37 quoted strings of the narrative sections checked
+against all records, 1 {KEEP} sentence found in the base note, the diff applied by `patch --dry-run`. It also exits 0 on
+a machine without `pdftotext`, from the `pdftext/` cache (tested here with `PATH` stripped). `run_controls.sh`: 26 runs,
+26 `ok` (`run_controls.out`): 18 mutations of `check_quotes.py` and 6 of `recompute_jc.py` each exit 1 on their named
+target. No control was silent.
+
+Slips of this session, none in a posted number: the first `run_controls.sh` run used the system python, which has no sympy,
+so the `recompute_plain` run reported `NOT RUN` (exit 3) and was rerun with the venv python (`PY=`); a first draft of
+`quotes.txt` had a placeholder record (X05) that was replaced before the first commit; six PDF fragments crossed a page
+break or a footnote and were shortened or split with `||`; a `@has` control used a case-sensitive match until the
+`Kerr` record failed; the recompute's first table parser tried to read the header row as numbers. The README of step 1
+said "paragraph 6" for the sentence of [BGKKKN26] that names both charged papers; it is paragraph 5, second sentence
+(quote G01, C8 computes the section label only). An untracked folder `src/2403.08387v1/figs/` from the extraction is not
+committed; nothing in it is quoted (the figure readings were taken from the PDF).
+
 ## Status
 
 | step | state |
 |---|---|
 | 1 ids verified, sources fetched | done (8aac3b8) |
-| 2 slow-rotation papers read, `quotes.md` | done; checks and controls in `run_controls.sh` pass except the seven proposal controls |
+| 2 slow-rotation papers read, `quotes.md` | done (1380379) |
 | 3 charged-wormhole papers read | done (same `quotes.txt`) |
-| 4 `proposal.md`, final checks and controls | |
+| 4 `proposal.md`, final checks and controls | done |

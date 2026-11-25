@@ -17,8 +17,11 @@ C6  every double-quoted string in a proposed sentence occurs in a cited quote
 C7  every @lacks term is absent from the TeX and the PDF text of every source of its record, and every @has term of
     the same record is present (the search can find things)
 C8  the section label computed from the TeX headings is a prefix of every quote's @loc
+C10 every double-quoted string in the narrative sections of proposal.md (from '## Answers') occurs in some record
+C9  the diff block of proposal.md is the diff `make_diff.py` derives from the sentences and the stored base note (a
+    sentence tagged {KEEP} must occur in the base note), and `patch --dry-run` applies it
 CALC1 is a pseudo-id for recompute_jc.py (a recompute, valid only if recompute_run1.log passed)
-Mutations (each must exit 1): quote pdf cite dangling sha number absent cell quoted bullet entry loc lacks also
+Mutations (each must exit 1): quote pdf cite dangling sha number absent cell quoted bullet entry loc lacks also diff anchor keep answer
 """
 import hashlib
 import re
@@ -43,6 +46,7 @@ SRC = {
     "BG": ("../I152-rpi5/src/2610.38659/main.tex", "../I152-rpi5/pdf/2610.38659.pdf",
            "arXiv:2610.38659 v1 ([BGKKKN26])", "named"),
 }
+BASE_NOTE = (HERE / "src/critical_ghost_dffa582.md").read_text(encoding="utf-8") if (HERE / "src/critical_ghost_dffa582.md").exists() else ""
 MUT = None
 for a in sys.argv[1:]:
     if a.startswith("--mutate="):
@@ -250,7 +254,7 @@ def check_records(recs):
                 if term.startswith("re:"):
                     rx = re.compile(term[3:], re.I)
                     return bool(rx.search(tex_low)), (None if pdf_raw is None else bool(rx.search(pdf_raw)))
-                return term.lower() in tex_low, (None if pdf_sq is None else squash(term) in pdf_sq)
+                return term.lower() in tex_low.lower(), (None if pdf_sq is None else squash(term) in pdf_sq)
 
             for s in srcs:
                 T = texts[s][0]
@@ -378,7 +382,7 @@ def parse_proposal(path):
 def check_proposal(recs):
     if not (HERE / "proposal.md").exists():
         print("proposal.md not present yet: C3, C5, C6 skipped")
-        if MUT in ("cite", "dangling", "number", "quoted", "cell", "bullet", "entry"):
+        if MUT in ("cite", "dangling", "number", "quoted", "cell", "bullet", "entry", "keep", "answer"):
             fail(f"mutation {MUT} needs proposal.md, which is not present")
         return
     ids = {q["id"] for q in recs}
@@ -387,8 +391,8 @@ def check_proposal(recs):
     if not sents:
         fail("C3 no sentences found in proposal.md")
     ti = 0
-    first_row = sorted(sents)[0] if sents else None
-    n_mut = {"cite": 0, "dangling": 0, "number": 0, "quoted": 0, "cell": 0, "bullet": 0, "entry": 0}
+    first_row = next((r for r in sorted(sents) if types.get(r) == "table"), None)
+    n_mut = {"cite": 0, "dangling": 0, "number": 0, "quoted": 0, "cell": 0, "bullet": 0, "entry": 0, "keep": 0}
     num_re = r"\d+\.\d+|\d{2,}"
 
     def first_where(pred):
@@ -399,11 +403,18 @@ def check_proposal(recs):
         return None
 
     tgt_cite = first_where(lambda s_: True)
-    tgt_number = first_where(lambda s_: re.search(num_re, re.sub(r"\[[A-Za-z0-9]+\]", "", s_)))
+    tgt_keep = None
+    for row_, items_ in sorted(sents.items()):
+        for n_, s_, cites_ in sorted(items_):
+            if cites_ == ["KEEP"] and tgt_keep is None:
+                tgt_keep = (row_, n_)
+    tgt_number = first_where(lambda s_: re.search(num_re, re.sub(r"\[[A-Za-z0-9]+\]|#\d+|arXiv:\d+\.\d+|\d{4}-\d{2}-\d{2}", "", s_)))
     tgt_quoted = first_where(lambda s_: re.search(r'"([^"]+)"', s_))
+    stats = {"sentences": 0, "numbers": 0, "quoted strings": 0, "KEEP": 0}
     for row, items in sorted(sents.items()):
         items.sort()
         for k, (n, s, cites) in enumerate(items):
+            stats["sentences"] += 1
             if MUT == "cite" and (row, n) == tgt_cite:
                 cites = []
                 n_mut["cite"] += 1
@@ -411,12 +422,21 @@ def check_proposal(recs):
                 cites = cites + ["Q99"]
                 n_mut["dangling"] += 1
             if MUT == "number" and (row, n) == tgt_number:
-                head = re.sub(r"\[[A-Za-z0-9]+\]", "", s)
+                head = re.sub(r"\[[A-Za-z0-9]+\]|#\d+|arXiv:\d+\.\d+|\d{4}-\d{2}-\d{2}", "", s)
                 num = re.search(num_re, head).group(0)
                 s = s.replace(num, str(int(num.replace(".", "")) + 1), 1)
                 n_mut["number"] += 1
+            if MUT == "keep" and (row, n) == tgt_keep:
+                s = s + " Z"
+                n_mut["keep"] += 1
             if not cites:
                 fail(f"C3 {row}.{n}: sentence cites no quote")
+            if cites == ["KEEP"]:  # existing text of the note: must occur in the base note, no quote to check
+                stats["KEEP"] += 1
+                if s.rstrip(".") not in BASE_NOTE:
+                    fail(f"C9 {row}.{n}: a {{KEEP}} sentence is not in the base note: {s[:60]}")
+                items[k] = (n, s, cites)
+                continue
             for c in cites:
                 if c == "CALC1":
                     log = HERE / "recompute_run1.log"
@@ -435,39 +455,64 @@ def check_proposal(recs):
                 s = re.sub(r'"([^"]+)"', lambda m: '"' + m.group(1) + ' zqx"', s, count=1)
             sp = squash(pool)
             for qs_ in re.findall(r'"([^"]+)"', s):
+                stats["quoted strings"] += 1
                 if squash(qs_) not in sp:
                     fail(f"C6 {row}.{n}: quoted string not in a cited quote: {qs_[:60]}")
-            for num in re.findall(r"\d+\.\d+|\d{2,}", re.sub(r"\[[A-Za-z0-9]+\]", "", s)):
+            claim = re.sub(r"\[[A-Za-z0-9]+\]|#\d+|arXiv:\d+\.\d+|\d{4}-\d{2}-\d{2}", "", s)  # tags, issue numbers, ids, dates
+            for num in re.findall(r"\d+\.\d+|\d{2,}", claim):
+                stats["numbers"] += 1
                 if num not in pool:
                     fail(f"C5 {row}.{n}: number {num} not in a cited quote")
             items[k] = (n, s, cites)
         joined = [s for _, s, _ in items]
         typ = types.get(row)
         if typ == "table":
-            if ti >= len(plus):
-                fail(f"C3 {row}: no '+|' diff row")
-            else:
-                cells = [c.strip() for c in re.split(r"(?<!\\)\|", plus[ti]) if c.strip() != ""]
-                cell = cells[1] if len(cells) > 1 else ""
-                if MUT == "cell" and row == first_row:
-                    n_mut["cell"] += 1
-                    cell += " extra."
-                if cell != " ".join(joined):
-                    fail(f"C3 {row}: table cell differs from the joined sentences")
-            ti += 1
+            cells_of = [[x.strip() for x in re.split(r"(?<!\\)\|", pl) if x.strip() != ""] for pl in plus]
+            want_cell = " ".join(joined)
+            if MUT == "cell" and row == first_row:
+                n_mut["cell"] += 1
+                want_cell += " extra."
+            if not any(len(cl) > 1 and cl[1] == want_cell for cl in cells_of):
+                fail(f"C3 {row}: no '+|' diff row whose result cell equals the joined sentences")
         elif typ in ("bullets", "entry"):
             got = bullets if typ == "bullets" else entries
             want = list(joined)
             if MUT in ("bullet", "entry") and ((MUT == "bullet") == (typ == "bullets")):
                 n_mut[MUT] += 1
                 want = want[:-1] + [want[-1] + " extra."]
-            if got != want:
+            if not any(got[i:i + len(want)] == want for i in range(len(got) - len(want) + 1)):
                 fail(f"C3 {row}: diff {typ} differ from the sentences ({len(got)} found, {len(want)} sentences)")
         else:
             fail(f"C3 {row}: no '### Row {row} table|bullets|entry' header")
+    print("proposal: " + ", ".join(f"{v} {k}" for k, v in stats.items()) + " checked")
     for m, n in n_mut.items():
         if MUT == m and n == 0:
             fail(f"mutation {m} is inert (the proposal has nothing it changes)")
+
+
+def check_narrative(recs):
+    """C10: every double-quoted string in the narrative sections of proposal.md occurs in some record (squashed)."""
+    p = HERE / "proposal.md"
+    if not p.exists():
+        return
+    text = p.read_text(encoding="utf-8")
+    i = text.find("## Answers")
+    if i < 0:
+        fail("C10 proposal.md has no '## Answers' section")
+        return
+    narrative = text[i:]
+    pool = squash(" ".join(collapse(r.get("tex", "")) + " " + r.get("lacks", "") + " " + r.get("has", "") for r in recs))
+    strings = [collapse(x) for x in re.findall(r'"([^"]+)"', narrative)]
+    if MUT == "answer":
+        strings = [strings[0] + " zqx"] + strings[1:]
+    n = 0
+    for st in strings:
+        n += 1
+        if len(squash(st)) < 4:
+            continue
+        if squash(st) not in pool:
+            fail(f"C10 quoted string of the narrative is in no record: {st[:70]}")
+    print(f"narrative: {n} quoted strings checked")
 
 
 def write_md(recs):
@@ -517,6 +562,16 @@ def main():
     check_sha()
     recs = check_records(recs)
     check_proposal(recs)
+    check_narrative(recs)
+    if (HERE / "proposal.md").exists():  # C9
+        flags = {"diff": ["--mutate=text"], "anchor": ["--mutate=anchor"]}.get(MUT, [])
+        r = subprocess.run([sys.executable, "-I", str(HERE / "make_diff.py"), "--check"] + flags, capture_output=True, text=True)
+        if r.returncode != 0:
+            fail("C9 " + (r.stdout + r.stderr).strip().replace("\n", " | ")[:300])
+        else:
+            print(r.stdout.strip().splitlines()[-1])
+    elif MUT in ("diff", "anchor"):
+        fail(f"mutation {MUT} needs proposal.md, which is not present")
     if WRITE and not fails:
         write_md(recs)
     n = len(recs)

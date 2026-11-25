@@ -16,7 +16,7 @@ run() { # name expected_rc cmd...
   else echo "WRONG   $name rc=$rc want $want"; bad=1; fi
 }
 run check_plain 0 $PY -I check_quotes.py
-for m in quote pdf cite dangling sha number absent cell quoted bullet entry loc lacks also; do run check_$m 1 $PY -I check_quotes.py --mutate=$m; done
+for m in quote pdf cite dangling sha number absent cell quoted bullet entry loc lacks also diff anchor keep answer; do run check_$m 1 $PY -I check_quotes.py --mutate=$m; done
 run recompute_plain 0 $PY -I recompute_jc.py
-for m in delta cross area w table; do run recompute_$m 1 $PY -I recompute_jc.py --mutate=$m; done
+for m in delta cross area w table min; do run recompute_$m 1 $PY -I recompute_jc.py --mutate=$m; done
 exit $bad

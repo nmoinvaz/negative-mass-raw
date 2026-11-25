@@ -18,7 +18,9 @@ rendering of PDF p. 20 of 2403.08387 v1, axes calibrated on the printed tick lab
   P4  Table 2 of 2301.05243 v2 equals Table II of 2403.08387 v1
   P5  the printed w(r) of 2403.08387 v1 (Eq. 12) tends to 2 J / r^3 for r -> infinity, which is the normalization
       g_{t phi} = -2 J sin^2(theta) / r of G = 1 (neither paper states G)
-Mutations (each must exit 1): delta cross area w table
+  P6  the minimum of the areal radius e^{-f} (r^2 + 1) of the static metric printed in Sec. II B of 2403.08387 v1 lies
+      at r = C/2 (within 1e-6) for C = 0.5, 1.0, 1.4, so for C != 0 the surface r = 0 is not the minimal surface
+Mutations (each must exit 1): delta cross area w table min
 """
 import math
 import re
@@ -84,6 +86,23 @@ def main():
         w0, D = l1[0.4]
         l1[0.4] = (w0, D + 0.001)
     area = area_min if MUT == "area" else area_r0
+    # ---- P6
+    for c in (0.5, 1.0, 1.4):
+        a, b = -5.0, 5.0
+        g = (math.sqrt(5) - 1) / 2
+        fun = lambda r: math.exp(-c * (math.atan(r) - math.pi / 2)) * (r * r + 1)
+        x1, x2 = b - g * (b - a), a + g * (b - a)
+        while b - a > 1e-10:
+            if fun(x1) < fun(x2):
+                b, x2 = x2, x1
+                x1 = b - g * (b - a)
+            else:
+                a, x1 = x1, x2
+                x2 = a + g * (b - a)
+        rmin = 0.0 if MUT == "min" else (a + b) / 2
+        if abs(rmin - c / 2) > 1e-6:
+            fail(f"P6 C={c}: the minimum of the areal radius is at r = {rmin:.6f}, not C/2 = {c / 2}")
+    print("P6 the minimum of e^{-f} (r^2 + 1) lies at r = C/2 for C = 0.5, 1.0, 1.4")
     if MUT == "cross":
         t2 = {c: -d for c, d in t2.items()}
 
@@ -127,11 +146,11 @@ def main():
             fail(f"P1 C={c}: J_x/A = {cross[c]:.5f} does not round to 0.013")
     # ---- numbers for the proposal
     if 1.0 in jc and len(cross) == 4:
-        print(f"VALUE J_c/A at C=1 with the r=0 area: {jc[1.0] / area_r0(1.0):.4f}, i.e. {EIGHT_PI * jc[1.0] / area_r0(1.0) * 100:.0f}% of 1/(8 pi)")
-        print(f"VALUE J_c/A at C=1 with the minimal-surface area: {jc[1.0] / area_min(1.0):.4f}, i.e. {EIGHT_PI * jc[1.0] / area_min(1.0) * 100:.0f}% of 1/(8 pi)")
+        print(f"VALUE J_c/A at C=1 with the r=0 area: {jc[1.0] / area_r0(1.0):.4f}, i.e. {EIGHT_PI * jc[1.0] / area_r0(1.0) * 100:.1f}% of 1/(8 pi)")
+        print(f"VALUE J_c/A at C=1 with the minimal-surface area: {jc[1.0] / area_min(1.0):.4f}, i.e. {EIGHT_PI * jc[1.0] / area_min(1.0) * 100:.1f}% of 1/(8 pi)")
         pcts = ", ".join(f"{EIGHT_PI * cross[c] * 100:.1f}" for c in (0.0, 0.05, 0.1, 0.2))
         print(f"VALUE crossing J_x/A at C = 0, 0.05, 0.1, 0.2 in percent of 1/(8 pi): {pcts}")
-        print(f"VALUE J_c/A at C = 0: {jc[0.0] / area_r0(0.0):.4f}, i.e. {EIGHT_PI * jc[0.0] / area_r0(0.0) * 100:.0f}% of 1/(8 pi)")
+        print(f"VALUE J_c/A at C = 0: {jc[0.0] / area_r0(0.0):.4f}, i.e. {EIGHT_PI * jc[0.0] / area_r0(0.0) * 100:.1f}% of 1/(8 pi)")
     # ---- P5
     try:
         import sympy as sp
