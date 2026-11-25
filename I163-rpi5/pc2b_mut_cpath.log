@@ -1,0 +1,8 @@
+ellis_efold.py --only=P-C2b --mutate=cpath  python 3.14.10 numpy 2.5.4 sympy 1.14.0 mpmath 1.3.0 on aarch64
+mutation: cpath (method C's semicircle radius -> 0)
+FAIL  P-C2b: gamma_1 = 2.5: raised ValueError: non-finite right-hand side
+FAIL  P-C2b: gamma_1 = 4.0: raised ValueError: non-finite right-hand side
+FAIL  P-C2b: gamma_1 = 6.0: raised ValueError: non-finite right-hand side
+FAIL  P-C2b: gamma_1 = 8.0: raised ValueError: non-finite right-hand side
+FAIL  P-C2b: gamma_1 = 10.0: raised ValueError: non-finite right-hand side
+only P-C2b under mutation cpath: failed ids ['P-C2b']
