@@ -1,0 +1,16 @@
+== P0: sources ==
+[PASS] P0: 15 of 15 files match; differ: []  (0.0 s)
+
+== P1: metadata ==
+[FAIL] P1: 2301.05243: title True, authors False, latest v2 23 Nov 2023 True, journal 'Phys.Lett.B 848 138349' True; 2403.08387: title True, authors False, latest v1 13 Mar 2024 True, journal 'Phys.Rev.D 109 124051' True; 2510.11406: title True, authors True, latest v2 13 Mar 2026 True, journal 'Phys.Lett.B 875 140335' True; 2607.18399: title True, authors True, latest v2 8 Oct 2026 True, journal 'Phys.Rev.D 114 084019' True  (0.0 s)
+
+== P2: quoted strings ==
+[PASS] P2: 23 of 23 found; missing: []  (0.0 s)
+
+== P3: absent strings ==
+[PASS] P3: 12 of 12 absent as required; present: []  (0.0 s)
+
+== P4: re-solve from the printed tables ==
+[PASS] P4: L and M tables agree where shared: True; area formula in L: True; C = 1: J_c = 1.00778, 8 pi J_c/A = 41.90 %; crossings (J_x/A, 8 pi J_x/A %): {0.0: (0.01296, 32.58), 0.05: (0.01305, 32.79), 0.1: (0.01311, 32.94), 0.2: (0.01314, 33.03)}  (0.0 s)
+
+checks failed: ['P1']; 0.0 s; mutation: author

@@ -51,4 +51,48 @@ Mutations, each must exit 1 with its target failing:
 
 ## Results
 
-(after the runs)
+| file | what |
+|---|---|
+| `rerun_run_controls.txt`, `rerun1_controls/` | rerun 1: run from a copy at the wrong depth, so `../I152-rpi5` was missing; the quote checks crashed (a layout error of the coordinator's, not of #164's code) |
+| `rerun_run_controls_run2.txt`, `rerun2_controls/` | rerun 2, from a scratch copy with the sibling layout (`I152-rpi5` beside it) |
+| `fetch.txt` | the coordinator's fetch: URLs and sha256 |
+| `ind164_run1.py` … `run3.py`, `.txt` | runs 1 to 3 (`ind164.py` is the same version as run 3) |
+| `ind164_mut_*.txt`, `ind164_mut_cross_run1.txt` | the 6 mutations; `cross` in its first (crashed) and second form |
+
+**Rerun 2** (exit 0): 28 of 28 runs `ok`. `check_quotes.py` passes plain: 105 records, with the PDF text from
+`pdftotext` on the Mac. All 18 of its controls exit 1. `recompute_jc.py` passes, and its 6 controls fire.
+`scan_ai_text.py` finds 0 hits, and its planted control fires.
+
+**ind164.** Run 1 failed P0 as coded: the code compared 14 files, not 15. It left out [BGKKKN26]'s TeX, which
+`sha256sums.txt` also lists. That is a defect of the coordinator's code; the 14 it did compare matched. Run 2 adds the
+file. In run 2 the `cross` mutation crashed (the square root of a negative number) before P4 reported, so it was
+**silent** there. In run 3 a missing real crossing is reported as P4's failure, and runs 2 and 3 are identical. Run 3
+(exit 0):
+
+| criterion | run 3 |
+|---|---|
+| P0 | 15 of 15 files have #164's sha256 |
+| P1 | titles, authors, latest versions and dates, and INSPIRE journal references, as proposed |
+| P2 | 23 of 23 quoted strings found in their sources |
+| P3 | 12 of 12 strings absent where required: "33\%" in none of L, M, H, N; "oscillating growth", "oscillatory instability" in neither H nor N; "nearly symmetric", "reliable range" in neither L nor M |
+| P4 | the L and M tables agree where they share C; the area formula is in L; at C = 1, J_c = 1.00778 and 8πJ_c/A = 41.90 %; the crossings are 32.58, 32.79, 32.94, 33.03 % at C = 0, 0.05, 0.1, 0.2, with J_x/A = 0.01296 … 0.01314 |
+
+Re-solve: P4, from the coordinator's own parse of the printed tables. The C = 1 zero of the main mode is 41.9 % of the
+extremal value, and the two-mode crossing at C = 0.2 is 33.0 %. [SN26b]'s "33 % on this axis", which [SN26b]
+attributes to the C = 1 zero, matches the C = 0.2 crossing instead. [ABKK23] and [ABKK24] print no throat area
+beyond the static one. A factor between the conventions could reconcile the two numbers: 41.9 % × π/4 = 32.9 %. That
+is an observation, not tested here.
+
+Also read in the TeX by the coordinator: [BGKKN26] Sec. 5.1.2 (line 791 of v2): "the fundamental l=2 b_2 branch becomes
+unstable for M/r_T⪆0.3", for the uncharged Ellis–Bronnikov family. #164 lists it among its disagreements but not in the
+proposal. The note carries it as a coordinator sentence.
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `sha` | 1 | P0 | yes |
+| `author` | 1 | P1 | yes |
+| `quote` | 1 | P2 | yes |
+| `absent` | 1 | P3 | yes |
+| `area` | 1 | P4 | yes |
+| `cross` (run 2) | 1 | crashed before P4 (**silent**) | no |
+| `cross` (run 3) | 1 | P4 | yes |
