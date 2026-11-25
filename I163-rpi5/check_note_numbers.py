@@ -16,7 +16,7 @@ def need(label, ok):
 # second-row table: T, printed, diff per gamma_1
 for m in re.finditer(r"Table I, second row: gamma_1 = +([0-9.]+)  T = ([0-9.]+)  printed ([0-9.]+)  diff ([+-][0-9.]+)", out):
     g, T, pr, df = m.groups()
-    need(f"row 2 gamma_1 = {g}: '{float(g):.1f} |' ... {T} | {pr} | {df}", re.search(rf"\| {float(g):.1f} \| [0-9.]+ \| {T} \| {pr} \| {df} \|", part) is not None)
+    need(f"row 2 gamma_1 = {g}: '{float(g):.1f} |' ... {T} | {pr} | {df}", re.search(rf"\| {float(g):.1f} \| [0-9.]+ \| {T} \| {pr} \| {re.escape(df)} \|", part) is not None)
 # b of the table
 for m in re.finditer(r"gamma_1 = +([0-9.]+): b = beta-hat = ([0-9.]+)  ", out):
     g, b = m.groups()
