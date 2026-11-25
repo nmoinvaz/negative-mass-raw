@@ -85,17 +85,55 @@ largest working set was 84 MB.
   copy of `../I4-win/convergence_l5_w0.7603.partial.csv` (65 results, identical hash). Queue started 2026-11-22 20:02:30
   (`queue.log`). Its only new `start` record is `rtol 1e-12` at gamma = 6000, pid 4940, at 20:03:12 (about 40 s of problem
   setup after the launch). The cap falls at 2026-11-24 08:03; the coordinator's estimate is about 25 h.
-- `run_l6`: not started; it waits for the coordinator's decision (estimate about 89 h).
-- `run_l6`: `CAP_S=432000` (5 days, the coordinator's CAP6) `GAMS=<G6> PARTIAL_DIR=. NPROC=1 python convergence.py 6`, on a copy
+- `run_l6` (run 1; it was killed on 2026-11-24 at about 23:06 and run 2, `run_l6_run2`, restarted it, see Amendment 1):
+  `CAP_S=432000` (5 days, the coordinator's CAP6) `GAMS=<G6> PARTIAL_DIR=. NPROC=1 python convergence.py 6`, on a copy
   of `../I4-win/convergence_l6_w0.7603.partial.csv` (65 results, identical hash). Started beside `run_l5` after a gate reading
   of 1.77 cores for choptuik-large-d (`cores.log`). Its only new `start` record is `rtol 1e-12` at gamma = 12000, pid 880, at
-  2026-11-22 21:41:49. The cap falls at 2026-11-27 21:41; the coordinator's estimate is about 89 h (about 2026-11-26 14:40).
+  2026-11-22 21:41:49. The cap would have fallen at 2026-11-27 21:41; the coordinator's estimate was about 89 h.
 - The keep-awake of `run_l5` ended at 21:42:02 with its queue, which I replaced by a queue `+run_l5 run_l6` and its own
   keep-awake (started 21:40:55) so one holds until the last run ends.
 - `status.ps1`: elapsed wall time since each run's `start` record, the worker's cpu seconds and their ratio (below 1 or
   gaps in `memory-sampler.log` show a suspended laptop). The one sampler gap so far, 19:46:38 to 20:02:30, is the sampler
   stopped between the controls and `run_l5`, not a standby. cpu counts from the worker's creation, so it exceeds the wall
   time since the start record by the problem setup (about 40 s) at the start of a run.
+
+## Amendments
+
+1. **2026-11-24: run 1 of l = 6 was killed and run 2 restarted it.**
+   - Run 1 (`run_l6`, worker pid 880, started 2026-11-22 21:41:49) was killed at about 23:06 on 2026-11-24, after 49.4 h of
+     wall time (the memory sampler's last line, 23:05:50, shows 175,540 cpu-s). The coordinator replaced the runner session
+     to change accounts, and removing the session's terminal ended the cmd/start chain, which was still inside the
+     terminal's job. It left no result, no `done`, `capped` or `died` record and no `run_l6.log.exit`. Its files stay as
+     they were: `run_l6.log`, `run_l6.stderr`, `memory-sampler.log` (through 23:05:50) and `queue.log`. The keep-awake,
+     queue and sampler of run 1 ended with it. The partial file is not edited: it keeps its 65 results and run 1's `start`
+     record (pid 880), and `convergence.py` resumes the one missing task from it, as the regen controls showed.
+   - Run 2 (`run_l6_run2`): `job_run_l6_run2.cmd` is written by `make_launchers.py run_l6_run2` from the new line of
+     `jobs.txt` and is `job_run_l6.cmd` byte for byte except `run_l6` -> `run_l6_run2` in the three output names: the same
+     environment (one thread each, `NPROC=1`), `CAP_S=432000`, `GAMS=<G6>`, `PARTIAL_DIR` this folder and `python
+     convergence.py 6`. It writes `run_l6_run2.log`, `run_l6_run2.stderr` and `run_l6_run2.log.exit`. `CAP_S` counts from
+     run 2's own start, so the cap falls 120 h after it, at 2026-11-29 23:13. The estimate is about 89 h (about
+     2026-11-28 16:00); l = 5 took 0.9 of its estimate.
+   - Run 2 is started through Task Scheduler so that it outlives the session that starts it. `register_task.ps1` registers
+     a task with no trigger, and `schtasks /run /tn nm-i114-l6-run2` started it at 2026-11-24 23:12:51. Its `start` record
+     in the partial file: `rtol 1e-12` at gamma = 12000, worker pid 24560, time 23:13:54 local (the worker was created at
+     23:13:24 and set up for about 30 s). Process tree: worker 24560 <- main python 10820 <- venv launcher 7564 <- cmd
+     9320 (the wrapper) <- svchost 3420 (the Schedule service) <- services.exe, with no shell of mine in it. Priority class
+     BelowNormal. The partial file now has its 65 result lines and two `start` records, run 1's and run 2's.
+   - Settings that differ from `schtasks /create /sc once /st 23:59 /f`, which the coordinator proposed: no trigger (the task
+     cannot start a second worker at 23:59); no execution time limit (the `schtasks` default is 72 h, which would have
+     killed an 89 h run); no stop or refusal on battery (`DisallowStartIfOnBatteries` and `StopIfGoingOnBatteries` are
+     false; the laptop is still to stay plugged in); one instance at a time (`IgnoreNew`). An `S4U` logon (survives a
+     logoff) was refused without elevation (`Access is denied`), so the tasks use the interactive token: they survive
+     the end of the session and of the `hc` call, not a logoff of the Windows user.
+   - Keep-awake: task `nm-i114-keepawake-run2` runs `keepawake.ps1 -QueuePid 9320` (the wrapper), started 23:13:15
+     (`queue.log`), and releases when the wrapper ends. No power setting or plan is changed.
+   - Memory sampler: task `nm-i114-sampler-run2` runs `sample.ps1` once a minute into the new `memory-sampler-run2.log`
+     (run 2's worker included), started 23:13:15. `status_run2.ps1` is `status.ps1` for run 2.
+   - The row's time column sums the seconds of the results, so it will count run 2's wall time only, not run 1's 49.4 h,
+     which produced no result.
+   - Stopping, if ever needed: `schtasks /end /tn <name>` of these three tasks only, never a process by name. When run 2
+     ends the sampler task is ended and the three tasks are deleted (`schtasks /end`, `/delete /f`), and the end is logged
+     here.
 
 ## Results: l = 5 (`run_l5`, finished 2026-11-23 18:28, exit 0)
 
