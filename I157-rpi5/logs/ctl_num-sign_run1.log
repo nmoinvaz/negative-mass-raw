@@ -1,0 +1,14 @@
+three_scalars_ideal.py, issue #157. sympy 1.14.0, python 3.14.10, mutation: num-sign (the Gamma Gamma term of the Ricci numerator gets the opposite sign). raw: /home/nathan/Source/negative-mass-raw/I157-rpi5
+  stored verdicts.json: sha256 87ec05b68286756e
+  stored certs/ODE.json: sha256 8372446d66fb3c93
+
+== 1. The numerators det(h)^2 Ric(h) of the wall, at r = 1, and their checks ==
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-i157/notes/warp/three_scalars_ideal.py", line 1253, in <module>
+    failed = main(opts)
+  File "/home/nathan/Source/negative-mass-i157/notes/warp/three_scalars_ideal.py", line 1151, in main
+    Q = strip_axis(Qfull)
+  File "/home/nathan/Source/negative-mass-i157/notes/warp/three_scalars_ideal.py", line 219, in strip_axis
+    assert r_ == 0, (key, e)
+           ^^^^^^^
+AssertionError: ((0, 0), 0)

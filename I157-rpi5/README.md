@@ -171,3 +171,68 @@ Development on the numerators (scratch scripts, mod-p probes `singular/dev_*`, l
   not finish in 150 s. Every one of the five generators lies in (a, b^2) (no monomial a^0 b^0 or a^0 b^1): lowest-order parts
   -8 u1^9 a - 4 u1^6 b^2 (c^0), -u1^9 (u1^2-4)(u1^2+4) a - 2 u1^6 (u1^4+u1^2-4) b^2 (c^2), and so on. Subsets of three or four of
   the five generators give much larger Groebner bases (59 to 650 elements), dimension 3, so all five are needed for {a, b^2}.
+
+### A5, 2026-11-24 22:45 (K22 run 2 stopped at the 1 h limit; K22std added before its result)
+
+- **K22 run 2** (`logs/compute_K22_run2.*`, `singular/K22_members_run2.*`) ran alone from 21:40 and was stopped by the script
+  at 1 h (3600 s) with no output: Singular's `lift` over Q for the five targets f1, f2, q0, q1, q2 did not finish (resident
+  size sampled by `ps`: 1.3 GB at 11 min, 3.3 GB at 41 min, 3.7 GB at 51 min). Verdict: **timeout, no certificate**. So there is
+  NO certified membership of a, b^2 in the N22 coefficient ideal, and the exact answer for R2 and K22 is "does not finish in 1 h".
+- **K22std** (new, decided after that, before its result): `std` over Q of the same generators, without cofactors. This is an
+  exact computation by Singular but not a certificate (nobody can check it without Singular). Prediction from the mod-p probe
+  (`dev_Rk22_p32003`): the basis is {2 u0 - u1, (u1+u2)^2, s u1 - 1 (and redundant elements)} (up to scalars). It is reported as
+  "computed by Singular, not certified". Stop condition 1 h.
+- What stays certified in sympy regardless (checks `k22_structure`, `exceptional_set`, `ode_step`, planted cases, numerators):
+  every N22' coefficient lies in (a, b^2) with the explicit decomposition g_j = alpha_j a + beta_j b^2; the generators vanish on
+  L = {2 u0 = u1, u2 = -u1}; for every pair j < k, Delta_jk a and Delta_jk b^2 are in the ideal with the trivial cofactors
+  (beta_k, -beta_j) and (alpha_j, -alpha_k), Delta_jk = alpha_j beta_k - alpha_k beta_j; on L the minors are explicit polynomials
+  in u1; the ODE step excludes every profile on L. NOT certified: that the ideal contains a and b^2 themselves, that is,
+  that no point with u1 != 0 lies outside L.
+
+### A6, 2026-11-24 23:45 (K22std stopped at 1 h; what the final script checks; written before the small jobs and the final run)
+
+- **K22std** (`logs/compute_K22std_run1.*`, `singular/K22_std_run1.*`): `std` over Q of the five N22' coefficients and 1 - s u1
+  ran alone from 22:42 and was stopped at 1 h (3600 s), resident size 0.4 to 0.8 GB, no output. Verdict: **timeout**. So no
+  exact computation over Q of this ideal finished: R2 `liftstd` 1 h, K22 `lift` 1 h, K22 `std` 1 h. The third outcome of the task
+  (the computation does not finish) applies to the exact claim; the evidence is mod p and exact-structural.
+- **Status of the answer.** Certified in sympy (checks `k22_structure`, `exceptional_set`, `ode_step`, `cert_verify_ODE`):
+  each N22' coefficient lies in (a, b^2), a = 2 u0 - u1, b = u1 + u2, with exact decompositions; V(I22) contains L = {a = 0,
+  b = 0}; the 5 x 2 matrix of lowest-order parts has rank 2 at every u1 != 0, so I22 = (a, b^2) in the formal neighborhood of L;
+  on L no profile with u1 != 0 exists (ODE step, with a Singular `liftstd` certificate of the unit ideal (F1, F2, theta F1,
+  1 - s u1)). Evidence only (check `k22_modp`): `std` of I22 in characteristic p for p in {32003, 65521, 1000003,
+  2147483629} equals the reduction of {2 u0 - u1, (u1 + u2)^2, s u1 - 1, s u2^2 + u1 + 2 u2}. Not established: that I22 equals
+  (a, b^2) over Q, that is, that no point with u1 != 0 lies outside L.
+- **Wall verdict wording**: conditional on that last statement, no C^4 profile with r w' != 0 makes h flat on an open box off the
+  axis. Without it, the answer is "not decided; exceptional jets L, which carry no profile".
+- Checks changed from the README table, for the record: `wall_R1` passes on its exact point (Singular's R1 run was dropped, an exact
+  point is a stronger certificate of "not unit"); `planted_root` likewise; `cert_verify_<rung>` now means `cert_verify_ODE`;
+  `wall_K22` was replaced by `k22_structure`, `exceptional_set`, `k22_modp`; the controls' targets: `cert-corrupt` and
+  `cert-satoff` -> `cert_verify_ODE`, `flat-sub` -> `k22_structure`, `rung-equator` -> `k22_modp` (the evidence is read from R1's
+  record), `ode-sign` -> `ode_step`.
+
+### A7, 2026-11-25 00:12 (record; written before the final run)
+
+- Run 1 of the final script (`logs/final_run1.*`) was stopped by me with `systemctl --user stop nm-i157-final-run1` after 2 min
+  (no rc file, see `logs/final_run1.stopped_note`) because I had not yet included the check that det h vanishes identically on
+  L (rank <= 2): the script must not change while its controls re-import it. The check was added to `exceptional_set`; the final
+  run is `final_run2`. No result of run 1 is used.
+- `liftstd` returns cofactors with sum c_i f_i = kappa, a nonzero constant (kappa = 2 for the ODE ideal), not 1: Singular normalizes G
+  but not T. The verifier checks "a nonzero constant" exactly and prints kappa. Found by my exact check; the first version
+  of `verify_cert` tested `= 1` and would have failed on a correct certificate.
+- Development runs of the default mode, all kept: `logs/verify_nocontrols_run1.*` (3 of 13 checks failed, all faults in my
+  checks: weight check chose r0 = 1 at random, the exact-point search of R1 did not solve for u3, `exceptional_set` counted
+  generators wrongly; fixed), `logs/verify_nocontrols_run2.*` (13 of 13 pass).
+- The mod-p `std` runs `singular/K22_std_p<p>.*` and the stored `verdicts.json` are read, not rerun, by the default mode.
+
+### A8, 2026-11-25 00:30 (two controls silent in the final run 2; fix recorded before final run 3)
+
+- **`final_run2`** (`logs/final_run2.*`): 13 of 13 checks pass; 7 of 9 controls fire on their declared target; **`num-sign` and
+  `num-det` are SILENT**: they exit 1 without any `[FAIL]` line, because they crash in `strip_axis`'s exact-division assertion
+  ((1 - c^2)^2 does not divide a numerator with a flipped sign or a dropped det factor), before `num_cross` runs. A control that
+  crashes before its target runs is silent, not fired. Cause confirmed by `logs/ctl_num-sign_run1.log` (AssertionError in
+  `strip_axis`, key (0, 0)). I had declared the targets without computing what these controls do, which the rules ask for.
+- Fix, applied before final run 3: under those two mutations only, `strip_axis` keeps an undivided numerator instead of asserting
+  (the assertion stays for the unmutated run). The declared targets (`num_cross` for both) are unchanged.
+- hc: the coordinator's message of 00:20 asks for reports to `nathans-macbook-air-m5-3/t2x`; `hc send` to it is refused ("rpi5-ubuntu
+  may only reach the terminals here that started its own"), and `hc ls` lists only my parent `.../t1` and my own terminal. I did not
+  try another route. Reports go on the issue.

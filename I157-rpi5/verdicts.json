@@ -1,6 +1,74 @@
 {
  "K22": {
-  "seconds": 2968.432441473007,
-  "verdict": "notmember"
+  "seconds": 3600.4702310562134,
+  "verdict": "timeout"
+ },
+ "K22p": {
+  "1000003": {
+   "gb": [
+    "u0+500001*u1",
+    "u1^2+2*u1*u2+u2^2",
+    "s*u1-1",
+    "s*u2^2+u1+2*u2"
+   ],
+   "peak_kb": 159928,
+   "seconds": 55.365843057632446,
+   "verdict": "std-done"
+  },
+  "2147483629": {
+   "gb": [
+    "u0+1073741814*u1",
+    "u1^2+2*u1*u2+u2^2",
+    "s*u1-1",
+    "s*u2^2+u1+2*u2"
+   ],
+   "peak_kb": 159952,
+   "seconds": 82.56990957260132,
+   "verdict": "std-done"
+  },
+  "32003": {
+   "gb": [
+    "u0+16001*u1",
+    "u1^2+2*u1*u2+u2^2",
+    "s*u1-1",
+    "s*u2^2+u1+2*u2"
+   ],
+   "peak_kb": 159864,
+   "seconds": 42.94598937034607,
+   "verdict": "std-done"
+  },
+  "65521": {
+   "gb": [
+    "u0+32760*u1",
+    "u1^2+2*u1*u2+u2^2",
+    "s*u1-1",
+    "s*u2^2+u1+2*u2"
+   ],
+   "peak_kb": 160060,
+   "seconds": 79.34091877937317,
+   "verdict": "std-done"
+  }
+ },
+ "K22std": {
+  "seconds": 3600.1921632289886,
+  "verdict": "timeout"
+ },
+ "ODE": {
+  "cert_bytes": 292,
+  "cofactor_terms": 3,
+  "peak_kb": 10428,
+  "seconds": 0.014894247055053711,
+  "verdict": "unit"
+ },
+ "PL2": {
+  "peak_kb": 10352,
+  "seconds": 0.012115955352783203,
+  "singular": "NOTUNIT size 2 dim 4",
+  "verdict": "notunit"
+ },
+ "PL3": {
+  "peak_kb": null,
+  "seconds": 600.1510076522827,
+  "verdict": "timeout"
  }
 }

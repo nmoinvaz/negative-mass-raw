@@ -1,0 +1,22 @@
+short = 0;
+ring R = 0,(s,u0,u1,u2,u3,u4),dp;
+option(redSB);
+ideal I = 2*u0-u1,
+  u1+u2,
+  u1-u2,
+  -s*u1+1;
+
+int t0 = rtimer;
+ideal G0 = std(I);
+print("STD_SECONDS " + string(rtimer - t0));
+if (G0[1] != 1) { print("NOTUNIT size " + string(size(G0)) + " dim " + string(dim(G0))); }
+else {
+  matrix T;
+  ideal G = liftstd(I, T);
+  print("LIFTSTD_SECONDS " + string(rtimer - t0));
+  print("UNIT");
+  int i;
+  for (i = 1; i <= ncols(I); i++) { print("COF " + string(i) + " " + string(T[i, 1])); }
+}
+
+quit;
