@@ -1,0 +1,13 @@
+== U0: the zero mode of the limit equation ==
+[PASS] U0: (2/pi)(z-1)/z^2 e^(1-1/z) solves the typed limit equation at beta-hat = 0: True  (0 s)
+
+== U1: planted Poschl-Teller ==
+[FAIL] U1: ell = 1.3: beta = 1.3271418281757723, rel 0.020878329365978665; ell = 2.4: beta = 2.4309257704008767, rel 0.012885737667031938  (2 s)
+
+== U2: the limit equation ==
+[FAIL] U2: beta-hat = 1.743183838814819, 1/beta-hat = 0.573662959542 (h-spread in beta-hat 3.0027080673752e-09); against 0.588351371: 1.5e-02; rounds to 0.588: False; |1/beta-hat - 0.590| = 0.016337  (4 s)
+
+== U3: the DiffEq centred on the throat ==
+[FAIL] U3: gamma = 2.0: beta-bar = 0.742269797703, T = 0.6024946682, rel to #163 2.5e-02, h-spread 5.6e-10; beta = 62.2122781414: rel to converged 2.6e-02, to #151 as-run 2.6e-02; gamma = 2.5: beta-bar = 0.626326035291, T = 0.5929670099, rel to #163 2.5e-02, h-spread 4.7e-10; gamma = 5.0: beta-bar = 0.338829733910, T = 0.5788043832, rel to #163 2.5e-02, h-spread 2.6e-10; gamma = 10.0: beta-bar = 0.173059293513, T = 0.5749689427, rel to #163 2.5e-02, h-spread 1.3e-10  (10 s)
+
+checks failed: ['U1', 'U2', 'U3']; 10 s; mutation: num

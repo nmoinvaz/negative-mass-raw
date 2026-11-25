@@ -41,4 +41,35 @@ Mutations, each must exit 1 with its target failing:
 
 ## Results
 
-(after the runs)
+| file | what |
+|---|---|
+| `rerun/ellis_efold_full.*` | the rerun at 4871503: stdout, `/usr/bin/time -l`, exit code |
+| `ind163_run1.py`, `.txt`, `.time` | run 1: every criterion passes (`ind163.py` is the same version) |
+| `ind163_mut_*.txt` | its 4 mutations |
+
+**Rerun** (exit 1, 2 min 20 s, 139 MB peak). 98 of 100 checks pass, and P-C2 and LE5 fail as #163 reports. The other
+differences from rpi5's output are in the last digits (LAPACK, platform), as in `I151-mac`. P-C2's errors are 8.8e-8 and
+3.4e6 at γ₁ = 5 and 10, against 9.3e-8 and 4.8e6 on rpi5. That spread is consistent with #163's diagnosis that the arc
+amplifies rounding error.
+
+**ind163 run 1** (exit 0, 11 s, 75 MB peak):
+
+| criterion | run 1 |
+|---|---|
+| U0 | the zero mode solves the typed limit equation at β̂ = 0 |
+| U1 | ℓ = 1.3, 2.4: rel 4.2e-13, 4.6e-13 |
+| U2 | β̂ = 1.6996646041035, 1/β̂ = 0.588351370962 (3.8e-11 from #163's 0.588351371); rounds to 0.588; \|1/β̂ − 0.590\| = 0.001649 |
+| U3 | T = 0.6178919483, 0.6081551057, 0.5936405352, 0.5896968273 at γ₁ = 2, 2.5, 5, 10, rel to #163 ≤ 5.5e-10, h-spreads ≤ 4e-14; all round to Table I. At γ₁ = 2, β = 60.6620072958: 2.3e-13 from #163's converged value and 6.3e-6 from #151's as-run value |
+
+Re-solve: U2 and U3, by the coordinator's own Numerov on the paper's DiffEq, centred on the throat, and on the limit
+equation as typed from the TeX. They confirm three things:
+- the second row;
+- the limit 1/β̂ = 0.588351, so the table's 0.590 is not the limit;
+- #151's truncation at γ₁ = 2.
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `zm` | 1 | U0 | yes |
+| `num` | 1 | U1, U2, U3 (the same Numerov) | yes |
+| `lim` | 1 | U0, U2 (U0 uses the same typed potential) | yes |
+| `brk` | 1 | U3 | yes |
