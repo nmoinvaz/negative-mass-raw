@@ -49,3 +49,15 @@ Mutations, each must exit 1 with its target failing:
 
 Before writing these criteria the coordinator checked one property of the machinery, not a criterion: the entries of h
 have denominators 2R³ and 2R² only, so the reduction mod circle applies to the point values.
+
+## Results
+
+| file | what |
+|---|---|
+| `rerun_default.txt` | rerun of #157's default mode: exit 0, 13 of 13 checks pass and 9 of 9 controls fire; the verdict lines equal rpi5's `three_scalars_ideal_output.txt` (first 80 characters, timings aside) |
+| `ind157_run1.py`, `.txt` | ind157 run 1, **stopped by the coordinator at 1 h 8 min** (exit 143, the runner's own 1 h stop condition applied to this check). P1–P3 and C1–C4 pass. **C5 did not finish**: its point numerator, symbolic in (u0, u2, c, S) through sympy expressions, ran for over an hour at the first specialized point. C6 and C7 came after C5 and did not run |
+
+**Run 2 changes the code, not the criteria.** The point numerator is the same formula, written once (`ricci_core`) for
+sympy expressions and for elements of a polynomial ring. C5 now uses the ring ℚ[u0, u2, S, c] (lex, S > c), where
+S² reduces to 1 − c². C5 runs after C6 and C7. The seeded random draws therefore fall differently from run 1, for C5 and
+C7.

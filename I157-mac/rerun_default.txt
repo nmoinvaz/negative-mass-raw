@@ -36,3 +36,13 @@ checks: 13 passed, 0 failed []. 169 s
 
 == Controls: each mutation must make its target checks fail ==
 [FIRED] --mutate=num-sign (the Gamma Gamma term of the Ricci numerator gets the opposite sign): exit 1, failed ['num_cross', 'num_indep', 'num_weights']
+[FIRED] --mutate=num-det (the det * (A d2Gamma) term loses the factor det): exit 1, failed ['num_cross', 'num_indep', 'num_weights']
+[FIRED] --mutate=coef-drop (the highest-c-degree coefficients are dropped from J_all): exit 1, failed ['coef_reassemble']
+[FIRED] --mutate=cert-corrupt (1 is added to the constant term of the first nonzero cofactor): exit 1, failed ['cert_verify_ODE']
+[FIRED] --mutate=cert-satoff (the verification drops the generator 1 - s u1): exit 1, failed ['cert_verify_ODE']
+[FIRED] --mutate=ode-sign (theta u_k = k u_k - u_{k+1} in the ODE step): exit 1, failed ['ode_step', 'cert_verify_ODE']
+[FIRED] --mutate=plant-sat (PL2 without the saturation by det h): exit 1, failed ['planted_family']
+[FIRED] --mutate=flat-sub (h replaced by diag(-1, 1, 1)): exit 1, failed ['k22_structure', 'exceptional_set']
+[FIRED] --mutate=rung-equator (the K22 evidence taken from R1's record instead): exit 1, failed ['k22_modp']
+controls: all fired
+exit 0

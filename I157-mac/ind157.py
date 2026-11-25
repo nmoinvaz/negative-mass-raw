@@ -63,32 +63,54 @@ def ricci4(g, ginv):
     return Ric
 
 
-def ricci_num(h0, h1, h2):
-    """det(h)^2 Ric(h)_bc and det(h) at a point, from h, h1[e] = d_e h and h2[e][f] = d_e d_f h (3 x 3)."""
+def ricci_core(h0, h1, h2, A, d, half, post):
+    """det(h)^2 Ric(h)_bc at a point as nested lists, from h, h1[e] = d_e h, h2[e][f] = d_e d_f h, the adjugate A and
+    d = det h. The entries may be sympy expressions or elements of a polynomial ring; half is 1/2 in that ring."""
     n = 3
-    A = h0.adjugate()
-    d = h0.det()
 
     def B(dd, b, cc):
-        return h1[b][dd, cc] + h1[cc][dd, b] - h1[dd][b, cc]
+        return h1[b][dd][cc] + h1[cc][dd][b] - h1[dd][b][cc]
 
     def dB(e, dd, b, cc):
-        return h2[e][b][dd, cc] + h2[e][cc][dd, b] - h2[e][dd][b, cc]
+        return h2[e][b][dd][cc] + h2[e][cc][dd][b] - h2[e][dd][b][cc]
 
-    G = [[[sum(A[a, dd] * B(dd, b, cc) for dd in range(n)) / 2 for cc in range(n)] for b in range(n)] for a in range(n)]
-    AhA = [A * h1[e] * A for e in range(n)]
+    def mm(P, Q):
+        return [[sum((P[i][k] * Q[k][j] for k in range(n)), 0 * d) for j in range(n)] for i in range(n)]
+
+    G = [[[half * sum((A[a][dd] * B(dd, b, cc) for dd in range(n)), 0 * d) for cc in range(n)] for b in range(n)]
+         for a in range(n)]
+    AhA = [mm(mm(A, h1[e]), A) for e in range(n)]
 
     def dG(e, a, b, cc):  # det^2 * d_e Gamma^a_bc
-        return sum(-AhA[e][a, dd] * B(dd, b, cc) + d * A[a, dd] * dB(e, dd, b, cc) for dd in range(n)) / 2
+        return half * sum((-AhA[e][a][dd] * B(dd, b, cc) + d * A[a][dd] * dB(e, dd, b, cc) for dd in range(n)), 0 * d)
 
     sgn = -1 if MUT == "ric-sign" else 1
-    N = sp.zeros(n)
+    N = [[None] * n for _ in range(n)]
     for b in range(n):
         for cc in range(b, n):
-            v = sum(dG(a, a, b, cc) - dG(cc, a, b, a) for a in range(n))
-            v += sgn * sum(G[a][a][dd] * G[dd][b][cc] - G[a][cc][dd] * G[dd][b][a] for a in range(n) for dd in range(n))
-            N[b, cc] = N[cc, b] = sp.expand(v)
-    return N, sp.expand(d)
+            v = sum((dG(a, a, b, cc) - dG(cc, a, b, a) for a in range(n)), 0 * d)
+            v += sgn * sum((G[a][a][dd] * G[dd][b][cc] - G[a][cc][dd] * G[dd][b][a] for a in range(n) for dd in range(n)),
+                           0 * d)
+            N[b][cc] = N[cc][b] = post(v)
+    return N
+
+
+def ricci_num(h0, h1, h2):
+    """det(h)^2 Ric(h)_bc and det(h) at a point, from sympy matrices h, h1[e] = d_e h and h2[e][f] = d_e d_f h."""
+    L_ = lambda M: [[M[i, j] for j in range(3)] for i in range(3)]
+    A = h0.adjugate()
+    d = sp.expand(h0.det())
+    N = ricci_core(L_(h0), [L_(M) for M in h1], [[L_(M) for M in row] for row in h2], L_(A), d, sp.Rational(1, 2),
+                   sp.expand)
+    return sp.Matrix(N), d
+
+
+def adj3(M):
+    """Adjugate and determinant of a 3 x 3 nested list, by cofactors."""
+    C = [[(M[(i + 1) % 3][(j + 1) % 3] * M[(i + 2) % 3][(j + 2) % 3] - M[(i + 1) % 3][(j + 2) % 3] * M[(i + 2) % 3][(j + 1) % 3])
+          for j in range(3)] for i in range(3)]
+    det = sum((M[0][j] * C[0][j] for j in range(3)), 0 * M[0][0])
+    return [[C[j][i] for j in range(3)] for i in range(3)], det
 
 
 # ---- the wall: Ric(g) and its (t, x, rho) block h, symbolic in (x, rho, R, w0..w2) ----
@@ -197,24 +219,6 @@ vals = {ab: NR1[ab] for ab in IDX}
 report("C3", all(v == 0 for v in vals.values()) and dR1 == 0,
        f"u = (2/5, 1, -2/5, -83/75, 0), theta = pi/2: N_ab = {[str(vals[ab]) for ab in IDX]}, det h = {dR1}")
 
-# ---- C5: H at specialized (u1, u3, u4): the N'_22 coefficients generate (2u0 - u1, (u1 + u2)^2) in Q[u0, u2] ----
-U0, U2 = sp.symbols("U0 U2")
-outH = []
-okH = True
-for trial in range(3):
-    a1, a3, a4 = sp.Rational(rnd.randint(1, 9), rnd.randint(1, 5)) * rnd.choice([1, -1]), rq(), rq()
-    Np, _ = N_polar(1, c, S, [U0, a1, U2, a3, a4])
-    n22 = circ(Np[2, 2])
-    q, r_ = sp.div(sp.Poly(n22, c, S), sp.Poly((1 - c ** 2) ** 3, c, S))
-    assert r_.is_zero, "N_theta_theta not divisible by (1 - c^2)^3"
-    gens = [sp.expand(co) for co in sp.Poly(q.as_expr(), c, S).coeffs()]
-    gb = sp.groebner(gens, U0, U2, order="lex")
-    want = sp.groebner([2 * U0 - a1, (a1 + U2) if MUT == "H-b" else (a1 + U2) ** 2], U0, U2, order="lex")
-    same = list(gb.exprs) == list(want.exprs)
-    okH &= same
-    outH.append((str(a1), str(a3), str(a4), len(gens), [str(e) for e in gb.exprs], same))
-report("C5", okH, f"(u1, u3, u4), number of N'_22 coefficients, reduced lex basis in (u0, u2), equal to (a, b^2): {outH}")
-
 # ---- C6: the ODE step without Singular: 2w = r w' and r w' + r^2 w'' = 0 on an interval force w' = 0 ----
 r_ = sp.symbols("r", positive=True)
 wf = sp.Function("w")
@@ -238,6 +242,37 @@ for (r0, cc, SS) in [(2, sp.Rational(3, 5), sp.Rational(4, 5)), (sp.Rational(3, 
         if sp.simplify(Na[ab] - sp.Rational(r0) ** m[ab] * Nb[ab]) != 0:
             badw.append((str(r0), ab))
 report("C7", not badw, f"at r0 = 2 and 3/2 with random jets, all six components: failures {badw}")
+
+# ---- C5: H at specialized (u1, u3, u4): the N'_22 coefficients generate (2u0 - u1, (u1 + u2)^2) in Q[u0, u2] ----
+# The point numerator is ricci_core over the ring Q[U0, U2, S, c] (lex, S > c), so that S^2 reduces to 1 - c^2.
+from sympy.polys.rings import ring as _ring
+
+RG, rU0, rU2, rS, rc = _ring("U0,U2,S,c", sp.QQ, sp.lex)
+U0, U2 = sp.symbols("U0 U2")
+outH = []
+okH = True
+for trial in range(3):
+    a1, a3, a4 = sp.Rational(rnd.randint(1, 9), rnd.randint(1, 5)) * rnd.choice([1, -1]), rq(), rq()
+    W = [U0, a1, U2, a3, a4]
+    toR = lambda F: RG.from_expr(pt(F, 1, c, S, W))
+    h0 = [[toR(H[i, j]) for j in range(3)] for i in range(3)]
+    h1 = [[[toR(M[i, j]) for j in range(3)] for i in range(3)] for M in H1]
+    h2 = [[[[toR(M[i, j]) for j in range(3)] for i in range(3)] for M in row] for row in H2]
+    A, dd_ = adj3(h0)
+    Nc = ricci_core(h0, h1, h2, A, dd_, RG(sp.Rational(1, 2)), lambda v: v)
+    n22 = (rS ** 2 * Nc[1][1] - 2 * rS * rc * Nc[1][2] + rc ** 2 * Nc[2][2]).rem([rS ** 2 + rc ** 2 - 1])
+    qs, rem_ = n22.div([(1 - rc ** 2) ** 3])
+    assert rem_ == 0, "N_theta_theta not divisible by (1 - c^2)^3"
+    coef = {}
+    for (e0, e2, eS, ec), co in qs[0].terms():
+        coef[(eS, ec)] = coef.get((eS, ec), 0) + RG.domain.to_sympy(co) * U0 ** e0 * U2 ** e2
+    gens = [sp.expand(v) for v in coef.values()]
+    gb = sp.groebner(gens, U0, U2, order="lex")
+    want = sp.groebner([2 * U0 - a1, (a1 + U2) if MUT == "H-b" else (a1 + U2) ** 2], U0, U2, order="lex")
+    same = list(gb.exprs) == list(want.exprs)
+    okH &= same
+    outH.append((str(a1), str(a3), str(a4), len(gens), [str(e) for e in gb.exprs], same))
+report("C5", okH, f"(u1, u3, u4), number of N'_22 coefficients, reduced lex basis in (u0, u2), equal to (a, b^2): {outH}")
 
 failed = [n for n, ok in RESULTS if not ok]
 print(f"checks: {len(RESULTS) - len(failed)} passed, {len(failed)} failed {failed}. mutation: {MUT}. {time.time() - T0:.0f} s")
