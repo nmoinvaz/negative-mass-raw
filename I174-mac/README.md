@@ -20,3 +20,15 @@ repository.
 | `least-58` | `minimal_split` with #58's first formula as the least element | as `split-58` |
 
 ## Results
+
+Source at bb56a4e. All three criteria pass.
+
+| file | what |
+|---|---|
+| `build_run1.log` | first build, exit 1: two warnings, which `warningAsError` makes errors (an unused `NormedSpace` instance in `split_lower`, and the deprecated `push_neg`). The statements did not change in the fix |
+| `build_run2.log` | **B**: second build, exit 0, no warning |
+| `axioms.txt` | **X**: all eight theorems, the four of #134 and the four of this issue, depend on `propext`, `Classical.choice` and `Quot.sound` only |
+| `mutate.txt` | **M**: exit 0; both baselines compile and all nine controls fire (four rejected with "Type mismatch", three with a failed `rewrite`, one with `linarith`, as printed) |
+
+The controls fail where the proof no longer fits the changed statement. That each changed statement is false is the
+hand argument in the table above, not something the build shows.
