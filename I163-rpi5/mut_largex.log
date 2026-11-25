@@ -134,3 +134,21 @@ PASS  G7b: gamma_1 = 5.0: A finds 1 root(s) in the scan, B has 1 negative eigenv
 PASS  G7b: gamma_1 = 10.0: A finds 1 root(s) in the scan, B has 1 negative eigenvalue(s) (lowest -2.847220; the next is >= 0)
 PASS  D1b: gamma_1 = 2.5: max relative spread of beta': A (rtol 1e-13 -> 1e-11, L' +8) 7.3e-13; B (N 4000 -> 8000, L' +8) 4.6e-12; C (r/dist 0.5 -> 0.3, 0.7; L' +8) 4.5e-13
       gamma_1 = 2.5: b_A = 1.439904693962, b_B = 1.526710344466, b_C = 1.526710344468; error bar of T from the spreads: 3.0e-12
+PASS  D1b: gamma_1 = 5.0: max relative spread of beta': A (rtol 1e-13 -> 1e-11, L' +8) 1.9e-11; B (N 4000 -> 8000, L' +8) 7.5e-12; C (r/dist 0.5 -> 0.3, 0.7; L' +8) 4.9e-13
+      gamma_1 = 5.0: b_A = 1.561184429774, b_B = 1.651808826191, b_C = 1.651808826198; error bar of T from the spreads: 1.2e-11
+PASS  D1b: gamma_1 = 10.0: max relative spread of beta': A (rtol 1e-13 -> 1e-11, L' +8) 1.3e-12; B (N 4000 -> 8000, L' +8) 3.0e-12; C (r/dist 0.5 -> 0.3, 0.7; L' +8) 4.0e-13
+      gamma_1 = 10.0: b_A = 1.595829660114, b_B = 1.687370771249, b_C = 1.687370771248; error bar of T from the spreads: 1.9e-12
+PASS  LE3: limit equation: A beta-hat = 1.699664604104, B = 1.699664604104 (rel 3.0e-13), finite volume = 1.6996646040 (N = 8000: 1.6996646791, 16000: 1.6996646228; Richardson rel to A 5.1e-11)
+PASS  LE4: limit equation: A finds 1 root(s) in the scan, B has 1 negative eigenvalue(s) (1 with the extra-well control geometry), the finite volume 1; the zero mode (one node) forces at least one
+      limit equation: 1/beta-hat = 0.588351371 (A), 0.588351371 (B), 0.588351371 (finite volume); paper 0.588 (Sec. IV C), table 0.59
+FAIL  LE5: 1/beta-hat = 0.588351 against the table's large-gamma_1 value 0.59: -0.001649 (<= 0.001)
+PASS  LE5: 1/beta-hat = 0.588351 against the paper's 1/beta-hat = 0.588: +0.000351 (must round to it, < 0.0005)
+      gamma_1 =    10: beta-hat = 1.5958296601  (limit 1.6996646041)  T = 0.62352343  gap -1.038e-01
+      gamma_1 =    20: beta-hat = 1.6048082495  (limit 1.6996646041)  T = 0.62234995  gap -9.486e-02
+      gamma_1 =    40: beta-hat = 1.6070741858  (limit 1.6996646041)  T = 0.62205445  gap -9.259e-02
+      gamma_1 =    80: beta-hat = 1.6076421005  (limit 1.6996646041)  T = 0.62198040  gap -9.202e-02
+      gamma_1 =   160: beta-hat = 1.6077841798  (limit 1.6996646041)  T = 0.62196188  gap -9.188e-02
+      DIAG LE6 (reported only): order p of the gap at each doubling 0.130, 0.035, 0.009, 0.002; extrapolating T(80), T(160) with p = 1: 0.621943, with the measured p = 0.002: 0.609982; 1/beta-hat of the limit equation 0.588351
+FAIL  LE6: beta-hat at gamma_1 = 10, 20, 40, 80, 160 against the limit equation's: gaps 1.04e-01, 9.49e-02, 9.26e-02, 9.20e-02, 9.19e-02; each doubling must cut the gap by 1.5 and the last must be <= 0.3 %: 5.41e-02
+checks: 53 run, failed ids: ['N1a', 'N2', 'P-C2', 'R2', 'G5b', 'R3', 'G1b', 'G2b', 'LE5', 'LE6']  (274 s)
+control largex: target ['N1a', 'N2', 'R2', 'R3', 'G5b', 'G1b', 'G2b']: fired ['N1a', 'N2', 'R2', 'R3', 'G5b', 'G1b', 'G2b'], SILENT [] (a target that never ran is silent); not in this section []; failed outside the target list ['P-C2', 'LE5', 'LE6']

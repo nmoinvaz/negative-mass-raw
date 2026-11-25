@@ -3,7 +3,7 @@
 outside the target list), the exit code and the wall time. usage: summarize_mutations.py [raw folder]"""
 import os, re, sys
 d = sys.argv[1] if len(sys.argv) > 1 else os.path.dirname(os.path.abspath(__file__))
-names = "potential printedW matrix planted xmap units tfactor count domain deltaphi cpath background largex centre scale lelimit lefv".split()
+names = "potential printedW matrix planted xmap units tfactor count domain deltaphi cpath background largex centre scale lelimit lefv centre_run2 xmap_run2".split()
 rows = []
 for n in names:
     f = os.path.join(d, f"mut_{n}.log")

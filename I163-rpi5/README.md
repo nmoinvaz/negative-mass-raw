@@ -208,3 +208,15 @@ from `LEG`, R1 and the extended `MUTATIONS` table). The commit is named in the f
    Note for the note: the real-path radius is r = min(0.5 √(1+γ₁²), 0.5 (γ₁ − x(−L′))), e.g. 3.83 at γ₁ = 10 against 5.02 in P-C2, so P-C2 was not
    the real path in the radius either.
 7. The mutation runs are named `mut_<name>` (not `…_run2`, since the stopped first run was renamed `mut_largex_run1_stopped`); the final unmutated run is `final`.
+8. **The 17 mutation runs (queue 2, `final` and `mut_*`, script commit 93f17c4) found three controls that did not fire on their whole target list.** Reported as they are;
+   the first logs are kept.
+   - `centre`: stopped by the 1 h cap (rc 124, `mut_centre.log`). The mutation sets x₀ = 0 also in the planted problems, and there the integration is extremely slow at
+     γ₁ ≥ 5 (the planted P-A2 also fails there, 5.8e-9 and 3.2e-9 at γ₁ = 5). Its targets G5b, G1b, G7b, D1b never ran: **silent in this run**.
+   - `xmap`: **silent on R1** (`mut_xmap.log`): the legacy table loop raised (no root with the flipped map) before R1 was reached; G5 reported "table incomplete".
+     This is the same kind of silence as #151's first `xmap` run on G5.
+   - `domain`: **silent on G5b** (`mut_domain.log`): with L′ = 2 the second row still lies within 0.001 of the printed values (worst 0.000552); the truncation (5.3e-4 relative
+     in β, R2) is below G5b's tolerance, which comes from the three digits of the table. Its other nine targets fire. No change is made; it is a result about G5b.
+   Two code changes follow, both only on mutated paths, none on any unmutated number: (i) when the legacy table loop raises, R1 now also reports FAIL (as G5 did);
+   (ii) the `centre` mutation no longer touches the planted problems (they carry their own origin), only the real rows, G1b, G2b, G7b, D1b, P-C2b. The targets are unchanged.
+   `xmap` and `centre` are rerun as `mut_xmap_run2` and `mut_centre_run2`; the unmutated script is rerun once as `final_run2` to confirm that its output
+   is the same (apart from the timing line) and to be the file committed as `notes/ellis_efold_output.txt`.
