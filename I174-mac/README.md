@@ -1,0 +1,22 @@
+# I174-mac: Lean build logs for #58's minimal split
+
+Machine: macOS (the coordinator's Mac, arm64), Lean and Mathlib v4.34.1 (Mathlib's prebuilt cache).
+Issue: https://github.com/nmoinvaz/negative-mass/issues/174. Source: `lean/NegativeMass/MinimalSplit.lean` of the
+repository.
+
+## Criteria (written before the first build)
+
+| id | criterion |
+|---|---|
+| B | `lake build` exits 0 with no warning (`warningAsError = true` makes a `sorry` fail) |
+| X | `lake env lean scripts/Axioms.lean` lists only `propext`, `Classical.choice` and `Quot.sound` for `split_lower`, `split_attained`, `minimal_split` and `minimal_split_R3` |
+| M | `python3 scripts/mutate.py` exits 0: both baselines compile, and each of the nine controls is rejected, the five of #134 and these four |
+
+| control | change | why it is false |
+|---|---|---|
+| `split-58` | `split_attained` with #58's first formula, μ₋ = max(0, (‖J‖ − μ)/2) | where −μ > ‖J‖, every split has μ₋ ≥ −μ, above that value |
+| `lower-nohalf` | `split_lower` with (‖J‖ − μ) in place of (‖J‖ − μ)/2 | μ = 0, ‖J‖ = 1 has the split μ₋ = 1/2 |
+| `sum-plus` | μ₋ + ‖J₋‖ = max(0, ‖J‖ + μ) | μ = 1, J = 0 forces μ₋ = 0 and J₋ = 0, so the sum is 0, not 1 |
+| `least-58` | `minimal_split` with #58's first formula as the least element | as `split-58` |
+
+## Results
