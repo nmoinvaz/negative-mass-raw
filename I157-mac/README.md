@@ -61,3 +61,43 @@ have denominators 2R³ and 2R² only, so the reduction mod circle applies to the
 sympy expressions and for elements of a polynomial ring. C5 now uses the ring ℚ[u0, u2, S, c] (lex, S > c), where
 S² reduces to 1 − c². C5 runs after C6 and C7. The seeded random draws therefore fall differently from run 1, for C5 and
 C7.
+| `ind157_run2.py`, `.txt` | ind157 run 2, **stopped by the coordinator at 46 min** (exit 143), in C5's first trial. P1–P3, C1–C4, C6 and C7 pass. **C5 did not finish**. A scratch profile of one C5 trial (`dev/`) took 11 s for the point values, 9.5 s for the ring numerator and 0.7 s for the reduction; the time went to sympy's lex Buchberger `groebner` of the 5 generators (total degrees 14, 14, 13, 12, 9), which had not finished. The coordinator stopped run 2 on that evidence, before the 1 h mark, and a first reading of its elapsed time as about 1 h was wrong |
+
+**Run 3 changes C5's algorithm, not the criterion.** The reduced lex Gröbner basis is computed as the grevlex basis followed
+by FGLM (`groebner(..., order="grevlex").fglm("lex")`), which gives the same reduced lex basis. In the scratch profile
+(`dev/gbtest.py`, its own seed, u1 = 3/5) that took 145 s and returned (U0 − 3/10, U2² + 6U2/5 + 9/25), the basis of
+(2u0 − u1, (u1 + u2)²). That scratch trial is not part of the criteria. It also found the 5 generators reduce to 0 modulo
+that basis.
+
+The coordinator stopped its scratch profile with `pkill -f prof_c5.py`, a stop by name pattern that the runners' rules
+forbid; it matched only that scratch process. Later stops in this review are by PID.
+| `ind157_run3.py`, `.txt`, `ind157_run3_mut_*.txt` | ind157 run 3, exit 1: 9 of 10 checks pass, **C5 fails**, by a defect of the coordinator's code. In trials 1 and 2 (u1 = −3, −1) FGLM returns the basis of (2u0 − u1, (u1 + u2)²), `U0 + 3/2`, `U2**2 - 6*U2 + 9` and `U0 + 1/2`, `U2**2 - 2*U2 + 1`. But the expected basis was computed from integer generators over ℤ, where sympy keeps it primitive (`2*U0 + 3`), so the lists differ. Trial 3 (u1 = 3/2, over ℚ) matches. With C5 failing unmutated, the `H-b` control means nothing in run 3; the other five reach their targets (C1, P3, C3, C6, C7), and `ric-sign` then crashes in C5's divisibility assertion after P3 failed |
+
+**Run 4** builds the expected basis over ℚ (`domain=QQ`), so both are monic; nothing else changes. The six mutations are
+rerun with run 4's code.
+| `ind157_run4.py`, `.txt`, `ind157_mut_*.txt` | **ind157 run 4, exit 0: 10 of 10 criteria pass; all 6 mutations fire on target.** `ind157.py` is the same version |
+
+| criterion | run 4 |
+|---|---|
+| P1 | Ric(g)(∂_ϕ, ·) = 0 at 3 points; Ric(g) = 0 for constant w |
+| P2, P3 | Rindler numerator 0; stereographic sphere gives 2 det² h |
+| C1 | det h ≡ 0 on L mod circle; −2227573072/2068048828125 at the off-L jet |
+| C2 | N_θθ ≡ 0 on L mod circle |
+| C4 | on L only N_rr is not identically 0 (the other five vanish), as J_all's unit ideal modulo 32003 requires |
+| C3 | at u = (2/5, 1, −2/5, −83/75, 0), θ = π/2: all six N_ab and det h are 0 |
+| C5 | at (u1, u3, u4) = (−3, 4, 6/5), (−1, 0, −8), (3/2, −1, 3/7): 5 coefficients of N′_θθ each, reduced lex basis (u0 − u1/2, (u2 + u1)²) in all three |
+| C6 | w = C r², r w′ + r² w″ = 4C r², so C = 0 and w′ = 0 |
+| C7 | the six weights hold exactly at r0 = 2 and 3/2 |
+
+| mutation | exit | failed | target met |
+|---|---|---|---|
+| `det-L` | 1 | C1, C2 | yes |
+| `ric-sign` | 1 | P2, P3, then a crash in C5's divisibility assertion | yes (P3 failed before the crash) |
+| `point` | 1 | C3 | yes |
+| `ode` | 1 | C6 | yes |
+| `H-b` | 1 | C5 | yes |
+| `weight` | 1 | C7 | yes |
+
+Re-solve: C3, R1's certificate point, from the coordinator's own numerators. C5 is evidence for #157's hypothesis H at
+three specialized points, not H: a component of V(I₂₂) off L whose projection to (u1, u3, u4) is not dense would be
+missed.
