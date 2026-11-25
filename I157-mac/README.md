@@ -61,3 +61,13 @@ have denominators 2R³ and 2R² only, so the reduction mod circle applies to the
 sympy expressions and for elements of a polynomial ring. C5 now uses the ring ℚ[u0, u2, S, c] (lex, S > c), where
 S² reduces to 1 − c². C5 runs after C6 and C7. The seeded random draws therefore fall differently from run 1, for C5 and
 C7.
+| `ind157_run2.py`, `.txt` | ind157 run 2, **stopped by the coordinator at 46 min** (exit 143), in C5's first trial. P1–P3, C1–C4, C6 and C7 pass. **C5 did not finish**. A scratch profile of one C5 trial (`dev/`) took 11 s for the point values, 9.5 s for the ring numerator and 0.7 s for the reduction; the time went to sympy's lex Buchberger `groebner` of the 5 generators (total degrees 14, 14, 13, 12, 9), which had not finished. The coordinator stopped run 2 on that evidence, before the 1 h mark, and a first reading of its elapsed time as about 1 h was wrong |
+
+**Run 3 changes C5's algorithm, not the criterion.** The reduced lex Gröbner basis is computed as the grevlex basis followed
+by FGLM (`groebner(..., order="grevlex").fglm("lex")`), which gives the same reduced lex basis. In the scratch profile
+(`dev/gbtest.py`, its own seed, u1 = 3/5) that took 145 s and returned (U0 − 3/10, U2² + 6U2/5 + 9/25), the basis of
+(2u0 − u1, (u1 + u2)²). That scratch trial is not part of the criteria. It also found the 5 generators reduce to 0 modulo
+that basis.
+
+The coordinator stopped its scratch profile with `pkill -f prof_c5.py`, a stop by name pattern that the runners' rules
+forbid; it matched only that scratch process. Later stops in this review are by PID.

@@ -267,7 +267,7 @@ for trial in range(3):
     for (e0, e2, eS, ec), co in qs[0].terms():
         coef[(eS, ec)] = coef.get((eS, ec), 0) + RG.domain.to_sympy(co) * U0 ** e0 * U2 ** e2
     gens = [sp.expand(v) for v in coef.values()]
-    gb = sp.groebner(gens, U0, U2, order="lex")
+    gb = sp.groebner(gens, U0, U2, order="grevlex").fglm("lex")  # the reduced lex basis, by FGLM from grevlex
     want = sp.groebner([2 * U0 - a1, (a1 + U2) if MUT == "H-b" else (a1 + U2) ** 2], U0, U2, order="lex")
     same = list(gb.exprs) == list(want.exprs)
     okH &= same
