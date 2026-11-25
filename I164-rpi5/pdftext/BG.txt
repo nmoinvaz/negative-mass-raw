@@ -1,0 +1,662 @@
+Exact Rotating Wormholes in Five Dimensions and Their Exceptional-Point
+Instability
+Jose Luis Blázquez-Salcedo,1, ∗ Luis Manuel González-Romero,1, † Fech Scen
+Khoo,1, ‡ Burkhard Kleihaus,2, § Jutta Kunz,2, ¶ and Pablo Navarro Moreno1, ∗∗
+1
+
+arXiv:2610.38659v1 [gr-qc] 28 Oct 2026
+
+Departamento de Fı́sica Teórica and IPARCOS, Facultad de Ciencias Fı́sicas,
+Universidad Complutense de Madrid, 28040 Madrid, Spain
+2
+Institut für Physik, Universität Oldenburg, Postfach 2503, D-26111 Oldenburg, Germany
+(Dated: October 30, 2026)
+We give an independent closed-form construction of rotating ﬁve-dimensional Ellis–Bronnikov
+wormholes with equal angular momenta and analyze the radial instability of the reﬂection-symmetric
+family. The nontrivial coupled metric equations reduce exactly to an open A2 Toda system. The
+general two-ended solution is expressed in terms of elementary Toda tau functions; the symmetric
+subclass reduces to a particularly simple one-parameter family interpolating between the static
+wormhole and the extremal equal-spin Myers–Perry geometry. On this exact background we revisit
+the cohomogeneity-one perturbation problem. Besides the ordinary unstable mode of the static
+wormhole, rotation renders the descendant of its non-normalizable zero mode normalizable. The
+two purely imaginary unstable frequencies coalesce at |J|/A = 0.100628, where their eigenvectors
+coalesce as well, identifying a second-order exceptional point. Beyond it the pair continues as
+ω± = ±ωR + iωI with ωI > 0: the apparent loss of the radial instability found in the original
+real-eigenvalue treatment is therefore not stabilization, but a transition to an oscillatory instability.
+We follow this branch deep into the rapidly rotating regime, where its growth rate becomes strongly
+suppressed.
+
+Introduction. The Ellis–Bronnikov wormhole [1, 2] is
+the canonical asymptotically ﬂat traversable wormhole
+supported by a phantom scalar ﬁeld. The static Ellis–Bronnikov wormhole is, however, known to be linearly
+unstable against spherically symmetric perturbations: in
+four dimensions it possesses a single exponentially growing radial mode, as established by several complementary
+formulations [3–6], while nonlinear evolutions lead either
+to collapse or to an expanding wormhole conﬁguration
+[7, 8]. The instability persists for the higher-dimensional
+generalizations, which likewise possess a radial unstable
+mode [9].
+Rotating generalizations of the Ellis–Bronnikov wormhole were ﬁrst studied perturbatively in the slow-rotation
+regime [10, 11], while fully nonlinear rotating solutions
+were subsequently constructed numerically [12, 13]. The
+latter form continuous families connecting the static
+Ellis–Bronnikov wormhole to the extremal Kerr limit.
+This raised the question whether rotation might also
+weaken or remove the radial instability, which was addressed perturbatively for slowly rotating wormholes
+[14, 15]. More recently, quasinormal modes of rapidly
+rotating wormholes were calculated in nonradial sectors
+[16], while fully nonlinear time evolutions have conﬁrmed
+that rotation substantially slows the instability [17].
+In ﬁve dimensions, imposing equal angular momenta
+enhances the rotational symmetry suﬃciently to preserve
+cohomogeneity one. The resulting rotating wormholes
+were constructed numerically in Ref. [18], where their approach to the extremal equal-spin Myers–Perry black hole
+[19] and their radial stability were also studied. More recent numerical work explored strongly asymmetric con-
+
+ﬁgurations [20].
+Here we report two results. First, the complete stationary equations admit an exact Toda reduction and closedform solution. Second, using this exact background we
+resolve the fate of the two radial unstable modes of the
+reﬂection-symmetric family. The merger previously interpreted as the disappearance of the instability is an
+exceptional point (EP): when the spectral problem is continued into the complex plane, the two modes persist as
+an oscillatory unstable pair.
+Exceptional points have recently been identiﬁed in
+black-hole quasinormal-mode spectra, including massive scalar perturbations of Kerr and scalar or
+gravito-electromagnetic perturbations of hairy and
+Kerr–Newman black holes. These examples concern
+damped quasinormal modes [21–24]. The associated resonant excitation and non-Hermitian mode interaction near
+EPs have also been investigated in the context of blackhole ringdown [25–28]. To the best of our knowledge, the
+present case provides the ﬁrst explicit identiﬁcation, including eigenvector coalescence, of an exceptional point
+formed by two dynamically unstable modes, and the ﬁrst
+such identiﬁcation in the perturbation spectrum of a fully
+self-gravitating horizonless compact object.
+Closely analogous spectral behavior was already found
+for supercritical charged Ellis–Bronnikov wormholes,
+where two purely imaginary unstable radial modes merge
+and subsequently acquire opposite real parts while retaining the same growth rate. Although this merger was
+not interpreted in terms of exceptional-point topology in
+Refs. [29, 30], it can now be recognized as the same characteristic spectral mechanism.
+
+2
+Theory. The wormholes are described by Einstein
+gravity coupled to a phantom scalar ﬁeld φ in ﬁve dimensions,
+
+Z 
+√
+1
+R + Lφ
+S=
+−g d5 x ,
+(1)
+16πG
+where Lφ = 21 ∂µ φ∂ µ φ. The ﬁeld equations are, for the
+metric,
+1
+Gµν = Rµν − gµν R = 8πGTµν ,
+2
+where Tµν = gµν Lφ − 2 ∂Lφ /∂g
+ﬁeld,
+
+µν
+
+(2)
+
+, and for the phantom
+(3)
+
+The rotating background
+
+
+ds2 = −e2a(r) dt2 + p(r)e−q(r) dr2 + 41 h(r)(σ12 + σ22 )
+2
+
++ 14 p(r)eq(r)−2a(r) h(r) (σ3 − 2w(r)dt) ,
+
+(4)
+
+where σi ’s are the left-invariant 1-forms on S 3 , while for
+the phantom ﬁeld it is simply
+φ = φ(r) .
+
+(5)
+
+p=
+
+r2 + r02 /2
+,
+r2 + r02
+
+e2a =
+
+C 1/3
+,
+(16κ2 )2/3 τ1
+
+Then it is possible to see that the ﬁeld equations can be
+simpliﬁed if we deﬁne the function b and the parameter
+κ:
+κ=
+
+1
+2κr0
+
+auu = 4κ e
+
+,
+
+16G
+cw
+=− 3J,
+3
+r0
+πr0
+
+buu = 4e
+
+α = 0,
+
+2(b−a)
+
+.
+
+V = 2(b − a) + ln 4 ,
+Vuu = −eU + 2eV .
+
+r04
+(16 + 3α2 − β 2 ) .
+16
+
+(17)
+
+β = λ,
+
+δ = 0,
+
+2 ≤ λ < 4.
+
+(18)
+
+In fact it is convenient to deﬁne s = πλ
+4 .The solution
+simpliﬁes to
+
+(8)
+
+sin2 (s)
+,
+1 − cos(s) cos(λu)
+cos(2u)
+λ sin(s)
+eq =
+,
+2
+cos(λu) − cos(s)
+
+e2a =
+
+(9)
+
+(19)
+(20)
+
+with
+(10)
+
+one obtains the open A2 Toda system
+Uuu = 2eU − eV ,
+
+φ=
+
+Thus physical solutions depend on three free parameters,
+(r0 , α, β) which are related to the throat area, the angular
+momentum and the mass of the wormhole.
+The general solution is generically asymmetric under
+the reﬂection r → −r. Let us now focus on the symmetric
+subclass. Such solutions satisfy
+
+Even more, deﬁning the functions
+U = 4a − b + ln(8κ2 ) ,
+
+C 2/3
+cos(2u)
+, (14)
+2(16κ2 )1/3 τ2
+
+
+ ′
+τ ′ (π/4)
+τ1
+,
+− 1
+τ1
+τ1 (π/4)
+
+4πGQ2 =
+
+where J = J1 = J2 is the angular momentum. Then the
+two nonlinear Einstein equations become
+2 4a−b
+
+eq =
+
+2Q 
+π
+.
+u−
+2
+r0
+4
+(15)
+These functions depend on the parameters α, β, δ, κ, B,
+r0 and Q, but for a physical solution they are not all
+free. Asymptotic ﬂatness requires τ2 (±π/4) = 0, which
+ﬁxes B and δ algebraically. The normalization at positive
+inﬁnity gives
+√
+C
+2
+κ =
+,
+(16)
+16 τ1 (π/4)3/2
+w=−
+
+(6)
+
+for which the nontrivial stationary functions are a(r), q(r)
+and w(r). In order to obtain an analytical solution it is
+useful to deﬁne the transformation
+!
+π
+r
+π
+u = arctan p
+,
+− < u < . (7)
+4
+4
+r2 + r02
+
+b = q − ln(cos 2u) ,
+
+and C = 4B 2 β 2 (9α2 + β 2 )2 , the metric functions are
+
+and the remaining Einstein constraint ﬁxes the scalar
+charge
+
+We use the radial gauge of Ref. [18],
+h = r2 + r02 ,
+
+τ1 = e2αu + 2Be−αu cos(βu + δ) ,
+(12)
+h
+τ2 = 4B 2 β 2 e−2αu − 2Beαu (9α2 − β 2 ) cos(βu + δ)
+i
++ 6αβ sin(βu + δ) ,
+(13)
+
+while
+
+∇µ ∇µ φ = 0 .
+Exact rotating wormholes.
+ansatz is given by
+
+A real sector relevant to regular two-ended wormholes
+is generated by the Toda exponents {2α, −α+iβ, −α−iβ}.
+Introducing
+
+(11)
+
+κ2 = −
+
+λ3 cos(s)
+,
+16 sin3 (s)
+
+
+
+λ2
+.
+4πGQ2 = r04 1 −
+16
+
+(21)
+
+The static ﬁve-dimensional Ellis–Bronnikov solution is at
+λ = 2, while λ → 4 sends Q → 0 and yields the extremal
+equal-spin Myers–Perry limit.
+
+3
+
+1
+
+(22)
+
+gives the area of the throat A = AT (0) at the location of
+the throat, r = 0. Then it is possible to see that when
+λ → 4 then |J|/A → 1/2, reproducing the numerical limiting behavior of Ref. [18] analytically, where the angular
+momentum J is identiﬁed from the expansion of w at
+positive spatial inﬁnity.
+Radial perturbations. We perturb the metric functions, the scalar ﬁeld and the angular velocity as in
+Ref. [18], introducing a harmonic time dependence e−iωt .
+We ﬁx the gauge imposing H1 = H3 − H2 . With this
+gauge choice, the phantom-ﬁeld and angular-velocity perturbations decouple from the gravitational perturbation
+sector considered here. It is convenient to introduce the
+following redeﬁnitions
+H0 = G2 + G0 ,
+
+H2 = −G2 ,
+
+H3 = 2G0 + G1 , (23)
+
+because with them the perturbation equations can be
+written in a very simple way:
+
+
+1 1 0
+1
+(ξG′ )′ = V (r)G − ω 2 F (r)CG , C = 0 1 0 , (24)
+ξ
+0 0 1
+
+where ξ = ph3/2 and F = e−2a−q p. All entries of V are
+elementary functions of the exact background.
+We are interested in perturbations behaving like outgoing waves at both spatial inﬁnities (r → ±∞). This
+implies that the perturbation functions behave like:
+G0 ∼ eiω|r| |r|3/2 ,
+G2 ∼ eiω|r| |r|1/2 .
+
+G1 ∼ eiω|r| |r|1/2 ,
+
+(25)
+
+With this information we proceed to solve equation (24)
+numerically in the following way: First we factor this
+asymptotic behavior analytically and compactify the radial coordinate according to
+π
+
+r = r0 tan
+y(x) ,
+(26)
+2
+where y(x) = x + πγ sin (πx), x ∈ [−1, 1] and γ is a parameter used to monitor the precision of the numerical
+method. We typically choose values 0 ≤ γ ≤ 0.8. Then
+we use a Chebyshev collocation method similar to the
+one used in other settings [16, 33–37] to calculate the
+spectrum of quasinormal modes, and in particular, the
+unstable modes.
+As an example, we show in ﬁgure 1 two unstable eigenfunctions for a background solution with |J|/A = 0.05475
+and r0 = 0.5, already used in Ref. [18]. We recover mode
+I with ω 2 = −19.1338 (deep mode) and mode II with
+ω 2 = −0.51154 (shallow mode). The shallow mode connects with the non-normalizable static zero mode when
+the angular momentum of the wormhole is decreased.
+The ﬁgure also illustrates that the two eigenfunctions are
+distinct well below the EP.
+
+G0
+G1
+G2
+mode I
+mode II
+
+0.5
+Gi
+
+The hypersurface area deﬁned by
+1/2
+
+,
+AT (r) = 2π 2 (r2 + r02 )3 p3 e−(2a+q)
+
+0
+
+−0.5
+−1
+
+0
+x = 2/π arctan(r/r0)
+
+1
+
+FIG. 1. Two cohomogeneity-one unstable modes of the symmetric rotating wormhole at |J|/A = 0.05475 (λ = 2.059523,
+r0 = 0.5). The perturbations are normalized by G0 (0) = 1.
+The eigenvalues are ω 2 = −19.1338 (mode I or deep mode)
+and −0.51154 (mode II or shallow mode).
+
+Exceptional point and beyond: Oscillatory instability.
+As shown in ﬁgure 2, the two imaginary frequencies approach each other as the wormhole rotates faster and
+meet at the EP, where
+
+
+|J|
+A
+
+λEP = 2.190024 ,
+
+= 0.100628 ,
+
+(27)
+(28)
+
+EP
+
+and the corresponding frequency is
+ωEP A1/3 = 2.429974 i ,
+2
+ωEP
+A2/3 = −5.904772 .
+
+(29)
+(30)
+
+The coalescence occurs not only for the eigenvalues but
+also for the eigenvectors. Numerically it is possible to
+see that as λ approaches the EP value, the normalized
+eigenvectors coalesce, becoming more and more similar.
+The two eigenvalues exhibit the characteristic square-root
+branching of an EP2; together with the eigenvector coalescence, this identiﬁes the merger as a second-order EP
+[32].
+Immediately beyond the EP the eigenvalues depart
+from the real ω 2 axis. For example, at λ = 2.192095,
+ω± A1/3 = ±0.863525 + 2.427364 i .
+
+(31)
+
+Thus both members of the eigenvalue pair remain unstable. The earlier real-eigenvalue calculation [18] correctly
+located the merger, but could not follow the modes once
+ω 2 left the real axis.
+The evolution of the complex frequency is shown in
+ﬁgures 2 and 3, demonstrating an oscillatory instability
+beyond the EP. The growth rate of the instability declines rapidly post-EP as the wormhole rotates increasingly fast. Furthermore, the suppression of the instability
+
+4
+
+mode I
+mode II
+post−EP pair
+EP
+
+ωI A1/3
+
+4
+
+5 x 10−4
+
+0
+0.475
+
+2
+
+0.5
+
+0
+0
+
+0.25
+|J|/A
+
+0.5
+
+FIG. 2. Dimensionless growth rates Im(ω)A1/3 versus |J|/A.
+The ordinary static instability (mode I) and the zero-mode descendant (mode II) coalesce at the EP. Beyond the EP they
+form one complex-frequency pair with common positive imaginary part.
+
+2
+mode I
+mode II
+post−EP pair
+EP
+
+ωR A1/3
+
+1
+
+0
+
+−1
+
+−2
+0
+
+0.25
+
+0.5
+
+|J|/A
+
+FIG. 3. Real parts of the post-EP frequencies. The two
+branches emerge from the EP with opposite real parts, ω± =
+±ωR + iωI , demonstrating the transition from a purely exponential to an oscillatory instability.
+
+is very strong, with the dimensionless growth rate ωI A1/3
+reaching values of order 10−6 . On the other hand, with respect to rotation, the value of the post-EP real frequency
+rises to a maximum before decreasing closely to zero as
+well, where |J|/A ≃ 0.48717 (λ = 3.948341). Both the increasingly small growth rate and real frequency towards
+the extremal Myers–Perry limit at |J|/A = 0.5 suggest
+a zero-frequency endpoint. The numerical data are consistent with a behavior ωI ∼ (|J|/A − 0.5)6 towards the
+extremal limit.
+Discussion. The exact Toda solution describing a
+fully rotating ﬁve-dimensional wormhole of equal angular momenta is an intriguing analytical solution. The
+earlier stability analysis of Ref. [18], based on a numerically constructed background, suggested a restoration of
+
+radial stability as rapid rotation sets in. In this work
+we show that the two unstable modes coalesce at the EP
+at |J|/A ≃ 0.100628 and proceed to exhibit an oscillatory instability. This realizes, in an unstable sector, the
+same non-Hermitian mode-coalescence mechanism that
+underlies the resonant behavior discussed for black-hole
+quasinormal modes near exceptional points [25–28].
+The endpoint is also structurally interesting. The
+scalar charge vanishes and the background approaches
+extremal Myers–Perry, while the unstable frequency is
+driven towards zero. It will require a dedicated nearextremal analysis to examine whether the limiting mode
+is a threshold mode at the wormhole-to-black-hole transition, or is a standard Myers–Perry quasinormal mode.
+Nonetheless, our central conclusion remains intact that
+the symmetric rotating ﬁve-dimensional wormholes are
+linearly unstable in the cohomogeneity-one gravitational
+sector.
+Note added. After our exact construction and stability analysis had been obtained, the preprint by Nozawa
+[31] appeared, giving an independent exact construction
+of the rotating ﬁve-dimensional wormhole family from an
+A1 ⊕ A2 Toda reduction and analyzing its global geometry. The present work is complementary in its emphasis
+on the radial spectrum, the exceptional point, and the
+oscillatory instability beyond the merger.
+Acknowledgments. FSK gratefully acknowledges support from “Atracción de Talento Investigador Cesar
+Nombela” of the Comunidad de Madrid under the grant
+number 2024-T1/COM-31385. PNM gratefully acknowledges support from Universidad Complutense de Madrid
+through “Contratos predoctorales de personal investigador en formación CT25/24”.
+Use of generative AI. Generative AI was used as an
+auxiliary tool in obtaining and organizing parts of the
+derivation of the exact solutions and for language editing. The exact solutions were independently veriﬁed by
+the authors, while the perturbation analysis, derivation
+of the unstable modes, numerical calculations, and physical interpretation were carried out and checked by the
+authors.
+
+∗
+
+jlblaz01@ucm.es
+mgromero@ucm.es
+‡
+fkhoo@ucm.es
+§
+b.kleihaus@uni-oldenburg.de
+¶
+jutta.kunz@uni-oldenburg.de
+∗∗
+panava03@ucm.es
+[1] H. G. Ellis, J. Math. Phys. 14, 104 (1973)
+[2] K. A. Bronnikov, Acta Phys. Polon. B 4, 251 (1973).
+[3] J. A. González, F. S. Guzman and O. Sarbach, Class.
+Quant. Grav. 26, 015010 (2009)
+[4] K. A. Bronnikov, J. C. Fabris and A. Zhidenko, Eur.
+Phys. J. C 71, 1791 (2011)
+†
+
+5
+[5] F. Cremona, F. Pirotta and L. Pizzocchero, Gen. Rel.
+Grav. 51, 19 (2019)
+[6] F. Cremona, L. Pizzocchero and O. Sarbach, Phys. Rev.
+D 101, 104061 (2020)
+[7] H. a. Shinkai and S. A. Hayward, Phys. Rev. D 66,
+044005 (2002)
+[8] J. A. González, F. S. Guzman and O. Sarbach, Class.
+Quant. Grav. 26, 015011 (2009)
+[9] T. Torii and H. a. Shinkai, Phys. Rev. D 88, 064027
+(2013)
+[10] P. E. Kashargin and S. V. Sushkov, Grav. Cosmol. 14,
+80 (2008)
+[11] P. E. Kashargin and S. V. Sushkov, Phys. Rev. D 78,
+064071 (2008)
+[12] B. Kleihaus and J. Kunz, Phys. Rev. D 90, 121503 (2014)
+[13] X. Y. Chew, B. Kleihaus and J. Kunz, Phys. Rev. D 94,
+104031 (2016)
+[14] B. Azad, J. L. Blazquez-Salcedo, F. S. Khoo and J. Kunz,
+Phys. Lett. B 848, 138349 (2024)
+[15] B. Azad, J. L. Blázquez-Salcedo, F. S. Khoo and J. Kunz,
+Phys. Rev. D 109, 124051 (2024)
+[16] F. S. Khoo, B. Azad, J. L. Blázquez-Salcedo,
+L. M. González-Romero, B. Kleihaus, J. Kunz and
+F. Navarro-Lérida, Phys. Rev. D 109, 084013 (2024)
+[17] N. M. Shirokov and I. Nachevsky, [arXiv:2610.29941 [grqc]].
+[18] V. Dzhunushaliev, V. Folomeev, B. Kleihaus, J. Kunz
+and E. Radu, Phys. Rev. D 88, 124028 (2013)
+[19] R. C. Myers and M. J. Perry, Annals Phys. 172, 304
+(1986)
+[20] K. Uemichi, Y. Koga, D. Saito, C. M. Yoo and
+D. Yoshida, Phys. Rev. D 113, 124054 (2026)
+[21] J. P. Cavalcante, M. Richartz and B. C. da Cunha, Phys.
+Rev. Lett. 133, 261401 (2024)
+
+[22] N. Oshita, E. Berti and V. Cardoso, Phys. Rev. Lett. 135,
+031401 (2025)
+[23] L. Cheng, X. Guo, Y. Li, J. Tao and P. Wang,
+[arXiv:2603.22261 [gr-qc]].
+[24] M. M. Arcos, A. T. Pérez and C. F. Sopuerta,
+[arXiv:2610.30049 [gr-qc]].
+[25] H. Motohashi, Phys. Rev. Lett. 134, 141401 (2025)
+[26] Y. Yang, E. Berti and N. Franchini, Phys. Rev. Lett. 135,
+201401 (2025)
+[27] R. Panosso Macedo, T. Katagiri, K. i. Kubota and H. Motohashi, Phys. Rev. D 113, L121504 (2026)
+[28] K. i. Kubota and H. Motohashi, Phys. Rev. D 113,
+043053 (2026)
+[29] J. L. Blázquez-Salcedo, L. M. González-Romero,
+F. S. Khoo, J. Kunz and P. Navarro Moreno, Phys. Lett.
+B 875, 140335 (2026)
+[30] J. L. Blázquez-Salcedo, L. M. González-Romero,
+F. S. Khoo, J. Kunz and P. Navarro Moreno, Phys. Rev.
+D 114, 084019 (2026)
+[31] M. Nozawa, “Exact spinning wormholes in ﬁve dimensions from Toda integrability,” arXiv:2610.34672 [gr-qc]
+(2026).
+[32] W. D. Heiss, J. Phys. A 45, 444016 (2012).
+[33] J. L. Blázquez-Salcedo, F. S. Khoo, J. Kunz and
+L. M. González-Romero, Phys. Rev. D 109, no.6, 064028
+(2024)
+[34] J. L. Blázquez-Salcedo, F. S. Khoo, B. Kleihaus and
+J. Kunz, Phys. Rev. D 111, no.2, L021505 (2025)
+[35] F. S. Khoo, J. L. Blázquez-Salcedo, B. Kleihaus and
+J. Kunz, Eur. Phys. J. C 85, no.11, 1366 (2025)
+[36] J. L. Blazquez-Salcedo, F. S. Khoo, B. Kleihaus and
+J. Kunz, Phys. Rev. D 111, no.6, 064015 (2025)
+[37] E. Berti, V. Cardoso, G. Carullo, J. Abedi, N. Afshordi,
+S. Albanesi, V. Baibhav, S. Bhagwat, J. L. BlázquezSalcedo and B. Bonga, et al. Class. Quant. Grav. 43,
+no.12, 123001 (2026)
+
+

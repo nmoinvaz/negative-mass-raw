@@ -1,0 +1,4202 @@
+Nonradial perturbations of static charged wormholes
+Jose Luis Blázquez-Salcedo∗1 , Luis Manuel González-Romero†1 , Fech Scen
+Khoo‡1 , Jutta Kunz§2 , and Pablo Navarro Moreno¶1
+1
+
+Departamento de Fı́sica Teórica and IPARCOS, Facultad de Ciencias Fı́sicas,
+Universidad Complutense de Madrid, Spain
+2
+Institut für Physik, Universität Oldenburg, Postfach 2503, D-26111 Oldenburg,
+Germany
+
+arXiv:2607.18399v1 [gr-qc] 20 Jul 2026
+
+July 22, 2026
+
+Abstract
+We investigate the nonradial quasinormal-mode spectrum of static charged Ellis–
+Bronnikov wormholes in Einstein–Maxwell theory minimally coupled to a phantom
+scalar ﬁeld. The background solutions are known in closed form and comprise
+three classes: subcritical, critical and supercritical, which all approach the extremal
+Reissner–Nordström geometry at the boundary of their domain of existence. We
+derive the linear perturbation equations for axial and polar sectors, including the
+coupled gravitational, electromagnetic and phantom-scalar degrees of freedom, and
+compute the corresponding spectra by means of a Chebyshev spectral method. The
+uncharged limit reproduces the known Ellis–Bronnikov spectrum and exhibits the
+expected electromagnetic isospectrality. For charged conﬁgurations we track the axial and polar branches across the three families of solutions and identify the eﬀect
+of the charge on the damping times and oscillation frequencies. In particular, we
+ﬁnd that charge can substantially reduce damping rates as the extremal Reissner–
+Nordström limit is approached. We also uncover a nonradial polar instability, most
+clearly visible in the fundamental l = 2 branch for suﬃciently large wormhole
+masses. This instability is distinct from the familiar radial Ellis–Bronnikov instability and shows that the nonradial sector imposes additional constraints on the
+dynamical viability of charged wormholes.
+
+1
+
+Introduction
+
+Although still hypothetical, wormholes are considered interesting black hole mimickers[1]
+whose properties are widely studied. Of particular relevance are, of course, their observational signatures. Thus, gravitational lensing by wormholes has been a topic studied
+∗
+
+jlblaz01@ucm.es
+mgromero@ucm.es
+‡
+fkhoo@ucm.es
+§
+jutta.kunz@uni-oldenburg.de
+¶
+panava03@ucm.es
+†
+
+1
+
+for decades [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], and in more recent years it has focused on
+the investigation of the shadows of wormholes [11, 14, 15, 16, 17, 18, 19, 20], which makes
+the study of accretion disks around wormholes and the emission of electromagnetic radiation associated with quasi-periodic oscillations compelling as well [21, 22, 23, 24, 25, 26,
+27, 28]. Another pertinent topic yielding observational signatures is the study of gravitational radiation from wormholes [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43].
+This is also the ﬁeld of the present study.
+In general relativity (GR) the Ellis-Bronnikov (EB) wormholes represent static,
+spherically symmetric solutions that are known in closed form and owe their existence
+to the presence of a phantom scalar ﬁeld [44, 45]. The radial instability of static EB
+wormholes is well-known [46, 47, 48, 49, 50], and the study of their quasinormal mode
+(QNM) spectrum revealed interesting features, like a threefold isospectrality of the
+massless wormholes [43].
+Static EB wormholes have been generalized to include rotation, but closed form
+solutions exist only for slowly rotating EB wormholes [51, 52]. Rapidly rotating EB
+wormholes are known numerically, though [53, 54, 55]. The attenuation of the radial
+instability of wormholes in the presence of rotation conjectured earlier [56] was addressed
+in recent years, together with the QNM spectrum of rotating wormholes [57, 58, 59, 60].
+However, the fate of the instability for rather fast rotation has not yet been clariﬁed,
+since the background solutions were not known in closed form, yielding accumulating
+inaccuracies in the determination of the modes.
+Angular momentum and electromagnetic charge have important traits in common,
+at least when the properties of black holes are considered. However, charge allows
+for static spherically symmetric solutions, while rotation breaks spherical symmetry.
+We may therefore consider charged wormholes as a toy model for capturing signiﬁcant
+properties of rotating wormholes. Thus, it is of interest to study the instability and
+QNM spectrum of charged EB wormholes. Thanks to their spherical symmetry, these
+charged EB wormholes are known in closed form [61].
+A recent study investigated perturbations of charged EB-type wormholes in a diﬀerent Einstein-Maxwell-phantom theory featuring a non-minimal scalar-Maxwell coupling
+Z −1 (φ)Fµν F µν [62]. Its background solutions and perturbation equations diﬀer from
+those considered here, and its polar analysis uses an approximate closure rather than
+the fully coupled polar system studied here.
+Clearly, when the charge is set to zero, the ordinary EB wormholes are recovered.
+For ﬁnite values of the charge, however, one ﬁnds three types of solutions that have
+been classiﬁed as subcritical, critical and supercritical [61]. In all cases, the families of
+wormholes approach an extremal Reissner-Nordström (eRN) black hole as their limiting
+solution. Gonzalez et al. [61] already performed a partial analysis of the fate of the
+unstable radial mode. To have the complete picture, we recently re-examined this problem and found that close to the limiting solution the instability was basically quenched
+and the mode became long-lived [63].
+Here we investigate the full spectrum of QNMs of the charged EB wormholes. To
+obtain the modes, we employ a spectral method that we have applied previously to
+wormholes and black holes [59, 63, 64, 65, 66, 67]. We present the theoretical framework
+in section 2, and discuss the background solutions. In section 3 we discuss the general
+set of perturbations for the wormholes. Section 4 brieﬂy recalls the spectral method.
+
+2
+
+The numerical results for the spectrum are then presented in section 5 for each type of
+the charged EB wormholes. In addition, we display the limiting case of uncharged EB
+wormholes, covering a larger mass range than before [57]. We conclude in section 6 and
+provide some tables with the modes in the Appendix.
+
+2
+
+Theoretical framework
+
+We consider the following Einstein-Maxwell action coupled with a phantom scalar ﬁeld
+in geometrical units,
+Z
+
+√ 
+1
+(1)
+S=
+d4 x −g R − F 2 + 2(∇ϕ)2 ,
+16π
+
+where R is the curvature scalar, F is the electromagnetic tensor, and ϕ is the phantom
+scalar ﬁeld. Varying the action (1) with respect to the metric g, the gauge ﬁeld A, and
+the scalar ﬁeld ϕ gives rise to the following equations of motion, respectively,
+EM
+Rµν = 8πTµν
+− 2∇µ ϕ∇ν ϕ ,
+
+(2)
+
+∇µ Fµν = 0 ,
+
+(3)
+
+∇[σ Fµν] = 0 ,
+
+ϕ = 0 ,
+
+(4)
+
+1
+2
+EM = (F σ F
+where Tµν
+νσ − 4 gµν F )/4π.
+µ
+
+2.1
+
+Background solutions
+
+The static, charged wormholes were ﬁrst studied in [61]. The background is given by
+
+
+ds2 = −G(r)dt2 + G(r)−1 dr 2 + (r 2 + r02 )(dθ 2 + sin2 θ dφ2 ) ,
+(5)
+ 
+r
++ ϕ0 ,
+(6)
+ϕ = ϕ1 arctan
+r0
+and
+F =
+
+2Qe
+G(r)dt ∧ dr + 2Qm sin θdθ ∧ dφ ,
+2
+r + r02
+
+(7)
+
+where r0 is a scale factor and Qe and Qm are the electric and magnetic charges respectively. In what follows, we set the magnetic charge to zero, hence focusing on the purely
+electric setup.
+Depending on the parameter Λ, there are three distinct classes of solutions, known
+as subcritical, critical, and supercritical wormholes,
+
+h
+i−2
+2 cosh (Λy) − γ sinh (Λy)
+
+
+σ
+,
+Λ > 0,
+subcritical,
+1
+
+Λ
+
+σ 2 (1 − γ1 y)−2 ,
+Λ = 0,
+critical,
+G(r) =
+(8)
+
+h
+i−2
+
+
+ σ 2 cos(µy) − γ1 sin(µy)
+,
+Λ = iµ , µ > 0 , supercritical,
+µ
+
+where y = arctan (r/r0 ). The parameter σ ensures that the spacetime is asymptotically
+ﬂat, i.e. gtt = −1, grr = 1 when r approaches inﬁnity.
+3
+
+For global wormhole solutions, the following conditions should be satisﬁed,
+Λ < |γ1 | and
+µ<1
+
+tanh(Λ π2 )
+|γ1 | < 1 ,
+Λ
+
+π
+2 |γ1 | < 1 ,
+tan(µ π2 )
+|γ1 | < 1 ,
+and
+µ
+
+subcritical,
+critical,
+
+(9)
+
+supercritical.
+
+Global wormhole solutions are determined only by three free parameters, r0 , γ1 and Λ
+(or µ), with the remaining charges determined by these three parameters. For instance,
+we arrive at the uncharged EB wormhole solution when Λ = γ1 .
+For the phantom scalar ﬁeld ϕ, the scalar charge Qs is identiﬁed asymptotically
+using ϕ0 = −πQs /2r0 and ϕ1 = Qs /r0 , meaning that
+ √
+
+r 1 + Λ2 , subcritical,
+
+ 0
+r0 ,
+critical,
+Qs =
+(10)
+
+
+ r p1 − µ2 , supercritical.
+0
+
+On the other hand, the parameter γ1 in the background functions is given by
+q
+1
+γ1 =
+Q2s + σ 2 Q2e − r02 .
+r0
+
+(11)
+
+This parameter encodes the three fundamental parameters of the charged wormhole,
+i.e., Qe , Qs and r0 . In fact, γ1 is known as the asymmetry parameter [61] where γ1 = 0
+corresponds to the symmetric wormholes. The total mass of the wormhole can be
+calculated asymptotically from gtt ≈ −1 + 2M/r when r → ∞. The throat of the
+wormhole is found when ∂r gθθ |rmin = 0, and hence the area of the throat is determined
+by AT = 4πgθθ (rmin ).
+As a result, in the following we will characterize the wormholes by threepphysical
+parameters, the electric charge Qe , the mass M and the throat radius rT = AT /4π.
+Figure 1 shows the domain of existence of the electrically charged wormholes, described
+by relations between their mass and their electric charge, both scaled by the throat
+radius. The critical wormholes that satisfy Qe = M (or Λ = µ = 0) separate the other
+two classes of wormholes from each other, where the domain is bounded by the supercritical wormholes, i.e., Qe > M from the bottom, and from the top by the subcritical
+wormholes given by Qe < M . Each solid curve within the region of the supercritical
+wormholes is given by a value of the parameter γ1 , while each dashed curve in the subcritical family is parametrized by Λ. Additionally, these physical quantities are bounded
+by Qe = M = rT . At this point, the wormhole conﬁguration approaches a limiting conﬁguration that is an eRN black hole, as the wormhole throat radius tends to the location
+of the black hole horizon.
+On the other hand, we show in Figure 2 another representation of the domain of
+existence using the parameters γ1 , Λ, µ of the background functions. In the left panel,
+we exhibit the relation between γ1 and Λ for the subcritical wormholes, and in the
+right panel for γ1 and µ for the supercritical wormholes. In the left panel, the curve
+γ1 = Λ represents the uncharged EB wormholes. Hence, the domain of the subcritical
+wormholes is bounded by the uncharged EB wormholes, the charged critical wormholes
+and the eRN black holes. In the right panel, the domain of the supercritical wormholes
+4
+
+1
+0.8
+
+M/rT
+
+eRN
+
+subcritical
+Λ=1
+Λ=0.5
+Λ=0.2
+Λ=0.1
+critical (Λ=µ=0)
+
+0.6
+0.4
+
+supercritical
+γ1=0
+γ1=0.1
+γ1=0.2
+γ1=0.5
+
+0.2
+0
+0
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1
+
+Qe/rT
+
+Figure 1: Domain of existence of the static charged wormholes where the supercritical
+and subcritical wormholes are separated by the critical wormholes. Several branches of
+solutions are shown in colors for ﬁxed values of the parameters. All the branches end
+at the extremal Reissner-Nordström black hole (eRN).
+
+2
+
+critical (µ = 0)
+γ1 = 0
+γ1 = 0.1
+γ1 = 0.2
+γ1 = 0.5
+eRN
+
+γ1
+
+γ1
+
+0.6
+
+eRN
+EB WH
+Λ=1
+Λ = 0.5
+Λ = 0.2
+Λ = 0.1
+critical (Λ = 0)
+
+1
+
+0
+0
+
+Λ
+
+1
+
+0.3
+
+0
+2
+
+µ
+
+0.5
+
+1
+
+Figure 2: Another representation of the domain of existence of the static charged wormholes, separately for the subcritical and supercritical wormholes (shaded region). Left:
+Subcritical wormholes. The Ellis-Bronnikov (EB) wormholes are given by the linear
+relation between the parameters γ1 and Λ. Conﬁgurations with diﬀerent values of Λ are
+shown in vertical lines, where they end at a maximal γ1 value which denotes the eRN
+black hole. Right: Supercritical wormholes. Similarly, the domain is bounded by the
+eRN black holes and the critical wormholes. Conﬁgurations with diﬀerent values of γ1
+are shown in horizontal lines.
+is bounded by the charged critical wormholes, the symmetric wormholes (γ1 = 0) and
+the extremal Reissner-Nordström black holes. In both panels, one ﬁnds at the origin
+the massless and uncharged EB wormhole.
+
+5
+
+3
+
+Perturbation theory
+
+Here we present the perturbations of the background ﬁelds. These can be further
+categorized into axial, radial and polar perturbations. We derive the equations for
+these perturbations and discuss the boundary conditions.
+We perturb the metric, the electromagnetic (EM) gauge potential and the phantom
+ﬁeld as follows,
+0
+gµν = gµν
++ δgµν ,
+(12)
+Aµ = A0µ + δAµ ,
+
+(13)
+
+ϕ = ϕ0 + δϕ ,
+
+(14)
+
+where the superscript 0 denotes the background solution given by (5)-(7). The perturbations will be decomposed into their axial and polar components in order to split
+the problem into two pieces. We ﬁx the gauge by employing the well-known ReggeWheeler gauge. Due to this choice, we are left with two axial perturbation functions
+and four polar perturbation functions as will become clear in the next sections. The
+spherical symmetry allows us to decompose the ansatz of the perturbations into spherical harmonics, thus decoupling the angular dependence. This leads to a system of
+ordinary diﬀerential equations (ODEs) instead of partial diﬀerential equations (PDEs).
+The symmetry of the problem simpliﬁes the spectral method substantially, since only a
+one-dimensional grid is required. Furthermore, the time-dependent part of the damped
+oscillations can be written as ∼ e−iωt with ω ∈ C. Thus, ωR = Re(ω) denotes the
+frequency of a mode, while ωI = Im(ω) determines the damping or growth rate. Notice that, with this convention, negative values ωI < 0 represent stable modes, whereas
+positive values ωI > 0 reveal unstable modes. We deﬁne the characteristic timescale
+as τ = 1/|ωI |. It represents a damping time for stable modes and a growth time for
+unstable modes.
+
+3.1
+
+Axial perturbations
+
+The axial perturbations of the metric are given by
+
+
+∂ Y
+
+(θ,φ)
+
+lm
+0 0 −h0 (r) φ sin
+(θ)
+
+
+∂φ Ylm (θ,φ)
+
+δgµν (t, r, θ, φ) = 0 0 −h1 (r) sin (θ)
+∗ ∗
+0
+∗ ∗
+0
+
+h0 (r) sin (θ)∂θ Ylm (θ, φ)
+
+
+
+
+h1 (r) sin (θ)∂φ Ylm (θ, φ)
+ e−iωt ,
+
+0
+0
+
+(15)
+
+where ∗ stands for the symmetric components, and an implicit sum over the multipoles
+l is assumed. Owing to the spherical symmetry of the background, the spectrum is
+independent of the azimuthal number m. We may therefore set m = 0 without loss of
+generality, in which case Yl0 (θ, ϕ) ∝ Pl (cos θ).
+On the other hand, the perturbation of the EM gauge ﬁeld can be written as
+δA(t, r, θ, φ) = −W1 (r)
+
+∂φ Ylm (θ, φ) −iωt
+e
+dθ + W1 (r) sin (θ)∂θ Ylm (θ, φ)e−iωt dφ ,
+sin (θ)
+
+while the phantom ﬁeld perturbations decouple and thus do not contribute.
+6
+
+(16)
+
+After computing the ﬁeld equations (2)-(4) up to ﬁrst order in perturbation theory
+and performing some algebraic manipulations, we ﬁnd the following set of ODEs
+
+
+
+i
+G′ 2 G′ 2
+1
+′
+′
+− r − r0 + 2r h0 − 4A W1 +
+2rGG′
+h0 = 2
+G
+G
+r + r02
+ω(r 2 + r02 )
+
+(17)
+2
+2
+′′
+′2
+′2
+2
+2
+2
++ (r + r0 )(GG − G − 2GA − ω ) + (l + l − 2)G h1 ,
+G′
+iω
+h1 − 2 h0 ,
+G
+G
+
+(18)
+
+
+
+A′
+A′′
+2
+2
+′
++ 2 2
+(r
++
+r
+)G
+−
+2rG
+h0
+0
+G
+G (r + r02 )
+
+
+2G′ r
+G′2
+iA′
+(l + 2)(l − 1)G
+′′
+′2
++ 2
+G − 2A −
+−
++
+h1
+ω
+G
+r + r02
+r 2 + r02
+
+ ′2
+ω2
+l(l + 1)
+4A
+G′ ′
+−
++ 2
+W .
+W
+−
++
+1
+G
+G2
+G 1
+r + r02
+
+(19)
+
+h′1 = −
+W1′′ =
+
+
+
+−
+
+Note that from now on, the dependence of the functions on the radial coordinate is
+not explicitly shown, whenever the system is completely decoupled from temporal and
+angular coordinates. Also note that the prime ′ denotes the derivative w.r.t. r, and
+A′ = ∂r A0t (r).
+Next, we study the asymptotic behavior of the solutions at r = ±∞. Thus, we
+expand the solutions in power series at both radial inﬁnities. Since we want outgoing
+waves at both sides, we deﬁne a modiﬁed tortoise coordinate that takes care of the sign
+at both inﬁnities simultaneously as
+r
+dr ∗
+p
+.
+=
+dr
+G(r) r 2 + r02
+
+(20)
+
+The expansion of the perturbations reads
+
+
+a1
++ ... ,
+(21)
+r
+
+
+b1
+∗
+h1 (r) = reiωr b0 +
++ ... ,
+(22)
+r
+
+
+c1
+∗
+W1 (r) = eiωr c0 +
++ ... .
+(23)
+r
+We have only given the expansions at +∞, but they hold, with diﬀerent coeﬃcients,
+at −∞, as well. Asymptotically, only two constants are free, for example a0 and c0 (the
+amplitudes of the gravitational and electromagnetic perturbations), while the other
+constants are ﬁxed via algebraic relations by the two free amplitudes. In any case, the
+previous expansions allow us to identify the dominant term in the asymptotic behavior of
+the functions. In order to avoid divergences when numerically computing the solutions,
+it is convenient to reparametrize the perturbation functions by factorizing this behavior.
+Thus, the system of equations (17)-(19) can be conveniently rewritten
+pby introducing
+∗
+the following
+reparametrization of the perturbation functions: h0 = r 2 + r02 eiωr ĥ0 ,
+p
+∗
+∗
+h1 = r 2 + r02 eiωr ĥ1 and W1 = eiωr Ŵ1 .
+h0 (r) = reiωr
+
+∗
+
+
+
+a0 +
+
+7
+
+3.2
+
+Radial perturbations
+
+Before considering the higher multipole polar perturbations, we ﬁrst study the l = 0
+radial perturbations, since the instability of the EB wormholes resides in the radial
+sector.
+The radial perturbations of the metric are given by
+
+
+G(r)F0 (r)
+0
+0
+0
+1
+
+
+0
+0
+0
+ −iωt
+
+G(r) F1 (r)
+2
+2
+e
+
+r +r0
+.
+δgµν (t, r, θ, φ) = 
+
+F
+(r)
+0
+0
+0
+2
+G(r)
+
+
+(r 2 +r02 ) sin2 (θ)
+F2 (r)
+0
+0
+0
+G(r)
+(24)
+The perturbations of the EM ﬁeld and the scalar ﬁeld can be cast as
+δA(t, r, θ, φ) = e−iωt (V0 (r)dt + V1 (r)dr) ,
+−iωt
+
+δϕ(t, r, θ, φ) = u(r)e
+
+.
+
+(25)
+(26)
+
+We ﬁx the gauge freedom by setting F0 + F1 − 2F2 = 0 and V1 = F0 (A0t )′ /ω. This
+choice allows us to get rid of F1 and V0 , decreasing the order of the resulting system of
+diﬀerential equations, which is then given by
+
+
+′2
+1
+2Gr02
+′
+2
+2
+′′
+2
+2 G
+′
+F0
+F0 = 2
+(r + r0 )G − (r + r0 )
++ rG − 2
+G
+(r + r02 )G′ − 2rG
+r + r02
+
+1
+2(r 2 + r02 )G′2
+2
+2
+′′
+− 4rG′ + 4(r 2 + r02 )A′2
++ 2
+−2(r
++
+r
+)G
++
+0
+2
+G
+(r + r0 )G′ − 2rG
+
+
+
+2Gr02
+4GQs
+2ω 2 (r 2 + r02 )
+r
+′
++ 2
+F2 − 2
+−
+u ,
+u + 2
+G
+r + r02
+(r + r02 )G′ − 2rG
+r + r02
+(27)
+ ′
+
+r
+G
+r
+2Qs
+− 2
+F2′ =
+F0 + 2
+F2 + 2
+u,
+(28)
+2
+2
+2G r + r0
+r + r0
+r + r02
+2r
+ω2
+u′′ = − 2
+u′ − 2 u .
+2
+G
+r + r0
+
+(29)
+
+Following a procedure similar to the axial case, we study asymptotically the outgoing
+wave solutions of this system. Using the tortoise coordinate (20), the expansion at
+inﬁnity can be cast as
+
+
+d1
+iωr ∗
+F0 (r) = re
+d0 +
++ ... ,
+(30)
+r
+
+
+e1
+∗
++ ... ,
+(31)
+F2 (r) = eiωr e0 +
+r
+
+
+f1
+1
+∗
++ ... .
+(32)
+u(r) = eiωr f0 +
+r
+r
+
+For strictly unstable solutions, it is well known that the previous system can be written as a single master equation by setting u = 0. In that case the resulting potential becomes divergent at the throat, requiring regularization of the master equation (see e.g. [61, 68, 69]). However, by integrating directly the above system of
+8
+
+ODEs (27)-(29), which is regular at the throat, this problem is avoided. As with
+the
+the divergent behavior by reparametrizing (F0 , F2 , u) =
+p axial case,∗ we factorize
+∗
+∗
+iωr
+iωr
+2
+2
+√
+F̂0 , e
+F̂2 , 21 2 eiωr û).
+( r + r0 e
+r +r0
+
+3.3
+
+Polar perturbations
+
+The polar perturbations of the metric are given by
+
+G(r)H0 (r)
+H1 (r)
+0
+1
+ H1 (r)
+H
+(r)
+0
+
+G(r) 2
+2 +r 2
+r
+δgµν (t, r, θ, φ) = 
+0
+
+0
+0
+G(r) K(r)
+
+0
+0
+0
+
+0
+0
+
+
+
+
+
+ Ylm (θ, φ)e−iωt ,
+
+0
+
+2
+2
+2
+(r +r0 ) sin (θ)
+K(r)
+G(r)
+(33)
+
+the corresponding perturbation of the gauge ﬁeld is
+δA(t, r, θ, φ) = V0 (r)Ylm (θ, φ)e−iωt dt + V1 (r)Ylm (θ, φ)e−iωt dr
++ W0 (r)∂θ Ylm (θ, φ)e−iωt dθ + W0 (r)∂φ Ylm (θ, φ)e−iωt dφ ,
+
+(34)
+
+and the scalar ﬁeld perturbation is
+δϕ(t, r, θ, φ) = u(r)Ylm (θ, φ)e−iωt .
+
+(35)
+
+After manipulating the equations of motion, we arrive at the following system of
+ODEs for the polar perturbations
+
+
+r
+(r 2 + r02 )G′ − rG
+2Qs
+3G′
+′
++ 2
+H
++
+K− 2
+u
+H0 = −
+0
+2
+2
+2
+2G
+r + r0
+G(r + r0 )
+r + r02
+(36)
+
+
+2G′ r
+l(l + 1)G G′2 − 2ω 2
+i
+4A′
+′′
+′2
+− 2
+F1 ,
+−G + 2A + 2
++
++
+H1 +
+2ω
+G
+G
+r + r02
+r + r02
+H2 = H0 ,
+iω
+G′
+(H0 + K) − H1 + 4A′ F2 ,
+G
+G
+2
+′
+2
+2
+(r + r02 )G′ − rG
+2Qs
+2Gr − G (r + r0 )
+H
++
+K+ 2
+u
+K′ =
+0
+2G(r 2 + r02 )
+G(r 2 + r02 )
+r + r02
+
+
+2G′ r
+l(l + 1)G G′2
+i
+−
+−G′′ + 2A′2 + 2
++
++
+H1 ,
+2ω
+G
+r + r02
+r 2 + r02
+H1′ = −
+
+G′ Qs
+4A′ Qs
+2r
+u′′ = −
+H
++
+F1 − 2
+u′
+0
+2
+2
+2
+2
+G(r + r0 )
+G(r + r0 )
+r + r02
+
+
+l(l + 1)
+4Q2s
+ω2
+u,
+− 2
+−
++
+r 2 + r02
+(r + r02 )2 G2
+
+i l(l + 1)G2 − ω 2 (r 2 + r02 )
+′
+′
+F2 ,
+F1 = A K +
+ω(r 2 + r02 )
+F2′ = −
+
+iω
+G′
+F2 − 2 F1 .
+G
+G
+9
+
+(37)
+(38)
+
+(39)
+
+(40)
+
+(41)
+(42)
+
+A combination of the remaining non-trivial ﬁeld equations yields the following relation
+between the functions,
+
+−2G(r 2 + r02 )G′′ + 2(r 2 + r02 )G′2 − 4G′ Gr − 2G(r 2 + r02 )A′2
+(43)
+
+
+
+4
++(4 − l2 − l)G2 + ω 2 (r 2 + r02 ) H0 − 3iω G′ (r 2 + r02 ) − rG H1
+3
+
++ 2G(r 2 + r02 )G′′ − 2(r 2 + r02 )G′2 + 4G′ Gr − 4G(r 2 + r02 )A′2
+
++2(l + 2)(l − 1)G2 − 2ω 2 (r 2 + r02 ) K + 12GA′ (r 2 + r02 )F1′
+
+
+
+
+2
+′ 2
+2
+′
+′ 2
+2
+−3 G (r + r0 ) − rG GH0 + G (r + r0 ) − 4Gr GK ′
+3
+−G2 (r 2 + r02 )H0′′ − 8G2 Qs u′ − 2i(r 2 + r02 )ωGH1′ + 12iωGA′ (r 2 + r02 )F2 = 0 .
+
+Once again we use the tortoise coordinate (20) to study the asymptotically outgoing
+solution. The expansion at inﬁnity is
+
+
+g1
+∗
+H0 (r) = reiωr g0 +
++ ... ,
+(44)
+r
+
+
+i1
+iωr ∗
+(45)
+H1 (r) = re
+i0 + + . . . ,
+r
+
+
+j1
+∗
+K(r) = eiωr j0 +
++ ... ,
+(46)
+r
+
+
+1 iωr∗
+k1
+u(r) = e
++ ... ,
+(47)
+k0 +
+r
+r
+
+
+l1
+iωr ∗
+F1 (r) = re
+(48)
+l0 + + . . . ,
+r
+
+
+m1
+∗
++ ... .
+(49)
+F2 (r) = reiωr m0 +
+r
+In this expansion, only three amplitudes are free (related to the gravitational, electromagnetic and scalar degrees of freedom), for example g0 , k0 and l0 , while the rest of the
+constants are given in terms of these three via algebraic relations.
+The expansion allows us to deﬁne the following reparametrization that factorizes the
+asymptotically divergent behavior of the functions:
+(H0 , H1 , K, u, F1 , F2 ) =
+(50)
+!
+q
+q
+q
+q
+1
+∗
+r 2 + r02 Ĥ0 , r 2 + r02 Ĥ1 , K̂, p
+eiωr ×
+û, r 2 + r02 F̂1 , r 2 + r02 F̂2 .
+2
+r + r02
+
+As a ﬁnal point, we turn to the issue of isospectrality of the axial and polar perturbations. This feature can be understood in the following way. Since in the uncharged
+case there is no electric charge, it follows that A(r) = 0 and, therefore, the EM perturbations decouple from the gravitational and scalar ones. One arrives at the conclusion
+10
+
+that Eq. (19) is equivalent to Eqs. (41) and (42) after combining them into a single
+ODE and replacing, for example, F2 (r) → Ŵ1 (r) = G−1 (r)F2 (r). It follows that
+
+
+ω2
+l(l + 1)
+G′ ′
+′′
+−
+Ŵ
+−
+Ŵ1 =
+Ŵ ,
+(51)
+1
+G2
+G 1
+r 2 + r02
+which agrees with Eq. (19) for Qe = 0. This result implies that the spectrum of both
+axial and polar EM perturbations is the same in the uncharged case, as we will show
+later. Finally, we rewrite Eq. (51) as a Schrödinger-like equation. Deﬁning the tortoise
+−1
+coordinate as dR
+dr = G (r) we arrive by a straightforward manipulation at
+
+d2 Ŵ1
++ ω 2 − Vl (r) Ŵ1 = 0 ,
+2
+dR
+
+(52)
+
+with the potential Vl (r) given by
+
+l(l + 1)
+.
+Vl (r) = G(r)2 2
+r + r02
+
+4
+
+(53)
+
+Spectral method
+
+In this section we cover the basics of the numerical algorithm employed to solve the ﬁeld
+equations and compute the QNMs of diﬀerent types of conﬁgurations of the charged EB
+wormholes. First of all, it is convenient to compactify the radial coordinate. We thus
+choose the compactiﬁcation A : R → [−1, 1] to be
+ 
+r
+2
+,
+(54)
+x = arctan
+π
+r0
+and r0 can be set to 1 in the numerical calculations without loss of generality. Then,
+we proceed to decompose the perturbation functions into Chebyshev polynomials
+Np −1
+
+Fi (x) =
+
+X
+
+Ci,k Tk (x) ,
+
+(55)
+
+k=0
+
+where Np is the size of the grid, Fi = {ĥ0 , ĥ1 , û, . . . }, Ci,k are the coeﬃcients of the
+decomposition for the i-th function, and Tk (x) denotes the Chebyshev polynomials of
+the ﬁrst kind. The constants Ci,k are obtained by solving the ODEs.
+The next step is to discretize the domain x ∈ [−1, 1], and a possible discretization
+is given by
+
+
+πj
+xj = cos
+, j = 1, . . . , Np .
+(56)
+Np + 1
+After substituting (55) into the corresponding equations, we are left with 3 × Np
+algebraic equations for the axial perturbations, 3 × Np for the radial perturbations, and
+6 × Np for the polar perturbations. Each problem can be written as
+
+M0 + M1 ω + M2 ω 2 C = 0 .
+(57)
+11
+
+This is a quadratic eigenvalue problem where ω is the eigenvalue. We solve this problem
+using the Advanpix Multiprecision Computing Toolbox [70] (see [59, 64, 65, 66] for more
+details).
+The spectral method allows us to compute a number of modes with high precision.
+In particular, the fundamental n = 0 mode and a few excited modes with small n are
+obtained with a numerical accuracy of order 10−8 –10−6 . We note that the accuracy
+decreases for higher excited modes and for larger values of Λ and γ1 , but remains better
+than 10−3 .
+
+5
+
+Numerical results
+
+In this section we present the results obtained with the spectral method as explained
+in Section 4, ﬁrst for the EB wormholes, then for the critical, subcritical, and supercritical charged wormholes. The Appendix contains some tables with a selection of the
+numerical results shown in this section.
+
+5.1
+
+Ellis-Bronnikov wormholes
+
+The uncharged case (γ1 = Λ) corresponds to the EB wormholes. It is easy to see from
+Eq. (10) and Eq. (11) that this limit leads to Qe = 0. By inserting γ1 = Λ into the
+axial equations (17)-(19), the radial equations (27)-(29) and the polar equations (36)(42), one ﬁnds that the EM ﬁeld decouples from the metric equations as expected for a
+vanishing EM ﬁeld. It is straightforward to see that W1 disappears from Eq. (17) and
+Eq. (18) because A0t ∼ Qe .
+By solving the systems of diﬀerential equations via the spectral method, we have
+been able to not only recover the results of [37, 43] but also to calculate QNMs for larger
+masses and, more importantly, more excited states, revealing a rather rich spectrum.
+5.1.1
+
+Axial modes
+
+Figure 3 displays the axial and polar QNM branches for l = 2 and l = 3 as functions
+of the dimensionless mass M/rT . The left column shows the dimensionless oscillation
+frequency ωR rT , while the right column shows the dimensionless imaginary part ωI rT .
+In this section, we focus on the axial modes, which are shown in row 1 of Figure 3 for the
+l = 2 multipole and in row 3 for the l = 3 multipole. In each panel we show with solid
+lines the axial gravitational modes, and with dashed lines the electromagnetic modes.
+We show with diﬀerent colors the fundamental modes (n = 0) and a few excitations
+(n > 0).
+In general we note that the imaginary part of the modes increases with mass, as
+previously shown [37]1 . Recalling that, for stable modes, |ωI | represents the inverse of
+the damping time, we deﬁne the fundamental mode as the one with the largest damping
+time, i.e., the lowest |Im(ω)|. On the other hand, we observe that the real part of the
+modes decreases with mass, which is again in good agreement with previous studies.
+Alternatively, we show in Figure 4 the obtained axial spectrum for these EB wormholes
+in the complex plane. Clearly all the axial modes calculated are stable (meaning negative
+1
+
+Here we scale with rT , instead of r0 [37], which is a more physical quantity.
+
+12
+
+imaginary part in our convention), and our calculations do not show any other unstable
+modes in the axial spectrum.
+5.1.2
+
+Polar modes
+
+Let us continue now with the polar modes. The l = 2 modes are shown in row 2 of
+Figure 3 and the l = 3 modes are shown in row 4. An overall similar behavior to that of
+the axial modes is found for both ωR and ωI . The real part decreases, in general, with
+M/rT while the imaginary part increases with it. However, also important diﬀerences
+arise w.r.t. the results for the axial spectrum. The ﬁrst feature to discuss is the presence
+of an additional branch of polar modes compared to the axial spectrum. Since the scalar
+ﬁeld behaves as a polar function, we have an additional polar branch of modes in the
+spectrum (for each pair of l, n). We denote these polar branches b1 and b2 , as we
+cannot identify them as gravitational-led or scalar-led, without being able to connect
+them to a unique decoupling limit. In other words, in both branches the gravitational
+perturbations and the scalar perturbations are strongly coupled together.
+Furthermore, we see in Figure 3 that, in the massless limit, there exists a degeneracy
+of the polar b1 and b2 modes. In fact, all three modes, the axial b1 , and the polar
+b1 and b2 , coincide in this limit [43]. When the mass of the wormhole is increased,
+the degeneracy is broken, and we obtain three distinct branches. For example, the
+fundamental polar branches are shown in blue and cyan in rows 2 and 4 of Figure 3,
+while the corresponding fundamental axial branch is shown in blue in rows 1 and 3.
+Another feature we notice is that some of the curves cross or repel each other. For
+example, in Figure 3, we observe that the fundamental l = 2 polar branches b1 and b2
+repel each other for small masses. But their imaginary parts ωI cross when M/rT ≈ 0.23.
+Thus, the n = 0 b2 branch becomes the longest-lived mode of the spectrum. Such a
+behavior has also been observed in e.g. regular black holes [71].
+Surprisingly, the imaginary part of this polar l = 2 b2 branch continues to rise
+further, such that it crosses zero. Consequently, the fundamental l = 2 b2 branch
+becomes unstable for M/rT ' 0.3. This nonradial instability was not found in previous
+studies of the minimally coupled EB family, where smaller values of the mass were
+considered. Instabilities have also been reported for charged wormholes in a distinct
+Einstein-Maxwell-phantom theory with a non-minimal scalar-Maxwell coupling [62].
+However, the underlying background solutions, perturbation equations, and instability
+mechanism diﬀer from those considered here. We note that this l = 2 instability is not
+yet seen for l = 3, where, however, the imaginary part ωI of the 2nd excited b1 mode is
+seen to cross the 1st excited and the fundamental modes on its rise toward zero. This
+suggests that it will also become unstable above a critical mass. The real parts ωR of
+these two modes, the fundamental l = 2 b2 branch and the 2nd excited l = 3 b1 branch,
+also exhibit analogous behavior. Both decrease rapidly toward zero, while crossing all
+modes in between.
+For the imaginary parts ωI in the polar sector we further observe that the 1st excited
+l = 2 b1 mode tends toward the fundamental EM mode and the fundamental l = 2 b1
+mode for high values of the mass. Likewise, the 2nd excited l = 2 b1 mode approaches
+the 1st excited EM mode and the 1st excited l = 2 b2 mode. An analogous behavior is
+found for the imaginary part ωI of the l = 3 polar modes.
+Finally, in Figure 6 we show together the axial and polar modes. The ﬁgure exhibits
+13
+
+b1, n=0
+
+b1, n=1
+
+b1, n=2
+
+b1, n=3
+
+b1, n=4
+
+b2, n=0
+
+b2, n=1
+
+b2, n=2
+
+b2, n=3
+
+b2, n=4
+
+EM, n=0
+
+EM, n=1
+
+EM, n=2
+
+EM, n=3
+
+EM, n=4
+
+0
+
+l=2 axial
+2
+ωI r T
+
+ω Rr T
+
+−1
+1
+
+−2
+0
+0
+
+l=2 polar
+2
+ωI r T
+
+ω Rr T
+
+−1
+1
+
+−2
+0
+
+0
+
+l=3 axial
+
+−2
+
+2
+
+ωI r T
+
+ω Rr T
+
+3
+
+1
+
+−4
+
+0
+
+0
+
+l=3 polar
+
+−2
+
+2
+
+ωI r T
+
+ω Rr T
+
+3
+
+1
+
+−4
+
+0
+0
+
+0.1
+
+0.2
+M/rT
+
+0.3
+
+0
+
+0.1
+
+0.2
+M/rT
+
+0.3
+
+Figure 3: l = 2, 3 axial and polar modes for EB wormholes. From top to bottom the
+rows correspond to: l = 2 axial, l = 2 polar, l = 3 axial, l = 3 polar modes. Left panels
+show the real part of the QNMs. Right panels exhibit the imaginary part. In each panel
+we show, with diﬀerent colors, the fundamental modes (n = 0), and a few excitations
+(n > 0).
+
+14
+
+0
+
+0
+
+-2
+ωIrT
+
+ωIrT
+
+-1
+
+-2
+
+-4
+l=2 axial
+
+l=3 axial
+1
+
+ωRrT
+
+2
+
+1
+
+2
+
+ωRrT
+
+3
+
+Figure 4: Axial modes for EB wormholes. Im(ω) vs Re(ω) for l = 2 (left) and l = 3
+(right).
+
+0
+
+0
+
+-2
+ωIrT
+
+ωIrT
+
+-1
+
+-4
+
+-2
+
+l=3 polar
+
+l=2 polar
+0
+
+1
+
+ωRrT
+
+2
+
+0
+
+1
+
+ωRrT
+
+2
+
+3
+
+Figure 5: Polar modes for EB wormholes. Im(ω) vs Re(ω) for l = 2 (left) and l = 3
+(right).
+the isospectrality of the EM modes (note that both dashed curves overlap perfectly, see
+also Tables 1 and 2). As noted above, the axial and two polar QNMs coincide when
+M/rT = 0 [43]. But here we have moreover shown that the EM modes are isospectral
+for all M/rT when Qe = 0.
+5.1.3
+
+Radial modes
+
+Let us discuss now the radial modes of the EB wormholes. We show the imaginary part
+ωI of the stable and unstable radial branches of the Ellis wormhole in Figure 7 (left
+panel and right panel, respectively). The stable branch increases with mass, analogous
+to the previous results. In contrast, the unstable branch monotonically decreases with
+mass [37]. But it is far from reaching the stability limit within the range of masses
+studied. Recall that, for larger values of the mass, the spectral method loses accuracy.
+We thus discontinued the calculations once the estimated numerical accuracy became
+worse than 10−3 . We note that our calculations show only a single branch of stable
+modes for l = 0 radial perturbations.
+
+15
+
+b1, n=0, axial
+
+EM, n=0, axial
+
+b1, n=0, polar
+
+EM, n=0, polar
+
+b2, n=0, polar
+
+ωIrT
+
+0
+ωRrT
+
+2
+
+-0.2
+1
+-0.4
+0
+0
+
+0.2
+
+0.4
+
+M/rT
+
+0
+
+0.2
+
+0.4
+
+M/rT
+
+Figure 6: Isospectrality of l = 2 axial and polar modes for EB wormholes. The EM
+(dashed) curves overlap for these uncharged conﬁgurations.
+
+-0.3
+
+1.2
+
+stable l=0
+
+-0.4
+ωIrT
+
+ωIrT
+
+1
+
+-0.5
+
+0.8
+-0.6
+
+unstable l=0
+0
+
+0.1
+
+M/rT
+
+0.2
+
+0.3
+
+0
+
+0.1
+
+M/rT
+
+0.2
+
+0.3
+
+Figure 7: Radial modes for EB wormholes. Stable (left) and unstable (right) branches
+Im(ω)rT vs M/rT .
+
+5.2
+
+Critical wormholes
+
+Now, we turn to the charged wormholes and start with the discussion of the QNMs of
+the critical wormholes, for which Λ = 0.
+5.2.1
+
+Axial modes
+
+In Figure 8 we show ωrT versus M/rT for the axial and polar modes of the critical
+wormholes. The left column shows the real part of ω, while the right column shows its
+imaginary part. The axial modes are displayed in rows 1 and 3 for the l = 2 and l = 3
+multipoles, respectively. In each panel, solid lines represent the gravitational modes and
+dashed lines the electromagnetic modes.
+Analogously to the EB wormhole case, the imaginary part ωI increases with M/rT
+(meaning the damping time grows). We note that the damping times of the gravitational
+modes are always greater than those of the corresponding EM ones.
+16
+
+Turning to the real part ωR of the axial modes of the critical wormholes, we observe
+that the real part ωR decreases for most of the modes with increasing mass. However, the
+3rd excited EM l = 2 mode shows a diﬀerent behavior. After initially decreasing, this
+branch starts growing until M/rT ≈ 0.4, crossing all other gravitational branches. We
+also see that the EM modes tend to approach each other, meaning that the frequencies
+of the EM modes are almost degenerate, although the damping times are still very
+diﬀerent, as can be seen in the right panels.
+Finally, we show in Figure 9 the modes in the complex plane (ωR , ωI ). The calculated
+spectrum does not show any evidence of unstable modes.
+5.2.2
+
+Polar modes
+
+We show the l = 2 and the l = 3 polar modes in the second and fourth rows of Figure
+8 respectively. Here we ﬁnd again a pattern that is in many aspects similar to the one
+observed before for the polar modes of the EB wormholes. We recognize the general
+trend of the imaginary part ωI to increase with mass and the real part ωR to decrease
+with mass. Moreover, the imaginary part of the fundamental l = 2 b2 branch and the
+2nd excited l = 3 b1 branch again exhibit a distinctive behavior. Both branches cross
+the other branches with smaller ωI , to become the longest-lived modes beyond some
+critical value of the mass. However, in contrast to the EB wormhole case, we do not
+observe an instability for the l = 2 branch. At the same time, the real parts of these
+two modes approach zero for large masses.
+In Figure 10 we exhibit the polar spectrum in the complex plane. Here the particular
+behavior of the fundamental l = 2 b2 branch and the 2nd excited l = 3 b1 branch can be
+better appreciated. In addition, it is clearly seen that the degeneracy of the fundamental
+b1 and b2 modes of the wormholes at vanishing mass is broken by the presence of charge,
+yielding two distinct branches of modes. The EM branches are relatively isolated and
+behave similarly to the axial EM modes.
+However, we note that there is no longer isospectrality of the axial and polar EM
+modes for these charged wormholes since the EM perturbations are no longer decoupled.
+Comparing the EM modes of the critical wormholes in Figure 11 shows explicitly that
+the isospectrality of the uncharged case is broken once we increase the mass. However,
+the ﬁgure also suggests that, interestingly, the axial and polar modes seem to tend to
+each other again for large enough values of the mass.
+5.2.3
+
+Radial modes
+
+We now consider the radial modes of the critical wormholes. Again we ﬁnd that the
+spectrum is composed of one unstable and one stable mode, like in the uncharged EB
+wormhole case. As seen in Figure 12, the imaginary part ωI of the stable mode increases
+with increasing mass (i.e., increasing electric charge) in the same way as seen in the
+above results for the nonradial modes of the charged wormholes. The most interesting
+behavior is found for the unstable branch. Although the mode is still unstable, we see
+that ωI decreases with increasing M/rT . Thus, the instability relaxes as the limiting
+eRN solution is approached (residing at γ1max = π2 ). In fact, ωI tends to zero very
+quickly in the limit, following ωI ∼ (1 − M/rT )3.1 [63].
+
+17
+
+b1, n=0
+
+b1, n=1
+
+b1, n=2
+
+b1, n=3
+
+b1, n=4
+
+b2, n=0
+
+b2, n=1
+
+b2, n=2
+
+b2, n=3
+
+b2, n=4
+
+EM, n=0
+
+EM, n=1
+
+EM, n=2
+
+EM, n=3
+
+EM, n=4
+
+0
+2
+ωIrT
+
+ωRrT
+
+−2
+1
+
+−4
+l=2 axial
+
+0
+
+0
+
+2
+ωIrT
+
+ωRrT
+
+−2
+1
+
+−4
+l=2 polar
+0
+
+0
+
+−2
+
+2
+
+ωIrT
+
+ωRrT
+
+3
+
+1
+
+−4
+l=3 axial
+
+0
+
+0
+
+−2
+
+2
+
+ωIrT
+
+ωRrT
+
+3
+
+1
+
+−4
+l=3 polar
+
+0
+0
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1
+
+0
+
+M/rT
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1
+
+M/rT
+
+Figure 8: l = 2 and l = 3 axial and polar modes for critical wormholes. From top to
+bottom the rows correspond to: l = 2 axial, l = 2 polar, l = 3 axial, l = 3 polar modes.
+Left panels show the real part of the QNMs. Right panels exhibit the imaginary part.
+The gray vertical line denotes γ1max = 2/π.
+
+18
+
+0
+
+0
+
+ωIrT
+
+ωIrT
+
+-1.5
+
+-2
+
+-3
+
+l=2 axial
+
+-4
+0
+
+l=3 axial
+
+-4.5
+
+1
+
+1
+
+2
+
+ωRrT
+
+1.5
+
+2
+
+2.5
+ωRrT
+
+3
+
+3.5
+
+Figure 9: Axial modes for critical wormholes. Im(ω) vs Re(ω) for l = 2 (left) and l = 3
+(right).
+
+0
+
+ωIrT
+
+ωIrT
+
+0
+
+-2
+
+-2
+
+-4
+l=3 polar
+
+l=2 polar
+-4
+0
+
+1
+
+ωRrT
+
+2
+
+0
+
+1
+
+2
+ωRrT
+
+3
+
+Figure 10: Polar modes for critical wormholes. Im(ω) vs Re(ω) for l = 2 (left) and l = 3
+(right).
+
+0
+
+0
+
+n=0
+
+n=0
+n=1
+
+-2
+
+ωIrT
+
+ωIrT
+
+n=1
+n=2
+
+-2
+
+n=2
+n=3
+
+-4
+
+Axial
+Polar
+
+n=3
+
+l=2
+1
+
+-4
+
+ωRrT
+
+n=4
+l=3
+
+2
+
+1
+
+2
+
+Axial
+Polar
+3
+
+ωRrT
+
+Figure 11: Comparison of EM modes for critical wormholes. Solid lines correspond to
+axial modes, and dashed lines to polar modes. We show the fundamental mode and
+several excitations in the left panel for l = 2 and in the right panel for l = 3.
+
+19
+
+-0.2
+
+stable l=0
+
+ωIrT
+
+ωIrT
+
+1
+
+-0.4
+0.5
+
+unstable l=0
+
+-0.6
+
+0
+0
+
+0.2
+
+0.4
+
+0.6
+M/rT
+
+0.8
+
+1
+
+0
+
+0.2
+
+0.4
+
+0.6
+M/rT
+
+0.8
+
+1
+
+Figure 12: Radial modes for critical wormholes. Stable (left) and unstable (right)
+branches Im(ω)rT vs M/rT . The gray vertical line indicates γ1max = 2/π.
+
+5.3
+
+Subcritical wormholes
+
+The next step is to address the QNMs of the subcritical wormholes (featuring Λ 6= 0,
+γ1 6= 0).
+5.3.1
+
+Axial modes
+
+In Figure 13 we show the QNMs of the subcritical wormholes with Λ = 0.1, focusing
+on the l = 2 modes. In the upper panels, we show the axial modes scaled to the throat
+radius as a function of M/rT .
+In the left panel we can see that ωR decreases with mass for all modes except for
+the 3rd excited EM mode, which crosses some of the gravitational modes with higher
+ωR , tending to the other EM modes. The ωR branches of the ﬁrst and second excited
+gravitational modes also cross. On the other hand, in the right panel we observe that,
+as expected, ωI increases monotonically with M/rT , but remains well below zero.
+5.3.2
+
+Polar modes
+
+The second row of Figure 13 exhibits the l = 2 polar modes of subcritical wormholes,
+for the particular case Λ = 0.1. Here, a similar general pattern is found as above.
+In particular, we recognize the behavior of the fundamental l = 2 b2 branch, with its
+strongly decreasing real part ωR and its increasing imaginary part ωI . Although this
+branch becomes the longest-lived mode beyond a critical value of the mass, the ﬁgure
+does not yet reveal an instability.
+Recall that for the uncharged EB wormholes we observed that for M/rT ≈ 0.3,
+an instability in the l = 2 polar perturbations appeared (the fundamental l = 2 b2
+branch of modes). Our results show that subcritical wormholes can also develop such
+an instability, but it appears only for suﬃciently large values of Λ. As can be seen in
+Figure 13, for Λ = 0.1 such an instability is not present. However, if we choose, for
+example, Λ = 0.75, the fundamental l = 2 b2 branch of polar modes again becomes
+unstable. The above results show that the addition of electric charge suppresses the
+growth rate of this unstable branch. This is illustrated in Figure 14, where both the
+
+20
+
+unstable l=2
+
+b1, n=0
+
+b1, n=1
+
+b1, n=2
+
+b1, n=3
+
+b1, n=4
+
+b2, n=0
+
+b2, n=1
+
+b2, n=2
+
+b2, n=3
+
+b2, n=4
+
+EM, n=0
+
+EM, n=1
+
+EM, n=2
+
+EM, n=3
+
+EM, n=4
+
+1.8
+
+Λ=0.1
+
+−0.5
+ω I rT
+
+ω Rr T
+
+1.5
+1.2
+0.9
+
+−2.5
+l=2 axial
+
+0.6
+
+Λ=0.1
+
+−0.5
+ω I rT
+
+1.5
+ω Rr T
+
+−1.5
+
+1
+0.5
+
+−1.5
+−2.5
+
+l=2 polar
+0
+0.2
+
+0.3
+
+0.4
+M/rT
+
+0.5
+
+0.6
+
+0.2
+
+0.3
+
+0.4
+M/rT
+
+0.5
+
+0.6
+
+Figure 13: l = 2 axial and polar modes for subcritical wormholes with Λ = 0.1. From
+top to bottom the rows correspond to: l = 2 axial, l = 2 polar. Left panels show the
+real part of the QNMs. Right panels exhibit the imaginary part.
+
+Λ=0.75
+
+0.012
+
+ωIrT
+
+ωRrT
+
+0.1
+
+0.05
+
+0.008
+
+0.004
+unstable l=2
+0
+
+0
+0.4
+
+0.5
+
+0.6
+
+0.7
+M/rT
+
+0.8
+
+0.9
+
+0.4
+
+0.5
+
+0.6
+
+0.7
+M/rT
+
+0.8
+
+0.9
+
+Figure 14: l = 2 polar unstable b2 branch for subcritical wormholes, for which Λ is ﬁxed
+to 0.75. Left: Real part of the QNMs. Right: Imaginary part.
+real and imaginary parts rapidly approach zero as the mass increases.
+
+21
+
+5.3.3
+
+Radial modes
+
+The fate of the radial instability of the subcritical wormholes is analogous to that of the
+critical wormholes. This is seen in Figure 15, where the eigenvalue ωI of the unstable
+mode is shown for several values of Λ, including the critical one. The ﬁgure also shows
+in the inset the increase of the instability timescale τ as the limiting eRN black hole is
+approached, diverging like τ ∼ (1 − M/rT )−3.1 . These results indicate that, although
+the instability does not seem to completely vanish as long as M/rT < 1, the instability
+timescale τ can be arbitrarily large for a suﬃciently large mass.
+1.2
+
+4
+
+τ/rT
+
+2 . 10
+
+ωIrT
+
+0.8
+
+0
+
+Λ=0.5
+Λ=0.2
+Λ=0.1
+critical Λ=µ=0
+
+0.4
+
+0.89 0.93 0.97
+M/rT
+
+0
+0
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1
+
+M/rT
+
+Figure 15: Radial unstable branch for subcritical wormholes with diﬀerent values of Λ
+(colored curves). For reference we also include the critical wormholes (black curve), and
+in the inset, the corresponding instability timescale τ .
+
+5.4
+
+Supercritical wormholes
+
+Finally, we discuss the QNMs of the supercritical wormholes. Here we mainly explore
+the γ1 = 0 branch which connects directly to the EB solution. Our results indicate that
+the results are qualitatively similar for other values of γ1 . Note that for a ﬁxed value of
+γ1 , the larger the value of µ, the closer we approach the limiting eRN black hole.
+5.4.1
+
+Axial modes
+
+We exhibit in Figure 16 the axial l = 2 and l = 3 modes (in rows 1 and 3, respectively)
+of the supercritical wormholes. The real parts ωR of the l = 2 and l = 3 axial modes
+exhibit a similar behavior. In particular, we note that the EM modes tend to cross
+each other at a given point (roughly at M/rT ≈ 0.5). Similarly, the real parts of the
+gravitational modes also cross each other, but the crossings are not as close to each
+other as for the EM modes.
+The general trend of both ωR and ωI is to grow with the mass, although for small
+masses the real part of the gravitational modes ﬁrst decreases slightly. Interestingly,
+the imaginary part ωI of all the modes tends to zero for suﬃciently high masses. Thus,
+all branches accumulate at zero, making it diﬃcult to resolve and decide which ones are
+the longer-lived.
+22
+
+In Figure 17 we show the axial modes in the complex plane. We note that the
+gravitational modes twist, while the EM modes have a monotonic behavior, allowing
+their clear identiﬁcation.
+5.4.2
+
+Polar modes
+
+The polar l = 2 and l = 3 modes of the supercritical wormholes are shown (in rows
+2 and 4, respectively) in Figure 16. Here we observe behavior analogous to that seen
+in the axial spectrum. In addition to the b1 branches, the polar sector contains the b2
+branches, owing to the presence of both gravitational and scalar perturbations.
+Again, the real part ωR of the QNM branches exhibits crossings near M/rT ≈ 0.45,
+that are distinct for the b1 branches, the b2 branches and the EM branches. At the same
+time, the imaginary part ωI of the QNM branches increases with increasing M/rT , again
+so that the branches accumulate at zero. Also note that the imaginary part ωI of the
+l = 2 modes does not undergo any noticeable crossings between the diﬀerent branches,
+in contrast to the subcritical wormholes. Figure 18 shows the polar spectrum in the
+complex plane, revealing behavior analogous to that of the axial spectrum. The ﬁgure
+also makes the breaking of isospectrality between the b1 and b2 branches particularly
+clear. Comparison with Figure 17 further shows that the axial and polar EM modes
+cease to be isospectral as the mass increases.
+5.4.3
+
+Radial modes
+
+Finally, we turn to the radial modes of supercritical wormholes, arriving at one of the
+most interesting results. We exhibit in Figure 19 the modes of the unstable radial
+branch of the supercritical wormholes. We ﬁnd that, given a value of γ1 , there are
+two unstable branches of purely imaginary modes at small masses that converge and
+merge with each other at some critical value of M/rT . After the merger, the branches
+remain degenerate in ωI , but acquire a real part ωR with opposite signs [63]. This is an
+interesting feature that is found neither for EB wormholes nor for critical and subcritical
+charged wormholes. In those cases, there was only a single unstable radial branch. But
+as for critical and subcritical wormholes, the imaginary part ωI of the modes tends
+rapidly to zero, when the limiting eRN black hole is approached.
+
+6
+
+Conclusions
+
+We have studied the QNM spectrum of static, spherically symmetric EB wormholes and
+their charged generalizations. The latter form three classes, the critical, the subcritical,
+and the supercritical wormholes. The EB wormholes have long been known to suﬀer
+from a radial instability. In the presence of charge, this instability relaxes. In fact, for
+all three classes, ωI tends to zero when the branches approach the limiting eRN black
+hole solution. While there is a single purely imaginary radial unstable mode for critical
+and subcritical wormholes, supercritical wormholes feature two radial unstable modes
+that merge and subsequently acquire real parts ωR with opposite signs [63].
+The main focus of the study has been the l = 2 and l = 3 QNMs of these wormholes. These comprise the axial and polar modes. In the axial case, there is a single
+gravitational mode for a given pair l, n, where n represents the excitation number. In
+23
+
+b1, n=0
+
+b1, n=1
+
+b1, n=2
+
+b1, n=3
+
+b1, n=4
+
+b2, n=0
+
+b2, n=1
+
+b2, n=2
+
+b2, n=3
+
+b2, n=4
+
+EM, n=0
+
+EM, n=1
+
+EM, n=2
+
+EM, n=3
+
+EM, n=4
+
+0
+l=2 axial
+3
+ωIrT
+
+ωRrT
+
+−1
+2
+
+−2
+1
+0
+
+l=2 polar
+3
+ωIrT
+
+ωRrT
+
+−1
+2
+
+−2
+1
+
+0
+
+l=3 axial
+
+−2
+ωIrT
+
+ωRrT
+
+4
+3
+
+−4
+
+2
+
+0
+
+l=3 polar
+
+−2
+3
+
+ωIrT
+
+ωRrT
+
+4
+
+−4
+
+2
+0
+
+0.2
+
+0.4
+0.6
+M/rT
+
+0.8
+
+1
+
+0
+
+0.2
+
+0.4
+0.6
+M/rT
+
+0.8
+
+1
+
+Figure 16: l = 2 and l = 3 axial and polar modes for supercritical wormholes with
+γ1 = 0. From top to bottom the rows correspond to: l = 2 axial, l = 2 polar, l = 3
+axial, l = 3 polar modes. Left panels show the real part of the QNMs. Right panels
+exhibit the imaginary part. The limiting value of µ = 1 corresponds to M/rT = 1.
+
+24
+
+0
+
+ωIrT
+
+ωIrT
+
+0
+
+-1
+
+-2
+
+-4
+
+l=2 axial
+2
+
+3
+
+4
+
+ωRrT
+
+-2
+
+l=3 axial
+
+5
+
+2
+
+3
+
+ωRrT
+
+4
+
+5
+
+Figure 17: Axial modes for supercritical wormholes. Im(ω) vs Re(ω) for l = 2 (left) and
+l = 3 (right).
+
+0
+
+-1
+
+ωIrT
+
+ωIrT
+
+0
+
+-2
+
+-4
+
+-2
+
+l=3 polar
+
+l=2 polar
+2
+
+3
+ωRrT
+
+4
+
+5
+
+2
+
+3
+
+4
+ωRrT
+
+5
+
+6
+
+Figure 18: Polar modes for supercritical wormholes. Im(ω) vs Re(ω) for l = 2 (left) and
+l = 3 (right).
+critical Λ=µ=0
+γ1=0
+γ1=0.1
+γ1=0.3
+γ1=0.5
+
+1.2
+
+0.3
+
+ωIrT
+
+ωRrT
+
+0.9
+0
+
+0.6
+0.3
+
+-0.3
+
+0
+0
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1
+
+M/rT
+
+0
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1
+
+M/rT
+
+Figure 19: Unstable radial branch of supercritical wormholes.
+the polar case, in contrast, there are two modes since gravitational and scalar perturbations are present. Since we cannot, in general, associate the modes with either being
+gravitational or scalar, we have denoted them by b1 and b2 . In addition, we have the
+25
+
+EM modes that can be identiﬁed more easily. Employing a numerical spectral scheme,
+we have obtained up to four excited modes with good precision.
+The general trend of the modes with the mass is to have an increasing imaginary
+part ωI and a decreasing real part ωR . However, some modes stand out by revealing a
+rather strong increase in ωI , crossing all other modes on their rise toward zero. These
+are the fundamental l = 2 b2 polar mode and the 2nd excited l = 3 b1 polar mode. At
+the same time, their real parts ωR decrease strongly toward zero.
+The most startling result of our analysis is the presence of a previously unknown
+instability in the polar sector. In fact, it arises for the fundamental l = 2 b2 polar mode
+beyond a critical mass. This instability is already present for the EB wormholes, and
+it is retained for the subcritical wormholes. For these, the growth rate also appears to
+approach zero as the limiting eRN black hole is approached. We did not ﬁnd l = 2
+unstable modes for the critical solutions, but it is possible that such an instability
+appears for large values of the parameters, for which our method loses accuracy.
+An interesting behavior seen for the supercritical wormholes is the emergence of
+crossings of the real parts ωR of a given type of mode. The clustering of these crossings
+thus points to the identity of a mode as b1 , b2 or EM. At the same time, the imaginary
+part ωI tends to zero for large mass for all the modes of the supercritical wormholes,
+leading to an accumulation of the modes close to zero. Thus the supercritical wormholes
+do not seem to acquire another instability.
+This is interesting for the case of rotating wormholes. We recall that the calculation
+of the l = 2 and l = 3 modes of a set of rapidly rotating wormholes did not show any
+instabilities either [59]. Moreover, in four dimensions, the radial instability of slowly
+rotating wormholes features two unstable modes that merge, analogous to the radial
+unstable modes of charged supercritical wormholes [57] (as well as 5-dimensional rapidly
+rotating wormholes with equal angular momenta [72]). By analogy, we conjecture that
+the radial instability of 4-dimensional rotating wormholes will therefore be relaxed for
+fast rotation as well.
+There are various future directions to extend the present work. Of course, the fate
+of the instability of rapidly rotating wormholes should be clariﬁed. For the rotating EB
+wormholes, the numerical techniques need to be developed further to better cope with
+the numerical background solutions. But there are various rotating wormhole solutions
+known in closed form, whose QNM spectrum and (in)stability seem interesting to study
+[73, 74]. On the other hand, it will also be interesting to study the quasinormal mode
+spectrum of wormholes in GR that exist in the presence of Dirac particles without
+needing to resort to exotic matter [75, 76, 77, 78]. Likewise, the QNM spectrum and
+(in)stability of wormholes in generalized theories of gravity represent relevant alternative
+directions of study, since these wormholes, too, may exist without the need for exotic
+matter (see e.g. [79, 80, 81, 82, 83, 84]).
+
+Acknowledgments
+We gratefully acknowledge support by MICINN project PID2021-125617NB-I00 “QuasiMode”. JLBS gratefully acknowledges support from MICINN project CNS2023-144089
+“Quasinormal modes”. FSK gratefully acknowledges support from “Atracción de Talento Investigador Cesar Nombela” of the Comunidad de Madrid under the grant number
+2024-T1/COM-31385. PNM gratefully acknowledges support from Universidad Com26
+
+plutense de Madrid through “Contratos predoctorales de personal investigador en formación CT25/24” and IPARCOS under “Ayudas de doctorado IPARCOS-UCM/2024”.
+
+Appendix
+Here, we present some of the numerical values of the quasinormal modes obtained in
+this work. The data in these tables were obtained by setting r0 = 1. In a few cases, the
+calculated modes were not suﬃciently accurate; the corresponding cells are therefore
+marked with a dash.
+Λ
+
+b1
+ωR
+r0
+
+ωIb1 r0
+
+EM r
+ωR
+0
+
+ωIEM r0
+
+0
+
+1.737
+
+-0.305
+
+2.354
+
+-0.478
+
+0.1
+
+1.295
+
+-0.232
+
+1.755
+
+-0.356
+
+0.2
+
+1.003
+
+-0.190
+
+1.359
+
+-0.277
+
+0.3
+
+0.806
+
+-0.164
+
+1.090
+
+-0.222
+
+0.4
+
+0.669
+
+-0.145
+
+0.900
+
+-0.184
+
+0.5
+
+0.570
+
+-0.130
+
+0.761
+
+-0.156
+
+0.6
+
+0.496
+
+-0.117
+
+0.657
+
+-0.135
+
+0.7
+
+0.439
+
+-0.105
+
+0.577
+
+-0.119
+
+0.8
+
+0.393
+
+-0.095
+
+0.513
+
+-0.106
+
+0.9
+
+0.355
+
+-0.087
+
+0.461
+
+-0.095
+
+Table 1: l = 2 axial fundamental modes for EB wormholes.
+
+Λ
+
+b1
+ωR
+r0
+
+ωIb1 r0
+
+b2
+ωR
+r0
+
+ωIb2 r0
+
+EM r
+ωR
+0
+
+ωIEM r0
+
+0
+
+1.738
+
+-0.305
+
+1.738
+
+-0.305
+
+2.355
+
+-0.478
+
+0.1
+
+1.367
+
+-0.205
+
+1.190
+
+-0.292
+
+1.755
+
+-0.356
+
+0.2
+
+1.101
+
+-0.157
+
+0.738
+
+-0.275
+
+1.359
+
+-0.277
+
+0.3
+
+0.907
+
+-0.131
+
+0.454
+
+-0.181
+
+1.090
+
+-0.222
+
+0.4
+
+0.764
+
+-0.115
+
+0.289
+
+-0.108
+
+0.900
+
+-0.184
+
+0.5
+
+0.655
+
+-0.104
+
+0.189
+
+-0.057
+
+0.761
+
+-0.156
+
+0.6
+
+0.571
+
+-0.097
+
+0.126
+
+-0.023
+
+0.657
+
+-0.135
+
+0.7
+
+0.504
+
+-0.091
+
+0.083
+
+-0.001
+
+0.577
+
+-0.119
+
+0.8
+
+0.451
+
+-0.087
+
+0.053
+
+0.013
+
+0.513
+
+-0.106
+
+0.9
+
+0.407
+
+-0.084
+
+0.029
+
+0.022
+
+0.461
+
+-0.095
+
+Table 2: l = 2 polar fundamental modes for EB wormholes.
+
+27
+
+Λ
+
+sr
+ωR
+0
+
+ωIs r0
+
+ur
+ωR
+0
+
+ωIu r0
+
+0
+
+0.681
+
+-0.618
+
+0
+
+1.182
+
+0.1
+
+0.507
+
+-0.459
+
+0
+
+0.882
+
+0.2
+
+0.392
+
+-0.353
+
+0
+
+0.686
+
+0.3
+
+0.313
+
+-0.280
+
+0
+
+0.552
+
+0.4
+
+0.258
+
+-0.228
+
+0
+
+0.458
+
+0.5
+
+0.217
+
+-0.191
+
+0
+
+0.390
+
+0.6
+
+0.186
+
+-0.163
+
+0
+
+0.338
+
+0.7
+
+0.163
+
+-0.142
+
+0
+
+0.298
+
+0.8
+
+0.144
+
+-0.125
+
+0
+
+0.266
+
+0.9
+
+0.129
+
+-0.112
+
+0
+
+0.239
+
+1
+
+0.117
+
+-0.101
+
+0
+
+0.218
+
+Table 3: l = 0 radial stable (s) and unstable (u) modes for EB wormholes.
+
+γ1
+
+b1
+ωR
+r0
+
+ωIb1 r0
+
+EM r
+ωR
+0
+
+ωIEM r0
+
+0
+
+1.738
+
+-0.305
+
+2.355
+
+-0.478
+
+0.1
+
+1.763
+
+-0.314
+
+2.425
+
+-0.485
+
+0.15
+
+1.797
+
+-0.326
+
+2.516
+
+-0.496
+
+0.2
+
+1.851
+
+-0.344
+
+2.652
+
+-0.511
+
+0.25
+
+1.932
+
+-0.372
+
+2.843
+
+-0.532
+
+0.3
+
+2.054
+
+-0.414
+
+3.107
+
+-0.561
+
+0.35
+
+2.241
+
+-0.477
+
+3.477
+
+-0.600
+
+0.4
+
+2.541
+
+-0.564
+
+4.010
+
+-0.654
+
+0.45
+
+3.036
+
+-0.672
+
+4.831
+
+-0.737
+
+0.5
+
+3.892
+
+-0.821
+
+6.241
+
+-0.880
+
+0.55
+
+5.708
+
+-1.140
+
+9.241
+
+-1.204
+
+Table 4: l = 2 axial fundamental modes for critical wormholes.
+
+28
+
+γ1
+
+b1
+ωR
+r0
+
+ωIb1 r0
+
+b2
+ωR
+r0
+
+ωIb2 r0
+
+EM r
+ωR
+0
+
+ωIEM r0
+
+0
+
+1.738
+
+-0.305
+
+1.738
+
+-0.305
+
+2.355
+
+-0.478
+
+0.1
+
+1.879
+
+-0.282
+
+1.641
+
+-0.396
+
+2.416
+
+-0.482
+
+0.15
+
+1.976
+
+-0.291
+
+1.573
+
+-0.490
+
+2.495
+
+-0.487
+
+0.2
+
+2.098
+
+-0.319
+
+1.438
+
+-0.550
+
+2.615
+
+-0.495
+
+0.25
+
+2.251
+
+-0.377
+
+1.327
+
+-0.560
+
+2.787
+
+-0.506
+
+0.3
+
+2.450
+
+-0.537
+
+1.239
+
+-0.560
+
+3.028
+
+-0.523
+
+0.35
+
+2.923
+
+-0.659
+
+1.165
+
+-0.558
+
+3.373
+
+-0.549
+
+0.4
+
+3.481
+
+-0.737
+
+1.101
+
+-0.554
+
+3.884
+
+-0.597
+
+0.45
+
+4.276
+
+-0.823
+
+1.045
+
+-0.551
+
+4.689
+
+-0.687
+
+0.5
+
+5.569
+
+-0.949
+
+0.995
+
+-0.549
+
+6.108
+
+-0.857
+
+0.55
+
+8.242
+
+-1.259
+
+0.950
+
+-0.547
+
+9.151
+
+-1.206
+
+Table 5: l = 2 polar fundamental modes for critical wormholes.
+
+γ1
+
+sr
+ωR
+0
+
+ωIs r0
+
+ur
+ωR
+0
+
+ωIu r0
+
+0
+
+0.681
+
+-0.618
+
+0
+
+1.182
+
+0.1
+
+0.694
+
+-0.622
+
+0
+
+1.190
+
+0.2
+
+0.737
+
+-0.635
+
+0
+
+1.213
+
+0.3
+
+0.825
+
+-0.663
+
+0
+
+1.251
+
+0.4
+
+1.003
+
+-0.720
+
+0
+
+1.298
+
+0.5
+
+1.423
+
+-0.886
+
+0
+
+1.297
+
+0.6
+
+-
+
+-
+
+0
+
+0.587
+
+0.63
+
+-
+
+-
+
+0
+
+0.082
+
+Table 6: l = 0 radial stable (s) and unstable (u) modes for critical wormholes.
+
+γ1
+
+b1
+ωR
+r0
+
+ωIb1 r0
+
+EM r
+ωR
+0
+
+ωIEM r0
+
+0.2
+
+1.357
+
+-0.254
+
+1.918
+
+-0.375
+
+0.3
+
+1.499
+
+-0.302
+
+2.244
+
+-0.410
+
+0.4
+
+1.836
+
+-0.407
+
+2.883
+
+-0.477
+
+0.5
+
+2.766
+
+-0.589
+
+4.425
+
+-0.633
+
+Table 7: l = 2 axial fundamental modes for subcritical wormholes (Λ = 0.1).
+
+29
+
+γ1
+
+b1
+ωR
+r0
+
+ωIb1 r0
+
+b2
+ωR
+r0
+
+ωIb2 r0
+
+EM r
+ωR
+0
+
+ωIEM r0
+
+0.2
+
+1.526
+
+-0.228
+
+1.040
+
+-0.396
+
+1.898
+
+-0.365
+
+0.3
+
+1.774
+
+-0.354
+
+0.899
+
+-0.401
+
+2.191
+
+-0.385
+
+0.4
+
+1.993
+
+-0.430
+
+0.800
+
+-0.397
+
+2.792
+
+-0.435
+
+0.5
+
+2.834
+
+-0.558
+
+0.725
+
+-0.392
+
+4.324
+
+-0.612
+
+Table 8: l = 2 polar fundamental modes for subcritical wormholes (Λ = 0.1).
+γ1
+
+ω R r0
+
+ω I r0
+
+0.80
+
+0.00848
+
+0.06695
+
+0.81
+
+0.00875
+
+0.06691
+
+0.82
+
+0.00902
+
+0.06688
+
+0.83
+
+0.00930
+
+0.06686
+
+0.84
+
+0.00958
+
+0.06685
+
+0.85
+
+0.00987
+
+0.06685
+
+0.86
+
+0.01016
+
+0.06687
+
+0.87
+
+0.01047
+
+0.06689
+
+0.88
+
+0.01077
+
+0.06693
+
+0.89
+
+0.01109
+
+0.06699
+
+0.90
+
+0.01141
+
+0.06705
+
+Table 9: l = 2 polar unstable branch for subcritical wormholes (Λ = 0.75).
+µ
+
+b1
+ωR
+r0
+
+ωIb1 r0
+
+EM r
+ωR
+0
+
+ωIEM r0
+
+0
+
+1.738
+
+-0.305
+
+2.355
+
+-0.478
+
+0.1
+
+1.706
+
+-0.297
+
+2.346
+
+-0.469
+
+0.2
+
+1.617
+
+-0.274
+
+2.315
+
+-0.444
+
+0.3
+
+1.483
+
+-0.237
+
+2.246
+
+-0.403
+
+0.4
+
+1.318
+
+-0.191
+
+2.128
+
+-0.346
+
+0.5
+
+1.132
+
+-0.137
+
+1.949
+
+-0.274
+
+0.6
+
+0.935
+
+-0.082
+
+1.704
+
+-0.190
+
+0.7
+
+0.734
+
+-0.033
+
+1.392
+
+-0.099
+
+0.8
+
+0.526
+
+-0.004
+
+1.026
+
+-0.017
+
+0.9
+
+0.287
+
+-6.14·10−6
+
+0.577
+
+-2.17·10−6
+
+Table 10: l = 2 axial fundamental modes for supercritical wormholes (γ1 = 0).
+30
+
+µ
+
+b1
+ωR
+r0
+
+ωIb1 r0
+
+b2
+ωR
+r0
+
+ωIb2 r0
+
+EM r
+ωR
+0
+
+ωIEM r0
+
+0
+
+1.738
+
+-0.305
+
+1.738
+
+-0.305
+
+2.355
+
+-0.478
+
+0.1
+
+1.730
+
+-0.298
+
+1.717
+
+-0.302
+
+2.338
+
+-0.466
+
+0.2
+
+1.703
+
+-0.276
+
+1.655
+
+-0.291
+
+2.285
+
+-0.431
+
+0.3
+
+1.650
+
+-0.240
+
+1.550
+
+-0.271
+
+2.194
+
+-0.379
+
+0.4
+
+1.563
+
+-0.194
+
+1.403
+
+-0.238
+
+2.060
+
+-0.313
+
+0.5
+
+1.435
+
+-0.140
+
+1.218
+
+-0.190
+
+1.878
+
+-0.239
+
+0.6
+
+1.262
+
+-0.084
+
+1.006
+
+-0.126
+
+1.641
+
+-0.160
+
+0.7
+
+1.044
+
+-0.033
+
+0.784
+
+-0.056
+
+1.348
+
+-0.080
+
+0.8
+
+0.777
+
+-0.003
+
+0.559
+
+-0.008
+
+1.003
+
+-0.012
+
+0.9
+
+0.432
+
+3.47·10−6
+
+-
+
+-
+
+0.649
+
+-0.002
+
+Table 11: l = 2 polar fundamental modes for supercritical wormholes (γ1 = 0).
+
+µ
+
+1r
+ωR
+0
+
+2r
+ωR
+0
+
+ωI1 r0
+
+ωI2 r0
+
+0
+
+0
+
+0
+
+1.182
+
+0
+
+0.1
+
+0
+
+0
+
+1.150
+
+0.016
+
+0.2
+
+0
+
+0
+
+1.053
+
+0.061
+
+0.3
+
+0
+
+0
+
+0.891
+
+0.136
+
+0.4
+
+0
+
+0
+
+0.640
+
+0.266
+
+0.42
+
+0
+
+0
+
+0.563
+
+0.316
+
+0.44
+
+0.059
+
+-0.059
+
+0.425
+
+0.425
+
+0.45
+
+0.111
+
+-0.111
+
+0.418
+
+0.418
+
+0.5
+
+0.228
+
+-0.228
+
+0.379
+
+0.379
+
+0.6
+
+0.319
+
+-0.319
+
+0.294
+
+0.294
+
+0.7
+
+0.327
+
+-0.327
+
+0.206
+
+0.206
+
+0.8
+
+0.275
+
+-0.275
+
+0.119
+
+0.119
+
+0.9
+
+0.170
+
+-0.170
+
+0.040
+
+0.040
+
+0.95
+
+0.087
+
+-0.087
+
+0.002
+
+0.002
+
+Table 12: l = 0 radial unstable branches for supercritical wormholes (γ1 = 0).
+
+31
+
+References
+[1] T. Damour and S. N. Solodukhin, Phys. Rev. D 76, 024016 (2007)
+[2] J. G. Cramer, R. L. Forward, M. S. Morris, M. Visser, G. Benford and G. A. Landis,
+Phys. Rev. D 51, 3117 (1995)
+[3] M. Safonova, D. F. Torres and G. E. Romero, Phys. Rev. D 65, 023001 (2002)
+[4] V. Perlick, Phys. Rev. D 69, 064017 (2004)
+[5] K. K. Nandi, Y. Z. Zhang and A. V. Zakharov, Phys. Rev. D 74, 024020 (2006)
+[6] F. Abe, Astrophys. J. 725, 787 (2010)
+[7] Y. Toki, T. Kitamura, H. Asada and F. Abe, Astrophys. J. 740, 121 (2011)
+[8] K. Nakajima and H. Asada, Phys. Rev. D 85, 107501 (2012)
+[9] N. Tsukamoto, T. Harada and K. Yajima, Phys. Rev. D 86, 104062 (2012)
+[10] P. K. F. Kuhﬁttig, Eur. Phys. J. C 74, 2818 (2014)
+[11] C. Bambi, Phys. Rev. D 87, 107501 (2013)
+[12] R. Takahashi and H. Asada, Astrophys. J. 768, L16 (2013)
+[13] N. Tsukamoto and T. Harada, Phys. Rev. D 95, 024030 (2017)
+[14] P. G. Nedkova, V. K. Tinchev and S. S. Yazadjiev, Phys. Rev. D 88, 124019 (2013)
+[15] T. Ohgami and N. Sakai, Phys. Rev. D 91, 124020 (2015)
+[16] R. Shaikh, Phys. Rev. D 98, 024044 (2018)
+[17] G. Gyulchev, P. Nedkova, V. Tinchev and S. Yazadjiev, Eur. Phys. J. C 78 , 544
+(2018).
+[18] M. Bouhmadi-López, C. Y. Chen, X. Y. Chew, Y. C. Ong and D. h. Yeom, JCAP
+10, 059 (2021)
+[19] M. Guerrero, G. J. Olmo, D. Rubiera-Garcı́a and D. Gómez Sáez-Chillón, Phys.
+Rev. D 105, 084057 (2022)
+[20] H. Huang, J. Kunz, J. Yang and C. Zhang, Phys. Rev. D 107, 104060 (2023)
+[21] T. Harko, Z. Kovacs and F. S. N. Lobo, Phys. Rev. D 78, 084005 (2008)
+[22] T. Harko, Z. Kovacs and F. S. N. Lobo, Phys. Rev. D 79, 064001 (2009)
+[23] C. Bambi, Phys. Rev. D 87, 084039 (2013)
+[24] M. Zhou, A. Cardenas-Avendano, C. Bambi, B. Kleihaus and J. Kunz, Phys. Rev.
+D 94, 024036 (2016)
+
+32
+
+[25] F. Lamy, E. Gourgoulhon, T. Paumard and F. H. Vincent, Class. Quant. Grav. 35,
+115009 (2018)
+[26] E. Deligianni, J. Kunz, P. Nedkova, S. Yazadjiev and R. Zheleva, Phys. Rev. D
+104, 024048 (2021)
+[27] E. Deligianni, B. Kleihaus, J. Kunz, P. Nedkova and S. Yazadjiev, Phys. Rev. D
+104, 064043 (2021)
+[28] K. Gjorgjieski, J. Kunz and P. Nedkova, Phys. Rev. D 112, 104019 (2025)
+[29] R. A. Konoplya and C. Molina, Phys. Rev. D 71, 124009 (2005)
+[30] S. W. Kim, Prog. Theor. Phys. Suppl. 172, 21 (2008)
+[31] R. A. Konoplya and A. Zhidenko, Phys. Rev. D 81, 124036 (2010)
+[32] R. A. Konoplya and A. Zhidenko, JCAP 1612, 043 (2016)
+[33] P. Bueno, P. A. Cano, F. Goelen, T. Hertog and B. Vercnocke, Phys. Rev. D 97,
+024040 (2018)
+[34] S. H. Völkel and K. D. Kokkotas, Class. Quant. Grav. 35, 105018 (2018)
+[35] S. Aneesh, S. Bose and S. Kar, Phys. Rev. D 97, 124004 (2018)
+[36] R. A. Konoplya, Phys. Lett. B 784, 43 (2018)
+[37] J. L. Blázquez-Salcedo, X. Y. Chew and J. Kunz, Phys. Rev. D 98, 044035 (2018)
+[38] R. A. Konoplya, A. F. Zinhailo and Z. Stuchlı́k, Phys. Rev. D 99, 124042 (2019)
+[39] M. S. Churilova, R. A. Konoplya and A. Zhidenko, Phys. Lett. B 802, 135207
+(2020)
+[40] K. Jusuﬁ, Gen. Rel. Grav. 53, 87 (2021)
+[41] K. A. Bronnikov, R. A. Konoplya and T. D. Pappas, Phys. Rev. D 103, 124062
+(2021)
+[42] P. A. González, E. Papantonopoulos, Á. Rincón and Y. Vásquez, Phys. Rev. D
+106, 024050 (2022)
+[43] B. Azad, J. L. Blázquez-Salcedo, X. Y. Chew, J. Kunz and D. h. Yeom, Phys. Rev.
+D 107, 084024 (2023)
+[44] H. G. Ellis, J. Math. Phys. 14, 104 (1973)
+[45] K. A. Bronnikov, Acta Phys. Polon. B 4, 251 (1973).
+[46] H. a. Shinkai and S. A. Hayward, Phys. Rev. D 66, 044005 (2002)
+[47] J. A. González, F. S. Guzman and O. Sarbach, Class. Quant. Grav. 26, 015010
+(2009)
+33
+
+[48] J. A. González, F. S. Guzman and O. Sarbach, Class. Quant. Grav. 26, 015011
+(2009)
+[49] F. Cremona, F. Pirotta and L. Pizzocchero, Gen. Rel. Grav. 51, 19 (2019)
+[50] A. Xu, X. Y. Chew and D. h. Yeom, JCAP 08, 012 (2025)
+[51] P. E. Kashargin and S. V. Sushkov, Grav. Cosmol. 14, 80 (2008)
+[52] P. E. Kashargin and S. V. Sushkov, Phys. Rev. D 78, 064071 (2008)
+[53] B. Kleihaus and J. Kunz, Phys. Rev. D 90, 121503 (2014)
+[54] X. Y. Chew, B. Kleihaus and J. Kunz, Phys. Rev. D 94, 104031 (2016)
+[55] M. S. Volkov, Phys. Rev. D 104, 124064 (2021)
+[56] T. Matos, Gen. Rel. Grav. 42, 1969 (2010)
+[57] B. Azad, J. L. Blázquez-Salcedo, F. S. Khoo and J. Kunz, Phys. Lett. B 848,
+138349 (2024)
+[58] B. Azad, J. L. Blázquez-Salcedo, F. S. Khoo and J. Kunz, Phys. Rev. D 109,
+124051 (2024)
+[59] F. S. Khoo, B. Azad, J. L. Blázquez-Salcedo, L. M. González-Romero, B. Kleihaus,
+J. Kunz and F. Navarro-Lérida, Phys. Rev. D 109, 084013 (2024)
+[60] B. Azad, J. L. Blázquez-Salcedo, F. S. Khoo, J. Kunz and F. Navarro-Lérida,
+Universe 11, 325 (2025)
+[61] J. A. Gonzalez, F. S. Guzman and O. Sarbach, Phys. Rev. D 80, 024023 (2009)
+[62] G. Y. Wu, S. Y. Wang and Y. G. Miao, Class. Quant. Grav. 43, 015004 (2026)
+[63] J. L. Blázquez-Salcedo, L. M. González-Romero, F. S. Khoo, J. Kunz and
+P. Navarro Moreno, Phys. Lett. B 875, 140335 (2026)
+[64] J. L. Blázquez-Salcedo, F. S. Khoo, J. Kunz and L. M. González-Romero, Phys.
+Rev. D 109, 064028 (2024)
+[65] J. L. Blázquez-Salcedo, F. S. Khoo, B. Kleihaus and J. Kunz, Phys. Rev. D 111,
+L021505 (2025)
+[66] J. L. Blazquez-Salcedo, F. S. Khoo, B. Kleihaus and J. Kunz, Phys. Rev. D 111,
+064015 (2025)
+[67] F. S. Khoo, J. L. Blázquez-Salcedo, B. Kleihaus and J. Kunz, Eur. Phys. J. C 85,
+no.11, 1366 (2025)
+[68] K. A. Bronnikov, R. A. Konoplya and A. Zhidenko, Phys. Rev. D 86, 024028 (2012)
+[69] T. Torii and H. a. Shinkai, Phys. Rev. D 88, 064027 (2013)
+
+34
+
+[70] P. Holoborodko, Advanpix 5.1.0.15432, http://www.advanpix.com
+[71] F. S. Khoo, Phys. Rev. D 111, no.12, 124025 (2025)
+[72] V. Dzhunushaliev, V. Folomeev, B. Kleihaus, J. Kunz and E. Radu, Phys. Rev. D
+88, 124028 (2013)
+[73] A. Cisterna, K. Müller, K. Pallikaris and A. Viganò, Phys. Rev. D 108, 024066
+(2023)
+[74] D. Batic, D. Dutykh and M. E. Sukaiti, Eur. Phys. J. C 86, 179 (2026)
+[75] J. L. Blázquez-Salcedo, C. Knoll and E. Radu, Phys. Rev. Lett. 126, 101102 (2021)
+[76] R. A. Konoplya and A. Zhidenko, Phys. Rev. Lett. 128, 091104 (2022)
+[77] J. L. Blázquez-Salcedo, C. Knoll and E. Radu, Eur. Phys. J. C 82, 533 (2022)
+[78] V. Dzhunushaliev and V. Folomeev, [arXiv:2511.02431 [gr-qc]].
+[79] P. Kanti, B. Kleihaus and J. Kunz, Phys. Rev. Lett. 107, 271101 (2011)
+[80] T. Harko, F. S. N. Lobo, M. K. Mak and S. V. Sushkov, Phys. Rev. D 87, 067504
+(2013)
+[81] A. Bakopoulos, C. Charmousis and P. Kanti, JCAP 05, 022 (2022)
+[82] V. De Falco and S. Capozziello, Phys. Rev. D 108, 104030 (2023)
+[83] M. Ilyas and K. Bamba, JCAP 10, 038 (2023)
+[84] K. A. Bronnikov, S. V. Bolokhov, M. V. Skvortsova, R. Ibadov and F. Y. Shaymanova, Eur. Phys. J. C 85, 1063 (2025)
+
+35
+
+

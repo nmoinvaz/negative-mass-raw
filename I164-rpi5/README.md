@@ -35,16 +35,21 @@ verify the ids). Sections "Files" and "Id verification" are filled from the fetc
 | id | check | pass criterion | control |
 |---|---|---|---|
 | C0 | the four ids are the cited papers (`verify_ids.py`) | abs-page title, authors, journal reference and version list agree with the entries in [BGKKKN26]'s and [SN26b]'s bibliographies and with what was fetched | `--mutate=title`, `author`, `jref`, `version` |
-| C1 | every quote of `quotes.txt` occurs verbatim in its source TeX (`check_quotes.py`) | after removing comments and collapsing whitespace the quote is a substring of the equally normalized TeX; TeX markup kept | `--mutate=quote` alters one word of one quote |
-| C2 | every quote also occurs in the PDF text | a fragment squashed to lower-case alphanumerics occurs on one page of `pdftotext`; numbers in `@pdfnum` occur on that page | `--mutate=pdf` checks one quote against another paper's PDF |
-| C3 | every sentence of the proposed text in `proposal.md` cites at least one existing quote id; each table cell and diff bullet equals its joined sentences | exit 0 | `--mutate=cite`, `dangling`, `cell`, `bullet` |
-| C4 | sha256 of every file in `sha256sums.txt` equals the file on disk | exit 0 | `--mutate=sha` |
-| C5 | every number in a proposed sentence occurs in a cited quote | exit 0 | `--mutate=number` |
+| C1 | every quote of `quotes.txt` occurs verbatim in its source TeX (`check_quotes.py`); every `@also` version contains the same text; every `@absent` version lacks it | after removing comments and collapsing whitespace the quote is a substring of the equally normalized TeX; TeX markup kept | `--mutate=quote` alters the first word of the first quote; `also` checks the first `@also` quote against another paper; `absent` points the first `@absent` at its own source |
+| C2 | every quote also occurs in the PDF text | a fragment squashed to lower-case alphanumerics occurs on one page of `pdftotext` (or of the cache `pdftext/`); numbers in `@pdfnum` occur on that page | `--mutate=pdf` checks the first quote against another paper's PDF |
+| C3 | every sentence of the proposed text in `proposal.md` cites at least one existing quote id; each table cell, diff bullet and entry equals its joined sentences | exit 0 | `--mutate=cite`, `dangling`, `cell`, `bullet`, `entry` |
+| C4 | sha256 of every file in `sha256sums.txt` equals the file on disk (downloads, TeX, the two I152 citing sources and PDFs, the `pdftext/` cache) | exit 0 | `--mutate=sha` |
+| C5 | every number in a proposed sentence occurs in a cited quote or, for `CALC1`, in a `VALUE` line of `recompute_run1.log` | exit 0 | `--mutate=number` |
 | C6 | every double-quoted string in a proposed sentence occurs in a cited quote | exit 0 | `--mutate=quoted` |
-| C7 | a claim that a phrase is absent from a paper (for example "disappears") is checked by a search of the TeX, not by reading | `@absent` quotes and `@lacks` strings: the TeX must not contain them | `--mutate=absent` points the check at a source that contains the string |
+| C7 | a claim that a phrase is absent from a paper (for example "oscillating growth") is checked by a search of the TeX and the PDF text, not by reading | `@lacks` terms (plain, or `re:` regex) occur in none of the record's sources; its `@has` term occurs in all (the search can find things) | `--mutate=lacks` adds the record's `@has` term to its `@lacks` list |
+| C8 | the section label of every quote is computed from the TeX headings (`\section`, `\subsection`, run-in `\prlsec`, `\noindent{\textbf{}}`, `\paragraph`) | the quote's `@loc` starts with the computed label | `--mutate=loc` |
+| CALC1 | `recompute_jc.py` recomputes J_c/A, the mode crossing and the normalization of J from the printed tables (a recompute, labelled as such) | P1 to P5 in its docstring, fixed before the first run | `--mutate=delta`, `cross`, `area`, `w`, `table` |
 
-`run_controls.sh` runs C0 to C7 and every control and exits non-zero if any control behaves wrongly. A control that is
-silent on its named target is reported as silent.
+`run_controls.sh` runs C0 to CALC1 and every control and exits non-zero if any control behaves wrongly (`SILENT` for a
+mutation that exits 0, `NOT RUN` for a check that could not run). `check_quotes.py` exits 3, not 1, when neither
+`pdftotext` nor the `pdftext/` cache is available, so a missing tool is never mistaken for a control firing. The seven
+proposal controls (`cite` to `entry`) fire only on the target once `proposal.md` exists; before that they exit 1 because
+the file is absent, which is not a result.
 
 ## Predictions, written before the papers' bodies were read (a miss is reported, not adjusted)
 
@@ -83,6 +88,16 @@ I152 source files that hold the citing bibliographies are listed there with rela
 | arXiv:2607.18399v1 | `dl/2607.18399v1/eprint` 24a20b0c…d498 | `src/2607.18399v1/main.tex` 2ac76504…1f2b | `dl/2607.18399v1/pdf` 7889d02c…2ecc | 35 |
 | arXiv:2607.18399v2 | `dl/2607.18399v2/eprint` 361344ba…d9c3 | `src/2607.18399v2/main.tex` ab125007…b26d | `dl/2607.18399v2/pdf` 4096743d…a41f | 35 |
 
+Scripts and data written in steps 2 and 3 (all run with `python3 -I`, stdlib only except `recompute_jc.py` P5, which needs sympy):
+
+| file | what |
+|---|---|
+| `quotes.txt` | 92 records, the data; `quotes.md` is generated from it by `check_quotes.py --write` |
+| `check_quotes.py` | C1 to C8 and the proposal checks C3, C5, C6; 14 `--mutate=` controls |
+| `recompute_jc.py`, `recompute_run1.log` | CALC1: J_c/A and the mode crossing from the printed tables, normalization of J; 5 controls |
+| `run_controls.sh` | runs every check and every control; logs in `controls/` |
+| `pdftext/` | `pdftotext` output of each PDF, pinned in `sha256sums.txt`, used only when `pdftotext` is missing (the Mac) |
+
 ## Id verification (Q0, C0)
 
 `python3 -I verify_ids.py` exits 0 (`verify_ids.log`); its four mutations each exit 1 (`verify_ids_<name>.log`; `jref` fires on
@@ -97,16 +112,52 @@ authors and, where shown, journal reference equal what [BGKKKN26] (arXiv:2610.38
 | 2510.11406 | Radial perturbations of charged wormholes (v1 title: "Charged wormholes can be long-lived") | J. L. Blázquez-Salcedo, L. M. González-Romero, F. S. Khoo, J. Kunz, P. Navarro Moreno | v1 13 Oct 2025, v2 13 Mar 2026 ("added references, results unchanged, matches published version") | Phys. Lett. B 875, 140335 (2026) (abs page, INSPIRE recid 3068528) | [BGKKKN26] `Blazquez-Salcedo:2025dit`, [SN26b] `blazquez2025` |
 | 2607.18399 | Nonradial perturbations of static charged wormholes | same five | v1 20 Jul 2026, v2 8 Oct 2026 ("added references, matches published version") | Phys. Rev. D 114, 084019 (2026) (abs page, INSPIRE recid 3182213) | [BGKKKN26] `Blazquez-Salcedo:2026cps` only |
 
-Two facts for the notes. [BGKKKN26] names 2607.18399 alongside 2510.11406 for "this merger" (its Introduction, paragraph 6), but
+Two facts for the notes. [BGKKKN26] names 2607.18399 alongside 2510.11406 for "this merger" (its Introduction, paragraph 5, second sentence), but
 [SN26b]'s bibliography has only 2510.11406. The abs pages of 2301.05243 (v2) and 2510.11406 (v2) say the later version
 matches the published one; the journal references the notes would print for them are verified by INSPIRE
 (`dl/inspire/<id>.json`), not by the publisher.
+
+## Step 2 and 3 findings (what the sources say; answers and the proposed text follow in step 4)
+
+The four papers are read in full (both versions of 2301.05243, 2510.11406 and 2607.18399 where they exist; the TeX
+diffs between versions were read). 92 records in `quotes.txt` (`quotes.md` has locations, PDF pages and TeX lines). The
+predictions above against the bodies:
+
+| prediction | result |
+|---|---|
+| 1 both halves of S04 are in 2403.08387; 2301.05243 may treat one asymmetry only | both halves are in both papers. 2301.05243 also covers several C (Table 1: C = 0 to 1.0; "for every value of C we have studied", L06). Wrong about 2301.05243. "Nearly symmetric" is not in either text: the second mode is "independent of C" (M12) and is shown only for C = 0, 0.05, 0.1, 0.2 (L14, L15, M13, M14) |
+| 2 S05's conjecture is hedged; "merge" may not occur in 2301.05243 or 2403.08387 | wrong. "merge and disappear" is in 2301.05243 Sec. 5 and 6 (L17, L18) and in 2403.08387 Sec. I, V, VI (M02, M16, M19), in both versions of 2301.05243. "beyond the reliable range of the quadratic approximation" is [SN26b]'s paraphrase: the sources say the crossing "is indicating a deficiency of the applied quadratic approximation" (L16, M17) and, in the same paper, that second order "should be excellent" for "most of the range J/A < J_c/A" (M10) |
+| 3 2510.11406 conjectures the complex pair by analogy; the two papers disagree | confirmed. 2510.11406: "whereas one might be tempted to conjecture that the radial instability disappears at the critical value, this is not the case" (H12) and "can only be confirmed by a non-perturbative study" (H22). 2403.08387 (Mar 2024): the instability disappears (M16, M19). 2510.11406 is later (v1 13 Oct 2025) and never says the earlier conjecture is withdrawn. 2607.18399 (Jul 2026) conjectures that the 4D radial instability "will therefore be relaxed" (N09), not that it disappears |
+| 4 "reaches zero only in the extremal limit" is in 2510.11406; 2607.18399 adds no radial statement | half wrong. Neither paper says "only". Closest: "while not yet fully radially stable" (H17), "the instability does not seem to completely vanish as long as M/r_T<1" (N05, subcritical), omega_I "tends to zero very quickly in the limit" (N04, H16). 2607.18399 has a radial subsection per class (Sec. 5.2.3, 5.3.3, 5.4.3) with the same merger statement (N06) |
+| 5 the 33 % is the zero of the C = 1 second-order rate in 2403.08387 | wrong. "33" as a percentage occurs in none of the seven TeX sources (N13, N14, N16). Printed: crossing "around J/A = 0.013, slightly above 30 %" for C = 0, 0.05, 0.1, 0.2 (L13, M15); "around 1/3" for the merger (H18). Recompute (`recompute_run1.log`): the crossing is 32.6 to 33.0 % of 1/(8 pi); the zero of the main-mode rate at C = 1 is 41.9 % (J_c/A = 0.0167, which reproduces Fig. 6 of 2403.08387 within 0.0001 at C = 0, 1.0, 1.4), not 33 % |
+
+Other facts found, for the notes:
+
+- 2510.11406 Eq. (6) as printed (omega_I proportional to (1 - M/r_T)^-3.1) diverges at M/r_T = 1, against its own text
+  and Fig. 2 inset (tau_0). 2607.18399 prints omega_I ~ (1 - M/r_T)^3.1 in Sec. 5.2.3 (N04) and tau ~ (1 - M/r_T)^-3.1 in
+  Sec. 5.3.3 (N05). A printing slip in 2510.11406, not a disagreement of the physics (H09 note).
+- 2510.11406 v1 and v2 differ in wording: v1 says the wormholes "become effectively stabilized" (H24) and its abstract says
+  "long-lived" (H23); v2 says "characteristic time of the instability", adds that the bifurcation "is a novel result that
+  has not been observed in" [GGS09c]'s paper (H15; v1 had "see also") and that other instabilities may creep up (H25).
+- 2607.18399 v1 and v2 agree on every quote used (`@also N1`).
+- 2607.18399 Sec. 5.1.2 and its abstract report a nonradial polar instability of the static (massive) Ellis wormholes,
+  fundamental l = 2 branch, for M/r_T > about 0.3 (N01, N11). The note's §1.1 says "one unstable mode" for the static
+  family; that statement is about radial perturbations and stands, but the nonradial one is not in the note.
+- 2510.11406's supercritical charged wormholes have two purely imaginary unstable radial modes at small mass (H11); the
+  note's §1.1 charged row says "one growing mode ... numerical evidence for super-critical" [GGS09c]. What [GGS09c] found
+  is not read here.
+- 2301.05243 normalizes with the area of the throat A "(obtained in second order)" (L04) and prints the static
+  A = 4 pi r0^2 exp(pi C / 2 r0) for "the throat ... located at r = 0" (L19). 2403.08387 says that for C != 0 the throat
+  is "shifted to one of the sides as seen by determining the minimal surface" (M04). The metric it prints has the minimum
+  at r = C/2, with a different area. Fig. 6 of 2403.08387 reproduces with the r = 0 area (`recompute_run1.log`).
+- J is read off at infinity (M05) and w -> 2 J / r^3 for r -> infinity (recompute, P5), which is G = 1; neither paper
+  states G (M21, N13). The limit J/A -> 1/(8 pi) is that of the extremal Kerr black hole (L05, M07).
 
 ## Status
 
 | step | state |
 |---|---|
-| 1 ids verified, sources fetched | done |
-| 2 slow-rotation papers read, `quotes.md` | |
-| 3 charged-wormhole papers read | |
-| 4 `proposal.md`, checks, controls | |
+| 1 ids verified, sources fetched | done (8aac3b8) |
+| 2 slow-rotation papers read, `quotes.md` | done; checks and controls in `run_controls.sh` pass except the seven proposal controls |
+| 3 charged-wormhole papers read | done (same `quotes.txt`) |
+| 4 `proposal.md`, final checks and controls | |

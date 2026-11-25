@@ -1,0 +1,731 @@
+# Quote data for check_quotes.py (generates quotes.md). One record per block, blocks separated by a blank line.
+# Fields: @id @src @also @loc @q @tex @pdf @pdfnum @absent @note   (a quote)
+#         @id @src @loc @q @lacks @has                               (an absence record, C7)
+#   @src    source key of the quote (SRC in check_quotes.py); an absence record may list several keys
+#   @also   other versions whose TeX must contain the identical @tex (C1)
+#   @loc    starts with the section label computed from the TeX headings (C8); the rest is free text
+#   @tex    exact source substring after comment removal and whitespace collapse
+#   @pdf    rendered-text fragment, matched squashed (lower-case alphanumerics) against the PDF page text (C2)
+#   @pdfnum numbers that must occur on that PDF page (written without the sign: the PDF prints U+2212)
+#   @absent source keys whose TeX must NOT contain @tex
+#   @lacks  terms (separated by ;) absent from the TeX and PDF text of every @src; @has: terms that are present
+# Source keys: L1/L2 = 2301.05243 v1/v2, M1 = 2403.08387 v1, H1/H2 = 2510.11406 v1/v2, N1/N2 = 2607.18399 v1/v2,
+#              SN = 2610.29941 v2 ([SN26b], in ../I152-rpi5), BG = 2610.38659 v1 ([BGKKKN26], in ../I152-rpi5).
+# Ids: S04 S05 S06 (SN) and A10 (BG) keep the ids of I152-rpi5/quotes.md. X = more [SN26b] statements. L = 2301.05243,
+#      M = 2403.08387, H = 2510.11406, N = 2607.18399. Figure and table numbers are those printed in the PDFs.
+
+# ======================================================================== the claims to source (I152)
+
+@id S04
+@src SN
+@loc Sec. I
+@q Q1
+@tex the static unstable mode weakens, with a positive $O(J^2)$ correction for every asymmetry, while for nearly symmetric wormholes a second unstable mode grows out of a static zero mode.
+@pdf while for nearly symmetric wormholes a second unstable mode grows out of a static zero mode
+
+@id S05
+@src SN
+@loc Sec. I
+@q Q2
+@tex The authors conjecture that the modes merge beyond the reliable range of the quadratic approximation and the instability disappears, as in five dimensions~\cite{dzhunushaliev2013}.
+@pdf The authors conjecture that the modes merge beyond the reliable range of the quadratic approximation and the instability disappears, as in five dimensions
+
+@id S06
+@src SN
+@loc Sec. I
+@q Q3
+@tex In the charged analogue the merged modes continue as a complex pair (oscillating growth), and the growth rate reaches zero only in the extremal limit~\cite{blazquez2025}. A perturbative method cannot decide which continuation rotation takes in four dimensions, and, to our knowledge, no rotating wormhole has yet been evolved nonlinearly.
+@pdf A perturbative method cannot decide which continuation rotation takes in four dimensions
+
+@id A10
+@src BG
+@loc run-in "Introduction"
+@q Q3
+@tex Closely analogous spectral behavior was already found for supercritical charged Ellis–Bronnikov wormholes, where two purely imaginary unstable radial modes merge and subsequently acquire opposite real parts while retaining the same growth rate.
+@pdf where two purely imaginary unstable radial modes merge and subsequently acquire opposite real parts while retaining the same growth rate
+
+@id X01
+@src SN
+@loc Sec. I
+@q Q4
+@tex The illustrated mode crossings near $30\%$ of the extremal value concern nearly symmetric wormholes.
+@pdf The illustrated mode crossings near 30% of the extremal value concern nearly symmetric wormholes
+
+@id X02
+@src SN
+@loc Sec. V
+@q Q4
+@tex The collapse branch itself follows $a-b\,(J/A)^2$ to rms $2\times10^{-3}$ in $1/\tau$ and extrapolates to zero at $32\%$ of the extremal angular momentum, beside the zero of their second-order rate for this family ($33\%$ on this axis).
+@pdf extrapolates to zero at 32% of the extremal angular momentum, beside the zero of their second-order rate for this family
+
+@id X03
+@src SN
+@loc Sec. V
+@q Q4
+@tex The second-mode crossings illustrated in Ref.~\cite{azad2024} concern $C\le0.2$, whereas our evolutions use $C=1$.
+@pdf The second-mode crossings illustrated in Ref
+
+@id X04
+@src SN
+@loc Sec. VI
+@q Q4
+@tex which extrapolates to zero at $32\%$, beside the second-order prediction of $33\%$~\cite{azad2023,azad2024}.
+@pdf which extrapolates to zero at 32%, beside the second-order prediction of 33%
+
+@id X05
+@src SN
+@loc Sec. IV, Table IV caption
+@q Q4
+@tex $8\pi J/A$: the angular momentum as a percentage of its extremal value $A/8\pi$ ($A$: the throat area)
+@pdf the angular momentum as a percentage of its extremal value
+
+# ======================================================================== 2301.05243 (v2 primary, v1 also where identical)
+
+@id L01
+@src L2
+@also L1
+@loc Abstract
+@q Q2
+@tex We find indications that simple wormhole solutions such as Ellis-Bronnikov in General Relativity can be stabilized by rotation, thus favoring a viable traversable wormhole.
+@pdf We find indications that simple wormhole solutions such as Ellis-Bronnikov in General Relativity can be stabilized by rotation
+
+@id L02
+@src L2
+@also L1
+@loc Sec. 1
+@q Q2
+@tex Here we present intriguing evidence that this radial instability of EB wormholes will disappear, when these wormholes rotate sufficiently fast.
+@pdf Here we present intriguing evidence that this radial instability of EB wormholes will disappear, when these wormholes rotate sufficiently fast
+
+@id L03
+@src L2
+@also L1
+@loc Sec. 1
+@q Q2
+@tex In fact, in our perturbative analysis the eigenvalue {vanishes} at some critical value of the angular momentum, that slightly depends on the asymmetry parameter of the wormhole, {and we argue that nonperturbatively the instability will disappear slightly earlier}.
+@pdf at some critical value of the angular momentum, that slightly depends on the asymmetry parameter of the wormhole
+
+@id L04
+@src L2
+@also L1
+@loc Sec. 5, first paragraph
+@q Q4
+@tex We exhibit in Figure \ref{Fig_J_omegaI_inset} the dependence of the unstable radial mode on the scaled and dimensionless angular momentum $J/A$ of the EB wormholes, where $A$ is the area of the throat (obtained in second order).
+@pdf of the EB wormholes, where A is the area of the throat (obtained in second order)
+
+@id L05
+@src L2
+@also L1
+@loc Sec. 5, first paragraph
+@q Q4
+@tex We recall that rotating EB wormholes approach the extremal Kerr black hole as their limiting configuration for large angular momenta \cite{Kleihaus:2014dla,Chew:2016epf}. Thus the limiting case {here} is given {by} $J/A\to 1/(8\pi) \approx 0.0397$.
+@pdf We recall that rotating EB wormholes approach the extremal Kerr black hole as their limiting configuration for large angular momenta
+@pdfnum 0.0397
+
+@id L06
+@src L2
+@also L1
+@loc Sec. 5, second paragraph
+@q Q1
+@tex In Figure \ref{Fig_J_omegaI_inset} we show that, as we increase the value of the angular momentum, the value of $|\omega_I|$ decreases to zero. This is because, for every value of $C$ we have studied, the second order correction to the mode is positive, $\Delta\omega_I^{(2)}>0$.
+@pdf This is because, for every value of C we have studied, the second order correction to the mode is
+
+@id L07
+@src L2
+@also L1
+@loc Sec. 5, second paragraph
+@q Q2
+@tex As a result, it is always possible to obtain a critical value of the angular momentum, $J_c$, for which the {eigenvalue reaches zero} and hence {this unstable mode} disappears.
+@pdf As a result, it is always possible to obtain a critical value of the angular momentum
+
+@id L08
+@src L2
+@also L1
+@loc Sec. 5, second paragraph
+@q Q2, Q4
+@tex for each of the values of $C$ examined, {$J_c/A$} is around $50\%$ of the limiting value, which is well within the regime for which the second order slow rotation approximation has been shown to work {well} (for example, the quadratic approximation reproduces with excellent precision the spectrum of QNMs of Kerr-Newman black holes \cite{Blazquez-Salcedo:2022eik}).
+@pdf is around 50% of the limiting value, which is well within the regime for which the second order slow rotation approximation has been shown to work well
+
+@id L09
+@src L2
+@loc Sec. 5, second paragraph
+@q Q1
+@tex Note that $\Delta\omega^{(2)}_I$ is \emph{always} positive, showing the tendency of the angular momentum to stabilize the wormhole.
+@pdf showing the tendency of the angular momentum
+@absent L1
+
+@id L10
+@src L2
+@loc Sec. 5, Table 1
+@q Q1, Q4
+@tex 0 & -1.182 & 16.358 \\ 0.05 & -1.094 & 13.356 \\ 0.1 & -1.016 & 10.663 \\ 0.2 & -0.882 & 7.036 \\ 0.4 & -0.686 & 3.162 \\ 0.7 & -0.501 & 1.040 \\ 1.0 & -0.390 & 0.384
+@pdf Main unstable radial-led mode for several values of asymmetry parameter
+@pdfnum 1.182 16.358 1.094 13.356 1.016 10.663 0.882 7.036 0.686 3.162 0.501 1.040 0.390 0.384
+@absent L1
+
+@id L11
+@src L2
+@also L1
+@loc Sec. 5, third paragraph
+@q Q1
+@tex the wormholes are set into rotation, a zero mode of the static wormholes changes into a second unstable radial mode of the slowly rotating EB wormholes.
+@pdf zero mode of the static wormholes changes into a second unstable radial mode of the slowly rotating EB
+
+@id L12
+@src L2
+@also L1
+@loc Sec. 5, third paragraph
+@q Q1, Q4
+@tex Following a quadratic dependence with a small negative coefficient $\Delta\omega_I^{(2)}$, this mode remains at first very small in magnitude. Subsequently, its magnitude increases and it crosses the corresponding main unstable mode {not too far from} its critical {value $J_c/A$}.
+@pdf this mode remains at first very small in magnitude
+
+@id L13
+@src L2
+@also L1
+@loc Sec. 5, third paragraph
+@q Q4
+@tex Note that for the values of $C$ displayed the crossing occurs around $J/A\approx0.013$, slightly above $30\%$ of the limiting {value}.
+@pdf the crossing occurs around J/A ≈ 0.013, slightly above 30% of the limiting value
+@pdfnum 0.013
+
+@id L14
+@src L2
+@also L1
+@loc Sec. 5, Figure 3 caption
+@q Q4
+@tex Main unstable mode {(solid)} and second unstable mode {(dotted) vs angular momentum $J/A$ (scaled with throat area $A$)} for $C=0$, $0.05$, $0.1$ and $0.2$.
+@pdf Main unstable mode (solid) and second unstable mode (dotted) vs angular momentum J/A (scaled with throat area A) for C = 0, 0.05, 0.1 and 0.2
+
+@id L15
+@src L2
+@loc Sec. 5, Table 2
+@q Q1, Q4
+@tex 0 & -28.185 \\ 0.05 & -21.431 \\ 0.1 & -16.697 \\ 0.2 & -10.220
+@pdf Second unstable radial-led mode for several values of asymmetry parameter
+@pdfnum 28.185 21.431 16.697 10.220
+@absent L1
+
+@id L16
+@src L2
+@also L1
+@loc Sec. 5, last paragraph
+@q Q2
+@tex We do not continue both modes beyond their crossing, however, since {this crossing} is indicating a {deficiency} of the applied quadratic approximation. A non-perturbative study will allow for a far stronger dependence on the angular momentum than the current quadratic one.
+@pdf is indicating a deficiency of the applied quadratic approximation
+
+@id L17
+@src L2
+@also L1
+@loc Sec. 5, last paragraph
+@q Q2
+@tex We therefore conjecture, that when nearing the critical value, both unstable modes will change much more rapidly, approach each other, merge and disappear. They will thus reflect the behavior observed in higher dimensions in the special case of wormholes with equal angular momenta \cite{Dzhunushaliev:2013jja}.
+@pdf both unstable modes will change much more rapidly, approach each other, merge and disappear
+
+@id L18
+@src L2
+@also L1
+@loc Sec. 6
+@q Q2
+@tex Moreover, we have observed that for rotating wormholes a second mode appears, {and} similar to the higher dimensional case \cite{Dzhunushaliev:2013jja}, it tends to merge with the fundamental unstable mode. Hence we have conjectured the behavior of the radial instability for the case of a future non-perturbative study: the radial instability will disappear at even smaller values of the angular momentum, around $30\%$ of the limiting {value}. Thus for {sufficiently} rapid rotation the wormholes will be stable.
+@pdf the radial instability will disappear at even smaller values of the angular momentum, around 30% of the limiting value
+
+@id L19
+@src L2
+@also L1
+@loc Sec. 2
+@q Q4
+@tex The throat of the wormhole is located at $r=0$, and it has an area {$\mathrm{A}=4\pi r_0^2 e^{\frac{\pi C}{2r_0}}$.}
+@pdf The throat of the wormhole is located at r = 0, and it has
+
+# ======================================================================== 2403.08387 v1
+
+@id M01
+@src M1
+@loc Abstract
+@q Q1, Q2
+@tex The calculations show that the unstable mode present in the static case becomes less unstable with increasing rotation, until it reaches zero and then disappears. This indicates that wormhole solutions may become linearly mode stable at sufficiently fast rotation.
+@pdf becomes less unstable with increasing rotation, until it reaches zero and then disappears
+
+@id M02
+@src M1
+@loc Sec. I
+@q Q2
+@tex In this setting the unstable radial mode of static Ellis-Bronnikov wormholes becomes more stable with increasing rotation, while at the same time a second unstable radial mode arises from a zero mode in the static limit. At a critical value of the rotation speed both unstable radial modes then merge and disappear.
+@pdf At a critical value of the rotation speed both unstable radial modes then merge and disappear
+
+@id M03
+@src M1
+@loc Sec. I
+@q Q1, Q2
+@tex Our study has shown that, as in higher dimensions, the unstable mode becomes more stable with increasing rotation, while a second unstable mode arises from a zero mode in the static limit, as well. Of course, being limited to slow rotation and thus allowing only for a quadratic dependence on the angular momentum, prevents the two modes from smoothly merging. For the latter to happen we would have to resort to a more sophisticated numerical scheme.
+@pdf prevents the two modes from smoothly merging
+
+@id M04
+@src M1
+@loc Sec. II B
+@q Q4
+@tex For $C=0$, the throat is located at $r=0$, while for $C\neq 0$ it is shifted to one of the sides as seen by determining the minimal surface.
+@pdf while for C 6= 0 it is shifted to one of the sides as seen by determining the minimal surface
+
+@id M05
+@src M1
+@loc Sec. II C
+@q Q4
+@tex Here $J$ is the angular momentum of the wormhole solution, read off for $r \to \infty$.
+@pdf is the angular momentum of the wormhole solution, read off for r → ∞
+
+@id M06
+@src M1
+@loc Sec. V
+@q Q4
+@tex In order to deal with dimensionless quantities, we employ the area of the throat $A$ of the rotating background solutions, as a scaling parameter.
+@pdf we employ the area of the throat A of the rotating background solutions
+
+@id M07
+@src M1
+@loc Sec. V
+@q Q4
+@tex Extracting the scaled angular momentum $J/A$ (here $A$ denotes the horizon area of the extremal Kerr black hole) for this limiting solution yields $J/A\to 1/(8\pi) \approx 0.0397$. Thus the critical angular momentum $J_c/A$ is about $50\%$ or less of the limiting value for the values of $C$ studied.
+@pdf A denotes the horizon area of the extremal Kerr black hole) for this limiting solution yields
+@pdfnum 0.0397
+
+@id M08
+@src M1
+@loc Sec. V
+@q Q1
+@tex shows that all values of the second order correction $\Delta\omega^{(2)}_I$ are positive in the considered range of the asymmetry parameter $C$.
+@pdf are positive in the considered range of the asymmetry parameter
+
+@id M09
+@src M1
+@loc Sec. V, Table I
+@q Q1, Q4
+@tex 0 & -1.182 & 16.358 \\ 0.1 & -1.016 & 10.663 \\ 0.2 & -0.882 & 7.036 \\ 0.3 & -0.774 & 4.691 \\ 0.4 & -0.686 & 3.162 \\ 0.5 & -0.613 & 2.155 \\ 0.6 & -0.552 & 1.488 \\ 0.7 & -0.501 & 1.040 \\ 0.8 & -0.458 & 0.736 \\ 0.9 & -0.422 & 0.528 \\ 1.0 & -0.390 & 0.384 \\ 1.2 & -0.338 & 0.210 \\ 1.4 & -0.298 & 0.121
+@pdf of the main unstable radial-led mode, eq
+@pdfnum 1.182 16.358 0.298 0.121
+
+@id M10
+@src M1
+@loc Sec. V
+@q Q2
+@tex Currently, there are no higher order or exact numerical results available for the unstable mode of rapidly rotating wormholes, to check the range of validity of the second order calculations. However, the present method has been developed and applied before for Kerr and Kerr-Newman black holes \cite{Blazquez-Salcedo:2022eik}. There it was shown that the second order results are excellent approximations of the exact results up to 50-60\% of the bound given by the extremal black holes. By analogy we conclude, that the second order results for Ellis-Bronnikov wormholes should be excellent approximations for most of the range $J/A < J_c/A$ of the angular momentum.
+@pdf the second order results are excellent approximations of the exact results up to 50-60% of the bound given by the extremal black holes
+
+@id M11
+@src M1
+@loc Sec. V
+@q Q1
+@tex Besides the main unstable radial-led mode the slowly rotating Ellis-Bronnikov wormholes feature a second radial-led unstable mode. This feature was first observed for rotating Ellis-Bronnikov wormholes in 5 dimensions, carrying equal magnitude angular momenta \cite{Dzhunushaliev:2013jja}. As in higher dimensions \cite{Dzhunushaliev:2013jja}, here this second unstable mode arises also from a zero mode, present in the static limit.
+@pdf here this second unstable mode arises also from a zero mode, present in the static limit
+
+@id M12
+@src M1
+@loc Sec. V
+@q Q1
+@tex Since, independent of $C$, this second unstable mode starts from a zero mode in the static limit, only $\Delta\omega_I^{(2)}$ is given in Table \ref{ImOm_coeff_sec}.
+@pdf this second unstable mode starts from a zero mode in the static limit
+
+@id M13
+@src M1
+@loc Sec. V, Table II
+@q Q1, Q4
+@tex 0 & -28.185 \\ 0.05 & -21.431 \\ 0.1 & -16.697 \\ 0.2 & -10.220
+@pdf of the second unstable radial-led mode, eq
+@pdfnum 28.185 21.431 16.697 10.220
+
+@id M14
+@src M1
+@loc Sec. V, Figure 8 caption
+@q Q4
+@tex Scaled squared main unstable mode $\omega_I^2 A$ (solid) and second unstable mode (dotted) vs scaled angular momentum $J/A$ for $C=0$, $0.05$, $0.1$ and $0.2$.
+@pdf Scaled squared main unstable mode
+
+@id M15
+@src M1
+@loc Sec. V
+@q Q4
+@tex The respective crossing points $J_\times /A$ necessarily occur at values of $J/A$ smaller than the respective critical values $J_c/A$. In particular, for the values of $C$ shown in the figure the crossing takes place around $J/A\approx0.013$, which slightly exceeds $30\%$ of the limiting value of $J/A$.
+@pdf the crossing takes place around J/A ≈ 0.013, which slightly exceeds 30% of the limiting value of J/A
+@pdfnum 0.013
+
+@id M16
+@src M1
+@loc Sec. V
+@q Q2
+@tex The reason for this truncation is, that we expect that the two branches merge at some special value $J_s/A$ of the angular momentum $J/A$ and disappear. This is what is observed in the non-perturbative calculations in 5 dimensions \cite{Dzhunushaliev:2013jja}, and we conclude by analogy that this will also hold for the wormholes in 4 dimensions. Consequently these rotating wormholes then no longer feature a radial instability for $J/A > J_s/A$.
+@pdf we expect that the two branches merge at some special value
+
+@id M17
+@src M1
+@loc Sec. V
+@q Q2
+@tex We attribute the crossing of the branches that we observe in 4 dimensions to a deficiency of the current perturbative approach, and expect to see a smooth merging of the modes also in 4 dimensions in a non-perturbative study. Clearly, the applied quadratic approximation excludes a smooth merging of the branches, since this would require higher order terms in the angular momentum.
+@pdf We attribute the crossing of the branches that we observe in 4 dimensions to a deficiency of the current perturbative approach
+
+@id M18
+@src M1
+@loc Sec. VI
+@q Q1
+@tex Our numerical analysis reveals a positive correction term to the static eigenvalue for the unstable radial mode, present in the limiting static case, for all values of the asymmetry parameter of the wormholes considered. Consequently, there arises always a critical angular momentum, when the mode reaches zero. At the same time, a second unstable arises from a zero mode in the static limit, that decreases quadratically with increasing angular momentum. Necessarily both modes cross at a value of the angular momentum below the critical value.
+@pdf present in the limiting static case, for all values of the asymmetry
+
+@id M19
+@src M1
+@loc Sec. VI
+@q Q2
+@tex In contrast, in 5 dimensions the two unstable modes smoothly merge at a critical value of the angular momentum and disappear beyond this critical value. This is indeed the behavior, that we also conjecture to be present in 4 dimensions. However, this behavior cannot be realized within the employed second order approximation, since in order to generate a smooth merging of the modes higher order terms in the angular momentum would be necessary. Therefore we only conjecture here, that the true critical angular momentum, where the radial instability of the rotating Ellis-Bronnikov wormholes will disappear, is slightly smaller than the angular momentum, where the two perturbatively obtained branches of unstable radial modes cross.
+@pdf This is indeed the behavior, that we also conjecture to be present in 4 dimensions
+
+@id M20
+@src M1
+@loc Sec. VI
+@q Q2
+@tex A verification of this conjecture will need more sophisticated methods than perturbation theory.
+@pdf A verification of this conjecture will need more sophisticated methods than perturbation theory
+
+@id M21
+@src M1
+@loc Sec. II A
+@q Q4
+@tex with curvature scalar $\mathrm{R}$ and Newton's constant $G$.
+@pdf with curvature scalar R and Newton’s constant G
+
+# ======================================================================== 2510.11406 (v2 primary; v1 where identical)
+
+@id H01
+@src H2
+@also H1
+@loc Abstract
+@q Q3
+@tex For so-called supercritical wormholes, two purely imaginary unstable modes merge and continue with degenerate imaginary parts and opposite real parts.
+@pdf two purely imaginary unstable modes merge and continue with degenerate imaginary parts and opposite real parts
+
+@id H02
+@src H2
+@loc Abstract
+@q Q3
+@tex By analogy, we conjecture an analogous behavior for rotating chargeless wormholes.
+@pdf By analogy, we conjecture an analogous behavior for rotating chargeless wormholes
+@absent H1
+
+@id H03
+@src H2
+@also H1
+@loc Abstract
+@q Q3
+@tex We show that the instability remains in the presence of charge, but exhibits a very fast decrease to zero
+@pdf We show that the instability remains in the presence of charge, but exhibits a very fast decrease to zero
+
+@id H04
+@src H2
+@also H1
+@loc run-in "Introduction"
+@q Q2, Q3
+@tex Our previous studies of the radial modes of slowly rotating EB wormholes have hinted at stabilization, since the notoriously unstable mode of the static wormholes became less unstable \cite{Azad:2023iju,Azad:2024axu}. However, at the same time a second radial mode evolves from the static EB wormhole, that becomes more unstable with increasing rotation. In perturbation theory both unstable modes simply cross. But as shown before for rotating EB wormholes in five dimensions, the modes actually merge at a critical value of the angular momentum. Beyond, these purely imaginary modes were no longer seen \cite{Dzhunushaliev:2013jja}.
+@pdf In perturbation theory both unstable modes simply cross
+
+@id H05
+@src H2
+@also H1
+@loc run-in "Introduction"
+@q Q3
+@tex Since this still represents a challenge, we here resort to a simpler problem, considering charge instead of angular momentum, and conclude by analogy.
+@pdf we here resort to a simpler problem, considering charge instead of angular momentum, and conclude by analogy
+
+@id H06
+@src H2
+@also H1
+@loc run-in "Introduction"
+@q Q3
+@tex However, the unstable modes do not disappear then. Instead, at the bifurcation the modes develop a real part with increasing charge, yielding two modes with equal imaginary parts but opposite real parts.
+@pdf the unstable modes do not disappear then
+
+@id H07
+@src H2
+@also H1
+@loc run-in "Introduction"
+@q Q3
+@tex As the charged EB wormholes approach the limiting solution, i.e., the exterior metric approaches the metric of an extremal Reissner-Nordstr\"om black hole, the degenerate imaginary part of the modes tends very fast to zero.
+@pdf the degenerate imaginary part of the modes tends very fast to zero
+
+@id H08
+@src H2
+@also H1
+@loc run-in "Results"
+@q Q3
+@tex Furthermore, the modes become extremely small as we approach the limit of the solutions, i.e., the eRN black hole with $r_T=r_H=M=Q_e$.
+@pdf the modes become extremely small as we approach the limit of the solutions
+
+@id H09
+@src H2
+@also H1
+@loc run-in "Results"
+@q Q3
+@tex \omega_I\propto (1-M/r_T)^{-3.1} \, , \label{num_rel}
+@pdf the decay of the critical modes (in black) follows a relation
+@note Eq. (6) as printed diverges at M/r_T = 1; its text and the next quote say omega_I tends to zero there, and the inset of Figure 2 plots tau_0 (H10). [BGKKN26] prints omega_I ~ (1 - M/r_T)^3.1 for the same fit (N04) and tau ~ (1 - M/r_T)^(-3.1) (N05).
+
+@id H10
+@src H2
+@also H1
+@loc run-in "Results"
+@q Q3
+@tex Unstable radial modes of subcritical and critical wormholes. The inset shows the critical wormhole decay time $\tau_0$ as a function of the mass $M$, and a fit (dashed line) described by (\ref{num_rel}).
+@pdf The inset shows the critical wormhole decay time
+
+@id H11
+@src H2
+@also H1
+@loc run-in "Results"
+@q Q3
+@tex We observe for each $\gamma_1$ the same pattern: for small masses two purely imaginary modes exist, i.e., they have $\omega_R=0$. The more unstable mode (with a larger $\omega_I r_T$ value) then gets less unstable with increasing $M/r_\text{T}$, while the unstable mode emerging from a zero mode becomes more unstable. Both modes then merge at a critical value of the mass and charge.
+@pdf while the unstable mode emerging from a zero mode becomes more unstable
+
+@id H12
+@src H2
+@also H1
+@loc run-in "Results"
+@q Q2, Q3
+@tex However, whereas one might be tempted to conjecture that the radial instability disappears at the critical value, this is not the case.
+@pdf whereas one might be tempted to conjecture that the radial instability disappears at the critical value, this is not the case
+
+@id H13
+@src H2
+@also H1
+@loc run-in "Results"
+@q Q3
+@tex Instead, a bifurcation arises at the critical value, where the two modes obtain non-vanishing real parts $\pm \omega_R$
+@pdf a bifurcation arises at the critical value
+
+@id H14
+@src H2
+@also H1
+@loc run-in "Results"
+@q Q3
+@tex instability continues beyond the bifurcation with two modes that possess the same imaginary part but opposite real parts.
+@pdf instability continues beyond the bifurcation with two modes that possess the same imaginary part but opposite real parts
+
+@id H15
+@src H2
+@loc run-in "Results"
+@q Q3
+@tex This bifurcation is a novel result that has not been observed in \cite{Gonzalez:2009hn}.
+@pdf This bifurcation is a novel result that has not been observed in
+@absent H1
+
+@id H16
+@src H2
+@also H1
+@loc run-in "Results"
+@q Q3
+@tex As we increase the value of $M/r_\text{T} \to 1$, we reach the eRN solution. The figure clearly shows that in this limit the radial instability finally disappears. Intriguingly, the imaginary part $\omega_I$ decreases to zero very fast, following a relation similar to the one obtained in the critical case (see (\ref{num_rel})).
+@pdf The figure clearly shows that in this limit the radial instability finally disappears
+
+@id H17
+@src H2
+@also H1
+@loc run-in "Results"
+@q Q3
+@tex while not yet fully radially stable, it is possible to obtain an arbitrarily long
+@pdf while not yet fully radially stable, it is possible to obtain an arbitrarily long
+
+@id H18
+@src H2
+@also H1
+@loc run-in "Results"
+@q Q3, Q4
+@tex Although the instability analysis has only been done in the slow rotation regime \cite{Azad:2023iju,Azad:2024axu}, the slowly rotating wormholes have two radially unstable modes, similar to the supercritical charged wormholes. The extrapolation of the slow rotation result showed that the two modes merged around $1/3$ of the maximum value of the scaled angular momentum, at which the extremal Kerr black hole is found.
+@pdf The extrapolation of the slow rotation result showed that the two modes merged
+@pdfnum 1/3
+
+@id H19
+@src H2
+@loc run-in "Results"
+@q Q3
+@tex It is strongly suggestive for an analogous tendency to occur close to extremality for sufficiently fast rotating chargeless EB wormholes (beyond the perturbative analysis).
+@pdf It is strongly suggestive for an analogous tendency to occur close to extremality
+
+@id H20
+@src H2
+@also H1
+@loc run-in "Conclusions"
+@q Q3
+@tex The unstable radial modes of all variants exhibit a fast decay to zero, as the wormhole metric tends to the metric of an eRN black hole.
+@pdf The unstable radial modes of all variants exhibit a fast decay to zero
+
+@id H21
+@src H2
+@loc run-in "Conclusions"
+@q Q3
+@tex An analogy can be drawn most closely to the supercritical case for the static charged wormholes, where two unstable purely imaginary modes bifurcate and continue with degenerate imaginary parts and opposite real parts. For the rotating chargeless EB wormholes, a perturbative treatment in the angular momentum has also seen two purely imaginary modes arise and meet \cite{Azad:2023iju,Azad:2024axu}.
+@pdf a perturbative treatment in the angular momentum has also seen two purely imaginary modes arise and meet
+
+@id H22
+@src H2
+@also H1
+@loc run-in "Conclusions"
+@q Q2, Q3
+@tex The fate of the unstable modes beyond the meeting point, whether they will take an analogous route like the supercritical wormholes can only be confirmed by a non-perturbative study in the future.
+@pdf The fate of the unstable modes beyond the meeting || whether they will take an analogous route like the supercritical wormholes can only be confirmed by a non-perturbative study in the future
+
+@id H23
+@src H1
+@loc Abstract
+@q Q3
+@tex suggesting that wormholes that approach a near-extremal metric could be long-lived.
+@pdf suggesting that wormholes that approach a near-extremal metric could be long-lived
+@absent H2
+
+@id H24
+@src H1
+@loc run-in "Results"
+@q Q3
+@tex This means that by moving closer to the eRN solution, we can increase the decay times to arbitrarily large values, meaning that for sufficiently large values of the electric charge, the wormholes become effectively stabilized.
+@pdf for sufficiently large values of the electric charge, the wormholes become effectively stabilized
+@absent H2
+
+@id H25
+@src H2
+@loc run-in "Results"
+@q Q3
+@tex Of course this does not mean that other instabilities would not creep up, for example in the non-linear regime.
+@pdf Of course this does not mean that other instabilities would not creep up
+
+@id H26
+@src H1 H2
+@loc Abstract and body
+@q Q3
+@lacks oscillat
+@has bifurcat
+
+# ======================================================================== 2607.18399 (v2 primary; v1 where identical)
+
+@id N01
+@src N2
+@also N1
+@loc Abstract
+@q Q3
+@tex We also uncover a nonradial polar instability, most clearly visible in the fundamental $l=2$ branch for sufficiently large wormhole masses. This instability is distinct from the familiar radial Ellis--Bronnikov instability and shows that the nonradial sector imposes additional constraints on the dynamical viability of charged wormholes.
+@pdf This instability is distinct from the familiar radial Ellis
+
+@id N02
+@src N2
+@also N1
+@loc Sec. 1
+@q Q3
+@tex The attenuation of the radial instability of wormholes in the presence of rotation conjectured earlier \cite{Matos:2010pcd} was addressed in recent years, together with the QNM spectrum of rotating wormholes \cite{Azad:2023iju,Azad:2024axu,Khoo:2024yeh,Azad:2025kay}. However, the fate of the instability for rather fast rotation has not yet been clarified, since the background solutions were not known in closed form, yielding accumulating inaccuracies in the determination of the modes.
+@pdf the fate of the instability for rather fast rotation has not yet been clarified
+
+@id N03
+@src N2
+@also N1
+@loc Sec. 1
+@q Q3
+@tex Gonzalez \textit{et al.} \cite{Gonzalez:2009hn} already performed a partial analysis of the fate of the unstable radial mode. To have the complete picture, we recently re-examined this problem and found that close to the limiting solution the instability was basically quenched and the mode became long-lived \cite{Blazquez-Salcedo:2025dit}.
+@pdf we recently re-examined this problem and found that close to the limiting solution the instability was basically quenched
+
+@id N04
+@src N2
+@also N1
+@loc Sec. 5.2.3
+@q Q3
+@tex Although the mode is still unstable, we see that $\omega_I$ decreases with increasing $M/r_T$. Thus, the instability relaxes as the limiting eRN solution is approached (residing at $\gamma_1^{\rm{max}}=\frac{2}{\pi}$). In fact, $\omega_I$ tends to zero very quickly in the limit, following $\omega_I \sim \left(1-M/r_T\right)^{3.1}$ \cite{Blazquez-Salcedo:2025dit}.
+@pdf Thus, the instability relaxes as the limiting
+
+@id N05
+@src N2
+@also N1
+@loc Sec. 5.3.3
+@q Q3
+@tex The figure also shows in the inset the increase of the instability timescale $\tau$ as the limiting eRN black hole is approached, diverging like $\tau \sim (1-M/r_T)^{-3.1}$. These results indicate that, although the instability does not seem to completely vanish as long as $M/r_T<1$, the instability timescale $\tau$ can be arbitrarily large for a sufficiently large mass.
+@pdf although the instability does not seem to completely vanish as long as
+
+@id N06
+@src N2
+@also N1
+@loc Sec. 5.4.3
+@q Q3
+@tex We find that, given a value of $\gamma_1$, there are two unstable branches of purely imaginary modes at small masses that converge and merge with each other at some critical value of $M/r_T$. After the merger, the branches remain degenerate in $\omega_I$, but acquire a real part $\omega_R$ with opposite signs \cite{Blazquez-Salcedo:2025dit}.
+@pdf there are two unstable branches of purely imaginary modes at small masses that converge and merge with each other
+
+@id N07
+@src N2
+@also N1
+@loc Sec. 5.4.3
+@q Q3
+@tex This is an interesting feature that is found neither for EB wormholes nor for critical and subcritical charged wormholes. In those cases, there was only a single unstable radial branch. But as for critical and subcritical wormholes, the imaginary part $\omega_I$ of the modes tends rapidly to zero, when the limiting eRN black hole is approached.
+@pdf of the modes tends rapidly to zero, when the limiting eRN black hole is approached
+
+@id N08
+@src N2
+@also N1
+@loc Sec. 6
+@q Q3
+@tex The EB wormholes have long been known to suffer from a radial instability. In the presence of charge, this instability relaxes. In fact, for all three classes, $\omega_I$ tends to zero when the branches approach the limiting eRN black hole solution. While there is a single purely imaginary radial unstable mode for critical and subcritical wormholes, supercritical wormholes feature two radial unstable modes that merge and subsequently acquire real parts $\omega_R$ with opposite signs \cite{Blazquez-Salcedo:2025dit}.
+@pdf In the presence of charge, this instability relaxes
+
+@id N09
+@src N2
+@also N1
+@loc Sec. 6
+@q Q2, Q3
+@tex This is interesting for the case of rotating wormholes. We recall that the calculation of the $l=2$ and $l=3$ modes of a set of rapidly rotating wormholes did not show any instabilities either \cite{Khoo:2024yeh}. Moreover, in four dimensions, the radial instability of slowly rotating wormholes features two unstable modes that merge, analogous to the radial unstable modes of charged supercritical wormholes \cite{Azad:2023iju} (as well as 5-dimensional rapidly rotating wormholes with equal angular momenta \cite{Dzhunushaliev:2013jja}). By analogy, we conjecture that the radial instability of 4-dimensional rotating wormholes will therefore be relaxed for fast rotation as well.
+@pdf we conjecture that the radial instability of 4-dimensional rotating wormholes will therefore be relaxed for fast rotation as well
+
+@id N10
+@src N2
+@also N1
+@loc Sec. 6
+@q Q3
+@tex Of course, the fate of the instability of rapidly rotating wormholes should be clarified.
+@pdf the fate of the instability of rapidly rotating wormholes should be clarified
+
+@id N11
+@src N2
+@also N1
+@loc Sec. 5.1.2
+@q Q3
+@tex Consequently, the fundamental $l=2$ $b_2$ branch becomes unstable for $M/r_T\gtrapprox 0.3$. This nonradial instability was not found in previous studies of the minimally coupled EB family, where smaller values of the mass were considered.
+@pdf This nonradial instability was not found in previous studies of the minimally coupled EB family
+
+@id N12
+@src N1 N2
+@loc Abstract and body
+@q Q3
+@lacks oscillating growth ; oscillatory instability ; complex pair
+@has merge
+
+@id N13
+@src L1 L2 M1
+@loc Abstract and body
+@q Q4
+@lacks re:\b33\s*(\\?%|per ?cent) ; thirty-three
+@has re:\b30\s*\\?%
+
+@id N14
+@src H1 H2
+@loc Abstract and body
+@q Q3, Q4
+@lacks re:\b33\s*(\\?%|per ?cent) ; thirty-three
+@has re:\d\s*\\?%
+
+@id N16
+@src N1 N2
+@loc Abstract and body
+@q Q3, Q4
+@lacks re:\b33\s*(\\?%|per ?cent) ; thirty-three
+@has eRN
+
+@id N15
+@src H1 H2 N1 N2
+@loc Abstract and body
+@q Q3
+@lacks re:\bonly\b[^.]{0,80}(extremal|eRN)|(extremal|eRN)[^.]{0,80}\bonly\b
+@has eRN
+
+@id G01
+@src BG
+@loc run-in "Introduction"
+@q Q3
+@tex Although this merger was not interpreted in terms of exceptional-point topology in Refs.~\cite{Blazquez-Salcedo:2025dit,Blazquez-Salcedo:2026cps}, it can now be recognized as the same characteristic spectral mechanism.
+@pdf Although this merger was not interpreted in terms of exceptional-point topology in Refs
