@@ -101,4 +101,54 @@ Nothing is deleted.
 
 ## Amendments
 
-(none yet)
+### A1, 2026-11-24 19:46 (written after the exact R2 run 1 started at 19:39, before any verdict of the ladder)
+
+Development on the numerators (scratch scripts, mod-p probes `singular/dev_*`, logs kept) showed:
+
+- Every N_ab is divisible by (1 - c^2)^2, and N_22 by (1 - c^2)^3, the axis. The generators of R2 and R3 use
+  N'_ab = N_ab / (1 - c^2)^k (exact division, asserted). Off the axis, where a box lies, 1 - c^2 = S^2 != 0, so N' = 0 on the
+  box iff N = 0. R1's generators are unchanged up to a scalar, since c = 0 there.
+- At theta_0 = pi/2, N_00, N_02, N_22 carry the factor Phi' = 4 u0^2 u1^2 - u1^4 + u1^2 + 2 u1 u2 + u2^2 (det h = 0 there) and
+  N_11 does not. So R1 with the saturation by u1 only, as registered, is predicted NOT unit (a det h = 0 component). It stays
+  in the ladder as registered, with that prediction. Mod p it is not unit with dimension 3 (probe `dev_R1_p32003`).
+- R1d (not in the ladder): R1 with the powers of u1 and Phi' divided out, which has 78, 66, 87 and 42 terms (the numbers of #77).
+  It is valid only where det h != 0 at theta_0, so it proves nothing for an arbitrary box. Probe mod p: not unit, dimension 2.
+  It is reported, not used for the verdict.
+- Mod-p probes (p = 32003, never verdicts): R2 and R3 are the unit ideal (192 s and 212 s).
+- The claim for an arbitrary box needs no saturation by det h: closure means h is a metric, so N = det^2 Ric = 0 on the box
+  and N' = 0 at every theta of the interval, hence the coefficient ideal J of N' vanishes at the jets u(r), with u1 != 0.
+  A unit certificate for any subset of J's generators (R2 is one) plus 1 - s u1 then contradicts it.
+
+### A2, 2026-11-24 19:46 (before any control run)
+
+- Declared targets changed: `flat-sub` -> `wall_R2` (R1's "not unit" verdict still passes when h is flat, so `wall_R1` is not
+  a target), `rung-equator` -> `wall_R2` (R3 may not be computed), `cert-corrupt` and `cert-satoff` -> `cert_verify_R2`.
+- Added check `num_indep`: the numerators agree with an independent route (the coordinate Ricci tensor of the 4D metric with
+  generic w, own Christoffel code and 3D Ricci routine) at 3 exact points. `num_weights` also tests that N is linear in W4.
+- `planted_blocks`: P1, P2 and D1 blocks have no jets and no trigonometric entries (the blocks are in polar form), so the test
+  is: P1 and P2 numerators are exactly 0 (all six components), D1's is not.
+
+### A3, 2026-11-24 20:50 (R2's exact run stopped at 1 h; new rung K22 chosen after the probes below; written before any K22 run)
+
+- **R2, exact, run 1** (`logs/compute_R2_run1.*`, `singular/R2_unit.*`): `liftstd` over Q on the 10 R2 generators plus
+  1 - s u1 did not finish in 1 h and was stopped (Singular's resident size sampled by `ps`: 0.7 GB at 4 min, 1.7 GB at 16 min,
+  2.7 GB at 46 min, 3.3 GB at 56 min; its `.time` file is empty because the process was killed). So R2 has NO exact verdict:
+  unit mod 32003 (probe `dev_R2_p32003`, 192 s) only. R3 likewise (probe `dev_R3_p32003`, unit mod p, 212 s), not run exactly.
+- **Probes mod p = 32003**, every file kept in `singular/dev_*` (the probes of R1, R1d, R2, R3 ran before the u1-power
+  stripping of generators was added to the script; Rc1, Rc2, Rtop1, Rk22 after it): R1 not unit, dim 3. R1d (u1 and Phi' divided
+  out) not unit, dim 2. Rc1 (coefficients of c^0, c^1 of every N'_ab) not unit, dim 2. Rc2 (up to c^2) not unit, dim 2. Rtop1
+  (top-degree coefficient blocks) not unit, dim 4. **Rk22** (all coefficients of c^k of N'_22 alone, no u4) not unit, dim 3, with
+  Groebner basis {u0 + 16001 u1, (u1 + u2)^2, s u1 - 1, s u2^2 + u1 + 2 u2}. Since 2 * 16001 = -1 mod 32003 this is
+  u0 = u1 / 2, (u1 + u2)^2 = 0: #65's relations 2 w = r w', (w' + r w'')^2 = 0, the locus where D = det R_3 vanishes for every theta.
+- **New rung K22** (decided after those probes, not in the ladder above): I22 = (all coefficients of c^k of N'_22, with powers of
+  u1 divided out, 1 - s u1) in Q[s, u0..u4]. Criteria, each can fail:
+  - K22-a: f1 = 2 u0 - u1, f2 = (u1 + u2)^2 and q0, q1, q2 are in I22 over Q, where det h = (1 - c^2) q(c^2), q = q0 + q1 c^2 + q2 c^4
+    (det h at r = 1 is det R_3). Certificate: cofactors from Singular `lift`, checked in sympy exactly without Singular.
+  - K22-b: an exact point u = (1/2, 1, -1, 0, 0) satisfies every generator of I22 with s = 1: I22 is not the unit ideal, and there
+    det h = 0 for all c (q_j = 0).
+  - K22-c (ODE step): F1 = 2 u0 - u1 and F2 = u1 + u2 on an interval with u1 != 0 is impossible. With theta = r d/dr,
+    theta u_k = k u_k + u_{k+1}, theta F1 = u1 - u2, F2 + theta F1 = 2 u1. Checked in sympy: 2 (1 - s u1) + s (F2 + theta F1) = 2.
+  - Consequence (by hand): a flat box has N = 0, so by K22-a the jets u(r) at every r of the box satisfy q_j = 0, i.e.
+    det h(r, .) = 0 for all theta, contradicting that h is a metric on the box; and independently by K22-c.
+  Controls added for K22: `cert-corrupt` and `cert-satoff` now target `cert_verify_K22` (not `cert_verify_R2`), `ode-sign`
+  (theta u_k = k u_k - u_{k+1}) targets `ode_step`, `k22-target` (a target outside I22: u0) targets `cert_verify_K22`.
