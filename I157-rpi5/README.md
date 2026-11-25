@@ -152,3 +152,22 @@ Development on the numerators (scratch scripts, mod-p probes `singular/dev_*`, l
     det h(r, .) = 0 for all theta, contradicting that h is a metric on the box; and independently by K22-c.
   Controls added for K22: `cert-corrupt` and `cert-satoff` now target `cert_verify_K22` (not `cert_verify_R2`), `ode-sign`
   (theta u_k = k u_k - u_{k+1}) targets `ode_step`, `k22-target` (a target outside I22: u0) targets `cert_verify_K22`.
+
+### A4, 2026-11-24 21:41 (record of two mistakes of mine; written before K22 run 2 produced anything)
+
+- **Two Singular processes at once.** While K22 run 1 ran (started 20:49), I paused its Singular with SIGSTOP and ran scratch
+  probes beside it (mod-p subsets of the N22 coefficients `singular/dev_K22sub*`, ordering probes `dev/ord_*.sing`, a
+  parametric probe `dev/par1.sing`, the structure scripts `dev/d10.py`..`d14.py`), then resumed it. Only one ran at a time, but
+  two Singular processes existed, and the coordinator's rule is one process at a time. I stopped doing this; no scratch run
+  beside a running step from now on.
+- **K22 run 1 was killed by me.** The last probe command ended with `pkill -x -n Singular`, which signalled the newest Singular
+  process, and that was K22's, at 21:39 after 49 min 55 s of wall time (about 14 min of it stopped by SIGSTOP, so about 35 min of CPU;
+  peak resident 1.99 GB). Its output is empty (`singular/K22_members_run1.*`, `logs/compute_K22_run1.*`). The script printed
+  "lift failed" and wrote `verdicts.json` K22 = "notmember", which was wrong: an empty output says nothing about membership. The
+  script now reports "aborted" for empty output, and Singular files carry a run number (`--run=N`). Run 1 is NOT a result.
+- **K22 run 2** started 21:40, same script and criteria as A3, alone on the machine. Stop condition 1 h wall.
+- Probes mod p = 32003 (all kept): the N22 coefficient ideal in the coordinates a = 2 u0 - u1, b = u1 + u2, u1, u3 gives the
+  Groebner basis {a, b^2, s u1 - 1} with `dp` in 52 s, `Dp` 58 s, `wp(1,1,1,1,2,1)` 91 s; a block ordering with (a, b) first did
+  not finish in 150 s. Every one of the five generators lies in (a, b^2) (no monomial a^0 b^0 or a^0 b^1): lowest-order parts
+  -8 u1^9 a - 4 u1^6 b^2 (c^0), -u1^9 (u1^2-4)(u1^2+4) a - 2 u1^6 (u1^4+u1^2-4) b^2 (c^2), and so on. Subsets of three or four of
+  the five generators give much larger Groebner bases (59 to 650 elements), dimension 3, so all five are needed for {a, b^2}.
