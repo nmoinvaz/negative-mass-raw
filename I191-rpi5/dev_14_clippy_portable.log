@@ -1,0 +1,76 @@
+    Checking multidouble v5.1.0
+    Checking multisolver v0.2.2 (/home/nathan/Source/negative-mass-i191-libs/multisolver)
+error: unnecessary closure used with `bool::then`
+   --> tests/locate.rs:348:15
+    |
+348 |     let far = (case.parts.len() > 1).then(|| loc.farther.as_ref()).flatten().map(|f| {
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.100.0/index.html#unnecessary_lazy_evaluations
+    = note: `-D clippy::unnecessary-lazy-evaluations` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::unnecessary_lazy_evaluations)]`
+help: use `then_some` instead
+    |
+348 -     let far = (case.parts.len() > 1).then(|| loc.farther.as_ref()).flatten().map(|f| {
+348 +     let far = (case.parts.len() > 1).then_some(loc.farther.as_ref()).flatten().map(|f| {
+    |
+
+error: the use of negated comparison operators on partially ordered types produces code that is hard to read and refactor, please consider using the `partial_cmp` method instead, to make it clear that the two values could be incomparable
+   --> tests/locate.rs:435:8
+    |
+435 |     if !(r.err_s <= r.tol_s) || !(r.err_a <= r.tol_a) || (r.tenth && !(r.err_a <= 1e-9)) {
+    |        ^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.100.0/index.html#neg_cmp_op_on_partial_ord
+    = note: `-D clippy::neg-cmp-op-on-partial-ord` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::neg_cmp_op_on_partial_ord)]`
+
+error: the use of negated comparison operators on partially ordered types produces code that is hard to read and refactor, please consider using the `partial_cmp` method instead, to make it clear that the two values could be incomparable
+   --> tests/locate.rs:435:33
+    |
+435 |     if !(r.err_s <= r.tol_s) || !(r.err_a <= r.tol_a) || (r.tenth && !(r.err_a <= 1e-9)) {
+    |                                 ^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.100.0/index.html#neg_cmp_op_on_partial_ord
+
+error: the use of negated comparison operators on partially ordered types produces code that is hard to read and refactor, please consider using the `partial_cmp` method instead, to make it clear that the two values could be incomparable
+   --> tests/locate.rs:435:70
+    |
+435 |     if !(r.err_s <= r.tol_s) || !(r.err_a <= r.tol_a) || (r.tenth && !(r.err_a <= 1e-9)) {
+    |                                                                      ^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.100.0/index.html#neg_cmp_op_on_partial_ord
+
+error: the use of negated comparison operators on partially ordered types produces code that is hard to read and refactor, please consider using the `partial_cmp` method instead, to make it clear that the two values could be incomparable
+   --> tests/locate.rs:438:8
+    |
+438 |     if !(r.err_s <= r.bar_s_rel) || !(r.err_a <= r.bar_a) {
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.100.0/index.html#neg_cmp_op_on_partial_ord
+
+error: the use of negated comparison operators on partially ordered types produces code that is hard to read and refactor, please consider using the `partial_cmp` method instead, to make it clear that the two values could be incomparable
+   --> tests/locate.rs:438:37
+    |
+438 |     if !(r.err_s <= r.bar_s_rel) || !(r.err_a <= r.bar_a) {
+    |                                     ^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.100.0/index.html#neg_cmp_op_on_partial_ord
+
+error: the use of negated comparison operators on partially ordered types produces code that is hard to read and refactor, please consider using the `partial_cmp` method instead, to make it clear that the two values could be incomparable
+   --> tests/locate.rs:441:8
+    |
+441 |     if !(r.bar_s_rel <= 100.0 * r.tol_s) || !(r.bar_a <= 100.0 * r.tol_a) {
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.100.0/index.html#neg_cmp_op_on_partial_ord
+
+error: the use of negated comparison operators on partially ordered types produces code that is hard to read and refactor, please consider using the `partial_cmp` method instead, to make it clear that the two values could be incomparable
+   --> tests/locate.rs:441:45
+    |
+441 |     if !(r.bar_s_rel <= 100.0 * r.tol_s) || !(r.bar_a <= 100.0 * r.tol_a) {
+    |                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.100.0/index.html#neg_cmp_op_on_partial_ord
+
+error: could not compile `multisolver` (test "locate") due to 8 previous errors
