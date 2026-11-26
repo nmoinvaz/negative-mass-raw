@@ -1,0 +1,16 @@
+[PASS] planted_gronwall: zeta' = -2 zeta + ubar e^(-2t), exact (zeta_0 + ubar t) e^(-2t), c_f = 1: stage-1 bound B e^(-7t/4) and the rate bound e^H (|zeta_0| + c_f ubar t) e^(-2t) are >= the exact solution on t in [0, 50], and for zeta_0 >= 0 the ratio of the rate bound to the exact solution at t = 50 equals e^H to 1e-6: (z0 0.25, ubar 0.001) True/True ratio at t = 50 1.0753; (z0 -0.25, ubar 0.01) True/True ratio at t = 50 3.2592; (z0 0.0, ubar 0.01) True/True ratio at t = 50 1.0115; (z0 0.1, ubar 0.01) True/True ratio at t = 50 1.0408; c_f used 1, kappa override None
+  (0 s)
+[PASS] n_identity: (a) N from D (retyped) = A0 + nu^2 A1 + nu^4 A2: True; (b) N = c3 q^3 + c2 q^2 + c1 q + c0: True; (c) N = p^6 P(q/p^2), omega = 2 G sigma/p: True; (d) N(-G,-p,-q) = N: True; (e) R = N/sigma^4 = sigma^2 r^6 P(s/(sigma r^2)): True
+  (1 s)
+[PASS] reduction: (a) y' = y(4-y)/2 - sigma y^2 + e/2, (ln G)' = sigma y: True; (b) d rho/d e = -y^4/4, e = -8*(g2 + 3) sigma + ... at y = 4: True; (c) f_sigma = -4*(g2 + 7), f_zeta(0,0) = 0, rho_y(e=0,sigma=0) = 0: True; (d) eigenvalues {-2: 2, 0: 1} (S_r = -4, S_G = 8, S_sigma = 4*G*(-G**2 - 3)), minor of J + 2I = -8*G*(G**2 + 7) (never 0 for real G != 0, so a Jordan block): True
+  (0 s)
+[PASS] hyp_line_real: hyp_line (analytic, tangent (1,4,0) in ker J, 0 simple, other eigenvalues Re < 0) at G = -3, -1/2, 1, 2, 7: G=-3: attracting, Jordan True; G=-1/2: attracting, Jordan True; G=1: attracting, Jordan True; G=2: attracting, Jordan True; G=7: attracting, Jordan True
+  (0 s)
+[PASS] shape: sigma, b <= 1/500, a <= 1/1000, |omega| <= 100: (i) kappa >= 0.99, mu >= 0.99, c in [1, 1.01], M >= 0.79: True (kappa [0.998, 1.002], M [0.797976, 1.20601]); (ii) 4M - 3 kappa > 0: True [0.185904, 1.83003]; (iii) 32 a^2 P(-1/(4a)) < 0: True [-1.73402, -0.593952]; (iv) P(+-2) < 0: True; (v) omega^2 <= [1, 1.03208] <= 1.05^2: True; (vi) |omega| <= 1/2: P(0), P(1/2), P(-1/2) > 0: True; symbolic P' (discriminant 4M^2 + 96 a^2 kappa c, P'(0) = 4ac, P'(-1/(4a))): True
+  (0 s)
+[PASS] ehat: exact identity kappa x^2 (1 - 2ax) - ((kappa - M) x^2 - 4acx - (omega^2 - c^2)) = -P(-x) and kappa - mu = -(2 sigma + 2 sigma^2 - 6 b sigma): True; with 1/x <= 4a and y >= 1/50: T2 = [2 sigma + 2 sigma^2 + 6 b sigma + 4 u^2 (c + c^2)]/(kappa u) <= 2.03617 <= alpha = 51/25: True; T1 = 2 |b - sigma|/(kappa u) <= 2.00401 <= 201/100: True; T0 = 64 a^2/(kappa u) <= 0.03206 <= 321/10000: True; 321/10000 <= (beta - 201/100)/50 = 0.03220: True; so |e-hat| <= u (alpha y^2 + beta y), beta = 181/50
+  (0 s)
+[PASS] theorem_a: c_e = alpha (9/2)^2 + beta (9/2) = 57.6000 <= 58: True; c_f = 50 >= 58/2 + (9/2)^2 = 49.25: True; ubar = e^(9 u0/2) u0 = 0.00100451 <= 1.0046e-3 and <= 1/500: True; kappa = 7/4, B = 1/4 + 4 c_f ubar = 0.45090 <= 0.451 < 1/2: True; H = B/(2 kappa) = 0.12883 <= 0.129, e^H <= 1.13750 <= 1.14: True; y in [7/2, 9/2] within [1/50, inf): True
+  (0 s)
+
+checks: 7 passed, 0 failed []. 1 s

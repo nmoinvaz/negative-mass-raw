@@ -1,0 +1,18 @@
+[PASS] shape: sigma, b <= 1/500, a <= 1/1000, |omega| <= 100: (i) kappa >= 0.99, mu >= 0.99, c in [1, 1.01], M >= 0.79: True (kappa [0.998, 1.002], M [0.797976, 1.20601]); (ii) 4M - 3 kappa > 0: True [0.185904, 1.83003]; (iii) 32 a^2 P(-1/(4a)) < 0: True [-1.73402, -0.593952]; (iv) P(+-2) < 0 and P'(2) < 0: True; (v) omega^2 <= [1, 1.03208] <= 1.05^2: True; (vi) |omega| <= 1/2: P(0), P(1/2), P(-1/2) > 0: True; symbolic P' (discriminant 4M^2 + 96 a^2 kappa c, P'(0) = 4ac, P'(-1/(4a))): True
+  (0 s)
+[PASS] series: exact Fraction solver, F_inf in {1, -3/2, 2/7, 5} x C in {0, 3, -5/2} (12 cases), stages k = 3..9: all solvable with no lower-order residual, full column rank except k = 4 (null space spanned by a_(4,0)), table of conical_limit.md (a_(2,0), a_(4,0), a_(4,1), a_(6,0..2), a_(8,3)), odd coefficients zero, first nonzero coefficient of N at nu^16: True
+  (4 s)
+[PASS] stage_symbol: dN/dq = -128*F**3 nu^6 + ..., dN/dp = -512*F**3 nu^6 + ..., dN/dG of order nu^8: I(k) = -128*F**3*k*(k - 4), roots [0, 4]; so stage k >= 3, k != 4 has a nonzero indicial coefficient for every k: True
+  (0 s)
+[PASS] expansion_link: zeta~ = eta^3 F~'/F~ - 4 from the series (exact): nu^0 coefficient 0, sigma t coefficient -4 (F^2 + 7) = f_sigma, sigma coefficient F^2 + 15 - 4C/F (affine in C, slope -4/F), ln(F~/F) = -2 sigma + ...: F=1 C=0: (16, -32); F=1 C=3: (4, -32); F=1 C=-5/2: (26, -32) ... True
+  (2 s)
+[PASS] local_lemma: N: c2 divisible by p, c1 and c0 by p^4: True; N(G, 0, q, nu) = -2 G nu^2 kappa q^3, c3 != 0 iff G != 0 and kappa != 0: True; c2/c3 = p [(G^2-1) sigma/kappa + p mu/(2 G sigma kappa)], c1/c3 = -2 c p^4/kappa: True; |q| <= 3 max(|c2/c3|, |c1/c3|^(1/2), |c0/c3|^(1/3)) on 30000 random roots (1e4 parameter points): 0 violations
+  (1 s)
+[PASS] regime_b: |y| <= 1/50, a <= 1/1000, u <= 1/500: Theta_1/|p| <= (U + |y| mu/2)/kappa <= 0.01208; sqrt(2c/kappa) <= 3/2: True, Theta_2/|p| <= 3.00e-05; Theta_3/|p| <= (2 a^2 |y|/kappa)^(1/3) <= 0.0035 (cube 4.287e-08 >= 4.008e-08: True); 3 max <= 0.0363 <= 0.037 <= 1/10: True; so |s| <= |r|/10 and |r|' >= 1.9 |r|
+  (0 s)
+[PASS] small_branch: (ln|omega|)' = p/G - 2 - p w: True; for |omega| >= 1/2, |w| <= 2, sigma + b <= 1/500: (ln|omega|)' <= -2 + 4 sigma + 8 a <= -2 + 0.0160 <= -1.0: True; p' = w p^2 with constant w: p = 1/(1/p0 - w t) (blow-up at t = 1/(p0 w) for w > 0): True; for w < 0, int p dt = ln(1 + |w| p0 t)/|w| -> infinity: True
+  (0 s)
+[PASS] huge_branch: y' = 2y + a y^2 w - sigma y^2 = y(4-y)/2 - sigma y^2 + e-hat/2 with e-hat = y^2 (1 + 2aw): True; with |e-hat| <= u (alpha y^2 + beta y), u, sigma <= 1/500: y' >= 1.4923 y >= 1.49 y on [1/50, 1]: True; y' >= 0.1062 y >= 1/10 on [1, 15/4]: True; y' <= -0.1042 y <= -0.104 y on [17/4, inf) (bracket increasing: True): True; w <= -1/(4a) gives r' <= 2r - r^2/(4G) (s = sigma r^2 w)
+  (0 s)
+
+checks: 8 passed, 0 failed []. 7 s

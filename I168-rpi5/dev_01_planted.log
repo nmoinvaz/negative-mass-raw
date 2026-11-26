@@ -1,0 +1,12 @@
+[PASS] planted_hyp: Jordan field (0,-2,-2): attracting, Jordan block True, e^(At) closed form True, |x_2,3| <= (1+t) e^(-2t) |x_0| on a grid True; diag(0,-2,2): not attracting; diag(0,0,-2): kernel larger than the line
+  (0 s)
+[PASS] planted_gronwall: zeta' = -2 zeta + ubar e^(-2t), exact (zeta_0 + ubar t) e^(-2t), c_f = 1: stage-1 bound B e^(-7t/4) and the rate bound e^H (|zeta_0| + c_f ubar t) e^(-2t) are >= the exact solution on t in [0, 50]: (z0 0.25, ubar 0.001) True/True ratio at t = 50 1.0753; (z0 -0.25, ubar 0.01) True/True ratio at t = 50 3.2592; (z0 0.0, ubar 0.01) True/True ratio at t = 50 1.0115; (z0 0.1, ubar 0.01) True/True ratio at t = 50 1.0408; c_f used 1, kappa override None
+  (0 s)
+[PASS] planted_shape: planted -2a (w - h)(w^2 - 1), a = 1/100, h = -50: huge roots [mpf('-50.0')], other roots [mpf('-1.0'), mpf('1.0')], classified as 1 huge + 2 at +-1: True; hypotheses {'M>0': True, '4M-3kappa>0': True, 'P(-1/(4a))<0': True, 'P(2)<0': True, 'P(-2)<0': True}; with the huge root at +1/(2a) (M < 0) the hypotheses fail: True (['M>0', '4M-3kappa>0', 'P(-1/(4a))<0', 'P(2)<0', 'P(-2)<0'])
+  (0 s)
+[PASS] planted_local: N_osc = nu^2 (q - p) + G (F'' + F = 0): divisibility False, N(G, 0, q, nu) = c3 q^3 False: applies False (it must not); F = cos eta has p = 0 with q = pi^2 != 0 at eta = pi and N_osc = 0: True
+  (0 s)
+[PASS] planted_series: q + p = 0: g = {(1, 0): Fraction(5, 3)} (c nu only, null direction a_(1,0)): True; q + 4p = 8 nu^4: no-log ansatz stops with an obstruction at k = 4: True; with logs a_(4,1) = -2 (= -2) and nothing else: True
+  (0 s)
+
+checks: 5 passed, 0 failed []. 0 s

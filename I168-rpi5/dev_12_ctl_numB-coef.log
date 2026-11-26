@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-i168/notes/warp/conical_attraction.py", line 1278, in <module>
+    failed = main()
+  File "/home/nathan/Source/negative-mass-i168/notes/warp/conical_attraction.py", line 1267, in main
+    fn()
+    ~~^^
+  File "/home/nathan/Source/negative-mass-i168/notes/warp/conical_attraction.py", line 999, in c_numeric_b
+    c2 = c1 - f1 * (c1 - c0) / (f1 - f0)
+              ~~~~~~~~~~~~~~~^~~~~~~~~~~
+  File "<string>", line 7, in __div__
+  File "/home/nathan/Source/negative-mass-venv314/lib/python3.14/site-packages/mpmath/libmp/libmpf.py", line 960, in mpf_div
+    raise ZeroDivisionError
+ZeroDivisionError
