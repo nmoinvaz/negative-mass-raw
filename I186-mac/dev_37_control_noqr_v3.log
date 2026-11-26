@@ -1,0 +1,10 @@
+# 2026-11-26 07:39:59 cwd=/Users/nathan/Source/negative-mass-i186/phase2/nonradial
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python taylor_polar.py --mutate=noqr
+CHECK P1[f64]: FAIL  y' = A y, A = blockdiag([[0,1],[g^2,0]]) + C, L = 24.0, Lz = 40.0 against the invariant subspaces at 90 digits; worst D 1.41e+268, planes 2.03e+141, ln vol 9.99e-01 (bars 1.00e-06, 1.00e-09, 1.00e-09); g=3: D=0.090986 steps 154+2036
+CHECK P1[dd]: FAIL  y' = A y, A = blockdiag([[0,1],[g^2,0]]) + C, L = 24.0, Lz = 40.0 against the invariant subspaces at 90 digits; worst D 7.24e+236, planes 2.03e+141, ln vol 9.99e-01 (bars 1.00e-24, 1.00e-24, 1.00e-24); g=3: D=0.090986 steps 551+7231
+CHECK P1: FAIL  raised RuntimeError: /Users/nathan/Source/negative-mass-i186/phase2/nonradial/taylor_polar/target/release/taylor_polar planted case=const lane=qd gamma=10.0 L=24.0 Lz=40.0 mutate=noqr exited 101: 
+thread '<unnamed>' (99213750) panicked at src/plane.rs:131:13:
+integrate: more than 60 s by x = 1.9147314400612448e1 after 7
+CHECK A2: FAIL  raised RuntimeError: /Users/nathan/Source/negative-mass-i186/phase2/nonradial/taylor_polar/target/release/taylor_polar d lane=dd l=2 r0=0.001 rm=24.10980364018201 gammas=0.001,0.03,0.3,1.0,3.0,10.0,40.0,137.0 omega=0.7603 eps=-1.0 lam=10240.0 mu=21845333.333333336 pc=3.86682473052039692307928581646122e-04 zc=9.811197268
+SUMMARY: 0 of 4 checks passed; failed: P1[f64], P1[dd], P1, A2; mutate = noqr; 167 s
+CONTROL noqr: every targeted check failed, as it must

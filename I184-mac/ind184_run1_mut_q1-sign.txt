@@ -1,0 +1,11 @@
+[info] N = A0 + sigma A1 + sigma^2 A2 from the own determinant (0 s)
+ind184.py  mutate=q1-sign
+[FAIL] Q1: Lemma 1 on the box s in [0,1], omega in [-1/2,1/2], p in [0,1/4], kappa in [0,1]: theta=1 (a): False (1 boxes, counterexample at [0.5, -0.5, 0.125, 0.5]); theta=1 (b): True (1 boxes); theta=1 (c): True (1 boxes); theta=1 (d): denominator 5*s**2 is not a constant; not decided by this code; theta=-1 (a): False (1 boxes, counterexample at [0.5, -0.5, 0.125, 0.5]); theta=-1 (b): True (1 boxes); theta=-1 (c): True (1 boxes); theta=-1 (d): denominator 5*s**2 is not a constant; not decided by this code
+[info] q1 done in 0 s
+[PASS] Q2: sigma^1 coefficient p**4*(G**2*p**2 - 2*G*p**2 + 2*e + p**2); e = [p**2*(-G**2 + 2*G - 1)/2] (want -p^2 (G - 1)^2/2): True
+[info] q2 done in 0 s
+[PASS] Q3: from (G, p) = (3.0, 0.1) at eta = 1e4 to 1e12, 921 steps: in D, q/p^2 in [-5/4, -3/4], G above the bound of Theorem 1 at every step: True; G(1e12) = 4.04450802904479, p(1e12) = 0.0351864883755
+[info] q3 done in 4 s
+
+3 criteria, 2 pass; failed: ['Q1'] (5 s)
+exit 1

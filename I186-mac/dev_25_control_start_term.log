@@ -1,0 +1,6 @@
+# 2026-11-26 07:25:10 cwd=/Users/nathan/Source/negative-mass-i186/phase2/nonradial
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python taylor_polar.py --mutate=start_term
+CHECK S1: FAIL  star by shooting against solve_star's mesh at r = 0.002 .. 24.10980364018201 (10 radii, alpha, a, phi0, u): exact regular start worst relative 4.10e-08 at ('u', 0.002) (bar 1.00e-06); start at r0 = 1e-3 with scipy's leading-order boundary condition 6.25e-02 at ('u', 0.002) (bar 1.00e-09)
+CHECK S3: FAIL  central data (P_c, Z_c) against the shooting's start radius: rs = 1e-8 vs 1e-9 moves them by 1.89e-25, 1.64e-19 (bar 1.00e-16); rs = 1e-6 vs 1e-7 by 1.89e-19, 1.64e-15; ratio 1.00e-06, 1.00e-04 (rs^2 law: 1e-4, bar [3.33e-05, 3.0e-04]); phi_c = 0.0196642435159, alpha_c = 1.00957594934 (solve_star: 0.0196642426625, 1.0095759485)
+SUMMARY: 0 of 2 checks passed; failed: S1, S3; mutate = start_term; 26 s
+CONTROL start_term: every targeted check failed, as it must

@@ -1,0 +1,6 @@
+# 2026-11-26 06:34:36 cwd=/Users/nathan/Source/negative-mass-i186/phase2/nonradial
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python taylor_polar.py --only=S1,S2,S3
+CHECK S1: PASS  star by shooting against solve_star's mesh at r = 0.002 .. 24.10980364018201 (10 radii, alpha, a, phi0, u): exact regular start worst relative 4.10e-08 at ('u', 0.002) (bar 1.00e-06); start at r0 = 1e-3 with scipy's leading-order boundary condition 1.05e-10 at ('phi0', 24.10980364018201) (bar 1.00e-09)
+CHECK S2: PASS  star's equations: crate state at r = 8.0 against DOP853 (rtol 1e-13) on background.odes from the crate's state at r = 0.5: worst of (ln phi0, u, m, nu) 4.24e-12 (bar 1.00e-09)
+CHECK S3: FAIL  central data P_c, Z_c, start of the shooting at r = 1e-8 against 1e-9: relative 8.59e-18 (bar 1.00e-18); phi_c = 0.0196642435159, alpha_c = 1.00957594934 (solve_star: 0.0196642426625, 1.0095759485)
+SUMMARY: 2 of 3 checks passed; failed: S3; mutate = None; 17 s

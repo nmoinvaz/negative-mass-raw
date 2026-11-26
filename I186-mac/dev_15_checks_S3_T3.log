@@ -1,0 +1,5 @@
+# 2026-11-26 06:50:11 cwd=/Users/nathan/Source/negative-mass-i186/phase2/nonradial
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python taylor_polar.py --only=S3,T3
+CHECK S3: PASS  central data (P_c, Z_c) against the shooting's start radius: rs = 1e-8 vs 1e-9 moves them by 8.59e-18, 1.64e-19 (bar 1.00e-16); rs = 1e-6 vs 1e-7 by 8.59e-14, 1.64e-15; ratio 1.00e-04, 1.00e-04 (rs^2 law: 1e-4, bar [3.33e-05, 3.0e-04]); phi_c = 0.0196642435159, alpha_c = 1.00957594934 (solve_star: 0.0196642426625, 1.0095759485)
+CHECK T3: FAIL  table against direct J at 150 radii, l = 2 (s = 0.3) and l = 6 (s = 300), dd: worst relative 3.98e-17 at (l, s, r, entry) = (2, 0.3, 0.001337303715134898, '0,0') (bar 1.00e-20)
+SUMMARY: 1 of 2 checks passed; failed: T3; mutate = None; 22 s

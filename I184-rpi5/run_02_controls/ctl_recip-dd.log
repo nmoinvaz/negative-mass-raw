@@ -1,0 +1,5 @@
+[FAIL] recip_check: QD walk of (F(0), F'(0)) = (2, 1) to 1e6: halving every step (223 to 438 steps) changes G and p by 2.0e-33 (bar 1e-55); the control (--mutate=recip-dd, constants rounded to double-double) is run in the controls and must exceed 1e-45
+  (10 s)
+
+checks: 0 passed, 1 failed ['recip_check']. 10 s
+control recip-dd: target checks ['recip_check'], fired ['recip_check']

@@ -1,0 +1,7 @@
+[PASS] plant_loglog: q + p^2 = 0 from eta = 2 (T = 13/10, g = 7/10) to 1e12, error of F, F', F'' at 200, 1e3, 1e6, 1e9, 1e12: dd project: worst 8.4e-32 (bar 1e-26), 407 steps; dd conserve: worst 2.8e-30 (bar 1e-26), 407 steps; qd project: worst 1.1e-64 (bar 1e-55), 372 steps; qd conserve: worst 2.5e-62 (bar 1e-55), 372 steps; verdict LOGLOG
+  (1 s)
+[FAIL] plant_limit: the planted linear equation (1 + eta^2)F'' + 4 eta F' + 2(F - alpha), alpha = 7/10, F = alpha + (a + b eta)/(1 + eta^2) to 1e12: DD project worst error of F 1.7e-32 (bar 1e-24), verdict OTHER; printed: F', F'' errors 1.1e-20 (project) against 1.2e-31 (conserve): project slaves F'' to the cancellation in F - alpha
+  (0 s)
+
+checks: 1 passed, 1 failed ['plant_limit']. 1 s
+control limit-class: target checks ['plant_limit', 'plant_loglog'], fired ['plant_limit']
