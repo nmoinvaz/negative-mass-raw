@@ -120,6 +120,14 @@ minors elsewhere, so "rank 3 wherever h j E c ≠ 0" needs the ideal statement. 
 single point (1/(32π), 1/(32π), 0), and that point makes every equation vanish identically; (iii) as: the point does not
 contain c.
 
+**A2 (2026-11-25, after `run_final.run1.log`, before `run_final.run2.log`).** Run 1 of the script at 2dfb6dd passed: exit 0,
+8 of 8 checks, 11 of 11 controls fire on their declared targets, no extras, none silent (164 s). The note needs the
+components of the residual equations and of G and T_1 − T_2 quoted from an output file, not from the exploration log, so
+the script now also prints, as information that is not a check and is not tested: the five numerators of `E_solve`'s
+equations, and in `E_residual` the nonzero components of G and of 8π(T_1 − T_2) and the count of nonzero components of
+d/dc of 8π(T_1 − T_2). No criterion, mutation or declared target changes. Run 2 is the run of record whose stdout is
+`notes/warp/planar_residual_output.txt`; run 1 is kept.
+
 ## Declared targets
 
 Written 2026-11-25 after the development run of step 3 (`dev_controls.run1.log`, 11 controls, 8 checks, 164 s), and
