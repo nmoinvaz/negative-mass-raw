@@ -145,4 +145,29 @@ Timings are reported with the machine, load and thread count.
 
 ## Amendments
 
-(none yet)
+**A1, 2026-11-26 (development runs dev_00, dev_03 to dev_09): the planted construction.** Before this, `dev_00` (synthetic
+data only, no real data) showed that a 64-point fit of data good to 1e-60 reaches Ω₂ to about 1e-29 for D_lo ≥ 500; the
+targets above were set from it. The first planted system (Y* = exp(−κ(1 − e^{−ℓ})), κ = 3/4, with the Ω term weighted
+by e^{2εℓ}) was wrong as a test, not as a method:
+- S1 failed in every lane (series error 1e-6 f64, 2e-18 dd, 2e-41 qd at the declared series orders, `dev_03_*`). The
+  recursion is right: its coefficients equal Y*'s Taylor coefficients to 1e-63 (`dev_09`), but Y*'s own coefficients fall
+  only by about 0.35 per order (c₆₀ = 6e-25), so the orders chosen for the real problem (radius 2π) cannot sum it.
+- S3 failed at small D (−4.9 in dd at D = 5): the planted system has no e^{2εℓ} term at Ω*, so the contraction rule
+  σ(ℓ) = √(¼ + 4ε(1 + εΩ)e^{2εℓ}) of the real system overstates its contraction.
+- the e^{2εℓ} weight on the Ω term makes the Newton iterates off Ω* overflow at small D.
+- `dev_03_planted_od` was stopped by me after 3.5 min (exit 143); its log is empty.
+
+**New construction** (code: `sys.rs`): Y* = 1/(1 + κF), κ = min(ε, 10⁻³) (radius of convergence at the throat
+ln(1 + 1/κ) ≥ 6.9 > 2π, and w*(0) = −sκ = O(1) as in the real mode), A_pl = ε(Ω − Ω*) + sκ u [F(1 + 2κu) + B] with
+u = E/(1 + κF) (the Ω term is a constant shift), ℓ_∞ from σ = ½ (the planted system's own exponent gap). Ω* = 5/2 as
+before. **The thresholds of S1 to S5, the D values, lanes, orders and tolerances are unchanged.** With it (`dev_06`,
+D = 5, 50, 1000, 10⁴; log10 of the relative error): S1, S2, S3 meet the stated digits in f64 (−14.7 or better), dd (−30.9
+or better) and qd (−63 or better). Three declared criteria do not hold, and are reported to the coordinator, not changed:
+- **S4 at large D.** The noise floor of Ω grows like s = 2(D−3): Ω relative error, D = 1000 and 10⁴: f64 −10.6, −9.0
+  (stated 11); dd −26.8, −25.2 (stated 27); qd −59.1, −57.5 (stated 56, met). Expressed against W² (= s + Ω) instead of Ω
+  these are f64 3e-14 and 1e-13, dd 2e-30 and 8e-30, qd 4e-62: all within the stated digits.
+- **S4 second start (Ω* − 0.4) at D = 5** converges to another root (relative error 0.2, 60 iterations, in every lane;
+  Ω* − 0.1 and Ω* − 0.3 do the same, `dev_07`); at D = 6, 8, 20 it reaches Ω*. From above (+0.1, +0.2, +0.3) it reaches
+  Ω* at every D tried.
+- **S5** (the contraction bound 100 e^{−T′} + 10^{−d}) holds at D = 5, 50 and fails at D = 1000 and 10⁴ in qd (−39.2, −37.2
+  against −41.9): the contraction's error in Ω is amplified by about s² (the other solution's w is s times its Y).
