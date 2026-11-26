@@ -34,3 +34,9 @@ its Christoffel symbols, Ricci tensor and Einstein tensor are its own (the same 
 | `p1-V` | M3 with V = +1/(8π) | M3 |
 
 ## Runs (filled in as they are done)
+
+| file | what |
+|---|---|
+| `rerun_default_1.log`, `.time` | rerun: exit 0, 8 of 8 checks, every control on target, 131 s; identical to the committed output apart from timings |
+| `ind171.py`, `run_ind171.sh`, `ind171_run1.txt` | run 1: exit 0, 3 of 3 criteria pass. M1: the residual is 0 for undefined H, J and symbolic c, with G ≠ 0. M2: 5 nonzero component equations at the exact point, unique solution (1/(32π), 1/(32π), 0). M3: #78's P1 residual 0 |
+| `ind171_run1_mut_*.txt` | the 4 mutations, each exit 1 with exactly its target failing |
