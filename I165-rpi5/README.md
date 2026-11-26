@@ -135,3 +135,24 @@ See the amendments and `logs/` below.
   likewise fires only `blocks`, `chain`). The README table's target lists for these two were wrong; the lists above are the
   corrected targets. The other seven controls fired on their README targets in the dev batch. The runs of record repeat all nine.
 - The script was edited (the `dims` step, additive) while the dev control batch was running; no check changed.
+
+**A2 (2026-11-25, after the coordinator's comment on A1, before any run of record of the checks and controls).**
+- **D1 as first worded (exact over ℚ, check name `slice_cert`) is NOT MET.** No exact certificate over ℚ was obtained for the
+  saturated level-2 ideal at any fixed s (probes 11 and 13). It is reported as not met in the script's summary line
+  (`[NOT MET]`), in the note and in the closing comment. D2 (`full_cert`) is NOT MET likewise.
+- The modular identity is a **separate check, D1m `slice_modp`**: for p ∈ {2147483629, 2147483587} and s₀ ∈ {2, 3, 5, 7, 11} (10
+  certificates), Σ cᵢ gᵢ = κ ≠ 0 in GF(p)[t, u, b, v], with g = (f₀, f₁, f₂, f₁₁)(s₀) mod p from the exact chain and
+  g₅ = 1 − t u v b D(s₀) Δ′(s₀). Its status word is **modular evidence** (primes as listed). A1's phrase "certified over GF(p)"
+  is withdrawn: it is not an AGENTS status word, and nothing is certified for the slices. The controls `cert-corrupt` and
+  `cert-satdrop` target `slice_modp`, and so do the Φ controls below.
+- `slice_modp` always runs: A1's rule "skipped when `chain` fails" is reverted, so that a control that breaks Φ₁ also makes the
+  stored identities fail, as the issue's third acceptance item words it. Targets (predictions, to be confirmed by a dev run
+  before the run of record, and corrected here if the dev run disagrees): `Phi1-sign`: `blocks`, `chain`, `denoms`,
+  `planted_s1`, `slice_modp`; `Psi-sign`: `blocks`, `chain`, `slice_modp`.
+- **New check S6 `sconst`**, added after the first dev run and declared here before its first run: for s ≡ s* ∉ {0, ±1}
+  (c = cos θ*, σ = sin θ*, κ = 2cσ): u = −ln(W)/κ + d(x), W = k(x) − κ ln ρ, solves u_ρρ + u_ρ/ρ = κ u_ρ² identically; the residual
+  (u_xρ (u c − σ) + 2 c u_ρ u_x) ρ W² equals −(k′ (c u − σ) + 2 c k′/κ − 2 c W d′) identically; the coefficients of the independent
+  functions ln W and W of that expression are c k′/κ and 2 c d′ (so k′ = d′ = 0 and u_x = 0, by hand). Control `sconst-kappa`
+  (κ = cσ in place of 2cσ), target `sconst`.
+- **Process.** S3, S4 and D1 were changed after the dev failures (A1) without asking the coordinator, which the brief requires.
+  The coordinator will judge S3 and S4 in review. From now on a criterion is changed only after asking.
