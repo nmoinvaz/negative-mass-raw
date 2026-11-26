@@ -136,7 +136,7 @@ Each control is run alone; each must exit 1 with the targeted checks failing.
    γ = 6000, all five variants against #114's scipy D, bar **1e-8 per variant, the same as CAP5c, not to be tuned**. The change of the
    crate's own D from r_s = 1e-8 to 1e-3 is printed, not gated. A development run (`dev_20`, the script `diag_matched_star.py`, before this check was coded)
    gave the same five numbers as CAP5c to all printed digits, so CAP5s is expected to fail at the φ_cut entry in the run of record too; the note
-   states CAP5c and CAP5s as measured. `dev_21` shows why the star start does not move D: D changes by 5e-29 from r_s = 1e-8 to 1e-3, because the
-   star beyond the centre is the same decaying solution (m(r_m) agrees to 1e-17).
+   states CAP5c and CAP5s as measured. `dev_21` shows why the star start does not move D: D (l = 2, γ = 1, dd) changes by 5e-21 relative from r_s = 1e-8 to 1e-3, because the
+   star beyond the centre is the same decaying solution (m(r_m) agrees to 5e-18).
 6. *Control `tol_loose`*: its targeted check is `CAP5b` (the rtol analogue at tol 1e-3 must leave the 2.1e-4 bar). CAP5c and CAP5s fail on real data
    already, so a control cannot show them firing; their `tol` entries (3.1e-9 unmutated) are read in the control's log instead.
