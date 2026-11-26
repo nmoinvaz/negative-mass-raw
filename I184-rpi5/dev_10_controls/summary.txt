@@ -1,0 +1,6 @@
+trap-bound rc=1 5 s targets=trap_bounds
+trap-eps rc=1 25 s targets=trap_entry
+walk-eq rc=1 252 s targets=approach,independent
+plant-exact rc=1 1 s targets=plant_loglog
+limit-class rc=1 1 s targets=plant_limit
+all done

@@ -1,0 +1,16 @@
+theta-coeff rc=1 38 s targets=theta_form,root_series
+root-coef rc=1 29 s targets=root_series
+shift-series rc=1 0 s targets=shift_series
+inv-sign rc=1 1 s targets=invariants
+class-sign rc=1 25 s targets=basin,no_limit
+inv-conv rc=1 123 s targets=invariants_conv
+parity-sign rc=1 24 s targets=parity
+series-k rc=1 52 s targets=approach
+walk-eq rc=1 154 s targets=approach,independent
+indep-q rc=1 118 s targets=independent
+plant-exact rc=0 1 s targets=plant_loglog
+plant-c rc=1 1 s targets=plant_shift
+limit-class rc=1 2 s targets=plant_limit,plant_loglog
+no-project rc=1 128 s targets=plant_scale,n_floor,dd_qd
+recip-dd rc=1 11 s targets=recip_check
+all done
