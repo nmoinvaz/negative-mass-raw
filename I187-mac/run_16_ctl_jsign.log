@@ -1,0 +1,8 @@
+# 2026-11-26 11:03:31 cwd=/Users/nathan/Source/negative-mass-i187/phase2/nonradial load 3.00 2.54 2.43
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python taylor_polar.py --rows --mutate=jsign
+# taylor_polar.py --rows: start 2026-11-26 11:03:31, load average 3.00, one process, nice 10; mutate = jsign
+CHECK CAP5a: FAIL  l = 5, gamma = 6000: D (dd) base 8.4666230736e-13, tol 8.46662307223e-13, phi -1.50253861071e-12, r90 -6.1840272825e-13, r0 1.28075067065e-12; all five D < 0: False
+CHECK CAP5b: PASS  l = 5, gamma = 6000: E1 = |D(tol 1e-12)/D(base) - 1| = 1.62e-10 (bar 2.1e-04); error bars, printed not gated: E2 (order 24, tol 1e-22 against order 30, 1.2e-30) = 8.79e-21, E3 (f64 lane against dd) = 1.89e-10; crate time per variant (dd, load 2.6, one thread): base 35.6 s, tol 8.8 s, phi 49.9 s, r90 35.2 s, r0 35.2 s
+CHECK CAP5c: FAIL  l = 5, gamma = 6000: E4 = crate D against #114's scipy D (its rtol 1e-12 evaluation finished; I114-win partial file), per variant: base 1.9e+00, tol 1.9e+00, phi 2.4e+00, r90 3.1e-01, r0 2.4e+00 (bar 1e-08 each); scipy's rtol 1e-12 value -8.936082956e-13 against its base -8.936082977e-13
+SUMMARY: 1 passed, 2 failed, 0 skipped of 3 checks; failed: CAP5a, CAP5c; mutate = jsign; 205 s
+CONTROL jsign: every targeted check failed, as it must

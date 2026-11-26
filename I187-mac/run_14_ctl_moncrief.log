@@ -1,0 +1,24 @@
+# 2026-11-26 10:59:33 cwd=/Users/nathan/Source/negative-mass-i187/phase2/nonradial load 2.40 2.36 2.38
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python taylor_polar.py --rows --mutate=moncrief
+# taylor_polar.py --rows: start 2026-11-26 10:59:33, load average 2.40, one process, nice 10; mutate = moncrief
+# l = 2: rows from the crate (lane dd, one process, nice 10, load 2.4); setup per l: star 0.0 s, J table 3.3 s
+base (rtol1e-10, phi_cut1e-9, R60)    : r_m=24.11
+rtol 1e-12 [crate: Taylor tol 1e-12]  : r_m=24.11
+phi_cut 1e-12 (larger r_m)            : r_m=34.21
+background R=90                       : r_m=24.11
+r0 = 3e-3                             : r_m=24.11
+
+gamma=   0.001: D_base=-1.348667e-01  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.1e-04  D(r_m~34)=-9.488e-02  q_int=+2.486987e-02 q_ext=-8.304551e-02  (0s)
+gamma=    0.03: D_base=-1.247866e-01  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.2e-04  D(r_m~34)=-8.209e-02  q_int=+2.511094e-02 q_ext=-8.960148e-02  (0s)
+gamma=     0.3: D_base=-8.905524e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.4e-04  D(r_m~34)=-5.727e-02  q_int=+3.289003e-02 q_ext=-3.149493e-01  (0s)
+gamma=       1: D_base=-8.177195e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.2e-04  D(r_m~34)=-5.579e-02  q_int=+3.827811e-02 q_ext=-1.004959e+00  (0s)
+gamma=       3: D_base=-2.677374e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.1e-04  D(r_m~34)=-1.865e-02  q_int=+4.032391e-02 q_ext=-3.001701e+00  (0s)
+gamma=      10: D_base=-3.231866e-03  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.1e-04  D(r_m~34)=-2.269e-03  q_int=+4.109806e-02 q_ext=-1.000052e+01  (0s)
+gamma=      40: D_base=-2.078825e-04  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.1e-04  D(r_m~34)=-1.464e-04  q_int=+4.135344e-02 q_ext=-4.000013e+01  (1s)
+gamma=     137: D_base=-1.772468e-05  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.1e-04  D(r_m~34)=-1.249e-05  q_int=+4.141418e-02 q_ext=-1.370000e+02  (4s)
+gamma=     300: D_base=-3.695216e-06  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.1e-04  D(r_m~34)=-2.604e-06  q_int=+4.142781e-02 q_ext=-3.000000e+02  (9s)  [no stored row]
+CHECK RA2: FAIL  l = 2: 35 of 66 tokens of 8 stored rows and the 5 header lines equal as strings (1 extra row, not compared); g=0.001 D: stored -5.285431e-02 crate -1.348667e-01; g=0.001 D34: stored -3.682e-02 crate -9.488e-02; g=0.001 qi: stored +1.246227e-01 crate +2.486987e-02; g=0.03 D: stored -4.725315e-02 crate -1.247866e-01; g=0.03 spread: stored 1.3e-04 crate 1.2e-04; g=0.03 D34: stored -3.002e-02 crate -8.209e-02; g=0.03 qi: stored +1.276885e-01 crate +2.511094e-02; g=0.3 D: stored -1.675353e-02 crate -8.905524e-02; g=0.3 spread: stored 2.1e-04 crate 1.4e-04; g=0.3 D34: stored -8.452e-03 crate -5.727e-02; g=0.3 qi: stored +3.194236e-01 crate +3.289003e-02; g=1 D: stored -6.002203e-03 crate -8.177195e-02; ...; closest rounding boundary of any D/q token: 8.25e-10 relative at (gamma, token) = (0.001, 'q_ext')
+CHECK RX: FAIL  l = 2, gamma = 300 (no stored row): crate D_base -3.6952159e-06 against #186's fresh scipy D -1.0204252e-09 (I186-mac/scipy_timing.jsonl), 8-digit tokens equal as strings
+CHECK QP: FAIL  planted q_int: dyadic planes with Y[2:] c0 in span S, exact q_int from sympy's rational null space and Fractions, l = 3, r_m = 24.125, M = 1/64: relative error well f64 2.6e-01 (bar 1e-12); well dd 2.6e-01 (bar 1e-28); well qd 2.6e-01 (bar 1e-60); near f64 1.5e-01 (bar 1e-05); near dd 1.5e-01 (bar 1e-20); near qd 1.5e-01 (bar 1e-50)
+SUMMARY: 0 passed, 3 failed, 0 skipped of 3 checks; failed: RA2, RX, QP; mutate = moncrief; 22 s
+CONTROL moncrief: every targeted check failed, as it must

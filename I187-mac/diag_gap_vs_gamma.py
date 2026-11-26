@@ -1,7 +1,8 @@
 """Development diagnostic (#187): the crate's D (dev_jsonl, dd) against scipy's full-precision D (I4-win/I114-win partial files),
 relative difference per variant and gamma, l = 4, 5, 6. Is the gap constant in gamma (a static input: star, M_ext) or does it grow
 with gamma (scipy's integration error)?"""
-import json, os
+import json, os, sys
+JD = sys.argv[1] if len(sys.argv) > 1 else "dev_jsonl"   # the folder of the crate's rows (jsonl for the runs of record)
 RAW = "/Users/nathan/Source/negative-mass-raw"
 NAMES = {"base": "base (rtol1e-10, phi_cut1e-9, R60)", "tol": "rtol 1e-12", "phi": "phi_cut 1e-12 (larger r_m)", "r90": "background R=90", "r0": "r0 = 3e-3"}
 for l in (4, 5, 6):
@@ -15,7 +16,7 @@ for l in (4, 5, 6):
                 k, g, v, _ = json.loads(line)
                 sf[(k, g)] = v
     got = {}
-    for line in open(f"{RAW}/I187-mac/dev_jsonl/rows_l{l}_dd.jsonl"):
+    for line in open(f"{RAW}/I187-mac/{JD}/rows_l{l}_dd.jsonl"):
         o = json.loads(line)
         if o["cmd"] == "row":
             got[(o["gamma"], o["variant"])] = o["d_f64"]

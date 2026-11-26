@@ -161,3 +161,16 @@ above but jsign and tol_loose), RX (moncrief), CAP5a (jsign), CAP5b (tol_loose).
 and are controlled through RA2, CAP5a, CAP5b. CAP5c and CAP5s fail on real data already, so no control can show them firing; the tol_loose
 control's `tol` entries of CAP5c (`dev_35`) and, in the run of record, of CAP5s are the evidence that they can fail per variant. CAP5s's control
 run is `--mutate=tol_loose --only=CAP5s`.
+
+**A3, 2026-11-26, after the runs of record `run_01` to `run_17`.**
+
+1. *A defect of my skip-count fix, found by the run of record of the default mode (`run_07`).* Its summary read "21 passed, 0 failed, 1 skipped of 23
+   checks", which does not add up. S2 returns a numpy bool, which the summary's `is True` test counted as neither passed nor failed (and a numpy False would not
+   have set the exit code). `report` now coerces the verdict to a Python bool (code df942c9). `run_07` stays, and the default mode was run again as
+   `run_18` (22 passed, 0 failed, 1 skipped (TS) of 23, exit 0, 847 s). The rows runs `run_01` to `run_06` and the controls ran at 4805466; df942c9 differs from it by that one line in `report` (`git diff 4805466 df942c9`),
+   which does not change a Python bool, and every `--rows` check returns one.
+2. *`run_17`* is the control `tol_loose` run with `--only=CAP5s` (the `tol` entry of CAP5s, 1.4e-3 against 3.1e-9). It prints `NOT FIRED on CAP5b` only because CAP5b is not part of that run.
+3. *Diagnostics of record* `run_19` (the crate against scipy's full-precision D per variant and γ) and `run_20` (the crate's f64 lane against dd at the capped points) rerun
+   the development diagnostics `dev_24`, `dev_25` (scripts `diag_gap_vs_gamma.py`, `diag_f64_vs_dd.py`) on the rows of record. They gate nothing.
+4. *Outcome of the declared criteria* (details in `phase2/nonradial/taylor_polar.md`): QP, RP, RM, RA2, RA4, RA5, RA6, RX, CAP5a, CAP5b, CAP6a, CAP6b met; **CAP5c and CAP5s not met** (φ_cut variant 4.7e-8
+   against 1e-8; the five numbers are the same in both); every control fired on its declared targets.

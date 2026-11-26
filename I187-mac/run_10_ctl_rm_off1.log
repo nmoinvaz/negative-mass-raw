@@ -1,0 +1,24 @@
+# 2026-11-26 10:57:45 cwd=/Users/nathan/Source/negative-mass-i187/phase2/nonradial load 2.35 2.29 2.37
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python taylor_polar.py --rows --mutate=rm_off1
+# taylor_polar.py --rows: start 2026-11-26 10:57:45, load average 2.35, one process, nice 10; mutate = rm_off1
+CHECK RP: FAIL  planted r_m, phi = 0.02 exp(-0.65 r) through the crate's grid rule against numpy's linspace and argmax: (cut 1e-09, R 60, start 0.001) crate i = 8620 r_m = 25.861862043102157, numpy i = 8621 r_m = 25.864862143107157: DIFFER; (cut 1e-12, R 60, start 0.001) crate i = 12162 r_m = 36.48821626081304, numpy i = 12163 r_m = 36.491216360818036: DIFFER; (cut 1e-09, R 90, start 0.001) crate i = 5746 r_m = 25.859005600280014, numpy i = 5747 r_m = 25.863505775288765: DIFFER; (cut 1e-09, R 60, start 0.003) crate i = 8620 r_m = 25.863, numpy i = 8621 r_m = 25.866: DIFFER
+CHECK RM: FAIL  r_m of the five variants, the crate's own star against PolarProblem(...).rm on scipy's stars: base: scipy 24.109803640182012, crate 24.106803540177012 (DIFFER; ln(phi/cut) at r_m 1.1e-03, one grid point before 3.1e-03); tol: scipy 24.109803640182012, crate 24.106803540177012 (DIFFER; ln(phi/cut) at r_m 1.1e-03, one grid point before 3.1e-03); phi: scipy 34.205140157007847, crate 34.20214005700285 (DIFFER; ln(phi/cut) at r_m 3.5e-04, one grid point before 2.4e-03); r90: scipy 24.108437521876095, crate 24.103937346867344 (DIFFER; ln(phi/cut) at r_m 3.0e-03, one grid point before 6.1e-03); r0: scipy 24.111000000000001, crate 24.108000000000001 (DIFFER; ln(phi/cut) at r_m 2.2e-04, one grid point before 2.3e-03)
+# l = 2: rows from the crate (lane dd, one process, nice 10, load 2.2); setup per l: star 0.0 s, J table 3.3 s
+base (rtol1e-10, phi_cut1e-9, R60)    : r_m=24.11
+rtol 1e-12 [crate: Taylor tol 1e-12]  : r_m=24.11
+phi_cut 1e-12 (larger r_m)            : r_m=34.20
+background R=90                       : r_m=24.10
+r0 = 3e-3                             : r_m=24.11
+
+gamma=   0.001: D_base=-5.286118e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.8e-04  D(r_m~34)=-3.683e-02  q_int=+1.246382e-01 q_ext=-8.305586e-02  (0s)
+gamma=    0.03: D_base=-4.726050e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-3.002e-02  q_int=+1.277036e-01 q_ext=-8.961113e-02  (0s)
+gamma=     0.3: D_base=-1.675758e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=3.3e-04  D(r_m~34)=-8.453e-03  q_int=+3.194287e-01 q_ext=-3.149527e-01  (0s)
+gamma=       1: D_base=-6.003689e-03  signs=[np.float64(-1.0)]  rel.spread (same r_m)=3.4e-04  D(r_m~34)=-2.991e-03  q_int=+1.005389e+00 q_ext=-1.004961e+00  (0s)
+gamma=       3: D_base=-7.100797e-04  signs=[np.float64(-1.0)]  rel.spread (same r_m)=3.4e-04  D(r_m~34)=-3.530e-04  q_int=+3.001749e+00 q_ext=-3.001701e+00  (0s)
+gamma=      10: D_base=-2.646232e-05  signs=[np.float64(-1.0)]  rel.spread (same r_m)=3.4e-04  D(r_m~34)=-1.315e-05  q_int=+1.000052e+01 q_ext=-1.000052e+01  (0s)
+gamma=      40: D_base=-4.294990e-07  signs=[np.float64(-1.0)]  rel.spread (same r_m)=3.4e-04  D(r_m~34)=-2.134e-07  q_int=+4.000013e+01 q_ext=-4.000013e+01  (1s)
+gamma=     137: D_base=-1.071556e-08  signs=[np.float64(-1.0)]  rel.spread (same r_m)=3.4e-04  D(r_m~34)=-5.324e-09  q_int=+1.370000e+02 q_ext=-1.370000e+02  (4s)
+gamma=     300: D_base=-1.020679e-09  signs=[np.float64(-1.0)]  rel.spread (same r_m)=3.4e-04  D(r_m~34)=-5.071e-10  q_int=+3.000000e+02 q_ext=-3.000000e+02  (9s)  [no stored row]
+CHECK RA2: FAIL  l = 2: 33 of 66 tokens of 8 stored rows and the 5 header lines equal as strings (1 extra row, not compared); phi r_m: stored 34.21 crate 34.20; r90 r_m: stored 24.11 crate 24.10; g=0.001 D: stored -5.285431e-02 crate -5.286118e-02; g=0.001 spread: stored 1.1e-04 crate 1.8e-04; g=0.001 D34: stored -3.682e-02 crate -3.683e-02; g=0.001 qi: stored +1.246227e-01 crate +1.246382e-01; g=0.001 qe: stored -8.304551e-02 crate -8.305586e-02; g=0.03 D: stored -4.725315e-02 crate -4.726050e-02; g=0.03 spread: stored 1.3e-04 crate 2.1e-04; g=0.03 qi: stored +1.276885e-01 crate +1.277036e-01; g=0.03 qe: stored -8.960148e-02 crate -8.961113e-02; g=0.3 D: stored -1.675353e-02 crate -1.675758e-02; ...; closest rounding boundary of any D/q token: 4.28e-10 relative at (gamma, token) = (3.0, 'D')
+SUMMARY: 0 passed, 3 failed, 0 skipped of 3 checks; failed: RP, RM, RA2; mutate = rm_off1; 29 s
+CONTROL rm_off1: every targeted check failed, as it must
