@@ -1,0 +1,16 @@
+[package]
+name = "airy_plane"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "ind189's harness: multishoot's plane stepper (PR #70 at a880903) on a rotated Airy system"
+
+[dependencies]
+multishoot = { path = "/Users/nathan/Source/negative-mass-r189/multishoot" }
+multidouble = "5.1.0"
+
+[features]
+mutate = ["multishoot/mutate"]
+
+[profile.release]
+opt-level = 3
