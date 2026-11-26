@@ -184,3 +184,25 @@ Causes (computed, not assumed):
 Proposals made to the coordinator (not applied): `coeffs` reworded to |dc_fk| <= 1e6 eps max_g |c_g0| for all k and f;
 the `Conserve` cells of K-B, R-B, R-D and f64 F1 reported as NOT MET, the criteria left as written, and a documented
 statement that `Conserve` is not for branches that meet a double root (K-B stays in the table).
+
+### A1 Rulings of the coordinator on D1 (hc, t2x, after `dev_01` and `dev_02`; the text above D1 is not changed)
+
+1. **`coeffs` stays as worded and is NOT MET in every lane.** The growth of the relative error of c_k by a factor of
+   about 3 per order is a finding (cancellation in the convolution of N_k). A criterion that measures what a step uses is
+   added, declared after this development run and before its first run: **`step_sum`**, at each planted path's planned
+   step h, `sum_k |dc_k| h^k <= 1e6 eps sum_k |c_k| h^k` for each of y, y', y'' (k = 0..kt, the sums in the step variable
+   with s = h / l; dc_k = the recursion's c_k minus the closed form's Taylor coefficient). The recursion is started from
+   the closed form's state at the step's start, so that the path's accumulated error does not enter. The paths and steps:
+   the nine branches of `closed_form` in `Project` mode (steps as the walk takes them, h = `planned()` before the landing
+   rule, hmax 0.3) and F1 and F2 from x = -1 (hmax 1, pivot_abs 1e-4 and 1e-9, until the stop). The bar is not "versus
+   max |c_0|": that is loose for the high orders, whose c_k are small. Gated.
+2. **The double-root criterion stays as written.** `Conserve` on K-B, R-B and R-D (9 cells over the lanes; also their
+   `crossings` cells) is NOT MET: `Conserve` turns a crossing into an avoided crossing, because N = eps splits the double
+   root, and `Project` crosses. Not restricted. The library's docs and the PR state it as a property of the mode (use
+   `Project` near a double root of N in y''). The test file prints these cells as `(recorded, not gated)` with
+   `[NOT MET]` or `[met]`; the passing cells of the other branches are gated.
+3. **f64 F1 `Conserve` fold estimate is NOT MET** (5.7e-15 against 6.3e-16), N's drift moving the fold; dd and qd stand.
+   Printed as recorded, not gated.
+
+Controls: the targets are declared after the development run that has `step_sum` (`dev_03_implicit`), from its table.
+`coeffs` is no target of any control (it is NOT MET without one).
