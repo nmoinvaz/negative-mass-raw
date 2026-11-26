@@ -40,4 +40,21 @@ Read and rederived by hand by the coordinator, not coded: Lemma 1's term bounds 
 | `q2-coef` | Q2 expects e = −p²(G − 1)²/4 | Q2 |
 | `q3-start` | Q3 starts at (G, p) = (3, 1/2), outside D | Q3 |
 
+## Amendments
+
+**A1 (2026-11-26, after run 1, before run 2).** Run 1 exits 1: Q1 (d) was not decided, by a defect of the coordinator's
+code. It multiplied the numerator by s² after splitting the fraction, so the removable 5s² stayed in the denominator and
+the code's own guard refused it. Run 2 applies s² before cancelling. Nothing else changes. Run 1's mutations each fired
+their target plus Q1, which failed unmutated.
+
 ## Runs (filled in as they are done)
+
+| file | what |
+|---|---|
+| `rerun_build.log` | the crate built from a clean worktree |
+| `rerun_default_1.log`, `.time` | rerun 1: stopped in `basin` (exit 1). The review worktree is not beside the raw clone, so the script's default path to #167's records does not resolve |
+| `rerun_default_2.log`, `.time` | rerun 2 with `--raw167=`: 20 of 20 checks pass, 409 s. 16 of 17 controls on target; **`class-sign` SILENT here**, because the control launcher does not forward `--raw167` to its subprocess, which then crashes. The output otherwise equals the committed one apart from timings and two rounded digits of the ρ table |
+| `rerun_ctl_class-sign.log` | `class-sign` alone with the path given: it fails `basin` and `no_limit` (its targets) and also `plant_loglog`. The harness runs a control's target checks only (`--only=`), so "and no others" is not tested |
+| `ind184.py`, `run_ind184.sh` | the independent check |
+| `ind184_run1.txt`, `ind184_run1_mut_*.txt` | run 1: exit 1, Q1 (d) not decided by a defect of the coordinator's code (A1) |
+| `ind184_run2.txt`, `ind184_run2_mut_*.txt` | run 2: exit 0, 3 of 3 criteria pass. Q1 (a)–(d) proved for θ = ±1 on the whole box by exact interval arithmetic, each at the top-level box. Q2: e₁ = −p²(G − 1)²/2. Q3: 921 steps from η = 1e4 to 1e12 stay in D with q/p² ∈ [−5/4, −3/4] and G above Theorem 1's bound (G(1e12) = 4.0445). The 3 mutations each fail exactly their target |

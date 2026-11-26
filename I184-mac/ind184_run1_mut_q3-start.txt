@@ -1,0 +1,11 @@
+[info] N = A0 + sigma A1 + sigma^2 A2 from the own determinant (0 s)
+ind184.py  mutate=q3-start
+[FAIL] Q1: Lemma 1 on the box s in [0,1], omega in [-1/2,1/2], p in [0,1/4], kappa in [0,1]: theta=1 (a): True (1 boxes); theta=1 (b): True (1 boxes); theta=1 (c): True (1 boxes); theta=1 (d): denominator 5*s**2 is not a constant; not decided by this code; theta=-1 (a): True (1 boxes); theta=-1 (b): True (1 boxes); theta=-1 (c): True (1 boxes); theta=-1 (d): denominator 5*s**2 is not a constant; not decided by this code
+[info] q1 done in 0 s
+[PASS] Q2: sigma^1 coefficient p**4*(G**2*p**2 - 2*G*p**2 + 2*e + p**2); e = [p**2*(-G**2 + 2*G - 1)/2] (want -p^2 (G - 1)^2/2): True
+[info] q2 done in 0 s
+[FAIL] Q3: stopped: start state not in D
+[info] q3 done in 0 s
+
+3 criteria, 1 pass; failed: ['Q1', 'Q3'] (0 s)
+exit 1
