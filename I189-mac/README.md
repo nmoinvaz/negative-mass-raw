@@ -145,3 +145,14 @@ the baseline, and the loss is what the orthogonalization prevented (dev_10 to de
   `SkipQr(i, m)` with m set per lane so that S ≥ about ln(1/ε)/2 (from dev_05: fires on P1 and P3 everywhere, on P2 only from the start); (c) a planted
   case in which one planner step's spread exceeds ln(1/ε), which needs a gap of about twice the largest rate at a high order (a decaying plane
   column, whose Taylor sum then cancels) and is not built.
+
+**A2 (2026-11-26, the coordinator's ruling on step 3).** The control that stands for the issue's "skip one orthonormalization fails on a planted case"
+is `ScaleOnly` (declared in A1; fixed, the same in every lane, added after the development run by this ruling). `SkipQr(i, m)` with m per lane is
+not declared (choosing m after seeing the errors is tuning) and the planted case (c) is not built. `SkipQr(i, 1)` is recorded as a result, as it
+is, in A1 above and in the PR: silent on P1 and P2 in every lane and on P3 in f64 and dd (dd at 93% of the bar at the first step), and past the bar
+on P3 in qd by condition-number roundoff (cond₂ P = 96), not by the growth spread. In the closing table the issue's line is therefore met as worded
+on one cell only (P3, qd), for a reason other than its intent; the `ScaleOnly` line follows it. The `SkipQr(i, m)` runs stay as development logs
+(dev_05, dev_07). multishoot's test `skip_one_{f64,dd,qd}` prints the skip-one outcomes (a result, nothing asserted; dev_13). Library head
+4a54bd0 (`plane: record the skip-one orthonormalization as a result`, `tests: keep the plane test's case alias with its only user`).
+The planner difference and #186's comment (it says classical Gram–Schmidt; its loop is modified Gram–Schmidt applied twice) are reported in the note, and
+#186's `plane.rs` comment is left as it is for the coordinator to correct on main.
