@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i186/phase2/nonradial/taylor_polar.py", line 714, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nathan/Source/negative-mass-i186/phase2/nonradial/taylor_polar.py", line 706, in main
+    CHECKS[n]()
+    ~~~~~~~~~^^
+  File "/Users/nathan/Source/negative-mass-i186/phase2/nonradial/taylor_polar.py", line 510, in check_P0
+    dD, dP, dLN = planted_compare(rs, D, mp.fsum(dy), mp.fsum(dz), projector(qy), projector(qz))
+                                                                   ~~~~~~~~~^^^^
+  File "/Users/nathan/Source/negative-mass-i186/phase2/nonradial/taylor_polar.py", line 438, in projector
+    P[i, j] += mp.mpf(q[i]) * mp.mpf(q[j])
+               ~~~~~~^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/mpmath/ctx_mp_python.py", line 79, in __new__
+    v._mpf_ = mpf_pos(cls.mpf_convert_arg(val, prec, rounding), prec, rounding)
+                      ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/mpmath/ctx_mp_python.py", line 98, in mpf_convert_arg
+    raise TypeError("cannot create mpf from " + repr(x))
+TypeError: cannot create mpf from mpc(real='0.20451435688535860056664556565781634612968571070202197506289545870226582661207396540914251101394731015993999748911136393814399712957550128393994', imag='2.7360703023958305869224931468888056334171988652673884069359485500714288967733121318576029584462552702552364351377457089688249715435991335867385e-144')
