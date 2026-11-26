@@ -47,3 +47,10 @@ Theorem E's steps (1)–(3).
 | `j7-freq` | J7 with ψ″ = −ψ′/ρ − c²ψ | J7 |
 
 ## Runs (filled in as they are done)
+
+| file | what |
+|---|---|
+| `rerun_default_1.log`, `.time` | rerun of #169's default mode: exit 0, 13 of 13 checks, every control on its target only, the two declared silent ones silent, 1104 s, 84 MB; identical to the committed `sum_products_output.txt` apart from timings |
+| `ind169.py`, `run_ind169.sh` | the independent check and its launcher |
+| `ind169_run1.txt` | run 1: exit 0, 7 of 7 criteria pass in 6 s. E has 376 terms; ranks 59 (107 × 72) and 93 (180 × 106); ι² coefficient −u_ρ⁴; z₁⁶ coefficient a₁²(a₁² + 4k₁²a₀²)(a₁² + 5k₁²a₀²); E = z₂²b₁²E″, generic and the 7 resonant unit ideals [1], resonant set {−2, −1, 4/3, 3/2, 2, 3, 4} found independently; additive Bessel family E = 0 exactly. J7's perturbed value is exactly −12958/3796875; the log prints it through `nsimplify`, which rewrites that rational as a product of radicals (display only, the test is exact) |
+| `ind169_run1_mut_*.txt` | 7 mutations, each exit 1. Six fail exactly their target. **`j1-v0` is off target:** it fails J1 and also J3 and J6, because it builds the shared E with v = 0 and J3 and J6 use that E. The README's target list (J1) was the coordinator's misprediction; it stays as written |
