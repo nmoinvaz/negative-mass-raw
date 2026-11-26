@@ -113,3 +113,86 @@ Targets are declared by amendment after their development runs.
 Every stdout goes to a numbered log here (`dev_NN_*.log`, `run_NN.log`, `ctl_<name>.log` with `.rc`). No log is
 overwritten; reruns are numbered. A run longer than 1 h of wall time is stopped by its PID and reported. Memory is only
 reported (`/usr/bin/time -l`). Nothing in the scan is certified: every number is **numerical evidence**.
+
+
+## Amendment A1 (2026-11-25, after the development runs `dev_01 to dev_13, before any run of record)
+
+Each item says what the development runs showed. No threshold was loosened. Items 1 to 3 were agreed with the coordinator
+(hc, 2026-11-25); items 4 to 8 fix wording and design of cases the README could not run as written; items 9 to 11 add
+checks, as the coordinator asked.
+
+1. **A2 as first worded failed.** With the series through n ≤ 13 the residual |N|/Σ|terms| at η = 200 is 3.2e-19 at
+   (F_∞, C) = (1, 0) against 1e-20 (`dev_01_series_k13.log`). mpmath at 60 digits reproduces the crate's N to every digit
+   (`dev_02_a2probe.log`: N = −9.8e-28 for n ≤ 9, −1.5495e-33 for n ≤ 13, 1.8e-36 for n ≤ 14), so it is series truncation.
+   The series order was then raised to n ≤ 17 (chosen after that run; it gives 4.3e-25 at (1, 0)). The threshold stays
+   1e-20. The n ≤ 13 table is kept in raw (`dev_01_tables_k13.rs`). The coefficients of orders 14 to 17 get their own check
+   A3b `series_order`: N of the n ≤ 17 series vanishes through ν²³ and not at ν²⁴, in exact rationals at 12 pairs
+   (F_∞, C): (1, 0), (−1, 2), (1/3, −1), (2, 1/2) (the four of #159's `num_inward`) and (−3/2, 1), (1/2, −3), (3, 5),
+   (−1/4, 1/3), (5/2, −7), (2/3, 3/2), (−2, −1/2), (4, 10).
+2. **Adaptive start.** At the literal start η = 200, 58 of the 187 grid points fail C2 (`dev_03_scan_grid.log`) and A2's
+   pair (0.25, −3000) fails 1e-20 (3.8e-5). Each point is started at the smallest L ∈ {200, 800, 3200, 12800, 51200}
+   whose series residual is ≤ 1e-20 and walked to 200 and on; the verdict, L and both start residuals are reported. A2
+   and C2 are gated on the adaptive start. Their first wording is printed as `NOT MET (as first worded)` with the
+   count and does not gate the exit code.
+3. **Locator stop.** Under the declared stop R ≤ 1e-6 two points ((±1, ±3000), η* = 3.6e-6) have an error bar 2.4e-8 > 1e-8,
+   which is not met as first worded and is printed. A pass with R ≤ 1e-8 is added. It also shows that the first pass stops
+   too early at 7 of the 187 points (`dev_09_scan_refined.log`): at (1.5, 1000), (2, 1000), (3, 3000), (4, 3000),
+   (1, 1000) and their mirrors the five consistent estimates with R ≤ 1e-6 came from a nearby complex pair of singularities
+   (|Im| < 1e-6), not from a real one, and the walk continues through the κ = 0 curve analytically. **The pass with
+   R ≤ 1e-8 is the verdict of record** (D1 and every check that reads a verdict use it, and the bisection and the forward scan
+   walk with R ≤ 1e-8); the first pass is printed beside it with its disagreements.
+4. **Kind labels** (labels, not criteria). A singular point is `F->0` if F vanishes at η* like Δ^α with α from the locator's
+   fit, α > 0 and |R F′/F| = α to 10%; `F->inf` if α < 0 and |R F′/F| = |α| to 10%, or |F| ≥ 1e3 max(1, |F_∞|); `fold` if the fitted
+   α is 5/2 to 0.1 (F″ has a square-root branch point, ∂N/∂F″ → 0 on the branch) or ∂N/∂F″ is below 1e-6 of the sum of its terms;
+   `a3->0` if |F² − η² − 1| ≤ 1e-3 (F² + η² + 1) (the F″³ coefficient 2Fη²(F² − η² − 1) vanishes); otherwise `other`. For `F->0`
+   the prediction 2/(η*² + 4) from the leading balance −η²(η² + 1)F″²[(η² + 2)F′² + 2FF″] = 0 is printed with the fit.
+5. **README "Route" 1, the word "even".** The statement that F′(0) = 0 solutions are even does not follow: ∂N/∂F″ = 0 there, so
+   η = 0 is singular for them. The question is handled by E0 (item 9): crossing η = 0 with F′(0) ≠ 0, and the exponents at F′(0) = 0.
+6. **B1, B2.** Ends at ±40 with 16 terms of the expansion (±20 with 12 terms leaves a truncation of 1e-17, which cannot give
+   1e-20). Newton starts from the exact solution perturbed by 0.2 of (2% of each node value plus 1e-3, 10% of C⁻ and C⁺,
+   0.05 for e); the cubic case does not converge from 0.5 of it (dev run 2025-11-25, log of the planted case), the linear one does from 1. The
+   recursion was first checked along the exact solution: both agree with it to 4.6e-28 over 120 steps (`plant walk`).
+   `halving` changes the first plan to order 14 and tolerance 1e-12 (the first wording, a second plan equal to the first,
+   cannot fail). `n-drift` targets C2 only.
+7. **C1 and C3 comparison points.** (0.5, −30) has η* = 7.07, above the comparison points 3 and 4 of the first wording; its point is
+   η = 10 in both.
+8. **Exit code.** Lines printed `NOT MET (as first worded)` are results and do not gate the exit code; the amended criteria gate it.
+9. **E0 `eta0_local`** (new), symbolic: (a) N(η = 0) = 2F′²(F² − 1)(FF″ + F′²); (b) ∂N/∂F″ at η = 0 is 2F′²F(F² − 1); (c) for F′(0) ≠ 0 and
+   F(0) ∉ {0, ±1} the equation solves order by order, each order linear in the next Taylor coefficient with a nonzero coefficient (two
+   rational points, 7 orders), F″(0) = −F′(0)²/F(0): an analytic two-parameter family; (d) F − f ~ cη^p: the leading coefficient is
+   2f(f² − 1)c³p⁵(p − 1), so for f ∉ {0, ±1} only p = 1 or c = 0; (e) F(0) = 0: N(0) = −2F′⁴, and the leading coefficient is −2c⁴p⁵(2p − 1), zero
+   only at p = 1/2 (F ~ √η, not regular); (f) F(0) = 1: order 1 gives F″(0) = 1/6 − F′(0)² for F′(0) ≠ 0 (a one-parameter family), and the even
+   branch F = 1 + b₁η² + …, order 4: 64b₁³(5b₁ − 2) = 0, so b₁ = 2/5 or F ≡ 1. (d) to (f) rest on **hypothesis H₀**: F − f has a leading term cη^p,
+   real c ≠ 0, with termwise derivatives. Control `eta0-sign`.
+10. **E3 `forward`** (new): F(0) ∈ {0.1, 0.25, 0.5, 0.75, 1.5, 2, 3, 5, −0.5, −2}, F′(0) ∈ ±{0.01, 0.1, 1, 10, 100}, F″(0) = −F′²/F, walked to +200 and −200 with
+    R ≤ 1e-8. Each walk must end in SINGULAR with bar ≤ 1e-8; LOGLOG (the ν⁰ part A₀ = p²(p² − q)(p² + q) = 0, q = −p² for p > 0 and q = +p² for p < 0, to 0.2
+    in |q/p² + sgn p|); FAMILY (the 2-d fit of the series at ±200 has |ΔF|, |Δ(ηF′)| ≤ 1e-10 and F″ to 1e-6); or NONFINITE at the κ locus (F″ overflows the double range near a zero of the F″³
+    coefficient; |F² − η² − 1| ≤ 1e-6 there, η* only to 1e-6). The minus side of (f, f₁) must equal the plus side of (f, −f₁) in class and in η* to 1e-8, and max |N(0)| ≤ 1e-18.
+    A solution FAMILY on both sides with equal limits would be a global solution. Control `fwd-class`. Criteria written after `dev_04_forward.log` and `dev_09_forward.log`.
+11. **E4 `even_pm1`** (new): the even solution through F(0) = 1, F = 1 + 2/5 η² − 22/125 η⁴ + … (exact rationals, 30 terms), satisfies N = 0 exactly through order 62; walks from
+    η₀ = 1/20 and 1/10 (series tails < 1e-60) to 200 agree to 1e-12 in F and p; at 200, |q/p² + 1| ≤ 0.2 (the log-log regime: F grows like ln ln η, no limit). Control `even-series`.
+
+## Amendment A2 (2026-11-25, control targets, after the development runs `dev_12` and `dev_13`)
+
+Thirteen controls, each `conical_global.py --mutate=NAME`. A control runs only the checks it names, so "no other check fails" holds
+by construction; the expected outcome is exit 1 with exactly the named checks printed `[FAIL]`. What each did in the development
+run (`dev_12_controls/`, and `dev_13_controls/` for the two repaired ones):
+
+| name | change | target checks | development result |
+|---|---|---|---|
+| `eq-coeff` | the crate's N: −6 → −5 on F F′² F″ η² | `n_table`, `series_residual` | N differs by 2.7e-2 of Σ\|terms\| (threshold 1e-26); no L meets 1e-20 |
+| `series-coeff` | the crate's a₄,₁ × 1.01 | `series_residual` | no L meets 1e-20 for any of the 6 pairs |
+| `a16-coeff` | a₁₆,₀ × 1.001 in the exact-rational check | `series_order` | nonzero orders [22, 24] at all 12 pairs (expected [24]) |
+| `match-sign` | the mirror end takes +F′ | `plant_linear`, `plant_cubic` | \|C⁻ − a\| 8.9, \|e\| 1.4e-5, \|C⁺ − b\| 0.22, nodes 0.11 (thresholds 1e-20, 1e-22) |
+| `plant-locator` | the locator's side test inverted | `plant_blowup` | no walk finds its singularity (8 of 8) |
+| `halving` | the first plan is order 14, tol 1e-12 | `step_halving` | differences 2.1e-8, 2.2e-8, 6.2e-10, 3.4e-9 (threshold 1e-20) |
+| `n-drift` | the recursion leaves F″₃ = 0 | `n_along_path` | max \|N\|/Σ\|terms\| 3.5e-4 (threshold 1e-18) |
+| `indep-eq` | the independent integration has −6 → −5.9999 on F F′² F″ η² | `independent` | \|dF\| 1.5e-3, 2.4e-3, 8.2e-5 (threshold 1e-9). A first try with −5.99 ran over 19 min and was stopped by PID (`dev_13_controls/stopped_indep-eq_minus599_over19min.log`); −4 crashed in `polyroots` (dev_12), and the check now counts any exception or a 500 s overrun as a failure |
+| `sym-break` | the comparison uses (−F_∞, +C) | `symmetry` | classes differ, e.g. (0.5, −3000) F->0 against (−0.5, −3000) FLOOR |
+| `bisect-end` | the upper end's final class compared with the lower class | `bisect` | the check fails for the brackets (its first form, a self-comparison, did not fire and was replaced in `dev_12`/`dev_13`) |
+| `eta0-sign` | N(0) expected as 3 F′²(F² − 1)(FF″ + F′²) | `eta0_local` | the identity (a) is False |
+| `fwd-class` | LOGLOG tested at q/p² = +sgn p | `forward` | the 30 LOGLOG walks become UNRESOLVED |
+| `even-series` | the exact coefficient b₃ × 1.001 | `even_pm1` | N ≠ 0 at order 6, and the two starts disagree |
+
+The run of record is `python3 notes/warp/conical_global.py --fresh` (the series is solved again, not read from the cache), stdout to
+`run_01.log` here and to `notes/warp/conical_global_output.txt`.

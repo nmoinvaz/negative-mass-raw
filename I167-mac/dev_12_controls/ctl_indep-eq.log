@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i167/notes/warp/conical_global.py", line 825, in <module>
+    failed = main()
+  File "/Users/nathan/Source/negative-mass-i167/notes/warp/conical_global.py", line 810, in main
+    fn()
+    ~~^^
+  File "/Users/nathan/Source/negative-mass-i167/notes/warp/conical_global.py", line 587, in c_independent
+    y = indep_run(fi, c, x, MUT == "indep-eq")
+  File "/Users/nathan/Source/negative-mass-i167/notes/warp/conical_global.py", line 577, in indep_run
+    return sol(e0 - mp.mpf(eta_end))
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/mpmath/calculus/odes.py", line 274, in interpolant
+    ser, xa, xb = get_series(x)
+                  ~~~~~~~~~~^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/mpmath/calculus/odes.py", line 263, in get_series
+    ser, xb = ode_taylor(ctx, F, xb, y, tol_prec, degree)
+              ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/mpmath/calculus/odes.py", line 20, in ode_taylor
+    fxy = derivs(x, y)
+  File "/Users/nathan/Source/negative-mass-i167/notes/warp/conical_global.py", line 572, in rhs
+    f2 = root(y[0], y[1], e0 - tau)
+  File "/Users/nathan/Source/negative-mass-i167/notes/warp/conical_global.py", line 567, in root
+    rts = mp.polyroots(coefs(f0, f1, e)[::-1], maxsteps=200, extraprec=60)
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/mpmath/calculus/polynomials.py", line 196, in polyroots
+    raise ctx.NoConvergence("Didn't converge in maxsteps=%d steps." \
+            % maxsteps)
+mpmath.libmp.libhyper.NoConvergence: Didn't converge in maxsteps=200 steps.
