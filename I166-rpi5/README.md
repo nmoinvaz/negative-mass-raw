@@ -145,7 +145,34 @@ at nice 10. Long runs are launched with `systemd-run --user --unit=nm-i166-<step
 
 ## Amendments (dated; the criteria above stay as first written, these say what the code tests)
 
-(none yet)
+**A1 (2026-11-25, after dev runs `dev_1` to `dev_3` and the dev control batch `ctl_dev1_*`/`ctl_dev2_*`, before any run of record).**
+No criterion above was changed. What the dev runs showed and what the code does:
+
+- **`gauge-drop` was silent in the first dev control batch** (`ctl_dev1_gauge-drop.log`, exit 0, `gauge` passed). Cause: a bug in
+  the check code, not in the criterion. `to_jets` replaced the function X(t, x) inside its own derivatives before replacing the
+  derivatives, so every entry of C2(a) became 0 and `dev_1`, `dev_2` and the batch compared 0 = 0 (a vacuous pass). Found by the
+  silent control. Fixed: derivatives are replaced first, and the script asserts that the compared P entries contain the jet
+  symbol X_11 (a vacuous comparison now crashes). After the fix `dev_3` passes 14 of 14 and `gauge-drop` and `gauge-ode` fire on
+  `gauge` (`ctl_dev2_gauge-drop`, `ctl_dev2_gauge-ode`). The other 20 controls fired in the first batch.
+- **Control targets, declared now from those dev runs** (each control fails exactly one check and no other; the dev logs show which
+  sub-criterion fails, e.g. `B-const` fails only (iii) of `branchB`, `B-claim` only (ii), `closure-bracket` only (a) and
+  `closure-form` only (b) of `closure_general`). The targets equal the intended checks of the table above, so no prediction
+  changed: `block-P`: `block`; `gauge-drop`, `gauge-ode`: `gauge`; `lemmaZ-A`, `lemmaZ-B`, `lemmaZ-blocks`: `lemmaZ`; `rho-dsolve`:
+  `rho_ode`; `A-P`, `A-ode`: `branchA`; `c-ode`: `c_ode`; `t-dsolve`: `t_ode`; `B-claim`, `B-const`: `branchB`; `plant-pert`:
+  `planted`; `fam-ode`: `family`; `ident-ode`, `ident-alpha`: `identity`; `closure-bracket`, `closure-form`: `closure_general`;
+  `closure-C0`: `closure_points`; `loc-claim`: `localized`. Every check has at least one control.
+- **Wording that the code tests as follows** (the README sentence was looser or longer than the code; the code is the criterion):
+  (1) "All criteria are exact (no floating point decision)": `same_sign_form` takes the inertia of R − λg from 60-digit
+  eigenvalues (as in #78 and #158); the minors, the roots λ and everything else are exact, and the matrices here are rational,
+  so the inertia is a numerical computation on exact data. (2) C5(ii) as coded tests the ℓ-coefficient and the ℓ⁰ part and
+  nothing about the degree (`dev_1` also tested "degree 1"; removed before `dev_2`, which is not a loosening: the identity (i)
+  already fixes the whole expression). (3) C6 as coded also checks K′ = γ²/A for the T2 data (K = −1/(2 En)), which the
+  sentence implies. (4) C14 as coded also checks that the gauge of C2(b) with c = 0 gives d̃ = d − D′ (added before `dev_2`; the
+  README line was not coded in `dev_1`). (5) Lemma Z (B) is coded as the elimination ideal ⟨Y, Q² + P(2h + P)⟩ only; the
+  inequalities P ≤ 0, 2h + P ≥ 0 (so that v₀ = √(−P), v₁ = √(2h + P) are real) are by hand in the note, and the note states
+  (B) in its closed form with P ≤ 0.
+- The probes `dev/probe_*` are not runs of the script. `dev_1`, `dev_2` (the vacuous `gauge`), `dev_3`, `ctl_dev1_*` and
+  `ctl_dev2_*` are kept.
 
 ## Runs of record
 

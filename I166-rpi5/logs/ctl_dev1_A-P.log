@@ -1,0 +1,18 @@
+one_sign_time.py, issue #166. sympy 1.14.0, python 3.14.10. mutation: A-P (builds P with X in place of X + R)
+
+== 1. The block R_3 of b = X(t, x) + R(t, rho) from the coordinate Ricci tensor ==
+[PASS] block: coordinate Ricci of b = X(t, x) + R(t, rho) on (n, d_x, d_rho, d_phi/rho) minus [[P-h, Q, 0], [Q, -P-h, Y], [0, Y, h]] + 0 with P = X_tx - (X + R) X_xx - X_x^2, Q = -(R_rr + R_r/rho)/2, Y = -R_tr/2 + X_x R_r, h = R_r^2/2 is zero: True; (I2): True; #158's `blocks` on the jets gives (P, Q, 0, Y, h): True; R = r(t) gives diag(P, -P, 0): True (2 s)
+
+== 2. The gauge x -> x + D(t) ==
+[PASS] gauge: (a) (P, Q, Y, h) of X~ = X(t, x - D) - D', R~ = R at (t, x, rho) equal those of b at (t, x - D, rho) (undefined X, R, D, derivatives of X replaced by jet symbols): True; (b) c x + C ln rho + d gives b~ = c x + C ln rho + (d - c D - D'): True, and D = e^(-int c) int d e^(int c) satisfies D' + c D - d = 0: True
+
+== 3. Lemma Z: the two branches of Lemma R at Z = 0 ==
+[PASS] lemmaZ: (a) elimination ideal of Lemma R at v0 = 0 equals <Q, 2hP + Y^2> (basis ['2*P*h + Y**2', 'Q'], claim ['Q', '2*P*h + Y**2']): True; (b) at v2 = 0 equals <Y, Q^2 + P(2h + P)> (basis ['P**2 + 2*P*h + Q**2', 'Y']): True; (c) `rank1_lams` on 12 A-blocks gives [(h + v2^2, MM)], on 12 B-blocks [(h, MM)], on 12 generic Z = 0 blocks []: wrong in 0 []
+
+== 4. Branch A: Q = 0 gives R = C ln rho + d ==
+[PASS] rho_ode: dsolve(R'' + R'/rho = 0) = C1 + C2*log(rho); equals C1 + C2 ln rho: True; satisfies R'' + R'/rho = 0: True
+
+== 5. Branch A: X_xx = 0 and the ODE for c(t) ==
+[FAIL] branchA: R = C ln rho + d: (i) Q = 0 and rho^2 (2hP + Y^2) = C^2 P + (X_x C - C'/2)^2: False; (ii) as a polynomial in l = ln rho the l-coefficient is -C^3 X_xx and the l^0 part is as stated: False; (iii) for X = c x + e it equals C^2 c' - c C C' + C'^2/4 = C^2 (c' - 2 g c + g^2): True; (iv) v2 = -Y/v1 = g - c and, on the ODE, h - P = h + v2^2 = C^2/(2 rho^2) + (g - c)^2: True
+
+5 checks, 4 pass, FAILED: ['branchA'] (3 s)

@@ -1,0 +1,6 @@
+one_sign_time.py, issue #166. sympy 1.14.0, python 3.14.10. mutation: block-P (builds P without the -X_x^2 term)
+
+== 1. The block R_3 of b = X(t, x) + R(t, rho) from the coordinate Ricci tensor ==
+[FAIL] block: coordinate Ricci of b = X(t, x) + R(t, rho) on (n, d_x, d_rho, d_phi/rho) minus [[P-h, Q, 0], [Q, -P-h, Y], [0, Y, h]] + 0 with P = X_tx - (X + R) X_xx - X_x^2, Q = -(R_rr + R_r/rho)/2, Y = -R_tr/2 + X_x R_r, h = R_r^2/2 is zero: False; (I2): True; #158's `blocks` on the jets gives (P, Q, 0, Y, h): True; R = r(t) gives diag(P, -P, 0): True (2 s)
+
+1 checks, 0 pass, FAILED: ['block'] (2 s)
