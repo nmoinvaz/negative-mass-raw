@@ -30,7 +30,7 @@ equations for σ̄_x, σ̄_ρ, and C̄ is the s component X̄₁σ̄_ρ − X̄�
 
 | id | criterion |
 |---|---|
-| P1 | Planted solution. For u = c₀x + C₀ ln ρ + d₀ with (c₀, C₀, d₀) ∈ {(2, 3, 5), (−1, 1/2, 7), (3, −2, 1)}, at (x, ρ) ∈ {(1/3, 2), (2, 1/5)}, with s = 1 and with s = −1: (a) u_xx = Φ₁, u_xρ = Ψ, u_ρρ = Φ₃ exactly at the jets; (b) ind165's σ̄_x, σ̄_ρ have nonzero denominators and the value 0 at the invariant jets (u, b, v, s); (c) ind165's C̄ has a nonzero denominator and the value 0 there |
+| P1 | Planted solution. For u = c₀x + C₀ ln ρ + d₀ with (c₀, C₀, u₀) ∈ {(2, 3, 5), (−1, 1/2, 7), (3, −2, 1)} and d₀ = u₀ − c₀x₀ − C₀ ln ρ₀ (so u(x₀, ρ₀) = u₀ and the jets are rational), at (x₀, ρ₀) ∈ {(1/3, 2), (2, 1/5)}, with s = 1 and with s = −1: (a) u_xx = Φ₁, u_xρ = Ψ, u_ρρ = Φ₃ exactly at the jets; (b) ind165's σ̄_x, σ̄_ρ have nonzero denominators and the value 0 at the invariant jets (u, b, v, s); (c) ind165's C̄ has a nonzero denominator and the value 0 there |
 | P2 | Planted inconsistency, through the same bracket, apply and strip functions as C2, C3: on (p, q, r) with X₁ = ∂_p, X₂ = ∂_q + p(q²+1)∂_r the r component of [X₁, X₂] is q²+1 up to a constant, f₁ = 0, and sympy's `groebner` of (f₀, f₂) over ℚ is [1]; the flat toy X₂ = ∂_q + q∂_r has bracket 0 |
 | C1 | In lowest terms, den(σ̄_x) = k · s · u · Δ′ and den(σ̄_ρ) = k′ · s · u · (1+s²) · Δ′, with k, k′ ∈ ℚ∖{0} and Δ′ the polynomial in `chain/delta.txt` |
 | C2 | The numerator of ind165's C̄ in lowest terms, with every power of u, b, v, s, s−1, s+1, s²+1, D and Δ′₁₆₅ removed by exact division (Δ′₁₆₅ = ind165's den(σ̄_x)/(s u), normalized), equals the stored f₀ times a nonzero rational constant |
@@ -57,5 +57,11 @@ identities to u_x = 0.
 
 P1 is not a target of `phi3-cs`: at s = ±1, c = 0, so the mutated Φ₃ agrees with Φ₃ on the planted family, which
 therefore still solves the mutated system with s ≡ ±1; the mutated σ̄ must vanish there unless its denominator does.
+
+## Amendments
+
+**A0 (2026-11-26, before the first run of ind165).** P1 first named d₀ ∈ {5, 7, 1}; then u(x₀, ρ₀) contains ln 2 or ln 5
+and the invariant jets are not rational, so (b) and (c) could not be evaluated exactly. The three values now fix u(x₀, ρ₀)
+= u₀ through d₀, which the family leaves free. Nothing has been run.
 
 ## Runs (filled in as they are done)
