@@ -1,0 +1,22 @@
+# 2026-11-26 11:52:00 cwd=/Users/nathan/Source/negative-mass-i189-libs/multishoot
+# cmd: cargo test --release -j 2 --features mutate --test plane -- --test-threads=1 --nocapture --ignored dev_long_runs
+
+running 1 test
+test dev::dev_long_runs_f64 ... DEV long P1 f64 m 20: spread 24.9, plane 1.034e-15, ln_vol error 6.563e-9 (baseline 4.547e-13)
+DEV long P1 f64 m 30: spread 37.4, plane 4.479e-16, ln_vol error 1.382e-7 (baseline 4.547e-13)
+DEV long P1 f64 m 40: spread 49.9, plane 5.245e-16, ln_vol error 3.922e-6 (baseline 4.547e-13)
+DEV long P1 f64 m 60: spread 74.8, plane 8.421e-16, ln_vol error 7.229e-4 (baseline 4.547e-13)
+DEV long P1 f64 m 80: spread 99.7, plane 6.503e-16, ln_vol error 6.834e-3 (baseline 4.547e-13)
+DEV long P1 f64 m 100: spread 124.7, plane 2.996e-16, ln_vol error 1.430e-1 (baseline 4.547e-13)
+DEV long P1 f64 m 120: spread 149.6, plane 1.138e-15, ln_vol error 8.787e-1 (baseline 4.547e-13)
+DEV long P2 f64 m 20: spread 30.5, plane 2.326e-16, ln_vol error 3.598e-11 (baseline 5.684e-14)
+DEV long P2 f64 m 30: spread 45.7, plane 2.040e-16, ln_vol error 1.471e-7 (baseline 5.684e-14)
+DEV long P2 f64 m 40: spread 61.0, plane 2.242e-16, ln_vol error 7.337e-6 (baseline 5.684e-14)
+DEV long P2 f64 m 60: spread 91.4, plane 2.742e-16, ln_vol error 2.237e-3 (baseline 5.684e-14)
+DEV long P2 f64 m 80: spread 121.9, plane 1.241e-16, ln_vol error 7.277e-2 (baseline 5.684e-14)
+DEV long P2 f64 m 100: spread 152.4, plane 2.264e-16, ln_vol error 7.433e-1 (baseline 5.684e-14)
+DEV long P2 f64 m 120: spread 182.9, plane 2.372e-16, ln_vol error 2.749e0 (baseline 5.684e-14)
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 26 filtered out; finished in 0.06s
+

@@ -4,7 +4,7 @@ Machine rpi5-ubuntu (Raspberry Pi 5, aarch64, 4 cores, 8 GB, shared with a chopt
 https://github.com/nmoinvaz/negative-mass/issues/183. Worktree `~/Source/negative-mass-i183`, branch
 `wip/i183-conical-offgrid` (at main a3578f4). One process at a time, nice 10, `RAYON_NUM_THREADS=2`. Rust 1.100.0,
 multishoot =4.2.0, multisolver =0.2.2, multidouble =5.1.0 (as #167, #184). Written before the first run of record; the
-development runs that shaped it are `dev_00` to `dev_07` in this folder and are listed under "Amendment A1".
+development runs that shaped it are `dev_00` to `dev_13` in this folder and are listed under "Amendment A1".
 Everything numerical is **numerical evidence**; no enclosure is computed.
 
 ## The question
@@ -94,13 +94,13 @@ and the acceptance fails for it (reported, not loosened). The walk then goes inw
 | O5 | `regress167` | #167's 187 points through `offgrid` and through #167's `conical_global scan --rstop=1e-8` (both run here, the same absolute R <= 1e-8): class and kind equal, eta* within 1e-8 where both bars are <= 1e-9 |
 | O6 | `scan` | every grid point has a verdict: none is `NOSTART`, `STEPLIMIT`, `NONFINITE` or `TINYSTEP` (**a `TINYSTEP` point makes this NOT MET**); start residual <= 1e-20; every `SINGULAR` has bar <= 1e-8 max(1, eta*); the number of `THROUGH` points is printed (a regular crossing would be reported with its family parameters, evenness and the series fit at -200) |
 | O7 | `spread` | the same point from the next start radius (4 L, if <= 819200 and its residual <= 1e-20): same class and kind, eta* within 1e-8 max(1, eta*), `FLOOR` p0 (at 1e-6) within a relative 1e-9; the number of points with no second start is printed |
-| O8 | `dd_qd` | quad-double against double-double on every point with L >= 204800 plus the 30 `SINGULAR` points of smallest eta* and the 30 of largest: same class and kind, eta* within 1e-12 max(1, eta*), `FLOOR` p0 within a relative 1e-12 |
+| O8 | `dd_qd` | quad-double against double-double on every point with L >= 204800 plus the 30 `SINGULAR` points of smallest eta* and the 30 of largest: same class and kind, eta* within 1e-12 max(1, eta*), `FLOOR` p0 within a relative 1e-12. The locator's 1/k fit uses the last 10 orders in double-double and the **last 33 orders in quad-double** (set after dev_07, A1); the 10% exponent test of the kind labels is unchanged. **O8 as first worded (the last 10 of 60 orders in quad-double) failed in dev_07 at 20 of 142 points** (printed in the output with both fitted exponents against alpha = 2/(eta*^2 + 4)) |
 | O9 | `modes` | `project` (Newton on F'' each step) against `conserve` (N constant) over the full grid: class and kind equal, eta* within 1e-10 max(1, eta*), p0 within 1e-10 |
 | O10 | `symmetry` | (F_inf, C) -> (-F_inf, -C) over the full grid: class and kind equal, eta* within 1e-10 max(1, eta*), \|p0\| within a relative 1e-10 |
 | O11 | `n4_factor` | sympy: the lowest-degree part of N (degree 4 in F, F', F'') is -(eta F'' + F')^2 [(eta^2+1)(eta^2+2) F'^2 + 2F((eta^2+1)F'' + eta F')]; and with F'/F = 1/(2 chi), chi = sqrt(eta^2+1) h, h = K + 7/8 asinh(eta) + eta sqrt(eta^2+1)/8, the second factor vanishes identically (a Bernoulli equation for psi = 1/chi) |
 | O12 | `closed_form` | the F_inf -> 0 limit of O11: c = C/F_inf = 8K + 7 ln 2 + 19/4, F -> 0 at the root eta* of h for c < 7 ln 2 + 19/4. The crate's eta* at F_inf = 0.04, 0.02, 0.01, 0.005 for c in {-1e4, -1e3, -100, -10, 0, 3, 6} against the root of h (mpmath, 40 digits, bisection): relative difference <= 1e-4 at F_inf = 0.005, and the difference falls by a factor 4 +- 1 at each halving of F_inf (O(F_inf^2)); the relation c(K) is the one matched to the series at infinity by hand |
 | O13 | `bisect` | every adjacent pair of different class label on the lines is bisected to relative width 1e-12; the two ends keep different labels, and no end is `THROUGH`, `NOSTART`, `STEPLIMIT`, `NONFINITE` or `TINYSTEP`; both ends printed with eta*, kind, p0 |
-| O14 | `independent` | three off-grid points (0.1, 3e4), (5, 3000), (16, -1e4) (chosen before any verdict) from the series at the chosen L to eta = 20, integrated with mpmath (`odefun`, 25 digits, tol 1e-15, root of the cubic nearest the previous F''): relative F, F' agree with the crate to 1e-9; shares N and the series with the crate |
+| O14 | `independent` | three off-grid points (0.1, 3e4), (5, 3000), (16, -1e4) (chosen before any verdict) from the series start at the chosen L to eta = 20, integrated by an own Dormand-Prince 5(4) in mpmath (30 digits, relative tolerance 1e-13, in tau = ln(L/eta) on (F, eta F'), F'' by Newton on the cubic from the previous root; no Rust, no multishoot; the start state is the mpmath series): relative F, F' agree with the crate to **1e-8**; shares N and the series with the crate. Declared option (A1): all three points, none left unchecked |
 | O15 | `recip_check` | a quad-double `conserve` walk of (0.1, 3e4) to eta = 20 with every step halved (`--hscale 0.5`) changes F, F' by <= 1e-55 relative; with the constants rounded to double-double (`--mutate=recip-dd`) it must exceed 1e-45. (`project` gives 1e-41 here at the first steps, `dev_04`: the series start's N residual enters through the projection; `conserve` gives 1e-59.) |
 | O16 | `step_halving` | 12 points: order 30 / 1e-32 against order 36 / 1e-38 (double-double): same class and kind, eta* within 1e-10 max(1, eta*), p0 within 1e-10 |
 
@@ -112,16 +112,32 @@ on its named target is a result.
 
 ## Controls
 
-Each is `--mutate=NAME` (a deliberate error) and runs every check (on the `ctl` grid). The names; the targets are
-**computed in a development run first and declared in amendment A2**, before the first run of record.
+Each is `--mutate=NAME` (a deliberate error) and runs **every check** (on the `ctl` grid); a control must fail exactly its target
+checks. The targets are the checks that failed under the control in the development runs `dev_11` (crate side), `dev_12` (Python
+side) and `dev_13` (`halving-coarse`), computed before they were declared here (**amendment A2**); a check that raises under a
+control counts as failed.
 
-Crate side, to `offgrid` (and `loglog`, `conical_global` where noted): `eq-coeff` (one coefficient of N), `series-coeff`
-(a_(4,1) x 1.01), `plant-locator` (side test inverted; also `loglog` and #167's `plant`), `recip-dd` (lane constants rounded
-to double-double), `start-bar` (residual bar 1e-8), `n-drift` (F''_3 not imposed), `halving` (order 14, tol 1e-12). Python
-side: `sym-break` ((-F_inf, +C) as the mirror), `n4-coeff` (the symbolic degree-4 part compared with eta^2 + 3),
-`cf-coeff` (the closed form with 7/8 -> 3/4), `bisect-end` (the wrong label at the upper end), `indep-eq` (the independent
-integration has -6 -> -5.9999 on F F'^2 F'' eta^2), `regress-kind` (#167's kind compared as the wrong string),
-`match-sign` (#167's planted matching: the mirror end takes +F').
+| control | change | target checks (failed in development) |
+|---|---|---|
+| `eq-coeff` | one coefficient of N in the lane's polynomial (-6 -> -5 on F F'^2 F'' eta^2) | `n_table`, `series_hp`, `regress167`, `scan`, `spread`, `closed_form`, `bisect`, `independent`, `recip_check` (the start rule finds no radius: every point `NOSTART`) |
+| `series-coeff` | a_(4,1) of the lane series x 1.01 | `series_hp`, `regress167`, `scan`, `spread`, `closed_form`, `bisect`, `independent`, `recip_check` |
+| `plant-locator` | the locator's side test inverted in the planted cases (loglog's far blow-ups, #167's `plant`) | `plant_167`, `plant_far` |
+| `locator-side` | the same inversion in `offgrid` | `regress167`, `scan`, `closed_form`, `bisect` |
+| `recip-dd` | lane constants (1/k, shifted coefficients of N, 1/(dN/dF'')) rounded to double-double | `plant_far`, `recip_check` |
+| `start-bar` | the start rule's residual bar 1e-8 in place of 1e-20 | `series_hp`, `regress167`, `scan`, `modes` |
+| `n-drift` | the recursion leaves F''_3 = 0 (order 3 of N not imposed) | `plant_far`, `regress167`, `scan`, `spread`, `dd_qd`, `modes`, `closed_form`, `bisect`, `independent`, `recip_check`, `step_halving` |
+| `halving` | the standard plan is order 14, tolerance 1e-12 | `regress167`, `scan`, `dd_qd`, `modes`, `bisect`, `recip_check`; **silent on `step_halving`** (its bar 1e-10 is above this plan's eta* error) |
+| `halving-coarse` | the standard plan is order 8, tolerance 1e-6 (added after `halving` was silent on its named target) | `regress167`, `spread`, `dd_qd`, `modes`, `closed_form`, `bisect`, `independent`, `recip_check`, `step_halving` |
+| `sym-break` | the mirror point is (-F_inf, +C) | `symmetry` |
+| `n4-coeff` | the symbolic degree-4 part compared with eta^2 + 3 | `n4_factor` |
+| `cf-coeff` | the closed form with 7/8 -> 3/4 in h | `closed_form` |
+| `bisect-end` | the bisection's upper end compared with the wrong label | `bisect` |
+| `indep-eq` | the independent integration has -6 -> -5.9999 on F F'^2 F'' eta^2 | `independent` |
+| `regress-kind` | #167's kind compared as the wrong string | `regress167` |
+| `match-sign` | #167's planted matching: the mirror end takes +F' | `plant_167` |
+
+`eq-coeff` and `series-coeff` act on `offgrid` and its mpmath comparisons only; `plant-locator` and `match-sign` act on the planted
+cases only; the Python-side controls (`sym-break` to `regress-kind`) leave the crate alone.
 
 ## Amendment A1 (before the first run of record): what the development runs changed, with the numbers
 
@@ -138,13 +154,30 @@ integration has -6 -> -5.9999 on F F'^2 F'' eta^2), `regress-kind` (#167's kind 
   `TINYSTEP` stays a verdict class, and a point that still ends there is reported unresolved, with 'every point has a
   verdict' NOT MET for it, and read as shrinking or stalled (above). `dev_06_dd` (the new settings): no `TINYSTEP`, 44 of
   818 points differ between the first pass and the pass of record, 126 `a3->0` persist.
+- `dev_07_qd_indep`, O8 as first worded **failed at 20 of 142 points**: all `F->0` in double-double and `other` in quad-double, eta*
+  identical (relative difference 0.0), all at eta* >= 5.7e3 where alpha = 2/(eta*^2 + 4) is 1e-8 to 6e-8. The double-double fit (last 10
+  of 30 orders) is within 1% of alpha there, the quad-double fit (last 10 of 60) is 0.6 to 1.7 of alpha: less 1/k leverage, so noisier.
+  **Agreed with the coordinator (hc, 2026-11-26), option (b):** the quad-double fit uses the last 33 orders (chosen after dev_07);
+  the double-double fit and the 10% exponent test are unchanged; the 20 points are listed with both fitted exponents in the output.
+- `independent` (O14) as first worded (mpmath `odefun`, 25 digits, root of the cubic by `polyroots`) was too slow: (0.1, 3e4) from
+  L = 12800 had run 20 min in `dev_07_qd_indep` (stopped by me, `dev_07_qd_indep.stopped`), (5, 3000) from L = 800 12 min at 10.7% memory in
+  `dev_08_indep_ctl` (stopped, `dev_08_indep_ctl.stopped`). #167's version took 100 s from 200 to 4. **Replaced (the coordinator agreed, hc
+  2026-11-26)** by an own Dormand-Prince 5(4) in mpmath, 30 digits (not float64), relative tolerance 1e-13, 3 s per point (`dev_09_perturb.log`;
+  its first run `dev_09_perturb_failed_run1.log` failed on a reversed coefficient order, fixed). **The sensitivity to a start error, computed
+  and measured:** an error dF at eta = L moves C by dF L^4 only if F' moves with it (dF' = 4 dC/L^5); an error in F alone, F' exact, is
+  (dF_inf, dC) = (dF, dF L^2), and moves F(20) by dF (1 + L^2/20^4) and F'(20) by a relative dF L^2/20^4 x O(1). Measured with the start F times
+  (1 + 1e-16) (a float64 rounding): at L = 800 F(20) changes by 2e-16 and F'(20) by 5.8e-14 relative, at L = 12800 by 1e-16 and 5.5e-14
+  (amplification about 550 of the predicted 1000), not the 1e-16 L^4/20^4 = 2e-5 of the other reading. The integrator's own local relative
+  tolerance 1e-13 therefore gives about 5e-11 at eta = 20, and even a float64 start would meet 1e-8. The bar is 1e-8 (as the coordinator
+  stated), declared here before the run of record, all three points independent.
+- `dev_11` to `dev_13`: every control run on the `ctl` grid with every check (A2 below gives the targets); `n-drift` takes 17 min, `halving-coarse` 14 min,
+  a Python-side control 5 min.
 - `dev_04_halving_probe`: quad-double `project` is not step-halving-stable inward (1e-41), `conserve` is (1e-59): O15 runs `conserve`.
-- `dev_03_cheap`, `dev_06_dd`: O1 to O7, O9 to O13, O15, O16 pass in development (O12: ratios 4.00 at all seven c); O8 and O14 in
-  `dev_07_qd_indep`.
+- `dev_03_cheap`, `dev_06_dd`: O1 to O7, O9 to O13, O15, O16 pass in development (O12: ratios 4.00 at all seven c); O8 (failed as first worded, above) and
+  O14 pass in `dev_10_qd_indep` with the quad-double window of 33 orders and the own integrator (0 mismatches of 142; relative |dF'| 2.3e-11, 2.5e-11, 5.1e-11 at the three points).
 - Wordings changed from the first draft of this README, all before any run of record and with no scan result behind them
   (the verdict classes are not used): O5 absolute bound; O8 subset L >= 204800 (quad-double costs 5 s per point); O12 F_inf list
-  and ratio criterion (the closed form is O(F_inf^2) by construction); O14 bar 1e-9 absolute-relative as #167's, three points
-  with start radius <= 12800 and eta_end = 20; O11 added (symbolic), O15 `conserve`.
+  and ratio criterion (the closed form is O(F_inf^2) by construction); O14 the own integrator and bar 1e-8, three points with start radius <= 12800 and eta_end = 20; O11 added (symbolic), O15 `conserve`.
 
 ## Harness fixes (#184's review, on #183)
 
@@ -158,7 +191,16 @@ integration has -6 -> -5.9999 on F F'^2 F'' eta^2), `regress-kind` (#167's kind 
 
 ## Stop conditions and logs
 
-A run not finished in 1 h of wall time is stopped (own systemd unit only). The run of record is two units: the checks on the
-full grid, and the controls (`--controls-only`, each control a subprocess on the `ctl` grid), whose logs together are
-`conical_offgrid_output.txt`. No condition depends on memory. Every log is kept, including failed and stopped runs, and a
-rerun is numbered (`run_02`).
+A run not finished in 1 h of wall time is stopped (own systemd unit only). The run of record is a chain of five stages in one
+queue script (each stage under `timeout 3600`, its own log and exit-code file, none expected near the hour): `run_03a` (every check
+on the full grid except `dd_qd`, `--no-controls --only=...`, about 16 min), `run_03b` (`--only=dd_qd`, about 17 min), `run_03c`
+(`--controls-only --controls=eq-coeff,series-coeff,plant-locator,locator-side,recip-dd,start-bar,halving,halving-coarse`, about 38 min),
+`run_03d` (`--controls=n-drift,sym-break,n4-coeff,cf-coeff,bisect-end`, about 38 min) and `run_03e` (`--controls=indep-eq,regress-kind,match-sign`,
+about 16 min). Their stdout, in this order, is `conical_offgrid_output.txt`. No condition depends on memory. Every log is kept, including
+failed and stopped runs, and a rerun is numbered (`run_04`).
+
+## Run of record
+
+Code at branch `wip/i183-conical-offgrid` commit 8b4c5e5; `offgrid` binary sha256 5b608b378a73 (first 12 hex); queue script
+`sys/run_record.sh` started 2026-11-26 after amendments A1 and A2 above. Logs `run_03a.log` ... `run_03e.log`, exit codes `run_03?.rc`,
+stage times `run_03_times.log`, per-control logs `ctl_run_03/`, the verdict records `dump_run_03a/`, `dump_run_03b/`.

@@ -1,0 +1,26 @@
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i189-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 1.76s
+     Running tests/plane.rs (target/release/deps/plane-623f584904e6e99b)
+
+thread 'controls::controls_f64' (100078416) panicked at src/plane.rs:202:9:
+orthonormalize: column 1 has norm 0e0 after its projections (dependent columns, or not finite)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--test plane`
+        6.78 real        11.10 user         0.09 sys
+           187777024  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               31203  page reclaims
+                 107  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   3  signals received
+                  25  voluntary context switches
+                1058  involuntary context switches
+           208603960  instructions retired
+            73885991  cycles elapsed
+             8045096  peak memory footprint

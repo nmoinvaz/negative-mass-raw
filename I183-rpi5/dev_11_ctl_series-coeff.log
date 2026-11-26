@@ -1,0 +1,40 @@
+conical_offgrid.py: grid ctl; controls run every check (on the ctl grid) and must fail their targets and no others
+[PASS] n_table: the lane's N (hp.rs EvalS, double-double) at 40 rational points against det_classify.conical_N() (typed): worst |dN|/sum|terms| 1.77e-32; against conical_limit.build_N() (rebuilt from D): 1.77e-32; threshold 1e-26
+  (0 s)
+[FAIL] series_hp: raised TypeError: must be real number, not NoneType
+  (1 s)
+[PASS] plant_167: #167's planted cases through the same crate: matching (|C- - a|, |e|, |C+ - b|, nodes) linear: 6.5e-28, 5.8e-34, 3.5e-29, 2.8e-29, cubic: 7.7e-28, 5.9e-34, 4.0e-29, 2.1e-29 (bars 1e-20, 1e-22); blowup: 8 walks, worst error 7.5e-12, worst bar 1.2e-12 (1e-8), kinds right: True
+  (1 s)
+[PASS] plant_far: planted equations started at x0 = 1e6 and walked inward by hp_walk with the locator: F'' = 2F^3 (pl6) and F F'' + F'^2 = 0 (pl7), x* = 0.7321, error and bar <= 1e-8; (1 + x^2) F'' + 4 x F' + 2 (F - 7/10) = 0 (pl4), exact alpha + (a + b x)/(1 + x^2): pl6 dd: x* error 0.0e+00, bar 0.0e+00, 490 steps from 1e6; pl7 dd: x* error 7.1e-14, bar 2.6e-14, 420 steps from 1e6; pl4 dd: worst relative error of F, F', F'' at 1e3, 10, 1 1.8e-27 (bar 1.0e-24); pl6 qd: x* error 0.0e+00, bar 0.0e+00, 429 steps from 1e6; pl7 qd: x* error 6.8e-15, bar 2.6e-15, 391 steps from 1e6; pl4 qd: worst relative error of F, F', F'' at 1e3, 10, 1 2.2e-59 (bar 1.0e-50)
+  (1 s)
+[FAIL] regress167: #167's 187 grid points through `offgrid` (hp walker, series tables of 8 parts) and through #167's `conical_global scan --rstop=1e-8` (both run here): class and kind equal and eta* within 1e-8 at 0 singular points (worst difference 0.0e+00); mismatches [((0.25, -3000.0), 'NOSTART', 'S:F->0'), ((0.25, -1000.0), 'NOSTART', 'S:F->0'), ((0.25, -300.0), 'NOSTART', 'S:F->0'), ((0.25, -100.0), 'NOSTART', 'S:F->0'), ((0.25, -30.0), 'NOSTART', 'S:F->0')]
+  (33 s)
+[NOTE] scan_first_pass: the first pass (stop at R <= 1e-8 max(1, x)) and the pass of record (R <= 1e-12 max(1, x)) differ at 0 of 31 points:
+  region A: 14 points, classes {'NOSTART': 14}
+  region B: 10 points, classes {'NOSTART': 10}
+  region C: 7 points, classes {'NOSTART': 7}
+[FAIL] scan: raised ValueError: max() iterable argument is empty
+  (0 s)
+[FAIL] spread: the same point from the next start radius 4 L (residual <= 1e-20 there too): 0 of 31 points have a second start; class and kind equal, eta* within 1e-8 max(1, eta*), FLOOR p0 within a relative 1e-9; worst eta* difference 0.0e+00; mismatches 0 []
+  (0 s)
+[PASS] dd_qd: quad-double (kt 60, tol 1e-64) against double-double on 31 points (start radius >= 204800 and the 30 smallest and 30 largest eta*): class and kind equal, eta* within 1e-12 max(1, eta*), FLOOR p0 within a relative 1e-12; worst relative eta* difference 0.0e+00; mismatches 0 []
+  (0 s)
+[PASS] modes: `project` (Newton on F'' at each step) against `conserve` (N constant) over 31 points: class and kind equal, eta* within 1e-10 max(1, eta*), FLOOR p0 within 1e-10; worst relative eta* difference 0.0e+00; mismatches 0 []
+  (0 s)
+[PASS] symmetry: (F_inf, C) -> (-F_inf, -C) over 31 points: class and kind equal, eta* within 1e-10 max(1, eta*), |p0| within a relative 1e-10; worst relative eta* difference 0.0e+00; mismatches 0 []
+  (0 s)
+[PASS] n4_factor: the lowest-degree part of N (degree 4 in F, F', F'') equals -(eta F'' + F')^2 [(eta^2+1)(eta^2+2) F'^2 + 2F((eta^2+1)F'' + eta F')] (sympy, expanded): True; with F'/F = 1/(2 chi), chi = sqrt(eta^2+1) h, h = K + 7/8 asinh(eta) + eta sqrt(eta^2+1)/8, the second factor vanishes identically (Bernoulli equation (eta^2+1) psi' + eta psi + (eta^2+1)(1 + eta^2/4) psi^2 = 0, sympy): True
+  (0 s)
+[FAIL] closed_form: F_inf -> 0: N4 = -(eta F'' + F')^2 [(eta^2+1)(eta^2+2) F'^2 + 2F((eta^2+1)F'' + eta F')] gives F'/F = 1/(2 chi), F -> 0 at the root of h; the crate's eta* against it: relative difference at F_inf = 0.005 <= 1e-4 and the difference falls by 4 +- 1 per halving of F_inf (O(F_inf^2)): c=-100: eta*0 = 9.409550756, difference at F_inf = 0.04, 0.02, 0.01, 0.005: inf, inf, inf, inf; ratios nan, nan; c=0: eta*0 = 1.288574873, difference at F_inf = 0.04, 0.02, 0.01, 0.005: inf, inf, inf, inf; ratios nan, nan; c=6: eta*0 = 0.4573391187, difference at F_inf = 0.04, 0.02, 0.01, 0.005: inf, inf, inf, inf; ratios nan, nan
+  (0 s)
+[FAIL] bisect: 0 class changes along the lines of [0.1] bisected in C to relative width 1e-12; both ends keep their different labels and no end is THROUGH, NOSTART, STEPLIMIT, NONFINITE or TINYSTEP (THROUGH ends 0)
+  (0 s)
+[FAIL] independent: raised KeyError: 'F'
+  (10 s)
+[FAIL] recip_check: raised KeyError: 'steps'
+  (0 s)
+[PASS] step_halving: order 30, tol 1e-32 against order 36, tol 1e-38 (double-double) at 4 points: class and kind equal, eta* within 1e-10 max(1, eta*), p0 within 1e-10; worst relative eta* difference 0.0e+00; mismatches 0 []
+  (0 s)
+
+checks: 8 passed, 8 failed ['series_hp', 'regress167', 'scan', 'spread', 'closed_form', 'bisect', 'independent', 'recip_check']. 48 s
+control series-coeff: target checks None, failed ['series_hp', 'regress167', 'scan', 'spread', 'closed_form', 'bisect', 'independent', 'recip_check']

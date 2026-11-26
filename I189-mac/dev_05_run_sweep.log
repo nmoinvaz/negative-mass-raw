@@ -1,0 +1,53 @@
+# 2026-11-26 11:50:18 cwd=/Users/nathan/Source/negative-mass-i189-libs/multishoot
+# cmd: cargo test --release -j 2 --features mutate --test plane -- --test-threads=2 --nocapture --ignored dev_run_sweep
+
+running 3 tests
+DEV run P1 f64 m 1: spread 1.2 (ln 1/eps 36.7), plane 4.208e-16, ln_vol error 1.137e-13 (baseline 4.547e-13, bar 4.27e-10) -> silent
+DEV run P1 f64 m 5: spread 6.2 (ln 1/eps 36.7), plane 3.840e-16, ln_vol error 2.842e-13 (baseline 4.547e-13, bar 4.27e-10) -> silent
+DEV run P1 f64 m 10: spread 12.5 (ln 1/eps 36.7), plane 1.503e-15, ln_vol error 4.212e-11 (baseline 4.547e-13, bar 4.27e-10) -> silent
+DEV run P1 dd m 1: spread 2.0 (ln 1/eps 73.5), plane 7.343e-32, ln_vol error 6.311e-30 (baseline 6.311e-30, bar 4.74e-26) -> silent
+DEV run P1 f64 m 15: spread 18.7 (ln 1/eps 36.7), plane 1.629e-15, ln_vol error 9.692e-10 (baseline 4.547e-13, bar 4.27e-10) -> FIRES
+DEV run P1 f64 m 20: spread 24.9 (ln 1/eps 36.7), plane 5.700e-16, ln_vol error 1.253e-8 (baseline 4.547e-13, bar 4.27e-10) -> FIRES
+DEV run P1 f64 m 25: spread 31.2 (ln 1/eps 36.7), plane 1.807e-15, ln_vol error 8.226e-9 (baseline 4.547e-13, bar 4.27e-10) -> FIRES
+DEV run P1 dd m 5: spread 10.0 (ln 1/eps 73.5), plane 4.328e-32, ln_vol error 8.961e-28 (baseline 6.311e-30, bar 4.74e-26) -> silent
+DEV run P1 f64 m 30: spread 37.4 (ln 1/eps 36.7), plane 1.538e-15, ln_vol error 4.511e-9 (baseline 4.547e-13, bar 4.27e-10) -> FIRES
+DEV run P1 f64 m 35: spread 43.6 (ln 1/eps 36.7), plane 9.703e-16, ln_vol error 6.487e-7 (baseline 4.547e-13, bar 4.27e-10) -> FIRES
+DEV run P1 dd m 10: spread 20.0 (ln 1/eps 73.5), plane 7.784e-32, ln_vol error 1.110e-24 (baseline 6.311e-30, bar 4.74e-26) -> FIRES
+DEV run P1 dd m 15: spread 30.0 (ln 1/eps 73.5), plane 8.985e-32, ln_vol error 5.454e-22 (baseline 6.311e-30, bar 4.74e-26) -> FIRES
+DEV run P1 dd m 20: spread 40.0 (ln 1/eps 73.5), plane 1.738e-31, ln_vol error 2.146e-21 (baseline 6.311e-30, bar 4.74e-26) -> FIRES
+DEV run P2 f64 m 1: spread 1.5 (ln 1/eps 36.7), plane 2.264e-16, ln_vol error 2.842e-13 (baseline 5.684e-14, bar 3.21e-10) -> silent
+DEV run P2 f64 m 5: spread 7.6 (ln 1/eps 36.7), plane 1.527e-16, ln_vol error 1.705e-13 (baseline 5.684e-14, bar 3.21e-10) -> silent
+DEV run P2 f64 m 10: spread 15.2 (ln 1/eps 36.7), plane 1.688e-16, ln_vol error 1.137e-13 (baseline 5.684e-14, bar 3.21e-10) -> silent
+DEV run P2 f64 m 15: spread 22.9 (ln 1/eps 36.7), plane 2.298e-16, ln_vol error 5.684e-14 (baseline 5.684e-14, bar 3.21e-10) -> silent
+DEV run P2 f64 m 20: spread 30.5 (ln 1/eps 36.7), plane 1.724e-16, ln_vol error 2.842e-13 (baseline 5.684e-14, bar 3.21e-10) -> silent
+DEV run P2 f64 m 25: spread 38.1 (ln 1/eps 36.7), plane 2.222e-16, ln_vol error 1.137e-13 (baseline 5.684e-14, bar 3.21e-10) -> silent
+DEV run P2 f64 m 30: spread 45.7 (ln 1/eps 36.7), plane 2.293e-16, ln_vol error 5.684e-14 (baseline 5.684e-14, bar 3.21e-10) -> silent
+DEV run P3 f64 m 1: spread 1.7 (ln 1/eps 36.7), plane NaN, ln_vol error 1.492e-13 (baseline 1.421e-14, bar 2.07e-11) -> silent
+DEV run P3 f64 m 5: spread 8.3 (ln 1/eps 36.7), plane NaN, ln_vol error 1.539e-9 (baseline 1.421e-14, bar 2.07e-11) -> FIRES
+DEV run P3 f64 m 10: spread 16.6 (ln 1/eps 36.7), plane NaN, ln_vol error 4.163e-6 (baseline 1.421e-14, bar 2.07e-11) -> FIRES
+DEV run P3 f64 m 15: spread 24.8 (ln 1/eps 36.7), plane NaN, ln_vol error 7.664e-4 (baseline 1.421e-14, bar 2.07e-11) -> FIRES
+DEV run P3 f64 m 20: spread 33.1 (ln 1/eps 36.7), plane NaN, ln_vol error 8.371e-1 (baseline 1.421e-14, bar 2.07e-11) -> FIRES
+DEV run P3 f64 m 25: spread 41.4 (ln 1/eps 36.7), plane NaN, ln_vol error 5.535e0 (baseline 1.421e-14, bar 2.07e-11) -> FIRES
+test dev::dev_run_sweep_f64 ... ok
+DEV run P1 qd m 1: spread 3.3 (ln 1/eps 147.0), plane 1.174e-63, ln_vol error 5.511e-61 (baseline 1.820e-61, bar 5.79e-58) -> silent
+DEV run P1 qd m 5: spread 16.6 (ln 1/eps 147.0), plane 5.471e-64, ln_vol error 2.689e-56 (baseline 1.820e-61, bar 5.79e-58) -> FIRES
+DEV run P1 qd m 10: spread 33.1 (ln 1/eps 147.0), plane 2.342e-64, ln_vol error 1.194e-51 (baseline 1.820e-61, bar 5.79e-58) -> FIRES
+DEV run P2 dd m 1: spread 2.4 (ln 1/eps 73.5), plane 2.270e-32, ln_vol error 0.000e0 (baseline 0.000e0, bar 3.56e-26) -> silent
+DEV run P2 dd m 5: spread 12.2 (ln 1/eps 73.5), plane 1.681e-32, ln_vol error 0.000e0 (baseline 0.000e0, bar 3.56e-26) -> silent
+DEV run P2 dd m 10: spread 24.3 (ln 1/eps 73.5), plane 2.390e-32, ln_vol error 0.000e0 (baseline 0.000e0, bar 3.56e-26) -> silent
+DEV run P2 dd m 15: spread 36.5 (ln 1/eps 73.5), plane 1.601e-32, ln_vol error 0.000e0 (baseline 0.000e0, bar 3.56e-26) -> silent
+DEV run P3 dd m 1: spread 2.6 (ln 1/eps 73.5), plane NaN, ln_vol error 7.409e-28 (baseline 1.262e-29, bar 2.30e-27) -> silent
+DEV run P3 dd m 5: spread 13.0 (ln 1/eps 73.5), plane NaN, ln_vol error 2.367e-22 (baseline 1.262e-29, bar 2.30e-27) -> FIRES
+DEV run P3 dd m 10: spread 25.9 (ln 1/eps 73.5), plane NaN, ln_vol error 2.549e-15 (baseline 1.262e-29, bar 2.30e-27) -> FIRES
+DEV run P3 dd m 15: spread 38.9 (ln 1/eps 73.5), plane NaN, ln_vol error 3.917e-10 (baseline 1.262e-29, bar 2.30e-27) -> FIRES
+test dev::dev_run_sweep_dd ... ok
+DEV run P2 qd m 1: spread 4.0 (ln 1/eps 147.0), plane 6.213e-65, ln_vol error 1.094e-62 (baseline 6.685e-63, bar 4.34e-58) -> silent
+DEV run P2 qd m 5: spread 20.0 (ln 1/eps 147.0), plane 4.888e-65, ln_vol error 5.469e-63 (baseline 6.685e-63, bar 4.34e-58) -> silent
+DEV run P2 qd m 10: spread 40.0 (ln 1/eps 147.0), plane 5.392e-65, ln_vol error 1.215e-62 (baseline 6.685e-63, bar 4.34e-58) -> silent
+DEV run P3 qd m 1: spread 4.1 (ln 1/eps 147.0), plane NaN, ln_vol error 3.048e-58 (baseline 6.539e-61, bar 2.81e-59) -> FIRES
+DEV run P3 qd m 5: spread 20.4 (ln 1/eps 147.0), plane NaN, ln_vol error 2.016e-48 (baseline 6.539e-61, bar 2.81e-59) -> FIRES
+DEV run P3 qd m 10: spread 40.9 (ln 1/eps 147.0), plane NaN, ln_vol error 2.960e-37 (baseline 6.539e-61, bar 2.81e-59) -> FIRES
+test dev::dev_run_sweep_qd ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 23 filtered out; finished in 3.87s
+
