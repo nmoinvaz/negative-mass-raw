@@ -1,0 +1,37 @@
+A elim: [2*P*h + Y**2, Q] 0.0s
+A claim in elim: True elim in claim: True
+B elim: [P**2 + 2*P*h + Q**2, Y] 0.0s
+B claim in elim: True elim in claim: True
+A mut in elim: False
+sep basis size 39 1.7s
+member p1 - p2 True
+member m1**2 - m2**2 True
+member m1 - m2 False
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-venv314/lib/python3.14/site-packages/sympy/polys/polyutils.py", line 231, in _parallel_dict_from_expr_if_gens
+    monom[indices[base]] = exp
+          ~~~~~~~^^^^^^
+KeyError: 1/ra
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-raw/I166-rpi5/dev/probe_4.py", line 34, in <module>
+    Gu = sp.groebner(eqs2+[1-s*p1*m1*f0*(ra-rb)*ra*rb], s,p1,m1,f0,ra,rb, order="grevlex")
+  File "/home/nathan/Source/negative-mass-venv314/lib/python3.14/site-packages/sympy/polys/polytools.py", line 7535, in groebner
+    return GroebnerBasis(F, *gens, **args)
+  File "/home/nathan/Source/negative-mass-venv314/lib/python3.14/site-packages/sympy/polys/polytools.py", line 7565, in __new__
+    polys, opt = parallel_poly_from_expr(F, *gens, **args)
+                 ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-venv314/lib/python3.14/site-packages/sympy/polys/polytools.py", line 4687, in parallel_poly_from_expr
+    return _parallel_poly_from_expr(exprs, opt)
+  File "/home/nathan/Source/negative-mass-venv314/lib/python3.14/site-packages/sympy/polys/polytools.py", line 4738, in _parallel_poly_from_expr
+    reps, opt = _parallel_dict_from_expr(exprs, opt)
+                ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-venv314/lib/python3.14/site-packages/sympy/polys/polyutils.py", line 352, in _parallel_dict_from_expr
+    reps, gens = _parallel_dict_from_expr_if_gens(exprs, opt)
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-venv314/lib/python3.14/site-packages/sympy/polys/polyutils.py", line 236, in _parallel_dict_from_expr_if_gens
+    raise PolynomialError("%s contains an element of "
+                          "the set of generators." % factor)
+sympy.polys.polyerrors.PolynomialError: ra**(-2) contains an element of the set of generators.
