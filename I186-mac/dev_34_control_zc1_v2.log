@@ -1,0 +1,6 @@
+# 2026-11-26 07:28:08 cwd=/Users/nathan/Source/negative-mass-i186/phase2/nonradial
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python taylor_polar.py --mutate=zc1
+CHECK S1: FAIL  raised RuntimeError: /Users/nathan/Source/negative-mass-i186/phase2/nonradial/taylor_polar/target/release/taylor_polar starcheck r=0.002,0.05,0.5,2.0,5.0,8.0,12.0,16.0,20.0,24.10980364018201 omega=0.7603 eps=-1.0 lam=10240.0 mu=21845333.333333336 pc=3.86682473052039692307928581646122e-04 zc=1.000000000000000000000000000
+CHECK A2: FAIL  raised RuntimeError: /Users/nathan/Source/negative-mass-i186/phase2/nonradial/taylor_polar/target/release/taylor_polar d lane=dd l=2 r0=0.001 rm=24.10980364018201 gammas=0.001,0.03,0.3,1.0,3.0,10.0,40.0,137.0 omega=0.7603 eps=-1.0 lam=10240.0 mu=21845333.333333336 pc=3.86682473052039692307928581646122e-04 zc=1.000000000
+SUMMARY: 0 of 2 checks passed; failed: S1, A2; mutate = zc1; 18 s
+CONTROL zc1: every targeted check failed, as it must

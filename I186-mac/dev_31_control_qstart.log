@@ -1,0 +1,5 @@
+# 2026-11-26 07:26:15 cwd=/Users/nathan/Source/negative-mass-i186/phase2/nonradial
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python taylor_polar.py --mutate=qstart
+CHECK A2[l=2]: FAIL  l = 2, base variant, lane dd: worst |D/D_stored - 1| = 2.12e-01 over 8 rows (bar 2.1e-04, the file's relative spread); g=0.001 D=-4.1644978e-02 stored -5.2854310e-02 rel 2.12e-01 (row spread 1.1e-04) 0.05s; g=0.03 D=-3.9452857e-02 stored -4.7253150e-02 rel 1.65e-01 (row spread 1.3e-04) 0.05s; g=0.3 D=-1.6723181e-02 stored -1.6753530e-02 rel 1.81e-03 (row spread 2.1e-04) 0.05s; g=1 D=-6.0021252e-03 stored -6.0022030e-03 rel 1.30e-05 (row spread 2.1e-04) 0.05s; g=3 D=-7.0990330e-04 stored -7.0990330e-04 rel 3.01e-09 (row spread 2.1e-04) 0.05s; g=10 D=-2.6455736e-05 stored -2.6455740e-05 rel 1.53e-07 (row spread 2.1e-04) 0.09s; g=40 D=-4.2939218e-07 stored -4.2939220e-07 rel 3.80e-08 (row spread 2.1e-04) 0.27s; g=137 D=-1.0712895e-08 stored -1.0712890e-08 rel 4.23e-07 (row spread 2.1e-04) 0.88s
+SUMMARY: 0 of 1 checks passed; failed: A2[l=2]; mutate = qstart; 7 s
+CONTROL qstart: every targeted check failed, as it must

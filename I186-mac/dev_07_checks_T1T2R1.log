@@ -1,0 +1,6 @@
+# 2026-11-26 06:31:02 cwd=/Users/nathan/Source/negative-mass-i186/phase2/nonradial
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python taylor_polar.py --only=T1,T2,R1
+CHECK T1: PASS  J at order 0, crate (dd) against the generated function at 60 digits, 8 points x 36 entries: worst relative 5.49e-28 at (l, r, s, i, j) = (6, 24.1, 12000.0, 3, 5) (bar 1.00e-24)
+CHECK T2: PASS  J's series (30 coefficients) at 0.1 of a star step against the generated function at 60 digits on the series' own background, 4 cases, 96 entries: worst relative 3.10e-29 (bar 1.00e-24)
+CHECK R1: PASS  1/k for k = 1..32 formed in the lane, |k (1/k) - 1| at 200 digits: qd 3.00e-64 (bar 1.20e-63), od 2.00e-128 (bar 1.84e-127)
+SUMMARY: 3 of 3 checks passed; mutate = None; 4 s
