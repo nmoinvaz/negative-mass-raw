@@ -191,7 +191,8 @@ is corrected) and accepted A1. The rulings:
   the node count of Y rises from 0 (Ω ≥ −1.5) to 2, 3, … 7 at −1.525, −1.55, … −1.8 and 22 at −4. Those zeros are the planted
   system's further eigenvalues, with nodes in their eigenfunctions; f64's Ω = −1.5041 lies between the node counts 2 (at
   −1.525) and 0 (at −1.5), so it is one of them (the counter reads Y at the flow's step ends, so it can skip a node). At
-  D = 6, 8 and 20 the same start reaches Ω* in dd. If the real problem's start rule (±0.5 in Ω, check R4 below) can reach
+  D = 6 the same start also fails (Ω = −3.509 in dd and f64); it reaches Ω* at D = 8 and 11 (f64, dev_11) (erratum A2.1: A2 first said D = 6, 8, 20,
+  which was wrong for D = 6 at the −0.4 start; D = 6 reached Ω* from −0.1, dev_07). If the real problem's start rule (±0.5 in Ω, check R4 below) can reach
   another root at D ≤ 11, the note says so.
 - **S5 stays as worded** and is reported NOT MET where it fails: dev_24 6 of 12, failing in f64, dd and qd at D = 1000 and 10⁴.
 - **S5s, added after dev_06 by the coordinator's ruling:** the same test with the bound 100·s²·e^−T′ + 10^−d_lane in place of
@@ -288,7 +289,7 @@ exit codes of 1 are the driver's: it exits 1 when a check fails, and S4, S4w, S5
 | `run_05_driver_final` | the driver, code f620c48's predecessor 5ad351a (unit nm-i195-run05-driver) | 14:56:42 | 18.19, 18.43, 17.31 | 1:24.23 | 117.4 | 1 |
 | `run_06_driver_final` | the driver, code f620c48 (unit nm-i195-run06-driver); same verdicts and numbers as run_05 | 14:58:52 | 19.69, 18.93, 17.65 | 1:37.83 | 116.6 | 1 |
 | `run_07_driver_final` | the driver, code 69a9b96, with the Omega3, Omega4 and four-term remainder report: same verdicts as run_05 and run_06 (foreground, 74 s) | 15:00:50 | 18.54, 18.94, 17.82 | 1:14.04 | 116.5 | 1 |
-| `run_08_driver_final` | the driver, code with the planted cases' digits table: **the output of record** (foreground) | 15:03:25 | 17.03, 17.76, 17.52 | 1:17.67 | 117.4 | 1 |
+| `run_08_driver_final` | the driver, code 4f022ee with the planted cases' digits table: **the output of record** (foreground) | 15:03:25 | 17.03, 17.76, 17.52 | 1:17.67 | 117.4 | 1 |
 
 Cpu seconds inside the crate (sum of the `secs` fields): the qd D list 50.4 s (2106 Taylor steps, 1087 retries), the od D list
 3525.8 s (2717 steps, 611 retries). `dev_25_pslq_omega3.*` is a development try, not a record: Omega3 = -652.8401075700561254352393037996
