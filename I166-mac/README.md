@@ -45,3 +45,10 @@ coordinates (t, x, ρ, φ).
 | `ode-k` | J6 expects c = −1/2 + k e^{2t} for c′ = 2c − 1 | J6 |
 
 ## Runs (filled in as they are done)
+
+| file | what |
+|---|---|
+| `rerun_default_1.log`, `.time` | rerun of #166's default mode: exit 0, 14 of 14 checks, 21 controls all fired, 106 s, 77 MB. Identical to the committed `one_sign_time_output.txt` apart from timings and the Python patch version |
+| `ind166.py`, `run_ind166.sh` | the independent check and its launcher. One edit before the first run: J2's test that the gcd of the minors is c λ^k was simplified to "the gcd has one term" (same criterion) |
+| `ind166_run1.txt` | ind166 run 1: exit 0, 7 of 7 criteria pass in 5 s |
+| `ind166_run1_mut_*.txt` | the 7 mutations, each exit 1 with exactly its target failing: `plant-K2` P0, `ode-flip` J1 (entries tt, tx, xx), `t1-pert` J2, `lemz-sign` J3, `bracket-drop` J4, `sep-swap` J5, `ode-k` J6 |
