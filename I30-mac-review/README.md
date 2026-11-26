@@ -30,3 +30,9 @@ shares no code with the counting. The records hold Im ≥ 0; the lower half is t
 | `alias-claim` | W2's bar is 0.1 in place of π/2 | W2 |
 
 ## Runs (filled in as they are done)
+
+| file | what |
+|---|---|
+| `ind30_run1.txt`, `ind30_run1_mut_*.txt` | **run 1 fails W1, W2, W3, by a defect of the coordinator's design.** The stored `arg` is arg det M. The count winds g = det M · exp(lnqk(λ) − p_c(λ)) (CLD's `modecount_wind.count`), whose phase varies slowly once the known factor is divided out; the alias rule (π/2) is for g. det M's own phase moves by up to 3.1 rad between samples, so its winding cannot be recovered from these samples. An independent recount needs CLD's lnqk and p_c, which is CLD's counting code, so ind30 is not rerun; its criteria stay failed as written |
+| `resolve_axis_D10.log`, `.jsonl`, `.time` | the re-solve in its place: CLD's `modecount_test_axis.py` at D = 10 with the cell h = 0.0025 (the runner's record used 0.005), read-only on CLD at 5fcadda2 with hp clean. Zero −1.0016613614 + 2.4922604598i, Im/ω = 1.000000: the record's value to every printed digit, 87 s |
+| `rerun_table_1.log` | `step3_table.py --raw=…/I30-mac` from a worktree at ad00567: exit 0, every line equal to the committed `step3_output.txt` (which adds its header and the self-test) |
