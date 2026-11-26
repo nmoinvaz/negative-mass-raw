@@ -1,0 +1,25 @@
+[info] stored chain read: terms [319, 1388, 1818, 3837, 4892]; stored Delta' 26 terms (0 s)
+[info] sigma-bar solved (0 s): numerators 63, 83 terms; denominators 26, 30 terms (0 s)
+[info] C-bar built (19 s): numerator 465 terms, denominator 119 terms (19 s)
+[info] u, A, B components of [X1, X2] + X1 vanish: True, True, True (19 s)
+[info] Delta'_165 = den(sigma-bar_x)/(s u): exact True, 26 terms; stored Delta' irreducible over Q: True (19 s)
+ind165.py  mutate=strip-D  raw=/Users/nathan/Source/negative-mass-raw/I165-rpi5
+[PASS] P1: u = c0 x + C0 ln rho + d0, 3 parameter sets x 2 points x s = +-1: (a) u_xx = Phi1, u_xrho = Psi, u_rhorho = Phi3; (b) sigma-bar_x = sigma-bar_rho = 0 with nonzero denominators; (c) C-bar = 0 with nonzero denominator
+[info] p1 done in 0 s (19 s)
+[PASS] P2: toy: bracket r component q**2 + 1 (q^2+1 up to a constant: True); f1 = 0, f2 = 2*q; groebner(f0, f2) = [1] ([1]: True); flat toy bracket 0: True
+[info] p2 done in 0 s (19 s)
+[PASS] C1: den(sigma-bar_x) = k s u Delta': True (k = 8); den(sigma-bar_rho) = k' s u (1+s^2) Delta': True (k' = 8)
+[info] c1 done in 0 s (19 s)
+[FAIL] C2: numerator of C-bar (465 terms) stripped: 412 terms; = lambda f0 (stored, 319 terms): False
+[info] c2 done in 0 s (19 s)
+[PASS] C3: X1 f0 -> 1388 terms, = lambda f1: True (lambda = 1/4), 0 s; X2 f0 -> 1818 terms, = lambda f2: True (lambda = 1/4), 0 s; X1 f1 -> 3837 terms, = lambda f11: True (lambda = 1/8), 2 s; X2 f1 -> 4892 terms, = lambda f12: True (lambda = 1/8), 3 s
+[info] c3 done in 6 s (25 s)
+[PASS] C4: modular evidence: p = 2147483629, s0 = 2: sum = 1 (nonzero constant); p = 2147483587, s0 = 7: sum = 1 (nonzero constant)
+[info] c4 done in 0 s (26 s)
+[PASS] C5: (a) dsolve: 1/B = const - kappa ln rho: True; (b) rho u_rho = 1/W: True; (c) rho W^2 R = 2*E*W*c + K*L/(2*sigma) - K*c*d(x) + K*sigma - K/sigma: L coefficient K/(2*sigma) a nonzero multiple of K: True; at K = 0: 2*E*W*c, a nonzero multiple of E W: True; (d) Wronskian(1, W, ln W) != 0: True; (e) u_x = 0 at K = E = 0: True
+[info] c5 done in 0 s (26 s)
+[PASS] C6: (a) dsolve: u = C1 + C2*log(rho), of the form f ln rho + g: True; (b) rho R = 3*Fp*L*f(x) + Fp*g(x) + 2*Gp*f(x): L coefficient a nonzero multiple of f f': True; at f' = 0: 2*Gp*f(x), a nonzero multiple of f g': True; (c) u_x = 0: True
+[info] c6 done in 0 s (26 s)
+
+8 criteria, 7 pass; failed: ['C2'] (26 s)
+exit 1

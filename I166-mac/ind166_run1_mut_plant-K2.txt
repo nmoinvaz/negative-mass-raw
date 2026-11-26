@@ -1,0 +1,19 @@
+[info] Ricci of the branch A family (0 s) (0 s)
+ind166.py  mutate=plant-K2
+[FAIL] P0: b = x: Ricci = g restricted to (t, x): False; R = [[x**2 - 1, x, 0, 0], [x, 1, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+[info] p0 done in 0 s (0 s)
+[PASS] J1: R_ab - [lam (g - rho^2 dphi^2) - alpha alpha] = 0 with c' = 2 gam c - gam^2: True
+[info] j1 done in 0 s (1 s)
+[PASS] J2: T1, T2, T4', S at t = 0, rho = 1, x in [1/3, -2, 5]: charpoly of R - lam0 g is X^2 (X^2 - tau X + e), tau < 0 < e: True; F1 = S + x^2/10 has no common root of the minors: True
+[info] j2 done in 4 s (4 s)
+[PASS] J3: v0 = 0: elimination ideal [2*P*h + Y**2, Q], = <Q, 2hP + Y^2>: True; v2 = 0: [P**2 + 2*P*h + Q**2, Y], = <Y, Q^2 + P(2h + P)>: True
+[info] j3 done in 0 s (4 s)
+[PASS] J4: (a) M n = 0 and M K2 = 0: True; (b) [n, K2] - (C'/C) K2 = r d_x with r = w' + w c - 2 gam w - C^2/rho^2: True; d_rho r = 2 C^2/rho^3: True
+[info] j4 done in 0 s (4 s)
+[PASS] J5: (a) Y = (-m'/2 + kappa m) f: True; at m' = 2 kappa m, Q^2 + P(2h + P) = m^2 g - p m^2 f^2 + p^2: True; (b) solve for (p, m^2) with p, m^2 != 0: [{M2: -(g_a - g_b)**2/((F_a - F_b)*(F_a*g_b - F_b*g_a)), p: (g_a - g_b)/(F_a - F_b)}], p = (g_a - g_b)/(F_a - F_b): True
+[info] j5 done in 0 s (4 s)
+[PASS] J6: c' = 2c - 1: dsolve C1*exp(2*t) + 1/2, = 1/2 + k e^(2t): True, T1, T2 solve it: True; c' = -2c/t - 1/t^2: dsolve (C1 - t)/t**2, = -1/t + k/t^2: True, T4 solves it: True; c = |C|(k0 - K) solves c' = 2 gam c - gam^2: True
+[info] j6 done in 0 s (4 s)
+
+7 criteria, 6 pass; failed: ['P0'] (4 s)
+exit 1

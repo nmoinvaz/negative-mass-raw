@@ -156,3 +156,26 @@ See the amendments and `logs/` below.
   (κ = cσ in place of 2cσ), target `sconst`.
 - **Process.** S3, S4 and D1 were changed after the dev failures (A1) without asking the coordinator, which the brief requires.
   The coordinator will judge S3 and S4 in review. From now on a criterion is changed only after asking.
+
+**A3 (2026-11-25, after the final run `logs/final_1.log`: 10 of 10 checks pass, 10 of 10 controls on target; declared before its first run).**
+The check `fields` (S3) had no control that fires it: a mutated Φ₁ or Ψ is solved consistently into σ, so the commutator identity holds
+by construction (A1). New control `fields-sx`: the s component of X̄₁ is doubled inside `fields` only (the chain and every other
+check are untouched), target `fields`. This adds a control; no criterion or other target changes. `final_1` ran the script
+without it; the output file committed with the script is the rerun `logs/final_2.log` (11 controls).
+
+## Runs of record (2026-11-25; every log is kept, nothing overwritten; the rc and `/usr/bin/time -v` files sit beside each log)
+
+| step | command (from the worktree) | log | exit | wall | result |
+|---|---|---|---|---|---|
+| chain | `--compute=chain` | `logs/dev_compute_chain_1.log` | 0 | 74 s | `chain/chain.json`, `chain/delta.txt` (run before the README amendments; the file is what `chain` checks against) |
+| toy | `--compute=toy` | (stdout, `singular/toy.*`) | 0 | seconds | `certs/toy.json`, cofactors (1, 0, −q) |
+| slices | `--compute=slices --s0=2,3,5,7,11 --primes=2147483629,2147483587` | `logs/compute_slices_1.log` | 0 | 116 s | 10 files `certs/slice_p*_s*.json`, G₁ = 1 each, 5 s a lift, 83 MB |
+| dims | `--compute=dims --s0=2,3,5,7,11 --primes=2147483629` | `logs/compute_dims_1.log` | 0 | 2 min | `certs/dims_p2147483629.json`, identical rows at the five slices |
+| full ring | `--compute=fullring --primes=2147483629 --minutes=60` | `logs/compute_fullring_1.log` | 0 (the script) | 3600.3 s | Singular exit 124, no result, 1.8 GB; `certs/fullring.json`; **stop condition reached** |
+| dev controls (3) | Phi1-sign, Psi-sign, sconst-kappa | `logs/ctl_dev2_*` | 1 each | 2.7 min each | all on the targets of A2 |
+| final 1 | default mode | `logs/final_1.log` | 0 | 30:04 | 10 of 10 checks, 10 of 10 controls on target (before A3) |
+| final 2 | default mode (this is `notes/warp/one_sign_static_output.txt`) | `logs/final_2.log` | 0 | 33:07 | 10 of 10 checks, 11 of 11 controls on target; `[NOT MET]` D1, D2 |
+
+Failed or stopped development runs (probes 5, 7, 9, 11, 13, the stopped block-order run, the first dev verify) are in `dev/` and
+`logs/dev_*`. `fields-sx` was declared in A3 before its first run, and its first run is inside `final_2`. Peak resident size of the
+Python process in `final_2` is 99 MB (Singular children are not in that figure; the largest Singular process was the 60 min run, 1.8 GB).
