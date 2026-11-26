@@ -1,0 +1,5 @@
+[FAIL] numeric_b: mpmath (30 digits) from G_0 = 1, zeta_0 = 1/5, eta_0 = 45 to 1e7: F_inf = 1.0010119468011741555, C = -123.013880629 (residual of the fit at eta = 1000 1.35e-33); e_m = |F - F^(2m)|/(nu^(2m+2) (1 + ln eta)^m) <= 1e5 for m = 1..4: eta 100: 15.5, 163, 3.83e+03, 1.03e+07; eta 200: 12.8, 112, 1.47e+04, 1e+08; eta 400: 10.7, 79.5, 3.97e+04, 9.24e+08; eta 800: 9.04, 57.4, 5.17e+04, 4.34e+09
+  (55 s)
+
+checks: 0 passed, 1 failed ['numeric_b']. 55 s
+control numB-coef: target checks ['numeric_b'], fired ['numeric_b']

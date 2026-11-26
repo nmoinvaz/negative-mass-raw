@@ -104,6 +104,53 @@ Names and intended mutations (prediction only until declared): `d-sign` (M1), `P
 in `rcNN`. Development logs `dev_NN`, runs of record `run_NN`, controls `ctl_<name>.log/.rc`. A failed check or a silent control
 is reported, not repaired, and a criterion is not changed after seeing data (ask the coordinator).
 
-## Amendments
+## Amendments (all before the first run of record; criteria and thresholds unchanged unless stated)
 
-(none yet)
+**A1 (M7, agreed with the coordinator).** M7 as first worded (RK4 h = 1/200, direct vs reduced to 1e-9 at t = 6) **failed** in the
+development run `dev_04_numeric_a.log`: y differs by 2.52e-9 (G by 6.9e-14). The cause is RK4 truncation in the direct (G, p)
+integrator, not a defect of the reduced system: `dev_05_direct_vs_h.log` (G_0 = 1, zeta_0 = 0.2) gives the deviation in y
+4.08e-8, 2.52e-9, 1.57e-10, 8.98e-12, 2.60e-12 for h = 1/100, 1/200, 1/400, 1/800, 1/1600, a factor 16.2, 16.1, 17.5 per halving
+(fourth order) until the 1e-12 level of the Newton and rounding noise; the second case (G_0 = 0.3, zeta_0 = -0.2) is the same
+to three digits. The coordinator's condition 3, "h = 1/400 and h = 1/800 results differ by less than 1e-10", **failed as worded**
+(`dev_09_h400_vs_h800.log`): the reduced system differs by 8e-15 in y, the direct integrator by 1.48e-10 in y (G 5e-15). The
+threshold was the coordinator's error (set without knowing the integrator's error at 1/400); it stays recorded as failed here,
+in the note and in the closing comment. **Settings of the run of record, chosen after dev_05 and dev_09 and known to pass
+(`dev_11_numeric_a_h800.log`: deviation 8.98e-12, step study 6.37e-12):** (a) the inequality trajectories (15 cases, t to 20) use
+h = 1/400; (b) direct vs reduced at t = 6 uses h = 1/800, tolerance 1e-9 unchanged; (c) the step study h = 1/800 vs h = 1/1600,
+G and y of both integrators, differs by at most 1e-10. M7 is numerical evidence and is never called proved. The control `num-rate`
+fires at these settings (`dev_12_ctl_num-rate.log`: rate-bound ratio 6.8e-5 against >= 1).
+
+**A2 (M5).** The README sentence "(321/10000) <= (8/5) y for y >= 1/50" is wrong: 8/5 * 1/50 = 0.032 < 0.0321. The code checks
+321/10000 <= (beta - 201/100)/50 = 0.0322 with beta = 181/50 (as the constants list says). No constant changed.
+
+**A3 (M7 slack).** The inequalities of Theorem A are exact; in floating point they are tested with an absolute slack of 1e-12 (the
+rounding level of y - 4 and ln G at t > 8). The control `num-rate` uses exp(-3t) in the rate bound.
+
+**A4 (M12).** The root bound is tested at 1e4 random parameter points with all three roots each (30000 roots, complex ones
+included), not "1e4 random roots".
+
+**A5 (M15).** The garbled clause "for y >= 8 G^-1... : r' <= 2r - r^2/(4G)" means: on the huge root w <= -1/(4a) gives s = sigma r^2 w <= -r^2/(4G),
+so r' <= 2r - r^2/(4G); it is an identity of the note, not a separate check.
+
+**A6 (M16).** The first development run `dev_06_classify.log` printed every predicted outcome but failed: the stop rule |y| > 1e6 ended
+the small-root runs early (there y grows like e^{2t} while p = sigma G y stays bounded). The rule now applies to the huge root only;
+the criteria are unchanged (`dev_07_classify.log`).
+
+**A7 (M4).** (iv) also checks P'(2) < 0 (interval bound), which the written proof needs (it puts the maximum of P in (0, 2)). It
+strengthens the check.
+
+**A8 (M11).** The first development run of the control `numB-coef` (`dev_12_ctl_numB-coef.log`) crashed in the secant fit
+(division by zero once the fit has converged exactly); the loop now stops when the residual is below 1e-32.
+`dev_13_ctl_numB-coef.log` is the rerun. No criterion changed.
+
+## Controls: targets observed in development runs (declared before the run of record)
+
+`dev_10_ctl_<name>.log` (24 non-numeric controls, run with `--skip-num`), `dev_12_ctl_num-rate.log`, `dev_13_ctl_numB-coef.log`.
+Every control made exactly its predicted check fail and no other, with no traceback: `d-sign`, `P-drop` -> n_identity; `ehat-sign`,
+`f-sigma` -> reduction; `eig-plus` -> reduction and hyp_line_real; `shape-3`, `shape-om` -> shape; `ehat-alpha` -> ehat; `A-u0`,
+`A-cf` -> theorem_a; `A-kappa`, `plant-gron` -> planted_gronwall; `num-rate` -> numeric_a; `series-a2`, `series-8` -> series;
+`stage-I` -> stage_symbol; `link-slope` -> expansion_link; `numB-coef` -> numeric_b; `local-c2` -> local_lemma;
+`regimeb-y` -> regime_b; `small-sigma` -> small_branch; `huge-thr` -> huge_branch; `plant-hyp` -> planted_hyp;
+`plant-shape` -> planted_shape; `plant-local` -> planted_local; `plant-series` -> planted_series. `class-sign` (classify_numeric) was not
+yet run in a development sweep; its target is a prediction until the run of record. (A-kappa's mutation as coded changes only the
+planted chain, not theorem_a, so its target is planted_gronwall, not theorem_a as predicted in the table above.)
