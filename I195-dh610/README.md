@@ -191,12 +191,13 @@ is corrected) and accepted A1. The rulings:
   the node count of Y rises from 0 (Ω ≥ −1.5) to 2, 3, … 7 at −1.525, −1.55, … −1.8 and 22 at −4. Those zeros are the planted
   system's further eigenvalues, with nodes in their eigenfunctions; f64's Ω = −1.5041 lies between the node counts 2 (at
   −1.525) and 0 (at −1.5), so it is one of them (the counter reads Y at the flow's step ends, so it can skip a node). At
-  D = 6, 8 and 20 the same start reaches Ω* in dd. If the real problem's start rule (±0.5 in Ω, check R4 below) can reach
+  D = 6 the same start also fails (Ω = −3.509 in dd and f64); it reaches Ω* at D = 8 and 11 (f64, dev_11) (erratum A2.1: A2 first said D = 6, 8, 20,
+  which was wrong for D = 6 at the −0.4 start; D = 6 reached Ω* from −0.1, dev_07). If the real problem's start rule (±0.5 in Ω, check R4 below) can reach
   another root at D ≤ 11, the note says so.
 - **S5 stays as worded** and is reported NOT MET where it fails: dev_24 6 of 12, failing in f64, dd and qd at D = 1000 and 10⁴.
 - **S5s, added after dev_06 by the coordinator's ruling:** the same test with the bound 100·s²·e^−T′ + 10^−d_lane in place of
   100·e^−T′ + 10^−d_lane (dd, qd, od). Reason: one factor s from Ω's conditioning (as S4w) and one from the other solution,
-  whose w = s Y_ℓ/…, so its w/Y ratio is s times the decaying one's. The bound uses the declared T (a control that shortens
+  whose w = s dY/dℓ is of order s·Y, so its w/Y ratio is s times the decaying one's. The bound uses the declared T (a control that shortens
   T does not shorten the bound). Development: 8 of 8 in dd and qd (dev_24); od at D = 50 and 10⁴ (dev_08): −77.2 and −69.5
   against −70.7 and −66.0.
 - **`short_contraction` (T/4) and S5s.** It violates S5s in 7 of the 8 dd and qd cases (dd D = 50, 1000, 10⁴; qd D = 5, 50,
@@ -265,3 +266,32 @@ self-test above replaces it. S4, S4w, S5 and F3 are not targets of any control, 
 S4 diagnostics (`S4om`, `S4M`, `S4nodes`, `S4btrace`), the declared T in S5's bound, and a `kt_ms` field that prints
 multishoot's `Plan::optimal_kt` at the lane's tolerance (dd: 45 against the crate's order 48) as a cross-check of the order.
 multishoot's and multisolver's other code is not called by the crate (see the note).
+
+## Runs of record (2026-11-26, dh610-fedora, 20 cores shared with choptuik-large-d)
+
+Written after A2 was committed (raw 91537ed). Crate at commit 5ad351a (binary built from it, `cargo build --release -j 2`), driver
+as named. Each single-thread process under `nice -n 10`; at most 4 processes at once (the planted od runs and od D-list parts ran
+together with load average 9 to 14 from other users' work); memory reported only (`/usr/bin/time -v`, `.time` files). The
+exit codes of 1 are the driver's: it exits 1 when a check fails, and S4, S4w, S5, F3, G1 and R4 do (see the note).
+
+| run | what | start | load average (1, 5, 15 min) | wall | peak RSS (MiB) | exit |
+|---|---|---|---|---|---|---|
+| `run_01_planted_dd` | planted, dd | 14:16:13 | 13.80, 14.27, 13.25 | 0:03.00 | 3.5 | 0 |
+| `run_01_planted_f64` | planted S1-S5, f64, D = 5, 50, 1000, 10^4 | 14:16:13 | 13.80, 14.27, 13.25 | 0:00.02 | 3.6 | 0 |
+| `run_01_planted_od_D1000_10000` | planted, od, D = 1000, 10^4 (unit nm-i195-run01-od-D1000-10000) | 14:16:13 | 13.80, 14.27, 13.25 | 20:38.05 | 3.6 | 0 |
+| `run_01_planted_od_D5_50` | planted, od, D = 5, 50 (unit nm-i195-run01-od-D5-50) | 14:16:13 | 13.80, 14.27, 13.25 | 27:10.08 | 3.4 | 0 |
+| `run_01_planted_qd` | planted, qd | 14:16:16 | 13.80, 14.27, 13.25 | 1:19.71 | 3.5 | 0 |
+| `run_02_w2_qd_growth` | W2 in qd at growth.csv's 16 D | 14:17:36 | 12.61, 13.89, 13.21 | 0:08.43 | 3.5 | 0 |
+| `run_03_w2_qd_Dlist` | W2 in qd at the 64 D of the list (unit nm-i195-run01-qd-quick, as run_01 f64 to qd, run_02) | 14:17:45 | 12.36, 13.80, 13.18 | 0:50.36 | 3.5 | 0 |
+| `run_04_w2_od_Dlist_p0` | W2 in od, D list index 0 mod 3 (unit nm-i195-run04-od-p0) | 14:16:13 | 13.80, 14.27, 13.25 | 16:51.51 | 3.4 | 0 |
+| `run_04_w2_od_Dlist_p1` | od, index 1 mod 3 (unit nm-i195-run04-od-p1) | 14:18:42 | 12.69, 13.64, 13.16 | 18:35.77 | 3.3 | 0 |
+| `run_04_w2_od_Dlist_p2` | od, index 2 mod 3 (unit nm-i195-run04-od-p2) | 14:33:12 | 9.18, 11.94, 13.34 | 23:18.55 | 3.6 | 0 |
+| `run_05_driver_final` | the driver, code f620c48's predecessor 5ad351a (unit nm-i195-run05-driver) | 14:56:42 | 18.19, 18.43, 17.31 | 1:24.23 | 117.4 | 1 |
+| `run_06_driver_final` | the driver, code f620c48 (unit nm-i195-run06-driver); same verdicts and numbers as run_05 | 14:58:52 | 19.69, 18.93, 17.65 | 1:37.83 | 116.6 | 1 |
+| `run_07_driver_final` | the driver, code 69a9b96, with the Omega3, Omega4 and four-term remainder report: same verdicts as run_05 and run_06 (foreground, 74 s) | 15:00:50 | 18.54, 18.94, 17.82 | 1:14.04 | 116.5 | 1 |
+| `run_08_driver_final` | the driver, code 4f022ee with the planted cases' digits table: **the output of record** (foreground) | 15:03:25 | 17.03, 17.76, 17.52 | 1:17.67 | 117.4 | 1 |
+
+Cpu seconds inside the crate (sum of the `secs` fields): the qd D list 50.4 s (2106 Taylor steps, 1087 retries), the od D list
+3525.8 s (2717 steps, 611 retries). `dev_25_pslq_omega3.*` is a development try, not a record: Omega3 = -652.8401075700561254352393037996
+(range 2.7e-35 over the 6 cells) is not found in the pure weight-4 basis {pi^4, pi^2 ln^2 2, ln^4 2, zeta(3) ln 2, Li4(1/2)} at H = 10000 and
+tau 1e-25 to 1e-33; the 13-element relation at weights <= 4 is spurious (its budget needs more digits than the fit has).
