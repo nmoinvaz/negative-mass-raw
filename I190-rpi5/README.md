@@ -146,4 +146,41 @@ computed first; the names and the predicted target are fixed here):
 
 ## Development log and amendments
 
-(empty)
+Nothing above this heading has been edited. The development runs are `dev_01_implicit` (the first run of
+`tests/implicit.rs`; its tests stopped at the first unmet cell) and `dev_02_implicit` (every cell run before the assertion;
+the same code). Both are kept; both were run with `--features mutate` at multishoot's working tree on `feat/implicit-taylor`
+(uncommitted at the time), release build, 2 threads, nice 10, load 0.6.
+
+### D1 What the development run shows (reported to the coordinator before any change)
+
+| cell | verdict | number |
+|---|---|---|
+| `closed_form`, branch mode `Project`, all 9 branches, 3 lanes (27 cells) | met | worst err 1.9e-31 dd, 2.2e-15 f64, 1.1e-63 qd (bars 1.2e-26, 1.1e-10, 1.5e-58) |
+| `crossings`, `Project`, 7 branches, 3 lanes (21 cells) | met | worst position error 7.8e-14 f64, 2.3e-30 dd, 2.3e-62 qd |
+| `fold` F1, F2, `Project`, 3 lanes (6 cells) | met | \|x_zero\| / (-x_last) <= 2.5e-33 dd, F2 1e-22 (the estimate is exact for a pure power) |
+| `closed_form`, `Conserve`: Q-A, Q-B, K-A, K-C, R-A, R-C | met | worst 3.5e-14 f64, 4.1e-30 dd, 6.1e-63 qd |
+| `closed_form` and `crossings`, `Conserve`: **K-B, R-B, R-D**, every lane | **NOT MET** (9 cells each) | stop `Tiny` after 26 to 115 steps; err 7.4e-8 f64, 1.6e-18 dd, 3.2e-50 qd on K-B; one of two crossings found |
+| `fold` F1 `Conserve`, f64 | **NOT MET** | \|x_zero\| 5.7e-15 against 1e-3 (-x_last) = 6.3e-16 (dd, qd met) |
+| `coeffs` (l = 1 and 1/4), every lane | **NOT MET as worded** | relative error of c_k 4.9e-8 f64 (k <= 22), 1.5e-11 dd (k <= 42), 1.5e-14 qd (k <= 80) |
+| `zero_pivot`, `planner`, `lanes`, the three hook-free controls | met | `planner` bitwise at 5 steps; `lanes` equal to dd bit for bit (0.0 difference) |
+
+Causes (computed, not assumed):
+
+- `coeffs`: the relative error of c_k grows by a factor 2 to 5 per order (`dbg_coeffs`, f64: 1.5e-16 at k = 3, 5.8e-14 at
+  k = 9, 3e-11 at k = 17, 4.9e-8 at k = 22). Order k of N is s^2_k minus a convolution of the y'' coefficients, and for a
+  function whose coefficients fall off super-exponentially the convolution terms exceed c_k (by about C(k, k/2)^(1/2)), so
+  c_k has an absolute error of about eps |c_0| and a relative one that grows. The check as worded asks for what the
+  recursion cannot give. The error that enters a step is |dc_k| |s|^k <= eps |c_0| at |s| <= 1, and the walks' errors
+  (closed_form) are at roundoff.
+- `Conserve` through a double root (K-B at x = 1 and sqrt 3, R-B likewise, R-D at y = 0): N is conserved at its start
+  value, a rounding eps, not at 0. For N = eps the double root is two roots, at distance sqrt(eps) from the crossing the
+  analytic branch of N = 0 becomes an avoided crossing (or a fold), and the Taylor series about a point at distance d has
+  radius about d: the planner's steps shrink to the crossing and the walk stops with `Tiny`. `Project` sets N = 0 at each
+  step's start and crosses freely. Q-B, K-A, R-A, K-C, R-C meet it in `Conserve` (the sign of the start residual is
+  favorable, or the crossing is with a root that N = eps does not avoid).
+- f64 F1 `Conserve`: N drifts by about eps (sum of |terms| = 250) per step over 84 steps, and a drift dN moves the fold of
+  N = const by dN / (dN/dx) = dN / 225; 5.7e-15 is that shift.
+
+Proposals made to the coordinator (not applied): `coeffs` reworded to |dc_fk| <= 1e6 eps max_g |c_g0| for all k and f;
+the `Conserve` cells of K-B, R-B, R-D and f64 F1 reported as NOT MET, the criteria left as written, and a documented
+statement that `Conserve` is not for branches that meet a double root (K-B stays in the table).

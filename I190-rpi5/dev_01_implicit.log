@@ -1,0 +1,295 @@
+# dev_01_implicit: 2026-11-26T23:51:13Z machine rpi5-ubuntu load 0.54 0.57 0.55 threads 2 nice 10
+# multishoot 70fac93 5 modified files
+   Compiling crossbeam-utils v0.8.23
+   Compiling crossbeam-epoch v0.9.21
+   Compiling crossbeam-deque v0.8.8
+   Compiling rayon-core v1.13.0
+   Compiling either v1.19.0
+   Compiling rayon v1.12.0
+   Compiling multidouble v5.1.0
+   Compiling multisolver v0.2.2
+   Compiling multishoot v4.2.0 (/home/nathan/Source/negative-mass-i190-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 1m 24s
+     Running tests/implicit.rs (target/release/build/multishoot/bee35d2b9ab6f6d8/out/implicit-bee35d2b9ab6f6d8)
+
+running 17 tests
+[PASS] f64 QA Project None: stop End, 12 steps, err 1.26e-16 (bar 1.1e-10), n_rel_max 1.41e-16
+[PASS] f64 QA Conserve None: stop End, 12 steps, err 1.26e-16 (bar 1.1e-10), n_rel_max 1.25e-16
+[PASS] f64 QB Project None: stop End, 15 steps, err 2.23e-15 (bar 1.1e-10), n_rel_max 5.58e-17
+[PASS] f64 QB Conserve None: stop End, 16 steps, err 3.50e-14 (bar 1.1e-10), n_rel_max 4.23e-14
+[PASS] f64 KA Project None: stop End, 14 steps, err 1.77e-16 (bar 1.1e-10), n_rel_max 7.05e-17
+[PASS] dd QA Project None: stop End, 12 steps, err 1.40e-32 (bar 1.2e-26), n_rel_max 3.48e-33
+[PASS] f64 KA Conserve None: stop End, 14 steps, err 5.32e-15 (bar 1.1e-10), n_rel_max 8.28e-16
+[PASS] f64 KB Project None: stop End, 17 steps, err 4.35e-15 (bar 1.1e-10), n_rel_max 5.72e-17
+[PASS] dd QA Conserve None: stop End, 12 steps, err 4.93e-33 (bar 1.2e-26), n_rel_max 1.60e-32
+[FAIL] f64 KB Conserve None: stop Tiny, 33 steps, err 7.39e-8 (bar 1.1e-10), n_rel_max 1.16e-15
+
+thread 'closed_form_f64' (3060099) panicked at tests/implicit.rs:481:13:
+f64 KB Conserve None: stop Tiny, 33 steps, err 7.39e-8 (bar 1.1e-10), n_rel_max 1.16e-15
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test closed_form_f64 ... FAILED
+[PASS] dd QB Project None: stop End, 16 steps, err 1.50e-31 (bar 1.2e-26), n_rel_max 7.15e-33
+[PASS] dd QB Conserve None: stop End, 16 steps, err 4.06e-30 (bar 1.2e-26), n_rel_max 4.92e-30
+[PASS] dd KA Project None: stop End, 15 steps, err 1.26e-31 (bar 1.2e-26), n_rel_max 1.21e-32
+[PASS] dd KA Conserve None: stop End, 16 steps, err 7.15e-31 (bar 1.2e-26), n_rel_max 8.38e-32
+[PASS] dd KB Project None: stop End, 18 steps, err 8.67e-32 (bar 1.2e-26), n_rel_max 4.03e-33
+[PASS] qd QA Project None: stop End, 12 steps, err 5.31e-65 (bar 1.5e-58), n_rel_max 2.78e-65
+[FAIL] dd KB Conserve None: stop Tiny, 33 steps, err 1.58e-18 (bar 1.2e-26), n_rel_max 1.19e-31
+
+thread 'closed_form_dd' (3060098) panicked at tests/implicit.rs:481:13:
+dd KB Conserve None: stop Tiny, 33 steps, err 1.58e-18 (bar 1.2e-26), n_rel_max 1.19e-31
+test closed_form_dd ... FAILED
+[FIRED] control SkipOrder(3) coeffs in dd: dd Q-A l = 0.25 Lib(SkipOrder(3)): worst relative error of c_k, k <= 42: 6.89e33 (bar 1.2e-26)
+[FIRED] control SkipOrder(3) closed_form K-A Project in dd: dd KA Project Lib(SkipOrder(3)): stop Tiny, 50 steps, err 8.25e-4 (bar 1.2e-26), n_rel_max 5.98e-7
+[PASS] qd QA Conserve None: stop End, 12 steps, err 1.52e-65 (bar 1.5e-58), n_rel_max 7.15e-65
+[FIRED] control SkipOrder(3) closed_form R-D Conserve in dd: dd RD Conserve Lib(SkipOrder(3)): stop Tiny, 77 steps, err 3.75e-2 (bar 1.2e-26), n_rel_max 1.79e-3
+[FIRED] control SkipOrder(3) crossings K-B Project in dd: dd KB Project Lib(SkipOrder(3)): 0 crossings found, 2 expected, worst position error 0.00e0 (bar 1.2e-26)
+[PASS] qd QB Project None: stop End, 17 steps, err 2.21e-63 (bar 1.5e-58), n_rel_max 1.87e-65
+[FIRED] control SkipOrder(3) fold F1 Project in dd: dd F1 Project Lib(SkipOrder(3)): stop Pivot, 88 steps, x_last -1.737e-8, |x_zero| 1.74e-8, beta 0.5000
+[FIRED] control SkipOrder(3) fold F2 Project in dd: dd F2 Project Lib(SkipOrder(3)): stop Pivot, 83 steps, x_last -2.965e-4, |x_zero| 2.97e-4, beta 1.0000
+[SILENT] control SkipOrder(3) zero_pivot in dd: dd Lib(SkipOrder(3)): stop ZeroPivot at x = 1, state finite true
+[FIRED] control RecipDD coeffs in dd: dd Q-A l = 0.25 Lib(RecipDD): worst relative error of c_k, k <= 42: 1.48e-11 (bar 1.2e-26)
+[SILENT] control RecipDD closed_form K-A Project in dd: dd KA Project Lib(RecipDD): stop End, 15 steps, err 1.26e-31 (bar 1.2e-26), n_rel_max 1.21e-32
+[FIRED] control RecipDD closed_form R-D Conserve in dd: dd RD Conserve Lib(RecipDD): stop Tiny, 48 steps, err 1.19e-19 (bar 1.2e-26), n_rel_max 1.69e-7
+[SILENT] control RecipDD crossings K-B Project in dd: dd KB Project Lib(RecipDD): 2 crossings found, 2 expected, worst position error 1.03e-30 (bar 1.2e-26)
+[PASS] qd QB Conserve None: stop End, 16 steps, err 4.04e-62 (bar 1.5e-58), n_rel_max 4.92e-62
+[SILENT] control RecipDD fold F1 Project in dd: dd F1 Project Lib(RecipDD): stop Pivot, 114 steps, x_last -5.716e-13, |x_zero| 1.43e-45, beta 0.5000
+[SILENT] control RecipDD fold F2 Project in dd: dd F2 Project Lib(RecipDD): stop Pivot, 92 steps, x_last -1.318e-10, |x_zero| 1.23e-32, beta 1.0000
+[SILENT] control RecipDD zero_pivot in dd: dd Lib(RecipDD): stop ZeroPivot at x = 1, state finite true
+[FIRED] control NoPivotCheck coeffs in dd: dd Q-A l = 0.25 Lib(NoPivotCheck): worst relative error of c_k, k <= 42: 1.48e-11 (bar 1.2e-26)
+[SILENT] control NoPivotCheck closed_form K-A Project in dd: dd KA Project Lib(NoPivotCheck): stop End, 15 steps, err 1.26e-31 (bar 1.2e-26), n_rel_max 1.21e-32
+[FIRED] control NoPivotCheck closed_form R-D Conserve in dd: dd RD Conserve Lib(NoPivotCheck): stop Tiny, 48 steps, err 1.19e-19 (bar 1.2e-26), n_rel_max 1.69e-7
+[SILENT] control NoPivotCheck crossings K-B Project in dd: dd KB Project Lib(NoPivotCheck): 2 crossings found, 2 expected, worst position error 1.03e-30 (bar 1.2e-26)
+[SILENT] control NoPivotCheck fold F1 Project in dd: dd F1 Project Lib(NoPivotCheck): stop Pivot, 114 steps, x_last -5.716e-13, |x_zero| 1.43e-45, beta 0.5000
+[SILENT] control NoPivotCheck fold F2 Project in dd: dd F2 Project Lib(NoPivotCheck): stop Pivot, 92 steps, x_last -1.318e-10, |x_zero| 1.23e-32, beta 1.0000
+[FIRED] control NoPivotCheck zero_pivot in dd: dd Lib(NoPivotCheck): stop NonFinite at x = 1, state finite true
+[FIRED] control NoCrossing coeffs in dd: dd Q-A l = 0.25 Lib(NoCrossing): worst relative error of c_k, k <= 42: 1.48e-11 (bar 1.2e-26)
+[SILENT] control NoCrossing closed_form K-A Project in dd: dd KA Project Lib(NoCrossing): stop End, 15 steps, err 1.26e-31 (bar 1.2e-26), n_rel_max 1.21e-32
+[FIRED] control NoCrossing closed_form R-D Conserve in dd: dd RD Conserve Lib(NoCrossing): stop Tiny, 48 steps, err 1.19e-19 (bar 1.2e-26), n_rel_max 1.69e-7
+[FIRED] control NoCrossing crossings K-B Project in dd: dd KB Project Lib(NoCrossing): 0 crossings found, 2 expected, worst position error 0.00e0 (bar 1.2e-26)
+[SILENT] control NoCrossing fold F1 Project in dd: dd F1 Project Lib(NoCrossing): stop Pivot, 114 steps, x_last -5.716e-13, |x_zero| 1.43e-45, beta 0.5000
+[SILENT] control NoCrossing fold F2 Project in dd: dd F2 Project Lib(NoCrossing): stop Pivot, 92 steps, x_last -1.318e-10, |x_zero| 1.23e-32, beta 1.0000
+[SILENT] control NoCrossing zero_pivot in dd: dd Lib(NoCrossing): stop ZeroPivot at x = 1, state finite true
+[FIRED] control ExponentHalf coeffs in dd: dd Q-A l = 0.25 Lib(ExponentHalf): worst relative error of c_k, k <= 42: 1.48e-11 (bar 1.2e-26)
+[PASS] qd KA Project None: stop End, 16 steps, err 5.40e-64 (bar 1.5e-58), n_rel_max 2.64e-65
+[SILENT] control ExponentHalf closed_form K-A Project in dd: dd KA Project Lib(ExponentHalf): stop End, 15 steps, err 1.26e-31 (bar 1.2e-26), n_rel_max 1.21e-32
+[FIRED] control ExponentHalf closed_form R-D Conserve in dd: dd RD Conserve Lib(ExponentHalf): stop Tiny, 48 steps, err 1.19e-19 (bar 1.2e-26), n_rel_max 1.69e-7
+[SILENT] control ExponentHalf crossings K-B Project in dd: dd KB Project Lib(ExponentHalf): 2 crossings found, 2 expected, worst position error 1.03e-30 (bar 1.2e-26)
+[SILENT] control ExponentHalf fold F1 Project in dd: dd F1 Project Lib(ExponentHalf): stop Pivot, 114 steps, x_last -5.716e-13, |x_zero| 1.43e-45, beta 0.5000
+[FIRED] control ExponentHalf fold F2 Project in dd: dd F2 Project Lib(ExponentHalf): stop Pivot, 92 steps, x_last -1.318e-10, |x_zero| 6.59e-11, beta 0.5000
+[SILENT] control ExponentHalf zero_pivot in dd: dd Lib(ExponentHalf): stop ZeroPivot at x = 1, state finite true
+[FIRED] control NoPivotStop coeffs in dd: dd Q-A l = 0.25 Lib(NoPivotStop): worst relative error of c_k, k <= 42: 1.48e-11 (bar 1.2e-26)
+[SILENT] control NoPivotStop closed_form K-A Project in dd: dd KA Project Lib(NoPivotStop): stop End, 15 steps, err 1.26e-31 (bar 1.2e-26), n_rel_max 1.21e-32
+[FIRED] control NoPivotStop closed_form R-D Conserve in dd: dd RD Conserve Lib(NoPivotStop): stop Tiny, 48 steps, err 1.19e-19 (bar 1.2e-26), n_rel_max 1.69e-7
+[SILENT] control NoPivotStop crossings K-B Project in dd: dd KB Project Lib(NoPivotStop): 2 crossings found, 2 expected, worst position error 1.03e-30 (bar 1.2e-26)
+[FIRED] control NoPivotStop fold F1 Project in dd: dd F1 Project Lib(NoPivotStop): stop Tiny, 171 steps, no estimate, x_last -4.322e-19
+[FIRED] control NoPivotStop fold F2 Project in dd: dd F2 Project Lib(NoPivotStop): stop Tiny, 171 steps, no estimate, x_last -4.322e-19
+[SILENT] control NoPivotStop zero_pivot in dd: dd Lib(NoPivotStop): stop ZeroPivot at x = 1, state finite true
+test controls::control_table_dd ... ok
+[FIRED] control SkipOrder(3) coeffs in f64: f64 Q-A l = 0.25 Lib(SkipOrder(3)): worst relative error of c_k, k <= 22: 2.06e13 (bar 1.1e-10)
+[PASS] qd KA Conserve None: stop End, 16 steps, err 6.53e-63 (bar 1.5e-58), n_rel_max 8.28e-64
+[FIRED] control SkipOrder(3) closed_form K-A Project in f64: f64 KA Project Lib(SkipOrder(3)): stop End, 85 steps, err 9.68e-4 (bar 1.1e-10), n_rel_max 2.68e-6
+[FIRED] control SkipOrder(3) closed_form R-D Conserve in f64: f64 RD Conserve Lib(SkipOrder(3)): stop Tiny, 46 steps, err 4.93e-2 (bar 1.1e-10), n_rel_max 3.08e-3
+[FIRED] control SkipOrder(3) crossings K-B Project in f64: f64 KB Project Lib(SkipOrder(3)): 2 crossings found, 2 expected, worst position error 1.17e-4 (bar 1.1e-10)
+[FIRED] control SkipOrder(3) fold F1 Project in f64: f64 F1 Project Lib(SkipOrder(3)): stop Pivot, 64 steps, x_last -1.005e-7, |x_zero| 1.01e-7, beta 0.5000
+[FIRED] control SkipOrder(3) fold F2 Project in f64: f64 F2 Project Lib(SkipOrder(3)): stop Pivot, 56 steps, x_last -9.668e-4, |x_zero| 9.67e-4, beta 1.0000
+[SILENT] control SkipOrder(3) zero_pivot in f64: f64 Lib(SkipOrder(3)): stop ZeroPivot at x = 1, state finite true
+[FIRED] control RecipDD coeffs in f64: f64 Q-A l = 0.25 Lib(RecipDD): worst relative error of c_k, k <= 22: 4.86e-8 (bar 1.1e-10)
+[SILENT] control RecipDD closed_form K-A Project in f64: f64 KA Project Lib(RecipDD): stop End, 14 steps, err 1.77e-16 (bar 1.1e-10), n_rel_max 7.05e-17
+[FIRED] control RecipDD closed_form R-D Conserve in f64: f64 RD Conserve Lib(RecipDD): stop End, 92 steps, err 1.21e1 (bar 1.1e-10), n_rel_max 9.98e-1
+[SILENT] control RecipDD crossings K-B Project in f64: f64 KB Project Lib(RecipDD): 2 crossings found, 2 expected, worst position error 1.13e-14 (bar 1.1e-10)
+[SILENT] control RecipDD fold F1 Project in f64: f64 F1 Project Lib(RecipDD): stop Pivot, 84 steps, x_last -6.452e-13, |x_zero| 0.00e0, beta 0.5000
+[SILENT] control RecipDD fold F2 Project in f64: f64 F2 Project Lib(RecipDD): stop Pivot, 68 steps, x_last -1.340e-10, |x_zero| 2.05e-16, beta 1.0000
+[SILENT] control RecipDD zero_pivot in f64: f64 Lib(RecipDD): stop ZeroPivot at x = 1, state finite true
+[FIRED] control NoPivotCheck coeffs in f64: f64 Q-A l = 0.25 Lib(NoPivotCheck): worst relative error of c_k, k <= 22: 4.86e-8 (bar 1.1e-10)
+[SILENT] control NoPivotCheck closed_form K-A Project in f64: f64 KA Project Lib(NoPivotCheck): stop End, 14 steps, err 1.77e-16 (bar 1.1e-10), n_rel_max 7.05e-17
+[FIRED] control NoPivotCheck closed_form R-D Conserve in f64: f64 RD Conserve Lib(NoPivotCheck): stop End, 92 steps, err 1.21e1 (bar 1.1e-10), n_rel_max 9.98e-1
+[SILENT] control NoPivotCheck crossings K-B Project in f64: f64 KB Project Lib(NoPivotCheck): 2 crossings found, 2 expected, worst position error 1.13e-14 (bar 1.1e-10)
+[SILENT] control NoPivotCheck fold F1 Project in f64: f64 F1 Project Lib(NoPivotCheck): stop Pivot, 84 steps, x_last -6.452e-13, |x_zero| 0.00e0, beta 0.5000
+[SILENT] control NoPivotCheck fold F2 Project in f64: f64 F2 Project Lib(NoPivotCheck): stop Pivot, 68 steps, x_last -1.340e-10, |x_zero| 2.05e-16, beta 1.0000
+[FIRED] control NoPivotCheck zero_pivot in f64: f64 Lib(NoPivotCheck): stop NonFinite at x = 1, state finite true
+[FIRED] control NoCrossing coeffs in f64: f64 Q-A l = 0.25 Lib(NoCrossing): worst relative error of c_k, k <= 22: 4.86e-8 (bar 1.1e-10)
+[SILENT] control NoCrossing closed_form K-A Project in f64: f64 KA Project Lib(NoCrossing): stop End, 14 steps, err 1.77e-16 (bar 1.1e-10), n_rel_max 7.05e-17
+[FIRED] control NoCrossing closed_form R-D Conserve in f64: f64 RD Conserve Lib(NoCrossing): stop End, 92 steps, err 1.21e1 (bar 1.1e-10), n_rel_max 9.98e-1
+[FIRED] control NoCrossing crossings K-B Project in f64: f64 KB Project Lib(NoCrossing): 0 crossings found, 2 expected, worst position error 0.00e0 (bar 1.1e-10)
+[SILENT] control NoCrossing fold F1 Project in f64: f64 F1 Project Lib(NoCrossing): stop Pivot, 84 steps, x_last -6.452e-13, |x_zero| 0.00e0, beta 0.5000
+[SILENT] control NoCrossing fold F2 Project in f64: f64 F2 Project Lib(NoCrossing): stop Pivot, 68 steps, x_last -1.340e-10, |x_zero| 2.05e-16, beta 1.0000
+[SILENT] control NoCrossing zero_pivot in f64: f64 Lib(NoCrossing): stop ZeroPivot at x = 1, state finite true
+[FIRED] control ExponentHalf coeffs in f64: f64 Q-A l = 0.25 Lib(ExponentHalf): worst relative error of c_k, k <= 22: 4.86e-8 (bar 1.1e-10)
+[SILENT] control ExponentHalf closed_form K-A Project in f64: f64 KA Project Lib(ExponentHalf): stop End, 14 steps, err 1.77e-16 (bar 1.1e-10), n_rel_max 7.05e-17
+[FIRED] control ExponentHalf closed_form R-D Conserve in f64: f64 RD Conserve Lib(ExponentHalf): stop End, 92 steps, err 1.21e1 (bar 1.1e-10), n_rel_max 9.98e-1
+[SILENT] control ExponentHalf crossings K-B Project in f64: f64 KB Project Lib(ExponentHalf): 2 crossings found, 2 expected, worst position error 1.13e-14 (bar 1.1e-10)
+[SILENT] control ExponentHalf fold F1 Project in f64: f64 F1 Project Lib(ExponentHalf): stop Pivot, 84 steps, x_last -6.452e-13, |x_zero| 0.00e0, beta 0.5000
+[FIRED] control ExponentHalf fold F2 Project in f64: f64 F2 Project Lib(ExponentHalf): stop Pivot, 68 steps, x_last -1.340e-10, |x_zero| 6.70e-11, beta 0.5000
+[SILENT] control ExponentHalf zero_pivot in f64: f64 Lib(ExponentHalf): stop ZeroPivot at x = 1, state finite true
+[FIRED] control NoPivotStop coeffs in f64: f64 Q-A l = 0.25 Lib(NoPivotStop): worst relative error of c_k, k <= 22: 4.86e-8 (bar 1.1e-10)
+[SILENT] control NoPivotStop closed_form K-A Project in f64: f64 KA Project Lib(NoPivotStop): stop End, 14 steps, err 1.77e-16 (bar 1.1e-10), n_rel_max 7.05e-17
+[FIRED] control NoPivotStop closed_form R-D Conserve in f64: f64 RD Conserve Lib(NoPivotStop): stop End, 92 steps, err 1.21e1 (bar 1.1e-10), n_rel_max 9.98e-1
+[SILENT] control NoPivotStop crossings K-B Project in f64: f64 KB Project Lib(NoPivotStop): 2 crossings found, 2 expected, worst position error 1.13e-14 (bar 1.1e-10)
+[FIRED] control NoPivotStop fold F1 Project in f64: f64 F1 Project Lib(NoPivotStop): stop Tiny, 128 steps, no estimate, x_last -2.639e-19
+[FIRED] control NoPivotStop fold F2 Project in f64: f64 F2 Project Lib(NoPivotStop): stop Tiny, 128 steps, no estimate, x_last -2.055e-16
+[SILENT] control NoPivotStop zero_pivot in f64: f64 Lib(NoPivotStop): stop ZeroPivot at x = 1, state finite true
+test controls::control_table_f64 ... ok
+[FIRED] control SkipOrder(3) coeffs in qd: qd Q-A l = 0.25 Lib(SkipOrder(3)): worst relative error of c_k, k <= 80: 7.10e77 (bar 1.5e-58)
+[PASS] qd KB Project None: stop End, 19 steps, err 7.14e-64 (bar 1.5e-58), n_rel_max 3.09e-65
+[FAIL] qd KB Conserve None: stop Tiny, 26 steps, err 3.20e-50 (bar 1.5e-58), n_rel_max 1.47e-63
+
+thread 'closed_form_qd' (3060100) panicked at tests/implicit.rs:481:13:
+qd KB Conserve None: stop Tiny, 26 steps, err 3.20e-50 (bar 1.5e-58), n_rel_max 1.47e-63
+test closed_form_qd ... FAILED
+[FAIL] dd KA Project WrongStart: stop End, 18 steps, err 1.47e0 (bar 1.2e-26), n_rel_max 4.03e-33
+[FAIL] dd KA Project SwitchMid: stop End, 18 steps, err 9.44e-1 (bar 1.2e-26), n_rel_max 4.30e-33
+[FAIL] dd KA Project WrongForm: stop End, 15 steps, err 1.01e4 (bar 1.2e-26), n_rel_max 1.21e-32
+[FAIL] dd KA Conserve WrongStart: stop Tiny, 33 steps, err 1.47e0 (bar 1.2e-26), n_rel_max 1.19e-31
+[FAIL] dd KA Conserve SwitchMid: stop End, 19 steps, err 9.44e-1 (bar 1.2e-26), n_rel_max 7.91e-32
+[FAIL] dd KA Conserve WrongForm: stop End, 16 steps, err 1.01e4 (bar 1.2e-26), n_rel_max 8.38e-32
+test controls_without_hooks ... ok
+[PASS] dd QB Project None: 1 crossings found, 1 expected, worst position error 1.18e-30 (bar 1.2e-26)
+[PASS] dd QB Conserve None: 1 crossings found, 1 expected, worst position error 7.02e-31 (bar 1.2e-26)
+[PASS] dd KA Project None: 1 crossings found, 1 expected, worst position error 2.90e-30 (bar 1.2e-26)
+[PASS] dd KA Conserve None: 1 crossings found, 1 expected, worst position error 3.25e-30 (bar 1.2e-26)
+[PASS] dd KB Project None: 2 crossings found, 2 expected, worst position error 1.03e-30 (bar 1.2e-26)
+[FAIL] dd KB Conserve None: 1 crossings found, 2 expected, worst position error 1.60e-30 (bar 1.2e-26)
+
+thread 'crossings_dd' (3060105) panicked at tests/implicit.rs:491:13:
+dd KB Conserve None: 1 crossings found, 2 expected, worst position error 1.60e-30 (bar 1.2e-26)
+test crossings_dd ... FAILED
+[PASS] f64 QB Project None: 1 crossings found, 1 expected, worst position error 2.89e-15 (bar 1.1e-10)
+[PASS] f64 QB Conserve None: 1 crossings found, 1 expected, worst position error 6.66e-15 (bar 1.1e-10)
+[PASS] f64 KA Project None: 1 crossings found, 1 expected, worst position error 3.77e-15 (bar 1.1e-10)
+[PASS] f64 KA Conserve None: 1 crossings found, 1 expected, worst position error 3.77e-15 (bar 1.1e-10)
+[PASS] f64 KB Project None: 2 crossings found, 2 expected, worst position error 1.13e-14 (bar 1.1e-10)
+[FAIL] f64 KB Conserve None: 1 crossings found, 2 expected, worst position error 1.25e-14 (bar 1.1e-10)
+
+thread 'crossings_f64' (3060106) panicked at tests/implicit.rs:491:13:
+f64 KB Conserve None: 1 crossings found, 2 expected, worst position error 1.25e-14 (bar 1.1e-10)
+test crossings_f64 ... FAILED
+[PASS] qd QB Project None: 1 crossings found, 1 expected, worst position error 1.78e-62 (bar 1.5e-58)
+[PASS] qd QB Conserve None: 1 crossings found, 1 expected, worst position error 3.09e-63 (bar 1.5e-58)
+[PASS] qd KA Project None: 1 crossings found, 1 expected, worst position error 6.57e-63 (bar 1.5e-58)
+[FIRED] control SkipOrder(3) closed_form K-A Project in qd: qd KA Project Lib(SkipOrder(3)): stop Tiny, 93 steps, err 8.25e-4 (bar 1.5e-58), n_rel_max 1.93e-7
+[PASS] qd KA Conserve None: 1 crossings found, 1 expected, worst position error 4.14e-63 (bar 1.5e-58)
+[PASS] qd KB Project None: 2 crossings found, 2 expected, worst position error 1.21e-62 (bar 1.5e-58)
+[FAIL] qd KB Conserve None: 1 crossings found, 2 expected, worst position error 1.50e-62 (bar 1.5e-58)
+
+thread 'crossings_qd' (3060107) panicked at tests/implicit.rs:491:13:
+qd KB Conserve None: 1 crossings found, 2 expected, worst position error 1.50e-62 (bar 1.5e-58)
+test crossings_qd ... FAILED
+[PASS] dd F1 Project None: stop Pivot, 114 steps, x_last -5.716e-13, |x_zero| 1.43e-45, beta 0.5000
+[PASS] dd F1 Conserve None: stop Pivot, 114 steps, x_last -5.716e-13, |x_zero| 4.41e-31, beta 0.5000
+[PASS] dd F2 Project None: stop Pivot, 92 steps, x_last -1.318e-10, |x_zero| 1.23e-32, beta 1.0000
+[PASS] dd F2 Conserve None: stop Pivot, 92 steps, x_last -1.318e-10, |x_zero| 4.55e-31, beta 1.0000
+test fold_dd ... ok
+[PASS] f64 F1 Project None: stop Pivot, 84 steps, x_last -6.452e-13, |x_zero| 0.00e0, beta 0.5000
+[FAIL] f64 F1 Conserve None: stop Pivot, 84 steps, x_last -6.314e-13, |x_zero| 5.70e-15, beta 0.5000
+
+thread 'fold_f64' (3060109) panicked at tests/implicit.rs:501:13:
+f64 F1 Conserve None: stop Pivot, 84 steps, x_last -6.314e-13, |x_zero| 5.70e-15, beta 0.5000
+test fold_f64 ... FAILED
+[PASS] qd F1 Project None: stop Pivot, 141 steps, x_last -5.732e-13, |x_zero| 2.19e-77, beta 0.5000
+[FIRED] control SkipOrder(3) closed_form R-D Conserve in qd: qd RD Conserve Lib(SkipOrder(3)): stop Tiny, 105 steps, err 3.18e-2 (bar 1.5e-58), n_rel_max 1.29e-3
+[PASS] qd F1 Conserve None: stop Pivot, 141 steps, x_last -5.732e-13, |x_zero| 3.86e-63, beta 0.5000
+[PASS] qd F2 Project None: stop Pivot, 113 steps, x_last -1.546e-10, |x_zero| 3.86e-65, beta 1.0000
+[PASS] qd F2 Conserve None: stop Pivot, 113 steps, x_last -1.546e-10, |x_zero| 3.85e-63, beta 1.0000
+test fold_qd ... ok
+[PASS] lanes QA: Fl<DV,1> 0.00e0, Fl<Du,1> value 0.00e0 (bar 1.2e-30)
+[PASS] lanes KC: Fl<DV,1> 0.00e0, Fl<Du,1> value 0.00e0 (bar 1.2e-30)
+test lanes ... ok
+[FAIL] dd Q-A l = 1 None: worst relative error of c_k, k <= 42: 1.48e-11 (bar 1.2e-26)
+
+thread 'misc_dd' (3060112) panicked at tests/implicit.rs:510:9:
+dd Q-A l = 1 None: worst relative error of c_k, k <= 42: 1.48e-11 (bar 1.2e-26)
+test misc_dd ... FAILED
+[FAIL] f64 Q-A l = 1 None: worst relative error of c_k, k <= 22: 4.86e-8 (bar 1.1e-10)
+
+thread 'misc_f64' (3060113) panicked at tests/implicit.rs:510:9:
+f64 Q-A l = 1 None: worst relative error of c_k, k <= 22: 4.86e-8 (bar 1.1e-10)
+test misc_f64 ... FAILED
+[FAIL] qd Q-A l = 1 None: worst relative error of c_k, k <= 80: 1.51e-14 (bar 1.5e-58)
+
+thread 'misc_qd' (3060114) panicked at tests/implicit.rs:510:9:
+qd Q-A l = 1 None: worst relative error of c_k, k <= 80: 1.51e-14 (bar 1.5e-58)
+test misc_qd ... FAILED
+[FIRED] control SkipOrder(3) crossings K-B Project in qd: qd KB Project Lib(SkipOrder(3)): 0 crossings found, 2 expected, worst position error 0.00e0 (bar 1.5e-58)
+[FIRED] control SkipOrder(3) fold F1 Project in qd: qd F1 Project Lib(SkipOrder(3)): stop Pivot, 110 steps, x_last -5.036e-9, |x_zero| 5.04e-9, beta 0.5000
+[FIRED] control SkipOrder(3) fold F2 Project in qd: qd F2 Project Lib(SkipOrder(3)): stop Pivot, 102 steps, x_last -1.590e-4, |x_zero| 1.59e-4, beta 1.0000
+[SILENT] control SkipOrder(3) zero_pivot in qd: qd Lib(SkipOrder(3)): stop ZeroPivot at x = 1, state finite true
+[FIRED] control RecipDD coeffs in qd: qd Q-A l = 0.25 Lib(RecipDD): worst relative error of c_k, k <= 80: 4.48e16 (bar 1.5e-58)
+[FIRED] control RecipDD closed_form K-A Project in qd: qd KA Project Lib(RecipDD): stop Tiny, 42 steps, err 2.64e-34 (bar 1.5e-58), n_rel_max 4.29e-65
+[FIRED] control RecipDD closed_form R-D Conserve in qd: qd RD Conserve Lib(RecipDD): stop Tiny, 66 steps, err 2.05e-21 (bar 1.5e-58), n_rel_max 2.59e-33
+[FIRED] control RecipDD crossings K-B Project in qd: qd KB Project Lib(RecipDD): 0 crossings found, 2 expected, worst position error 0.00e0 (bar 1.5e-58)
+[SILENT] control RecipDD fold F1 Project in qd: qd F1 Project Lib(RecipDD): stop Pivot, 141 steps, x_last -5.732e-13, |x_zero| 1.63e-45, beta 0.5000
+[SILENT] control RecipDD fold F2 Project in qd: qd F2 Project Lib(RecipDD): stop Pivot, 113 steps, x_last -1.546e-10, |x_zero| 4.97e-35, beta 1.0000
+[SILENT] control RecipDD zero_pivot in qd: qd Lib(RecipDD): stop ZeroPivot at x = 1, state finite true
+[FIRED] control NoPivotCheck coeffs in qd: qd Q-A l = 0.25 Lib(NoPivotCheck): worst relative error of c_k, k <= 80: 1.51e-14 (bar 1.5e-58)
+[SILENT] control NoPivotCheck closed_form K-A Project in qd: qd KA Project Lib(NoPivotCheck): stop End, 16 steps, err 5.40e-64 (bar 1.5e-58), n_rel_max 2.64e-65
+[FIRED] control NoPivotCheck closed_form R-D Conserve in qd: qd RD Conserve Lib(NoPivotCheck): stop Tiny, 34 steps, err 3.77e-51 (bar 1.5e-58), n_rel_max 1.37e-38
+[SILENT] control NoPivotCheck crossings K-B Project in qd: qd KB Project Lib(NoPivotCheck): 2 crossings found, 2 expected, worst position error 1.21e-62 (bar 1.5e-58)
+[SILENT] control NoPivotCheck fold F1 Project in qd: qd F1 Project Lib(NoPivotCheck): stop Pivot, 141 steps, x_last -5.732e-13, |x_zero| 2.19e-77, beta 0.5000
+[SILENT] control NoPivotCheck fold F2 Project in qd: qd F2 Project Lib(NoPivotCheck): stop Pivot, 113 steps, x_last -1.546e-10, |x_zero| 3.86e-65, beta 1.0000
+[FIRED] control NoPivotCheck zero_pivot in qd: qd Lib(NoPivotCheck): stop NonFinite at x = 1, state finite true
+[FIRED] control NoCrossing coeffs in qd: qd Q-A l = 0.25 Lib(NoCrossing): worst relative error of c_k, k <= 80: 1.51e-14 (bar 1.5e-58)
+[SILENT] control NoCrossing closed_form K-A Project in qd: qd KA Project Lib(NoCrossing): stop End, 16 steps, err 5.40e-64 (bar 1.5e-58), n_rel_max 2.64e-65
+[FIRED] control NoCrossing closed_form R-D Conserve in qd: qd RD Conserve Lib(NoCrossing): stop Tiny, 34 steps, err 3.77e-51 (bar 1.5e-58), n_rel_max 1.37e-38
+[FIRED] control NoCrossing crossings K-B Project in qd: qd KB Project Lib(NoCrossing): 0 crossings found, 2 expected, worst position error 0.00e0 (bar 1.5e-58)
+[SILENT] control NoCrossing fold F1 Project in qd: qd F1 Project Lib(NoCrossing): stop Pivot, 141 steps, x_last -5.732e-13, |x_zero| 2.19e-77, beta 0.5000
+[SILENT] control NoCrossing fold F2 Project in qd: qd F2 Project Lib(NoCrossing): stop Pivot, 113 steps, x_last -1.546e-10, |x_zero| 3.86e-65, beta 1.0000
+[SILENT] control NoCrossing zero_pivot in qd: qd Lib(NoCrossing): stop ZeroPivot at x = 1, state finite true
+[FIRED] control ExponentHalf coeffs in qd: qd Q-A l = 0.25 Lib(ExponentHalf): worst relative error of c_k, k <= 80: 1.51e-14 (bar 1.5e-58)
+[SILENT] control ExponentHalf closed_form K-A Project in qd: qd KA Project Lib(ExponentHalf): stop End, 16 steps, err 5.40e-64 (bar 1.5e-58), n_rel_max 2.64e-65
+[FIRED] control ExponentHalf closed_form R-D Conserve in qd: qd RD Conserve Lib(ExponentHalf): stop Tiny, 34 steps, err 3.77e-51 (bar 1.5e-58), n_rel_max 1.37e-38
+[SILENT] control ExponentHalf crossings K-B Project in qd: qd KB Project Lib(ExponentHalf): 2 crossings found, 2 expected, worst position error 1.21e-62 (bar 1.5e-58)
+[SILENT] control ExponentHalf fold F1 Project in qd: qd F1 Project Lib(ExponentHalf): stop Pivot, 141 steps, x_last -5.732e-13, |x_zero| 5.48e-78, beta 0.5000
+[FIRED] control ExponentHalf fold F2 Project in qd: qd F2 Project Lib(ExponentHalf): stop Pivot, 113 steps, x_last -1.546e-10, |x_zero| 7.73e-11, beta 0.5000
+[SILENT] control ExponentHalf zero_pivot in qd: qd Lib(ExponentHalf): stop ZeroPivot at x = 1, state finite true
+[FIRED] control NoPivotStop coeffs in qd: qd Q-A l = 0.25 Lib(NoPivotStop): worst relative error of c_k, k <= 80: 1.51e-14 (bar 1.5e-58)
+[SILENT] control NoPivotStop closed_form K-A Project in qd: qd KA Project Lib(NoPivotStop): stop End, 16 steps, err 5.40e-64 (bar 1.5e-58), n_rel_max 2.64e-65
+[FIRED] control NoPivotStop closed_form R-D Conserve in qd: qd RD Conserve Lib(NoPivotStop): stop Tiny, 34 steps, err 3.77e-51 (bar 1.5e-58), n_rel_max 1.37e-38
+[SILENT] control NoPivotStop crossings K-B Project in qd: qd KB Project Lib(NoPivotStop): 2 crossings found, 2 expected, worst position error 1.21e-62 (bar 1.5e-58)
+[FIRED] control NoPivotStop fold F1 Project in qd: qd F1 Project Lib(NoPivotStop): stop Tiny, 211 steps, no estimate, x_last -4.795e-19
+[FIRED] control NoPivotStop fold F2 Project in qd: qd F2 Project Lib(NoPivotStop): stop Tiny, 211 steps, no estimate, x_last -4.795e-19
+[SILENT] control NoPivotStop zero_pivot in qd: qd Lib(NoPivotStop): stop ZeroPivot at x = 1, state finite true
+test controls::control_table_qd ... ok
+
+failures:
+
+failures:
+    closed_form_dd
+    closed_form_f64
+    closed_form_qd
+    crossings_dd
+    crossings_f64
+    crossings_qd
+    fold_f64
+    misc_dd
+    misc_f64
+    misc_qd
+
+test result: FAILED. 7 passed; 10 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.53s
+
+error: test failed, to rerun pass `--test implicit`
+Command exited with non-zero status 101
+	Command being timed: "cargo test --release -j 2 --features mutate --test implicit -- --nocapture --test-threads=2"
+	User time (seconds): 164.32
+	System time (seconds): 2.32
+	Percent of CPU this job got: 188%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:28.42
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 425116
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 4
+	Minor (reclaiming a frame) page faults: 701588
+	Voluntary context switches: 976
+	Involuntary context switches: 33450
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 129352
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 101
+exit 101
