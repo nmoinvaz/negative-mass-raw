@@ -47,3 +47,6 @@ the spread and signs, the choice of the l = 3 points, and the recomputation of C
 
 | file | what |
 |---|---|
+| `rerun_*.log`, `.err`, `.rc`, `compare_rerun.py`, `compare_rerun_1.txt` | the six reruns (run_02 to run_06, run_18), load 2.7 to 5.1: **each identical to the runner's log line for line once timings and load are removed, with the same exit code** (run_05 exits 1 on CAP5c and CAP5s, as the runner's did). The default mode: 22 passed, 0 failed, 1 skipped (TS) of 23, 854 s |
+| `ind187.py`, `ind187_run1.txt` | run 1: exit 0, 3 of 3. **K1**: 41 rows, 266 tokens, every one within half a unit of its last digit. The closest is `D(r_m~34)` at l = 4, γ = 1, at 0.994 of half a unit (3e-8 absolute from the boundary, against crate–scipy agreement near 1e-14 at γ ≤ 10). **K2** (l = 3, first comparison with scipy): γ = 0.3, D 1.6e-13, D34 2.5e-14, q_int 8.6e-14, q_ext 1.2e-14; γ = 40, D 6.6e-12, D34 2.5e-11, q_int 1.0e-11, q_ext about 3e-11. **K3**: base 5.44e-9, tol 3.11e-9, φ_cut 4.70e-8, R = 90 7.98e-10, r0 4.16e-9, each the reported value at two digits; CAP5c not met, as reported |
+| `ind187_run1_mut_*.txt` | `k1-ulp` fails exactly K1, `k2-l` exactly K2, `k3-pair` exactly K3 |
