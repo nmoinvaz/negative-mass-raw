@@ -69,8 +69,8 @@ components, computed by one function for every case below.
   φ₁ = α₁(cH − (4/c)J) normal and φ₂ = α₂(cH + (4/c)J) phantom with unknowns A1 = α₁², A2 = α₂² and V (the value of the
   potential at the point). The nonzero components of the residual are linear in (A1, A2, V). Pass iff, after H′ → h,
   J′ → j, e^{2HJ} → E with h, j, E positive symbols, (i) the coefficient matrix has rank 3, and the gcd of its 3 × 3
-  minors is printed, so that the rank is 3 wherever h j E c ≠ 0; (ii) the unique solution is A1 = A2 = 1/(32π), V = 0;
-  (iii) the solution does not contain c.
+  minors is printed, so that the rank is 3 wherever h j E c ≠ 0 (**superseded by A1**); (ii) the unique solution is A1 =
+  A2 = 1/(32π), V = 0; (iii) the solution does not contain c.
 - **`E_residual`.** With α₁ = α₂ = 1/(4√(2π)), V = 0, H(p), J(q) undefined and c a real nonzero symbol, all 16 components of
   G_ab − 8π(T₁ − T₂)_ab are exactly 0. Not vacuous: G_yy = G_zz = −2H′J′e^{−2HJ} are nonzero, and T₁ has a nonzero
   component. Because c is a free symbol and the residual is a rational function of c, this holds for every c ≠ 0.
@@ -110,6 +110,40 @@ in a development run, then "Declared targets" below (step 3). 4. The run of reco
 controls, to `notes/warp/planar_residual_output.txt` and `run_final.run1.log` here (step 4). Logs are numbered, never
 overwritten.
 
+## Amendments
+
+**A1 (2026-11-25, before any run of record).** Criterion (i) of `E_solve` is replaced by: (i) the 3 × 3 minors of the
+coefficient matrix, with the row denominators cleared and π replaced by a positive symbol P, together with t h j E c P − 1,
+generate the unit ideal of ℚ[t, h, j, E, c, P] (Gröbner basis [1]), so that the matrix has rank 3 at every point with
+h j E c ≠ 0; the gcd of the minors is printed. Reason: a gcd that is a monomial does not exclude common zeros of the
+minors elsewhere, so "rank 3 wherever h j E c ≠ 0" needs the ideal statement. (ii) is read as: `linsolve` returns the
+single point (1/(32π), 1/(32π), 0), and that point makes every equation vanish identically; (iii) as: the point does not
+contain c.
+
 ## Declared targets
 
-(Written after the development run of step 3.)
+Written 2026-11-25 after the development run of step 3 (`dev_controls.run1.log`, 11 controls, 8 checks, 164 s), and
+before the run of record. The predictions from reading the code (`dev_controls_predictions.txt`, written before that run)
+agree with the outcome for all 11 controls, including the checks I expected to stay silent. Each control must fail
+exactly the checks listed; a control that does not fail one of them is silent, and any other failing check is an extra.
+Controls act on the checks they list only because of where the mutation is read: `scale11-*` only in `fields_E` of the
+three checks that fix the amplitude (`E_solve` has unknown amplitudes), `potential` only in `E_residual`, `ricci-sign`
+and `conv-flip` in the shared routines, so `planted_flat` (flat, G = 0 and T_1 − T_2 = 0) and `conv_energy` stay silent
+under `ricci-sign`, `planted_flat` and `E_rform` (it does not call the stress function) stay silent under `conv-flip`.
+
+| control | declared targets (all must fail) |
+|---|---|
+| `scale11-normal` | `E_residual`, `E_rform`, `E_explicit` |
+| `scale11-phantom` | `E_residual`, `E_rform`, `E_explicit` |
+| `flip-phantom` | `E_solve`, `E_residual`, `E_rform`, `E_explicit` |
+| `swap-roles` | `E_solve`, `E_residual`, `E_rform`, `E_explicit` |
+| `wrong-partner` | `E_solve`, `E_residual`, `E_rform`, `E_explicit` |
+| `potential` | `E_residual` |
+| `ricci-sign` | `planted_p1`, `planted_p2`, `E_solve`, `E_residual`, `E_rform`, `E_explicit` |
+| `conv-flip` | `conv_energy`, `planted_p1`, `planted_p2`, `E_solve`, `E_residual`, `E_explicit` |
+| `p1-sign` | `planted_p1` |
+| `p2-scale11` | `planted_p2` |
+| `flat-flip` | `planted_flat` |
+
+Development logs, all kept: `dev_checks.run1.log` (8 of 8 pass, 11 s), `dev_checks.run2.log` and `.time` (the same under
+`/usr/bin/time -v`: 11.3 s wall, 64 MB peak resident), `dev_controls.run1.log`.

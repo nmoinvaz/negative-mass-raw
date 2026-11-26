@@ -1,0 +1,15 @@
+Predictions written 2026-11-25 before the development run of the controls (dev_controls.run1.log), from reading the code.
+Checks: conv_energy, planted_p1, planted_p2, planted_flat, E_solve, E_residual, E_rform, E_explicit.
+
+scale11-normal    E_residual, E_rform, E_explicit          (E_solve has unknown amplitudes and ignores the scaling)
+scale11-phantom   E_residual, E_rform, E_explicit
+flip-phantom      E_solve, E_residual, E_rform, E_explicit
+swap-roles        E_solve, E_residual, E_rform, E_explicit
+wrong-partner     E_solve, E_residual, E_rform, E_explicit
+potential         E_residual                                (V enters only there)
+ricci-sign        planted_p1, planted_p2, E_solve, E_residual, E_rform, E_explicit; NOT planted_flat (flat: Ricci = 0) and NOT conv_energy
+conv-flip         conv_energy, planted_p1, planted_p2, E_solve, E_residual, E_rform?, E_explicit; NOT planted_flat (T_1 - T_2 = 0 either way);
+                  E_rform does not use the stress function, so I expect it silent
+p1-sign           planted_p1
+p2-scale11        planted_p2
+flat-flip         planted_flat
