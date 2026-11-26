@@ -1,0 +1,12 @@
+conical_offgrid.py: grid full; controls run every check (on the ctl grid) and must fail their targets and no others
+
+== Controls: each mutation, with every check run, must make its target checks fail and no others ==
+[FIRED] --mutate=eq-coeff (one coefficient of N in the lane's polynomial changed (-6 -> -5 on F F'^2 F'' eta^2)): exit 1, failed ['n_table', 'series_hp', 'regress167', 'scan', 'spread', 'closed_form', 'bisect', 'independent', 'recip_check'], 48 s
+[FIRED] --mutate=series-coeff (a_(4,1) of the lane series times 1.01): exit 1, failed ['series_hp', 'regress167', 'scan', 'spread', 'closed_form', 'bisect', 'independent', 'recip_check'], 49 s
+[FIRED] --mutate=plant-locator (the locator's side test inverted in the planted cases (loglog's far blow-ups and #167's `plant`)): exit 1, failed ['plant_167', 'plant_far'], 317 s
+[FIRED] --mutate=locator-side (the locator's side test inverted in `offgrid`): exit 1, failed ['regress167', 'scan', 'closed_form', 'bisect'], 353 s
+[FIRED] --mutate=recip-dd (the lane constants (1/k, shifted coefficients of N, 1/(dN/dF'')) rounded to double-double): exit 1, failed ['plant_far', 'recip_check'], 332 s
+[FIRED] --mutate=start-bar (the start rule's residual bar 1e-8 in place of 1e-20): exit 1, failed ['series_hp', 'regress167', 'scan', 'modes'], 302 s
+[FIRED] --mutate=halving (the standard plan is order 14, tolerance 1e-12 (silent on `step_halving`: that check's bar 1e-10 is above this plan's eta* error, dev_11)): exit 1, failed ['regress167', 'scan', 'dd_qd', 'modes', 'bisect', 'recip_check'], 74 s
+[FIRED] --mutate=halving-coarse (the standard plan is order 8, tolerance 1e-6): exit 1, failed ['regress167', 'spread', 'dd_qd', 'modes', 'closed_form', 'bisect', 'independent', 'recip_check', 'step_halving'], 810 s
+controls: all fired on target only

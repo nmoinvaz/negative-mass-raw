@@ -1,0 +1,7 @@
+conical_offgrid.py: grid full; controls run every check (on the ctl grid) and must fail their targets and no others
+
+== Controls: each mutation, with every check run, must make its target checks fail and no others ==
+[FIRED] --mutate=indep-eq (the independent integration has -6 -> -5.9999 on F F'^2 F'' eta^2): exit 1, failed ['independent'], 317 s
+[FIRED] --mutate=regress-kind (#167's kind compared as the wrong string): exit 1, failed ['regress167'], 317 s
+[FIRED] --mutate=match-sign (#167's planted matching: the mirror end takes +F' in place of -F'): exit 1, failed ['plant_167'], 317 s
+controls: all fired on target only
