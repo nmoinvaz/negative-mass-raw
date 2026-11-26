@@ -140,3 +140,24 @@ Each control is run alone; each must exit 1 with the targeted checks failing.
    star beyond the centre is the same decaying solution (m(r_m) agrees to 5e-18).
 6. *Control `tol_loose`*: its targeted check is `CAP5b` (the rtol analogue at tol 1e-3 must leave the 2.1e-4 bar). CAP5c and CAP5s fail on real data
    already, so a control cannot show them firing; their `tol` entries (3.1e-9 unmutated) are read in the control's log instead.
+
+**A2, 2026-11-26, step 4: the controls' targets, from the development runs named (before the run of record of the controls).**
+A control is `python taylor_polar.py --rows --mutate=NAME`; the targeted checks must fail, exit 1.
+
+| Control | The error | Targeted checks and the development values (dd, one thread) |
+|---|---|---|
+| `qint_cofsign` | the cofactor signs of q_int's null vector not alternated | QP relative error 9.0 (well-conditioned), 0.61 (near-degenerate) against bars 1e-12 to 1e-60 and 1e-5 to 1e-50; RA2 63 of 66 tokens (the three q_int tokens at γ ≤ 0.3 differ; the others agree at 7 digits because q_int ≈ γ there) (`dev_26`) |
+| `qint_f` | q_int without the factor f | QP 1.3e-3 in all six; RA2 58 of 66 (all eight q_int tokens) (`dev_27`) |
+| `rm_off1` | the r_m grid index one too low | RP 4 of 4 cases differ; RM 5 of 5 variants differ; RA2 33 of 66 tokens (`dev_28`) |
+| `rm_cut` | the φ_cut variant's cut at 1e-11 | RM: φ_cut r_m 30.821 against 34.205 (the other four equal); RA2 57 of 66 (its r_m header and the eight D(r_m~34) tokens) (`dev_29`) |
+| `r0_grid` | the r0 variant's r_m grid from 1e-3 | RM: r0 variant 24.1098 against 24.1110; RA2 58 of 66 (the eight spread tokens, spread 1.1e-4 against 2.1e-4) (`dev_30`) |
+| `qstart` (#186's) | the Riccati started at r_m + 1 | RA2 54 of 66 (D, spread, D(r_m~34), q_ext at small γ). **RX does not fire**: at γ = 300 the Riccati forgets its start, so RX is not a target (`dev_31`) |
+| `moncrief` (#186's) | a sign in the Moncrief map | RA2 35 of 66; RX −3.7e-6 against −1.0e-9; QP 0.26 and 0.15 (`dev_32`) |
+| `tol_loose` | the rtol analogue at tol 1e-1 | CAP5b: E1 = 1.4e-3 against the bar 2.1e-4; its `tol` entry of CAP5c reads 1.4e-3 against 3.1e-9 unmutated (`dev_35`). At first the control ran at tol 1e-3, which moved D by 3.9e-6 and did not fire (`dev_33`); the sweep `dev_34` gave E1 = 4.1e-4 at 1e-2, 1.4e-3 at 1e-1; its tol = 1 run did not finish (more than 8 min) and was stopped by its PID with the sweep script (rc 143), as was the tol = 10 process the script had started before it was stopped |
+| `jsign` (#186's) | J[3][2] negated | CAP5a: D > 0 in base, tol and r0 (+8.47e-13, +8.47e-13, +1.28e-12), < 0 in φ_cut and R = 90 (`dev_36`) |
+
+Each check of `--rows` has a control: QP (qint_cofsign, qint_f, moncrief), RP (rm_off1), RM (rm_off1, rm_cut, r0_grid), RA2 (all of the
+above but jsign and tol_loose), RX (moncrief), CAP5a (jsign), CAP5b (tol_loose). RA4, RA5, RA6 and CAP6a, CAP6b are the same code at other l
+and are controlled through RA2, CAP5a, CAP5b. CAP5c and CAP5s fail on real data already, so no control can show them firing; the tol_loose
+control's `tol` entries of CAP5c (`dev_35`) and, in the run of record, of CAP5s are the evidence that they can fail per variant. CAP5s's control
+run is `--mutate=tol_loose --only=CAP5s`.

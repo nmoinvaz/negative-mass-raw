@@ -1,0 +1,8 @@
+# 2026-11-26 10:00:51 cwd=/Users/nathan/Source/negative-mass-i187/phase2/nonradial
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python taylor_polar.py --rows --mutate=tol_loose
+# taylor_polar.py --rows: start 2026-11-26 10:00:51, load average 3.79, one process, nice 10; mutate = tol_loose
+CHECK CAP5a: PASS  l = 5, gamma = 6000: D (dd) base -8.93608292806e-13, tol -8.93604776734e-13, phi -4.43895159701e-13, r90 -8.93709571709e-13, r0 -8.93519613293e-13; all five D < 0: True
+CHECK CAP5b: PASS  l = 5, gamma = 6000: E1 = |D(tol 1e-12)/D(base) - 1| = 3.93e-06 (bar 2.1e-04); error bars, printed not gated: E2 (order 24, tol 1e-22 against order 30, 1.2e-30) = 1.32e-24, E3 (f64 lane against dd) = 1.53e-09; crate time per variant (dd, load 2.5, one thread): base 37.9 s, tol 5.3 s, phi 53.1 s, r90 37.5 s, r0 37.5 s
+CHECK CAP5c: FAIL  l = 5, gamma = 6000: E4 = crate D against #114's scipy D (its rtol 1e-12 evaluation finished; I114-win partial file), per variant: base 5.4e-09, tol 3.9e-06, phi 4.7e-08, r90 8.0e-10, r0 4.2e-09 (bar 1e-08 each); scipy's rtol 1e-12 value -8.936082956e-13 against its base -8.936082977e-13
+SUMMARY: 2 passed, 1 failed, 0 skipped of 3 checks; failed: CAP5c; mutate = tol_loose; 215 s
+CONTROL tol_loose: NOT FIRED on CAP5b
