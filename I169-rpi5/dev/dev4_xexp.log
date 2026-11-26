@@ -1,0 +1,12 @@
+[PASS] x_exp: (i) z1^6 coefficient of E (X2 = 0) = a1^2 (a1^2 + 4 k1^2 a0^2)(a1^2 + 5 k1^2 a0^2): True, z-support of E has i + j <= 6: True, frequency 6 k1 attained only by z1^6 at the resonant ratios: True; (ii) R1 = c1: E = z2^2 b1^2 E'' with E'' a polynomial: True, E = 0 at b1 = 0 (planar family): True; (iii) the ideal of all 14 coefficients of E'' with t c1 k1 k2 (k1 - k2) b1 - 1 is the unit ideal (generic frequencies): True; resonant ratios q = k1/k2 with |q| >= 1 from the support: ['-1', '4/3', '3/2', '-2', '2', '3', '4'] (as declared: True), merged coefficients with t c1 k2 b1 - 1 give the unit ideal in each: [True, True, True, True, True, True, True]
+  (5.0 s)
+
+verdicts:
+  reductions (ODE normal form, excluded forms are one product plus a constant or additive): NOT established (a check failed)
+  rho-side with constant ODE coefficients (exponentials, exponential polynomials): NOT established
+  x-side exponentials X1 = e^(k1 x), X2 = e^(k2 x), k1 != k2 real: no solution under W_rho != 0 (R1 constant by the top frequency, then unit ideals)
+  Lemma L on the two-product E: NOT established
+  planted additive truth through the same E: NOT established
+  the question (no solution under (N), or an explicit solution): NOT DECIDED by this script (strata (b), (c), (d) outside rho-side constant coefficients and real exponential x-side)
+
+checks: 1 passed, 0 failed []. 5 s
