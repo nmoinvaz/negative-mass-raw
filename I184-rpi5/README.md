@@ -155,7 +155,7 @@ overwritten; reruns are numbered. A run longer than 1 h of wall time is stopped 
 reported. Nothing here is certified: every number is **numerical evidence** except where a line says **checked
 symbolically**.
 
-## Amendment A1 (2026-11-26, after the development runs `dev_01` to `dev_08`, before any run of record)
+## Amendment A1 (2026-11-26, after the development runs `dev_01` to `dev_11`, before any run of record)
 
 Each item says what the development runs showed. No bar was loosened; items that cannot run as worded are printed as
 `NOT MET (as first worded)` and do not gate the exit code, as in #167.
@@ -194,7 +194,7 @@ Each item says what the development runs showed. No bar was loosened; items that
    with the wrong sign) for W9′(b). `no-project` also targets W5 and W6 (the member walks run as `conserve`), `walk-eq` also W2 and W7.
 7. **The first unlogged runs** are in `dev_00_unlogged_first_runs.md` (the underflow of the Taylor coefficients at η ≥ 3e5, fixed by
    the power-of-two step variable before any logged run).
-8. **Added after the dev runs `dev_06` to `dev_08` (the hand argument of Theorem 1 in the note), bars derived by hand, not from data.**
+8. **Added after `dev_09` (the hand argument of Theorem 1 in the note), bars derived by hand, not from data; first run in `dev_11`.**
    `trap_bounds`: the four polynomial bounds |A₁| ≤ 26u²p⁶, |∂A₁/∂q| ≤ 30u²p⁴, |A₂| ≤ 15u³p⁴, |∂A₂/∂q| ≤ 35u³p³ for 0 < p ≤ 1/4,
    |w| ≤ p²/2, u = 1 + |G| hold at 4000 random states (ratio ≤ 1); at 300 random states of D = {p ≤ 1/4, σu³ ≤ p²/5} N changes sign
    across |w| ≤ p²/2 and is increasing there, the root obeys |w| ≤ 20σu²p², p′ = q lies in p²[−5/4, −3/4] and (ln r)′ < −3/5 with
@@ -209,8 +209,12 @@ Each item says what the development runs showed. No bar was loosened; items that
     The mutation now shifts only the solution the walk is compared with (the start state keeps g = 7/10): `dev_10`, error 3.9e-4, fired.
     `limit-class` predicted P4 and P2; in `dev_09` it fired P4 only, because P2's G changes by 0.6 between 10⁶ and 10¹², so inverting the
     |p| test does not make it LIMIT: P2 is dropped from its targets.
+11. **`Relaxed` probe** (`relaxed_probe/`, log `probe_relaxed.log`; multidouble git rev ba0ad101ce76): an online product of two series, `Relaxed::sum` against
+    `cs_range`: DV order 30 and QV order 60 form 0 squares (bitwise `cs_range`, `Relaxed` no faster: 0.387 against 0.345 ms at QV order 60); OV order 120 forms 14 squares
+    and is 1.5 times faster (9.3 against 13.8 ms), order 240 forms 39 squares and is 2.2 times faster. The walks use DD (order 30) and QD (order 60), so `Relaxed` is not
+    used; it would pay at octo-double orders of 120 and more.
 
-## Amendment A2 (2026-11-26, control targets, after the development runs `dev_09` and `dev_10`)
+## Amendment A2 (2026-11-26, control targets, after the development runs `dev_09` and `dev_10`; `dev_11` reruns the walk checks with the final script)
 
 Each control is `conical_loglog.py --mutate=NAME`; a control runs only the checks it names, so "no other check fails" holds by
 construction, and the expected outcome is exit 1 with exactly the named checks `[FAIL]`.

@@ -25,7 +25,7 @@ fn series<T: Lane>(n: usize, r: &mut Rng) -> Vec<Fl<T, 1>> {
         .collect()
 }
 
-fn probe<T: Lane>(name: &str, kt: usize) {
+fn probe<T: Lane + std::fmt::Debug>(name: &str, kt: usize) {
     let n = kt + 2;
     let mut r = Rng(7);
     let (x, y) = (series::<T>(n, &mut r), series::<T>(n, &mut r));
