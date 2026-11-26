@@ -1,0 +1,7 @@
+[FAIL] plant_linear: matching on the linear planted equation, exact alpha + (a + b x)/(1 + x^2), a = 13/10, b = 2/5: converged True in 1 steps, |C- - a| 8.928526776411752, |e| 1.3933400894290775e-05, |C+ - b| 0.22321316941029382, nodes 0.11160658470514691 (thresholds 1e-20, 1e-20, 1e-20, 1e-22)
+  (0 s)
+[FAIL] plant_cubic: matching on the cubic planted equation, exact alpha + (a + b x)/(1 + x^2), a = 13/10, b = 2/5: converged True in 9 steps, |C- - a| 8.928526776411752, |e| 1.3933400894290775e-05, |C+ - b| 0.22321316941029382, nodes 0.11160658470514691 (thresholds 1e-20, 1e-20, 1e-20, 1e-22)
+  (1 s)
+
+checks: 0 passed, 2 failed ['plant_linear', 'plant_cubic']. 1 s
+control match-sign: target checks ['plant_linear', 'plant_cubic'], fired ['plant_linear', 'plant_cubic']

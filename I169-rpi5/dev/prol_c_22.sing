@@ -1,0 +1,14 @@
+ring r=32003,(A0,A1,A2,A3,A4,B0,B1,B2,B3,B4,R0,R1,R2,R3,R4,io,t),dp;
+proc dx(poly f){ return(diff(f,A0)*A1+diff(f,A1)*A2+diff(f,A2)*A3+diff(f,A3)*A4+diff(f,B0)*B1+diff(f,B1)*B2+diff(f,B2)*B3+diff(f,B3)*B4); }
+proc dr(poly f){ return(diff(f,R0)*R1+diff(f,R1)*R2+diff(f,R2)*R3+diff(f,R3)*R4+diff(f,io)*(-io^2)); }
+poly u=A0*R0+B0;
+poly ux=A1*R0+B1; poly uxx=A2*R0+B2; poly ur=A0*R1; poly uxr=A1*R1; poly lap=A0*(R2+io*R1);
+poly P=-(ux^2+u*uxx); poly Q2=-lap; poly Z2=uxr; poly Y2=2*ux*ur+u*uxr; poly h2=ur^2;
+poly D=h2^3-4*h2*P^2-h2*Q2^2+h2*Y2^2+h2*Z2^2-2*P*(Y2^2-Z2^2)+2*Q2*Y2*Z2;
+ideal I; poly cur=D; poly row; int i,j;
+for(i=0;i<=2;i++){ row=cur; for(j=0;j<=2;j++){ I=I,row; row=dr(row); } cur=dx(cur); }
+poly W3=A1*B2-A2*B1;
+I=I,t*W3*R1-1;
+ideal G=std(I);
+print(size(G)); print(G[1]); print(dim(G));
+quit;

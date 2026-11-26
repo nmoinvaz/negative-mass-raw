@@ -1,0 +1,11 @@
+planar_residual.py (#171), sympy 1.14.0, python 3.14.10. mutation: none
+[PASS] E_solve: unknowns alpha_1^2, alpha_2^2, V at a point; nonzero components ['pp', 'pq', 'qq', 'yy', 'zz']; (i) Groebner basis of the 3x3 minors with t h j E c P - 1 is [1] (rank 3 wherever h j E c != 0), gcd of the minors 4096*E*P**3*h*j; (ii) linsolve gives (1/(32*pi), 1/(32*pi), 0), expected (1/(32 pi), 1/(32 pi), 0), substituted: 0; (iii) c-free True (1 s)
+    component pp: -8*pi*c**2*h**2*(A1 - A2) = 0   (H' -> h, J' -> j, e^(2HJ) -> E, A1 = alpha_1^2, A2 = alpha_2^2, Vh = V at the point; numerator)
+    component pq: -8*pi*E*Vh = 0   (H' -> h, J' -> j, e^(2HJ) -> E, A1 = alpha_1^2, A2 = alpha_2^2, Vh = V at the point; numerator)
+    component qq: -128*pi*j**2*(A1 - A2) = 0   (H' -> h, J' -> j, e^(2HJ) -> E, A1 = alpha_1^2, A2 = alpha_2^2, Vh = V at the point; numerator)
+    component yy: 2*(16*pi*A1*h*j + 16*pi*A2*h*j + 4*pi*E*Vh - h*j) = 0   (H' -> h, J' -> j, e^(2HJ) -> E, A1 = alpha_1^2, A2 = alpha_2^2, Vh = V at the point; numerator)
+    component zz: 2*(16*pi*A1*h*j + 16*pi*A2*h*j + 4*pi*E*Vh - h*j) = 0   (H' -> h, J' -> j, e^(2HJ) -> E, A1 = alpha_1^2, A2 = alpha_2^2, Vh = V at the point; numerator)
+[PASS] E_residual: H(p), J(q) undefined, c a real nonzero symbol, alpha_1 = alpha_2 = 1/(4 sqrt(2 pi)), V = 0, signs (1, -1): all 16 components of G_ab - 8 pi (T_1 - T_2)_ab are 0; G_yy = G_zz = -2*exp(-2*H(p)*J(q))*Derivative(H(p), p)*Derivative(J(q), q) (nonzero components of G: 2), T_1 has 4 nonzero components (0 s)
+    information: components (i <= j, order p, q, y, z) of G: [(2, 2, -2*exp(-2*H(p)*J(q))*Derivative(H(p), p)*Derivative(J(q), q)), (3, 3, -2*exp(-2*H(p)*J(q))*Derivative(H(p), p)*Derivative(J(q), q))]; of 8 pi (T_1 - T_2): [(2, 2, -2*exp(-2*H(p)*J(q))*Derivative(H(p), p)*Derivative(J(q), q)), (3, 3, -2*exp(-2*H(p)*J(q))*Derivative(H(p), p)*Derivative(J(q), q))]; components of d/dc of 8 pi (T_1 - T_2) that are not 0: 0
+
+2 of 2 checks pass (1 s)
