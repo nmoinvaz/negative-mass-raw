@@ -115,7 +115,7 @@ overwritten; reruns are numbered. A run longer than 1 h of wall time is stopped 
 reported (`/usr/bin/time -l`). Nothing in the scan is certified: every number is **numerical evidence**.
 
 
-## Amendment A1 (2026-11-25, after the development runs `dev_01 to dev_13, before any run of record)
+## Amendment A1 (2026-11-25, after the development runs `dev_01` to `dev_13`, before any run of record)
 
 Each item says what the development runs showed. No threshold was loosened. Items 1 to 3 were agreed with the coordinator
 (hc, 2026-11-25); items 4 to 8 fix wording and design of cases the README could not run as written; items 9 to 11 add
@@ -196,3 +196,19 @@ run (`dev_12_controls/`, and `dev_13_controls/` for the two repaired ones):
 
 The run of record is `python3 notes/warp/conical_global.py --fresh` (the series is solved again, not read from the cache), stdout to
 `run_01.log` here and to `notes/warp/conical_global_output.txt`.
+
+## Runs
+
+Branch `wip/i167-conical-global`, script at 3651f86 for the run of record. Every log is kept, including the failed and stopped ones.
+
+| log | what | result |
+|---|---|---|
+| `dev_01_series_k13.log`, `dev_02_a2probe.log` | A2 as first worded at n ≤ 13 | 3.2e-19 at (1, 0), fails; A1 item 1 |
+| `dev_03_scan_grid.log`, `dev_05_scan_grid_kinds.log` | the grid, first labels, then revised labels | no regular crossing; 58 start residuals above 1e-18 |
+| `dev_04_forward.log`, `dev_09_forward.log` | the forward map from η = 0 | log-log regime found; criteria of E3 written after |
+| `dev_06_orchestrator_crash1`, `dev_07_orchestrator_crash2` | orchestrator crashes (zero scale in `n_table`; the series command's parse) | fixed, logs kept |
+| `dev_08_orchestrator.log`, `dev_10_orchestrator.log` | the 17 checks; the first has `scan` and `forward` failing, the second passes after the pass of record became R ≤ 1e-8 | A1 item 3 |
+| `dev_11_full_stopped.*`, `dev_11_controls_stopped/` | the controls run stopped by hand (PIDs 62010, 73368) after a format error in `scan` | control logs of the 7 that ran are valid |
+| `dev_12_full.log`, `dev_12_controls/` | checks and 13 controls; `indep-eq` crashed and `bisect-end` was silent | repaired in `dev_13_controls/` (the −5.99 try stopped after 19 min by PID 94686) |
+| `run_01_stopped_in_controls.*`, `run_01_stopped_controls/` | first run of record, the 17 checks passed in 1015 s, stopped by hand (PIDs 24605, 49086) in the controls to add tables | superseded |
+| `run_02.log`, `run_02.err`, `run_02.rc`, `run_02_controls/` | the run of record | exit 0, 17 of 17 checks, 13 of 13 controls on target only, 1334 s, peak 205 MB |
