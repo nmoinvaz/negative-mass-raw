@@ -56,3 +56,11 @@ with a later start (η₀ = 1e4: 1.2800, 1e5: 1.0976), as the RK4 error at large
 tolerance are otherwise unchanged. Whether it passes is not known when this is written.
 
 ## Runs (filled in as they are done)
+
+| file | what |
+|---|---|
+| `dev/dev1_d-sign.txt` | the dev run that set `d-sign`'s targets (A1) |
+| `ind167_run1.txt`, `ind167_run1_mut_*.txt` | run 1: exit 1, 4 of 5; L5 failed by the coordinator's start data (A2): η* = 1.2815843809. Each mutation fired its target plus L5 |
+| `dev/l5_start.py`, `dev/l5_start.log` | the start-point diagnostic behind A2 |
+| `ind167_run2.txt` | run 2: exit 0, 5 of 5 criteria pass. L5: η* = 1.28193249506 against #167's 1.28193326312, 7.7e-7 apart. The own series through ν⁸ at (F_∞, C) = (1, 0) has a₆₀ = −70/27, a₆₁ = 112/9, a₆₂ = −128/3, equal to #159's table at that point (`conical_limit.md` §3), and a₈₀ = −439/108, a₈₁ = 478/9, a₈₂ = −512/3, a₈₃ = 256 |
+| `ind167_run2_mut_*.txt` | the 5 mutations, each exit 1 with exactly its target failing; `start-C` gives η*(C = 10) = 0.449121206 |
