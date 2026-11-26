@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-raw/I183-rpi5/sys/perturb_indep.py", line 13, in <module>
+    y0, n0 = co.indep_run(fi, c, L, 20, False)
+             ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-i183/notes/warp/conical_offgrid.py", line 828, in indep_run
+    ks.append(rhs(tau + cn[i] * h, yi))
+              ~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-i183/notes/warp/conical_offgrid.py", line 813, in rhs
+    return [-y[1], -qroot(y[0], y[1], e)]
+                    ~~~~~^^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-i183/notes/warp/conical_offgrid.py", line 809, in qroot
+    raise RuntimeError("Newton did not converge")
+RuntimeError: Newton did not converge
