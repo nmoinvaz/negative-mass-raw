@@ -192,3 +192,5 @@ run in `notes/wormhole_next/` of the worktree. Counts are in `counts/modecount_t
   computed for rung 0. X1 is informative and has no pass condition; its "reproduces to 1e-6" label reads "does not reproduce", and the
   differences are printed beside it.
 - The `mu` mutation row was added to the table above after the queues started and before any table was run.
+- The hypothesis above says the converged §6.2 cases started 0.0197 or less from their zeros. The largest is 0.0199 (D = 67,
+  start −1.02, zero −1.000077). D = 10 and 12 started 0.0233 and 0.0216 away, so the margin is thin.
