@@ -213,6 +213,11 @@ Each item says what the development runs showed. No bar was loosened; items that
     `cs_range`: DV order 30 and QV order 60 form 0 squares (bitwise `cs_range`, `Relaxed` no faster: 0.387 against 0.345 ms at QV order 60); OV order 120 forms 14 squares
     and is 1.5 times faster (9.3 against 13.8 ms), order 240 forms 39 squares and is 2.2 times faster. The walks use DD (order 30) and QD (order 60), so `Relaxed` is not
     used; it would pay at octo-double orders of 120 and more.
+12. **Added after `run_02` (the first complete run: exit 0, 20 of 20 checks, 17 of 17 controls, 24 min 55 s, 100 MB; kept) and before `run_03`:**
+    (a) the octo-double lanes in `plant_loglog` (`od` `project` and `conserve`, order 120, tolerance 1e-124, bar 1e-115 on the relative error of F, F′, F″ at
+    200 … 10¹²), run for the first time in `dev_12` (1.2e-126 and 7.8e-123): **the bar was set after seeing those values**; the first script version compared at
+    80 digits and measured 1.8e-81, a limit of the comparison, not of the walker, so the OD case is evaluated at 160 digits; (b) the printed table of the
+    precision a `conserve` walk needs (README "The precision a walk needs"), not gating. `run_03` is the run of record.
 
 ## Amendment A2 (2026-11-26, control targets, after the development runs `dev_09` and `dev_10`; `dev_11` reruns the walk checks with the final script)
 
