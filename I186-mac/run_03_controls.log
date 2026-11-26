@@ -1,0 +1,92 @@
+# 2026-11-26 08:04:10 commit ebd4cdc load 3.31 2.87 2.68
+##### control jsign
+CHECK T1: FAIL  J at order 0, crate (dd) against the generated function at 60 digits, 8 points x 36 entries: worst relative 2.00e+00 at (l, r, s, i, j) = (2, 2.3, 0.0, 3, 2) (bar 1.00e-24)
+CHECK T2: FAIL  J's series (30 coefficients) at 0.1 of a star step against the generated function at 60 digits on the series' own background, 4 cases, 96 entries: worst relative 2.00e+00 (bar 1.00e-24)
+CHECK A2[l=2]: FAIL  l = 2, base variant, lane dd: worst |D/D_stored - 1| = 1.64e+00 over 8 rows (bar 2.1e-04, the file's relative spread); g=0.001 D=1.0238051e-02 stored -5.2854310e-02 rel 1.19e+00 (row spread 1.1e-04) 0.06s; g=0.03 D=8.2042653e-03 stored -4.7253150e-02 rel 1.17e+00 (row spread 1.3e-04) 0.06s; g=0.3 D=-4.5080985e-03 stored -1.6753530e-02 rel 7.31e-01 (row spread 2.1e-04) 0.05s; g=1 D=3.7684214e-03 stored -6.0022030e-03 rel 1.63e+00 (row spread 2.1e-04) 0.05s; g=3 D=4.5479947e-04 stored -7.0990330e-04 rel 1.64e+00 (row spread 2.1e-04) 0.06s; g=10 D=-4.8021834e-05 stored -2.6455740e-05 rel 8.15e-01 (row spread 2.1e-04) 0.09s; g=40 D=1.7636040e-07 stored -4.2939220e-07 rel 1.41e+00 (row spread 2.1e-04) 0.27s; g=137 D=-1.7432724e-09 stored -1.0712890e-08 rel 8.37e-01 (row spread 2.1e-04) 0.85s
+SUMMARY: 0 of 3 checks passed; failed: T1, T2, A2[l=2]; mutate = jsign; 7 s
+CONTROL jsign: every targeted check failed, as it must
+exit 1
+##### control lowsum
+CHECK P0[f64]: FAIL  transient, gamma L = 40, expm at 140 digits, gamma = 3, 300, 12000: worst D 6.27e-11, planes 3.29e-10, ln vol 2.60e-03 (bars 1.00e-06, 1.00e-09, 1.00e-09)
+CHECK P0[dd]: FAIL  transient, gamma L = 40, expm at 140 digits, gamma = 3, 300, 12000: worst D 3.27e-17, planes 4.24e-18, ln vol 1.18e-06 (bars 1.00e-24, 1.00e-24, 1.00e-24)
+CHECK P1[f64]: FAIL  y' = A y, A = blockdiag([[0,1],[g^2,0]]) + C, L = 24.0, Lz = 40.0 against the invariant subspaces at 90 digits; worst D 3.84e-16, planes 2.20e-16, ln vol 2.47e-03 (bars 1.00e-06, 1.00e-09, 1.00e-09); g=3: D=0.090986 steps 25+42; g=10: D=0.00376077 steps 72+125; g=300: D=1.59705e-7 steps 2123+3545; g=12000: D=2.5056e-12 steps 84921+141541
+CHECK P1[dd]: FAIL  y' = A y, A = blockdiag([[0,1],[g^2,0]]) + C, L = 24.0, Lz = 40.0 against the invariant subspaces at 90 digits; worst D 6.95e-32, planes 2.37e-32, ln vol 1.14e-06 (bars 1.00e-24, 1.00e-24, 1.00e-24); g=3: D=0.090986 steps 82+149; g=10: D=0.00376077 steps 253+441; g=300: D=1.59705e-7 steps 7535+12581; g=12000: D=2.5056e-12 steps 301420+502388
+CHECK P1[qd]: FAIL  y' = A y, A = blockdiag([[0,1],[g^2,0]]) + C, L = 24.0, Lz = 40.0 against the invariant subspaces at 90 digits; worst D 3.37e-64, planes 2.04e-64, ln vol 4.16e-15 (bars 1.00e-56, 1.00e-56, 1.00e-56); g=10: D=0.00376077 steps 3180+5554; g=300: D=1.59705e-7 steps 94958+158552
+CHECK P2[dd]: FAIL  A(r) = A0 + r A1, gamma = 3, 6, L = 1, mpmath odefun at 60 digits: worst D 1.31e-05, planes 1.80e-06, ln vol 7.13e-06 (bar 1.00e-28)
+SUMMARY: 0 of 6 checks passed; failed: P0[f64], P0[dd], P1[f64], P1[dd], P1[qd], P2[dd]; mutate = lowsum; 35 s
+CONTROL lowsum: every targeted check failed, as it must
+exit 1
+##### control lin_drop
+CHECK P2[dd]: FAIL  A(r) = A0 + r A1, gamma = 3, 6, L = 1, mpmath odefun at 60 digits: worst D 1.20e+00, planes 4.21e-02, ln vol 4.96e-02 (bar 1.00e-28)
+SUMMARY: 0 of 1 checks passed; failed: P2[dd]; mutate = lin_drop; 5 s
+CONTROL lin_drop: every targeted check failed, as it must
+exit 1
+##### control recip_dd
+CHECK R1: FAIL  1/k for k = 1..32 formed in the lane, |k (1/k) - 1| at 200 digits: qd 3.08e-33 (bar 1.20e-63), od 3.08e-33 (bar 1.84e-127)
+CHECK P1[f64]: PASS  y' = A y, A = blockdiag([[0,1],[g^2,0]]) + C, L = 24.0, Lz = 40.0 against the invariant subspaces at 90 digits; worst D 8.36e-16, planes 3.06e-16, ln vol 2.11e-12 (bars 1.00e-06, 1.00e-09, 1.00e-09); g=3: D=0.090986 steps 25+42; g=10: D=0.00376077 steps 72+125; g=300: D=1.59705e-7 steps 2123+3545; g=12000: D=2.5056e-12 steps 84921+141541
+CHECK P1[dd]: PASS  y' = A y, A = blockdiag([[0,1],[g^2,0]]) + C, L = 24.0, Lz = 40.0 against the invariant subspaces at 90 digits; worst D 5.16e-32, planes 2.19e-32, ln vol 9.66e-29 (bars 1.00e-24, 1.00e-24, 1.00e-24); g=3: D=0.090986 steps 82+149; g=10: D=0.00376077 steps 253+441; g=300: D=1.59705e-7 steps 7535+12581; g=12000: D=2.5056e-12 steps 301420+502388
+CHECK P1[qd]: FAIL  y' = A y, A = blockdiag([[0,1],[g^2,0]]) + C, L = 24.0, Lz = 40.0 against the invariant subspaces at 90 digits; worst D 1.52e-63, planes 1.41e-63, ln vol 1.99e-36 (bars 1.00e-56, 1.00e-56, 1.00e-56); g=10: D=0.00376077 steps 3180+5554; g=300: D=1.59705e-7 steps 94958+158552
+SUMMARY: 2 of 4 checks passed; failed: R1, P1[qd]; mutate = recip_dd; 36 s
+CONTROL recip_dd: every targeted check failed, as it must
+exit 1
+##### control noqr
+CHECK P1[f64]: FAIL  y' = A y, A = blockdiag([[0,1],[g^2,0]]) + C, L = 24.0, Lz = 40.0 against the invariant subspaces at 90 digits; worst D 1.41e+268, planes 2.03e+141, ln vol 9.99e-01 (bars 1.00e-06, 1.00e-09, 1.00e-09); g=3: D=0.090986 steps 154+2036
+CHECK P1[dd]: FAIL  y' = A y, A = blockdiag([[0,1],[g^2,0]]) + C, L = 24.0, Lz = 40.0 against the invariant subspaces at 90 digits; worst D 7.24e+236, planes 2.03e+141, ln vol 9.99e-01 (bars 1.00e-24, 1.00e-24, 1.00e-24); g=3: D=0.090986 steps 551+7231
+CHECK P1: FAIL  raised RuntimeError: /Users/nathan/Source/negative-mass-i186/phase2/nonradial/taylor_polar/target/release/taylor_polar planted case=const lane=qd gamma=10.0 L=24.0 Lz=40.0 mutate=noqr exited 101: 
+thread '<unnamed>' (99287507) panicked at src/plane.rs:131:13:
+integrate: more than 60 s by x = 1.9119245827611817e1 after 7
+CHECK A2: FAIL  raised RuntimeError: /Users/nathan/Source/negative-mass-i186/phase2/nonradial/taylor_polar/target/release/taylor_polar d lane=dd l=2 r0=0.001 rm=24.10980364018201 gammas=0.001,0.03,0.3,1.0,3.0,10.0,40.0,137.0 omega=0.7603 eps=-1.0 lam=10240.0 mu=21845333.333333336 pc=3.86682473052039692307928581646122e-04 zc=9.811197268
+SUMMARY: 0 of 4 checks passed; failed: P1[f64], P1[dd], P1, A2; mutate = noqr; 170 s
+CONTROL noqr: every targeted check failed, as it must
+exit 1
+##### control star_eps
+CHECK S1: FAIL  star by shooting against solve_star's mesh at r = 0.002 .. 24.10980364018201 (10 radii, alpha, a, phi0, u): exact regular start worst relative 1.16e-01 at ('u', 0.002) (bar 1.00e-06); start at r0 = 1e-3 with scipy's leading-order boundary condition 1.16e-01 at ('u', 0.002) (bar 1.00e-09)
+CHECK S2: FAIL  star's equations: crate state at r = 8.0 against DOP853 (rtol 1e-13) on background.odes from the crate's state at r = 0.5: worst of (ln phi0, u, m, nu) 8.31e+12 (bar 1.00e-09)
+CHECK A2[l=2]: FAIL  l = 2, base variant, lane dd: worst |D/D_stored - 1| = 5.52e-03 over 8 rows (bar 2.1e-04, the file's relative spread); g=0.001 D=-5.2562476e-02 stored -5.2854310e-02 rel 5.52e-03 (row spread 1.1e-04) 0.06s; g=0.03 D=-4.7000689e-02 stored -4.7253150e-02 rel 5.34e-03 (row spread 1.3e-04) 0.05s; g=0.3 D=-1.6728021e-02 stored -1.6753530e-02 rel 1.52e-03 (row spread 2.1e-04) 0.05s; g=1 D=-5.9904300e-03 stored -6.0022030e-03 rel 1.96e-03 (row spread 2.1e-04) 0.05s; g=3 D=-7.0691453e-04 stored -7.0990330e-04 rel 4.21e-03 (row spread 2.1e-04) 0.05s; g=10 D=-2.6319522e-05 stored -2.6455740e-05 rel 5.15e-03 (row spread 2.1e-04) 0.10s; g=40 D=-4.2712591e-07 stored -4.2939220e-07 rel 5.28e-03 (row spread 2.1e-04) 0.29s; g=137 D=-1.0656265e-08 stored -1.0712890e-08 rel 5.29e-03 (row spread 2.1e-04) 0.94s
+SUMMARY: 0 of 3 checks passed; failed: S1, S2, A2[l=2]; mutate = star_eps; 14 s
+CONTROL star_eps: every targeted check failed, as it must
+exit 1
+##### control zc1
+CHECK S1: FAIL  raised RuntimeError: /Users/nathan/Source/negative-mass-i186/phase2/nonradial/taylor_polar/target/release/taylor_polar starcheck r=0.002,0.05,0.5,2.0,5.0,8.0,12.0,16.0,20.0,24.10980364018201 omega=0.7603 eps=-1.0 lam=10240.0 mu=21845333.333333336 pc=3.86682473052039692307928581646122e-04 zc=1.000000000000000000000000000
+CHECK A2: FAIL  raised RuntimeError: /Users/nathan/Source/negative-mass-i186/phase2/nonradial/taylor_polar/target/release/taylor_polar d lane=dd l=2 r0=0.001 rm=24.10980364018201 gammas=0.001,0.03,0.3,1.0,3.0,10.0,40.0,137.0 omega=0.7603 eps=-1.0 lam=10240.0 mu=21845333.333333336 pc=3.86682473052039692307928581646122e-04 zc=1.000000000
+SUMMARY: 0 of 2 checks passed; failed: S1, A2; mutate = zc1; 19 s
+CONTROL zc1: every targeted check failed, as it must
+exit 1
+##### control start_term
+CHECK S1: FAIL  star by shooting against solve_star's mesh at r = 0.002 .. 24.10980364018201 (10 radii, alpha, a, phi0, u): exact regular start worst relative 4.10e-08 at ('u', 0.002) (bar 1.00e-06); start at r0 = 1e-3 with scipy's leading-order boundary condition 6.25e-02 at ('u', 0.002) (bar 1.00e-09)
+CHECK S3: FAIL  central data (P_c, Z_c) against the shooting's start radius: rs = 1e-8 vs 1e-9 moves them by 1.89e-25, 1.64e-19 (bar 1.00e-16); rs = 1e-6 vs 1e-7 by 1.89e-19, 1.64e-15; ratio 1.00e-06, 1.00e-04 (rs^2 law: 1e-4, bar [3.33e-05, 3.0e-04]); phi_c = 0.0196642435159, alpha_c = 1.00957594934 (solve_star: 0.0196642426625, 1.0095759485)
+SUMMARY: 0 of 2 checks passed; failed: S1, S3; mutate = start_term; 27 s
+CONTROL start_term: every targeted check failed, as it must
+exit 1
+##### control shift_off
+CHECK T3: FAIL  table against direct J at 150 radii, l = 2 (s = 0.3) and l = 6 (s = 300), dd: worst entry relative to itself 1.30e+00 at (l, s, r, entry) = (6, 300.0, 0.07016402546694896, '1,0') (bar 1.00e-20); info, not gated: worst error relative to the largest |J| entry 6.96e-02 at (l, s, r) = (2, 0.3, 0.0049461272018049484)
+CHECK A2[l=2]: FAIL  l = 2, base variant, lane dd: worst |D/D_stored - 1| = 4.28e+00 over 8 rows (bar 2.1e-04, the file's relative spread); g=0.001 D=-5.3003960e-02 stored -5.2854310e-02 rel 2.83e-03 (row spread 1.1e-04) 0.07s; g=0.03 D=-4.7407498e-02 stored -4.7253150e-02 rel 3.27e-03 (row spread 1.3e-04) 0.06s; g=0.3 D=-1.7048797e-02 stored -1.6753530e-02 rel 1.76e-02 (row spread 2.1e-04) 0.06s; g=1 D=-6.1995421e-03 stored -6.0022030e-03 rel 3.29e-02 (row spread 2.1e-04) 0.06s; g=3 D=-8.4076065e-04 stored -7.0990330e-04 rel 1.84e-01 (row spread 2.1e-04) 0.06s; g=10 D=-3.0476156e-05 stored -2.6455740e-05 rel 1.52e-01 (row spread 2.1e-04) 0.10s; g=40 D=-8.7958822e-07 stored -4.2939220e-07 rel 1.05e+00 (row spread 2.1e-04) 0.30s; g=137 D=-5.6537361e-08 stored -1.0712890e-08 rel 4.28e+00 (row spread 2.1e-04) 0.92s
+SUMMARY: 0 of 2 checks passed; failed: T3, A2[l=2]; mutate = shift_off; 12 s
+CONTROL shift_off: every targeted check failed, as it must
+exit 1
+##### control wide_table
+CHECK T3: FAIL  table against direct J at 150 radii, l = 2 (s = 0.3) and l = 6 (s = 300), dd: worst entry relative to itself 2.63e+01 at (l, s, r, entry) = (6, 300.0, 0.002306276623234469, '1,0') (bar 1.00e-20); info, not gated: worst error relative to the largest |J| entry 2.63e+01 at (l, s, r) = (2, 0.3, 0.002306276623234469)
+CHECK A2[l=2]: FAIL  l = 2, base variant, lane dd: worst |D/D_stored - 1| = 2.00e+00 over 8 rows (bar 2.1e-04, the file's relative spread); g=0.001 D=5.2854306e-02 stored -5.2854310e-02 rel 2.00e+00 (row spread 1.1e-04) 0.09s; g=0.03 D=4.7253152e-02 stored -4.7253150e-02 rel 2.00e+00 (row spread 1.3e-04) 0.09s; g=0.3 D=1.6753535e-02 stored -1.6753530e-02 rel 2.00e+00 (row spread 2.1e-04) 0.09s; g=1 D=6.0022029e-03 stored -6.0022030e-03 rel 2.00e+00 (row spread 2.1e-04) 0.08s; g=3 D=7.0990331e-04 stored -7.0990330e-04 rel 2.00e+00 (row spread 2.1e-04) 0.09s; g=10 D=-2.6455736e-05 stored -2.6455740e-05 rel 1.53e-07 (row spread 2.1e-04) 0.13s; g=40 D=-4.2939218e-07 stored -4.2939220e-07 rel 3.80e-08 (row spread 2.1e-04) 0.33s; g=137 D=1.0712895e-08 stored -1.0712890e-08 rel 2.00e+00 (row spread 2.1e-04) 0.97s
+SUMMARY: 0 of 2 checks passed; failed: T3, A2[l=2]; mutate = wide_table; 6 s
+CONTROL wide_table: every targeted check failed, as it must
+exit 1
+##### control moncrief
+CHECK A2[l=2]: FAIL  l = 2, base variant, lane dd: worst |D/D_stored - 1| = 1.65e+03 over 8 rows (bar 2.1e-04, the file's relative spread); g=0.001 D=-1.3486675e-01 stored -5.2854310e-02 rel 1.55e+00 (row spread 1.1e-04) 0.06s; g=0.03 D=-1.2478659e-01 stored -4.7253150e-02 rel 1.64e+00 (row spread 1.3e-04) 0.06s; g=0.3 D=-8.9055242e-02 stored -1.6753530e-02 rel 4.32e+00 (row spread 2.1e-04) 0.05s; g=1 D=-8.1771946e-02 stored -6.0022030e-03 rel 1.26e+01 (row spread 2.1e-04) 0.05s; g=3 D=-2.6773737e-02 stored -7.0990330e-04 rel 3.67e+01 (row spread 2.1e-04) 0.06s; g=10 D=-3.2318658e-03 stored -2.6455740e-05 rel 1.21e+02 (row spread 2.1e-04) 0.10s; g=40 D=-2.0788252e-04 stored -4.2939220e-07 rel 4.83e+02 (row spread 2.1e-04) 0.30s; g=137 D=-1.7724678e-05 stored -1.0712890e-08 rel 1.65e+03 (row spread 2.1e-04) 0.97s
+SUMMARY: 0 of 1 checks passed; failed: A2[l=2]; mutate = moncrief; 8 s
+CONTROL moncrief: every targeted check failed, as it must
+exit 1
+##### control swapcols
+CHECK A2[l=2]: FAIL  l = 2, base variant, lane dd: worst |D/D_stored - 1| = 2.00e+00 over 8 rows (bar 2.1e-04, the file's relative spread); g=0.001 D=5.2854306e-02 stored -5.2854310e-02 rel 2.00e+00 (row spread 1.1e-04) 0.06s; g=0.03 D=4.7253152e-02 stored -4.7253150e-02 rel 2.00e+00 (row spread 1.3e-04) 0.06s; g=0.3 D=1.6753535e-02 stored -1.6753530e-02 rel 2.00e+00 (row spread 2.1e-04) 0.05s; g=1 D=6.0022029e-03 stored -6.0022030e-03 rel 2.00e+00 (row spread 2.1e-04) 0.05s; g=3 D=7.0990331e-04 stored -7.0990330e-04 rel 2.00e+00 (row spread 2.1e-04) 0.06s; g=10 D=2.6455736e-05 stored -2.6455740e-05 rel 2.00e+00 (row spread 2.1e-04) 0.11s; g=40 D=4.2939218e-07 stored -4.2939220e-07 rel 2.00e+00 (row spread 2.1e-04) 0.31s; g=137 D=1.0712895e-08 stored -1.0712890e-08 rel 2.00e+00 (row spread 2.1e-04) 0.97s
+SUMMARY: 0 of 1 checks passed; failed: A2[l=2]; mutate = swapcols; 8 s
+CONTROL swapcols: every targeted check failed, as it must
+exit 1
+##### control mext0
+CHECK A2[l=2]: FAIL  l = 2, base variant, lane dd: worst |D/D_stored - 1| = 9.96e-01 over 8 rows (bar 2.1e-04, the file's relative spread); g=0.001 D=-5.2781675e-02 stored -5.2854310e-02 rel 1.37e-03 (row spread 1.1e-04) 0.06s; g=0.03 D=-4.7193397e-02 stored -4.7253150e-02 rel 1.26e-03 (row spread 1.3e-04) 0.05s; g=0.3 D=-1.6782174e-02 stored -1.6753530e-02 rel 1.71e-03 (row spread 2.1e-04) 0.05s; g=1 D=-6.0427873e-03 stored -6.0022030e-03 rel 6.76e-03 (row spread 2.1e-04) 0.05s; g=3 D=-7.2464991e-04 stored -7.0990330e-04 rel 2.08e-02 (row spread 2.1e-04) 0.06s; g=10 D=-2.8346821e-05 stored -2.6455740e-05 rel 7.15e-02 (row spread 2.1e-04) 0.10s; g=40 D=-5.5383858e-07 stored -4.2939220e-07 rel 2.90e-01 (row spread 2.1e-04) 0.30s; g=137 D=-2.1381920e-08 stored -1.0712890e-08 rel 9.96e-01 (row spread 2.1e-04) 0.95s
+SUMMARY: 0 of 1 checks passed; failed: A2[l=2]; mutate = mext0; 8 s
+CONTROL mext0: every targeted check failed, as it must
+exit 1
+##### control qstart
+CHECK A2[l=2]: FAIL  l = 2, base variant, lane dd: worst |D/D_stored - 1| = 2.12e-01 over 8 rows (bar 2.1e-04, the file's relative spread); g=0.001 D=-4.1644978e-02 stored -5.2854310e-02 rel 2.12e-01 (row spread 1.1e-04) 0.05s; g=0.03 D=-3.9452857e-02 stored -4.7253150e-02 rel 1.65e-01 (row spread 1.3e-04) 0.05s; g=0.3 D=-1.6723181e-02 stored -1.6753530e-02 rel 1.81e-03 (row spread 2.1e-04) 0.05s; g=1 D=-6.0021252e-03 stored -6.0022030e-03 rel 1.30e-05 (row spread 2.1e-04) 0.05s; g=3 D=-7.0990330e-04 stored -7.0990330e-04 rel 3.01e-09 (row spread 2.1e-04) 0.05s; g=10 D=-2.6455736e-05 stored -2.6455740e-05 rel 1.53e-07 (row spread 2.1e-04) 0.09s; g=40 D=-4.2939218e-07 stored -4.2939220e-07 rel 3.80e-08 (row spread 2.1e-04) 0.29s; g=137 D=-1.0712895e-08 stored -1.0712890e-08 rel 4.23e-07 (row spread 2.1e-04) 0.92s
+SUMMARY: 0 of 1 checks passed; failed: A2[l=2]; mutate = qstart; 7 s
+CONTROL qstart: every targeted check failed, as it must
+exit 1
