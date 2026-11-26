@@ -270,8 +270,8 @@ multishoot's and multisolver's other code is not called by the crate (see the no
 
 Written after A2 was committed (raw 91537ed). Crate at commit 5ad351a (binary built from it, `cargo build --release -j 2`), driver
 as named. Each single-thread process under `nice -n 10`; at most 4 processes at once (the planted od runs and od D-list parts ran
-together with load average 9 to 14 from other users' work); memory reported only (`/usr/bin/time -v`, `.time` files). The two
-exit codes of 1 are the driver's: it exits 1 when a check fails, and S4, S5, F3, G1 and R4 do (see the note).
+together with load average 9 to 14 from other users' work); memory reported only (`/usr/bin/time -v`, `.time` files). The
+exit codes of 1 are the driver's: it exits 1 when a check fails, and S4, S4w, S5, F3, G1 and R4 do (see the note).
 
 | run | what | start | load average (1, 5, 15 min) | wall | peak RSS (MiB) | exit |
 |---|---|---|---|---|---|---|
@@ -287,7 +287,8 @@ exit codes of 1 are the driver's: it exits 1 when a check fails, and S4, S5, F3,
 | `run_04_w2_od_Dlist_p2` | od, index 2 mod 3 (unit nm-i195-run04-od-p2) | 14:33:12 | 9.18, 11.94, 13.34 | 23:18.55 | 3.6 | 0 |
 | `run_05_driver_final` | the driver, code f620c48's predecessor 5ad351a (unit nm-i195-run05-driver) | 14:56:42 | 18.19, 18.43, 17.31 | 1:24.23 | 117.4 | 1 |
 | `run_06_driver_final` | the driver, code f620c48 (unit nm-i195-run06-driver); same verdicts and numbers as run_05 | 14:58:52 | 19.69, 18.93, 17.65 | 1:37.83 | 116.6 | 1 |
-| `run_07_driver_final` | the driver, code 69a9b96, with the Omega3, Omega4 and four-term remainder report: **the output of record** (foreground, 74 s) | 15:00:50 | 18.54, 18.94, 17.82 | 1:14.04 | 116.5 | 1 |
+| `run_07_driver_final` | the driver, code 69a9b96, with the Omega3, Omega4 and four-term remainder report: same verdicts as run_05 and run_06 (foreground, 74 s) | 15:00:50 | 18.54, 18.94, 17.82 | 1:14.04 | 116.5 | 1 |
+| `run_08_driver_final` | the driver, code with the planted cases' digits table: **the output of record** (foreground) | 15:03:25 | 17.03, 17.76, 17.52 | 1:17.67 | 117.4 | 1 |
 
 Cpu seconds inside the crate (sum of the `secs` fields): the qd D list 50.4 s (2106 Taylor steps, 1087 retries), the od D list
 3525.8 s (2717 steps, 611 retries). `dev_25_pslq_omega3.*` is a development try, not a record: Omega3 = -652.8401075700561254352393037996
