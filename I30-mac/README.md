@@ -137,6 +137,7 @@ Each must make the table exit 1 with exactly its target failing.
 
 | mutation | change | target |
 |---|---|---|
+| `mu` | the stored real-axis zeros shifted by 1e-6 (row added at 16:50 UTC, after the queues started and before any table was run) | E1 |
 | `winding` | one plain box winding +1 | C1 |
 | `noplant` | a planted record replaced by its plain one | C2 |
 | `realzero` | the real-axis zero in C3 set to −1.2 (below the jump) | C3 |
@@ -161,4 +162,32 @@ Files: `counts/` (modecount_test_results.jsonl, `*_raw.jsonl` caches, `*_evals.j
 
 ## Runs
 
-(filled in as they finish)
+Launched 2026-11-26 16:45 UTC by `nohup caffeinate -is bash notes/wormhole_next/step3.sh A` and `… B` (PIDs in
+`logs/pids.txt`), at 2 threads each. The effective nice was 15, not 10: the launching shell was at nice 5, then
+`nice -n 10`. All 15 jobs exited 0, the last at 17:01 UTC (16 min of wall time; no job was stopped, rerun or restarted).
+Every job log records one environment line: CLD `5fcadda2`, `git status --short hp` empty, kernel sha1 `3b1a9a221956`. At
+the end CLD was at the same commit with `hp/` clean and the same kernel.
+
+| job | exit | UTC | note |
+|---|---|---|---|
+| E1: `D10_M48_m1_i30`, `D12_M48_m1_i30`, `D20.04_M32_m1_i30` | 0 | 16:46, 16:46, 16:53 | 16 evaluations each; zeros equal the stored ones to 1.4e-13, 5.9e-13, 1.8e-12 |
+| `cnt_D10`, `cnt_D10_plant` | 0, 0 | 16:51, 16:52 | 84 determinants (plain), 108 with the planted run |
+| `cnt_D12`, `cnt_D12_plant` | 0, 0 | 16:51, 16:53 | 92, 117 |
+| `cnt_D20.04`, `cnt_D20.04_plant` | 0, 0 | 16:54, 16:55 | 92, 112 |
+| `ax0_D10`, `ax0_D12` (rung 0) | 0, 0 | 16:56, 16:58 | the secant ends at (−1.2928, Im/ω − 1 = −4.1e-4) and (−1.3250, −3.2e-4) |
+| `ax_D10`, `ax_D12` (rung 1) | 0, 0 | 16:59, 17:00 | zeros −1.0016613614 and −1.0033895309, both on the line |
+| `axc_D16.76`, `axc_D20.04` | 0, 0 | 17:01, 17:01 | −1.0033192792 and −1.0026635066, equal to §6.2's |
+
+Rung 2 was not needed and was not run (`step3.sh R2`). Results: `step3_table.log` (15 checks, all PASS, exit 0) and
+`step3_selftest.log` (every mutation fails exactly its target, exit 0), both from `python3 step3_table.py [--selftest]`
+run in `notes/wormhole_next/` of the worktree. Counts are in `counts/modecount_test_results.jsonl`, the lines in
+`axis_s1.jsonl`, E1 in `ghost_mu3.jsonl`.
+
+**Differences from what this README predicted.**
+- Rung 0 does not reproduce §6.2's two points bit for bit, only to 8e-4 in Re and 5e-6 in Im/ω (D = 10), 2e-4 and 5e-7
+  (D = 12). The README said it would if the secant is deterministic, but the script multiplies out only the poles within
+  `lo − 2 < Re p < hi + 2` of the window, so the narrower window changes g and with it the secant's path. The behaviour is
+  the same: both runs leave the line by 3–4e-4 ω and land 0.3 to the left of the cell, where ln|g| is on the line's trend.
+  X1 is informative and has no pass condition; its "reproduces to 1e-6" label reads "does not reproduce", and the
+  differences are printed beside it.
+- The `mu` mutation row was added to the table above after the queues started and before any table was run.

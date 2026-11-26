@@ -1,0 +1,8 @@
+== ax0_D12 2026-11-26 16:56 UTC: modecount_test_axis.py /Users/nathan/Source/choptuik-large-d/hp/data/states/up_D12.0000.npz --s=1 --threads=2 --out=/Users/nathan/Source/negative-mass-raw/I30-mac/axis_s1.jsonl --allow_unraw --lo=-1.05 --hi=-1.00 --h=0.05
+-- env: CLD 5fcadda2 Delta tables: the form-S direct solve at D 50000 (#1088); hp status []; kernel sha1 3b1a9a221956
+  series truncation (solution): centre 1.2e-71 (ratio 0.087 at 0.02), horizon 1.1e-44 (ratio 0.371 at 0.3)
+D 12.0: M 48, |F| 8.1e-31, omega 2.629841; line Im = 1.0 omega = 2.629841, Re -1.05 .. -1.0; poles multiplied out: [(0.7765, 2.6298), (0.0726, 2.6298), (-0.6314, 2.6298), (-1.3353, 2.6298), (-2.0392, 2.6298), (-2.7431, 2.6298)]
+  -1.0500: ln|g|   -1076.2123, arg g +2.5050, min |u_kk| 8.1e-07
+  -1.0000: ln|g|   -1073.6271, arg g -0.6285, min |u_kk| 9.3e-07
+  zero near -1.0250: -1.3249767934 +2.6290073253i (Im / omega +0.999683)
+== ax0_D12 exit 0 2026-11-26 16:58 UTC

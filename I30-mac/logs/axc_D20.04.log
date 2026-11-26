@@ -1,0 +1,15 @@
+== axc_D20.04 2026-11-26 17:01 UTC: modecount_test_axis.py /Users/nathan/Source/choptuik-large-d/hp/data/states/up2_D20.0437.npz --s=1 --threads=2 --out=/Users/nathan/Source/negative-mass-raw/I30-mac/axis_s1.jsonl --allow_unraw --lo=-1.04 --hi=-1.00 --h=0.005
+-- env: CLD 5fcadda2 Delta tables: the form-S direct solve at D 50000 (#1088); hp status []; kernel sha1 3b1a9a221956
+  series truncation (solution): centre 9.0e-56 (ratio 0.204 at 0.1), horizon 4.1e-53 (ratio 0.303 at 0.3)
+D 20.043653: M 32, |F| 1.9e-29, omega 2.976205; line Im = 1.0 omega = 2.976205, Re -1.04 .. -1.0; poles multiplied out: [(0.5067, 2.9762), (-0.2674, 2.9762), (-1.0415, 2.9762), (-1.8156, 2.9762), (-2.5897, 2.9762)]
+  -1.0400: ln|g|    -883.6136, arg g +2.8936, min |u_kk| 3.6e-09
+  -1.0350: ln|g|    -883.4440, arg g +2.9011, min |u_kk| 3.7e-09
+  -1.0300: ln|g|    -883.2986, arg g +2.9085, min |u_kk| 3.7e-09
+  -1.0250: ln|g|    -883.1872, arg g +2.9159, min |u_kk| 3.8e-09
+  -1.0200: ln|g|    -883.1271, arg g +2.9232, min |u_kk| 3.8e-09
+  -1.0150: ln|g|    -883.1538, arg g +2.9305, min |u_kk| 3.9e-09
+  -1.0100: ln|g|    -883.3599, arg g +2.9378, min |u_kk| 3.9e-09
+  -1.0050: ln|g|    -884.1905, arg g +2.9450, min |u_kk| 3.9e-09
+  -1.0000: ln|g|    -883.7459, arg g -0.1894, min |u_kk| 3.5e-09
+  zero near -1.0025: -1.0026635066 +2.9762045323i (Im / omega +1.000000)
+== axc_D20.04 exit 0 2026-11-26 17:01 UTC
