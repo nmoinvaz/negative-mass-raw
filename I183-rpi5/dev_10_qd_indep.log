@@ -1,0 +1,28 @@
+conical_offgrid.py: grid full; controls run every check (on the ctl grid) and must fail their targets and no others
+[NOTE] dd_qd: O8 as first worded (quad-double fit of the last 10 of 60 orders) failed in dev_07 at 20 of 142 points: eta* identical, kind `F->0` in double-double and `other` in quad-double; quad-double now fits the last 33 orders (chosen after dev_07). The 20 points, fitted exponent against alpha = 2/(eta*^2 + 4) (ratio in brackets) and the kind of each lane:
+   F_inf=-2 C=1e+08: eta* 7071.061147 (QD 7071.061147), alpha 4.0000e-08; double-double 3.9898e-08 (0.997) F->0; quad-double 3.9945e-08 (0.999) F->0
+   F_inf=-1 C=1e+08: eta* 9999.996516 (QD 9999.996516), alpha 2.0000e-08; double-double 2.0059e-08 (1.003) F->0; quad-double 1.9943e-08 (0.997) F->0
+   F_inf=-0.5 C=3e+07: eta* 7745.962772 (QD 7745.962772), alpha 3.3333e-08; double-double 3.3423e-08 (1.003) F->0; quad-double 3.3298e-08 (0.999) F->0
+   F_inf=-0.5 C=1e+08: eta* 14142.13332 (QD 14142.13332), alpha 1.0000e-08; double-double 1.0037e-08 (1.004) F->0; quad-double 9.9880e-09 (0.999) F->0
+   F_inf=0.001 C=-100000: eta* 9999.996989 (QD 9999.996989), alpha 2.0000e-08; double-double 1.9913e-08 (0.996) F->0; quad-double 1.9948e-08 (0.997) F->0
+   F_inf=0.002 C=-100000: eta* 7071.063725 (QD 7071.063725), alpha 4.0000e-08; double-double 3.9930e-08 (0.998) F->0; quad-double 3.9950e-08 (0.999) F->0
+   F_inf=0.005 C=-300000: eta* 7745.96292 (QD 7745.96292), alpha 3.3333e-08; double-double 3.3235e-08 (0.997) F->0; quad-double 3.3303e-08 (0.999) F->0
+   F_inf=0.01 C=-1e+06: eta* 9999.996989 (QD 9999.996989), alpha 2.0000e-08; double-double 1.9984e-08 (0.999) F->0; quad-double 1.9933e-08 (0.997) F->0
+   F_inf=0.02 C=-1e+06: eta* 7071.063725 (QD 7071.063725), alpha 4.0000e-08; double-double 4.0130e-08 (1.003) F->0; quad-double 3.9940e-08 (0.998) F->0
+   F_inf=0.03 C=-3e+06: eta* 9999.996988 (QD 9999.996988), alpha 2.0000e-08; double-double 1.9882e-08 (0.994) F->0; quad-double 1.9958e-08 (0.998) F->0
+   F_inf=0.03 C=-1e+06: eta* 5773.497809 (QD 5773.497809), alpha 6.0000e-08; double-double 5.9963e-08 (0.999) F->0; quad-double 5.9986e-08 (1.000) F->0
+   F_inf=0.05 C=-3e+06: eta* 7745.962919 (QD 7745.962919), alpha 3.3333e-08; double-double 3.3613e-08 (1.008) F->0; quad-double 3.3313e-08 (0.999) F->0
+   F_inf=0.1 C=-1e+07: eta* 9999.996984 (QD 9999.996984), alpha 2.0000e-08; double-double 2.0178e-08 (1.009) F->0; quad-double 1.9979e-08 (0.999) F->0
+   F_inf=0.25 C=-3e+07: eta* 10954.44834 (QD 10954.44834), alpha 1.6667e-08; double-double 1.6733e-08 (1.004) F->0; quad-double 1.6614e-08 (0.997) F->0
+   F_inf=0.25 C=-1e+07: eta* 6324.550768 (QD 6324.550768), alpha 5.0000e-08; double-double 4.9998e-08 (1.000) F->0; quad-double 4.9945e-08 (0.999) F->0
+   F_inf=0.5 C=-1e+08: eta* 14142.13332 (QD 14142.13332), alpha 1.0000e-08; double-double 1.0037e-08 (1.004) F->0; quad-double 9.9880e-09 (0.999) F->0
+   F_inf=0.5 C=-3e+07: eta* 7745.962772 (QD 7745.962772), alpha 3.3333e-08; double-double 3.3423e-08 (1.003) F->0; quad-double 3.3298e-08 (0.999) F->0
+   F_inf=1 C=-1e+08: eta* 9999.996516 (QD 9999.996516), alpha 2.0000e-08; double-double 2.0059e-08 (1.003) F->0; quad-double 1.9943e-08 (0.997) F->0
+   F_inf=1.5 C=-1e+08: eta* 8164.960933 (QD 8164.960933), alpha 3.0000e-08; double-double 3.0196e-08 (1.007) F->0; quad-double 2.9961e-08 (0.999) F->0
+   F_inf=2 C=-1e+08: eta* 7071.061147 (QD 7071.061147), alpha 4.0000e-08; double-double 3.9898e-08 (0.997) F->0; quad-double 3.9945e-08 (0.999) F->0
+[PASS] dd_qd: quad-double (kt 60, tol 1e-64) against double-double on 142 points (start radius >= 204800 and the 30 smallest and 30 largest eta*): class and kind equal, eta* within 1e-12 max(1, eta*), FLOOR p0 within a relative 1e-12; worst relative eta* difference 4.1e-13; mismatches 0 []
+  (1000 s)
+[PASS] independent: own Dormand-Prince 5(4) integration in mpmath (30 digits, relative tolerance 1e-13, F'' by Newton on the cubic; no Rust, no multishoot; shares N and the series with the crate) from the same start against the crate's state, relative |dF|, |dF'| <= 1e-8: (0.1,30000) from L=12800 to eta = 20: relative |dF| 8.7e-16, |dF'| 2.3e-11 (1058 steps, 4 s); (5,3000) from L=800 to eta = 20: relative |dF| 4.2e-14, |dF'| 2.5e-11 (978 steps, 4 s); (16,-10000) from L=800 to eta = 20: relative |dF| 1.3e-13, |dF'| 5.1e-11 (1195 steps, 4 s)
+  (11 s)
+
+checks: 2 passed, 0 failed []. 1012 s
