@@ -155,3 +155,17 @@ under `ricci-sign`, `planted_flat` and `E_rform` (it does not call the stress fu
 
 Development logs, all kept: `dev_checks.run1.log` (8 of 8 pass, 11 s), `dev_checks.run2.log` and `.time` (the same under
 `/usr/bin/time -v`: 11.3 s wall, 64 MB peak resident), `dev_controls.run1.log`.
+
+## Run of record
+
+| file | what | exit | time |
+|---|---|---|---|
+| `run_final.run1.log`, `.rc` | `planar_residual.py` at 2dfb6dd, 8 checks then 11 controls, systemd unit `nm-i171-final1`, nice 10, one process | 0 | 164 s |
+| `run_final.run2.log`, `.rc` | the same at 7a62866 (amendment A2: equations and components printed), unit `nm-i171-final2`; **of record**, copied to `notes/warp/planar_residual_output.txt` | 0 | 165 s |
+| `dev_checks.run1.log`, `dev_checks.run2.log`, `.time` | development runs of the 8 checks at f550caf (11 s, 64 MB peak resident) | 0 | 11 s |
+| `dev_controls.run1.log` | development run of the 11 controls, targets undeclared | 0 | 164 s |
+| `dev_info.run1.log` | the two checks with the information lines, before run 2 | 0 | 1 s |
+
+Run 2 equals run 1 apart from timings and the added information lines. 8 of 8 checks pass; 11 of 11 controls fire on
+their declared targets, none with extras, none silent. Branch `wip/i171-planar-residual`, note and output at cfbd1c0,
+newest bfab8bf. Nothing failed and nothing disagrees with `planar_closure.md`, `two_scalars.md` or `same_sign_scalars.md`.
