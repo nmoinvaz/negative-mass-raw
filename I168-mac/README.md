@@ -35,7 +35,7 @@ ind168's interval arithmetic over exact Fractions, with bisection, establishes t
 | K7 | The small branch: 4σ + 8a ≤ 16/1000 on Ω, so (ln\|ω\|)′ ≤ −2 + 16/1000 ≤ −1.984 |
 | K8 | The huge branch, with g(y) = (4 − y)/2 − σy − u(αy + β)/2, α = 51/25, β = 181/50, σ, u ∈ [0, 1/500]: y·g(y) ≥ 1.4923y on [1/50, 1]; y·g(y) ≥ 0.1062 on [1, 15/4]; and with g⁺(y) = (4 − y)/2 − σy + u(αy + β)/2: g⁺(17/4) ≤ −0.1042 and −1/2 − σ + uα/2 < 0 (so g⁺ ≤ −0.1042 on [17/4, ∞)) |
 | K9 | Theorem A's chain in exact rationals: c_e = α(9/2)² + β(9/2) ≤ 58; c_f ≥ c_e/2 + (9/2)², c_f = 50; ū = e^{9σ₀/2}u₀ ≤ 1.0046·10⁻³ for σ₀ ≤ u₀ ≤ 1/1000 (e^x ≤ 1/(1 − x)); B = 1/4 + 4c_fū ≤ 0.451 < 1/2; H = B/(7/2) ≤ 0.129; e^H ≤ 1.14 (Taylor bound with remainder, e^x ≤ Σ_{k≤4} x^k/k! + (x⁵/120)/(1 − x/6)) |
-| K10 | Re-solve (numerical evidence): ind168's own RK4 in t = ln η on (G, p), h = 1/200, with q the most negative real root w of the cubic (the huge root, w ≤ −1/(4a)) at every stage, from G₀ = 1, ζ₀ = 1/4, u₀ = 1/1000 (σ₀ = 1/2000), to τ = 10: the huge root has w ≤ −1/(4a) at every step, (b) \|ζ\| ≤ 0.451e^{−7τ/4} and (c) \|ζ\| ≤ 1.14(\|ζ₀\| + 50ū τ)e^{−2τ} at every step, and \|y − 4\| ≤ 10⁻⁶ at τ = 10 |
+| K10 | Re-solve (numerical evidence): ind168's own RK4 in t = ln η on (G, p) (from run 2: on (ln G, ln p), A1), h = 1/200, with q the most negative real root w of the cubic (the huge root, w ≤ −1/(4a)) at every stage, from G₀ = 1, ζ₀ = 1/4, u₀ = 1/1000 (σ₀ = 1/2000), to τ = 10: the huge root has w ≤ −1/(4a) at every step, (b) \|ζ\| ≤ 0.451e^{−7τ/4} and (c) \|ζ\| ≤ 1.14(\|ζ₀\| + 50ū τ)e^{−2τ} at every step, and \|y − 4\| ≤ 10⁻⁶ at τ = 10 |
 
 Read and rederived by hand by the coordinator, not coded: Lemma 1's shape argument; Theorem A's Steps 1–4; Theorem B's
 induction and identification; Lemma 3, Corollary 4 and Theorem C's case analysis.
@@ -48,12 +48,28 @@ induction and identification; Lemma 3, Corollary 4 and Theorem C's case analysis
 | `P-omega` | P(w) with + ω² in place of − ω² | K2 |
 | `red-sigma` | the claimed y′ with + σy² | K3 |
 | `box-omega` | Ω with ω ∈ [−200, 200] in K4 | K4 |
-| `ehat-alpha` | K5's first bound 2 in place of 51/25 | K5 |
+| `ehat-alpha` | K5's first bound 2 in place of 51/25 (from run 2: 199/100, A1) | K5 |
 | `regb-y` | K6 with \|y\| ≤ 1/5 | K6 |
 | `cf-49` | K9 with c_f = 49 | K9 |
 | `y-thr` | K8's first bound 3/2 y in place of 1.4923y | K8 |
 | `small-root` | K10 starts on the root w ∈ (1/2, 2) in place of the huge root | K10 |
 
 K7 has no mutation of its own: its content is one inequality between two exact numbers, checked as stated.
+
+## Amendments
+
+**A1 (2026-11-26, after run 1, before run 2).** Run 1 exits 1 with two criteria failed, both by defects of the
+coordinator's check code; the failures stand in the record.
+- **K5 (a)** failed by a sign error in the check. It tested lhs − rhs − P(−x)/x² = 0. From P(−x) = 0 the identity is
+  lhs − rhs = −P(−x)/x², so the code now tests lhs − rhs + P(−x)/x² = 0. The criterion is unchanged.
+- **K10 (c)** failed: \|ζ\|/bound = 1.52 near τ = 10. The integration in (G, p) at h = 1/200 gives y = p/(σG) an
+  absolute error of about 1e-9 (the relative RK4 error of p), as large as ζ there. The diagnostic `dev/k10_h.py`
+  (`dev/k10_h.log`) gives ζ(τ = 10) = 4.1e-8, 2.7e-9, 3.1e-10, 1.65e-10 in (G, p) for h = 1/100 … 1/800, and 1.551e-10
+  at every h in (ln G, ln p), with largest \|ζ\|/bound 0.877. Run 2 integrates (ln G, ln p) at h = 1/200, a change chosen
+  after that diagnostic and known to pass. The criterion is otherwise unchanged.
+- **Mutation `ehat-alpha`** claimed a bound that is true. The y² coefficient is (2 + 2u)/(1 + u) = 2 at f = 1, so "≤ 2"
+  has no counterexample. Run 1's `ehat-alpha` ran into the box cap and was stopped by the coordinator after 10 min by
+  its PID (exit 143). Run 2's `ehat-alpha` claims 199/100, which is false at f = 1.
+- Run 1's other mutations each failed their target and also K5 and K10, so none is on target alone; their logs are kept.
 
 ## Runs (filled in as they are done)
