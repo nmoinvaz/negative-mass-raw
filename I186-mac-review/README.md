@@ -39,3 +39,9 @@ points, the comparison and the timing.
 targets are R1 and R2 as predicted, and an R2 that passes under it will be reported as off target.
 
 ## Runs (filled in as they are done)
+
+| file | what |
+|---|---|
+| `rerun_default_1.log`, `.time` | rerun of the default mode: 22 of 22 checks pass, 873 s. **Check TS is printed SKIPPED** (no `--scipy-file` given) **and still counted among the 22 passed**: a skipped check should not count as a pass. The committed output assembles several runs of record (`assemble_output.py`), so the comparison is check by check: every value agrees with the committed one to the digits printed |
+| `ind186.py`, `ind186_run1.txt` | run 1: exit 0, 2 of 2. Out of sample, crate (dd) against scipy: (2, 50) 1.3e-10, (3, 10) 1.2e-12, (4, 300) 2.1e-10; f64 against dd 1.2e-12, 4.3e-14, 3.9e-11. Timing per call, including the crate's fixed setup (star shooting and J tables, about 3 s): scipy 6.4, 1.4, 37.9 s; dd 6.0, 3.1, 5.1 s; f64 3.1, 3.0, 3.1 s. The gain grows with γ; at small γ the scipy path is as fast |
+| `ind186_run1_mut_*.txt` | `f64-claim` fails exactly R2. **`wrong-l` fails R1 only** (R2 passes: the two lanes agree at l + 1 too): off target against its declared R1, R2, as the README anticipated |

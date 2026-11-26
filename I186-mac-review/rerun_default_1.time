@@ -1,0 +1,79 @@
+   Compiling crossbeam-utils v0.8.23
+   Compiling crossbeam-epoch v0.9.21
+   Compiling crossbeam-deque v0.8.8
+   Compiling rayon-core v1.13.0
+   Compiling either v1.19.0
+   Compiling rayon v1.12.0
+   Compiling multidouble v5.1.0 (https://github.com/nmoinvaz/multidouble?rev=ba0ad101ce7661f45153bc557dcb093d4dd41893#ba0ad101)
+   Compiling multisolver v0.2.2
+   Compiling multishoot v4.2.0
+   Compiling taylor_polar v0.1.0 (/private/tmp/claude-501/-Users-nathan-Source-negative-mass/df1496ff-7f14-4c3e-a4d9-83f656a7dd64/scratchpad/wt186/phase2/nonradial/taylor_polar)
+warning: associated items `to_dd`, `exp`, `abs`, and `ratio` are never used
+  --> src/num.rs:21:8
+   |
+11 | pub trait Num:
+   |           --- associated items in this trait
+...
+21 |     fn to_dd(self) -> DD;
+   |        ^^^^^
+...
+26 |     fn exp(self) -> Self;
+   |        ^^^
+...
+33 |     fn abs(self) -> Self {
+   |        ^^^
+...
+41 |     fn ratio(a: i64, b: i64) -> Self {
+   |        ^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `eval` is never used
+  --> src/ser.rs:46:12
+   |
+14 | impl<T: Num> Ser<T> {
+   | ------------------- method in this implementation
+...
+46 |     pub fn eval(&self, t: T) -> T {
+   |            ^^^^
+
+warning: function `div` is never used
+   --> src/ser.rs:145:8
+    |
+145 | pub fn div<T: Num>(a: &Ser<T>, b: &Ser<T>) -> Ser<T> {
+    |        ^^^
+
+warning: fields `pc`, `zc`, and `r_end` are never read
+   --> src/star.rs:220:9
+    |
+219 | pub struct Star<T: Num> {
+    |            ---- fields in this struct
+220 |     pub pc: T,
+    |         ^^
+221 |     pub zc: T,
+    |         ^^
+222 |     pub steps: Vec<StarStep<T>>,
+223 |     pub r_end: f64,
+    |         ^^^^^
+
+warning: `taylor_polar` (bin "taylor_polar") generated 4 warnings
+    Finished `release` profile [optimized] target(s) in 19.98s
+      873.33 real       876.32 user         3.63 sys
+           583450624  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              550296  page reclaims
+               13181  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                  16  signals received
+                1794  voluntary context switches
+              101688  involuntary context switches
+       2115795331935  instructions retired
+        442512566997  cycles elapsed
+            87212704  peak memory footprint
+exit 0
