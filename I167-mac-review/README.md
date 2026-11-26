@@ -40,4 +40,11 @@ claims under test. Not shared: ind167 imports nothing from the repository and do
 
 L5 integrates the unmutated N in every run, so `d-sign` acts on L1 to L4 only.
 
+## Amendments
+
+**A1 (2026-11-26, after the dev run `dev/dev1_d-sign.txt`, before run 1).** `d-sign` alone fails L1, L3, L4 and not L2,
+as predicted; its declared targets are L1, L3, L4. In the same dev run L5 failed, and L5 uses the unmutated N: the walk
+ends at η = 1.2815844 (F = 9.9e-5) against 1.28193326312, 3.5e-4 apart, outside the 1e-4 tolerance. So L5 as worded will
+fail in run 1 as well; run 1 is run as committed, and the cause is examined after it.
+
 ## Runs (filled in as they are done)
