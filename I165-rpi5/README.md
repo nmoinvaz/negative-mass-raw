@@ -104,3 +104,34 @@ target list is never edited without a README amendment.
 ## Runs of record (filled in as they are done)
 
 See the amendments and `logs/` below.
+
+## Amendments (dated; the criteria above stay as first written, these say what the code tests)
+
+**A1 (2026-11-25, after dev run 1 and the dev control batch, before any run of record).**
+- S3 as coded: [X̄₁, X̄₂] + X̄₁ = C̄ (∂_s − (v w_s/w) ∂_v) as rational functions of (u, b, v, s). The criterion as first worded
+  (u, b, v components vanish) was wrong: ∂_s at fixed (u, ρa, ρβ) is ∂_s − (v w_s/w) ∂_v in the coordinates (u, b, v, s), since
+  v = ρa/w. Dev run 1 failed on it (`logs/dev_verify_1.log`). A bug in the check as worded, found before a run of record.
+  The identity "[X̄₁, X̄₂] = −X̄₁ + C̄ ∂_s" of the Reduction (item 2) holds in the coordinates (u, ρa, ρβ, s).
+- S4 as coded: C̄ = −ρ² C, where C = D_ρσ_x − D_xσ_ρ is #158's formula. #158 writes [X₁, X₂] = C ∂_s, but the s component of
+  [X₁, X₂] is D_xσ_ρ − D_ρσ_x = −C. A sign discrepancy with #158's wording only; the zero sets agree. Dev run 1 failed on it.
+- D1 as coded is **modular**: Σ cᵢ gᵢ = κ ≠ 0 in GF(p)[t, u, b, v] for p ∈ {2147483629, 2147483587} and s₀ ∈ {2, 3, 5, 7, 11}
+  (10 certificates). The criterion "exactly in ℚ[t, u, b, v]" cannot be met by this route: probe 13 (12 to 50 primes, up to
+  467 digits of modulus) did not reconstruct the rational cofactors at s = 2, because their coefficients exceed about 230
+  digits; liftstd over ℚ at s = 7 did not finish in 15 min (probe 11). So the status of D1 is *certified over GF(p)* (the
+  chain polynomials are exact over ℚ and reduced mod p by this script; Singular is untrusted), and nothing is certified over
+  ℚ for the saturated level-2 ideal. By the spreading-out argument, a proper ideal over ℚ is proper modulo all but finitely
+  many primes, so unit modulo 2 primes at 5 slices is evidence, not proof. No criterion was loosened: the first wording was
+  not satisfiable and nothing was passed in its place.
+- D2 (`full_cert`) is not attempted by interpolation (the s-degree of the cofactors exceeds 20; the cost estimate is in the
+  note). The run of record for the generic-s question is one `std` of f₀ f₁ f₂ f₁₁ and the saturation generator mod
+  2147483629 in the full ring with the block order (dp(4), dp(1)) (s last), 60 min cap (`certs/fullring.json`, `logs/`).
+- `slice_cert` is skipped (and reported as skipped) when `chain` fails, so a mutated chain does not also fire it.
+- Toy: after normalization the generators are q²+1, 0, q (Singular's cofactors 1, 0, −q), not q²+1, 0, 2q.
+- `dims` (`--compute=dims`) is added: the dimension, multiplicity and unit-ness mod p of the saturated chain ideals at s₀ ∈
+  {2, 3, 5, 7, 11}, written to `certs/dims_p<p>.json` and printed as info. The numbers quoted in the note for V₀, V₁, V₂ come
+  from it, not from the probes.
+- Controls, computed in a dev batch before declaring (`logs/ctl_dev_*`): `Phi1-sign` fires `blocks`, `chain`, `denoms`,
+  `planted_s1` (not `fields`: σ is solved from the same mutated E₁, E₂, so the identity holds by construction; `Psi-sign`
+  likewise fires only `blocks`, `chain`). The README table's target lists for these two were wrong; the lists above are the
+  corrected targets. The other seven controls fired on their README targets in the dev batch. The runs of record repeat all nine.
+- The script was edited (the `dims` step, additive) while the dev control batch was running; no check changed.

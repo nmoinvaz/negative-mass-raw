@@ -1,0 +1,11 @@
+ring r=0,(p,q,r),dp;
+option(redSB);
+short=0;
+poly g0=(1)*q^2+(1);
+poly g1=0;
+poly g2=(1)*q;
+ideal J=g0,g1,g2;
+matrix T; ideal G=liftstd(J,T);
+"G1",G[1];
+int i; for(i=1;i<=ncols(J);i++){ "C",string(T[i,1]); }
+quit;

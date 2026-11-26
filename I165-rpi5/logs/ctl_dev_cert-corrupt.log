@@ -1,0 +1,22 @@
+one_sign_static.py --mutate=cert-corrupt  (raw: /home/nathan/Source/negative-mass-raw/I165-rpi5)
+
+== 1. The system: blocks, Lemma R's A and B, the fields, C-bar ==
+[PASS] blocks: the block built from u_xx = Phi1, u_x rho = Psi, u_rho rho = Phi3 equals Lemma R's block -v v^T + lam eta (v0 = beta cos th, v1 = beta sin th, v2 = a/(u cos th - sin th), s = tan(th/2)), identically
+[PASS] AB: A = Q (Z^2 + Y^2) + 2 h Z Y in the radical: True; B = P Q Y - Z (Q^2 + Y^2) in the radical: True (Lemma R's ideal saturated by Z Y Q, Rabinowitsch)
+[info] fields built (2 s)
+[info] chain built (73 s)
+[PASS] fields: [X1, X2] + X1 = C-bar (d_s - (v w_s/w) d_v) as rational functions of (u, b, v, s): the u and b components vanish (True), the v component is -C-bar v w_s/w (True), the s component is C-bar (True)
+[PASS] Cpoints: at 3 exact points (u, b, v, s) with s not in {0, +-1}: C-bar from the 4D chain equals -rho^2 C of the 5D formula (C = D_rho sigma_x - D_x sigma_rho from partial derivatives at rho = rho0) and C-bar != 0; (s, agree): [('1/2', True), ('2', True), ('3', True)]
+[PASS] denoms: denominator of sigma_x = 8 s u Delta' (True), of sigma_rho = 8 s u (1+s^2) Delta' (True), Delta' has 26 terms and degree 8 in s; numer(C-bar) = c v b (s^2-1) D f0 with c = -1 (True)
+
+== 2. Planted cases ==
+[PASS] planted_s1: s = 1: (a) sigma_x, sigma_rho numerators vanish at s = +-1 and u, 1+s^2, D, Delta', s are nonzero there: True; (b) the unstripped F0, F1, F2 vanish at s = +-1: True; (c) 5 exact jets of u = c x + C ln rho + d have Lemma R's block and F0 = F1 = F2 = 0: True; (d) f0, f1, f2 do not vanish at s = 1: True
+[PASS] toy: inconsistent toy X2 = d_q + p (q^2 + 1) d_r: stored generators equal the recomputed chain ['q**2 + 1', '0', 'q']: True; sum c_i f_i = 1 (nonzero constant: True); flat toy X2 = d_q has an empty chain: True
+
+== 3. The chain and its stored certificates ==
+[PASS] chain: term counts [319, 1388, 1818, 3837, 4892] (want [319, 1388, 1818, 3837, 4892]), degrees (u,b,v,s) True, v even in all: True, SHA-256 equal to chain/chain.json: True
+[FAIL] slice_cert: for each stored modular certificate (g = f0, f1, f2, f11 at s = s0 reduced mod p, and 1 - t u v b D Delta' at s0), sum c_i g_i is a nonzero constant in GF(p)[t, u, b, v]: p = 2147483587, s0 = 11: sum = 37 terms (FAIL); p = 2147483587, s0 = 2: sum = const 1 (ok); p = 2147483587, s0 = 3: sum = const 1 (ok); p = 2147483587, s0 = 5: sum = const 1 (ok); p = 2147483587, s0 = 7: sum = const 1 (ok); p = 2147483629, s0 = 11: sum = const 1 (ok); p = 2147483629, s0 = 2: sum = const 1 (ok); p = 2147483629, s0 = 3: sum = const 1 (ok); p = 2147483629, s0 = 5: sum = const 1 (ok); p = 2147483629, s0 = 7: sum = const 1 (ok)
+[info] no full-ring run of record in certs/ (certs/fullring.json missing)
+
+9 checks, 8 pass, FAILED: ['slice_cert'] (155 s)
+control cert-corrupt: target ['slice_cert'], failed ['slice_cert']: ON TARGET
