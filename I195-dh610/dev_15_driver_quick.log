@@ -1,0 +1,34 @@
+w2_highprec.py  mutate=None  crate=/home/nathan/Source/negative-mass-i195/notes/wormhole_largeD/w2_crate/target/release/w2_crate
+
+SKIPPED S* (od): no planted result for this lane (pass its log with --logs)
+PASS    S1: 12 of 12 cases meet it
+PASS    S2: 12 of 12 cases meet it
+PASS    S3: 12 of 12 cases meet it
+FAIL    S4: 13 of 24 cases meet it; NOT MET: f64 D=5 (start b: 0.2); f64 D=1000 (start a: -10.56); f64 D=1000 (start b: -10.37); f64 D=10000 (start a: -9.02); f64 D=10000 (start b: -9.94); dd D=5 (start b: 0.18, not converged); dd D=1000 (start a: -26.84); dd D=1000 (start b: -27.53, not converged); dd D=10000 (start a: -25.2, not converged); dd D=10000 (start b: -26.25, not converged); qd D=5 (start b: 0.04, not converged)
+FAIL    S4w: 18 of 24 cases meet it; NOT MET: f64 D=5 (start b: -0.21); dd D=5 (start b: -0.23, not converged); dd D=1000 (start b: -30.43, not converged); dd D=10000 (start a: -29.10, not converged); dd D=10000 (start b: -30.15, not converged); qd D=5 (start b: -0.37, not converged)
+FAIL    S5: 6 of 12 cases meet it; NOT MET: f64 D=1000 (-10.52 vs -11.0); f64 D=10000 (-8.69 vs -11.0); dd D=1000 (-23.14 vs -25.77); dd D=10000 (-21.09 vs -25.77); qd D=1000 (-39.24 vs -41.86); qd D=10000 (-37.16 vs -41.86)
+PASS    S5s: 8 of 8 cases meet it
+PASS    M1: worst difference 6.1e-04 (bar 2e-3); D=5: master.py 2.985053 (1 roots), crate 2.98495893; D=6: master.py 4.686834 (1 roots), crate 4.68662054; D=7: master.py 6.462970 (1 roots), crate 6.46258414; D=8: master.py 8.290374 (1 roots), crate 8.28975936
+FAIL    G1: 0 of 16 rows within 5e-13 of the printed value; NOT MET at D = [4, 5, 6, 7, 8, 9, 10, 11, 20, 30, 50, 100, 200, 500, 1000, 2000]; the comparator passes the crate's own values printed to 12 decimals: True
+
+  growth.csv against the crate (qd), and the tighter modes_r.py run of logs_modes_r.txt (reported, not a gate)
+  D       source          csv                   crate (qd)                crate - csv   tight - csv   moved by fraction of gap
+  4       TS13 Table I    1.397052433715        1.39705243433350684047       6.19e-10           n/a        n/a  differs
+  5       TS13 Table I    2.984958930278        2.98495893035176025288       7.38e-11           n/a        n/a  differs
+  6       TS13 Table I    4.686620542995        4.68662054311946478597       1.24e-10           n/a        n/a  differs
+  7       TS13 Table I    6.462584141263        6.46258414136979192072       1.07e-10           n/a        n/a  differs
+  8       TS13 Table I    8.289759363063        8.28975936307247807905       9.48e-12           n/a        n/a  differs
+  9       TS13 Table I    10.153553045187       10.1535530449455332068      -2.41e-10           n/a        n/a  differs
+  10      TS13 Table I    12.044265014744       12.044265014497883034       -2.46e-10           n/a        n/a  differs
+  11      TS13 Table I    13.955209167665       13.9552091674964118962      -1.69e-10           n/a        n/a  differs
+  20      modes_r.py      31.575110127562       31.5751101283584884014       7.96e-10      3.38e-10      0.424  differs
+  30      modes_r.py      51.44052607833        51.4405260810632008859        2.73e-9       1.67e-9      0.611  differs
+  50      modes_r.py      91.345775903365       91.345775913629637607         1.03e-8       7.13e-9      0.695  differs
+  100     modes_r.py      191.283017684226      191.283017730358956057        4.61e-8       3.57e-8      0.773  differs
+  200     modes_r.py      391.254334217002      391.254334380806672273        1.64e-7        1.3e-7      0.794  differs
+  500     modes_r.py      991.237971426592      991.237972147929288155        7.21e-7       6.05e-7      0.839  differs
+  1000    modes_r.py      1991.232655318753     1991.23265726128933053        1.94e-6       1.46e-6      0.754  differs
+  2000    modes_r.py      3991.230019738767     3991.23002568425245555        5.95e-6       5.02e-6      0.844  differs
+
+
+5 passed, 4 failed, 1 skipped (S* (od)) of 10 checks; 93 s
