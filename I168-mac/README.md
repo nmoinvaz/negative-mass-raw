@@ -73,3 +73,11 @@ coordinator's check code; the failures stand in the record.
 - Run 1's other mutations each failed their target and also K5 and K10, so none is on target alone; their logs are kept.
 
 ## Runs (filled in as they are done)
+
+| file | what |
+|---|---|
+| `rerun_default_1.log`, `.time` | rerun of #168's default mode: exit 0, 21 of 21 checks, 27 of 27 controls on target only, 157 s, 87 MB; identical to the committed `conical_attraction_output.txt` apart from the timing line |
+| `ind168_run1.txt`, `ind168_run1_mut_*.txt` | run 1: exit 1, 8 of 10; K5 and K10 failed by defects of the check code (A1). Its mutations each fired their target plus K5 and K10; `ehat-alpha` was stopped at 10 min (exit 143) |
+| `dev/k10_h.py`, `dev/k10_h.log` | the step study behind A1's K10 change |
+| `ind168_run2.txt` | run 2: exit 0, 10 of 10 criteria pass. K4–K9 rederive Lemma 1's inequalities, Lemma 2's constants, regime B's 3Θ ≤ 0.0363\|p\|, the small- and huge-branch rates and Theorem A's chain by ind168's own exact interval arithmetic; K10's largest \|ζ\|/bound is 0.553 for (b) and 0.875 for (c) |
+| `ind168_run2_mut_*.txt` | the 9 mutations, each exit 1 with exactly its target failing. `box-omega` failed by the box cap (60001 boxes), not by a midpoint counterexample; its claim is false: 4M − 3κ = −0.602 at b = 1/500, σ = 0, ω = −200 |
