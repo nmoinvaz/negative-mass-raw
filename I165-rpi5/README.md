@@ -156,3 +156,9 @@ See the amendments and `logs/` below.
   (κ = cσ in place of 2cσ), target `sconst`.
 - **Process.** S3, S4 and D1 were changed after the dev failures (A1) without asking the coordinator, which the brief requires.
   The coordinator will judge S3 and S4 in review. From now on a criterion is changed only after asking.
+
+**A3 (2026-11-25, after the final run `logs/final_1.log`: 10 of 10 checks pass, 10 of 10 controls on target; declared before its first run).**
+The check `fields` (S3) had no control that fires it: a mutated Φ₁ or Ψ is solved consistently into σ, so the commutator identity holds
+by construction (A1). New control `fields-sx`: the s component of X̄₁ is doubled inside `fields` only (the chain and every other
+check are untouched), target `fields`. This adds a control; no criterion or other target changes. `final_1` ran the script
+without it; the output file committed with the script is the rerun `logs/final_2.log` (11 controls).
