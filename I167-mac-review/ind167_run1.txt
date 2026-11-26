@@ -1,0 +1,15 @@
+[info] N built (0 s)
+ind167.py  mutate=None
+[PASS] L1: 8 det(block) = a3 F''^3 + a2 F''^2 + a1 F'' + a0 of the note: True
+[info] l1 done in 0 s (0 s)
+[PASS] L2: N(eta = 0) = 2 F'^2 (F^2 - 1)(F F'' + F'^2): True; dN/dF'' at 0 = 2F'^2 F (F^2 - 1): True
+[info] l2 done in 0 s (0 s)
+[PASS] L3: B first at eta^6: linear True, solution [-22/125] (want -22/125): True; B3 first at eta^8: solution [998/10625] (want 998/10625): True; eta^4 coefficient for F = 1 + b eta^2 = 64 b^3 (5b - 2): True
+[info] l3 done in 0 s (0 s)
+[PASS] L4: balance = -eta^2(eta^2 + 1)F''^2[(eta^2 + 2)F'^2 + 2FF'']: True; every other monomial has d >= 4 and j + 2k <= 6: True; alpha = 2/(eta*^2 + 4): True
+[info] l4 done in 0 s (0 s)
+[FAIL] L5: (F_inf, C) = (1, 0.0): walk ends at eta = 1.2815843809 with F = 9.9e-5, eta* = 1.2815843809 (want 1.28193326312 within 1e-4): False; 3039 steps
+[info] l5 done in 70 s (71 s)
+
+5 criteria, 4 pass; failed: ['L5'] (71 s)
+exit 1

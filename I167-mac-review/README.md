@@ -47,4 +47,12 @@ as predicted; its declared targets are L1, L3, L4. In the same dev run L5 failed
 ends at η = 1.2815844 (F = 9.9e-5) against 1.28193326312, 3.5e-4 apart, outside the 1e-4 tolerance. So L5 as worded will
 fail in run 1 as well; run 1 is run as committed, and the cause is examined after it.
 
+**A2 (2026-11-26, after run 1, before run 2).** Run 1 fails L5 as worded, by a defect of the coordinator's design: η* =
+1.2815843809 against 1.28193326312. An absolute error δF at η shifts the solution's C by about δF·η⁴, and `start-C`
+measures dη*/dC ≈ −0.08 (C = 10 gives η* = 0.449). The 4-term series at η = 1000 is truncated at about 1e-15·η⁰, which
+gives δC of a few 1e-3, enough for 3.5e-4 in η*. The diagnostic `dev/l5_start.py` (`dev/l5_start.log`) makes it worse
+with a later start (η₀ = 1e4: 1.2800, 1e5: 1.0976), as the RK4 error at large η enters C the same way. Run 2's L5 starts at
+η = 200 from ind167's own series through ν⁸ with logs, whose stages it solves from its own N (θ-form); the criterion and
+tolerance are otherwise unchanged. Whether it passes is not known when this is written.
+
 ## Runs (filled in as they are done)

@@ -125,18 +125,54 @@ def l4():
 def l5():
     mp.mp.dps = 30
     coef = [sp.lambdify((F, F1, eta), sp.Poly(N_ref, F2).coeff_monomial(F2**k), "mpmath") for k in (3, 2, 1, 0)]
-    Finf = mp.mpf(1)
     Cc = mp.mpf(10) if MUT == "start-C" else mp.mpf(0)
-    bcoef = Finf * (Finf**2 + 7)
-    e0 = mp.mpf(1000)
+    # own formal series through nu^8 with logs (README A2): stages solved here from N in theta-variables
+    G_, P_, Q_, nu_, L_ = sp.symbols("G p q nu L")
+    Nth = sp.expand(N_ref.subs({F1: P_ * nu_, F2: (Q_ - P_) * nu_**2}).subs(eta, 1 / nu_).subs(F, G_))
+    Nth = sp.expand(sp.cancel(Nth))
+    unk = {(6, j): sp.Symbol(f"a6{j}") for j in range(4)}
+    unk.update({(8, j): sp.Symbol(f"a8{j}") for j in range(5)})
+    Fi, Ci = sp.Integer(1), sp.Integer(10) if MUT == "start-C" else sp.Integer(0)
+    terms = {(2, 0): -2 * Fi, (4, 0): Ci, (4, 1): Fi * (Fi**2 + 7)}
+    terms.update(unk)
+
+    def theta(expr):  # theta = eta d/deta on polynomials in nu and L = ln eta
+        return sp.expand(-nu_ * sp.diff(expr, nu_) + sp.diff(expr, L_))
+
+    Gs = Fi + sum(c * nu_**n * L_**j for (n, j), c in terms.items())
+    Ps = theta(Gs)
+    Qs = theta(Ps)
+    Ns = sp.expand(Nth.subs({G_: Gs, P_: Ps, Q_: Qs}))
+    pN = sp.Poly(Ns, nu_, L_)
+    eqs = {}
+    for (kn, kl), c in pN.terms():
+        if kn <= 14:
+            eqs.setdefault(kn, []).append(c)
+    sol = {}
+    for kn in sorted(eqs):
+        es = [sp.expand(e.subs(sol)) for e in eqs[kn]]
+        es = [e for e in es if e != 0]
+        if not es:
+            continue
+        free = sorted({s for e in es for s in e.free_symbols if s in unk.values()}, key=str)
+        if not free:
+            raise ValueError(f"inconsistent series at nu^{kn}: {es[:2]}")
+        s_ = sp.solve(es, free, dict=True)
+        if len(s_) != 1:
+            raise ValueError(f"series stage nu^{kn}: {len(s_)} solutions")
+        sol.update(s_[0])
+    left = [u for u in unk.values() if u not in sol]
+    sol.update({u: 0 for u in left})  # unknowns no equation through nu^14 reaches are set to 0 and reported
+    info(f"own series through nu^8: {dict((str(k), str(v)) for k, v in sol.items())}; unset {[str(u) for u in left]}")
+    Gser = sp.lambdify((nu_, L_), Gs.subs(sol), "mpmath")
+    Pser = sp.lambdify((nu_, L_), Ps.subs(sol), "mpmath")
+    Qser = sp.lambdify((nu_, L_), Qs.subs(sol), "mpmath")
+    e0 = mp.mpf(200)
 
     def ser(x):
-        L = mp.log(x)
-        f = Finf - 2 * Finf / x**2 + (Cc + bcoef * L) / x**4
-        f1 = 4 * Finf / x**3 + (bcoef / x - 4 * (Cc + bcoef * L) / x) / x**4
-        f2 = -12 * Finf / x**4 + (-bcoef / x**2 - 4 * bcoef / x**2 + 20 * (Cc + bcoef * L) / x**2) / x**4 \
-            - 4 * bcoef / x**6
-        return f, f1, f2
+        nv, Lv = 1 / x, mp.log(x)
+        g, pp, qq = Gser(nv, Lv), Pser(nv, Lv), Qser(nv, Lv)
+        return g, pp / x, (qq - pp) / x**2
 
     def root(f, f1, x, ref):
         cs = [c(f, f1, x) for c in coef]
