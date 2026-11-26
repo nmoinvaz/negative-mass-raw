@@ -1,0 +1,6 @@
+# 2026-11-26 11:06:56 cwd=/Users/nathan/Source/negative-mass-i187/phase2/nonradial load 2.61 2.63 2.50
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python taylor_polar.py --rows --mutate=tol_loose --only=CAP5s
+# taylor_polar.py --rows: start 2026-11-26 11:06:56, load average 2.61, one process, nice 10; mutate = tol_loose
+CHECK CAP5s: FAIL  l = 5, gamma = 6000, the crate's star shot from rs = 1e-3 with scipy's leading-order boundary condition: crate D against #114's scipy D, per variant: base 5.4e-09, tol 1.4e-03, phi 4.7e-08, r90 8.0e-10, r0 4.2e-09 (bar 1e-08 each); printed, not gated: the change of the crate's D from rs = 1e-8 to rs = 1e-3: base 0.0e+00, tol 1.8e-11, phi 0.0e+00, r90 0.0e+00, r0 0.0e+00
+SUMMARY: 0 passed, 1 failed, 0 skipped of 1 checks; failed: CAP5s; mutate = tol_loose; 356 s
+CONTROL tol_loose: NOT FIRED on CAP5b

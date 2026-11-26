@@ -1,0 +1,5 @@
+[PASS] K1: 41 rows, 266 tokens; largest |crate - token| 0.994 of half a unit (l4 g=1.0 D34)
+[PASS] K3: base 5.44e-09 (reported 5.4e-09), tol 3.11e-09 (reported 3.1e-09), phi 4.70e-08 (reported 4.7e-08), r90 7.98e-10 (reported 8.0e-10), r0 4.16e-09 (reported 4.2e-09); largest 4.70e-08 against the bar 1e-8
+[FAIL] K2: g=0.3 D: crate -4.0133167982e-02 scipy -6.8621119545e-02 rel 4.2e-01; g=0.3 D34: crate -2.0655327302e-02 scipy -3.6123818027e-02 rel 4.3e-01; g=0.3 q_int: crate +3.3731898764e-01 scipy +3.5944573589e-01 rel 6.2e-02; g=0.3 q_ext: crate -3.2931994880e-01 scipy -3.4771301556e-01 rel 5.3e-02; (scipy 1 s); g=40.0 D: crate -1.0740548543e-06 scipy -1.9335855476e-06 rel 4.4e-01; g=40.0 D34: crate -5.3357284186e-07 scipy -9.6053414945e-07 rel 4.4e-01; g=40.0 q_int: crate +4.0000258740e+01 scipy +4.0000431145e+01 rel 4.3e-06; g=40.0 q_ext: crate -4.0000258203e+01 scipy -4.0000430250e+01 rel 4.3e-06; (scipy 19 s)
+
+3 criteria, 2 pass; failed: ['K2']

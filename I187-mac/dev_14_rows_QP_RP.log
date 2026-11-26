@@ -1,0 +1,6 @@
+# 2026-11-26 09:28:38 cwd=/Users/nathan/Source/negative-mass-i187/phase2/nonradial
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python taylor_polar.py --rows --only=QP,RP
+# taylor_polar.py --rows: start 2026-11-26 09:28:38, load average 2.26, one process, nice 10; mutate = None
+CHECK QP: PASS  planted q_int: dyadic planes with Y[2:] c0 in span S, exact q_int from sympy's rational null space and Fractions, l = 3, r_m = 24.125, M = 1/64: relative error well f64 6.6e-15 (bar 1e-12); well dd 3.6e-31 (bar 1e-28); well qd 2.1e-63 (bar 1e-60); near f64 3.2e-10 (bar 1e-05); near dd 1.8e-26 (bar 1e-20); near qd 1.8e-58 (bar 1e-50)
+CHECK RP: PASS  planted r_m, phi = 0.02 exp(-0.65 r) through the crate's grid rule against numpy's linspace and argmax: (cut 1e-09, R 60, start 0.001) crate i = 8621 r_m = 25.864862143107157, numpy i = 8621 r_m = 25.864862143107157: equal; (cut 1e-12, R 60, start 0.001) crate i = 12163 r_m = 36.491216360818036, numpy i = 12163 r_m = 36.491216360818036: equal; (cut 1e-09, R 90, start 0.001) crate i = 5747 r_m = 25.863505775288765, numpy i = 5747 r_m = 25.863505775288765: equal; (cut 1e-09, R 60, start 0.003) crate i = 8621 r_m = 25.866, numpy i = 8621 r_m = 25.866: equal
+SUMMARY: 2 passed, 0 failed, 0 skipped of 2 checks; mutate = None; 0 s

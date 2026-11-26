@@ -1,0 +1,16 @@
+# 2026-11-26 11:51:04 cwd=/Users/nathan/Source/negative-mass-i189-libs/multishoot
+# cmd: cargo test --release -j 2 --features mutate --test plane -- --test-threads=1 --nocapture p2_
+
+running 3 tests
+test p2_dd ... P2 dd: ln_vol parts [288.69314718055995, -1.8641886737243033e-15], exact parts [288.69314718055995, -1.8641886737243033e-15]
+P2 dd: plane 2.053e-32, ln_vol error 0.000e0 (bar 3.558e-26), orthonormality 3.390e-32, steps 79 hmin 1.458e-1 hmax 1.530e-1, digest 686f5859af670220
+ok
+test p2_f64 ... P2 f64: ln_vol parts [288.6931471805599], exact parts [288.69314718055995]
+P2 f64: plane 1.119e-16, ln_vol error 5.684e-14 (bar 3.205e-10), orthonormality 2.220e-16, steps 126 hmin 5.780e-2 hmax 9.703e-2, digest 359677d364c3b057
+ok
+test p2_qd ... P2 qd: ln_vol parts [288.69314718055995, -1.8641886737243033e-15, 1.94704509238075e-31, 4.4116561554873885e-48], exact parts [288.69314718055995, -1.8641886737243033e-15, 1.94704509238075e-31, 4.411656155487395e-48]
+P2 qd: plane 6.597e-65, ln_vol error 6.685e-63 (bar 4.344e-58), orthonormality 3.513e-64, steps 48 hmin 2.184e-1 hmax 2.509e-1, digest 375c304640438098
+ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 23 filtered out; finished in 1.01s
+

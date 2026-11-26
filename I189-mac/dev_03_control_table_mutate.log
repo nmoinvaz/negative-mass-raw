@@ -1,0 +1,92 @@
+# 2026-11-26 11:47:31 cwd=/Users/nathan/Source/negative-mass-i189-libs/multishoot
+# cmd: /usr/bin/time -l cargo test --release -j 2 --features mutate --test plane -- --test-threads=2 --nocapture --ignored
+
+running 3 tests
+DEV P1 f64 none: plane 8.419e-16 (bar 1.11e-12) ln_vol 4.547e-13 (bar 4.27e-10) orth 4.44e-16 -> silent
+DEV P1 f64 LowSum(8): plane 3.213e-16 (bar 1.11e-12) ln_vol 2.270e-2 (bar 4.27e-10) orth 2.22e-16 -> FIRES
+DEV P1 dd none: plane 1.470e-31 (bar 1.23e-28) ln_vol 6.311e-30 (bar 4.74e-26) orth 3.08e-33 -> silent
+DEV P1 f64 RecipDD: plane 8.419e-16 (bar 1.11e-12) ln_vol 4.547e-13 (bar 4.27e-10) orth 4.44e-16 -> silent
+DEV P1 dd LowSum(8): plane 2.022e-31 (bar 1.23e-28) ln_vol 3.680e-1 (bar 4.74e-26) orth 2.16e-32 -> FIRES
+DEV P1 dd RecipDD: plane 1.470e-31 (bar 1.23e-28) ln_vol 6.311e-30 (bar 4.74e-26) orth 3.08e-33 -> silent
+DEV P1 dd EndOnly: plane 4.594e-1 (bar 1.23e-28) ln_vol 1.208e2 (bar 4.74e-26) orth 3.39e-32 -> FIRES
+DEV P1 dd NoGram: plane 1.470e-31 (bar 1.23e-28) ln_vol 8.047e-1 (bar 4.74e-26) orth 3.08e-33 -> FIRES
+DEV P1 dd LogDrop: plane 1.470e-31 (bar 1.23e-28) ln_vol 9.600e1 (bar 4.74e-26) orth 3.08e-33 -> FIRES
+DEV P1 dd SkipQr(0): plane 1.506e-31 (bar 1.23e-28) ln_vol 0.000e0 (bar 4.74e-26) orth 1.23e-32 -> silent
+DEV P1 dd SkipQr(48): plane 1.284e-31 (bar 1.23e-28) ln_vol 0.000e0 (bar 4.74e-26) orth 2.77e-32 -> silent
+DEV P1 dd SkipQr(94): plane 2.481e-31 (bar 1.23e-28) ln_vol 6.311e-30 (bar 4.74e-26) orth 3.85e-33 -> silent
+DEV P2 dd none: plane 2.053e-32 (bar 1.23e-28) ln_vol 0.000e0 (bar 3.56e-26) orth 3.39e-32 -> silent
+DEV P2 dd LowSum(8): plane 1.671e-5 (bar 1.23e-28) ln_vol 3.248e-1 (bar 3.56e-26) orth 2.16e-32 -> FIRES
+DEV P2 dd RecipDD: plane 2.053e-32 (bar 1.23e-28) ln_vol 0.000e0 (bar 3.56e-26) orth 3.39e-32 -> silent
+DEV P2 dd EndOnly: plane 6.000e-1 (bar 1.23e-28) ln_vol 1.171e2 (bar 3.56e-26) orth 2.47e-32 -> FIRES
+DEV P2 dd NoGram: plane 2.053e-32 (bar 1.23e-28) ln_vol 6.931e-1 (bar 3.56e-26) orth 3.39e-32 -> FIRES
+DEV P2 dd LogDrop: plane 2.053e-32 (bar 1.23e-28) ln_vol 4.805e1 (bar 3.56e-26) orth 3.39e-32 -> FIRES
+DEV P2 dd SkipQr(0): plane 1.512e-32 (bar 1.23e-28) ln_vol 0.000e0 (bar 3.56e-26) orth 3.54e-32 -> silent
+DEV P2 dd SkipQr(39): plane 2.421e-32 (bar 1.23e-28) ln_vol 0.000e0 (bar 3.56e-26) orth 3.39e-32 -> silent
+DEV P2 dd SkipQr(77): plane 1.812e-32 (bar 1.23e-28) ln_vol 0.000e0 (bar 3.56e-26) orth 1.23e-32 -> silent
+DEV P3 dd none: plane NaN (bar 1.23e-28) ln_vol 1.262e-29 (bar 2.30e-27) orth 3.08e-32 -> silent
+DEV P3 dd LowSum(8): plane NaN (bar 1.23e-28) ln_vol 1.837e-1 (bar 2.30e-27) orth 1.93e-32 -> FIRES
+DEV P3 dd RecipDD: plane NaN (bar 1.23e-28) ln_vol 1.262e-29 (bar 2.30e-27) orth 3.08e-32 -> silent
+DEV P3 dd EndOnly: plane NaN (bar 1.23e-28) ln_vol 5.920e2 (bar 2.30e-27) orth 2.47e-32 -> FIRES
+DEV P3 dd NoGram: plane NaN (bar 1.23e-28) ln_vol 1.262e-29 (bar 2.30e-27) orth 3.08e-32 -> silent
+DEV P3 dd LogDrop: plane NaN (bar 1.23e-28) ln_vol 1.291e2 (bar 2.30e-27) orth 3.08e-32 -> FIRES
+DEV P3 dd SkipQr(0): plane NaN (bar 1.23e-28) ln_vol 2.152e-27 (bar 2.30e-27) orth 1.85e-32 -> silent
+DEV P3 dd SkipQr(37): plane NaN (bar 1.23e-28) ln_vol 3.402e-28 (bar 2.30e-27) orth 1.85e-32 -> silent
+DEV P3 dd SkipQr(72): plane NaN (bar 1.23e-28) ln_vol 4.792e-29 (bar 2.30e-27) orth 2.47e-32 -> silent
+test dev::dev_control_table_dd ... ok
+DEV P1 qd none: plane 5.319e-64 (bar 1.50e-60) ln_vol 1.820e-61 (bar 5.79e-58) orth 1.52e-64 -> silent
+DEV P1 qd LowSum(8): plane 4.280e-64 (bar 1.50e-60) ln_vol 3.981e0 (bar 5.79e-58) orth 1.90e-64 -> FIRES
+DEV P1 qd RecipDD: plane 2.253e-63 (bar 1.50e-60) ln_vol 4.310e-31 (bar 5.79e-58) orth 1.52e-64 -> FIRES
+DEV P1 qd EndOnly: plane 5.667e-1 (bar 1.50e-60) ln_vol 4.484e1 (bar 5.79e-58) orth 3.80e-64 -> FIRES
+DEV P1 qd NoGram: plane 5.319e-64 (bar 1.50e-60) ln_vol 8.047e-1 (bar 5.79e-58) orth 1.52e-64 -> FIRES
+DEV P1 qd LogDrop: plane 5.319e-64 (bar 1.50e-60) ln_vol 9.600e1 (bar 5.79e-58) orth 1.52e-64 -> FIRES
+DEV P1 qd SkipQr(0): plane 5.421e-64 (bar 1.50e-60) ln_vol 2.733e-61 (bar 5.79e-58) orth 2.85e-64 -> silent
+DEV P1 qd SkipQr(29): plane 1.244e-63 (bar 1.50e-60) ln_vol 1.842e-61 (bar 5.79e-58) orth 5.13e-64 -> silent
+DEV P1 qd SkipQr(56): plane 5.297e-62 (bar 1.50e-60) ln_vol 1.998e-61 (bar 5.79e-58) orth 5.11e-65 -> silent
+DEV P2 qd none: plane 6.597e-65 (bar 1.50e-60) ln_vol 6.685e-63 (bar 4.34e-58) orth 3.51e-64 -> silent
+DEV P2 qd LowSum(8): plane 1.513e-4 (bar 1.50e-60) ln_vol 3.387e0 (bar 4.34e-58) orth 1.33e-64 -> FIRES
+DEV P2 qd RecipDD: plane 3.690e-36 (bar 1.50e-60) ln_vol 3.331e-31 (bar 4.34e-58) orth 4.36e-64 -> FIRES
+DEV P2 qd EndOnly: plane 7.470e-1 (bar 1.50e-60) ln_vol 4.270e1 (bar 4.34e-58) orth 8.07e-65 -> FIRES
+DEV P2 qd NoGram: plane 6.597e-65 (bar 1.50e-60) ln_vol 6.931e-1 (bar 4.34e-58) orth 3.51e-64 -> FIRES
+DEV P2 qd LogDrop: plane 6.597e-65 (bar 1.50e-60) ln_vol 4.805e1 (bar 4.34e-58) orth 3.51e-64 -> FIRES
+DEV P2 qd SkipQr(0): plane 8.336e-65 (bar 1.50e-60) ln_vol 1.215e-62 (bar 4.34e-58) orth 1.14e-64 -> silent
+DEV P2 qd SkipQr(24): plane 5.903e-65 (bar 1.50e-60) ln_vol 5.469e-63 (bar 4.34e-58) orth 9.50e-65 -> silent
+DEV P2 qd SkipQr(46): plane 3.097e-65 (bar 1.50e-60) ln_vol 7.293e-63 (bar 4.34e-58) orth 1.14e-64 -> silent
+DEV P3 qd none: plane NaN (bar 1.50e-60) ln_vol 6.539e-61 (bar 2.81e-59) orth 1.47e-64 -> silent
+DEV P3 qd LowSum(8): plane NaN (bar 1.50e-60) ln_vol 1.617e1 (bar 2.81e-59) orth 1.97e-64 -> FIRES
+DEV P3 qd RecipDD: plane NaN (bar 1.50e-60) ln_vol 6.794e-30 (bar 2.81e-59) orth 3.61e-64 -> FIRES
+DEV P3 qd EndOnly: plane NaN (bar 1.50e-60) ln_vol 3.653e2 (bar 2.81e-59) orth 5.08e-63 -> FIRES
+DEV P3 qd NoGram: plane NaN (bar 1.50e-60) ln_vol 6.539e-61 (bar 2.81e-59) orth 1.47e-64 -> silent
+DEV P3 qd LogDrop: plane NaN (bar 1.50e-60) ln_vol 1.291e2 (bar 2.81e-59) orth 1.47e-64 -> FIRES
+DEV P3 qd SkipQr(0): plane NaN (bar 1.50e-60) ln_vol 7.805e-58 (bar 2.81e-59) orth 7.95e-65 -> FIRES
+DEV P3 qd SkipQr(23): plane NaN (bar 1.50e-60) ln_vol 1.499e-58 (bar 2.81e-59) orth 1.20e-64 -> FIRES
+DEV P3 qd SkipQr(45): plane NaN (bar 1.50e-60) ln_vol 2.572e-58 (bar 2.81e-59) orth 5.70e-65 -> FIRES
+test dev::dev_control_table_qd ... ok
+DEV P1 f64 EndOnly: plane 3.864e-1 (bar 1.11e-12) ln_vol 1.573e2 (bar 4.27e-10) orth 0.00e0 -> FIRES
+DEV P1 f64 NoGram: plane 8.419e-16 (bar 1.11e-12) ln_vol 8.047e-1 (bar 4.27e-10) orth 4.44e-16 -> FIRES
+DEV P1 f64 LogDrop: plane 8.419e-16 (bar 1.11e-12) ln_vol 9.600e1 (bar 4.27e-10) orth 4.44e-16 -> FIRES
+DEV P1 f64 SkipQr(0): plane 7.500e-16 (bar 1.11e-12) ln_vol 1.137e-13 (bar 4.27e-10) orth 2.22e-16 -> silent
+DEV P1 f64 SkipQr(77): plane 1.387e-15 (bar 1.11e-12) ln_vol 1.705e-13 (bar 4.27e-10) orth 4.44e-16 -> silent
+DEV P1 f64 SkipQr(152): plane 2.137e-15 (bar 1.11e-12) ln_vol 4.547e-13 (bar 4.27e-10) orth 2.22e-16 -> silent
+DEV P2 f64 none: plane 1.119e-16 (bar 1.11e-12) ln_vol 5.684e-14 (bar 3.21e-10) orth 2.22e-16 -> silent
+DEV P2 f64 LowSum(8): plane 7.170e-8 (bar 1.11e-12) ln_vol 2.149e-2 (bar 3.21e-10) orth 2.22e-16 -> FIRES
+DEV P2 f64 RecipDD: plane 1.119e-16 (bar 1.11e-12) ln_vol 5.684e-14 (bar 3.21e-10) orth 2.22e-16 -> silent
+test dev::dev_control_table_f64 has been running for over 60 seconds
+DEV P2 f64 EndOnly: plane 2.535e-1 (bar 1.11e-12) ln_vol 1.557e2 (bar 3.21e-10) orth 5.55e-17 -> FIRES
+DEV P2 f64 NoGram: plane 1.119e-16 (bar 1.11e-12) ln_vol 6.931e-1 (bar 3.21e-10) orth 2.22e-16 -> FIRES
+DEV P2 f64 LogDrop: plane 1.119e-16 (bar 1.11e-12) ln_vol 4.805e1 (bar 3.21e-10) orth 2.22e-16 -> FIRES
+DEV P2 f64 SkipQr(0): plane 2.021e-16 (bar 1.11e-12) ln_vol 1.705e-13 (bar 3.21e-10) orth 5.55e-17 -> silent
+DEV P2 f64 SkipQr(63): plane 1.842e-16 (bar 1.11e-12) ln_vol 5.684e-14 (bar 3.21e-10) orth 2.22e-16 -> silent
+DEV P2 f64 SkipQr(124): plane 1.678e-16 (bar 1.11e-12) ln_vol 0.000e0 (bar 3.21e-10) orth 2.22e-16 -> silent
+DEV P3 f64 none: plane NaN (bar 1.11e-12) ln_vol 1.421e-14 (bar 2.07e-11) orth 2.22e-16 -> silent
+DEV P3 f64 LowSum(8): plane NaN (bar 1.11e-12) ln_vol 4.841e-3 (bar 2.07e-11) orth 2.22e-16 -> FIRES
+DEV P3 f64 RecipDD: plane NaN (bar 1.11e-12) ln_vol 1.421e-14 (bar 2.07e-11) orth 2.22e-16 -> silent
+DEV P3 f64 EndOnly: plane NaN (bar 1.11e-12) ln_vol 7.108e2 (bar 2.07e-11) orth 3.33e-16 -> FIRES
+DEV P3 f64 NoGram: plane NaN (bar 1.11e-12) ln_vol 1.421e-14 (bar 2.07e-11) orth 2.22e-16 -> silent
+DEV P3 f64 LogDrop: plane NaN (bar 1.11e-12) ln_vol 1.291e2 (bar 2.07e-11) orth 2.22e-16 -> FIRES
+DEV P3 f64 SkipQr(0): plane NaN (bar 1.11e-12) ln_vol 4.654e-13 (bar 2.07e-11) orth 1.11e-16 -> silent
+DEV P3 f64 SkipQr(58): plane NaN (bar 1.11e-12) ln_vol 2.416e-13 (bar 2.07e-11) orth 2.22e-16 -> silent
+DEV P3 f64 SkipQr(114): plane NaN (bar 1.11e-12) ln_vol 3.197e-14 (bar 2.07e-11) orth 2.22e-16 -> silent
+test dev::dev_control_table_f64 ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 17 filtered out; finished in 70.23s
+

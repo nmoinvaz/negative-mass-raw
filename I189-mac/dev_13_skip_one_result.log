@@ -1,0 +1,37 @@
+# 2026-11-26 11:59:09 cwd=/Users/nathan/Source/negative-mass-i189-libs/multishoot
+# cmd: cargo test --release -j 2 --features mutate --test plane -- --test-threads=2 --nocapture skip_one
+
+running 3 tests
+skip one after step 0 of 154 on P1 f64: plane 7.500e-16, ln_vol error 1.137e-13 (baseline 4.547e-13, bar 4.272e-10) -> within the bars
+skip one after step 77 of 154 on P1 f64: plane 1.387e-15, ln_vol error 1.705e-13 (baseline 4.547e-13, bar 4.272e-10) -> within the bars
+skip one after step 152 of 154 on P1 f64: plane 2.137e-15, ln_vol error 4.547e-13 (baseline 4.547e-13, bar 4.272e-10) -> within the bars
+skip one after step 0 of 96 on P1 dd: plane 1.506e-31, ln_vol error 0.000e0 (baseline 6.311e-30, bar 4.743e-26) -> within the bars
+skip one after step 48 of 96 on P1 dd: plane 1.284e-31, ln_vol error 0.000e0 (baseline 6.311e-30, bar 4.743e-26) -> within the bars
+skip one after step 94 of 96 on P1 dd: plane 2.481e-31, ln_vol error 6.311e-30 (baseline 6.311e-30, bar 4.743e-26) -> within the bars
+skip one after step 0 of 126 on P2 f64: plane 2.021e-16, ln_vol error 1.705e-13 (baseline 5.684e-14, bar 3.205e-10) -> within the bars
+skip one after step 63 of 126 on P2 f64: plane 1.842e-16, ln_vol error 5.684e-14 (baseline 5.684e-14, bar 3.205e-10) -> within the bars
+skip one after step 124 of 126 on P2 f64: plane 1.678e-16, ln_vol error 0.000e0 (baseline 5.684e-14, bar 3.205e-10) -> within the bars
+skip one after step 0 of 116 on P3 f64: plane NaN, ln_vol error 4.654e-13 (baseline 1.421e-14, bar 2.072e-11) -> within the bars
+skip one after step 58 of 116 on P3 f64: plane NaN, ln_vol error 2.416e-13 (baseline 1.421e-14, bar 2.072e-11) -> within the bars
+skip one after step 114 of 116 on P3 f64: plane NaN, ln_vol error 3.197e-14 (baseline 1.421e-14, bar 2.072e-11) -> within the bars
+test controls::skip_one_f64 ... ok
+skip one after step 0 of 58 on P1 qd: plane 5.421e-64, ln_vol error 2.733e-61 (baseline 1.820e-61, bar 5.790e-58) -> within the bars
+skip one after step 29 of 58 on P1 qd: plane 1.244e-63, ln_vol error 1.842e-61 (baseline 1.820e-61, bar 5.790e-58) -> within the bars
+skip one after step 56 of 58 on P1 qd: plane 5.297e-62, ln_vol error 1.998e-61 (baseline 1.820e-61, bar 5.790e-58) -> within the bars
+skip one after step 0 of 79 on P2 dd: plane 1.512e-32, ln_vol error 0.000e0 (baseline 0.000e0, bar 3.558e-26) -> within the bars
+skip one after step 39 of 79 on P2 dd: plane 2.421e-32, ln_vol error 0.000e0 (baseline 0.000e0, bar 3.558e-26) -> within the bars
+skip one after step 77 of 79 on P2 dd: plane 1.812e-32, ln_vol error 0.000e0 (baseline 0.000e0, bar 3.558e-26) -> within the bars
+skip one after step 0 of 74 on P3 dd: plane NaN, ln_vol error 2.152e-27 (baseline 1.262e-29, bar 2.301e-27) -> within the bars
+skip one after step 37 of 74 on P3 dd: plane NaN, ln_vol error 3.402e-28 (baseline 1.262e-29, bar 2.301e-27) -> within the bars
+skip one after step 72 of 74 on P3 dd: plane NaN, ln_vol error 4.792e-29 (baseline 1.262e-29, bar 2.301e-27) -> within the bars
+test controls::skip_one_dd ... ok
+skip one after step 0 of 48 on P2 qd: plane 8.336e-65, ln_vol error 1.215e-62 (baseline 6.685e-63, bar 4.344e-58) -> within the bars
+skip one after step 24 of 48 on P2 qd: plane 5.903e-65, ln_vol error 5.469e-63 (baseline 6.685e-63, bar 4.344e-58) -> within the bars
+skip one after step 46 of 48 on P2 qd: plane 3.097e-65, ln_vol error 7.293e-63 (baseline 6.685e-63, bar 4.344e-58) -> within the bars
+skip one after step 0 of 47 on P3 qd: plane NaN, ln_vol error 7.805e-58 (baseline 6.539e-61, bar 2.809e-59) -> past a bar
+skip one after step 23 of 47 on P3 qd: plane NaN, ln_vol error 1.499e-58 (baseline 6.539e-61, bar 2.809e-59) -> past a bar
+skip one after step 45 of 47 on P3 qd: plane NaN, ln_vol error 2.572e-58 (baseline 6.539e-61, bar 2.809e-59) -> past a bar
+test controls::skip_one_qd ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 17 filtered out; finished in 3.70s
+

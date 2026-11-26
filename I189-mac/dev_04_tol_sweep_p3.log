@@ -1,0 +1,22 @@
+# 2026-11-26 11:49:36 cwd=/Users/nathan/Source/negative-mass-i189-libs/multishoot
+# cmd: cargo test --release -j 2 --features mutate --test plane -- --test-threads=2 --nocapture --ignored dev_tol_sweep
+
+running 3 tests
+DEV tol P3 f64 tol 1000 eps: kt 20, baseline err 9.948e-14 (132 steps, h 2.036e-2..5.541e-2), SkipQr(0) err 5.151e-13 (133 steps), SkipQr(mid) err 4.263e-14
+DEV tol P3 f64 tol 100 eps: kt 22, baseline err 1.421e-14 (116 steps, h 1.820e-2..6.294e-2), SkipQr(0) err 4.654e-13 (116 steps), SkipQr(mid) err 2.416e-13
+DEV tol P3 f64 tol 10 eps: kt 23, baseline err 9.592e-14 (115 steps, h 2.270e-2..6.324e-2), SkipQr(0) err 3.265e-12 (116 steps), SkipQr(mid) err 1.066e-14
+DEV tol P3 f64 tol 1 eps: kt 24, baseline err 5.329e-14 (115 steps, h 1.217e-2..6.365e-2), SkipQr(0) err 1.467e-12 (115 steps), SkipQr(mid) err 1.386e-13
+test dev::dev_tol_sweep_f64 ... ok
+DEV tol P3 dd tol 1000 eps: kt 40, baseline err 1.716e-29 (80 steps, h 1.945e-2..8.849e-2), SkipQr(0) err 6.644e-28 (80 steps), SkipQr(mid) err 9.427e-29
+DEV tol P3 dd tol 100 eps: kt 42, baseline err 1.262e-29 (74 steps, h 3.060e-2..9.464e-2), SkipQr(0) err 2.152e-27 (74 steps), SkipQr(mid) err 3.402e-28
+DEV tol P3 dd tol 10 eps: kt 43, baseline err 4.023e-29 (74 steps, h 2.176e-2..9.506e-2), SkipQr(0) err 1.091e-27 (74 steps), SkipQr(mid) err 2.376e-28
+DEV tol P3 dd tol 1 eps: kt 44, baseline err 2.268e-29 (73 steps, h 2.592e-2..9.549e-2), SkipQr(0) err 1.681e-27 (73 steps), SkipQr(mid) err 2.045e-28
+test dev::dev_tol_sweep_dd ... ok
+DEV tol P3 qd tol 1000 eps: kt 78, baseline err 8.077e-61 (49 steps, h 4.611e-2..1.337e-1), SkipQr(0) err 4.342e-58 (49 steps), SkipQr(mid) err 9.124e-59
+DEV tol P3 qd tol 100 eps: kt 80, baseline err 6.539e-61 (47 steps, h 5.567e-2..1.386e-1), SkipQr(0) err 7.805e-58 (47 steps), SkipQr(mid) err 1.499e-58
+DEV tol P3 qd tol 10 eps: kt 81, baseline err 7.074e-61 (47 steps, h 4.352e-2..1.390e-1), SkipQr(0) err 1.588e-58 (47 steps), SkipQr(mid) err 5.117e-59
+DEV tol P3 qd tol 1 eps: kt 82, baseline err 1.282e-60 (47 steps, h 4.582e-2..1.394e-1), SkipQr(0) err 4.626e-58 (47 steps), SkipQr(mid) err 3.362e-58
+test dev::dev_tol_sweep_qd ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 20 filtered out; finished in 0.20s
+

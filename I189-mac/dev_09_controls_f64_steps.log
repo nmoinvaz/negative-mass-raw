@@ -1,0 +1,19 @@
+# 2026-11-26 11:54:41 cwd=/Users/nathan/Source/negative-mass-i189-libs/multishoot
+# cmd: cargo test --release -j 2 --features mutate --test plane -- --test-threads=1 --nocapture controls::controls_f64
+
+running 1 test
+test controls::controls_f64 ... control LowSum(8) on P1 f64: plane 3.213e-16, ln_vol error 2.270e-2, bars 1.110e-12 4.272e-10, 154 steps: fired
+control LowSum(8) on P2 f64: plane 7.170e-8, ln_vol error 2.149e-2, bars 1.110e-12 3.205e-10, 126 steps: fired
+control LowSum(8) on P3 f64: plane NaN, ln_vol error 4.841e-3, bars 1.110e-12 2.072e-11, 116 steps: fired
+control EndOnly on P1 f64: plane 3.864e-1, ln_vol error 1.573e2, bars 1.110e-12 4.272e-10, 10114309 steps: fired
+control EndOnly on P2 f64: plane 2.535e-1, ln_vol error 1.557e2, bars 1.110e-12 3.205e-10, 1002595 steps: fired
+control EndOnly on P3 f64: plane NaN, ln_vol error 7.108e2, bars 1.110e-12 2.072e-11, 148765 steps: fired
+control LogDrop on P1 f64: plane 8.419e-16, ln_vol error 9.600e1, bars 1.110e-12 4.272e-10, 154 steps: fired
+control LogDrop on P2 f64: plane 1.119e-16, ln_vol error 4.805e1, bars 1.110e-12 3.205e-10, 126 steps: fired
+control LogDrop on P3 f64: plane NaN, ln_vol error 1.291e2, bars 1.110e-12 2.072e-11, 116 steps: fired
+control NoGram on P1 f64: plane 8.419e-16, ln_vol error 8.047e-1, bars 1.110e-12 4.272e-10, 154 steps: fired
+control NoGram on P2 f64: plane 1.119e-16, ln_vol error 6.931e-1, bars 1.110e-12 3.205e-10, 126 steps: fired
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 16 filtered out; finished in 68.06s
+
