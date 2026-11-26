@@ -1,0 +1,31 @@
+Traceback (most recent call last):
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/df1496ff-7f14-4c3e-a4d9-83f656a7dd64/scratchpad/wt184/notes/warp/conical_loglog.py", line 1109, in <module>
+    failed = main()
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/df1496ff-7f14-4c3e-a4d9-83f656a7dd64/scratchpad/wt184/notes/warp/conical_loglog.py", line 1093, in main
+    fn()
+    ~~^^
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/df1496ff-7f14-4c3e-a4d9-83f656a7dd64/scratchpad/wt184/notes/warp/conical_loglog.py", line 671, in c_basin
+    ref = raw167_rows()
+  File "/private/tmp/claude-501/-Users-nathan-Source-negative-mass/df1496ff-7f14-4c3e-a4d9-83f656a7dd64/scratchpad/wt184/notes/warp/conical_loglog.py", line 654, in raw167_rows
+    for ln in open(RAW167, encoding="utf-8"):
+              ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/claude-501/-Users-nathan-Source-negative-mass/df1496ff-7f14-4c3e-a4d9-83f656a7dd64/scratchpad/wt184/notes/warp/../../../negative-mass-raw/I167-mac/dev_09_forward.log'
+       17.73 real        17.07 user         0.28 sys
+           105676800  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               90759  page reclaims
+                  28  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                 825  voluntary context switches
+                2006  involuntary context switches
+        150454350793  instructions retired
+         29431274302  cycles elapsed
+            92848728  peak memory footprint
+exit 1

@@ -1,0 +1,28 @@
+   Compiling crossbeam-utils v0.8.23
+   Compiling crossbeam-epoch v0.9.21
+   Compiling crossbeam-deque v0.8.8
+   Compiling rayon-core v1.13.0
+   Compiling either v1.19.0
+   Compiling rayon v1.12.0
+   Compiling multidouble v5.1.0
+   Compiling multisolver v0.2.2
+   Compiling multishoot v4.2.0
+   Compiling conical_global v0.1.0 (/private/tmp/claude-501/-Users-nathan-Source-negative-mass/df1496ff-7f14-4c3e-a4d9-83f656a7dd64/scratchpad/wt184/notes/warp/conical_global)
+warning: unused import: `end_state`
+  --> src/main.rs:11:52
+   |
+11 | use conical_global::model::{conical, conical_poly, end_state, Implicit, Mutation, NoEnds};
+   |                                                    ^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `kind`
+   --> src/main.rs:239:22
+    |
+239 |     for (name, poly, kind) in cases {
+    |                      ^^^^ help: if this is intentional, prefix it with an underscore: `_kind`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: `conical_global` (bin "conical_global") generated 2 warnings (run `cargo fix --bin "conical_global" -p conical_global` to apply 2 suggestions)
+    Finished `release` profile [optimized] target(s) in 16.53s

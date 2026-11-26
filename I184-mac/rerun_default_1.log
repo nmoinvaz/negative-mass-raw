@@ -1,0 +1,12 @@
+[PASS] theta_form: conical_N with F' = p nu, F'' = (q - p) nu^2, eta = 1/nu minus A0 + nu^2 A1 + nu^4 A2 expands to 0; the crate's N at 40 rational points against conical_N: worst |dN|/sum|terms| 2.08e-32 (threshold 1e-26)
+  (0 s)
+  root series to order 6: 7 s
+[PASS] root_series: N(G, p, Q_6, sigma) has no term below order sigma^7 (Laurent verifier: lowest order 7); A1(G, p, -p^2) = p**6*(G - 1)**2; e1 = -p**2*(G - 1)**2/2; e2 = -(3*G**4*p**2 - 8*G**3*p**2 - 8*G**3*p + 2*G**2*p**2 - 16*G**2 + 8*G*p**2 + 8*G*p - 5*p**2)/8; e1: p^2..p^2, deg_G 2; e2: p^0..p^2, deg_G 4; e3: p^0..p^2, deg_G 6; e4: p^-2..p^2, deg_G 8; e5: p^-2..p^2, deg_G 10; e6: p^-4..p^2, deg_G 12
+  (7 s)
+  (planted) root series to order 4: 0 s
+[PASS] shift_series: the generator on N = p^2 w'(2p^2 - w'), w' = q + p^2 + 2c sigma (1 - p) + c^2 sigma^2, c = 1/3: e1 = 2*(p - 1)/3, e2 = -1/9, e3 = 0, e4 = 0; expected -2c(1 - p), -c^2, 0, 0; residual order None
+  (0 s)
+[PASS] invariants: T = 1/p - t: T' = -(q + p^2)/p^2 (True); g = G + ln p: g' = (q + p^2)/p (True); both vanish at q = -p^2 (True); p = 1/(t + T), G = ln(t + T) + g solves G' = p, p' = -p^2 (True)
+  (0 s)
+  NOT MET (as first worded) [W0 regress, does not gate]: 100 plus sides to 200: the new DD walker reaches 200 exactly where #167's class is LOGLOG (15 of 100; disagreements []); F, F', F'' at 200 against #167's walker for those: worst relative difference 5.2e-18 (bar 1e-24). Both are N-conserving double-double walks: the rounding of N from the first steps stays in N while the scale of N shrinks, so each is good only to about its own n_rel at 200 (up to 3e-17 at F'(0) = 100); check dd_qd (DD project against QD) is the accuracy gate. The others stop at TinyStep near #167's eta*: |x_end - eta*|/eta* at most 6.0e-09 over 85 (printed, no bar)
+  (10 s)
