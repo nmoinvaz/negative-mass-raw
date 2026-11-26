@@ -1,0 +1,16 @@
+[package]
+name = "compare183"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+# #191: the new locator (multisolver branch feat/locate-singularity) on the series #183's walk read at its last step.
+# conical_global is #183's crate in the worktree (read only: nothing in it is edited or built from here except as a dependency).
+[dependencies]
+conical_global = { path = "../../../../negative-mass-i191/notes/warp/conical_global" }
+multishoot = "=4.2.0"
+multidouble = "=5.1.0"
+multisolver_new = { package = "multisolver", path = "../../../../negative-mass-i191-libs/multisolver" }
+
+[profile.release]
+opt-level = 3
