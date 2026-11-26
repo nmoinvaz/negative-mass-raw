@@ -187,7 +187,8 @@ run in `notes/wormhole_next/` of the worktree. Counts are in `counts/modecount_t
 - Rung 0 does not reproduce §6.2's two points bit for bit, only to 8e-4 in Re and 5e-6 in Im/ω (D = 10), 2e-4 and 5e-7
   (D = 12). The README said it would if the secant is deterministic, but the script multiplies out only the poles within
   `lo − 2 < Re p < hi + 2` of the window, so the narrower window changes g and with it the secant's path. The behaviour is
-  the same: both runs leave the line by 3–4e-4 ω and land 0.3 to the left of the cell, where ln|g| is on the line's trend.
-  X1 is informative and has no pass condition; its "reproduces to 1e-6" label reads "does not reproduce", and the
+  the same: both runs leave the line by 3–4e-4 ω and land 0.3 to the left of the cell. §6.2's points have ln|g| on the
+  line's own trend (0.002 and 0.004 off, from its full scan); a rung-0 record samples only the cell, so that is not
+  computed for rung 0. X1 is informative and has no pass condition; its "reproduces to 1e-6" label reads "does not reproduce", and the
   differences are printed beside it.
 - The `mu` mutation row was added to the table above after the queues started and before any table was run.
