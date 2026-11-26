@@ -98,4 +98,50 @@ is compared bitwise; the `+avx2,+fma` build cannot run here and is not run.
 
 ## Amendments
 
-(none yet)
+**A1 (2026-11-26, after dev_02 to dev_12). Code at multishoot `feat/plane-stepper` b8bae85. Control targets declared; one control renamed.**
+
+First run of P1, P2, P3 (dev_02, bars as written above, not changed): every cell passes, 1e2 to 1e4 below its bar. Plane error, ln_vol error
+(bar), steps: P1 f64 8.4e-16, 4.5e-13 (4.3e-10), 154; dd 1.5e-31, 6.3e-30 (4.7e-26), 96; qd 5.3e-64, 1.8e-61 (5.8e-58), 58; P1o od 1.5e-129,
+2.0e-127 (8.9e-122), 34; P2 f64 1.1e-16, 5.7e-14 (3.2e-10), 126; dd 2.1e-32, 0 (3.6e-26; the computed dd log-volume equals the reference's
+parts exactly: the accumulator's resolution at 288.7 is 3.5e-30, coarser than the terms' noise), 79; qd 6.6e-65, 6.7e-63 (4.3e-58), 48; P3
+f64 1.4e-14 (2.1e-11), 116; dd 1.3e-29 (2.3e-27), 74; qd 6.5e-61 (2.8e-59), 47. The wrong inputs `J_gamma`, `wrong_plane` (now `OtherPlane` in
+the code), `ref_no_gram`, `J_noQdot`, `J_trace` fire in f64, dd and qd (plane error 0.76 for `wrong_plane`, ln_vol errors 9.6e-5, 0.80, 0.69,
+8.0e-2, 8.0).
+
+**Declared targets** (dev_03 table, dev_10 to dev_12):
+
+| control | fails (case × lane) | silent, by design |
+|---|---|---|
+| `LowSum(8)` | P1, P2, P3 × f64, dd, qd (ln_vol error 2e-2 to 16) | |
+| `ScaleOnly` (renamed from `EndOnly`, see below) | P1, P2, P3 × f64, dd, qd (ln_vol errors 40 to 510; P3 in f64 the stepper refuses: the columns became dependent, a panic, counted as failed) | |
+| `LogDrop` | P1, P2, P3 × f64, dd, qd (ln_vol errors 48 to 129) | |
+| `NoGram` | P1, P2 × f64, dd, qd (0.80 and 0.69) | P3 (its starting basis has volume 1: error 1e-14 as without the control) |
+| `RecipDD` | P1, P2, P3 × qd (ln_vol 4e-31, 3e-31, 7e-30 against bars of 1e-58) | f64, dd (the widened reciprocals are the lane's own: identical bits) |
+| `SkipQr(i, m)` | **not declared: see below** | |
+
+`EndOnly` became `ScaleOnly`: with no orthogonalization and no rescaling, the columns grow like e^(24 x), the planner's absolute tolerance
+shrinks the steps with them and the f64 run of P1 took 10 114 309 steps (dev_09, 69 s of a test run). The control now scales each column to unit
+length after every step (adding ln of its length to the log-volume) and orthonormalizes once at the end; same exact result, same step grid as
+the baseline, and the loss is what the orthogonalization prevented (dev_10 to dev_12).
+
+**`SkipQr`, the issue's control "skip one orthonormalization".** `SkipQr(i, 1)` after step i (dev_03; i = first, middle, second to last):
+
+- silent on P1 and P2 in f64, dd and qd and on P3 in f64 and dd: ln_vol errors stay at the baseline's (P1 f64 1e-13 to 4.5e-13, baseline 4.5e-13;
+  P2 qd 1e-62 against 6.7e-63; plane errors unchanged);
+- on P3 in dd the error is 2.2e-27 at i = 0 against the bar 2.3e-27 (silent by 7%), 3.4e-28 and 4.8e-29 at the others; **on P3 in qd it
+  fires**, 7.8e-58, 1.5e-58 and 2.6e-58 against 2.8e-59 (baseline 6.5e-61). That is not the growth spread: the step's spread (γ₁ − γ₄) h is 2.7
+  to 6.7 there against ln(1/ε) = 147. The error is independent of the Taylor tolerance (dev_04: tol 1000 ε down to ε, qd 4.3e-58, 7.8e-58, 1.6e-58,
+  4.6e-58; dd 6.6e-28, 2.2e-27, 1.1e-27, 1.7e-27), so it is rounding, not truncation: it is the loss of the full 4-column determinant's last
+  digits to the condition number of the unnormalized product (P is non-normal, cond₂ P = 96), about 30 to 1000 times the baseline's roundoff.
+- The per-step spreads (largest step times the gap) against ln(1/ε): P1 (γ₁ − γ₂ = 16, γ₁ − γ₃ = 32) 1.2 / 2.5 (f64), 2.0 / 4.0 (dd), 3.3 / 6.6
+  (qd); P2 (16, 28) 1.5 / 2.7, 2.4 / 4.3, 4.0 / 7.0; P3 (γ₁ − γ₄ = 48) 3.0, 4.5, 6.7; ln(1/ε) is 36.7, 73.5, 147.0. One step's spread is
+  5 to 30 times too small, as the coordinator expected.
+- Skipping a run of m consecutive orthonormalizations (dev_05, from a quarter of the way; spread S = gap × mean step × m): the loss grows smoothly
+  with S, not at S = ln(1/ε). ln_vol error against the bar: P1 f64 4e-11 at S = 12.5 (silent), 9.7e-10 at 18.7 (fires), 1.3e-8 at 25;
+  dd 9e-28 at S = 10 (silent), 1.1e-24 at 20 (fires); qd 2.7e-56 at S = 17 (fires); P3 fires from m = 5 in every lane. P2 stayed silent
+  from a quarter of the way up to S = 46 (f64) and 40 (qd) but fires from step 0 (dev_07: f64 3.6e-11 at S = 30, 1.5e-7 at 46, 7.3e-6 at 61,
+  0.74 at 152). Which steps are skipped matters on P2, because the rotation slows (θ′ = 2/(2 (1 + x²/4))).
+- Candidates in place of `SkipQr(i, 1)` (the coordinator chooses; none is declared): (a) `ScaleOnly` (above; fires on all 9 cells); (b)
+  `SkipQr(i, m)` with m set per lane so that S ≥ about ln(1/ε)/2 (from dev_05: fires on P1 and P3 everywhere, on P2 only from the start); (c) a planted
+  case in which one planner step's spread exceeds ln(1/ε), which needs a gap of about twice the largest rate at a high order (a decaying plane
+  column, whose Taylor sum then cancels) and is not built.

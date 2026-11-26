@@ -1,0 +1,97 @@
+# 2026-11-26 11:56:47 cwd=/Users/nathan/Source/negative-mass-i189-libs/multishoot
+# cmd: /usr/bin/time -l cargo test --release -j 2 --features mutate --test plane -- --test-threads=2 --nocapture
+
+running 17 tests
+control LowSum(8) on P1 f64: plane 3.213e-16, ln_vol error 2.270e-2, bars 1.110e-12 4.272e-10, 154 steps: fired
+control LowSum(8) on P1 dd: plane 2.022e-31, ln_vol error 3.680e-1, bars 1.233e-28 4.743e-26, 96 steps: fired
+control LowSum(8) on P2 f64: plane 7.170e-8, ln_vol error 2.149e-2, bars 1.110e-12 3.205e-10, 126 steps: fired
+control LowSum(8) on P3 f64: plane NaN, ln_vol error 4.841e-3, bars 1.110e-12 2.072e-11, 116 steps: fired
+control ScaleOnly on P1 f64: plane 2.100e-1, ln_vol error 1.572e2, bars 1.110e-12 4.272e-10, 150 steps: fired
+control ScaleOnly on P2 f64: plane 6.000e-1, ln_vol error 1.498e2, bars 1.110e-12 3.205e-10, 126 steps: fired
+test controls::controls_f64 ... FAILED
+control LowSum(8) on P1 qd: plane 4.280e-64, ln_vol error 3.981e0, bars 1.505e-60 5.790e-58, 58 steps: fired
+control LowSum(8) on P2 dd: plane 1.671e-5, ln_vol error 3.248e-1, bars 1.233e-28 3.558e-26, 79 steps: fired
+control LowSum(8) on P3 dd: plane NaN, ln_vol error 1.837e-1, bars 1.233e-28 2.301e-27, 74 steps: fired
+control ScaleOnly on P1 dd: plane 4.827e-1, ln_vol error 1.199e2, bars 1.233e-28 4.743e-26, 95 steps: fired
+control ScaleOnly on P2 dd: plane 6.000e-1, ln_vol error 1.154e2, bars 1.233e-28 3.558e-26, 79 steps: fired
+control ScaleOnly on P3 dd: plane NaN, ln_vol error 5.119e2, bars 1.233e-28 2.301e-27, 72 steps: fired
+control LogDrop on P1 dd: plane 1.470e-31, ln_vol error 9.600e1, bars 1.233e-28 4.743e-26, 96 steps: fired
+control LogDrop on P2 dd: plane 2.053e-32, ln_vol error 4.805e1, bars 1.233e-28 3.558e-26, 79 steps: fired
+control LogDrop on P3 dd: plane NaN, ln_vol error 1.291e2, bars 1.233e-28 2.301e-27, 74 steps: fired
+control NoGram on P1 dd: plane 1.470e-31, ln_vol error 8.047e-1, bars 1.233e-28 4.743e-26, 96 steps: fired
+control NoGram on P2 dd: plane 2.053e-32, ln_vol error 6.931e-1, bars 1.233e-28 3.558e-26, 79 steps: fired
+test controls::controls_dd ... ok
+control J_gamma on P1 dd: plane 1.110e-15, ln_vol error 9.600e-5, bars 1.233e-28 4.743e-26, 96 steps: fired
+control wrong_plane on P1 dd: plane 7.593e-1, ln_vol error 6.311e-30, bars 1.233e-28 4.743e-26, 96 steps: fired
+control ref_no_gram on P1 dd: plane 1.470e-31, ln_vol error 8.047e-1, bars 1.233e-28 4.733e-26, 96 steps: fired
+control J_noQdot on P2 dd: plane 4.259e-3, ln_vol error 8.022e-2, bars 1.233e-28 3.558e-26, 79 steps: fired
+control ref_no_gram on P2 dd: plane 2.053e-32, ln_vol error 6.931e-1, bars 1.233e-28 3.550e-26, 79 steps: fired
+control J_trace on P3 dd: plane NaN, ln_vol error 8.000e0, bars 1.233e-28 2.301e-27, 72 steps: fired
+test controls_wrong_inputs_dd ... ok
+control J_gamma on P1 f64: plane 3.114e-15, ln_vol error 9.600e-5, bars 1.110e-12 4.272e-10, 154 steps: fired
+control wrong_plane on P1 f64: plane 7.593e-1, ln_vol error 4.547e-13, bars 1.110e-12 4.272e-10, 154 steps: fired
+control ref_no_gram on P1 f64: plane 8.419e-16, ln_vol error 8.047e-1, bars 1.110e-12 4.263e-10, 154 steps: fired
+control J_noQdot on P2 f64: plane 4.259e-3, ln_vol error 8.022e-2, bars 1.110e-12 3.205e-10, 126 steps: fired
+control ref_no_gram on P2 f64: plane 1.119e-16, ln_vol error 6.931e-1, bars 1.110e-12 3.197e-10, 126 steps: fired
+control J_trace on P3 f64: plane NaN, ln_vol error 8.000e0, bars 1.110e-12 2.072e-11, 113 steps: fired
+test controls_wrong_inputs_f64 ... ok
+control J_gamma on P1 qd: plane 1.110e-15, ln_vol error 9.600e-5, bars 1.505e-60 5.790e-58, 58 steps: fired
+control wrong_plane on P1 qd: plane 7.593e-1, ln_vol error 1.820e-61, bars 1.505e-60 5.790e-58, 58 steps: fired
+control ref_no_gram on P1 qd: plane 5.319e-64, ln_vol error 8.047e-1, bars 1.505e-60 5.778e-58, 58 steps: fired
+control LowSum(8) on P2 qd: plane 1.513e-4, ln_vol error 3.387e0, bars 1.505e-60 4.344e-58, 48 steps: fired
+control LowSum(8) on P3 qd: plane NaN, ln_vol error 1.617e1, bars 1.505e-60 2.809e-59, 47 steps: fired
+control ScaleOnly on P1 qd: plane 4.606e-2, ln_vol error 4.537e1, bars 1.505e-60 5.790e-58, 58 steps: fired
+control J_noQdot on P2 qd: plane 4.259e-3, ln_vol error 8.022e-2, bars 1.505e-60 4.344e-58, 48 steps: fired
+control ScaleOnly on P2 qd: plane 6.000e-1, ln_vol error 4.066e1, bars 1.505e-60 4.344e-58, 48 steps: fired
+control ScaleOnly on P3 qd: plane NaN, ln_vol error 2.159e2, bars 1.505e-60 2.809e-59, 47 steps: fired
+control LogDrop on P1 qd: plane 5.319e-64, ln_vol error 9.600e1, bars 1.505e-60 5.790e-58, 58 steps: fired
+control ref_no_gram on P2 qd: plane 6.597e-65, ln_vol error 6.931e-1, bars 1.505e-60 4.333e-58, 48 steps: fired
+control J_trace on P3 qd: plane NaN, ln_vol error 8.000e0, bars 1.505e-60 2.809e-59, 46 steps: fired
+test controls_wrong_inputs_qd ... ok
+P1 dd: ln_vol parts [384.8047189562171, -2.2713171596360286e-14], exact parts [384.8047189562171, -2.271317159636028e-14]
+P1 dd: plane 1.470e-31, ln_vol error 6.311e-30 (bar 4.743e-26), orthonormality 3.081e-33, steps 96 hmin 9.879e-2 hmax 1.253e-1, digest e77fff8a40778c24
+test p1_dd ... ok
+P1 f64: ln_vol parts [384.8047189562175], exact parts [384.8047189562171]
+P1 f64: plane 8.419e-16, ln_vol error 4.547e-13 (bar 4.272e-10), orthonormality 4.441e-16, steps 154 hmin 5.813e-2 hmax 7.818e-2, digest 7e906df2642821ce
+test p1_f64 ... ok
+P1o od: ln_vol parts [384.8047189562171, -2.271317159636028e-14, 1.8115250196753073e-31, 3.299151126682003e-49, 1.2694474419186067e-65, 2.3607819755275932e-82, -3.4937572096541642e-99, 2.0007860049491322e-115], exact parts [384.8047189562171, -2.271317159636028e-14, 1.8115250196753073e-31, 3.299151126682003e-49, 1.2694474419186067e-65, 2.3607819755275932e-82, -3.4937572096541642e-99, 2.000786004951149e-115]
+P1o od: plane 1.488e-129, ln_vol error 2.017e-127 (bar 8.851e-122), orthonormality 1.803e-130, steps 34 hmin 2.084e-1 hmax 3.620e-1, digest d64903de211d3f85
+test p1_od ... ok
+P1 qd: ln_vol parts [384.8047189562171, -2.271317159636028e-14, 1.8115250196753073e-31, 3.2991511266801825e-49], exact parts [384.8047189562171, -2.271317159636028e-14, 1.8115250196753073e-31, 3.299151126682003e-49]
+P1 qd: plane 5.319e-64, ln_vol error 1.820e-61 (bar 5.790e-58), orthonormality 1.519e-64, steps 58 hmin 1.608e-1 hmax 2.077e-1, digest adc409fb3c2fa9e5
+test p1_qd ... ok
+P2 dd: ln_vol parts [288.69314718055995, -1.8641886737243033e-15], exact parts [288.69314718055995, -1.8641886737243033e-15]
+P2 dd: plane 2.053e-32, ln_vol error 0.000e0 (bar 3.558e-26), orthonormality 3.390e-32, steps 79 hmin 1.458e-1 hmax 1.530e-1, digest 686f5859af670220
+test p2_dd ... ok
+P2 f64: ln_vol parts [288.6931471805599], exact parts [288.69314718055995]
+P2 f64: plane 1.119e-16, ln_vol error 5.684e-14 (bar 3.205e-10), orthonormality 2.220e-16, steps 126 hmin 5.780e-2 hmax 9.703e-2, digest 359677d364c3b057
+test p2_f64 ... ok
+control LogDrop on P2 qd: plane 6.597e-65, ln_vol error 4.805e1, bars 1.505e-60 4.344e-58, 48 steps: fired
+control LogDrop on P3 qd: plane NaN, ln_vol error 1.291e2, bars 1.505e-60 2.809e-59, 47 steps: fired
+control NoGram on P1 qd: plane 5.319e-64, ln_vol error 8.047e-1, bars 1.505e-60 5.790e-58, 58 steps: fired
+P2 qd: ln_vol parts [288.69314718055995, -1.8641886737243033e-15, 1.94704509238075e-31, 4.4116561554873885e-48], exact parts [288.69314718055995, -1.8641886737243033e-15, 1.94704509238075e-31, 4.411656155487395e-48]
+P2 qd: plane 6.597e-65, ln_vol error 6.685e-63 (bar 4.344e-58), orthonormality 3.513e-64, steps 48 hmin 2.184e-1 hmax 2.509e-1, digest 375c304640438098
+test p2_qd ... ok
+P3 dd: ln_vol parts [-18.666666666666668, 1.1842378929335129e-15], exact parts [-18.666666666666668, 1.1842378929335002e-15]
+P3 dd: plane NaN, ln_vol error 1.262e-29 (bar 2.301e-27), orthonormality 3.081e-32, steps 74 hmin 3.060e-2 hmax 9.464e-2, digest 9b6de7d3a22cd3c1
+test p3_dd ... ok
+P3 f64: ln_vol parts [-18.666666666666654], exact parts [-18.666666666666668]
+P3 f64: plane NaN, ln_vol error 1.421e-14 (bar 2.072e-11), orthonormality 2.220e-16, steps 116 hmin 1.820e-2 hmax 6.294e-2, digest 32ab4bcdb902f5be
+test p3_f64 ... ok
+P3 qd: ln_vol parts [-18.666666666666668, 1.1842378929335002e-15, 6.573840876841765e-32, 3.6492147508465315e-48], exact parts [-18.666666666666668, 1.1842378929335002e-15, 6.573840876841765e-32, 3.6492147508458776e-48]
+P3 qd: plane NaN, ln_vol error 6.539e-61 (bar 2.809e-59), orthonormality 1.472e-64, steps 47 hmin 5.567e-2 hmax 1.386e-1, digest 906c92ca967c44bb
+test p3_qd ... ok
+test p_and_its_inverse ... ok
+control NoGram on P2 qd: plane 6.597e-65, ln_vol error 6.931e-1, bars 1.505e-60 4.344e-58, 48 steps: fired
+control RecipDD on P1 qd: plane 2.253e-63, ln_vol error 4.310e-31, bars 1.505e-60 5.790e-58, 58 steps: fired
+control RecipDD on P2 qd: plane 3.690e-36, ln_vol error 3.331e-31, bars 1.505e-60 4.344e-58, 48 steps: fired
+control RecipDD on P3 qd: plane NaN, ln_vol error 6.794e-30, bars 1.505e-60 2.809e-59, 47 steps: fired
+test controls::controls_qd ... ok
+
+failures:
+
+failures:
+    controls::controls_f64
+
+test result: FAILED. 16 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.81s
+
