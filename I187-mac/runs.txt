@@ -1,0 +1,22 @@
+# base|title of each run of record, in the order of the output file
+run_00_env|the environment of the runs of record
+run_01_planted_rm|planted q_int, planted r_m, and the r_m of the five variants against scipy (QP, RP, RM)
+run_02_rows_l2|l = 2 rows against convergence_l2_output.txt, and gamma = 300 against #186's fresh scipy D (RA2, RX)
+run_03_rows_l3|l = 3 rows (no stored file, not compared)
+run_04_rows_l4|l = 4 rows against convergence_l4_output.txt (RA4)
+run_05_rows_l5_cap5|l = 5 rows against convergence_l5_output.txt, and the capped row gamma = 6000 (RA5, CAP5a, CAP5b, CAP5c, CAP5s)
+run_06_rows_l6_cap6|l = 6 rows against convergence_l6_output.txt, and the capped row gamma = 12000 (RA6, CAP6a, CAP6b)
+run_07_default_mode|the default mode (#186's checks) at code 4805466: its summary does not add up (21 + 1 of 23): S2's numpy bool was counted as neither passed nor failed (amendment A3)
+run_18_default_mode_rerun|the default mode (#186's checks) again at code df942c9 with the verdict coerced to a bool: 22 passed, 0 failed, 1 skipped (TS) of 23
+run_08_ctl_qint_cofsign|control qint_cofsign (must exit 1)
+run_09_ctl_qint_f|control qint_f (must exit 1)
+run_10_ctl_rm_off1|control rm_off1 (must exit 1)
+run_11_ctl_rm_cut|control rm_cut (must exit 1)
+run_12_ctl_r0_grid|control r0_grid (must exit 1)
+run_13_ctl_qstart|control qstart (must exit 1)
+run_14_ctl_moncrief|control moncrief (must exit 1)
+run_15_ctl_tol_loose|control tol_loose at tol 1e-1 (must exit 1)
+run_16_ctl_jsign|control jsign (must exit 1)
+run_17_ctl_tol_loose_CAP5s|control tol_loose, CAP5s only: its tol entry (the line 'NOT FIRED on CAP5b' is because CAP5b is not part of this run; run_15 fired it)
+run_19_diag_gap_vs_gamma|diagnostic: the crate's D against scipy's full-precision D per variant and gamma (the rows of record, I4-win and I114-win partial files)
+run_20_diag_f64_vs_dd|diagnostic: the crate's f64 lane against its dd lane per variant at the two capped points

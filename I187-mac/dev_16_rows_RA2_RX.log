@@ -1,0 +1,22 @@
+# 2026-11-26 09:29:01 cwd=/Users/nathan/Source/negative-mass-i187/phase2/nonradial
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python taylor_polar.py --rows --only=RA2,RX --jsonl-dir=/Users/nathan/Source/negative-mass-raw/I187-mac/dev_jsonl
+# taylor_polar.py --rows: start 2026-11-26 09:29:01, load average 2.31, one process, nice 10; mutate = None
+# l = 2: rows from the crate (lane dd, one process, nice 10, load 2.5); setup per l: star 0.0 s, J table 3.4 s
+base (rtol1e-10, phi_cut1e-9, R60)    : r_m=24.11
+rtol 1e-12 [crate: Taylor tol 1e-12]  : r_m=24.11
+phi_cut 1e-12 (larger r_m)            : r_m=34.21
+background R=90                       : r_m=24.11
+r0 = 3e-3                             : r_m=24.11
+
+gamma=   0.001: D_base=-5.285431e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.1e-04  D(r_m~34)=-3.682e-02  q_int=+1.246227e-01 q_ext=-8.304551e-02  (0s)
+gamma=    0.03: D_base=-4.725315e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.3e-04  D(r_m~34)=-3.002e-02  q_int=+1.276885e-01 q_ext=-8.960148e-02  (0s)
+gamma=     0.3: D_base=-1.675353e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-8.452e-03  q_int=+3.194236e-01 q_ext=-3.149493e-01  (0s)
+gamma=       1: D_base=-6.002203e-03  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-2.990e-03  q_int=+1.005387e+00 q_ext=-1.004959e+00  (0s)
+gamma=       3: D_base=-7.099033e-04  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-3.529e-04  q_int=+3.001748e+00 q_ext=-3.001701e+00  (0s)
+gamma=      10: D_base=-2.645574e-05  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-1.315e-05  q_int=+1.000052e+01 q_ext=-1.000052e+01  (0s)
+gamma=      40: D_base=-4.293922e-07  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-2.133e-07  q_int=+4.000013e+01 q_ext=-4.000013e+01  (1s)
+gamma=     137: D_base=-1.071289e-08  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-5.323e-09  q_int=+1.370000e+02 q_ext=-1.370000e+02  (4s)
+gamma=     300: D_base=-1.020425e-09  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-5.070e-10  q_int=+3.000000e+02 q_ext=-3.000000e+02  (9s)  [no stored row]
+CHECK RA2: PASS  l = 2: 66 of 66 tokens of 8 stored rows and the 5 header lines equal as strings (1 extra row, not compared); closest rounding boundary of any D/q token: 8.25e-10 relative at (gamma, token) = (0.001, 'q_ext')
+CHECK RX: PASS  l = 2, gamma = 300 (no stored row): crate D_base -1.0204252e-09 against #186's fresh scipy D -1.0204252e-09 (I186-mac/scipy_timing.jsonl), 8-digit tokens equal as strings
+SUMMARY: 2 passed, 0 failed, 0 skipped of 2 checks; mutate = None; 22 s

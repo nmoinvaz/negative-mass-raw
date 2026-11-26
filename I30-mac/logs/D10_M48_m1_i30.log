@@ -1,0 +1,13 @@
+== D10_M48_m1_i30 2026-11-26 16:45 UTC: ghost_mu.py --hp=/Users/nathan/Source/choptuik-large-d/hp --threads=2 --tag=D10_M48_m1_i30 --out=/Users/nathan/Source/negative-mass-raw/I30-mac/ghost_mu3.jsonl /Users/nathan/Source/choptuik-large-d/hp/data/states/up_D10.0000.npz --lo=-0.76 --hi=-0.60 --h=0.04
+-- env: CLD 5fcadda2 Delta tables: the form-S direct solve at D 50000 (#1088); hp status []; kernel sha1 3b1a9a221956
+  series truncation (solution): centre 2.2e-71 (ratio 0.094 at 0.02), horizon 7.7e-43 (ratio 0.385 at 0.3)
+up_D10.0000.npz: D 10.0, M 48, K 10, |F| 6.5e-31, Delta 2.5210789196, omega 2.492260, mode 1, plant None
+  mu = 0: ln|det| -906.3878, min pivot 2.81e-25;  mu = -0.04: min pivot 4.68e-05
+  -0.7600: ln|det|    -940.7064  sign +1  min pivot 3.0e-06
+  -0.7200: ln|det|    -936.8331  sign +1  min pivot 2.9e-06
+  -0.6800: ln|det|    -934.7460  sign +1  min pivot 4.2e-06
+  -0.6400: ln|det|    -928.0076  sign -1  min pivot 5.0e-06
+  -0.6000: ln|det|    -922.7639  sign -1  min pivot 4.8e-06
+  zero in [-0.6800, -0.6400]: mu = -0.676124203430 (width 7.9e-13, 9 steps)
+  16 evaluations, 47 s; record appended to /Users/nathan/Source/negative-mass-raw/I30-mac/ghost_mu3.jsonl
+== D10_M48_m1_i30 exit 0 2026-11-26 16:46 UTC

@@ -1,0 +1,17 @@
+# 2026-11-26 10:05:06 cwd=/Users/nathan/Source/negative-mass-i187/phase2/nonradial
+# cmd: /Users/nathan/Source/negative-mass-raw/I187-mac/diag_tol_sweep.sh
+# tol = 1.2e-30
+D -8.9360829280564391812 steps_y 147815 wall 37.4042
+# tol = 1e-12
+D -8.9360829280563110633 steps_y 35626 wall 9.4178
+# tol = 1e-3
+D -8.9360477673373854984 steps_y 17436 wall 5.2989
+# tol = 1e-2
+D -8.9323810670369972462 steps_y 16105 wall 5.243
+# tol = 1e-1
+D -8.9236223948747569711 steps_y 14876 wall 5.6163
+# tol = 1
+# tol = 10
+# stopped by me (PIDs 17006 the crate, 16378 the sweep script) at tol = 1: no result after 8 min; tol = 10 not run
+D NaN steps_y 12692 wall 3.4118
+# also stopped: PID 23438, the tol = 10 crate process started before the script was killed

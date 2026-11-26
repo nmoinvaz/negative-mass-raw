@@ -1,0 +1,6 @@
+[FAIL] W1: D10.0000_M48 plain B0: mine -5.000000, log 1; D10.0000_M48 plain U0: mine -1.000000, log -1; D10.0000_M48 plain full: mine -2.000000, log -10; D10.0000_M48 planted B0: mine -1.000000, log 3; D10.0000_M48 planted U0: mine +2.000000, log -1; D10.0000_M48 planted full: mine -2.000000, log -10; D12.0000_M48 plain B0: mine +1.000000, log 1; D12.0000_M48 plain U0: mine -2.000000, log -2; D12.0000_M48 plain full: mine -10.000000, log -12; D12.0000_M48 planted B0: mine +1.000000, log 3; D12.0000_M48 planted U0: mine +5.000000, log -2; D12.0000_M48 planted full: mine -6.000000, log -12; D20.0437_M32 plain B0: mine +1.000000, log 1; D20.0437_M32 plain U0: mine -2.000000, log -1; D20.0437_M32 plain full: mine +8.000000, log -16; D20.0437_M32 planted B0: mine -7.000000, log 3; D20.0437_M32 planted U0: mine -1.000000, log -1; D20.0437_M32 planted full: mine +8.000000, log -16
+[FAIL] W2: largest |phase step| 3.116 (bar 1.571)
+[FAIL] W3: D10.0000_M48: planted - plain = {'B0': 4, 'U0': 3, 'full': 0}; D12.0000_M48: planted - plain = {'B0': 0, 'U0': 7, 'full': 4}; D20.0437_M32: planted - plain = {'B0': -8, 'U0': 1, 'full': 0}
+
+3 criteria, 0 pass; failed: ['W1', 'W2', 'W3']
+exit 1
