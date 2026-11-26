@@ -65,3 +65,11 @@ and the invariant jets are not rational, so (b) and (c) could not be evaluated e
 = u₀ through d₀, which the family leaves free. Nothing has been run.
 
 ## Runs (filled in as they are done)
+
+| file | what |
+|---|---|
+| `rerun_default_1.log`, `.time` | rerun 1 of #165's default mode: exit 127 at once, the Python path given did not exist on the Mac (no run) |
+| `rerun_default_2.log`, `.time` | rerun 2: exit 0, 10 of 10 checks, D1 and D2 `[NOT MET]`, 11 of 11 controls on target, 930 s wall, 95 MB peak. Identical to the committed `one_sign_static_output.txt` apart from the first line (the raw path) and timings |
+| `ind165.py`, `run_ind165.sh` | the independent check and its launcher |
+| `ind165_run1.txt` | ind165 run 1: exit 0, 8 of 8 criteria pass in 26 s. σ̄ denominators 8 s u Δ′ and 8 s u (1+s²) Δ′ (C1); the stripped C̄ numerator is −1 · f₀ (C2); X̄₁f₀, X̄₂f₀, X̄₁f₁, X̄₂f₁ stripped are 1/4 f₁, 1/4 f₂, 1/8 f₁₁, 1/8 f₁₂ (C3); both re-expanded certificates sum to 1 in GF(p) (C4, modular evidence); C5, C6 re-solved by `dsolve` |
+| `ind165_run1_mut_*.txt` | the 7 mutations, each exit 1 with exactly its targets failing: `plant-xr` P1; `toy-flat` P2; `phi3-cs` C1, C2, C3; `strip-D` C2; `c3-swap` C3; `cert-coef` C4; `psi-zero` C5, C6 |
