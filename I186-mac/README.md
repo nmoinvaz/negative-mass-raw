@@ -171,3 +171,11 @@ by its PID. Memory is reported only.
 `devrun.sh` runs a dev command and keeps `dev_NN_<name>.{log,err,rc}`; `run_controls_dev.sh` runs the controls in
 development. `dev_01`–`dev_06` are the first D values (l = 2, 6) from the first crate; `dev_07`–`dev_17` the checks as they were
 written (several failed, see above); `dev_14` onward use the fixed table.
+
+## Outcome (the runs of record; the numbers are in `phase2/nonradial/taylor_polar_output.txt` of the code repository)
+
+- `run_01` the scipy path, 11 points, 267 s in all, one process. `run_02` every check: 22 of 22 pass (779 s). `run_03` the
+  14 controls: each fails its targeted checks. `run_04` the one-time costs (star shooting 2.7 s, table 3.2 s per l). `run_05`
+  V4 passes (worst 8.5e-10). `run_06` the control `moncrief` again with V4 among its targets: fails both.
+- Dev findings as listed above; the output file's first lines name the commit of the crate (b9da6ad for the V4 runs, ebd4cdc
+  for run_01 to run_04, the first line of each log says which).
