@@ -64,3 +64,11 @@ A harness run that panics or exits non-zero fails its cell.
 
 | file | what |
 |---|---|
+| `ind189_run1.txt` | run 1: **crashed** before any verdict, on a formatting bug in ind189 (an mpf passed to a float format). Fixed in place: the bar is formed as a float. No criterion or bar changed |
+| `ind189_run2.txt` | run 2: exit 1. **Q1 and Q2 pass** in every cell (the worst case is qd's plane error at 1.6e-64 against 1.5e-60). **Q3 fails at X = 10 in dd and qd**, with the same ln_vol error, 4.5e-18, in both lanes; f64 at X = 10 and every lane at X = 4 pass. The cause is the coordinator's reference, not the library: at X = 10, Φ's entries reach e^±42, so ½ ln det(YᵀY) for k = 4 cancels about 73 digits of the 90 the reference carries, leaving about 17. The reference's own self-check (\|ln_vol_exact − ln\|det(Q·Bmat)\|\| < 1e-80) fails at both cells too. Q3 stays failed as run 2 reports it |
+
+## Amendments
+
+**A1, 2026-11-26, after run 2.** The reference's working precision is raised from 90 to 200 digits (`mp.mp.dps`), so the
+k = 4 determinant keeps more than 120 digits after its cancellation. No criterion, bar, lane, plan or point changes. Run
+3 is the run with the corrected reference; the mutations are run with it.
