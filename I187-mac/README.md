@@ -119,4 +119,24 @@ Each control is run alone; each must exit 1 with the targeted checks failing.
 
 ## Amendments
 
-(none yet)
+**A1, 2026-11-26, after the development runs `dev_01` to `dev_21`, before any run of record.**
+
+1. *Control `qint_sign` is replaced by `qint_cofsign`* (the cofactor signs of q_int's null vector not alternated). A sign of S in
+   M = [Y[2:] | −S] does not change the null vector's c, so `qint_sign` could not fire (found by analysis, not by a run).
+2. *The R = 90 analogue uses the same star.* The star's central data (P_c, Z_c) are the same 33 digits for the shooting's
+   classification radius 60 and 90 (`dev_01`, `dev_02`), so a second star would be the same star: the variant differs from base by its
+   r_m grid over [r0, 90] only (as #186's V4 found). The table in "What is built" row `background R=90` reads that way.
+3. *Reporting names.* The clauses of CAP5 and CAP6 are reported as separate checks with the bars as worded above: `CAP5a`, `CAP5b`,
+   `CAP5c` (l = 5) and `CAP6a`, `CAP6b` (l = 6), so that each clause can have a control. "CAP5 met" means all three are met.
+4. *Development result for CAP5 (`dev_18`, dd, load 2.1)*: (a) and (b) hold (E1 = 1.4e-14); **(c) fails as declared**: crate D against #114's
+   scipy D at l = 5, γ = 6000, bar 1e-8 per variant: base 5.4e-9, rtol analogue 3.1e-9, R = 90 8.0e-10, r0 = 3e-3 4.2e-9, **φ_cut 1e-12 4.7e-8**.
+   Coordinator's ruling (hc, t2x): option (A), the bar stays 1e-8 and the run of record reports CAP5c not met for the φ_cut variant.
+5. *New check `CAP5s`, added after that development result (coordinator's ruling).* The crate's star started as scipy's: the shooting
+   from r_s = 1e-3 with scipy's leading-order boundary condition (#186's S1 "matched" start, which agrees with `solve_star` to 1e-10), at l = 5,
+   γ = 6000, all five variants against #114's scipy D, bar **1e-8 per variant, the same as CAP5c, not to be tuned**. The change of the
+   crate's own D from r_s = 1e-8 to 1e-3 is printed, not gated. A development run (`dev_20`, the script `diag_matched_star.py`, before this check was coded)
+   gave the same five numbers as CAP5c to all printed digits, so CAP5s is expected to fail at the φ_cut entry in the run of record too; the note
+   states CAP5c and CAP5s as measured. `dev_21` shows why the star start does not move D: D changes by 5e-29 from r_s = 1e-8 to 1e-3, because the
+   star beyond the centre is the same decaying solution (m(r_m) agrees to 1e-17).
+6. *Control `tol_loose`*: its targeted check is `CAP5b` (the rtol analogue at tol 1e-3 must leave the 2.1e-4 bar). CAP5c and CAP5s fail on real data
+   already, so a control cannot show them firing; their `tol` entries (3.1e-9 unmutated) are read in the control's log instead.

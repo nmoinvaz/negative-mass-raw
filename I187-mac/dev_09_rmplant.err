@@ -1,0 +1,7 @@
+
+thread '<unnamed>' (99634754) panicked at src/main.rs:26:58:
+bad cut=1e-9 R=60 g0=1e-3
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'main' (99634753) panicked at src/main.rs:333:14:
+called `Result::unwrap()` on an `Err` value: Any { .. }
