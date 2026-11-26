@@ -156,3 +156,40 @@ on one cell only (P3, qd), for a reason other than its intent; the `ScaleOnly` l
 4a54bd0 (`plane: record the skip-one orthonormalization as a result`, `tests: keep the plane test's case alias with its only user`).
 The planner difference and #186's comment (it says classical Gram–Schmidt; its loop is modified Gram–Schmidt applied twice) are reported in the note, and
 #186's `plane.rs` comment is left as it is for the coordinator to correct on main.
+
+**A3 (2026-11-26, the crate switch's runs of record, `run_01` to `run_16`; crate at the worktree's uncommitted `lib_plane` code, multishoot rev 4a54bd0).**
+The feature off and on, binaries `taylor_polar/target/bins/{off,on}` copied over `target/release/taylor_polar` before each run by `run_switch.sh`
+(the driver; `taylor_polar.py` is not edited). Pairs are compared with `compare_switch.py`: tokens as strings, wall times (`(12s)`, `; 22 s`,
+the setup line's seconds) replaced; the amendment of its regex (`(\d+s)` anywhere in a row, not only at its end) was made before any verdict.
+
+| Criterion | Verdict | Number |
+|---|---|---|
+| X1 builds on and off; no absolute path in Cargo.toml | met | `rg /Users Cargo.toml` empty; the patch is a git `rev` |
+| X2 default mode, 23 checks, on and off | met | on: 22 passed, 0 failed, 1 skipped (TS), exit 0, 957 s; off: the same, exit 0, 855 s (run_14, run_13) |
+| X3 every token of the `--rows` output equal on and off, and equal to the stored tokens | **not met as worded** | rows and header lines: **746 of 746 tokens equal** (l = 2, 3, 4, 5, 6; the five variants; the capped rows), and RA2, RA4, RA5, RA6 pass on both sides (66, 87, 87, 87 of the same number of stored tokens equal as strings). **14 tokens of the two capped-row CHECK lines differ** (CAP5b 6, CAP6b 8): the load average, per-variant seconds, the printed error bars E2 (an integration at order 24, tol 1e-22 against order 30, 1.2e-30: 1.32e-24 and 2.44e-26 off, 1.42e-24 and 8.81e-25 on) and E3 (f64 lane against dd: 1.53e-09 and 6.90e-09 off, 3.58e-09 and 9.60e-09 on). E2 and E3 are differences between two integrations at the truncation and f64-roundoff scale, so they move with the step grid |
+| X3 default mode, the CHECK lines (not required by the criterion; recorded) | | 52 of 1454 tokens differ: errors against mpmath of the planted checks at roundoff scale (P1, P0, P2: e.g. P1[f64] 8.36e-16 and 3.06e-16 off, 2.32e-16 and 2.45e-16 on, all within their bars), the L1 check's f64-lane D (printed to 11 digits: -1.0204252371e-09 off, -1.0204252373e-09 on; -1.5957912910e-13 off, -1.5957912954e-13 on), V3's error bars, and timings |
+| X4 full-digit D, three lanes | reported | below |
+| X5 the comparison can fail | met | run_16: the on-binary with `--mutate=moncrief` (its own RA2 and RX fail, exit 1) against run_03: 39 mismatches, `compare_switch.py` exit 1 |
+
+X4 (`x4_digits.py`, run_15): relative difference of the base-variant D, off against on, and the leading digits that agree: l = 2, γ = 1: f64 2.7e-15
+(14.6 digits), dd 2.9e-31 (30.5), qd identical; γ = 40: f64 2.2e-11 (10.7), dd 1.4e-32 (31.9), qd 5.6e-45 (44.3); l = 4, γ = 300 dd 4.0e-28 (27.4).
+Over every dd row of the rows runs (780 values of D, q_int, q_ext in five variants): 333 bit-identical; worst relative difference 1.8e-24 (base), 5.6e-24
+(φ_cut), 1.1e-24 (R = 90), 5.9e-25 (r0 = 3e-3), 6.5e-17 (the crate's Taylor-tol-1e-12 column, where truncation is 1e-14); f64 rows (6 values) 1.0e-8 at worst.
+So the D and q **printed to their digits** (at most 12) are the same on and off in dd; the f64 lane's D differs in its last printed digits (it differs from dd by
+more than that). The steps of an integration are the same in number on and off (e.g. steps_y 24 628 at l = 4, 5, 6 and γ = 1000, 295 356 at l = 6, γ = 12 000);
+their points differ by the planner's rule (`kth_root` against `powf`; plan_path's end-of-segment halving).
+Timing, from the jsonl (dd, base variant, one thread, the two runs under different load): l = 6, γ = 1000 6.413 s off and 6.423 s on; l = 6, γ = 12 000 76.25 s and
+78.29 s (loads 2.4 and 3.3); f64 l = 6, γ = 12 000 2.086 s and 2.353 s; l = 5, γ = 6000 38.29 s and 38.30 s; l = 4, γ = 3000 22.3 s and 19.5 s. Peak resident: 57 MiB per
+rows run, 108 MiB (off) and 93 MiB (on) the default mode (`/usr/bin/time -l`, reported only).
+The crate's own mutations `lowsum` and `noqr` live in its `integrate`; with the feature on they are not applied (a message says so), multishoot's `LowSum` and
+`ScaleOnly` are their counterparts and are checked in multishoot's tests.
+
+**A4 (2026-11-26, the library's runs of record `run_17` to `run_22`, multishoot a880903, pull request https://github.com/nmoinvaz/multishoot/pull/70).**
+`cargo test --release`: the plane tests with `--features mutate` 20 passed (7.8 s), with `portable,mutate` 20 passed, with no features 14 passed; the full suite 268 passed on
+the default build with `mutate` (269 s) and 268 on `portable,mutate` (347 s), every result line `ok`; `cargo fmt --check` and `cargo clippy --all-targets -- -D warnings` with
+`mutate`, with `portable,mutate` and with no features: clean. The digests of the ten planted cells (every part of the plane and of `ln_vol`) are identical on the default build
+(aarch64 NEON) and with `portable`, and equal the first run's (`dev_02`). Not run: the `+avx2,+fma` build (no x86 machine). A fresh `git clone` of `wip/i189-plane-lib` builds with
+`cargo build --release --locked --features lib_plane` (it fetches multishoot's rev from GitHub) and its planted output equals the worktree binary's.
+The crate switch's runs (`run_01` to `run_16`) used multishoot 4a54bd0; the committed crate pins a880903, whose only difference in `src` is one doc comment (and the README);
+the binaries rebuilt at a880903 gave the same planted outputs, feature off and on, in f64, dd and qd.
+Criteria not met as worded: X3 (14 tokens of the CAP5b and CAP6b lines; A3). The issue's skip-one line is met on one cell (A1, A2).
