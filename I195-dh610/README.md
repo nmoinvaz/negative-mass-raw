@@ -171,3 +171,97 @@ or better) and qd (−63 or better). Three declared criteria do not hold, and ar
   Ω* at every D tried.
 - **S5** (the contraction bound 100 e^{−T′} + 10^{−d}) holds at D = 5, 50 and fails at D = 1000 and 10⁴ in qd (−39.2, −37.2
   against −41.9): the contraction's error in Ω is amplified by about s² (the other solution's w is s times its Y).
+
+**A2, 2026-11-26 (the coordinator's rulings on dev_06 to dev_22; development runs dev_10 to dev_24; written before any run
+of record; code at commit 5ad351a of branch `wip/i195-w2-largeD`).** The coordinator confirmed the convention (the issue body
+is corrected) and accepted A1. The rulings:
+
+*Planted checks, as ruled.*
+- **S4 stays as worded** (|Ω − Ω*| ≤ 10^−d_lane |Ω*|, both starts, each lane, each D). It is reported NOT MET where it fails.
+  Development (dev_24): 14 of 24 cases; not met in f64 and dd at D = 1000 and 10⁴, and for the start Ω* − 0.4 at D = 5 in
+  f64, dd and qd. The fit uses qd, where S4 as worded is met at every case but that D = 5 start.
+- **S4w, added after dev_06 by the coordinator's ruling:** |W² − W²*| ≤ 10^−d_lane · W²* with W²* = s + Ω*, both starts,
+  each lane, each D. A-priori reason: Ω enters A only through εΩ, so the condition number of Ω is about 1/ε = s, and a
+  precision of 10^−d in W² is a precision of s·10^−d in Ω. Development: 21 of 24, failing only at the D = 5 start below Ω*.
+- **S4's start Ω* − 0.4 at D = 5 stays as declared and is reported NOT MET.** What it reaches (dev_10 to dev_13, planted, D = 5):
+  it reaches no root in dd and qd. Newton walks down the positive, flat M(Ω) (M and M′ both near 0.5 to 9 in units of the
+  vectors' size) by about 0.09 per step: after 60 iterations Ω = −1.2616 in dd (|M| = 10^−0.9 of the vectors' size) and
+  −0.2100 in qd (10^−0.3). In f64 it stops at Ω = −1.5041 (|M| = 10^−16, "converged"). The scan of M (dev_12, dev_13) shows
+  why: M > 0 on (−1.5, 2.5) with its one zero at Ω*, and for Ω below −1.5 M oscillates with a zero every 0.025 to 0.05 while
+  the node count of Y rises from 0 (Ω ≥ −1.5) to 2, 3, … 7 at −1.525, −1.55, … −1.8 and 22 at −4. Those zeros are the planted
+  system's further eigenvalues, with nodes in their eigenfunctions; f64's Ω = −1.5041 lies between the node counts 2 (at
+  −1.525) and 0 (at −1.5), so it is one of them (the counter reads Y at the flow's step ends, so it can skip a node). At
+  D = 6, 8 and 20 the same start reaches Ω* in dd. If the real problem's start rule (±0.5 in Ω, check R4 below) can reach
+  another root at D ≤ 11, the note says so.
+- **S5 stays as worded** and is reported NOT MET where it fails: dev_24 6 of 12, failing in f64, dd and qd at D = 1000 and 10⁴.
+- **S5s, added after dev_06 by the coordinator's ruling:** the same test with the bound 100·s²·e^−T′ + 10^−d_lane in place of
+  100·e^−T′ + 10^−d_lane (dd, qd, od). Reason: one factor s from Ω's conditioning (as S4w) and one from the other solution,
+  whose w = s Y_ℓ/…, so its w/Y ratio is s times the decaying one's. The bound uses the declared T (a control that shortens
+  T does not shorten the bound). Development: 8 of 8 in dd and qd (dev_24); od at D = 50 and 10⁴ (dev_08): −77.2 and −69.5
+  against −70.7 and −66.0.
+- **`short_contraction` (T/4) and S5s.** It violates S5s in 7 of the 8 dd and qd cases (dd D = 50, 1000, 10⁴; qd D = 5, 50,
+  1000, 10⁴) and is **silent at dd D = 5**: −27.33 against −27.0 (dev_19, dev_20; T/8 would fire there, −22.56). The
+  coordinator ruled: keep T/4, declare the 7 cells as the S5s target (`CASE_TARGETS` in the driver), report dd D = 5 as silent.
+
+*Added checks.*
+- **R4** (the "±0.5" sentence of the README's Eigenvalue paragraph made a check): Newton on the real system from the start
+  shifted by −0.5 and by +0.5, qd, at D = 4 … 11, 50, 1000, must reach the same root as the unshifted start to 1e-50
+  (relative, digits shared by the two W² strings). Reports where a shifted start goes if it does not.
+- **O2** (not in the README's list; the bar was written in the driver before its first run, dev_14): the throat series at
+  l = 1 for the real system with Ω = Ω₀ + Ω₁ε + Ω₂ε² against the closed forms Y₀ + εY₁ + ε²Y₂ of README.md (Y₁ = −l, Y₂ =
+  −2Ω₀ l − (3/2) l²), qd, D = 1000 and 10⁴: |difference| ≤ 100 ε³. Development: −9.85 ε³ and −9.76 ε³.
+- **G1** is unchanged (±5e-13 per row, reported per row, expected to fail). Added, as reported comparison and not a gate (ruling
+  1): for each row D = 20 … 2000 the csv value, `logs_modes_r.txt`'s tighter run (X 50, ρ₀/10, rtol 1e-13; not rerun) and the
+  crate's, and the fraction of the csv-to-crate gap the tighter run closes. Development: 0 of 16 rows within 5e-13; the tighter
+  run moves toward the crate's value at all 8 rows, by 0.42 (D = 20) to 0.84 (D = 2000) of the gap. The comparator passes the
+  crate's own values printed to 12 decimals (so the failures are the csv's).
+- **F3 stays as declared; F3k, added after dev_21 by the coordinator's ruling and after seeing the residuals plateau at
+  K ≥ 20:** M1's grid with K = 28 and 32 added (K ∈ {10, 12, 14, 16, 18, 20, 24, 28, 32}); the gate, windows, K + 4 rule, tolerances,
+  headline rule (median and range over admitted cells) and the criteria are F3's. F3 and F3k are reported side by side and the
+  headline Ω₁ and Ω₂ (and the PSLQ inputs) come from F3k. **The grid of F3k was extended after a development run.**
+  Development (dev_22, with the lanes' measured disagreement δ_data = 2.97e-54, gate 2.97e-52): F3 admits one cell (D_lo 500,
+  K 24, residual 2.9e-54), so its range is 0 and its clause "|Ω₁ − closed form| ≤ 3 × range" cannot hold: F3 is NOT MET, a defect
+  of the criterion's wording and not of the data, the difference from 2π²/3 + 8 ln²2 being 5.1e-49. F3k admits 6 cells; its
+  Ω₁ − closed form is 8.0e-50 against a range of 1.7e-45, and Ω₂'s range is 3.2e-40 (41 digits).
+- **PSLQ (P1, P2, P3) exactly as declared.** Development (dev_22): P1 finds (3, −2, −24) (residual 2.4e-49); P2 finds
+  (3, −240, 8, 32) (residual 2.7e-44; budget 14.2 digits needed against the 14.9 the declared τ gives, and 40 digits in the
+  fit); P3 at its declared H = 100 does not find the same relation (its coefficient 240 exceeds H). An identification.
+
+*Controls: targets computed in development runs* (a target is a check that passes without the control and fails with it;
+"n/N" is the cases of the check that meet it; dev_24 for the baseline row, dev_19 for the others; F3k, P1, P2, P3 in dev_23):
+
+| control | E0 | S1 | S2 | S3 | S4 | S4w | S5 | S5s | O2 | M1 | F1 | F2 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| none (baseline, dev_24) | PASS | 12/12 | 12/12 | 12/12 | 14/24 | 21/24 | 6/12 | 8/8 | PASS | PASS | PASS | PASS |
+| `wrong_eps` | PASS | 12/12 | 12/12 | 12/12 | 14/24 | 21/24 | 6/12 | 8/8 | PASS | PASS | PASS | PASS |
+| `wrong_B` | FAIL | 0/12 | 0/12 | 0/12 | 0/24 | 0/24 | 0/12 | 0/8 | FAIL | FAIL | PASS | PASS |
+| `wrong_A_sign` | FAIL | 12/12 | 12/12 | 12/12 | 14/24 | 21/24 | 6/12 | 8/8 | FAIL | FAIL | PASS | PASS |
+| `recip_f64` | PASS | 4/12 | 4/12 | 4/12 | 3/24 | 7/24 | 2/12 | 0/8 | PASS | PASS | PASS | PASS |
+| `short_series` | PASS | 0/12 | 12/12 | 12/12 | 0/24 | 0/24 | 0/12 | 1/8 | PASS | PASS | PASS | PASS |
+| `short_contraction` | PASS | 12/12 | 12/12 | 0/12 | 2/24 | 2/24 | 2/12 | 1/8 | PASS | PASS | PASS | PASS |
+| `step_loose` | PASS | 12/12 | 4/12 | 4/12 | 1/24 | 3/24 | 1/12 | 0/8 | PASS | PASS | PASS | PASS |
+| `wrong_planted` | PASS | 0/12 | 0/12 | 0/12 | 16/24 | 21/24 | 6/12 | 8/8 | PASS | PASS | PASS | PASS |
+| `fit_wrong_eps` | PASS | 12/12 | 12/12 | 12/12 | 14/24 | 21/24 | 6/12 | 8/8 | PASS | PASS | FAIL | FAIL |
+| `fit_drop_term` | PASS | 12/12 | 12/12 | 12/12 | 14/24 | 21/24 | 6/12 | 8/8 | PASS | PASS | FAIL | FAIL |
+
+| control | F3k (dev_23) | P1 | P2 | declared targets |
+|---|---|---|---|---|
+| `wrong_eps` | FAIL (no cell admitted) | - | - | F3k only: the planted system's Ω term is zero at Ω*, so S1 to S3 and O2 do not see ε in A |
+| `wrong_B` | FAIL | - | - | E0, S1, S2, S3, S5s, O2, M1, F3k |
+| `wrong_A_sign` | FAIL | - | - | E0, O2, M1, F3k (the planted A replaces the real one, so S1 to S3 are blind to it) |
+| `recip_f64` | FAIL | - | - | S1, S2, S3, S5s, F3k |
+| `short_series` | FAIL | - | - | S1, S5s, F3k |
+| `short_contraction` | FAIL | - | - | S3, S5s (the 7 cells), F3k |
+| `step_loose` | FAIL | - | - | S2, S3, S5s, F3k |
+| `wrong_planted` | not run | - | - | S1, S2, S3 |
+| `fit_wrong_eps` | FAIL (Ω₁ = 20.85) | FAIL | still finds a relation, 4× scaled | F1, F2, F3k, P1 |
+| `fit_drop_term` | **silent**: 3 of 6 cells still admitted | passes | passes | F1, F2 (F3k's silence is a result: dropping 4 terms leaves the K = 28 and 32 cells enough) |
+| `pslq_wrong_basis` | passes | FAIL | flips from found to not found (status unchanged) | P1 (P2's flip reported; P3 not found with or without it) |
+
+`csv_shift` is dropped: G1 fails on 16 of 16 rows of the unmodified csv, so it cannot be shown to fail again; the comparator's
+self-test above replaces it. S4, S4w, S5 and F3 are not targets of any control, because they fail without one by the rulings.
+
+*Code since the README's description* (commit 5ad351a): `scan` (M(Ω) on a grid), `--shift` (R4), a node counter, the planted
+S4 diagnostics (`S4om`, `S4M`, `S4nodes`, `S4btrace`), the declared T in S5's bound, and a `kt_ms` field that prints
+multishoot's `Plan::optimal_kt` at the lane's tolerance (dd: 45 against the crate's order 48) as a cross-check of the order.
+multishoot's and multisolver's other code is not called by the crate (see the note).

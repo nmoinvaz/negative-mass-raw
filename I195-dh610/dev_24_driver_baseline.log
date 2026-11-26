@@ -1,0 +1,18 @@
+w2_highprec.py  mutate=None  crate=/home/nathan/Source/negative-mass-i195/notes/wormhole_largeD/w2_crate/target/release/w2_crate
+
+PASS    E0: E2 in l minus the crate's system, symbolic residual 0, numeric -1.7365E-164
+SKIPPED S* (od): no planted result for this lane (pass its log with --logs)
+PASS    S1: 12 of 12 cases meet it
+PASS    S2: 12 of 12 cases meet it
+PASS    S3: 12 of 12 cases meet it
+FAIL    S4: 14 of 24 cases meet it; NOT MET: f64 D=5 (start b: 0.2); f64 D=1000 (start a: -10.56); f64 D=1000 (start b: -10.37); f64 D=10000 (start a: -9.02); f64 D=10000 (start b: -9.94); dd D=5 (start b: 0.18); dd D=1000 (start a: -26.84); dd D=10000 (start a: -25.2); dd D=10000 (start b: -26.25); qd D=5 (start b: 0.04)
+FAIL    S4w: 21 of 24 cases meet it; NOT MET: f64 D=5 (start b: -0.21); dd D=5 (start b: -0.23); qd D=5 (start b: -0.37)
+FAIL    S5: 6 of 12 cases meet it; NOT MET: f64 D=1000 (-10.52 vs -11.0); f64 D=10000 (-8.69 vs -11.0); dd D=1000 (-23.14 vs -25.77); dd D=10000 (-21.09 vs -25.77); qd D=1000 (-39.24 vs -41.86); qd D=10000 (-37.16 vs -41.86)
+PASS    S5s: 8 of 8 cases meet it
+        (Newton's own stop test, two steps below 10^-d relative, was not reached in 60 iterations at: dd D=5 start b; dd D=1000 start b; dd D=10000 start a; dd D=10000 start b; qd D=5 start b)
+PASS    O2: throat series at l = 1 against Y0 + eps Y1 + eps^2 Y2 of README.md (|diff| <= 100 eps^3): D=1000: Y - closed form = -1.24e-09 = -9.85 eps^3; D=10000: Y - closed form = -1.22e-12 = -9.76 eps^3
+PASS    M1: worst difference 6.1e-04 (bar 2e-3); D=5: master.py 2.985053 (1 roots), crate 2.98495893; D=6: master.py 4.686834 (1 roots), crate 4.68662054; D=7: master.py 6.462970 (1 roots), crate 6.46258414; D=8: master.py 8.290374 (1 roots), crate 8.28975936
+PASS    F1: 4 cells admitted; Omega1 error 3.15e-37 (range 8.35e-36), Omega2 error 2.59e-32 (range 1.16e-30)
+PASS    F2: M1 admits 0 of 28 cells on data with a log term; M2 admits 1 and Omega2 error 3.3e-24
+
+9 passed, 3 failed, 1 skipped (S* (od)) of 13 checks; 94 s

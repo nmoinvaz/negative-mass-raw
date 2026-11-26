@@ -1,0 +1,18 @@
+w2_highprec.py  mutate=short_series  crate=/home/nathan/Source/negative-mass-i195/notes/wormhole_largeD/w2_crate/target/release/w2_crate
+
+PASS    E0: E2 in l minus the crate's system, symbolic residual 0, numeric -1.7365E-164
+FAIL    S1: 0 of 12 cases meet it; NOT MET: f64 D=5 (-6.48); f64 D=50 (-6.48); f64 D=1000 (-6.72); f64 D=10000 (-7.13); dd D=5 (-17.05); dd D=50 (-17.05); dd D=1000 (-17.82); dd D=10000 (-19.81); qd D=5 (-35.24); qd D=50 (-35.24); qd D=1000 (-36.92); qd D=10000 (-41.43)
+PASS    S2: 12 of 12 cases meet it
+PASS    S3: 12 of 12 cases meet it
+FAIL    S4: 0 of 24 cases meet it; NOT MET: f64 D=5 (start a: -9.75); f64 D=5 (start b: 0.2); f64 D=50 (start a: -5.63); f64 D=50 (start b: -5.63); f64 D=1000 (start a: -2.35); f64 D=1000 (start b: -2.35); f64 D=10000 (start a: -0.75); f64 D=10000 (start b: -0.75); dd D=5 (start a: -20.32); dd D=5 (start b: 0.18); dd D=50 (start a: -16.2); dd D=50 (start b: -16.2); dd D=1000 (start a: -13.45); dd D=1000 (start b: -13.45); dd D=10000 (start a: -13.43); dd D=10000 (start b: -13.43); qd D=5 (start a: -38.51); qd D=5 (start b: 0.04); qd D=50 (start a: -34.39); qd D=50 (start b: -34.39); qd D=1000 (start a: -32.55); qd D=1000 (start b: -32.55); qd D=10000 (start a: -35.06); qd D=10000 (start b: -35.06)
+FAIL    S4w: 0 of 24 cases meet it; NOT MET: f64 D=5 (start a: -10.16); f64 D=5 (start b: -0.21); f64 D=50 (start a: -7.22); f64 D=50 (start b: -7.22); f64 D=1000 (start a: -5.25); f64 D=1000 (start b: -5.25); f64 D=10000 (start a: -4.65); f64 D=10000 (start b: -4.65); dd D=5 (start a: -20.73); dd D=5 (start b: -0.23); dd D=50 (start a: -17.79); dd D=50 (start b: -17.79); dd D=1000 (start a: -16.35); dd D=1000 (start b: -16.35); dd D=10000 (start a: -17.33); dd D=10000 (start b: -17.33); qd D=5 (start a: -38.92); qd D=5 (start b: -0.37); qd D=50 (start a: -35.98); qd D=50 (start b: -35.98); qd D=1000 (start a: -35.45); qd D=1000 (start b: -35.45); qd D=10000 (start a: -38.96); qd D=10000 (start b: -38.96)
+FAIL    S5: 0 of 12 cases meet it; NOT MET: f64 D=5 (-9.75 vs -11.0); f64 D=50 (-5.63 vs -11.0); f64 D=1000 (-2.35 vs -11.0); f64 D=10000 (-0.75 vs -11.0); dd D=5 (-20.32 vs -25.77); dd D=50 (-16.2 vs -25.77); dd D=1000 (-13.45 vs -25.77); dd D=10000 (-13.43 vs -25.77); qd D=5 (-38.51 vs -41.86); qd D=50 (-34.39 vs -41.86); qd D=1000 (-32.55 vs -41.86); qd D=10000 (-35.06 vs -41.86)
+FAIL    S5s: 1 of 8 cases meet it; NOT MET: dd D=5 (-20.32 vs -24.59); dd D=50 (-16.2 vs -21.85); dd D=1000 (-13.45 vs -19.20); dd D=10000 (-13.43 vs -17.19); qd D=5 (-38.51 vs -40.66); qd D=50 (-34.39 vs -37.92); qd D=1000 (-32.55 vs -35.26)
+        (Newton's own stop test, two steps below 10^-d relative, was not reached in 60 iterations at: f64 D=1000 start a; f64 D=10000 start a; f64 D=10000 start b; dd D=5 start b; dd D=10000 start a; dd D=10000 start b; qd D=5 start b)
+PASS    O2: throat series at l = 1 against Y0 + eps Y1 + eps^2 Y2 of README.md (|diff| <= 100 eps^3): D=1000: Y - closed form = -1.24e-09 = -9.85 eps^3; D=10000: Y - closed form = -1.22e-12 = -9.76 eps^3
+PASS    M1: worst difference 6.1e-04 (bar 2e-3); D=5: master.py 2.985053 (1 roots), crate 2.98495893; D=6: master.py 4.686834 (1 roots), crate 4.68662054; D=7: master.py 6.462970 (1 roots), crate 6.46258414; D=8: master.py 8.290374 (1 roots), crate 8.28975936
+PASS    F1: 4 cells admitted; Omega1 error 3.15e-37 (range 8.35e-36), Omega2 error 2.59e-32 (range 1.16e-30)
+PASS    F2: M1 admits 0 of 28 cells on data with a log term; M2 admits 1 and Omega2 error 3.3e-24
+
+7 passed, 5 failed, 0 skipped () of 12 checks; 50 s
+control short_series: failed checks ['S1', 'S4', 'S4w', 'S5', 'S5s']; declared targets []; DOES NOT FIRE (or no targets declared yet)
