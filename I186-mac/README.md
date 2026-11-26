@@ -119,6 +119,7 @@ the file's 2.1e-4, the largest relative spread of D between the variants in any 
 | V1 | the variant r0 = 3e-3 (r_m = 24.111) against the base, same code | (2, 1), (2, 137), (6, 1000) | 2.1e-4 |
 | V2 | the variant r_m = 34.2051 against the stored D(r_m ~ 34) column (4 digits) | 7 points | 2.1e-4 + 0.5e-3 / mantissa |
 | V3 | order 24 at tol 1e-22 against order 30 at 1.2e-30 (the analog of the rtol variant), measured at 60 digits | (2, 10), (6, 1000) | 1e-15 |
+| V4 (amendment A1) | convergence.py's variants (R = 90, r0 = 3e-3, rtol 1e-12) through scipy here and through the crate at the same r0 and r_m (read from each scipy problem) | (2, 1), (2, 10), (6, 10), (2, 137) | 1e-7 |
 | TS | the scipy path on this Mac (base variant): its D against the crate's dd, and both wall times | 11 points (l = 2: γ = 1, 10, 40, 137, 300; l = 6: 0.001, 1, 40, 137, 300, 1000) | 2.1e-4 on D; time reported |
 
 The acceptance of the issue: A2 (l = 2) and A6 at γ = 1000 and 12000 against the stored rows; the planted case P1 with QR;
@@ -145,6 +146,15 @@ Targets are the values the targeted checks reach in the development runs named (
 | `swapcols` | the scalar plane's two start columns swapped | A2 sign flipped (rel 2.0) (dev_29) |
 | `mext0` | the exterior mass set to 0 | A2 0.996 (dev_30) |
 | `qstart` | the Riccati started at r_m + 1 | A2 0.21 at γ = 0.001 (dev_31) |
+
+## Amendments
+
+- **A1 (2026-11-26, after run_04, before run_05).** Added V4 and put it among the targets of the control `moncrief`. Reason: a
+  development probe (`dev_45`, `spread_probe.py`: scipy's D of each variant at (2, 1), (2, 10), (6, 10)) showed that the
+  stored rows' variant spread of 2.1e-4 is the shift of r_m, not integration error: rtol 1e-12 moves D by at most 3.5e-12,
+  R = 90 (r_m = 24.1084) by +1.13e-4 and r0 = 3e-3 (r_m = 24.1110) by −9.9e-5, against the base's r_m = 24.1098. The bar 1e-7
+  is about 20 times the 4.5e-9 that TS gave for the base variant at (2, 300) in run_02. V4 is additional to the acceptance;
+  no bar of run_02 or run_03 is touched. `run_05` is V4 alone, `run_06` the control `moncrief` again.
 
 ## Run plan
 
