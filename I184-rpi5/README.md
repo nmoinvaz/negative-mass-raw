@@ -154,3 +154,86 @@ Every stdout goes to a numbered log here (`dev_NN_*.log`, `run_NN.log`, `ctl_<na
 overwritten; reruns are numbered. A run longer than 1 h of wall time is stopped by its PID and reported. Memory is only
 reported. Nothing here is certified: every number is **numerical evidence** except where a line says **checked
 symbolically**.
+
+## Amendment A1 (2026-11-26, after the development runs `dev_01` to `dev_08`, before any run of record)
+
+Each item says what the development runs showed. No bar was loosened; items that cannot run as worded are printed as
+`NOT MET (as first worded)` and do not gate the exit code, as in #167.
+
+1. **W0 as worded fails and stays NOT MET** (ruling of the coordinator, hc 2026-11-26). The new DD `conserve` walker and #167's
+   walker differ at η = 200 by up to 5.2e-18 relative (bar 1e-24), at the members with F′(0) = 100. Cause (`dev_08`):
+   both are N-conserving double-double walks; N's rounding from the first steps stays in N while the scale of N falls, so both
+   are only good to about their own n_rel at 200 (3e-17 for (5, 100)). A QD walk with F′(0) perturbed by 1e-30 relative moves the
+   state at 200 by 1e-31 (the forward map is well conditioned), and the DD `project` walk equals the QD one to 7e-32. This is the
+   P5 mechanism, already at work in #167's forward walks, and it does not change #167's classes. W0 is printed
+   `NOT MET (as first worded)` with this explanation and does not gate the exit code; no tolerance taken from the data's floor
+   replaces it.
+   **Added after the dev run `dev_08`, which showed W6's measured value 2e-29: W6 is the gating replacement.** Its bar 1e-26
+   (DD `project` against QD `project` at 200, 10³, 10⁴, 10⁶, 10⁹, 10¹² for the 15 members, relative difference of G, p, q) was
+   already in this README before the run; it is stated here as the gate of the DD walker's accuracy, fixed at 1e-26 now, set after
+   seeing 2e-29. Its control is `no-project`: the member walks run as `conserve`, and DD `conserve` against QD `project` differs
+   by 1e-18 at the members with F′(0) = 100 (`dev_08`), so W6 must fail.
+2. **W1 is not changed.** The reference is #167's raw records: `negative-mass-raw/I167-mac/dev_09_forward.log` (the 100
+   rows of `forward ... --rstop=1e-8` with η* and the bar of each side). A rerun of #167's crate on this machine must give the
+   same class and kind and η* to 1e-8 (the sum of that bound and the two bars is printed beside it, as #167's parity check did).
+   Points for which this cannot be met (the κ locus, where η* is known to 1e-6 only) are reported as not met, not compared at
+   fewer digits. W1 also requires each of the 15 members to reach 10¹² with verdict LOGLOG (added: the verdict of a walk is part of
+   "approach").
+3. **W9 stays as worded and is printed NOT MET (as first worded)**, since the two walks of a pair cannot both reach ±200 unless the
+   solution is global. **Replacement W9′ (added in this amendment, before any run of record):** (a) on every singular side, as #167
+   did: for each of the 100 solutions the minus side of (f, f₁) and the plus side of (f, −f₁) have the same class and kind and η* equal
+   to 1e-8 (the bars added are printed) in the rerun of #167's crate; (b) on the regular sides: for each of the 15 members (f, f₁)
+   the walk of (f, −f₁) to −200 equals the walk of (f, f₁) to +200 in F, F′ (sign) and F″ to 1e-24 relative (DD `conserve`, both
+   arithmetics mirrored, so the expected difference is 0).
+4. **P4** gates F only, as worded. The dev run shows that `project` loses F′ and F″ there (1.1e-20 at 10¹²) because it slaves
+   F″ to the cancellation in F − α, while `conserve` keeps 1e-31; both are printed.
+5. **Basin map** (not gating) is 20 values of F(0) in [0.1, 5] times ±20 values of F′(0) in [0.01, 100] (800 walks to 200 in
+   DD `conserve`), not 40 × 80: the map costs about 0.3 s per walk on this machine and the run of record must stay under
+   1 h. Added: the boundary F′(0)*(F(0)) between the stopped walks and the walks that reach 200, by bisection at 8 values of F(0).
+6. **Added controls** so that every gating check has one: `inv-conv` (T computed as 1/p + t) for W4; `parity-sign` (F′ summed
+   with the wrong sign) for W9′(b). `no-project` also targets W5 and W6 (the member walks run as `conserve`), `walk-eq` also W2 and W7.
+7. **The first unlogged runs** are in `dev_00_unlogged_first_runs.md` (the underflow of the Taylor coefficients at η ≥ 3e5, fixed by
+   the power-of-two step variable before any logged run).
+8. **Added after the dev runs `dev_06` to `dev_08` (the hand argument of Theorem 1 in the note), bars derived by hand, not from data.**
+   `trap_bounds`: the four polynomial bounds |A₁| ≤ 26u²p⁶, |∂A₁/∂q| ≤ 30u²p⁴, |A₂| ≤ 15u³p⁴, |∂A₂/∂q| ≤ 35u³p³ for 0 < p ≤ 1/4,
+   |w| ≤ p²/2, u = 1 + |G| hold at 4000 random states (ratio ≤ 1); at 300 random states of D = {p ≤ 1/4, σu³ ≤ p²/5} N changes sign
+   across |w| ≤ p²/2 and is increasing there, the root obeys |w| ≤ 20σu²p², p′ = q lies in p²[−5/4, −3/4] and (ln r)′ < −3/5 with
+   r = σu³/p². `trap_entry`: each of the 15 DD `project` walks, at every step, enters D (with |q/p² + sgn p| ≤ 1/2) at η_in ≤ 1e6 and
+   stays in it with r non-increasing; 1e6 was fixed from an estimate before the run (r ≈ 6e-5 at 10⁶ for (5, 100)); measured η_in ≤ 1.27e4.
+   Controls `trap-bound` (2.6 in place of 26) and `trap-eps` (ε = 1e-12).
+9. **Two checks that crashed under a control now fail instead.** In `dev_09` the control `walk-eq` raised a `KeyError` in `independent`
+   (the walk of the changed equation ends before η = 10³). `independent` and `approach` count a walk that does not reach 10¹² as a
+   failure; `dev_10` is the rerun.
+10. **A control silent on its named target (`dev_09`, `plant-exact`).** The mutation shifted g in the exact solution, which also builds
+    the start state, and F does not enter q + p² = 0, so the walk reproduced the shifted solution and `plant_loglog` passed (exit 0).
+    The mutation now shifts only the solution the walk is compared with (the start state keeps g = 7/10): `dev_10`, error 3.9e-4, fired.
+    `limit-class` predicted P4 and P2; in `dev_09` it fired P4 only, because P2's G changes by 0.6 between 10⁶ and 10¹², so inverting the
+    |p| test does not make it LIMIT: P2 is dropped from its targets.
+
+## Amendment A2 (2026-11-26, control targets, after the development runs `dev_09` and `dev_10`)
+
+Each control is `conical_loglog.py --mutate=NAME`; a control runs only the checks it names, so "no other check fails" holds by
+construction, and the expected outcome is exit 1 with exactly the named checks `[FAIL]`.
+
+| name | change | target checks | development result |
+|---|---|---|---|
+| `theta-coeff` | 4Gp⁴q → 5Gp⁴q in A₁ | `theta_form`, `root_series` | conical_N − (A₀ + ν²A₁ + ν⁴A₂) = −Gν²p⁴q; e₁ = −p²(G² − 3G + 1)/2 |
+| `root-coef` | e₂ × (1 + 1/7) at one monomial of the residual | `root_series` | lowest order 2 |
+| `shift-series` | expected e₂ = −c²/2 | `shift_series` | fired |
+| `inv-sign` | T′ expected +w/p² | `invariants` | T′ identity False |
+| `class-sign` | the LOGLOG test reads q = +p² at p > 0 | `basin`, `no_limit` | all 15 members OTHER |
+| `inv-conv` | T = 1/p + t | `invariants_conv` | worst \|T(η) − T(10¹²)\| 28 |
+| `parity-sign` | F′ summed with the wrong sign | `parity` | fired |
+| `series-k` | K = 1 in place of 4 | `approach` | ρ₁ 2.1e-6 at 10³ (bar 1e-10) |
+| `walk-eq` | −6 → −5 on FF′²F″η² in the walker | `approach`, `independent` | ρ₄ 4.0e-3 at 10³ (11 of 15 reach 10¹²); independent 2e-5 (a walk ends at η = 40.9) |
+| `indep-q` | independent integration with Q₀ = −p² | `independent` | 5.5e-5 |
+| `plant-exact` | comparison solution with g + 1e-3, start state unchanged | `plant_loglog` | 3.9e-4 (silent in `dev_09`: see A1 item 10) |
+| `plant-c` | c = 1003/3000 in the planted equation | `plant_shift` | error 1.7e-4, ratio −1.3e7 |
+| `limit-class` | LIMIT test reads \|p\| ≥ 1e-6 | `plant_limit` | verdict OTHER (does not fire `plant_loglog`: A1 item 10) |
+| `no-project` | `project` runs as `conserve` | `plant_scale`, `n_floor`, `dd_qd` | n_rel 3.1e-17; DD against QD 4.1e-14; the DD project plant fails |
+| `recip-dd` | constants rounded to double-double in QD | `recip_check` | 2.0e-33 (bar 1e-55; must exceed 1e-45: it does) |
+| `trap-bound` | 2.6 u²p⁶ in place of 26 u²p⁶ | `trap_bounds` | worst ratio 1.25 |
+| `trap-eps` | D with ε = 1e-12 | `trap_entry` | η_in from 4.5e8 to 6.2e9 |
+
+W0 (`regress`) has no control: it does not gate (A1 item 1). The run of record is `python3 notes/warp/conical_loglog.py` from the repository
+root, in the environment of the setup (venv314), stdout to `run_01.log` here and to `notes/warp/conical_loglog_output.txt`.

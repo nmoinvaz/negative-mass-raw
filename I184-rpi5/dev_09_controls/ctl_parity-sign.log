@@ -1,0 +1,6 @@
+[FAIL] parity: W9': singular sides, the minus side of (f, f1) against the plus side of (f, -f1) in #167's crate rerun here: class, kind and eta* within 1e-8 at 100 of 100 (85 with an eta*, worst 0.0e+00; []); regular sides: the walk of (f, -f1) to -200 against that of (f, f1) to +200 for the 15 members, F, F' (sign) and F'' worst relative difference 2.0e+00 (bar 1e-24)
+  NOT MET (as first worded): W9 asks for the walk of (f, f1) to -200 against the walk of (f, -f1) to +200 for three members whose minus sides end singular (eta* 0.5276, 0.1173, 0.0226), so neither walk reaches 200; W9' above replaces it (README A1, item 3)
+  (23 s)
+
+checks: 0 passed, 1 failed ['parity']. 23 s
+control parity-sign: target checks ['parity'], fired ['parity']

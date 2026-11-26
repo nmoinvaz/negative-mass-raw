@@ -1,0 +1,12 @@
+[package]
+name = "relaxed_probe"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+# multidouble #186, main ba0ad101ce76 (unreleased): the series module (mullow, Relaxed)
+multidouble = { git = "https://github.com/nmoinvaz/multidouble", rev = "ba0ad101ce7661f45153bc557dcb093d4dd41893" }
+
+[profile.release]
+opt-level = 3
