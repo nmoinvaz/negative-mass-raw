@@ -1,0 +1,32 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i167/notes/warp/conical_global.py", line 818, in <module>
+    failed = main()
+  File "/Users/nathan/Source/negative-mass-i167/notes/warp/conical_global.py", line 803, in main
+    fn()
+    ~~^^
+  File "/Users/nathan/Source/negative-mass-i167/notes/warp/conical_global.py", line 269, in c_n_table
+    worst_t = max(worst_t, abs(got - vt) / st)
+                           ~~~~~~~~~~~~~~^~~~
+  File "/Users/nathan/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/fractions.py", line 699, in forward
+    return monomorphic_operator(a, b)
+  File "/Users/nathan/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/fractions.py", line 847, in _div
+    raise ZeroDivisionError('Fraction(%s, 0)' % db)
+ZeroDivisionError: Fraction(1, 0)
+        0.55 real         0.38 user         0.05 sys
+            73383936  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               11304  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   1  signals received
+                  24  voluntary context switches
+                 179  involuntary context switches
+          3904917647  instructions retired
+          1174296963  cycles elapsed
+            61719080  peak memory footprint

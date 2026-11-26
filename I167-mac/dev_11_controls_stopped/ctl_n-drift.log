@@ -1,0 +1,51 @@
+[NOT MET (as first worded, stop at R <= 1e-6)] scan_bar: SINGULAR error bar <= 1e-8 fails at 57 points [(0.25, -10.0, 1.2807121092632545e-07), (0.25, -3.0, 8.671976178139759e-08), (0.25, 0.0, 4.439895321113637e-08), (0.25, 1.0, 7.100952962281484e-08), (0.25, 3.0, 1.0218615761701197e-07), (0.25, 30.0, 3.8225537135616605e-07), (0.25, 100.0, 3.9659112971435206e-07), (0.25, 300.0, 3.8796823353948184e-07), (0.25, 1000.0, 3.9198161516651453e-07), (0.25, 3000.0, 4.4440082547225757e-07), (0.5, -300.0, 1.2684498457149473e-07), (0.5, -10.0, 1.1458341106496128e-07), (0.5, -3.0, 1.0739953245665623e-07), (0.5, -1.0, 1.0245911455527244e-07), (0.5, 0.0, 1.0540178607362262e-07), (0.5, 1.0, 9.67190200973616e-08), (0.5, 3.0, 1.0067020528965135e-07), (0.5, 10.0, 9.317870459132731e-08), (0.5, 30.0, 5.0474620848788454e-08), (0.5, 100.0, 3.7610563641266026e-07), (0.5, 300.0, 3.5452507596289706e-07), (0.5, 1000.0, 3.621570527911899e-07), (0.5, 3000.0, 4.3359206358672964e-07), (0.75, -300.0, 2.728100886374604e-08), (0.75, -10.0, 1.2961220654042482e-07), (0.75, -3.0, 1.1356806696970201e-07), (0.75, -1.0, 1.1391535299949684e-07), (0.75, 0.0, 1.2179769269364538e-07), (0.75, 1.0, 1.1464098906115161e-07), (0.75, 3.0, 1.2093350576676543e-07), (0.75, 10.0, 1.0655053816858995e-07), (0.75, 30.0, 1.0308108254952417e-07), (0.75, 1000.0, 3.688864662620972e-07), (0.75, 3000.0, 4.247615912333913e-07), (1.0, -300.0, 9.07981557438705e-08), (1.0, 30.0, 1.1401914850814321e-07), (1.0, 100.0, 4.519804546704678e-08), (1.0, 1000.0, 5.9137154670078326e-08), (1.0, 3000.0, 4.0535531198315766e-07), (-0.5, -3000.0, 4.3359206358672964e-07), (-0.5, -1000.0, 3.621570527911899e-07), (-0.5, -300.0, 3.5452507596289706e-07), (-0.5, -100.0, 3.7610563641266026e-07), (-0.5, -30.0, 5.0474620848788454e-08), (-0.5, -10.0, 9.317870459132731e-08), (-0.5, -3.0, 1.0067020528965135e-07), (-0.5, -1.0, 9.67190200973616e-08), (-0.5, 0.0, 1.0540178607362262e-07), (-0.5, 1.0, 1.0245911455527244e-07), (-0.5, 3.0, 1.0739953245665623e-07), (-0.5, 10.0, 1.1458341106496128e-07), (-0.5, 300.0, 1.2684498457149473e-07), (-1.0, -3000.0, 4.0535531198315766e-07), (-1.0, -1000.0, 5.9137154670078326e-08), (-1.0, -100.0, 4.519804546704678e-08), (-1.0, -30.0, 1.1401914850814321e-07), (-1.0, 300.0, 9.07981557438705e-08)]; recorded, not gated (README A1)
+[NOTE] scan_first_pass: the first pass (stop R <= 1e-6) and the pass of record (R <= 1e-8) differ at 59 of 187 points:
+   F_inf=0.25 C=-10: first pass S:other at 0.01142562102; record S:other at 0.01142579382
+   F_inf=0.25 C=-3: first pass S:other at 0.0001542075057; record S:other at 0.0001544035138
+   F_inf=0.25 C=-1: first pass S:other at 5.131932425e-05; record S:other at 5.146306606e-05
+   F_inf=0.25 C=3: first pass S:other at 6.787668184e-06; record S:other at 6.440862569e-06
+   F_inf=0.25 C=30: first pass S:fold at 6.905429124; record S:fold at 6.905429302
+   F_inf=0.25 C=100: first pass S:fold at 8.000366484; record S:fold at 8.000366659
+   F_inf=0.25 C=300: first pass S:fold at 10.52581872; record S:fold at 10.52581888
+   F_inf=0.25 C=1000: first pass S:fold at 18.16529834; record S:fold at 18.16529847
+   F_inf=0.25 C=3000: first pass S:fold at 29.13920339; record S:fold at 29.13920352
+   F_inf=0.5 C=-300: first pass S:other at 0.01913299287; record S:other at 0.01913316452
+   F_inf=0.5 C=-10: first pass S:other at 0.007672359084; record S:other at 0.007672530349
+   F_inf=0.5 C=-3: first pass S:other at 0.002265650731; record S:other at 0.002265831658
+   F_inf=0.5 C=-1: first pass S:other at 0.001636336749; record S:other at 0.001636514433
+   F_inf=0.5 C=0: first pass S:other at 0.001395188749; record S:other at 0.001395374229
+   F_inf=0.5 C=1: first pass S:other at 0.001192063263; record S:other at 0.001192235463
+   F_inf=0.5 C=3: first pass S:other at 0.0008753976716; record S:other at 0.0008755820207
+   F_inf=0.5 C=10: first pass S:other at 0.0003138024387; record S:other at 0.0003139943762
+   F_inf=0.5 C=100: first pass S:fold at 6.2903791; record S:fold at 6.290379277
+   F_inf=0.5 C=300: first pass S:fold at 8.193029732; record S:fold at 8.193029891
+   F_inf=0.5 C=1000: first pass S:fold at 12.2569708; record S:fold at 12.25697095
+   F_inf=0.5 C=3000: first pass S:fold at 21.02541942; record S:fold at 21.02541957
+   F_inf=0.75 C=-10: first pass S:other at 0.02298454061; record S:other at 0.02298471873
+   F_inf=0.75 C=-3: first pass S:other at 0.01378791719; record S:other at 0.01378808337
+   F_inf=0.75 C=-1: first pass S:other at 0.01200551337; record S:other at 0.01200568262
+   F_inf=0.75 C=0: first pass S:other at 0.01121538693; record S:other at 0.01121556969
+   F_inf=0.75 C=1: first pass S:other at 0.01048545078; record S:other at 0.01048562386
+   F_inf=0.75 C=3: first pass S:other at 0.009184622824; record S:other at 0.009184808363
+   F_inf=0.75 C=10: first pass S:other at 0.005898061774; record S:other at 0.005898232627
+   F_inf=0.75 C=30: first pass S:other at 0.001915695626; record S:other at 0.001915880023
+   F_inf=0.75 C=1000: first pass S:fold at 9.923556681; record S:fold at 9.923556841
+   F_inf=0.75 C=3000: first pass S:fold at 17.52764134; record S:fold at 17.5276415
+   F_inf=1 C=-300: first pass S:other at 0.00109451559; record S:other at 0.001094694373
+   F_inf=1 C=30: first pass S:other at 0.02012902464; record S:other at 0.0201291896
+   F_inf=1 C=100: first pass S:other at 0.0001416802785; record S:other at 0.000141847905
+   F_inf=1 C=300: first pass S:other at 7.529651724e-05; record S:other at 7.542591265e-05
+   F_inf=1 C=1000: first pass S:other at 1.719480232e-05; record S:other at 1.706510939e-05
+   F_inf=1 C=3000: first pass S:fold at 15.29492792; record S:fold at 15.29492808
+   F_inf=1.5 C=-300: first pass S:a3->0 at 1.046292136; record S:fold at 1.046144794
+   F_inf=3 C=300: first pass S:a3->0 at 2.777448051; record S:fold at 2.777448048
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i167/notes/warp/conical_global.py", line 825, in <module>
+    failed = main()
+  File "/Users/nathan/Source/negative-mass-i167/notes/warp/conical_global.py", line 810, in main
+    fn()
+    ~~^^
+  File "/Users/nathan/Source/negative-mass-i167/notes/warp/conical_global.py", line 423, in c_scan
+    print(f"   F_inf={d[0]:g} C={d[1]:g}: first pass {d[2]} at {d[3]:.10g}; record {d[4]} at {d[5]:.10g}")
+                                                                                             ^^^^^^^^^^^
+TypeError: unsupported format string passed to NoneType.__format__
