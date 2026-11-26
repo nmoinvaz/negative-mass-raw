@@ -12,7 +12,7 @@ import sys
 
 import mpmath as mp
 
-mp.mp.dps = 90
+mp.mp.dps = 200
 HERE = os.path.dirname(os.path.abspath(__file__))
 ap = argparse.ArgumentParser()
 ap.add_argument("--mutate", default=None, choices=["wrong-scale", "scaleonly"])

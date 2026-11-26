@@ -66,6 +66,8 @@ A harness run that panics or exits non-zero fails its cell.
 |---|---|
 | `ind189_run1.txt` | run 1: **crashed** before any verdict, on a formatting bug in ind189 (an mpf passed to a float format). Fixed in place: the bar is formed as a float. No criterion or bar changed |
 | `ind189_run2.txt` | run 2: exit 1. **Q1 and Q2 pass** in every cell (the worst case is qd's plane error at 1.6e-64 against 1.5e-60). **Q3 fails at X = 10 in dd and qd**, with the same ln_vol error, 4.5e-18, in both lanes; f64 at X = 10 and every lane at X = 4 pass. The cause is the coordinator's reference, not the library: at X = 10, Φ's entries reach e^±42, so ½ ln det(YᵀY) for k = 4 cancels about 73 digits of the 90 the reference carries, leaving about 17. The reference's own self-check (\|ln_vol_exact − ln\|det(Q·Bmat)\|\| < 1e-80) fails at both cells too. Q3 stays failed as run 2 reports it |
+| `ind189_run3.txt` | run 3, with A1: **exit 0, 3 of 3.** Q1 (k = 1): plane errors up to 1.5e-16, 1.1e-32 and 1.6e-64, ln_vol errors up to 1.8e-14, 5.0e-31 and 2.7e-63 (f64, dd, qd). Q2 (k = 2): plane errors up to 2.9e-16, 3.0e-32 and 3.9e-65, ln_vol errors up to 6.2e-15, 1.2e-30 and 5.0e-63. Q3 (k = 4, Liouville): 1.8e-14, 3.6e-30, 9.4e-63 at X = 10. Each is at least 1e3 below its bar. 22 to 31 steps to X = 10 |
+| `ind189_run3_mut_*.txt` | `wrong-scale` fails exactly Q1 and Q2. `scaleonly` fails exactly Q2 and Q3. Q2 fails at X = 10 in every lane (plane 1.3e-8, 4.4e-24, 1.5e-56) and passes at X = 4. Q3 fails at X = 4 in f64 (9.2e-10) and at X = 10 in every lane (ln_vol off by 67, 6.1, 3.5e-30). Q1 passes, as declared |
 
 ## Amendments
 
