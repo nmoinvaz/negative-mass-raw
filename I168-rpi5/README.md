@@ -154,3 +154,10 @@ Every control made exactly its predicted check fail and no other, with no traceb
 `plant-shape` -> planted_shape; `plant-local` -> planted_local; `plant-series` -> planted_series. `class-sign` (classify_numeric) was not
 yet run in a development sweep; its target is a prediction until the run of record. (A-kappa's mutation as coded changes only the
 planted chain, not theorem_a, so its target is planted_gronwall, not theorem_a as predicted in the table above.)
+
+## Run of record 01 (2026-11-25)
+
+`run_final.sh 01` under systemd (`nm-i168-run01`), script commit 621d581 (branch `wip/i168-conical-attraction`), README commit c3a35a1 before it.
+`run_01.log` (stdout, copied to `notes/warp/conical_attraction_output.txt`), `rc01` = 0, `run_01.time` (8 min 4 s, 97.6 MB peak).
+21 of 21 checks pass, 27 of 27 controls fire on their target only (`ctl_<name>.log`, `.rc` = 1, no traceback). Nothing failed in the run of record.
+Failed or amended before it: A1 (M7 as worded, and the coordinator's condition 3, both failed in development), A2 to A8 above.
