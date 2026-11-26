@@ -179,9 +179,9 @@ No criterion above was changed. What the dev runs showed and what the code does:
 | step | command (from the worktree) | log | exit | wall | result |
 |---|---|---|---|---|---|
 | probes 1 to 6 | `dev/probe_N.py` | `dev/probe_N.log` | 0 (probe 4: 1, `PolynomialError`) | seconds | before the README, see the table above |
-| dev 1 | `--no-controls` (script 7192041) | `logs/dev_1.log` | 0 | 19.7 s | 14 of 14, but `gauge` (a) compared 0 = 0 (A1) |
-| dev control batch 1 | `run_controls.sh dev1` (systemd unit `nm-i166-ctldev1`, 21 controls, one process at a time) | `logs/ctl_dev1_*.log`, `ctl_dev1_batch.log` | 1 each, `gauge-drop` **0 (silent)** | about 3 min | 20 of 21 on target, `gauge-drop` silent (A1) |
-| dev 2 | `--no-controls` after the edits to C5(ii) and C14 | `logs/dev_2.log` | 0 | 19.7 s | 14 of 14, `gauge` (a) still vacuous |
+| dev 1 | `--no-controls` (the script before the edits to C5(ii) and C14, not yet committed) | `logs/dev_1.log` | 0 | 19.7 s | 14 of 14, but `gauge` (a) compared 0 = 0 (A1) |
+| dev 2 | `--no-controls` (script 7192041, after those two edits) | `logs/dev_2.log` | 0 | 19.7 s | 14 of 14, `gauge` (a) still vacuous |
+| dev control batch 1 | `run_controls.sh dev1` (systemd unit `nm-i166-ctldev1`, 21 controls, one process at a time, script 7192041) | `logs/ctl_dev1_*.log`, `ctl_dev1_batch.log` | 1 each, `gauge-drop` **0 (silent)** | about 3 min | 20 of 21 on target, `gauge-drop` silent (A1) |
 | fix | `to_jets` replaces derivatives before X; assertion that the compared entries contain X_11 (script 68819a4) | | | | |
 | dev 3 | `--no-controls` | `logs/dev_3.log` | 0 | 19.7 s | 14 of 14, `gauge` (a) now non-vacuous |
 | dev control batch 2 | `--mutate=gauge-drop`, `--mutate=gauge-ode` | `logs/ctl_dev2_*.log` | 1, 1 | 2 s, 3 s | both fire `gauge` |
