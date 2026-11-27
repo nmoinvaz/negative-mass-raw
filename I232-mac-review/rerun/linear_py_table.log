@@ -1,0 +1,14 @@
+== Comparison of the growth rates of Y on the diagonal (x = 0), units b = 1 ==
+   linear: the linear double-null solver, data G (Gaussian pulses of amplitude 1e-3, centre 3, width 0.5, on both rays), rate over t in [16, 20], Richardson of h = 0.01 and 0.005
+   1D char: #212's master equation in characteristic form, u = Y/rho of the same data (c <= -1 only: no throat in the static region)
+   1D time: evolve_master1d.py (compact data on a t = 0 slice), rate over [45, 60]
+   nl slope: #217's lifetime law, 1/slope at h = 0.0025 (evolve_output.txt); nl seed: the untuned member's own growth of Y, rate over t in [8, 14], h = 0.01
+   nl same: #217's kernel on member +- the same data (eps = 1e-6): odd part, rate over [6, 10] at h = 0.01 minus the linear solver's over the same window (not asymptotic)
+      c     kappa     #212 W   1D time   1D char    linear   lin/W-1  nl slope   nl seed  nl same - lin
+  -1.50  0.551682   0.494171   0.49417  0.494217  0.494217   9.2e-05   0.49422   0.49053      -5.77e-05
+  -1.01  0.635123   0.633148   0.63315  0.633156  0.633156   1.3e-05       nan   0.62996      -3.10e-04
+  -1.00  0.636620       none  -0.03702  0.636627  0.636627  1.2e-05k   0.63677   0.63339      -3.20e-04
+  -0.99  0.638098   0.640122       nan       nan  0.640129   1.1e-05       nan   0.63685      -3.30e-04
+  -0.30  0.601300   0.970080       nan       nan  0.970080  -2.0e-07   0.96992   0.93403      -2.84e-03
+   (c = -1: 'lin/W-1' is the relative difference from kappa, marked k; c = -0.99 and -0.3 have a throat in the static region, where u = Y/rho is singular: no 1D rate is computed there)
+rc=0

@@ -50,3 +50,8 @@ Y'' = (2/ρ − A′/A) Y′ + (1/R⁴ − A′/(AρR²) − 2/(AR²) + W²/A²)
 
 | file | what |
 |---|---|
+| `rerun/linear_derive_py.log` | 12 of 12 |
+| `rerun/linear_py_check.log`, `_table`, `_c1` | 18 of 18; every line of the check, table and c1 outputs appears verbatim in `linear_output.txt` (timings aside). The expectation is met. The `_try1_zsh_nosplit` logs are a slip of the review: zsh passed "linear.py check" as one file name; kept |
+| `ind232_run1.txt` | run 1: K1 and K2 pass. K1: A₁ = 4/π; roots 1 ± πW/4, so {1/2, 3/2} at W = κ. K2: e^{κx}/ρ^{1/2} → 1, so ρ^{1/2}e^{κt} = C e^{κv}(1 + O(ρ)). **K3 not met** at 3e-12 (A1) |
+| `ind232_run1_mut_*.txt` | `wrong-kappa` fires K1 and K2; `drop-2rho` stops with an exception (A1) |
+| `ind232_run2.txt` | run 2 (A1): **3 of 3**, K3b: the roots at W = κ are ±0.500000000000 at c = −1.01 and −0.99, so there the second branch is (ρ − ρ_h)^{−1/2} and diverges |
