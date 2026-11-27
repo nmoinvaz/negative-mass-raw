@@ -243,3 +243,10 @@ motivates the task (3.4e-10 on this Mac, 9.0e-10 on the win laptop, at (5, 1000)
   4. Also planes at (3000, base) (extra chunks 0 … 3, `planes_3000.jsonl`) and (1000, φ_cut) (`planes_1000phi.jsonl`). The planes files are not in COMPLETE.
   5. Order: `run_F.sh` (the planes) and `run_B4.sh` (P1 at rtol 1e-10, then P0 at rtol 1e-12, then X_ATOL and X_P1_13) in the two slots; `run_A.sh`'s python resumes (SIGCONT) when `run_F.sh` ends. Whatever of P0 is not finished at 14:30 is reported
      as not run. Total estimate about 7 h.
+
+- **A7 (2026-11-27 13:55, a time box, before the data of the cells it concerns).** The load on the Mac (4 to 5 from other users, 15 at times) made the P0 cells about twice as slow as planned
+  (`(1000, base, rtol 1e-12)` took 551 s against 240 s; `(2000, phi, rtol 1e-13)` 6572 s with 55 min paused by me). P0 as declared (24 cells) cannot finish in the 6 to 7 h the task has. Rule:
+  the cells (3000, phi, 1e-13), (3000, base and phi, 1e-11) and (3000, base and phi, 1e-12) are **not run** (5 cells, reported as such, and COMPLETE fails on them); the cells (1000 and 2000, base and phi, 1e-11)
+  run in `run_A2.sh`; `run_A.sh` and `run_B4.sh` are stopped by PID after their (3000, base, 1e-13) and (2000, phi, 1e-12) cases (the bash scripts were killed at 13:50 so that they start nothing more; `watch_timebox.sh`
+  stops their pythons). Planned beyond A6: the extras X_ATOL and X_P1_13 are not run. The timestamps of A2 to A6 above are the planned ones; the machine's clock was 9 to 16 minutes earlier at each (A2 09:46, A3 11:25,
+  A4 12:06, A5 12:20, A6 12:39).
