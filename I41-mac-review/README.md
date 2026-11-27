@@ -40,6 +40,13 @@ Reported, not gated: M_AH at e^{−f} = 36.23 (runner 0.22930) if the horizon sp
 
 ## Amendments
 
+**A1, 2026-11-27, after run 1.**
+- **K1 is not met as worded.** Against the runner, h = 0.0025 is within 5.7e-5, 2.8e-5, 1.4e-5 and 2.8e-4 at the four
+  points. But at e^{−f} = 11.96, h = 0.005 differs from h = 0.0025 by 2.1e-3 (bar 1e-3): the uniform grid at h = 0.005
+  no longer resolves the horizon there, as the README foresaw for e^{−f} ≈ 12.
+- **K1b** adds the same bars for the pair h = 0.0025 and 0.00125, with h = 0.00125 compared with the runner. K1 stays
+  NOT MET.
+
 ## Runs (filled in as they are done)
 
 | file | what |

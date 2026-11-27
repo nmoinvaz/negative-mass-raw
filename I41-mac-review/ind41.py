@@ -270,17 +270,18 @@ def at(h, Fv):
     return float(np.interp(Fv, F[o], M[o])), float(np.interp(Fv, F[o], xm[o])), int(np.sum(np.abs(np.log(F / Fv)) < 0.05))
 
 
+HF, HC = min(HS), sorted(HS)[1]                                   # A1: finest and next (K1: 0.0025, 0.005; K1b: 0.00125, 0.0025)
 ok1, notes = True, []
 for Fv, Mref in zip(REF_F, REF_M):
-    m2, x2, n2 = at(0.0025, Fv)
-    m1, _, _ = at(0.005, Fv)
+    m2, x2, n2 = at(HF, Fv)
+    m1, _, _ = at(HC, Fv)
     okp = abs(m2 - Mref) <= 1e-3 and abs(m1 - m2) <= 1e-3
     ok1 &= okp
-    notes.append(f"e^-f {Fv}: M {m2:.5f} (h = 0.005: {m1:.5f}) against {Mref} ({m2 - Mref:+.1e})")
-check("K1", ok1, "; ".join(notes))
-_, x2, _ = at(0.0025, 11.96)
+    notes.append(f"e^-f {Fv}: M {m2:.5f} (h = {HC:g}: {m1:.5f}) against {Mref} ({m2 - Mref:+.1e})")
+check("K1b" if HF == 0.00125 else "K1", ok1, "; ".join(notes))
+_, x2, _ = at(HF, 11.96)
 check("K2", abs(x2 - 9.39779) <= 5e-3, f"horizon x- at e^-f = 11.96: {x2:.5f} against 9.39779 ({x2 - 9.39779:+.1e})")
-m, x, nrow = at(0.0025, 36.23)
+m, x, nrow = at(HF, 36.23)
 print(f"  reported: at e^-f = 36.23, M {m:.5f} (runner 0.22930), x- {x:.5f}, {nrow} rows within 5 % of that e^-f", flush=True)
 bad = [nm for nm, o in RESULTS if not o]
 print(f"\n{len(RESULTS)} criteria, {len(RESULTS) - len(bad)} pass; failed: {bad}; mutation {MUT}; {time.time() - t0:.0f} s", flush=True)
