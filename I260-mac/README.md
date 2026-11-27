@@ -75,8 +75,10 @@ surroundings; **A** = abstract only (INSPIRE or arXiv page).
 | 6 | text extraction (`scripts/extract.py`: pypdf and `pdftotext -layout`) | 424 papers with text: the 59 of the read list and 365 screened only |
 | 7 | `scripts/screen.py` with `screen_patterns.txt` over the 424 texts | `screen_counts.tsv` (matches per pattern per paper), `screen_contexts.txt` (up to 8 contexts of 120 characters each side per pattern per paper) |
 | 8 | `scripts/restate.py` | `restatements.txt`: the papers that restate [BKZ12]'s verdict (10) |
-| 9 | references: INSPIRE record and the arXiv stamp of the downloaded PDF for 62 ids (`scripts/verify_refs.py`, `verify/verify_table.tsv`, authors in `verify/authors.tsv`) | all 62 found on INSPIRE; the stamps agree with the ids; the 4 old `gr-qc/` ids have a stamp format the script's regex does not match, and their first pages were read by eye (title, id, version and date agree with INSPIRE); the table still lists the wrong id 1802.04795 (Bonder, Corral), dropped from the read list |
-| 10 | `quotes.tsv` (71 quotes with section or equation) and `scripts/check_quotes.py` | 71 of 71 found in the extracted texts; `--mutate` changes one character of the first quote and the check fails, as it must |
+| 9 | references: INSPIRE record and the arXiv stamp of the downloaded PDF for 66 ids (`scripts/verify_refs.py`, `verify/verify_table.tsv`, authors in `verify/authors.tsv`) | all 66 found on INSPIRE; the stamps agree with the ids; the 4 old `gr-qc/` ids have a stamp format the script's regex does not match, and their first pages were read by eye (title, id, version and date agree with INSPIRE); the table still lists the wrong id 1802.04795 (Bonder, Corral), dropped from the read list |
+| 10 | `quotes.tsv` (88 quotes with section or equation) and `scripts/check_quotes.py` | 88 of 88 found in the extracted texts; `--mutate` changes one character of the first quote (and of the first quoted string of a note) and the check fails, as it must |
+| 11 | `scripts/ai_text_search.py`: text addressed to an AI agent or a language model, over the 424 texts (`ai_text_search.txt`) | 27 matches: author names (Claude Barrabès, Claude Warnick), the phrase "do not report", disclosures of AI use in the acknowledgements of 2603.24719, 2610.30311, 2611.07024, 2611.24063, 2611.31459. None is addressed to an AI agent |
+| 12 | the notes' quoted strings (those of at least 30 characters) checked against the texts: `python3 scripts/check_quotes.py <note.md>` | `horizon_literature.md` 53 strings and the new subsection of `literature.md` 97 strings: all found in the texts of papers named in `quotes.tsv`, or are paper titles of `verify/verify_table.tsv`. The check does not confirm that a quote is attributed to the right paper or that its locator is right; the locators were read from the texts |
 
 Read at depth F or S, a paper's relevant text was read in the extracted copy; at G the patterns were applied and the matches
 read in context, and the abstract was read. "Screened only" means G on the full text and nothing more: a pattern match was
@@ -112,12 +114,12 @@ Counts and contexts are in `screen_counts.tsv` and `screen_contexts.txt`; the pa
 
 | id | outcome |
 |---|---|
-| A1 | the references of the new entries are among the 62 checked against INSPIRE and the PDF stamps (`verify/verify_table.tsv`); the arXiv listing page of a paper was not opened, the stamp on the PDF's first page is the arXiv check; journal data are INSPIRE's |
+| A1 | the references of the new entries are among the 66 checked against INSPIRE and the PDF stamps (`verify/verify_table.tsv`); the arXiv listing page of a paper was not opened, the stamp on the PDF's first page is the arXiv check; journal data are INSPIRE's |
 | A2 | each entry in the notes quotes with section or equation, or says that no passage bears on S1–S4 |
 | A3 | a verdict per statement in `notes/black_universe/horizon_literature.md` |
 | A4 | the comparison table of [BKZ12]'s horizon condition with #212's `u = Y/ρ → 0` is in the same note |
 | A5 | the sentences for the six `% NEEDS #260` comments are in the same note |
-| A6 | `python3 scripts/check_quotes.py` and `--mutate`; the note's strings are checked with `python3 scripts/check_quotes.py <note.md>` |
+| A6 | `python3 scripts/check_quotes.py` and `--mutate`; the notes' strings are checked with `python3 scripts/check_quotes.py <note.md>`; met |
 
 ### Not committed
 
@@ -127,6 +129,6 @@ third-party content in a public repository. `papers/downloads.tsv` gives each ur
 
 ### Files
 
-`README.md`, `quotes.tsv`, `screen_patterns.txt`, `screen_counts.tsv`, `screen_contexts.txt`, `restatements.txt`,
+`README.md`, `quotes.tsv`, `screen_patterns.txt`, `screen_counts.tsv`, `screen_contexts.txt`, `restatements.txt`, `ai_text_search.txt`,
 `lists/` (id lists and depth table), `queries/` (INSPIRE and arXiv replies, `queries.tsv`, `websearch.md`),
 `verify/` (reference tables), `scripts/` (the code above), `papers/downloads.tsv`.
