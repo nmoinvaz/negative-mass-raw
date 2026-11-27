@@ -17,14 +17,18 @@ every number below is *numerical evidence* unless marked *proved* or *checked sy
 ```
 I213-dh610/
 ├── README.md
-├── scripts/            lane.sh (one lane of the queue of record), queue_*.txt (its job lines)
-├── dev/                development runs (kept, none edited): dev_NN_*.py, dev_NN.log, mut/ (dev_11), mut13/ (dev_13), rec_trial/ (dev_12)
+├── scripts/            lane.sh, queue_N.txt (the queue of record), mutlane.sh (the mutation runs), make_figure.py, data_graphs.py (vendored from the arriba graph-data skill)
+├── dev/                development runs (kept, none edited): dev_NN_*.py, dev_NN.log, mut/ (dev_11), mut13/ (dev_13), rec_trial/ (dev_12), dev_14 (after the runs)
+├── figures/            expansion_H.svg (H/W and k against r/a)
 └── runs/               runs of record
     ├── D<D>_<member>_h<h>.npz        one streamed run: the diagonal series, the edge columns, the slice minima, the ray identity, the horizon contours
     ├── ctrl_D<D>_<name>_h<h>.json    the controls
     ├── frw_h<h>.npz                  the planted homogeneous ghost
-    ├── analysis.log                  `expansion.py analyze` on the above (= notes/wormhole_evolution/expansion_output.txt)
-    └── mut/<name>.log                the mutation runs (reduced size)
+    ├── analysis.log                  `expansion.py analyze` on the above at 015ce77 (= notes/wormhole_evolution/expansion_output.txt); analysis_1b6b43d.log: the same at the declared commit
+    ├── job_*.log, job_*.time         per job: output, `/usr/bin/time -v`; lane_N.log: start and end of each job
+    ├── extra/                        the D = 5 control at a third h (not part of the declared check)
+    ├── mut/<name>.log                the mutation runs of record (reduced size), at 015ce77
+    └── mut_run1/                     the first mutation runs, at b6c33c2; two of them stopped with an exception in report-only code
 ```
 
 ## Rulings received (coordinator's brief, over hc)
@@ -158,4 +162,31 @@ BUILD means a run of the reduced suite could not be completed (for the mutations
 
 ## Queue of record and results
 
-Filled after the runs of record (`runs/`, `scripts/`), in a later commit of this folder.
+Queue `scripts/queue_{1..4}.txt`, run by `scripts/lane.sh N` as four systemd user units (`nm-i213-rec1..4`), `nice -n 10`, one thread each, `timeout 7200` per job, started 2026-11-27 02:16:48, done 02:32:23 (15.6 min of wall time).
+Every job exit code 0; no job came near the 2 h stop. Peak memory per job (resident, `/usr/bin/time -v`): the streamed runs 0.19 to 0.22 GB; the controls 0.16 to 2.7 GB (D = 5, h = 0.00354); the extra control at a third h 10.7 GB. Memory is reported only.
+
+| job | wall | peak GB |
+|---|---|---|
+| D = 4, h = 0.02: tuned, A = 0.05, 0.01, 0.2 | 1:07, 0:45, 0:40, 0:56 | 0.19 |
+| D = 4, h = 0.01: tuned, A = 0.05, 0.01, 0.2 | 3:53, 2:38, 2:42, 4:40 | 0.21 |
+| D = 5, h = 0.00707: tuned, A = 0.05 | 2:24, 1:41 | 0.20 |
+| D = 5, h = 0.00354: tuned, A = 0.05 | 7:04, 7:59 | 0.22 |
+| planted ghost, three h | 0:01 | 0.16 |
+| controls D = 4 (two h), D = 5 (two h) | 0:03, 0:03, 0:05, 0:33 | 0.28 to 2.7 |
+
+`python3 expansion.py analyze --raw=<this folder>` (runs/analysis.log, exit code 1): **12 of 13 checks pass; CT fails.** Every member is class FT at both h; the slope test is not met for any member; the de Sitter-like class is not met (see the note).
+The mutation runs of record (`runs/mut/`, 015ce77): all 15 fire exactly their declared sets.
+
+CT, as declared (event times of the first trapped cell at the two h within 4 sqrt2 h, both pulses collapse, the normal pulse has E0 > 0): D = 4 both pulses and the D = 5 ghost pulse met; **D = 5 normal pulse not met** (3.815 and 3.887 at h = 0.00707 and 0.00354, |dt| = 0.0725 against 0.040).
+Not changed. Extra, outside the declared check: a third h = 0.00177 gives 3.9138 (successive differences 0.0725, 0.0263; the pair (0.00354, 0.00177) is also outside 4 sqrt2 h = 0.020).
+
+## Amendments and things done after the runs of record started (none changes a declared check, criterion, tolerance, family, resolution, observer, definition or window)
+
+1. **Coordinator's ruling over hc** (after the declarations and the start of the runs): keep w as declared; report the de Sitter-like class as not met and say this observer cannot meet it, with w_par = +1 and w_perp = -1 beside it; report H(tau) against the declared alternatives;
+   report, not gated, (1) tau_s at both h with rho and r along the throat toward tau_s and (2) the fitted exponent of r against (tau_s - tau); make no claim about what the end state is; propose a follow-up for the asymptotic solution.
+2. **Report-only code** for (1) and (2) was added to `expansion.py` after the runs finished (b6c33c2): tau_s from the linear fit of 1/H over the last 0.5, 1, 2 e-folds, the exponents of r, H, |rho|, |R| and K against (tau_s - tau), and the table toward tau_s; the Ricci scalar on the diagonal is R = eps (d phi)^2 = 2 rho
+   and K = (1 - (grad r)^2)/r^2 = 2m/r^(n+1) = H^2 + 1/r^2. The check verdicts of `analysis_1b6b43d.log` (declared commit) and `analysis.log` (015ce77) are identical.
+3. **A crash in that report code** stopped two of the first mutation runs (`mutation mirror_parity`, `scalar_coef`: no finite tau_s beyond the last cell, `np.polyfit` on an empty vector). The first logs are `runs/mut_run1/`; the report was guarded (015ce77) and all 15 mutation runs were rerun into `runs/mut/`.
+4. **Extra control at a third h** for the D = 5 pulses (`runs/extra/`), after CT failed at D = 5; it is reported beside the declared check and does not replace it.
+5. **dev_14** (`dev/dev_14_hdot.py`): the relation dH/dtau = -(n+1)H^2/2 - (n-1)/(2 r^2) - rho/n, derived by hand, against the stored series: median relative difference <= 6e-5 in every window.
+6. **Figure** `figures/expansion_H.svg` (`scripts/make_figure.py`, the vendored arriba graph-data primitives): H/W and k = H (tau_s - tau) against r/a.
