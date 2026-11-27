@@ -116,3 +116,19 @@ published values (`literature/`: the TeX source and the PDF text of arXiv:2212.1
 
 1. (2026-11-27, after the declaration, before the derivation's runs of record and after the counts of record had started) Check D5c and its control `print47` were added to `polar_derive.py`: the printed
    (47) of [ABCKY23] does not decouple the scalar at c = 0, which D4b only implies. Development: D5c passes, `print47` fires it. The polar and M-AdS runs are unaffected (they do not import it).
+2. (after the runs of record, no criterion changed) The spectral run of record crashed at c = 10 (`logs/spectral_run1_crash_c10.txt`): the bracket for ρ(x) at x > 0 assumed ρ(x) < x + 10, false
+   where A > 1 (large c). Fixed. The second run (`logs/spectral_run2_window100_c10_fail.txt`) found no eigenvalue at c = 10: the eigenvalue window was λ < 100, narrower than the declared range
+   W ≤ 24 (λ < 576). Fixed to the declared range. The third run (`logs/spectral.txt`) passes everywhere except S-B at c = 10, 5.9e-4 against the declared 2e-4: **not met**, reported. The `report`
+   header printed the polar W range for the M-AdS table; text only, fixed. Code at the runs of record: counts (`results/`), planted, polar controls and derive check/controls at `polar.py` of commit
+   7dcd80c (identical in e8696be, which added only `polar_derive.py` D5c); spectral and report at 23c2165 (the final `polar.py`).
+
+## Results of record
+
+Code `wip/i218-polar-mads` at 4c8c5ca (code 23c2165; 4c8c5ca adds the note and the assembled outputs). Runs (all exit 0 unless stated; `logs/`): 84 polar counts (`results/polar_l<ell>_<c>_<res>.json`; R1 and R2, 21 members, l = 1, 2) and 24 M-AdS counts
+(`results/mads_<c>_<res>.json`), run by `run_polar.sh`, `run_mads.sh` (units `nm-i218-rec-*`), 84 min of CPU in total; `planted.txt` (7 PASS); `report.txt`; `spectral.txt` (exit 1: one tolerance not met, above);
+`controls.txt` (9 of 9 fire); `derive_check.txt` (20 PASS); `derive_controls.txt` (11 of 11 fire). The tables and the note: `notes/black_universe/polar.md`; the outputs of record assembled
+in `polar_output.txt` and `polar_derive_output.txt` there.
+
+- polar l = 1, 2: 0 growing modes at every member, R1 = R2, determinants agree to 5.1e-9; no interior minimum of |D| anywhere.
+- M-AdS: 1 growing mode at each of 12 values of c in [1e-4, 10], W = 1.1820485273 … 15.2213845506 per b.
+- Planted: P2 (2.3e-3, 1.4e-4 / 2.4e-3, 1.6e-5 / 3.7e-3, 1.1e-4 against 5e-3, 5e-4), P3a 1.5e-12, P3b 2.8e-11, P4 0.421976 and 1.473675, P5 3.1e-10.
