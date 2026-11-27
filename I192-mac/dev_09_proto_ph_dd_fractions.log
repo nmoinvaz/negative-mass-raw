@@ -1,0 +1,18 @@
+# 2026-11-27 12:09:32 cwd=/Users/nathan/Source/negative-mass-raw/I192-mac
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python -u proto_table.py --cases  --ph --ph-fractions 0.2,0.5,0.7,1.0 --lanes dd
+  .. PH dd plane step 25 x = 0.0489287 h = 7.051e-03 reach/w 0.7229
+  .. PH dd plane step 50 x = 2.39402 h = 3.450e-01 reach/w 0.8178
+  .. PH dd plane step 75 x = 25.0901 h = 1.000e+00 reach/w 0.1965
+PH dd  fraction=0.2 ctl=None: kt 42 nb 54 tail 1.233e-32 table steps 222 plane steps 90  plane err 4.087e-66 (bar 1.233e-28) PASS  ln_vol err 1.550e-30 (bar 1.207e-27) PASS  max (shift+step)/w 9.2118e-01, plane steps past w: 0
+  .. PH dd plane step 25 x = 0.0489355 h = 7.052e-03 reach/w 0.8864
+  .. PH dd plane step 50 x = 2.39472 h = 3.451e-01 reach/w 0.7176
+  .. PH dd plane step 75 x = 25.0919 h = 1.000e+00 reach/w 0.3704
+PH dd  fraction=0.5 ctl=None: kt 42 nb 54 tail 1.233e-32 table steps 92 plane steps 90  plane err 3.633e-66 (bar 1.233e-28) PASS  ln_vol err 3.542e-30 (bar 1.207e-27) PASS  max (shift+step)/w 1.2510e+00, plane steps past w: 25
+  .. PH dd plane step 25 x = 0.0507781 h = 7.427e-03 reach/w 1.3772
+  .. PH dd plane step 50 x = 2.64577 h = 3.870e-01 reach/w 1.3772
+  .. PH dd plane step 75 x = 25.8328 h = 1.000e+00 reach/w 0.8907
+PH dd  fraction=0.7 ctl=None: kt 42 nb 54 tail 1.233e-32 table steps 68 plane steps 90  plane err 3.296e-66 (bar 1.233e-28) PASS  ln_vol err 9.953e-27 (bar 1.207e-27) FAIL  max (shift+step)/w 1.4367e+00, plane steps past w: 57
+  .. PH dd plane step 25 x = 0.0407153 h = 5.868e-03 reach/w 0.9235
+  .. PH dd plane step 50 x = 1.53723 h = 1.827e-01 reach/w 1.6092
+  .. PH dd plane step 75 x = 21.6814 h = 1.000e+00 reach/w 0.5788
+PH dd  fraction=1.0 ctl=None: kt 42 nb 54 tail 1.233e-32 table steps 49 plane steps 94  plane err 1.544e-66 (bar 1.233e-28) PASS  ln_vol err 1.003e-23 (bar 1.207e-27) FAIL  max (shift+step)/w 1.6095e+00, plane steps past w: 48

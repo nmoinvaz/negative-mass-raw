@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-i248/notes/black_universe/horizon_sector.py", line 1040, in <module>
+    main()
+    ~~~~^^
+  File "/home/nathan/Source/negative-mass-i248/notes/black_universe/horizon_sector.py", line 1030, in main
+    bad = run_all(NUMERIC)
+  File "/home/nathan/Source/negative-mass-i248/notes/black_universe/horizon_sector.py", line 999, in run_all
+    fn()
+    ~~^^
+  File "/home/nathan/Source/negative-mass-i248/notes/black_universe/horizon_sector.py", line 399, in check_N1
+    kc = kchart(c)
+  File "/home/nathan/Source/negative-mass-i248/notes/black_universe/horizon_sector.py", line 360, in kchart
+    _KC[key] = KChart(c, mut=mut)
+               ~~~~~~^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-i248/notes/black_universe/horizon_sector.py", line 175, in __init__
+    self.ch = lin.Chart(c, rho_c=1.0, sig_star=16.0, p_max=p_max, q_int=max(pi_min, 1.0) * 2.0, mut=mut)
+              ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-i248/notes/black_universe/linear.py", line 189, in __init__
+    par[k] = v
+    ~~~^^^
+IndexError: index 30 is out of bounds for axis 0 with size 29

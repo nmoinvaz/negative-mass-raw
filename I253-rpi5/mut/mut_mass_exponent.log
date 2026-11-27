@@ -1,0 +1,193 @@
+settled_mass_g.py analyze {'raw': '/home/nathan/Source/negative-mass-raw/I253-rpi5', 'mutate': 'mass_exponent'}: numba 0.68.1, numpy 2.5.4, python 3.14.10, rpi5-ubuntu, load average at start 3.21 2.53 2.40, mutation mass_exponent, 2026-11-27 13:15:29
+
+== Declared chain (#41's constants) and the planted cases through this driver
+[pass] CFG: the chain constants of settled_mass.py and the rectangle of #40's G equal the declared values (#41's)  (F1 1.5, K 20, W1 2.4, dxp 12.0, dm 3.0, X 28.0)
+[pass] FLX: first-law integrand on planted series: ghost only -0.025, normal only +0.025, equal fluxes 0 (the normal field has the opposite energy sign)  (errors 0.0e+00, 0.0e+00, 0.0e+00)
+[FAIL] PL1: #41's PL1 through this driver: the printed lines equal #41's output of record, and equal those of settled_mass's own track  (5 lines compared with 5 of #41; equal to #41: False; equal without the wrapper: True; verdict line [FAIL])
+    differs:
+      here:     P1 h = 0.02: status limit, columns 507, F to 1.556e+06, max |M - 0.3| 1.200e-01, max |x- - x_h| 3.298e-04
+      #41:      P1 h = 0.02: status limit, columns 507, F to 1.556e+06, max |M - 0.3| 1.109e-04, max |x- - x_h| 3.298e-04
+    differs:
+      here:     P1 h = 0.01: status limit, columns 1013, F to 1.543e+06, max |M - 0.3| 1.200e-01, max |x- - x_h| 8.245e-05
+      #41:      P1 h = 0.01: status limit, columns 1013, F to 1.543e+06, max |M - 0.3| 2.773e-05, max |x- - x_h| 8.245e-05
+    differs:
+      here:     P1 h = 0.005: status limit, columns 2027, F to 1.567e+06, max |M - 0.3| 1.200e-01, max |x- - x_h| 2.061e-05
+      #41:      P1 h = 0.005: status limit, columns 2027, F to 1.567e+06, max |M - 0.3| 6.817e-06, max |x- - x_h| 2.061e-05
+    differs:
+      here:     P1 h = 0.0025: status limit, columns 4054, F to 1.571e+06, max |M - 0.3| 1.200e-01, max |x- - x_h| 5.153e-06
+      #41:      P1 h = 0.0025: status limit, columns 4054, F to 1.571e+06, max |M - 0.3| 1.684e-06, max |x- - x_h| 5.153e-06
+    differs:
+      here: [FAIL] PL1: exact Schwarzschild (M = 0.3) in the stretching gauge, through the chain: M recovered, second order, limit reached  (max |M - 0.3| at h = 0.005: 1.20e-01 (bar 1e-4); orders [0.0, 0.0, 0.0] in (1.75, 2.25); status ['limit', 'limit', 'limit', 'limit'
+      #41:  [pass] PL1: exact Schwarzschild (M = 0.3) in the stretching gauge, through the chain: M recovered, second order, limit reached  (max |M - 0.3| at h = 0.005: 6.82e-06 (bar 1e-4); orders [2.0, 2.024, 2.018] in (1.75, 2.25); status ['limit', 'limit', 'limit', 'li
+[pass] PL2: #41's PL2 through this driver: the printed lines equal #41's output of record, and equal those of settled_mass's own track  (5 lines compared with 5 of #41; equal to #41: True; equal without the wrapper: True; verdict line [pass])
+[pass] PL3: #41's PL3 through this driver (S, h = 0.02, delta = 1e-6): level 0 equals dn.evolve bit for bit; the printed line equals #41's  ([pass] PL3: level 0 of the chain equals dn.evolve bit for bit (nodes, dead flags) and finds the same first trapped cell  (h = 0.02, delta = 1e-06: nodes equal True, dead equal True, events (385, 385) and (385, 385)))
+[pass] PL3G: family G: level 0 of the chain equals dn.evolve bit for bit (nodes, dead flags) and finds the same first trapped cell  (h = 0.02, delta = 1e-06: nodes equal True, dead equal True, events (398, 436) and (398, 436))
+[pass] TRK: track wrapper: recomputed phi_+ of field 0 equals settled_mass.track's (relative 1e-12), and the normal field's phi_+ is nonzero on the horizon  (171 columns, max relative difference 2.3e-14, smallest max|phi_+(normal)| over series 1.82e-03)
+
+== p*_h of G: #40's bracket, and the fates on this machine at p*_h -/+ 1e-10
+    h = 0.02 (job.log h = '0.02'): p*_h = 1.4945763570900113e-02, hi - lo = 5.68e-15; fates at p*_h -/+ 1e-10 on this machine: [-1, 1]
+    h = 0.01 (job.log h = '0.01'): p*_h = 1.4877359967478583e-02, hi - lo = 5.68e-15; fates at p*_h -/+ 1e-10 on this machine: [-1, 1]
+    h = 0.005 (job.log h = '0.005'): p*_h = 1.4860254854126537e-02, hi - lo = 5.68e-15; fates at p*_h -/+ 1e-10 on this machine: [-1, 1]
+[pass] RC1: #40's p*_h of G (hi - lo <= 1e-14, h of its job.log exact), and on this machine fate(p*_h - 1e-10) = collapse, fate(p*_h + 1e-10) = expansion
+[pass] RC2: fates (collapse at p*_h - delta, expansion at p*_h + delta; all h, both delta); the first trapped cell and its time against #40's at delta = 1e-8  (events {0.02: [530, 591], 0.01: [1060, 1182], 0.005: [2116, 2359]} against #40's {0.02: [530, 591], 0.01: [1060, 1182], 0.005: [2116, 2359]})
+[pass] TRK: track wrapper: recomputed phi_+ of field 0 equals settled_mass.track's (relative 1e-12), and the normal field's phi_+ is nonzero on the horizon  (7362 columns, max relative difference 5.4e-16, smallest max|phi_+(normal)| over series 1.30e-04)
+[FAIL] RC3: M_AH at the first trapped cell against #40's formation value at p*_h - 1e-8  (|dM| 4.5e-03, 4.5e-03, 4.3e-03 (bar 2e-3); M_AH [0.49048, 0.49055, 0.49104], #40 [0.49503, 0.49507, 0.49533])
+[FAIL] RC4: first law on the horizon, both fields: M(x+_b) - M(x+_a) = integral of (r^2/2) e^f r_- (phi0_+^2 - phi1_+^2) along it, from the first trapped cell to F = 20  (max relative difference 3.28e-01 over all runs (bar 2e-2))
+    h=0.02,d=1e-06: dM -3.6823e-01, flux -2.4785e-01 (ghost alone -2.4785e-01)
+    h=0.01,d=1e-06: dM -3.6815e-01, flux -2.4768e-01 (ghost alone -2.4768e-01)
+    h=0.005,d=1e-06: dM -3.6842e-01, flux -2.4767e-01 (ghost alone -2.4767e-01)
+    h=0.02,d=1e-08: dM -3.6666e-01, flux -2.4653e-01 (ghost alone -2.4653e-01)
+    h=0.01,d=1e-08: dM -3.6695e-01, flux -2.4669e-01 (ghost alone -2.4669e-01)
+    h=0.005,d=1e-08: dM -3.6737e-01, flux -2.4684e-01 (ghost alone -2.4684e-01)
+[pass] RC5: every run ends at the declared limit (F = e^-f on the horizon, 786432 <= F_end < 1.57286e+06), horizon at least Nc/8 cells from the box edges, no gaps  (h=0.02,d=1e-06: limit, F_end 1536119, edge 102/240; h=0.01,d=1e-06: limit, F_end 1570893, edge 201/480; h=0.005,d=1e-06: limit, F_end 1564550, edge 400/960; h=0.02,d=1e-08: limit, F_end 1545640, edge 102/240; h=0.01,d=1e-08: limit, F_end 1556357, edge 201/480; h=0.005,d=1e-08: limit, F_end 1561872, edge 400/960)
+
+== Second-order convergence of M_AH(x+): max |M_h - M_h/2| over windows of x+ - x+_f (cubic splines)
+    RC6 h = (0.02, 0.01, 0.005), delta = 1e-06, x+ - x+_f in [0, 1.5]: E12 5.03e-05, E23 1.26e-05, order 2.00 ok
+    RC6 h = (0.02, 0.01, 0.005), delta = 1e-06, x+ - x+_f in [1.5, 3]: E12 9.06e-05, E23 2.35e-05, order 1.95 ok
+    RC6 h = (0.02, 0.01, 0.005), delta = 1e-06, x+ - x+_f in [3, 99]: E12 1.43e-04, E23 3.76e-05, order 1.93 ok
+    RC6 h = (0.02, 0.01, 0.005), delta = 1e-08, x+ - x+_f in [0, 1.5]: E12 5.77e-05, E23 1.34e-05, order 2.11 ok
+    RC6 h = (0.02, 0.01, 0.005), delta = 1e-08, x+ - x+_f in [1.5, 3]: E12 1.28e-04, E23 3.02e-05, order 2.08 ok
+    RC6 h = (0.02, 0.01, 0.005), delta = 1e-08, x+ - x+_f in [3, 99]: E12 1.55e-04, E23 3.37e-05, order 2.20 ok
+[pass] RC6: M_AH(x+) converges at second order at the three h (0.02, 0.01, 0.005), three windows, both deltas (observed order in (1.5, 2.5))
+[pass] RC8: M_AH has settled at the limit: the plateau mean over the last 1.0 of x+ differs from the previous 1.0 by <= 1e-4 and the mean horizon flux (both fields) over the last 0.5 is <= 1e-5, every run  (plateau change +1.4e-05, +4.2e-06, +2.5e-07, -2.7e-05, -4.1e-07, +1.5e-06; flux 1.9e-07, 1.9e-07, 1.9e-07, 1.9e-07, 1.9e-07, 1.9e-07)
+[FAIL] RC7: the settled value does not depend on delta: plateau means over the last 1.0 at 1e-6 and 1e-8 agree  (|dM| 5.5e-04, 5.3e-04, 5.3e-04 (bar 1e-4))
+
+== M_AH(x+) of G against S (negative-mass-raw I41-rpi5, same h and delta) against x+ - x+_f; a = 1, 8 pi G = 1; M = r_AH / 2; t = (x+ + x-)/sqrt2
+  delta = 1e-06, h = 0.005: G: x+_f = 8.6975, x-_f = 7.9215, t_f = 11.7514; S: x+_f = 7.6975, x-_f = 7.6781, t_f = 10.8722
+    dx+    t-t_f(G)   r_AH(G)   M_G       M_S       M_G-M_S     e^-f(G)   e^-f(S)
+     0.00    0.0000   0.99145   0.49148   0.49421   -2.72e-03     0.9767      1.024
+     0.25    0.3218   0.98597   0.48607   0.49125   -5.18e-03     0.9886      1.036
+     0.50    0.6405   0.97820   0.47843   0.48682   -8.39e-03      1.006      1.056
+     1.00    1.2640   0.95166   0.45283   0.47056   -1.77e-02       1.07      1.134
+     1.50    1.8549   0.90046   0.40541   0.43697   -3.16e-02      1.217      1.337
+     2.00    2.3902   0.81136   0.32915   0.37746   -4.83e-02      1.592      1.943
+     2.50    2.8495   0.68718   0.23611   0.30262   -6.65e-02      2.681      4.103
+     3.00    3.2423   0.57052   0.16275   0.24972   -8.70e-02      6.148      12.07
+     3.50    3.6044   0.50365   0.12683   0.22922   -1.02e-01      16.45      36.53
+     4.00    3.9592   0.47859   0.11452   0.22430   -1.10e-01       42.8      100.9
+     4.50    4.3129   0.47210   0.11144   0.22370   -1.12e-01      104.4      261.6
+     5.00    4.6664   0.47118   0.11101   0.22368   -1.13e-01      244.2      657.3
+     5.50    5.0200   0.47114   0.11099   0.22354   -1.13e-01      558.6       1626
+     6.00    5.3735   0.47095   0.11090   0.22335   -1.12e-01       1263       3978
+     6.50    5.7271   0.47062   0.11074   0.22321   -1.12e-01       2831       9647
+     7.00    6.0807   0.47030   0.11059   0.22313   -1.13e-01       6306  2.321e+04
+     7.50    6.4342   0.47011   0.11050   0.22309   -1.13e-01  1.397e+04  5.546e+04
+     8.00    6.7878   0.47001   0.11046   0.22309   -1.13e-01  3.076e+04  1.317e+05
+     8.50    7.1413   0.46997   0.11044   0.22309   -1.13e-01  6.746e+04  3.114e+05
+     9.00    7.4949   0.46997   0.11043   0.22309   -1.13e-01  1.473e+05  7.327e+05
+     9.40    7.7777   0.46996   0.11043   0.22309   -1.13e-01  2.746e+05  1.449e+06
+  delta = 1e-08, h = 0.005: G: x+_f = 11.7975, x-_f = 10.5614, t_f = 15.8102; S: x+_f = 10.4525, x-_f = 10.4331, t_f = 14.7683
+    dx+    t-t_f(G)   r_AH(G)   M_G       M_S       M_G-M_S     e^-f(G)   e^-f(S)
+     0.00    0.0000   0.99100   0.49104   0.49421   -3.16e-03     0.9827      1.024
+     0.25    0.3200   0.98555   0.48566   0.49125   -5.59e-03     0.9951      1.036
+     0.50    0.6369   0.97767   0.47792   0.48682   -8.90e-03      1.013      1.056
+     1.00    1.2563   0.95034   0.45157   0.47056   -1.90e-02      1.081      1.134
+     1.50    1.8424   0.89742   0.40269   0.43697   -3.43e-02      1.237      1.337
+     2.00    2.3719   0.80607   0.32488   0.37746   -5.26e-02      1.637      1.943
+     2.50    2.8257   0.68113   0.23197   0.30262   -7.07e-02      2.802      4.103
+     3.00    3.2154   0.56683   0.16065   0.24972   -8.91e-02        6.5      12.07
+     3.50    3.5767   0.50283   0.12642   0.22922   -1.03e-01      17.35      36.52
+     4.00    3.9314   0.47918   0.11481   0.22430   -1.09e-01      44.86      100.9
+     4.50    4.2851   0.47313   0.11193   0.22370   -1.12e-01      108.8      261.5
+     5.00    4.6386   0.47231   0.11154   0.22368   -1.12e-01      253.4      657.3
+     5.50    4.9922   0.47228   0.11152   0.22353   -1.12e-01      577.6       1626
+     6.00    5.3457   0.47207   0.11143   0.22335   -1.12e-01       1301       3978
+     6.50    5.6993   0.47174   0.11127   0.22321   -1.12e-01       2909       9646
+     7.00    6.0529   0.47143   0.11112   0.22313   -1.12e-01       6462  2.321e+04
+     7.50    6.4064   0.47124   0.11104   0.22309   -1.12e-01  1.427e+04  5.546e+04
+     8.00    6.7600   0.47115   0.11099   0.22309   -1.12e-01  3.135e+04  1.317e+05
+     8.50    7.1135   0.47111   0.11097   0.22309   -1.12e-01  6.856e+04  3.114e+05
+     9.00    7.4671   0.47110   0.11097   0.22309   -1.12e-01  1.494e+05  7.327e+05
+     9.40    7.7499   0.47110   0.11097   0.22309   -1.12e-01  2.777e+05  1.449e+06
+
+== Late-time values (reports)
+  delta   h        M_end     plat(1.0)  range(1.0) plat(0.5)  drift(1.0)  plat change  flux(0.5)   flux(0.5) ghost alone
+   1e-06    0.02  0.110562  0.110483  1.4e-04  0.110489  -4.66e-05  +1.44e-05  1.88e-07  1.88e-07
+   1e-06    0.01  0.110467  0.110442  4.1e-05  0.110445  -1.67e-05  +4.24e-06  1.93e-07  1.93e-07
+   1e-06   0.005  0.110439  0.110433  1.0e-05  0.110434  -7.55e-06  +2.47e-07  1.90e-07  1.90e-07
+   1e-08    0.02  0.111129  0.111035  1.6e-04  0.111047  -1.24e-04  -2.73e-05  1.93e-07  1.93e-07
+   1e-08    0.01  0.110991  0.110976  4.0e-05  0.110975  -1.36e-05  -4.09e-07  1.92e-07  1.92e-07
+   1e-08   0.005  0.110970  0.110966  1.0e-05  0.110966  -7.68e-07  +1.52e-06  1.92e-07  1.92e-07
+  family S, same quantities from I41-rpi5 (the same function):
+   1e-06    0.02  0.223149  0.223138  1.8e-04  0.223121  +4.82e-06  -1.10e-06  2.61e-07
+   1e-06    0.01  0.223125  0.223102  4.1e-05  0.223103  -2.50e-05  -7.07e-06  2.70e-07
+   1e-06   0.005  0.223087  0.223086  1.1e-05  0.223085  -7.76e-07  +2.83e-06  2.65e-07
+   1e-08    0.02  0.223255  0.223155  1.6e-04  0.223175  -1.50e-04  -1.68e-05  2.66e-07
+   1e-08    0.01  0.223124  0.223102  4.1e-05  0.223102  -2.46e-05  -7.29e-06  2.66e-07
+   1e-08   0.005  0.223089  0.223085  8.5e-06  0.223085  -4.35e-06  +2.91e-06  2.65e-07
+  delta = 1e-06, h = (0.02, 0.01, 0.005): G M_end [0.110562, 0.110467, 0.110439], differences +9.54e-05, +2.78e-05, Richardson (second order) M_end(0) = 0.110430; plateau(1.0) [0.110483, 0.110442, 0.110433], differences +4.08e-05, +8.80e-06, Richardson 0.110430
+      S plateau(1.0) [0.223138, 0.223102, 0.223086], differences +3.57e-05, +1.64e-05, Richardson 0.223080; G - S at the same h: -1.13e-01, -1.13e-01, -1.13e-01
+  delta = 1e-08, h = (0.02, 0.01, 0.005): G M_end [0.111129, 0.110991, 0.11097], differences +1.37e-04, +2.12e-05, Richardson (second order) M_end(0) = 0.110963; plateau(1.0) [0.111035, 0.110976, 0.110966], differences +5.89e-05, +9.86e-06, Richardson 0.110963
+      S plateau(1.0) [0.223155, 0.223102, 0.223085], differences +5.30e-05, +1.63e-05, Richardson 0.223080; G - S at the same h: -1.12e-01, -1.12e-01, -1.12e-01
+
+== The comparison of the settled mass of G with S's (error bar named)
+  G: plateau mean over the last 1.0 of x+ at h = 0.005, delta = 1e-8: 0.110966 (r_AH = 0.22193); S (I41-rpi5, same h and delta): 0.223085; S quoted by #41: 0.2231
+  error bar of G's value (kept separate): h: finest pair |plat(0.01) - plat(0.005)| = 9.86e-06 (all three h: range 6.88e-05); delta: |plat(1e-6) - plat(1e-8)| at h = 0.005 = 5.33e-04; machine to machine (#41's review) = 2e-05; sum = 5.63e-04
+  G - S at h = 0.005, delta = 1e-8: -1.12e-01; Richardson (three h, second order) G 0.110963, S 0.223080, difference -1.12e-01; G - 0.2231 = -1.12e-01
+  VERDICT: G's settled mass DIFFERS FROM S's: |G - S| = 1.12e-01 > bar 5.63e-04
+[pass] CMPT: the comparison on planted offsets: an offset of half the bar is 'equal', three times the bar is 'differs' (the comparison can fail)  (planted bar 8.00e-05)
+
+== Roundoff floor: M_AH(x+) under ulp noise in the ray data (delta = 1e-8) against the h-differences
+[FAIL] RN0: noise 0 reproduces the run of record bit for bit (the injection is inert at zero, the job is deterministic)  (h = (0.01, 0.005): [False, False])
+    h = 0.01, noise 1 x 2^-52, 3 seed(s): max |M_noisy - M| in windows [(0.0, 1.5), (1.5, 3.0), (3.0, 99.0)]: 4.76e-02, 1.23e-01, 1.25e-01
+    h = 0.01, noise 64 x 2^-52, 1 seed(s): max |M_noisy - M| in windows [(0.0, 1.5), (1.5, 3.0), (3.0, 99.0)]: 4.76e-02, 1.23e-01, 1.25e-01
+    h = 0.005, noise 1 x 2^-52, 3 seed(s): max |M_noisy - M| in windows [(0.0, 1.5), (1.5, 3.0), (3.0, 99.0)]: 4.60e-02, 1.23e-01, 1.25e-01
+    h = 0.005, noise 64 x 2^-52, 1 seed(s): max |M_noisy - M| in windows [(0.0, 1.5), (1.5, 3.0), (3.0, 99.0)]: 4.60e-02, 1.23e-01, 1.25e-01
+[FAIL] RNR: the scatter responds to the noise: it is nonzero at 2^-52 and at 64 x 2^-52 at least 3 times that, in every window and h  (h = 0.01: 1.0, 1.0, 1.0; h = 0.005: 1.0, 1.0, 1.0)
+  scatter at 2^-52 against the h-difference E between the h and its coarser neighbour (same windows, delta = 1e-8):
+    h = 0.01, x+ - x+_f in [0, 1.5]: noise scatter 4.76e-02, E12 (0.02 vs 0.01) 5.77e-05, ratio 824.321: floor reached
+    h = 0.01, x+ - x+_f in [1.5, 3]: noise scatter 1.23e-01, E12 (0.02 vs 0.01) 1.28e-04, ratio 964.186: floor reached
+    h = 0.01, x+ - x+_f in [3, 99]: noise scatter 1.25e-01, E12 (0.02 vs 0.01) 1.55e-04, ratio 805.732: floor reached
+    h = 0.005, x+ - x+_f in [0, 1.5]: noise scatter 4.60e-02, E23 (0.01 vs 0.005) 1.34e-05, ratio 3434.766: floor reached
+    h = 0.005, x+ - x+_f in [1.5, 3]: noise scatter 1.23e-01, E23 (0.01 vs 0.005) 3.02e-05, ratio 4068.909: floor reached
+    h = 0.005, x+ - x+_f in [3, 99]: noise scatter 1.25e-01, E23 (0.01 vs 0.005) 3.37e-05, ratio 3707.740: floor reached
+  dose scan (exploratory): max |M_noisy - M| in the three windows, max over the seeds present
+    noise 2^0 x 2^-52 (2.2e-16), 2 seed(s): 4.60e-02, 1.23e-01, 1.25e-01
+    noise 2^6 x 2^-52 (1.4e-14), 2 seed(s): 4.60e-02, 1.23e-01, 1.25e-01
+    noise 2^12 x 2^-52 (9.1e-13), 2 seed(s): 4.60e-02, 1.23e-01, 1.25e-01
+    noise 2^20 x 2^-52 (2.3e-10), 2 seed(s): 4.58e-02, 1.22e-01, 1.25e-01
+    noise 2^28 x 2^-52 (6.0e-08), 2 seed(s): 3.68e-02, 8.88e-02, 1.28e-01
+
+== Supplementary: M at the limit against delta (family G, h = 0.01; family S from I41-rpi5, h = 0.01), A = p*_h - delta
+  delta      x+_f(G)  M_start(G)  M_end(G)   plateau(G)  r_AH(G)    M_end(S)   G - S
+     1e-12   18.035   0.499045   0.237668   0.237663   0.47534       -
+     1e-11   16.465   0.497732   0.237084   0.237062   0.47417       -
+     1e-10   14.925   0.496600   0.236527   0.236508   0.47305       -
+     1e-09   13.385   0.495695   0.236029   0.235999   0.47206       -
+     1e-08   11.825   0.495252   0.235575   0.235559   0.47115   0.223124  +1.25e-02
+     1e-07   10.235   0.495450   0.235231   0.235208   0.47046   0.223115  +1.21e-02
+     1e-06    8.725   0.495470   0.235018   0.234991   0.47004   0.223125  +1.19e-02
+     1e-05    7.165   0.496832   0.234992   0.234974   0.46998   0.223108  +1.19e-02
+     1e-04    5.495   0.500820   0.235312   0.235285   0.47062   0.223121  +1.22e-02
+     1e-03    3.795   0.508007   0.236230   0.236216   0.47246   0.223096  +1.31e-02
+     1e-02    3.125   0.496564   0.238744   0.238730   0.47749   0.222807  +1.59e-02
+     3e-02    2.505   0.498482   0.240225   0.240202   0.48045   0.229389  +1.08e-02
+     1e-01    2.255   0.498749   0.227639   0.227616   0.45528   0.233166  -5.53e-03
+
+== Supplementary: M at the limit against delta (family G, h = 0.005; family S from I41-rpi5, h = 0.01), A = p*_h - delta
+  delta      x+_f(G)  M_start(G)  M_end(G)   plateau(G)  r_AH(G)    M_end(S)   G - S
+     1e-12   17.942   0.498985   0.237628   0.237622   0.47526       -
+     1e-11   16.428   0.497941   0.237051   0.237048   0.47410       -
+     1e-10   14.898   0.496840   0.236504   0.236498   0.47301       -
+     1e-09   13.357   0.495949   0.235997   0.235990   0.47199       -
+     1e-08   11.797   0.495501   0.235553   0.235548   0.47111   0.223124  +1.24e-02
+     1e-07   10.263   0.495198   0.235200   0.235198   0.47040   0.223115  +1.21e-02
+     1e-06    8.697   0.495724   0.234988   0.234982   0.46998   0.223125  +1.19e-02
+     1e-05    7.098   0.497462   0.234969   0.234965   0.46994   0.223108  +1.19e-02
+     1e-04    5.463   0.501119   0.235282   0.235275   0.47056   0.223121  +1.22e-02
+     1e-03    3.788   0.508070   0.236213   0.236207   0.47243   0.223096  +1.31e-02
+     1e-02    3.118   0.496632   0.238725   0.238720   0.47745   0.222807  +1.59e-02
+     3e-02    2.502   0.498506   0.240195   0.240190   0.48039   0.229389  +1.08e-02
+     1e-01    2.257   0.498729   0.227602   0.227599   0.45520   0.233166  -5.56e-03
+
+== First law over the whole series to the limit (a report): M_end - M_start against the integral of the horizon flux
+  delta 1e-06, h 0.02: G dM -0.38035, flux -0.26050, relative 3.2e-01; S dM -0.27096, flux -0.27107, relative 4.3e-04
+  delta 1e-06, h 0.01: G dM -0.38052, flux -0.26050, relative 3.2e-01; S dM -0.27111, flux -0.27117, relative 2.0e-04
+  delta 1e-06, h 0.005: G dM -0.38105, flux -0.26075, relative 3.2e-01; S dM -0.27112, flux -0.27113, relative 2.9e-05
+  delta 1e-08, h 0.02: G dM -0.37935, flux -0.25972, relative 3.2e-01; S dM -0.27100, flux -0.27122, relative 8.2e-04
+  delta 1e-08, h 0.01: G dM -0.37956, flux -0.25972, relative 3.2e-01; S dM -0.27106, flux -0.27112, relative 2.0e-04
+  delta 1e-08, h 0.005: G dM -0.38007, flux -0.25996, relative 3.2e-01; S dM -0.27112, flux -0.27113, relative 3.7e-05
+
+19 checks, 6 failed; 147 s
+mutation mass_exponent: fired ['PL1', 'RC3', 'RC4', 'RC7', 'RN0', 'RNR'], declared ['PL1', 'RC3', 'RC4', 'RC7', 'RN0', 'RNR']: MATCH
+rc 0
