@@ -1,0 +1,8 @@
+run_03_CFZ stopped at the 1 h condition (applied late: 2 h 29 min wall), on the coordinator's instruction, 2026-11-26 19:36.
+command   nice -n 10 taylor_radial.py --only=C,F,Z   (driver -> taylor_radial arc eps=-1 omega=0.66 omega_to=0.45 ... alpha_stop=4.017906)
+machine   Apple M5, 10 cores, 32 GB, macOS; RAYON_NUM_THREADS=2; one process; nice 10
+PIDs      38360 (runlog.sh), 38362 (/usr/bin/time -l), 38363 (python driver), 38364 (taylor_radial arc); stopped by SIGTERM, python first
+result    rc 143; 8965.8 s wall; Rust child 164 CPU-min; nothing written to run_03_CFZ.log beyond '--- C (0 s)'
+finished  nothing: the driver held the child's stdout in a pipe until its exit (capture_output), so the rows and mode scans the
+          child may have printed were lost with the pipe. No check C, F or Z result exists from this run.
+kept      run_03_CFZ.log, .err, .rc, .pid unchanged (the .err holds /usr/bin/time's line for the stopped command)
