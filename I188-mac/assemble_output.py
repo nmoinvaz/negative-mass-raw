@@ -20,10 +20,10 @@ def res(base):
             else f"exit {rc}, no time -l lines")
 
 
-RUNS = [l.split("|") for l in open(os.path.join(D, "runs.txt")).read().splitlines() if l.strip() and not l.startswith("#")]
+RUNS = [l.split("|", 1) for l in open(os.path.join(D, "runs.txt")).read().splitlines() if l.strip() and not l.startswith("#")]
 o = ["# taylor_complex_output.txt: the runs of record of #188, assembled by negative-mass-raw/I188-mac/assemble_output.py",
      f"# raw folder I188-mac, last commit touching it when assembled: {rawc}",
-     "# machine: Apple M5 Mac (10 cores, 32 GB), shared with other sessions; one process at a time, nice 10; the crate is single-threaded;",
+     "# machine: Apple M5 Mac (10 cores, 32 GB), shared with other sessions; two queues of one process each (run_all.sh A and B), nice 10, the references of run_01 to run_04 one process; the crate is single-threaded;",
      "# the load average is on the first lines of each run's log below", ""]
 for base, title in RUNS:
     o += ["=" * 120, f"{base}: {title}", res(base), "=" * 120]
