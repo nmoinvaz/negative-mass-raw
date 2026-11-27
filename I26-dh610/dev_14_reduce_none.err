@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-raw/I26-dh610/dev_13_order4_wip.py", line 35, in <module>
+    assert MUTATE in MUTATIONS, f"unknown mutation {MUTATE}; known: {MUTATIONS}"
+           ^^^^^^^^^^^^^^^^^^^
+AssertionError: unknown mutation none; known: ('wrong_h', 'wrong_Om0', 'wrong_Om1', 'T_const', 'K_sign', 'bad_exchange', 'coarse_B', 'short_tail', 'pslq_wrong_basis', 'wrong_Om2_series', 'wrong_J3', 'wrong_tanC', 'wrong_Y3', 'wrong_B', 'wrong_P')

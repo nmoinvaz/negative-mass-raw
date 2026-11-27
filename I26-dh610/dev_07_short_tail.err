@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-i26/notes/wormhole_largeD/order4.py", line 622, in <module>
+    main()
+    ~~~~^^
+  File "/home/nathan/Source/negative-mass-i26/notes/wormhole_largeD/order4.py", line 613, in main
+    ev = check_evals()
+  File "/home/nathan/Source/negative-mass-i26/notes/wormhole_largeD/order4.py", line 528, in check_evals
+    f1, r1, res1 = pslq_found(b1, mp.mpf("1e-18"), 1000, expected=[3, -240, 8, 32])
+                   ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-i26/notes/wormhole_largeD/order4.py", line 455, in pslq_found
+    r = mp.pslq(x, tol=tau, maxcoeff=H, maxsteps=10**6)
+  File "/home/nathan/Source/negative-mass-venv314/lib/python3.14/site-packages/mpmath/identification.py", line 139, in pslq
+    raise ValueError("prec cannot be less than 53")
+ValueError: prec cannot be less than 53
