@@ -169,7 +169,7 @@ Criteria, coded as worded here:
   (mutation `old_rows`).
 
 Mutations: the 15 of #202 keep their names; `csv` is retargeted (C2), and two are new: `old_rows` (`OLD_ROWS` D = 6, 12th decimal + 1)
-and `crate_lowD` (the crate's D = 6 value, 12th decimal + 1, 9e-12 relative 2e-12, under K1's bar).
+and `crate_lowD` (the crate's D = 6 value, 12th decimal + 1: 9e-12 absolute, 2e-12 relative, under K1's bar).
 
 **Predictions** (before the development run; targets are declared from it as amendment A3b, before the run of record). Changes
 from #202's declared sets (`ts13_digits_output.txt` as committed) are marked:
@@ -185,7 +185,8 @@ from #202's declared sets (`ts13_digits_output.txt` as committed) are marked:
 | `sign`, `sqrt` | C1, K1 |
 | `csv` | **C2** (was C1) |
 | `profiles` | T2 |
-| `crate`, `crate_7` | K1, O1 and O1 |
+| `crate` | K1, O1 |
+| `crate_7` | O1 |
 | `onemode` | O1 |
 | `wformula` | W1 |
 | `upot` | W1, W2 |
@@ -195,6 +196,15 @@ from #202's declared sets (`ts13_digits_output.txt` as committed) are marked:
 
 So the only prediction that differs from #202's declared sets is `csv`; the five that the retarget experiment of `run_06` showed losing
 C1 keep it, because C1 again reads TS13's printed value. (That experiment retargeted C1 to the crate; this retarget does not.)
+
+## Amendment A3b: declared targets of `ts13_digits.py` (after the development run, before the run of record)
+
+Development run: `dev_05_summary.log` (18 runs, `run_ts13_mutations.sh`, one log each in `dev_05_ts13_mutations/`); the unmutated run passes
+all 11 checks. **All 17 mutations matched the predictions of A3**, no surprise. `declare_targets.py` wrote `declared_ts13_targets.json`
+from it, and the `MUTATIONS` table in the script holds the same sets (the only edit to a declared set: `csv`, C1 to C2). `OLD_ROWS` equals
+the D = 4 … 11 rows of `git show 4bced01:…/growth.csv` and of 613e866, with source `TS13 Table I` (`dev_06_verify_old_rows.log`).
+Runs of record: `run_12_*` (baseline exit 0, `--selftest` exit 0, 18 PASS 0 FAIL), `run_13_*` (18 runs, `compare_targets.py`: 18 of 18
+on target). The refreshed `notes/wormhole_largeD/ts13_digits_output.txt` is `run_12_*` with a header.
 
 ## Runs
 
@@ -220,6 +230,11 @@ run's failed checks with the declared ones.
 | `run_09_printed_digits.log` | `printed_digits.py` | 31 of 31 cells unchanged |
 | `run_10_printed_digits/`, `run_10_compare.log`, `declared_printed_digits.json` | its 8 mutations and the unmutated run | 9 of 9 on target |
 | `run_11_relabel_readers.log`, `relabel_readers.py` | `stability.py:54` and `order4.py:808` on `w2_output.txt` relabelled | the first raises, the second matches 0 of 16 rows |
+| `dev_05_summary.log`, `dev_05_ts13_mutations/`, `run_ts13_mutations.sh` | `ts13_digits.py` and its 17 mutations, development run (A3b) | all 17 as predicted |
+| `dev_06_verify_old_rows.log`, `verify_old_rows.py` | `OLD_ROWS` against git at 4bced01 and 613e866 | equal, label `TS13 Table I` |
+| `declared_ts13_targets.json` | declared targets from `dev_05` | 18 entries |
+| `run_12_ts13_digits.log`, `run_12_ts13_digits_selftest.log` | `ts13_digits.py`, `--selftest` of record | exit 0, exit 0 (18 PASS) |
+| `run_13_summary.log`, `run_13_compare_targets.log`, `run_13_ts13_mutations/` | 18 runs of record | 18 of 18 on target |
 
 Code of record: `wip/i221-growth-lowD` of negative-mass; the note is `notes/wormhole_largeD/growth_lowD.md`.
 
@@ -227,7 +242,8 @@ Code of record: `wip/i221-growth-lowD` of negative-mass; the note is `notes/worm
 
 - **No acceptance criterion of the issue failed.** No criterion or tolerance was changed after a run. No mutation was silent
   (`bump:9`, `bump:11` of `printed_digits.py` fire nothing by declaration).
-- **`ts13_digits.py` C1 fails** on the new csv, as predicted; the file is not on the task's list (note, "Reported, not fixed").
+- **`ts13_digits.py` C1 failed** on the new csv, as predicted; the coordinator then added the file to the task (A3): retargeted, baseline
+  and `--selftest` pass (A3b).
 - **`make_figures.py`'s marker split** no longer separates the D <= 11 rows; not on the list.
 - **`stability.py:54`** (not mentioned by #200) breaks on the next regenerated `w2_output.txt`.
 - **One prediction was wrong**: `source:D` at D >= 20 (A1).
