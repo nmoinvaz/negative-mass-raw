@@ -1,0 +1,28 @@
+# 2026-11-27T05:30:51Z 21:30  up 28 days, 15:06, 4 users, load averages: 3.90 3.52 3.63
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-r212/notes/black_universe/stability.py", line 848, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nathan/Source/negative-mass-r212/notes/black_universe/stability.py", line 841, in main
+    sys.exit(0 if spectral_command(pos[1]) else 1)
+                                   ~~~^^^
+IndexError: list index out of range
+        0.21 real         0.18 user         0.02 sys
+            80871424  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                7807  page reclaims
+                   1  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                  18  involuntary context switches
+          2375798943  instructions retired
+           756680352  cycles elapsed
+            56771112  peak memory footprint
+exit 1

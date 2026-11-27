@@ -59,3 +59,9 @@ case and the three mutations with A1.
 
 | file | what |
 |---|---|
+| `rerun.sh`, `rerun_check.log`, `rerun_planted.log`, `rerun_controls.log` | chain A: the verdict lines of check equal the Pi's. planted gives the same verdicts, with W²a² differing from the Pi's by 1.3e-14 (R1) and 1.3e-14 (R2) (scipy is not bitwise portable). controls: 14 of 14 fire, the same as the Pi's |
+| `rerun_spectral.log` | run 1 of spectral: **crashed** (IndexError). The review's command left off the results directory the runner's command passes, so this is the review's error, kept as run 1 |
+| `ind212_run1.txt` | run 1: **exit 0, 3 of 3.** K1: ρ_h and κ equal #212's to 1.8e-14 at the nine members. K2: one negative eigenvalue at both grids for c = −10 … −1.0001, with W equal to #212's shooting to 1.9e-12 … 2.4e-10 relative. None at c = −1. K3: W/κ = 0.999969 at c = −1.0001 |
+| `ind212_run1_mut_*.txt` | `short-X` fails exactly K2. `wrong-V` fails K2, and is **silent on K3**: doubling A²/R⁴ barely moves the near-horizon limit, where A → 0. `wrong-m` **crashed** before reporting (no horizon at c = −10) |
+| `ind212_run2*.txt` | run 2, with A1: the base case is again exit 0, 3 of 3, with the same numbers. `short-X` and `wrong-V` repeat run 1. `wrong-m` **crashes again**, later: without asymptotic flatness ρ(x) reaches infinity at finite x, and exp overflows. It exits non-zero, but not with "exactly its targets failing": reported as a mutation that breaks the program, not as a clean fire. No further amendment |
+| `results/member_*`, `rerun_spectral2.sh`, `rerun_spectral_2.log` | chain B: the 20 members at R1 and R2. **Every count equals the Pi's** (40 of 40), and every W equals it to 1.3e-10 relative or better. Spectral run 2, given the Mac's own results directory: 40 of 40 PASS, exit 0 |

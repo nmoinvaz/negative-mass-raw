@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-raw/I212-mac-review/ind212.py", line 117, in <module>
+    l1, l2 = lowest(c, 0.02), lowest(c, 0.01)
+             ~~~~~~^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-raw/I212-mac-review/ind212.py", line 96, in lowest
+    d, e, _, _ = operator(c, h)
+                 ~~~~~~~~^^^^^^
+  File "/Users/nathan/Source/negative-mass-raw/I212-mac-review/ind212.py", line 84, in operator
+    d = math.exp(z)
+OverflowError: math range error
+rc 1
