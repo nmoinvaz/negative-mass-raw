@@ -223,7 +223,7 @@ def half_units(x, tok):
     return (x - float(tok)) / (0.5 * 10.0 ** (-nd))
 
 
-if any(k in ONLY for k in ("K0", "K2", "K3")):
+if any(k in ONLY for k in ("K2", "K3")):   # A1: K0 no longer needs the phantom rows
     BR = {}                                                     # alpha_c -> (Plo, Phi), from a coarse scan
     t0 = time.time()
     grid = [10 ** lp for lp in np.linspace(math.log10(2.0e-4), math.log10(2.0e-2), 41)]
