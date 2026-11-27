@@ -24,7 +24,7 @@ def check(n, ok, d):
 out = open(f"{O.wt}/w2_output.txt").read()
 sec = out[out.index("growth.csv against the crate"):]
 crate = {}
-for m in re.finditer(r"^\s+(\d+)\s+(TS13 Table I|modes_r)\s+[0-9.]+\s+([0-9.]+)", sec, re.M):
+for m in re.finditer(r"^\s+(\d+)\s+(TS13 Table I|modes_r\.py)\s+[0-9.]+\s+([0-9.]+)", sec, re.M):
     crate.setdefault(int(m.group(1)), m.group(3))
 rows = {int(r["D"]): r for r in csv.DictReader(open(f"{O.wt}/growth.csv"))}
 main_csv = subprocess.run(["git", "-C", O.wt, "show", "613e866:notes/wormhole_largeD/growth.csv"], capture_output=True,
