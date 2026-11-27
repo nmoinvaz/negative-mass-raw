@@ -1,0 +1,13 @@
+    Checking multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i188-libs/multishoot)
+error: very complex type used. Consider factoring parts into `type` definitions
+   --> tests/plane_complex.rs:494:16
+    |
+494 |     let cases: [(&str, fn(&mut Out, f64)); 6] = [
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.94.0/index.html#type_complexity
+    = note: `-D clippy::type-complexity` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::type_complexity)]`
+
+error: could not compile `multishoot` (test "plane_complex") due to 1 previous error
+warning: build failed, waiting for other jobs to finish...

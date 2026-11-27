@@ -78,8 +78,8 @@ The scipy references: `python taylor_polar.py --complex --scipy-ref-make=b1 --rt
 
 ## Stage 3: the library pull request
 
-multishoot pull request https://github.com/nmoinvaz/multishoot/pull/81 (branch `feat/complex-plane`, 9aebbcd; not merged, not published). The development runs are
-`dev_71` to `dev_84`: the first build (`dev_71`, a borrow error), the tests (`dev_72`, `dev_73` with `mutate`, `dev_74` the existing plane tests with their digests,
+multishoot pull request https://github.com/nmoinvaz/multishoot/pull/81 (branch `feat/complex-plane`, head 54d6fca after the review fixes; not merged, not published). The development runs are
+`dev_71` to `dev_98`: the first build (`dev_71`, a borrow error), the tests (`dev_72`, `dev_73` with `mutate`, `dev_74` the existing plane tests with their digests,
 `dev_75` portable), `cargo fmt` and clippy (`dev_76` to `dev_80`), the final tests after formatting on both backends (`dev_81`, `dev_82`), and the whole `cargo test --release`
-on the default build (`dev_83`) and with `--features portable` (`dev_84`): all `test result: ok`. The 16 digests of `dev_81` and `dev_82` are equal; the real lanes'
+on the default build (`dev_83`) and with `--features portable` (`dev_84`): all `test result: ok`; then CodeRabbit's four findings (`dev_85` to `dev_98`: the reciprocal and square root at 1e+-200, `ln_vol`'s docs, per-metric controls, tests, fmt and clippy again on both backends). The 16 digests are the same after the fixes. The 16 digests of `dev_81` and `dev_82` are equal; the real lanes'
 P1, P2, P3 digests equal those in `../I189-mac/run_17*.log` (10 of 10).
