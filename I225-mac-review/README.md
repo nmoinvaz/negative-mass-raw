@@ -32,3 +32,6 @@ T(0) = 1/W = 0.846045 (#195), T(1/2) = 0.758357 (#151, [GGS09a] 0.758), T(1) = 0
 
 | file | what |
 |---|---|
+| `rerun_analyze.log` | 55 of 59 checks (CMP2 at D = 5 three times, and KX, failing as recorded); every line equal to `throat_locus_output.txt` apart from the header |
+| `ind225_run1.txt` | **K1 passes**: T(0.048) = 0.845100, e-fold 0.847466, +2.7e-4 from the note's 0.8472 and −3.4e-5 from the measured 1/λ = 0.8475 |
+| `ind225_run1_mut_odd.txt` | `odd` fails K1 (−7.4e-3) |
