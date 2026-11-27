@@ -24,7 +24,7 @@ t0 = time.time()
 out = sm.chain(2, eps, h, d.Sp[:, :Np + 1], d.Sm, 0.0, 0.0, nm0, None, None, F1, Fmax, Nc, tol=1e-2)
 print("status", out["status"], "event", out["event"], "secs %.1f" % out["secs"], "cols", len(out["ser"]["r"]) if out["ser"] else 0)
 s = out["ser"]
-np.savez(f"/tmp/claude-1000/-home-nathan-Source-negative-mass-i41/6aeafbfc-d94d-45dc-8475-ad54ab6a4512/scratchpad/real_h{h:g}_d{delta:g}_F{F1:g}_K{K}_N{Nc}.npz", **s)
+np.savez(f"/tmp/claude-1000/dev_real_h{h:g}_d{delta:g}_F{F1:g}_K{K}_N{Nc}.npz", **s)
 sel = np.arange(0, len(s["r"]), max(1, len(s["r"]) // 60))
 print("xp    xm      t     r      M      F      level  edge  Mcell-M")
 for i in sel:

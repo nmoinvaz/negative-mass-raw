@@ -1,0 +1,8 @@
+  h=0.0025: p*_h 7.428059097947e-07; 1175 horizon rows; e^-f from 1.003 to 16.771; first M 0.49925 (141 s)
+  h=0.00125: p*_h 1.857022334661e-07; 2681 horizon rows; e^-f from 1.001 to 24.517; first M 0.49963 (639 s)
+[PASS] K1b: e^-f 1.335: M 0.43726 (h = 0.0025: 0.43726) against 0.43732 (-5.7e-05); e^-f 1.936: M 0.37797 (h = 0.0025: 0.37797) against 0.378 (-2.8e-05); e^-f 4.074: M 0.30315 (h = 0.0025: 0.30315) against 0.30314 (+9.2e-06); e^-f 11.96: M 0.25010 (h = 0.0025: 0.25026) against 0.24998 (+1.2e-04)
+[PASS] K2: horizon x- at e^-f = 11.96: 9.39775 against 9.39779 (-4.2e-05)
+  reported: at e^-f = 36.23, M nan (runner 0.22930), x- nan, 0 rows within 5 % of that e^-f
+
+2 criteria, 2 pass; failed: []; mutation None; 639 s
+rc=0

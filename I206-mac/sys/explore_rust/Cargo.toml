@@ -1,0 +1,12 @@
+[package]
+name = "explore_rust"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+# I206-mac: the shipped locator (multisolver, branch feat/locate-late-windows) on the series of the Python exploration.
+[dependencies]
+multisolver = { path = "../../../../negative-mass-i206-libs/multisolver" }
+
+[profile.release]
+opt-level = 3

@@ -1,0 +1,38 @@
+settled_mass.py analyze {'raw': '/home/nathan/Source/negative-mass-raw/I41-rpi5', 'mutate': 'pstar_off'}: numba 0.68.1, numpy 2.5.4, python 3.14.10, rpi5-ubuntu, load average at start 3.08 2.99 2.65, mutation pstar_off, 2026-11-27 07:08:27
+
+== Planted exact solutions through the chain
+    P1 h = 0.02: status limit, columns 507, F to 1.556e+06, max |M - 0.3| 1.109e-04, max |x- - x_h| 3.298e-04
+    P1 h = 0.01: status limit, columns 1013, F to 1.543e+06, max |M - 0.3| 2.773e-05, max |x- - x_h| 8.245e-05
+    P1 h = 0.005: status limit, columns 2027, F to 1.567e+06, max |M - 0.3| 6.817e-06, max |x- - x_h| 2.061e-05
+    P1 h = 0.0025: status limit, columns 4054, F to 1.571e+06, max |M - 0.3| 1.684e-06, max |x- - x_h| 5.153e-06
+[pass] PL1: exact Schwarzschild (M = 0.3) in the stretching gauge, through the chain: M recovered, second order, limit reached  (max |M - 0.3| at h = 0.005: 6.82e-06 (bar 1e-4); orders [2.0, 2.024, 2.018] in (1.75, 2.25); status ['limit', 'limit', 'limit', 'limit']; F reached [1556237, 1543328, 1567301, 1571383] of 1.57286e+06)
+    P2 h = 0.02: columns 106 (levels [100, 4, 2]), max |r - r_exact| on r_+ = 0: 1.703e-04, max |x- - 2 a x+| 1.577e-04, min edge 26 cells
+    P2 h = 0.01: columns 212 (levels [200, 8, 4]), max |r - r_exact| on r_+ = 0: 4.266e-05, max |x- - 2 a x+| 3.948e-05, min edge 51 cells
+    P2 h = 0.005: columns 424 (levels [400, 16, 8]), max |r - r_exact| on r_+ = 0: 1.067e-05, max |x- - 2 a x+| 9.877e-06, min edge 101 cells
+    P2 h = 0.0025: columns 848 (levels [800, 32, 16]), max |r - r_exact| on r_+ = 0: 2.670e-06, max |x- - 2 a x+| 2.470e-06, min edge 201 cells
+[pass] PL2: exact Roberts ghost solution, moving contour r_+ = 0, two forced zoom levels: r on the contour, second order  (max error at h = 0.005: 1.07e-05 (bar 5e-5); orders [1.997, 1.999, 1.999] in (1.75, 2.25))
+[pass] PL3: level 0 of the chain equals dn.evolve bit for bit (nodes, dead flags) and finds the same first trapped cell  (h = 0.02, delta = 1e-06: nodes equal True, dead equal True, events (385, 385) and (385, 385))
+[pass] AN: chain against a zoom-free uniform anisotropic grid (h, h/32): horizon M and x- where e^{-f} < 40  (h = 0.02, delta = 1e-06: events (12335, 385) / (385, 385), max |dM| 1.98e-04 (bar 3e-4), max |dx-| 3.30e-04, 4000 columns, AN series to F = 40.81)
+
+== p*_h on this machine against #40's (dh610-fedora)
+    h = 0.02: p*_h = 4.7527725360001875e-05, hi - lo = 6.10e-15, minus #40's +9.16e-15, 18 runs, 14 s
+    h = 0.01: p*_h = 1.1884163318125821e-05, hi - lo = 6.10e-15, minus #40's -4.58e-14, 18 runs, 48 s
+    h = 0.005: p*_h = 2.9711800304035538e-06, hi - lo = 6.10e-15, minus #40's -3.05e-15, 18 runs, 140 s
+    h = 0.0025: p*_h = 7.4280396930694569e-07, hi - lo = 9.54e-15, minus #40's +nan, 23 runs, 627 s
+[pass] RC1: p*_h bisected to hi - lo <= 1e-14 and, where #40 has it, within 1e-11 of #40's
+    run h = 0.02, delta = 1e-08 failed: RuntimeError('fates at p*_h -/+ delta: 1, 1 (wanted -1, +1)')
+    run h = 0.01, delta = 1e-08 failed: RuntimeError('fates at p*_h -/+ delta: 1, 1 (wanted -1, +1)')
+    run h = 0.005, delta = 1e-08 failed: RuntimeError('fates at p*_h -/+ delta: 1, 1 (wanted -1, +1)')
+    run h = 0.0025, delta = 1e-08 failed: RuntimeError('fates at p*_h -/+ delta: 1, 1 (wanted -1, +1)')
+[FAIL] RC2: fates, first trapped cell and its time  (a run failed)
+[FAIL] RC3: formation value  (a run failed)
+[FAIL] RC4: first law  (a run failed)
+[FAIL] RC5: limit  (a run failed)
+[FAIL] RC6: convergence  (a run failed)
+[FAIL] RC6b: convergence, finer triple  (a run failed)
+[FAIL] RC8: settled  (a run failed)
+[FAIL] RC7: delta independence  (a run failed)
+
+13 checks, 8 failed; 235 s
+mutation pstar_off: fired ['RC2', 'RC3', 'RC4', 'RC5', 'RC6', 'RC6b', 'RC7', 'RC8'], declared ['RC2', 'RC3', 'RC4', 'RC5', 'RC6', 'RC6b', 'RC7', 'RC8']: MATCH
+rc 0
