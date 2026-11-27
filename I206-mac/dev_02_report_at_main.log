@@ -1,0 +1,104 @@
+    Finished `release` profile [optimized] target(s) in 0.00s
+     Running tests/locate.rs (target/release/deps/locate-10c603275d18cb8b)
+
+running 1 test
+test late_windows_report ... == default grid: starts [0.2, 0.3, 0.4, 0.5, 0.6]
+ D6  F64 Unresolved ThreeTerm first   6 deg  2 | s: err 4.1e-1 bar 1.1e0 tol 1.0e-2 | alpha: err 1.2e1 bar 4.5e1 tol 1.0e-1 | skew 0e0  FAILS ["1 kind", "2 tolerance", "4 bar useful"]
+noise only F64: Unresolved 100 Real 0 Pair 0 None 0; first resolved []
+noise only Dd: Unresolved 100 Real 0 Pair 0 None 0; first resolved []
+noise only Qd: Unresolved 100 Real 0 Pair 0 None 0; first resolved []
+entire exp(u) F64: Some((Unresolved, Ratio, 6, 8, 1.9511995673581086))
+entire exp(u) Dd: Some((Unresolved, Ratio, 12, 9, 2.8328435044718705))
+entire exp(u) Qd: Some((Unresolved, Ratio, 72, 1, 1.9051248379533272))
+entire exp(-3u) F64: Some((Unresolved, Ratio, 6, 1, 1.5703493036010538))
+entire exp(-3u) Dd: Some((Unresolved, Ratio, 18, 3, 2.3987588197681764))
+entire exp(-3u) Qd: Some((Unresolved, Ratio, 60, 1, 1.9506913124818657))
+entire sin(sqrt v) / sqrt v F64: Some((Unresolved, Ratio, 9, 9, 2.1300548496391536))
+entire sin(sqrt v) / sqrt v Dd: Some((Unresolved, Ratio, 36, 9, 1.9914515289620007))
+entire sin(sqrt v) / sqrt v Qd: Some((Unresolved, Ratio, 72, 1, 1.811433864195445))
+W1 m     1 F64: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W1 m     1 Dd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W1 m     1 Qd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W1 m    10 F64: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W1 m    10 Dd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W1 m    10 Qd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W1 m   100 F64: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W1 m   100 Dd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W1 m   100 Qd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W2 m     1 F64: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W2 m     1 Dd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W2 m     1 Qd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W2 m    10 F64: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W2 m    10 Dd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W2 m    10 Qd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W2 m   100 F64: unresolved  99 right   1 (alpha covered   1) wrong   0 none   0 wrong seeds []
+W2 m   100 Dd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W2 m   100 Qd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W3 m     1 F64: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W3 m     1 Dd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W3 m     1 Qd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W3 m    10 F64: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W3 m    10 Dd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W3 m    10 Qd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W3 m   100 F64: unresolved  99 right   0 (alpha covered   0) wrong   1 none   0 wrong seeds [14]
+W3 m   100 Dd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W3 m   100 Qd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+== grid of #191: starts [0.2, 0.3, 0.4, 0.5, 0.6]
+ D6  F64 Unresolved ThreeTerm first   6 deg  2 | s: err 4.1e-1 bar 1.1e0 tol 1.0e-2 | alpha: err 1.2e1 bar 4.5e1 tol 1.0e-1 | skew 0e0  FAILS ["1 kind", "2 tolerance", "4 bar useful"]
+noise only F64: Unresolved 100 Real 0 Pair 0 None 0; first resolved []
+noise only Dd: Unresolved 100 Real 0 Pair 0 None 0; first resolved []
+noise only Qd: Unresolved 100 Real 0 Pair 0 None 0; first resolved []
+entire exp(u) F64: Some((Unresolved, Ratio, 6, 8, 1.9511995673581086))
+entire exp(u) Dd: Some((Unresolved, Ratio, 12, 9, 2.8328435044718705))
+entire exp(u) Qd: Some((Unresolved, Ratio, 72, 1, 1.9051248379533272))
+entire exp(-3u) F64: Some((Unresolved, Ratio, 6, 1, 1.5703493036010538))
+entire exp(-3u) Dd: Some((Unresolved, Ratio, 18, 3, 2.3987588197681764))
+entire exp(-3u) Qd: Some((Unresolved, Ratio, 60, 1, 1.9506913124818657))
+entire sin(sqrt v) / sqrt v F64: Some((Unresolved, Ratio, 9, 9, 2.1300548496391536))
+entire sin(sqrt v) / sqrt v Dd: Some((Unresolved, Ratio, 36, 9, 1.9914515289620007))
+entire sin(sqrt v) / sqrt v Qd: Some((Unresolved, Ratio, 72, 1, 1.811433864195445))
+W1 m     1 F64: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W1 m     1 Dd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W1 m     1 Qd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W1 m    10 F64: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W1 m    10 Dd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W1 m    10 Qd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W1 m   100 F64: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W1 m   100 Dd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W1 m   100 Qd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W2 m     1 F64: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W2 m     1 Dd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W2 m     1 Qd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W2 m    10 F64: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W2 m    10 Dd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W2 m    10 Qd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W2 m   100 F64: unresolved  99 right   1 (alpha covered   1) wrong   0 none   0 wrong seeds []
+W2 m   100 Dd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W2 m   100 Qd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W3 m     1 F64: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W3 m     1 Dd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W3 m     1 Qd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W3 m    10 F64: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W3 m    10 Dd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W3 m    10 Qd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W3 m   100 F64: unresolved  99 right   0 (alpha covered   0) wrong   1 none   0 wrong seeds [14]
+W3 m   100 Dd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+W3 m   100 Qd: unresolved 100 right   0 (alpha covered   0) wrong   0 none   0 wrong seeds []
+== controls
+planted-resolved F64: Some(Real); loose-bar F64: not Unresolved on 100 of 100 noise-only, 3 of 3 entire
+W1 F64: wrong-location ConfidentlyWrong (Some((Real, 0.125, 4.440892098500626e-15))); bar-shrunk-weak flags m = 1, 10, 100: [Right, Right, Right]; noise-free: wrong 100 of 100, right 0
+W2 F64: wrong-location ConfidentlyWrong (Some((Real, 0.08000000000000007, 1.5631940186722206e-15))); bar-shrunk-weak flags m = 1, 10, 100: [Right, Right, ConfidentlyWrong]; noise-free: wrong 100 of 100, right 0
+W3 F64: wrong-location ConfidentlyWrong (Some((Real, 0.09999999999999987, 1.9539925233402753e-15))); bar-shrunk-weak flags m = 1, 10, 100: [Right, Right, ConfidentlyWrong]; noise-free: wrong 0 of 100, right 100
+planted-resolved Dd: Some(Real); loose-bar Dd: not Unresolved on 100 of 100 noise-only, 3 of 3 entire
+W1 Dd: wrong-location ConfidentlyWrong (Some((Real, 0.125, 5.423418723394456e-31))); bar-shrunk-weak flags m = 1, 10, 100: [Right, Right, Right]; noise-free: wrong 100 of 100, right 0
+W2 Dd: wrong-location ConfidentlyWrong (Some((Real, 0.08000000000000002, 3.470987982972452e-31))); bar-shrunk-weak flags m = 1, 10, 100: [Right, Right, Right]; noise-free: wrong 100 of 100, right 0
+W3 Dd: wrong-location ConfidentlyWrong (Some((Real, 0.1, 4.338734978715565e-31))); bar-shrunk-weak flags m = 1, 10, 100: [Right, Right, Right]; noise-free: wrong 100 of 100, right 0
+planted-resolved Qd: Some(Real); loose-bar Qd: not Unresolved on 100 of 100 noise-only, 3 of 3 entire
+W1 Qd: wrong-location ConfidentlyWrong (Some((Real, 0.125, 2.6739518772059593e-62))); bar-shrunk-weak flags m = 1, 10, 100: [Right, Right, Right]; noise-free: wrong 100 of 100, right 0
+W2 Qd: wrong-location ConfidentlyWrong (Some((Real, 0.08000000000000002, 1.711329201411814e-62))); bar-shrunk-weak flags m = 1, 10, 100: [Right, Right, Right]; noise-free: wrong 100 of 100, right 0
+W3 Qd: wrong-location ConfidentlyWrong (Some((Real, 0.1, 2.1391615017647676e-62))); bar-shrunk-weak flags m = 1, 10, 100: [Right, Right, Right]; noise-free: wrong 100 of 100, right 0
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 77.55s
+
+nice -n 10 cargo test --release -j 2 --test locate late_windows_report --      77.33s user 0.22s system 99% cpu 1:17.75 total
