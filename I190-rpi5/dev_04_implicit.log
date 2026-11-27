@@ -1,0 +1,236 @@
+# dev_04_implicit: 2026-11-27T00:01:19Z machine rpi5-ubuntu load 0.78 0.94 0.81 threads 2 nice 10
+# multishoot 70fac93 5 modified files
+   Compiling multishoot v4.2.0 (/home/nathan/Source/negative-mass-i190-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 40.98s
+     Running tests/implicit.rs (target/release/build/multishoot/bee35d2b9ab6f6d8/out/implicit-bee35d2b9ab6f6d8)
+
+running 20 tests
+[PASS] f64 QA Project None: stop End, 12 steps, err 1.26e-16 (bar 1.1e-10), n_rel_max 1.41e-16
+[PASS] f64 QA Conserve None: stop End, 12 steps, err 1.26e-16 (bar 1.1e-10), n_rel_max 1.25e-16
+[PASS] f64 QB Project None: stop End, 15 steps, err 2.23e-15 (bar 1.1e-10), n_rel_max 5.58e-17
+[PASS] f64 QB Conserve None: stop End, 16 steps, err 3.50e-14 (bar 1.1e-10), n_rel_max 4.23e-14
+[PASS] f64 KA Project None: stop End, 14 steps, err 1.77e-16 (bar 1.1e-10), n_rel_max 7.05e-17
+[PASS] dd QA Project None: stop End, 12 steps, err 1.40e-32 (bar 1.2e-26), n_rel_max 3.48e-33
+[PASS] f64 KA Conserve None: stop End, 14 steps, err 5.32e-15 (bar 1.1e-10), n_rel_max 8.28e-16
+[PASS] f64 KB Project None: stop End, 17 steps, err 4.35e-15 (bar 1.1e-10), n_rel_max 5.72e-17
+[PASS] dd QA Conserve None: stop End, 12 steps, err 4.93e-33 (bar 1.2e-26), n_rel_max 1.60e-32
+[NOT MET] (recorded, not gated) f64 KB Conserve None: stop Tiny, 33 steps, err 7.39e-8 (bar 1.1e-10), n_rel_max 1.16e-15
+[PASS] f64 KC Project None: stop End, 17 steps, err 4.20e-16 (bar 1.1e-10), n_rel_max 7.90e-17
+[PASS] f64 KC Conserve None: stop End, 17 steps, err 3.78e-15 (bar 1.1e-10), n_rel_max 7.71e-16
+[PASS] f64 RA Project None: stop End, 14 steps, err 8.87e-16 (bar 1.1e-10), n_rel_max 8.92e-17
+[PASS] f64 RA Conserve None: stop End, 14 steps, err 3.90e-15 (bar 1.1e-10), n_rel_max 1.57e-15
+[PASS] dd QB Project None: stop End, 16 steps, err 1.50e-31 (bar 1.2e-26), n_rel_max 7.15e-33
+[PASS] f64 RB Project None: stop End, 15 steps, err 1.87e-15 (bar 1.1e-10), n_rel_max 8.14e-17
+[PASS] dd QB Conserve None: stop End, 16 steps, err 4.06e-30 (bar 1.2e-26), n_rel_max 4.92e-30
+[NOT MET] (recorded, not gated) f64 RB Conserve None: stop Tiny, 115 steps, err 1.00e0 (bar 1.1e-10), n_rel_max 1.00e0
+[PASS] f64 RC Project None: stop End, 17 steps, err 3.06e-16 (bar 1.1e-10), n_rel_max 7.42e-17
+[PASS] f64 RC Conserve None: stop End, 17 steps, err 2.52e-15 (bar 1.1e-10), n_rel_max 1.53e-15
+[PASS] f64 RD Project None: stop End, 23 steps, err 2.20e-15 (bar 1.1e-10), n_rel_max 1.06e-16
+[NOT MET] (recorded, not gated) f64 RD Conserve None: stop End, 92 steps, err 1.21e1 (bar 1.1e-10), n_rel_max 9.98e-1
+test closed_form_f64 ... ok
+[PASS] dd KA Project None: stop End, 15 steps, err 1.26e-31 (bar 1.2e-26), n_rel_max 1.21e-32
+[PASS] dd KA Conserve None: stop End, 16 steps, err 7.15e-31 (bar 1.2e-26), n_rel_max 8.38e-32
+[PASS] dd KB Project None: stop End, 18 steps, err 8.67e-32 (bar 1.2e-26), n_rel_max 4.03e-33
+[NOT MET] (recorded, not gated) dd KB Conserve None: stop Tiny, 33 steps, err 1.58e-18 (bar 1.2e-26), n_rel_max 1.19e-31
+[PASS] qd QA Project None: stop End, 12 steps, err 5.31e-65 (bar 1.5e-58), n_rel_max 2.78e-65
+[PASS] dd KC Project None: stop End, 18 steps, err 6.23e-32 (bar 1.2e-26), n_rel_max 1.24e-32
+[PASS] dd KC Conserve None: stop End, 19 steps, err 3.40e-31 (bar 1.2e-26), n_rel_max 7.26e-32
+[PASS] dd RA Project None: stop End, 15 steps, err 7.88e-32 (bar 1.2e-26), n_rel_max 1.15e-32
+[PASS] dd RA Conserve None: stop End, 15 steps, err 5.96e-31 (bar 1.2e-26), n_rel_max 1.49e-31
+[PASS] dd RB Project None: stop End, 20 steps, err 4.71e-31 (bar 1.2e-26), n_rel_max 4.87e-33
+[PASS] qd QA Conserve None: stop End, 12 steps, err 1.52e-65 (bar 1.5e-58), n_rel_max 7.15e-65
+[NOT MET] (recorded, not gated) dd RB Conserve None: stop Tiny, 33 steps, err 3.42e-18 (bar 1.2e-26), n_rel_max 4.39e-31
+[PASS] dd RC Project None: stop End, 17 steps, err 2.93e-32 (bar 1.2e-26), n_rel_max 8.43e-33
+[PASS] dd RC Conserve None: stop End, 18 steps, err 3.12e-31 (bar 1.2e-26), n_rel_max 1.36e-31
+[PASS] dd RD Project None: stop End, 29 steps, err 1.89e-31 (bar 1.2e-26), n_rel_max 1.30e-32
+[PASS] qd QB Project None: stop End, 17 steps, err 2.21e-63 (bar 1.5e-58), n_rel_max 1.87e-65
+[NOT MET] (recorded, not gated) dd RD Conserve None: stop Tiny, 48 steps, err 1.19e-19 (bar 1.2e-26), n_rel_max 1.69e-7
+test closed_form_dd ... ok
+[PASS] qd QB Conserve None: stop End, 16 steps, err 4.04e-62 (bar 1.5e-58), n_rel_max 4.92e-62
+[FIRED] control SkipOrder(3) in dd: fails ["step_sum", "closed_form", "crossings", "fold F1", "fold F2"]
+[FIRED] control RecipDD in dd: fails []
+[PASS] qd KA Project None: stop End, 16 steps, err 5.40e-64 (bar 1.5e-58), n_rel_max 2.64e-65
+[FIRED] control NoPivotCheck in dd: fails ["zero_pivot"]
+[FIRED] control NoCrossing in dd: fails ["crossings"]
+[PASS] qd KA Conserve None: stop End, 16 steps, err 6.53e-63 (bar 1.5e-58), n_rel_max 8.28e-64
+[FIRED] control ExponentHalf in dd: fails ["fold F2"]
+[FIRED] control NoPivotStop in dd: fails ["fold F1", "fold F2"]
+test controls::controls_dd ... ok
+[FIRED] control SkipOrder(3) in f64: fails ["step_sum", "closed_form", "crossings", "fold F1", "fold F2"]
+[FIRED] control RecipDD in f64: fails []
+[FIRED] control NoPivotCheck in f64: fails ["zero_pivot"]
+[FIRED] control NoCrossing in f64: fails ["crossings"]
+[FIRED] control ExponentHalf in f64: fails ["fold F2"]
+[FIRED] control NoPivotStop in f64: fails ["fold F1", "fold F2"]
+test controls::controls_f64 ... ok
+[PASS] qd KB Project None: stop End, 19 steps, err 7.14e-64 (bar 1.5e-58), n_rel_max 3.09e-65
+[NOT MET] (recorded, not gated) qd KB Conserve None: stop Tiny, 26 steps, err 3.20e-50 (bar 1.5e-58), n_rel_max 1.47e-63
+[PASS] qd KC Project None: stop End, 18 steps, err 1.09e-64 (bar 1.5e-58), n_rel_max 3.65e-65
+[PASS] qd KC Conserve None: stop End, 19 steps, err 3.39e-63 (bar 1.5e-58), n_rel_max 7.98e-64
+[PASS] qd RA Project None: stop End, 16 steps, err 4.97e-64 (bar 1.5e-58), n_rel_max 6.81e-65
+[PASS] qd RA Conserve None: stop End, 16 steps, err 6.08e-63 (bar 1.5e-58), n_rel_max 1.44e-63
+[PASS] qd RB Project None: stop End, 19 steps, err 5.04e-64 (bar 1.5e-58), n_rel_max 2.50e-65
+[NOT MET] (recorded, not gated) qd RB Conserve None: stop Tiny, 26 steps, err 3.49e-50 (bar 1.5e-58), n_rel_max 4.88e-63
+[PASS] qd RC Project None: stop End, 18 steps, err 2.66e-64 (bar 1.5e-58), n_rel_max 4.60e-65
+[PASS] qd RC Conserve None: stop End, 19 steps, err 2.86e-63 (bar 1.5e-58), n_rel_max 1.36e-63
+[PASS] qd RD Project None: stop End, 31 steps, err 1.11e-63 (bar 1.5e-58), n_rel_max 6.81e-65
+[NOT MET] (recorded, not gated) qd RD Conserve None: stop Tiny, 34 steps, err 3.77e-51 (bar 1.5e-58), n_rel_max 1.37e-38
+test closed_form_qd ... ok
+[FAIL] dd KA Project WrongStart: stop End, 18 steps, err 1.47e0 (bar 1.2e-26), n_rel_max 4.03e-33
+[FAIL] dd KA Project SwitchMid: stop End, 18 steps, err 9.44e-1 (bar 1.2e-26), n_rel_max 4.30e-33
+[FAIL] dd KA Project WrongForm: stop End, 15 steps, err 1.01e4 (bar 1.2e-26), n_rel_max 1.21e-32
+[FAIL] dd KA Conserve WrongStart: stop Tiny, 33 steps, err 1.47e0 (bar 1.2e-26), n_rel_max 1.19e-31
+[FAIL] dd KA Conserve SwitchMid: stop End, 19 steps, err 9.44e-1 (bar 1.2e-26), n_rel_max 7.91e-32
+[FAIL] dd KA Conserve WrongForm: stop End, 16 steps, err 1.01e4 (bar 1.2e-26), n_rel_max 8.38e-32
+test controls_without_hooks ... ok
+[PASS] dd QB Project None: 1 crossings found, 1 expected, worst position error 1.18e-30 (bar 1.2e-26)
+[PASS] dd QB Conserve None: 1 crossings found, 1 expected, worst position error 7.02e-31 (bar 1.2e-26)
+[PASS] dd KA Project None: 1 crossings found, 1 expected, worst position error 2.90e-30 (bar 1.2e-26)
+[PASS] dd KA Conserve None: 1 crossings found, 1 expected, worst position error 3.25e-30 (bar 1.2e-26)
+[PASS] dd KB Project None: 2 crossings found, 2 expected, worst position error 1.03e-30 (bar 1.2e-26)
+[NOT MET] (recorded, not gated) dd KB Conserve None: 1 crossings found, 2 expected, worst position error 1.60e-30 (bar 1.2e-26)
+[PASS] dd KC Project None: 1 crossings found, 1 expected, worst position error 3.25e-30 (bar 1.2e-26)
+[PASS] dd KC Conserve None: 1 crossings found, 1 expected, worst position error 1.00e-29 (bar 1.2e-26)
+[PASS] dd RA Project None: 1 crossings found, 1 expected, worst position error 8.00e-31 (bar 1.2e-26)
+[PASS] dd RA Conserve None: 1 crossings found, 1 expected, worst position error 1.17e-30 (bar 1.2e-26)
+[PASS] dd RB Project None: 2 crossings found, 2 expected, worst position error 2.29e-30 (bar 1.2e-26)
+[NOT MET] (recorded, not gated) dd RB Conserve None: 1 crossings found, 2 expected, worst position error 6.77e-31 (bar 1.2e-26)
+[PASS] dd RC Project None: 1 crossings found, 1 expected, worst position error 4.13e-31 (bar 1.2e-26)
+[PASS] dd RC Conserve None: 1 crossings found, 1 expected, worst position error 4.49e-30 (bar 1.2e-26)
+test crossings_dd ... ok
+[PASS] f64 QB Project None: 1 crossings found, 1 expected, worst position error 2.89e-15 (bar 1.1e-10)
+[PASS] f64 QB Conserve None: 1 crossings found, 1 expected, worst position error 6.66e-15 (bar 1.1e-10)
+[PASS] f64 KA Project None: 1 crossings found, 1 expected, worst position error 3.77e-15 (bar 1.1e-10)
+[PASS] f64 KA Conserve None: 1 crossings found, 1 expected, worst position error 3.77e-15 (bar 1.1e-10)
+[PASS] f64 KB Project None: 2 crossings found, 2 expected, worst position error 1.13e-14 (bar 1.1e-10)
+[NOT MET] (recorded, not gated) f64 KB Conserve None: 1 crossings found, 2 expected, worst position error 1.25e-14 (bar 1.1e-10)
+[PASS] f64 KC Project None: 1 crossings found, 1 expected, worst position error 2.05e-14 (bar 1.1e-10)
+[PASS] f64 KC Conserve None: 1 crossings found, 1 expected, worst position error 1.67e-14 (bar 1.1e-10)
+[PASS] f64 RA Project None: 1 crossings found, 1 expected, worst position error 6.11e-15 (bar 1.1e-10)
+[PASS] f64 RA Conserve None: 1 crossings found, 1 expected, worst position error 8.88e-16 (bar 1.1e-10)
+[PASS] f64 RB Project None: 2 crossings found, 2 expected, worst position error 1.28e-15 (bar 1.1e-10)
+[NOT MET] (recorded, not gated) f64 RB Conserve None: 1 crossings found, 2 expected, worst position error 8.88e-15 (bar 1.1e-10)
+[PASS] f64 RC Project None: 1 crossings found, 1 expected, worst position error 7.84e-14 (bar 1.1e-10)
+[PASS] f64 RC Conserve None: 1 crossings found, 1 expected, worst position error 2.00e-14 (bar 1.1e-10)
+test crossings_f64 ... ok
+[FIRED] control SkipOrder(3) in qd: fails ["step_sum", "closed_form", "crossings", "fold F1", "fold F2"]
+[PASS] qd QB Project None: 1 crossings found, 1 expected, worst position error 1.78e-62 (bar 1.5e-58)
+[PASS] qd QB Conserve None: 1 crossings found, 1 expected, worst position error 3.09e-63 (bar 1.5e-58)
+[PASS] qd KA Project None: 1 crossings found, 1 expected, worst position error 6.57e-63 (bar 1.5e-58)
+[PASS] qd KA Conserve None: 1 crossings found, 1 expected, worst position error 4.14e-63 (bar 1.5e-58)
+[PASS] qd KB Project None: 2 crossings found, 2 expected, worst position error 1.21e-62 (bar 1.5e-58)
+[NOT MET] (recorded, not gated) qd KB Conserve None: 1 crossings found, 2 expected, worst position error 1.50e-62 (bar 1.5e-58)
+[PASS] qd KC Project None: 1 crossings found, 1 expected, worst position error 2.33e-63 (bar 1.5e-58)
+[PASS] qd KC Conserve None: 1 crossings found, 1 expected, worst position error 2.50e-62 (bar 1.5e-58)
+[PASS] qd RA Project None: 1 crossings found, 1 expected, worst position error 7.48e-63 (bar 1.5e-58)
+[PASS] qd RA Conserve None: 1 crossings found, 1 expected, worst position error 9.02e-63 (bar 1.5e-58)
+[PASS] qd RB Project None: 2 crossings found, 2 expected, worst position error 8.90e-63 (bar 1.5e-58)
+[FIRED] control RecipDD in qd: fails ["step_sum", "closed_form", "crossings"]
+[NOT MET] (recorded, not gated) qd RB Conserve None: 1 crossings found, 2 expected, worst position error 1.44e-62 (bar 1.5e-58)
+[PASS] qd RC Project None: 1 crossings found, 1 expected, worst position error 1.21e-62 (bar 1.5e-58)
+[PASS] qd RC Conserve None: 1 crossings found, 1 expected, worst position error 2.27e-62 (bar 1.5e-58)
+test crossings_qd ... ok
+digest dd a8977a5c50933054
+test digest_dd ... ok
+digest f64 b124d44e9758f1a1
+test digest_f64 ... ok
+[FIRED] control NoPivotCheck in qd: fails ["zero_pivot"]
+[FIRED] control NoCrossing in qd: fails ["crossings"]
+digest qd a97a140ad786c8d8
+test digest_qd ... ok
+[PASS] dd F1 Project None: stop Pivot, 114 steps, x_last -5.716e-13, |x_zero| 1.43e-45, beta 0.5000
+[PASS] dd F1 Conserve None: stop Pivot, 114 steps, x_last -5.716e-13, |x_zero| 4.41e-31, beta 0.5000
+[PASS] dd F2 Project None: stop Pivot, 92 steps, x_last -1.318e-10, |x_zero| 1.23e-32, beta 1.0000
+[PASS] dd F2 Conserve None: stop Pivot, 92 steps, x_last -1.318e-10, |x_zero| 4.55e-31, beta 1.0000
+test fold_dd ... ok
+[PASS] f64 F1 Project None: stop Pivot, 84 steps, x_last -6.452e-13, |x_zero| 0.00e0, beta 0.5000
+[NOT MET] (recorded, not gated) f64 F1 Conserve None: stop Pivot, 84 steps, x_last -6.314e-13, |x_zero| 5.70e-15, beta 0.5000
+[PASS] f64 F2 Project None: stop Pivot, 68 steps, x_last -1.340e-10, |x_zero| 2.05e-16, beta 1.0000
+[PASS] f64 F2 Conserve None: stop Pivot, 68 steps, x_last -1.340e-10, |x_zero| 5.52e-15, beta 1.0000
+test fold_f64 ... ok
+[PASS] qd F1 Project None: stop Pivot, 141 steps, x_last -5.732e-13, |x_zero| 2.19e-77, beta 0.5000
+[FIRED] control ExponentHalf in qd: fails ["fold F2"]
+[PASS] qd F1 Conserve None: stop Pivot, 141 steps, x_last -5.732e-13, |x_zero| 3.86e-63, beta 0.5000
+[PASS] qd F2 Project None: stop Pivot, 113 steps, x_last -1.546e-10, |x_zero| 3.86e-65, beta 1.0000
+[PASS] qd F2 Conserve None: stop Pivot, 113 steps, x_last -1.546e-10, |x_zero| 3.85e-63, beta 1.0000
+test fold_qd ... ok
+[PASS] lanes QA: Fl<DV,1> 0.00e0, Fl<Du,1> value 0.00e0 (bar 1.2e-30)
+[PASS] lanes KC: Fl<DV,1> 0.00e0, Fl<Du,1> value 0.00e0 (bar 1.2e-30)
+test lanes ... ok
+[NOT MET] (recorded, not gated) dd Q-A l = 1 None: worst relative error of c_k, k <= 42: 1.48e-11 (bar 1.2e-26)
+[NOT MET] (recorded, not gated) dd Q-A l = 0.25 None: worst relative error of c_k, k <= 42: 1.48e-11 (bar 1.2e-26)
+[PASS] dd None: stop ZeroPivot at x = 1, state finite true
+[PASS] dd F1 planner: 0 of 5 steps differ in bits
+[PASS] dd B(QA) None: 11 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 9.81e-1 (bar 1e6)
+[PASS] dd B(QB) None: 16 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.16e3 (bar 1e6)
+[PASS] dd B(KA) None: 15 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 4.88e2 (bar 1e6)
+[PASS] dd B(KB) None: 21 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 3.59e3 (bar 1e6)
+[PASS] dd B(KC) None: 12 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 7.03e3 (bar 1e6)
+[PASS] dd B(RA) None: 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 3.02e3 (bar 1e6)
+[PASS] dd B(RB) None: 20 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.51e3 (bar 1e6)
+[PASS] dd B(RC) None: 13 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.29e3 (bar 1e6)
+[PASS] dd B(RD) None: 26 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.22e4 (bar 1e6)
+[PASS] dd F1 None: 114 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 6.27e-1 (bar 1e6)
+[PASS] dd F2 None: 92 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 7.74e-1 (bar 1e6)
+test misc_dd ... ok
+[NOT MET] (recorded, not gated) f64 Q-A l = 1 None: worst relative error of c_k, k <= 22: 4.86e-8 (bar 1.1e-10)
+[NOT MET] (recorded, not gated) f64 Q-A l = 0.25 None: worst relative error of c_k, k <= 22: 4.86e-8 (bar 1.1e-10)
+[PASS] f64 None: stop ZeroPivot at x = 1, state finite true
+[PASS] f64 F1 planner: 0 of 5 steps differ in bits
+[PASS] f64 B(QA) None: 11 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.25e0 (bar 1e6)
+[PASS] f64 B(QB) None: 15 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.77e2 (bar 1e6)
+[PASS] f64 B(KA) None: 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 6.20e2 (bar 1e6)
+[PASS] f64 B(KB) None: 19 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 3.48e2 (bar 1e6)
+[PASS] f64 B(KC) None: 12 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 4.32e2 (bar 1e6)
+[PASS] f64 B(RA) None: 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.18e3 (bar 1e6)
+[PASS] f64 B(RB) None: 22 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.11e3 (bar 1e6)
+[PASS] f64 B(RC) None: 12 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 7.25e3 (bar 1e6)
+[PASS] f64 B(RD) None: 20 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.93e4 (bar 1e6)
+[PASS] f64 F1 None: 84 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 9.93e-1 (bar 1e6)
+[PASS] f64 F2 None: 68 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.32e0 (bar 1e6)
+test misc_f64 ... ok
+[NOT MET] (recorded, not gated) qd Q-A l = 1 None: worst relative error of c_k, k <= 80: 1.51e-14 (bar 1.5e-58)
+[NOT MET] (recorded, not gated) qd Q-A l = 0.25 None: worst relative error of c_k, k <= 80: 1.51e-14 (bar 1.5e-58)
+[PASS] qd None: stop ZeroPivot at x = 1, state finite true
+[PASS] qd F1 planner: 0 of 5 steps differ in bits
+[PASS] qd B(QA) None: 11 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 6.00e-1 (bar 1e6)
+[PASS] qd B(QB) None: 17 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 9.22e2 (bar 1e6)
+[PASS] qd B(KA) None: 16 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 6.67e2 (bar 1e6)
+[FIRED] control NoPivotStop in qd: fails ["fold F1", "fold F2"]
+test controls::controls_qd ... ok
+[PASS] qd B(KB) None: 24 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 7.63e2 (bar 1e6)
+[PASS] qd B(KC) None: 13 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 3.53e2 (bar 1e6)
+[PASS] qd B(RA) None: 15 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.85e3 (bar 1e6)
+[PASS] qd B(RB) None: 21 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.79e3 (bar 1e6)
+[PASS] qd B(RC) None: 13 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.01e3 (bar 1e6)
+[PASS] qd B(RD) None: 27 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.51e4 (bar 1e6)
+[PASS] qd F1 None: 141 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 3.88e-1 (bar 1e6)
+[PASS] qd F2 None: 113 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.82e-1 (bar 1e6)
+test misc_qd ... ok
+
+test result: ok. 20 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.13s
+
+	Command being timed: "cargo test --release -j 2 --features mutate --test implicit -- --nocapture --test-threads=2"
+	User time (seconds): 82.60
+	System time (seconds): 0.67
+	Percent of CPU this job got: 180%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:46.13
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 340104
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 217931
+	Voluntary context switches: 331
+	Involuntary context switches: 17134
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 23832
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit 0
