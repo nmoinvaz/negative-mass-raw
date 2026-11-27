@@ -1,0 +1,26 @@
+# run_17_clippy_mutate: 2026-11-27T01:53:19Z clippy --all-targets --features mutate -- -D warnings; load 1.41 1.33 1.18
+    Checking multishoot v4.2.0 (/home/nathan/Source/negative-mass-i190-libs/multishoot)
+error: the loop variable `j` is used to index `self.ex[g]`
+   --> src/implicit.rs:575:26
+    |
+575 |                 for j in 0..self.nex[g].min(k + 1) {
+    |                          ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+note: for this index operation
+   --> src/implicit.rs:577:37
+    |
+577 |                     t = t + inner * self.ex[g][j];
+    |                                     ^^^^^^^^^^^^^
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.100.0/index.html#needless_range_loop
+    = note: `-D clippy::needless-range-loop` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::needless_range_loop)]`
+help: consider using an iterator and `.enumerate()`
+    |
+575 -                 for j in 0..self.nex[g].min(k + 1) {
+575 +                 for (j, <item>) in self.ex[g].iter().enumerate().take(self.nex[g].min(k + 1)) {
+    |
+
+error: could not compile `multishoot` (lib) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `multishoot` (lib test) due to 1 previous error
+exit 101

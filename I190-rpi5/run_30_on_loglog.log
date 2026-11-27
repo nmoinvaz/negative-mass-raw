@@ -1,0 +1,4 @@
+# run_30_on_loglog: 2026-11-27T02:22:05Z machine rpi5-ubuntu load 1.09 1.12 1.14 threads 2 nice 10 (RAYON_NUM_THREADS=2)
+# command: mkdir -p /home/nathan/Source/negative-mass-raw/I190-rpi5/ctl_on_loglog3 && cd ~/Source/negative-mass-i190 && /home/nathan/Source/negative-mass-raw/I190-rpi5/sys/arm.sh on run_30_on_loglog && ~/Source/negative-mass-venv314/bin/python notes/warp/conical_loglog.py --nobuild --logdir=/home/nathan/Source/negative-mass-raw/I190-rpi5/ctl_on_loglog3
+[PASS] theta_form: conical_N with F' = p nu, F'' = (q - p) nu^2, eta = 1/nu minus A0 + nu^2 A1 + nu^4 A2 expands to 0; the crate's N at 40 rational points against conical_N: worst |dN|/sum|terms| 2.08e-32 (threshold 1e-26)
+  (0 s)

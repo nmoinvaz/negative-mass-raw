@@ -1,0 +1,56 @@
+# dev_06_build_on: 2026-11-27T00:03:32Z machine rpi5-ubuntu load 1.13 1.11 0.89 threads 2 nice 10
+# worktree 9debda2 6 modified files under the crate; target /home/nathan/Source/negative-mass-i190-libs/target-crate-on; args --features implicit_lib --config patch.crates-io.multishoot.path="/home/nathan/Source/negative-mass-i190-libs/multishoot"
+     Locking 1 package to highest compatible version
+      Adding multishoot v4.2.0 (/home/nathan/Source/negative-mass-i190-libs/multishoot)
+   Compiling crossbeam-utils v0.8.23
+   Compiling crossbeam-epoch v0.9.21
+   Compiling crossbeam-deque v0.8.8
+   Compiling rayon-core v1.13.0
+   Compiling either v1.19.0
+   Compiling rayon v1.12.0
+   Compiling multidouble v5.1.0
+   Compiling multisolver v0.2.2
+   Compiling multishoot v4.2.0 (/home/nathan/Source/negative-mass-i190-libs/multishoot)
+   Compiling conical_global v0.1.0 (/home/nathan/Source/negative-mass-i190/notes/warp/conical_global)
+warning: unused import: `end_state`
+  --> src/main.rs:11:52
+   |
+11 | use conical_global::model::{conical, conical_poly, end_state, Implicit, Mutation, NoEnds};
+   |                                                    ^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `kind`
+   --> src/main.rs:239:22
+    |
+239 |     for (name, poly, kind) in cases {
+    |                      ^^^^ help: if this is intentional, prefix it with an underscore: `_kind`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: `conical_global` (bin "conical_global") generated 2 warnings (run `cargo fix --bin "conical_global" -p conical_global` to apply 2 suggestions)
+    Finished `release` profile [optimized] target(s) in 1m 40s
+	Command being timed: "cargo build --release -j 2 --features implicit_lib --config patch.crates-io.multishoot.path="/home/nathan/Source/negative-mass-i190-libs/multishoot""
+	User time (seconds): 190.42
+	System time (seconds): 3.13
+	Percent of CPU this job got: 192%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:40.59
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 425392
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 14
+	Minor (reclaiming a frame) page faults: 961434
+	Voluntary context switches: 1449
+	Involuntary context switches: 37907
+	Swaps: 0
+	File system inputs: 256
+	File system outputs: 145816
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit 0

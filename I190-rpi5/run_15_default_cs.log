@@ -1,0 +1,375 @@
+# run_15_default_cs: 2026-11-27T01:49:13Z machine rpi5-ubuntu load 0.98 1.04 1.05 threads 2 nice 10
+# multishoot ff24b6b 2 modified files
+   Compiling multishoot v4.2.0 (/home/nathan/Source/negative-mass-i190-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 1m 01s
+     Running unittests src/lib.rs (target/release/build/multishoot/9e82652dda6afe1f/out/multishoot-9e82652dda6afe1f)
+
+running 21 tests
+test lane::tests::recip_parts_control_one_ulp_fails ... ok
+test periodic::tests::dmat_control_transposed_differs ... ok
+test periodic::tests::dmat_control_wrong_parity_fails ... ok
+test periodic::tests::dmat_differentiates_harmonics ... ok
+test lane::tests::recip_parts_are_one_over_k ... ok
+test periodic::tests::pi_od_control_quad_parts_fail ... ok
+|Machin - PI_OD| = 2.959e-130
+test periodic::tests::pi_od_is_pi ... ok
+test periodic::tests::dmat_equals_direct_sums ... ok
+test periodic::tests::sin_cos_agree ... ok
+test periodic::tests::resampler_factor_in_double_double ... ok
+control, former remainder: od [1.1102230246251565e-16, 2.0, 2.0], dd [1.1102230246251565e-16, 2.0, 9997245.983627588]
+test periodic::tests::sin_cos_pi_large_q_control_former_remainder_fails ... ok
+control, short series: sin^2 + cos^2 - 1 up to 1.523e-94
+test periodic::tests::sin_cos_pi_od_control_short_series_fails ... ok
+test periodic::tests::sin_cos_pi_reduces_large_p ... ok
+test periodic::tests::sin_cos_pi_reduction_control_half_period_differs ... ok
+large q: od [0.0, 0.0, 0.0], dd [5.416421726172278e-33, 2.524587353954542e-33, 4.504692752168041e-33]
+test periodic::tests::sin_cos_pi_takes_large_denominators ... ok
+largest |kth_root - powf| 115.0 ulp
+test taylor::tests::kth_root_agrees_with_powf ... ok
+test taylor::tests::kth_root_control_neighbours_fail ... ok
+test taylor::tests::kth_root_follows_its_input ... ok
+test taylor::tests::kth_root_is_correctly_rounded ... ok
+test taylor::tests::steps_within_is_the_largest_count ... ok
+sin_cos_pi_od: worst identity error 1.035e-130
+test periodic::tests::sin_cos_pi_od_agrees ... ok
+
+test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+     Running tests/implicit.rs (target/release/build/multishoot/bee35d2b9ab6f6d8/out/implicit-bee35d2b9ab6f6d8)
+
+running 21 tests
+[PASS] f64 QA Project None: stop End, 12 steps, err 1.26e-16 (bar 1.1e-10), n_rel_max 1.41e-16
+[PASS] f64 QA Conserve None: stop End, 12 steps, err 1.26e-16 (bar 1.1e-10), n_rel_max 1.25e-16
+[PASS] f64 QB Project None: stop End, 15 steps, err 2.23e-15 (bar 1.1e-10), n_rel_max 5.58e-17
+[PASS] dd QA Project None: stop End, 12 steps, err 1.40e-32 (bar 1.2e-26), n_rel_max 3.48e-33
+[PASS] f64 QB Conserve None: stop End, 16 steps, err 3.50e-14 (bar 1.1e-10), n_rel_max 4.23e-14
+[PASS] f64 KA Project None: stop End, 14 steps, err 1.77e-16 (bar 1.1e-10), n_rel_max 7.05e-17
+[PASS] f64 KA Conserve None: stop End, 14 steps, err 5.32e-15 (bar 1.1e-10), n_rel_max 8.28e-16
+[PASS] dd QA Conserve None: stop End, 12 steps, err 4.93e-33 (bar 1.2e-26), n_rel_max 1.60e-32
+[PASS] f64 KB Project None: stop End, 17 steps, err 4.35e-15 (bar 1.1e-10), n_rel_max 5.72e-17
+[NOT MET] (recorded, not gated) f64 KB Conserve None: stop Tiny, 33 steps, err 7.39e-8 (bar 1.1e-10), n_rel_max 1.16e-15
+[PASS] dd QB Project None: stop End, 16 steps, err 8.02e-32 (bar 1.2e-26), n_rel_max 6.20e-33
+[PASS] f64 KC Project None: stop End, 17 steps, err 4.20e-16 (bar 1.1e-10), n_rel_max 7.90e-17
+[PASS] f64 KC Conserve None: stop End, 17 steps, err 3.78e-15 (bar 1.1e-10), n_rel_max 7.71e-16
+[PASS] f64 RA Project None: stop End, 14 steps, err 8.87e-16 (bar 1.1e-10), n_rel_max 8.92e-17
+[PASS] dd QB Conserve None: stop End, 16 steps, err 4.13e-30 (bar 1.2e-26), n_rel_max 5.08e-30
+[PASS] f64 RA Conserve None: stop End, 14 steps, err 3.90e-15 (bar 1.1e-10), n_rel_max 1.57e-15
+[PASS] f64 RB Project None: stop End, 15 steps, err 1.87e-15 (bar 1.1e-10), n_rel_max 8.14e-17
+[PASS] dd KA Project None: stop End, 16 steps, err 1.54e-31 (bar 1.2e-26), n_rel_max 4.57e-33
+[NOT MET] (recorded, not gated) f64 RB Conserve None: stop Tiny, 115 steps, err 1.00e0 (bar 1.1e-10), n_rel_max 1.00e0
+[PASS] f64 RC Project None: stop End, 17 steps, err 3.06e-16 (bar 1.1e-10), n_rel_max 7.42e-17
+[PASS] f64 RC Conserve None: stop End, 17 steps, err 2.52e-15 (bar 1.1e-10), n_rel_max 1.53e-15
+[PASS] f64 RD Project None: stop End, 23 steps, err 2.20e-15 (bar 1.1e-10), n_rel_max 1.06e-16
+[PASS] dd KA Conserve None: stop End, 16 steps, err 8.27e-31 (bar 1.2e-26), n_rel_max 8.62e-32
+[NOT MET] (recorded, not gated) f64 RD Conserve None: stop End, 92 steps, err 1.21e1 (bar 1.1e-10), n_rel_max 9.98e-1
+test closed_form_f64 ... ok
+[PASS] dd KB Project None: stop End, 19 steps, err 4.49e-31 (bar 1.2e-26), n_rel_max 4.21e-33
+[NOT MET] (recorded, not gated) dd KB Conserve None: stop Tiny, 33 steps, err 1.58e-18 (bar 1.2e-26), n_rel_max 1.14e-31
+[PASS] dd KC Project None: stop End, 18 steps, err 2.83e-32 (bar 1.2e-26), n_rel_max 6.92e-33
+[PASS] dd KC Conserve None: stop End, 18 steps, err 3.23e-31 (bar 1.2e-26), n_rel_max 6.83e-32
+[PASS] dd RA Project None: stop End, 14 steps, err 5.61e-32 (bar 1.2e-26), n_rel_max 1.12e-32
+[PASS] dd RA Conserve None: stop End, 15 steps, err 4.53e-31 (bar 1.2e-26), n_rel_max 1.49e-31
+[PASS] dd RB Project None: stop End, 19 steps, err 5.57e-31 (bar 1.2e-26), n_rel_max 7.26e-33
+[NOT MET] (recorded, not gated) dd RB Conserve None: stop Tiny, 32 steps, err 3.53e-18 (bar 1.2e-26), n_rel_max 5.50e-31
+[PASS] dd RC Project None: stop End, 18 steps, err 2.93e-32 (bar 1.2e-26), n_rel_max 9.31e-33
+[PASS] dd RC Conserve None: stop End, 18 steps, err 3.12e-31 (bar 1.2e-26), n_rel_max 1.44e-31
+[PASS] dd RD Project None: stop End, 27 steps, err 1.21e-31 (bar 1.2e-26), n_rel_max 1.16e-32
+[PASS] qd QA Project None: stop End, 12 steps, err 2.28e-65 (bar 1.5e-58), n_rel_max 3.84e-65
+[NOT MET] (recorded, not gated) dd RD Conserve None: stop Tiny, 49 steps, err 1.27e-19 (bar 1.2e-26), n_rel_max 1.67e-7
+test closed_form_dd ... ok
+[FIRED] control SkipOrder(3) in dd: fails ["step_sum", "closed_form", "crossings", "fold F1", "fold F2"]
+[PASS] qd QA Conserve None: stop End, 12 steps, err 1.62e-65 (bar 1.5e-58), n_rel_max 7.67e-65
+[FIRED] control RecipDD in dd: fails []
+[FIRED] control NoPivotCheck in dd: fails ["zero_pivot"]
+[PASS] qd QB Project None: stop End, 17 steps, err 1.84e-63 (bar 1.5e-58), n_rel_max 2.61e-65
+[FIRED] control NoCrossing in dd: fails ["crossings"]
+[FIRED] control ExponentHalf in dd: fails ["fold F2"]
+[PASS] qd QB Conserve None: stop End, 16 steps, err 3.41e-62 (bar 1.5e-58), n_rel_max 4.17e-62
+[FIRED] control NoPivotStop in dd: fails ["fold F1", "fold F2"]
+test controls::controls_dd ... ok
+[FIRED] control SkipOrder(3) in f64: fails ["step_sum", "closed_form", "crossings", "fold F1", "fold F2"]
+[FIRED] control RecipDD in f64: fails []
+[FIRED] control NoPivotCheck in f64: fails ["zero_pivot"]
+[FIRED] control NoCrossing in f64: fails ["crossings"]
+[FIRED] control ExponentHalf in f64: fails ["fold F2"]
+[FIRED] control NoPivotStop in f64: fails ["fold F1", "fold F2"]
+test controls::controls_f64 ... ok
+[PASS] qd KA Project None: stop End, 16 steps, err 6.59e-64 (bar 1.5e-58), n_rel_max 4.75e-65
+[PASS] qd KA Conserve None: stop End, 16 steps, err 8.02e-63 (bar 1.5e-58), n_rel_max 8.60e-64
+[PASS] qd KB Project None: stop End, 19 steps, err 5.52e-64 (bar 1.5e-58), n_rel_max 3.58e-65
+[NOT MET] (recorded, not gated) qd KB Conserve None: stop Tiny, 26 steps, err 3.16e-50 (bar 1.5e-58), n_rel_max 1.36e-63
+[PASS] qd KC Project None: stop End, 18 steps, err 8.73e-65 (bar 1.5e-58), n_rel_max 5.03e-65
+[PASS] qd KC Conserve None: stop End, 18 steps, err 3.25e-63 (bar 1.5e-58), n_rel_max 7.75e-64
+[PASS] qd RA Project None: stop End, 16 steps, err 6.07e-64 (bar 1.5e-58), n_rel_max 4.93e-65
+[PASS] qd RA Conserve None: stop End, 16 steps, err 6.15e-63 (bar 1.5e-58), n_rel_max 1.45e-63
+[PASS] qd RB Project None: stop End, 20 steps, err 3.53e-63 (bar 1.5e-58), n_rel_max 3.63e-65
+[NOT MET] (recorded, not gated) qd RB Conserve None: stop Tiny, 26 steps, err 3.35e-50 (bar 1.5e-58), n_rel_max 3.85e-63
+[PASS] qd RC Project None: stop End, 18 steps, err 2.75e-64 (bar 1.5e-58), n_rel_max 4.19e-65
+[PASS] qd RC Conserve None: stop End, 19 steps, err 3.10e-63 (bar 1.5e-58), n_rel_max 1.34e-63
+[PASS] qd RD Project None: stop End, 31 steps, err 8.26e-64 (bar 1.5e-58), n_rel_max 5.51e-65
+[FIRED] control SkipOrder(3) in qd: fails ["step_sum", "closed_form", "crossings", "fold F1", "fold F2"]
+[NOT MET] (recorded, not gated) qd RD Conserve None: stop Tiny, 32 steps, err 3.62e-51 (bar 1.5e-58), n_rel_max 1.37e-38
+test closed_form_qd ... ok
+[FAIL] dd KA Project WrongStart: stop End, 19 steps, err 1.47e0 (bar 1.2e-26), n_rel_max 4.21e-33
+[FAIL] dd KA Project SwitchMid: stop End, 18 steps, err 9.44e-1 (bar 1.2e-26), n_rel_max 5.68e-33
+[FAIL] dd KA Project WrongForm: stop End, 16 steps, err 1.01e4 (bar 1.2e-26), n_rel_max 4.57e-33
+[FAIL] dd KA Conserve WrongStart: stop Tiny, 33 steps, err 1.47e0 (bar 1.2e-26), n_rel_max 1.14e-31
+[FAIL] dd KA Conserve SwitchMid: stop End, 18 steps, err 9.44e-1 (bar 1.2e-26), n_rel_max 8.35e-32
+[FAIL] dd KA Conserve WrongForm: stop End, 16 steps, err 1.01e4 (bar 1.2e-26), n_rel_max 8.62e-32
+test controls_without_hooks ... ok
+[PASS] dd QB Project None: 1 crossings found, 1 expected, worst position error 1.01e-30 (bar 1.2e-26)
+[PASS] dd QB Conserve None: 1 crossings found, 1 expected, worst position error 6.22e-31 (bar 1.2e-26)
+[PASS] dd KA Project None: 1 crossings found, 1 expected, worst position error 4.25e-30 (bar 1.2e-26)
+[PASS] dd KA Conserve None: 1 crossings found, 1 expected, worst position error 4.45e-30 (bar 1.2e-26)
+[PASS] dd KB Project None: 2 crossings found, 2 expected, worst position error 1.09e-30 (bar 1.2e-26)
+[NOT MET] (recorded, not gated) dd KB Conserve None: 1 crossings found, 2 expected, worst position error 1.75e-30 (bar 1.2e-26)
+[PASS] dd KC Project None: 1 crossings found, 1 expected, worst position error 3.25e-30 (bar 1.2e-26)
+[PASS] dd KC Conserve None: 1 crossings found, 1 expected, worst position error 2.81e-30 (bar 1.2e-26)
+[PASS] dd RA Project None: 1 crossings found, 1 expected, worst position error 6.77e-32 (bar 1.2e-26)
+[PASS] dd RA Conserve None: 1 crossings found, 1 expected, worst position error 2.09e-31 (bar 1.2e-26)
+[PASS] dd RB Project None: 2 crossings found, 2 expected, worst position error 4.23e-30 (bar 1.2e-26)
+[NOT MET] (recorded, not gated) dd RB Conserve None: 1 crossings found, 2 expected, worst position error 6.56e-32 (bar 1.2e-26)
+[PASS] dd RC Project None: 1 crossings found, 1 expected, worst position error 2.14e-30 (bar 1.2e-26)
+[PASS] dd RC Conserve None: 1 crossings found, 1 expected, worst position error 4.33e-30 (bar 1.2e-26)
+test crossings_dd ... ok
+[PASS] f64 QB Project None: 1 crossings found, 1 expected, worst position error 2.89e-15 (bar 1.1e-10)
+[PASS] f64 QB Conserve None: 1 crossings found, 1 expected, worst position error 6.66e-15 (bar 1.1e-10)
+[PASS] f64 KA Project None: 1 crossings found, 1 expected, worst position error 3.77e-15 (bar 1.1e-10)
+[PASS] f64 KA Conserve None: 1 crossings found, 1 expected, worst position error 3.77e-15 (bar 1.1e-10)
+[PASS] f64 KB Project None: 2 crossings found, 2 expected, worst position error 1.13e-14 (bar 1.1e-10)
+[NOT MET] (recorded, not gated) f64 KB Conserve None: 1 crossings found, 2 expected, worst position error 1.25e-14 (bar 1.1e-10)
+[PASS] f64 KC Project None: 1 crossings found, 1 expected, worst position error 2.05e-14 (bar 1.1e-10)
+[PASS] f64 KC Conserve None: 1 crossings found, 1 expected, worst position error 1.67e-14 (bar 1.1e-10)
+[PASS] f64 RA Project None: 1 crossings found, 1 expected, worst position error 6.11e-15 (bar 1.1e-10)
+[PASS] f64 RA Conserve None: 1 crossings found, 1 expected, worst position error 8.88e-16 (bar 1.1e-10)
+[PASS] f64 RB Project None: 2 crossings found, 2 expected, worst position error 1.28e-15 (bar 1.1e-10)
+[NOT MET] (recorded, not gated) f64 RB Conserve None: 1 crossings found, 2 expected, worst position error 8.88e-15 (bar 1.1e-10)
+[PASS] f64 RC Project None: 1 crossings found, 1 expected, worst position error 7.84e-14 (bar 1.1e-10)
+[PASS] f64 RC Conserve None: 1 crossings found, 1 expected, worst position error 2.00e-14 (bar 1.1e-10)
+test crossings_f64 ... ok
+[PASS] qd QB Project None: 1 crossings found, 1 expected, worst position error 1.33e-62 (bar 1.5e-58)
+[PASS] qd QB Conserve None: 1 crossings found, 1 expected, worst position error 8.81e-64 (bar 1.5e-58)
+[PASS] qd KA Project None: 1 crossings found, 1 expected, worst position error 1.58e-62 (bar 1.5e-58)
+[PASS] qd KA Conserve None: 1 crossings found, 1 expected, worst position error 2.01e-62 (bar 1.5e-58)
+[PASS] qd KB Project None: 2 crossings found, 2 expected, worst position error 1.16e-62 (bar 1.5e-58)
+[NOT MET] (recorded, not gated) qd KB Conserve None: 1 crossings found, 2 expected, worst position error 7.94e-63 (bar 1.5e-58)
+[PASS] qd KC Project None: 1 crossings found, 1 expected, worst position error 1.80e-63 (bar 1.5e-58)
+[PASS] qd KC Conserve None: 1 crossings found, 1 expected, worst position error 1.06e-62 (bar 1.5e-58)
+[PASS] qd RA Project None: 1 crossings found, 1 expected, worst position error 1.83e-62 (bar 1.5e-58)
+[FIRED] control RecipDD in qd: fails ["step_sum", "closed_form", "crossings"]
+[PASS] qd RA Conserve None: 1 crossings found, 1 expected, worst position error 8.41e-63 (bar 1.5e-58)
+[PASS] qd RB Project None: 2 crossings found, 2 expected, worst position error 1.35e-62 (bar 1.5e-58)
+[NOT MET] (recorded, not gated) qd RB Conserve None: 1 crossings found, 2 expected, worst position error 2.69e-62 (bar 1.5e-58)
+[PASS] qd RC Project None: 1 crossings found, 1 expected, worst position error 2.33e-62 (bar 1.5e-58)
+[PASS] qd RC Conserve None: 1 crossings found, 1 expected, worst position error 2.82e-62 (bar 1.5e-58)
+test crossings_qd ... ok
+digest dd 92ec461781147d77
+test digest_dd ... ok
+digest f64 b124d44e9758f1a1
+test digest_f64 ... ok
+[FIRED] control NoPivotCheck in qd: fails ["zero_pivot"]
+[FIRED] control NoCrossing in qd: fails ["crossings"]
+digest qd 75902b0bf76ced2a
+test digest_qd ... ok
+[PASS] dd F1 Project None: stop Pivot, 114 steps, x_last -5.716e-13, |x_zero| 1.43e-45, beta 0.5000
+[PASS] dd F1 Conserve None: stop Pivot, 114 steps, x_last -5.716e-13, |x_zero| 4.41e-31, beta 0.5000
+[PASS] dd F2 Project None: stop Pivot, 92 steps, x_last -1.318e-10, |x_zero| 1.23e-32, beta 1.0000
+[PASS] dd F2 Conserve None: stop Pivot, 92 steps, x_last -1.318e-10, |x_zero| 4.55e-31, beta 1.0000
+test fold_dd ... ok
+[PASS] f64 F1 Project None: stop Pivot, 84 steps, x_last -6.452e-13, |x_zero| 0.00e0, beta 0.5000
+[NOT MET] (recorded, not gated) f64 F1 Conserve None: stop Pivot, 84 steps, x_last -6.314e-13, |x_zero| 5.70e-15, beta 0.5000
+[PASS] f64 F2 Project None: stop Pivot, 68 steps, x_last -1.340e-10, |x_zero| 2.05e-16, beta 1.0000
+[PASS] f64 F2 Conserve None: stop Pivot, 68 steps, x_last -1.340e-10, |x_zero| 5.52e-15, beta 1.0000
+test fold_f64 ... ok
+[FIRED] control ExponentHalf in qd: fails ["fold F2"]
+[PASS] qd F1 Project None: stop Pivot, 141 steps, x_last -5.732e-13, |x_zero| 2.19e-77, beta 0.5000
+[PASS] qd F1 Conserve None: stop Pivot, 141 steps, x_last -5.732e-13, |x_zero| 3.86e-63, beta 0.5000
+[PASS] qd F2 Project None: stop Pivot, 113 steps, x_last -1.546e-10, |x_zero| 3.87e-65, beta 1.0000
+[PASS] qd F2 Conserve None: stop Pivot, 113 steps, x_last -1.546e-10, |x_zero| 3.85e-63, beta 1.0000
+test fold_qd ... ok
+[PASS] lanes QA: Fl<DV,1> 0.00e0, Fl<Du,1> value 0.00e0 (bar 1.2e-30)
+[PASS] lanes KC: Fl<DV,1> 0.00e0, Fl<Du,1> value 0.00e0 (bar 1.2e-30)
+test lanes ... ok
+[NOT MET] (recorded, not gated) dd Q-A l = 1 None: worst relative error of c_k, k <= 42: 2.00e-11 (bar 1.2e-26)
+[NOT MET] (recorded, not gated) dd Q-A l = 0.25 None: worst relative error of c_k, k <= 42: 2.00e-11 (bar 1.2e-26)
+[PASS] dd None: stop ZeroPivot at x = 1, state finite true
+[PASS] dd F1 planner: 0 of 5 steps differ in bits
+[PASS] dd B(QA) None: 11 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.23e0 (bar 1e6)
+[PASS] dd B(QB) None: 16 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 4.80e2 (bar 1e6)
+[PASS] dd B(KA) None: 15 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.11e3 (bar 1e6)
+[PASS] dd B(KB) None: 22 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 8.77e2 (bar 1e6)
+[PASS] dd B(KC) None: 13 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.01e3 (bar 1e6)
+[PASS] dd B(RA) None: 15 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 5.49e2 (bar 1e6)
+[PASS] dd B(RB) None: 21 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.28e3 (bar 1e6)
+[PASS] dd B(RC) None: 13 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 7.10e3 (bar 1e6)
+[PASS] dd B(RD) None: 28 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.72e3 (bar 1e6)
+[PASS] dd F1 None: 114 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 6.27e-1 (bar 1e6)
+[PASS] dd F2 None: 92 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 7.49e-1 (bar 1e6)
+test misc_dd ... ok
+[NOT MET] (recorded, not gated) f64 Q-A l = 1 None: worst relative error of c_k, k <= 22: 4.86e-8 (bar 1.1e-10)
+[NOT MET] (recorded, not gated) f64 Q-A l = 0.25 None: worst relative error of c_k, k <= 22: 4.86e-8 (bar 1.1e-10)
+[PASS] f64 None: stop ZeroPivot at x = 1, state finite true
+[PASS] f64 F1 planner: 0 of 5 steps differ in bits
+[PASS] f64 B(QA) None: 11 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.25e0 (bar 1e6)
+[PASS] f64 B(QB) None: 15 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.77e2 (bar 1e6)
+[PASS] f64 B(KA) None: 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 6.20e2 (bar 1e6)
+[PASS] f64 B(KB) None: 19 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 3.48e2 (bar 1e6)
+[PASS] f64 B(KC) None: 12 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 4.32e2 (bar 1e6)
+[PASS] f64 B(RA) None: 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.18e3 (bar 1e6)
+[PASS] f64 B(RB) None: 22 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.11e3 (bar 1e6)
+[PASS] f64 B(RC) None: 12 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 7.25e3 (bar 1e6)
+[PASS] f64 B(RD) None: 20 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.93e4 (bar 1e6)
+[PASS] f64 F1 None: 84 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 9.93e-1 (bar 1e6)
+[PASS] f64 F2 None: 68 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.32e0 (bar 1e6)
+test misc_f64 ... ok
+[NOT MET] (recorded, not gated) qd Q-A l = 1 None: worst relative error of c_k, k <= 80: 2.94e-15 (bar 1.5e-58)
+[NOT MET] (recorded, not gated) qd Q-A l = 0.25 None: worst relative error of c_k, k <= 80: 2.94e-15 (bar 1.5e-58)
+[PASS] qd None: stop ZeroPivot at x = 1, state finite true
+[PASS] qd F1 planner: 0 of 5 steps differ in bits
+[PASS] qd B(QA) None: 11 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 5.94e-1 (bar 1e6)
+[PASS] qd B(QB) None: 17 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 6.89e2 (bar 1e6)
+[PASS] qd B(KA) None: 16 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 6.21e3 (bar 1e6)
+[FIRED] control NoPivotStop in qd: fails ["fold F1", "fold F2"]
+test controls::controls_qd ... ok
+[PASS] qd B(KB) None: 22 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.20e4 (bar 1e6)
+[PASS] qd B(KC) None: 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 4.66e3 (bar 1e6)
+[PASS] qd B(RA) None: 16 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.43e3 (bar 1e6)
+[PASS] qd B(RB) None: 25 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.81e4 (bar 1e6)
+[PASS] qd B(RC) None: 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 9.55e2 (bar 1e6)
+[PASS] qd B(RD) None: 31 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.33e3 (bar 1e6)
+[PASS] qd F1 None: 141 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 3.88e-1 (bar 1e6)
+[PASS] qd F2 None: 113 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.84e-1 (bar 1e6)
+test misc_qd ... ok
+[PASS] od KA Project None: stop End, 15 steps, err 1.90e-128 (bar 2.3e-122), n_rel_max 3.19e-131
+[PASS] od KA Conserve None: stop End, 16 steps, err 6.42e-127 (bar 2.3e-122), n_rel_max 8.37e-128
+[PASS] od KB Project None: stop End, 19 steps, err 7.24e-128 (bar 2.3e-122), n_rel_max 1.58e-131
+[PASS] od KB Project None: 2 crossings found, 2 expected, worst position error 1.87e-129 (bar 2.3e-122)
+[PASS] od B(KA) None: 15 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.54e3 (bar 1e6)
+[PASS] od F1 Project None: stop Pivot, 162 steps, x_last -6.525e-13, |x_zero| 6.48e-144, beta 0.5000
+test octo_double ... ok
+
+test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 50.61s
+
+     Running tests/taylor.rs (target/release/build/multishoot/9b2cc798d804bd59/out/taylor-9b2cc798d804bd59)
+
+running 21 tests
+test layout_offsets ... ok
+test plan_points_control_tolerance_differs ... ok
+plan hash 0x59775fc9dcbb802a
+test plan_points_match_reference ... ok
+test planned_segments_end_at_their_nodes ... ok
+doubled steps: largest error / tol 1.169e4
+test planner_bound_control_doubled_steps_fails ... ok
+test plan_points_do_not_depend_on_threads ... ok
+test planner_nan_control_finite_plans ... ok
+test planner_one_ulp_control_early_stop_fails ... ok
+test planner_reaches_an_end_one_ulp_away ... ok
+
+thread 'planner_rejects_infinite_end' (3090449) panicked at src/taylor.rs:365:5:
+plan_path: ends 0 and inf must be finite
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test planner_rejects_infinite_end - should panic ... ok
+
+thread 'planner_rejects_nan_coefficient' (3090450) panicked at src/taylor.rs:391:17:
+plan_path: Taylor coefficient 10 of field 0 at x = 0 is not finite
+test planner_rejects_nan_coefficient - should panic ... ok
+
+thread '<unnamed>' (3090425) panicked at src/taylor.rs:370:5:
+plan_path: tol 0e0 and hmax 1e0 must be positive
+
+thread '<unnamed>' (3090426) panicked at src/taylor.rs:370:5:
+plan_path: tol 0e0 and hmax 1e0 must be positive
+
+thread '<unnamed>' (3090424) panicked at src/taylor.rs:370:5:
+plan_path: tol 0e0 and hmax 1e0 must be positive
+
+thread '<unnamed>' (3090423) panicked at src/taylor.rs:370:5:
+plan_path: tol 0e0 and hmax 1e0 must be positive
+test planner_rejects_zero_tolerance - should panic ... ok
+
+thread 'planner_reports_an_underflowing_tolerance' (3090452) panicked at src/taylor.rs:395:9:
+plan_path: step 0e0 at x = 0
+test planner_reports_an_underflowing_tolerance - should panic ... ok
+test planner_underflow_control_normal_tolerance_plans ... ok
+19 steps, largest error / tol 5.990e-3
+test planner_bound_holds ... ok
+control, match_node 4: max error 2.414e-26
+match_node 4: 19 steps, max error 4.006e-32
+control, match_node 0: max error 2.833e-25
+test rotor_carried_control_wrong_coefficient_fails ... ok
+match_node 0: 18 steps, max error 1.109e-31
+test rotor_carried_to_double_double ... ok
+stepping hash 0xc8d40d2c1841b8cd
+test stepping_bytes_match_reference ... ok
+block errors 0.000e0 1.048e-12 8.608e-13 6.042e-13 5.928e-13 0.000e0
+estimates    0.000e0 1.044e-12 8.577e-13 6.021e-13 5.907e-13 0.000e0
+test stepping_bytes_control_one_ulp_differs ... ok
+control, the order-30 paths' errors 0.000e0 5.701e-32 5.547e-32 4.314e-32 4.622e-32 0.000e0
+test taylor_check_estimates_the_paths_error ... ok
+one-ulp step: Err("taylor_check: the step 0.75 to 0.7500000000000001 of segment 2 has no midpoint in f64")
+test taylor_check_refuses_a_step_it_cannot_halve ... ok
+
+test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running tests/taylor_order.rs (target/release/build/multishoot/f97027b966e8e774/out/taylor_order-f97027b966e8e774)
+
+running 6 tests
+control: Err("chose 22 (problem at 22), the least cost is order 37")
+control: Err("chose 22 (problem at 22), the least cost is order 37")
+test auto_order_control_first_order_fails ... ok
+rotor: order 36, largest error / tol 4.946e-2, doubled steps 5.669e9
+planted: order 24, largest error / tol 1.532e-2, doubled steps 4.605e5
+test auto_order_holds_the_planner_bound ... ok
+rotor tol 1e-20 hmax 0.5 pass 1: kt 36 of [15:50 19:22 24:13 29:9 36:6 44:6 58:5]
+rotor tol 1e-20 hmax 0.5 pass 2: kt 36 of [30:9 31:9 32:9 33:8 34:8 35:7 36:6 37:6 38:6 39:6 40:6 41:6 42:6 43:6]
+rotor tol 1e-32 hmax 0.5 pass 1: kt 37 of [22:50 29:20 37:11 44:9 55:7 66:6 88:5]
+choice hash 0x3696801289049ab8
+rotor tol 1e-32 hmax 0.5 pass 2: kt 37 of [30:19 31:16 32:16 33:15 34:15 35:13 36:12 37:11 38:11 39:11 40:11 41:10 42:9 43:9]
+rotor tol 1e-60 hmax 0.5 pass 1: kt 65 of [39:47 52:19 65:12 78:9 98:7 117:6 156:5]
+rotor tol 1e-60 hmax 0.5 pass 2: kt 67 of [53:19 54:19 55:18 56:16 57:16 58:16 59:15 60:15 61:14 62:14 63:13 64:13 65:12 66:12 67:11 68:11 69:11 70:11 71:11 72:11 73:11 74:11 75:10 76:10 77:9]
+rotor tol 1e-20 hmax 0.125 pass 1: kt 29 of [15:50 19:22 24:17 29:16 36:16 44:16 58:16]
+rotor tol 1e-20 hmax 0.125 pass 2: kt 25 of [25:16 26:16 27:16 28:16 29:16 30:16 31:16 32:16 33:16 34:16 35:16]
+rotor tol 1e-32 hmax 0.5 pass 1: kt 40 of [12:x 20:76 40:11]
+rotor tol 1e-32 hmax 0.5 pass 2: kt 37 of [21:61 22:50 23:43 24:37 25:33 26:28 27:24 28:23 29:20 30:19 31:16 32:16 33:15 34:15 35:13 36:12 37:11 38:11 39:11 40:11 41:10 42:9 43:9 44:9 45:9 46:9 47:9 48:9 49:8 50:8 51:8 52:8 53:7 54:7 55:7 56:7 57:6 58:6 59:6]
+planted tol 1e-20 hmax 0.5 pass 1: kt 24 of [15:35 19:19 24:11 29:9 36:6 44:6 58:5]
+planted tol 1e-20 hmax 0.5 pass 2: kt 27 of [20:16 21:14 22:13 23:12 24:11 25:11 26:11 27:9 28:9]
+planted tol 1e-32 hmax 0.5 pass 1: kt 37 of [22:43 29:19 37:11 44:9 55:7 66:6 88:5]
+planted tol 1e-32 hmax 0.5 pass 2: kt 37 of [30:18 31:16 32:15 33:14 34:14 35:13 36:12 37:11 38:11 39:11 40:11 41:10 42:9 43:9]
+planted tol 1e-60 hmax 0.5 pass 1: kt 65 of [39:46 52:19 65:12 78:9 98:7 117:6 156:5]
+planted tol 1e-60 hmax 0.5 pass 2: kt 67 of [53:19 54:19 55:18 56:16 57:16 58:16 59:15 60:15 61:14 62:14 63:13 64:13 65:12 66:12 67:11 68:11 69:11 70:11 71:11 72:11 73:11 74:11 75:10 76:10 77:9]
+planted tol 1e-20 hmax 0.125 pass 1: kt 29 of [15:35 19:20 24:17 29:16 36:16 44:16 58:16]
+planted tol 1e-20 hmax 0.125 pass 2: kt 25 of [25:16 26:16 27:16 28:16 29:16 30:16 31:16 32:16 33:16 34:16 35:16]
+planted tol 1e-32 hmax 0.5 pass 1: kt 40 of [12:x 20:61 40:11]
+planted tol 1e-32 hmax 0.5 pass 2: kt 37 of [21:50 22:43 23:37 24:31 25:28 26:25 27:23 28:20 29:19 30:18 31:16 32:15 33:14 34:14 35:13 36:12 37:11 38:11 39:11 40:11 41:10 42:9 43:9 44:9 45:9 46:9 47:9 48:8 49:8 50:8 51:8 52:8 53:7 54:7 55:7 56:6 57:6 58:6 59:6]
+test auto_order_is_the_least_cost ... ok
+optimal_kt at 1e-30, 1e-60, 1e-100: 42 78 124
+test order_guess_is_the_cost_model_optimum ... ok
+test refined_orders_control_wrong_range_fails ... ok
+test auto_order_bytes_match_reference ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.90s
+
+	Command being timed: "cargo test --release -j 2 --features mutate --lib --test implicit --test taylor --test taylor_order -- --nocapture --test-threads=2"
+	User time (seconds): 181.56
+	System time (seconds): 1.76
+	Percent of CPU this job got: 162%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:52.85
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 311904
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 7
+	Minor (reclaiming a frame) page faults: 492859
+	Voluntary context switches: 5475
+	Involuntary context switches: 100141
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 38984
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit 0
