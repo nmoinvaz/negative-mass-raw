@@ -1,0 +1,26 @@
+# 2026-11-27T05:57:36Z 21:57  up 28 days, 15:33, 4 users, load averages: 5.23 3.96 3.38
+[PASS] K1: n=2: symbolic residuals ['0', '0', '0', '0'], dn.F_np worst rel diff 1.7e-16; constraint r_uu = -Fu*Ru + Pgu**2*R/2 - Pnu**2*R/2; n=3: symbolic residuals ['0', '0', '0', '0'], dn.F_np worst rel diff 2.8e-16; constraint r_uu = -Fu*Ru + Pgu**2*R/3 - Pnu**2*R/3 (2 s)
+  D=6 h=0.005774: A*_h 1.489855e-03 (30 runs), slopes 0.007365 0.049236 (424, 412 pts), W_fit 0.028300 vs W 2.164860 (11 s)
+  D=6 h=0.002887: A*_h 3.706044e-04 (30 runs), slopes 2.102937 2.217949 (219, 256 pts), W_fit 2.160443 vs W 2.164860 (46 s)
+[FAIL] K2: W_fit 0.028300, 2.160443 against 2.164860: rel -9.87e-01, -2.04e-03; agreement -9.87e-01; A*_h ratio 4.020
+
+2 criteria, 1 pass; failed: ['K2']
+       47.77 real        47.11 user         0.16 sys
+           198426624  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               15611  page reclaims
+                 101  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   2  voluntary context switches
+                5665  involuntary context switches
+        486980537647  instructions retired
+        112043127012  cycles elapsed
+           140509928  peak memory footprint
+exit 1
