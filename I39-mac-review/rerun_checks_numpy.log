@@ -27,3 +27,39 @@ checks.py: kernel numpy, numba absent, numpy 2.5.4, python 3.14.7, Nathans-MacBo
     C2 edge flux residual [4.506e-04, 1.136e-04, 2.849e-05] orders [1.988, 1.995]; largest M change on the edge [1.180e+00, 1.180e+00, 1.180e+00]
 [pass] C1: constraints C_++, C_-- of a pulse run fall at second order  (max norm at t <= 4.24)
 [pass] C2: mass change along the edge x+ = X equals the integral of the flux at second order, with a nonzero flux  (pulse crossing the edge)
+    G1 D=4 h=0.02000: A*_h = 4.7527737916e-05 (30 runs, 12.6 s); slopes 1.187831, 1.176142 (68, 69 pts) -> W_fit 1.181986 vs W 1.181970 (rel +1.40e-05); untuned departure |H| = 2e-3 W at tau = 6.125, seed constant kappa = 0.00424
+    G1 D=4 h=0.01000: A*_h = 1.1884160340e-05 (30 runs, 44.7 s); slopes 1.187806, 1.176046 (136, 139 pts) -> W_fit 1.181926 vs W 1.181970 (rel -3.69e-05); untuned departure |H| = 2e-3 W at tau = 7.306, seed constant kappa = 0.0042
+    G1 D=4: A*_h ratio between the two h 3.999 (h^2 seed predicts 4); untuned departure shifts by 1.181 (ln4/W = 1.173)
+[pass] G1[D=4]: tune p to p*_h, then the departure grows at W = 1.181970 within 1%, at two resolutions that agree within 0.5%  (W_fit 1.181986, 1.181926; rel +1.40e-05, -3.69e-05)
+    G1 D=5 h=0.00707: A*_h = 2.8847906739e-04 (30 runs, 49.2 s); slopes 1.729568, 1.725450 (122, 134 pts) -> W_fit 1.727509 vs W 1.727703 (rel -1.13e-04); untuned departure |H| = 2e-3 W at tau = 3.887, seed constant kappa = 0.0838
+    G1 D=5 h=0.00354: A*_h = 7.2090886533e-05 (30 runs, 185.8 s); slopes 1.735233, 1.719284 (242, 269 pts) -> W_fit 1.727259 vs W 1.727703 (rel -2.57e-04); untuned departure |H| = 2e-3 W at tau = 4.689, seed constant kappa = 0.0838
+    G1 D=5: A*_h ratio between the two h 4.002 (h^2 seed predicts 4); untuned departure shifts by 0.802 (ln4/W = 0.802)
+[pass] G1[D=5]: tune p to p*_h, then the departure grows at W = 1.727703 within 1%, at two resolutions that agree within 0.5%  (W_fit 1.727509, 1.727259; rel -1.13e-04, -2.57e-04)
+    F1 ghost, +A: fate expand at t = 7.396; E0 = -0.0299; diagonal throat at the last live cell t = 16.96 r = 8.5162 H = +1.6148; min-r slice at the end t = 16.49 r = 8.1772
+    F1 ghost, -A: fate collapse at t = 3.734; E0 = +0.0254; diagonal throat at the last live cell t = 5.67 r = 0.2756 H = -4.9671; min-r slice at the end t = 5.69 r = 0.1634; M at the first trapped cell 0.4975
+    F1 normal, +A: fate collapse at t = 6.293; E0 = +0.0022; diagonal throat at the last live cell t = 8.81 r = 0.2666 H = -4.9785; min-r slice at the end t = 8.82 r = 0.2065; M at the first trapped cell 0.4920
+[pass] F1: one pulse of each sign at D = 4: a normal pulse collapses; ghost pulses of the two signs end in a black hole and in an expansion ([SH02]'s two fates). Reported as seen, parameters not tuned  (ghost, +A: expand, ghost, -A: collapse, normal, +A: collapse)
+    S ghost, +A: fate expand -> expand; event time 7.3963 -> 7.3963 (|dt| = 0.00e+00, tolerance 1.13e-01); dead cells 0 -> 0
+    S ghost, -A: fate collapse -> collapse; event time 3.7335 -> 3.7335 (|dt| = 0.00e+00, tolerance 1.13e-01); dead cells 172322 -> 171698
+[pass] S: sensitivity: with r_cut halved and F_cut doubled, one classified collapse and one classified expansion keep their fate and their event time within 4.0 h
+
+10 of 11 checks pass; 0 fail; skipped: K; 297.2 s
+      297.37 real       284.68 user         1.57 sys
+          3533242368  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              472587  page reclaims
+                   4  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+               64353  involuntary context switches
+       2325632212745  instructions retired
+        640407185557  cycles elapsed
+          3545795752  peak memory footprint
+exit 0
