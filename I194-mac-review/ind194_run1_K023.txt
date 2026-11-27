@@ -1,0 +1,10 @@
+/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/scipy/integrate/_ode.py:420: UserWarning: dop853: step size becomes too small
+  self._y, self.t = mth(self.f, self.jac or (lambda: None),
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-raw/I194-mac-review/ind194.py", line 230, in <module>
+    ac = [ground(P, -1, 1e-11)["alpha_c"] for P in grid]
+          ~~~~~~^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-raw/I194-mac-review/ind194.py", line 115, in ground
+    raise RuntimeError(f"no bracket at P = {P}: fates {flo}, {fhi}")
+RuntimeError: no bracket at P = 0.000502377286301916: fates -1, -1
+rc=1

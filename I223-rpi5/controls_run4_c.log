@@ -1,0 +1,4 @@
+SILENT  --mutate=cplx_conj (target P4 planted): exit 0; 
+fires   --mutate=cplx_hypot (target P4 planted): exit 1; FAIL  P4 planted complex bound state R1: W = nan +0.0000000000i, reference 0.3000000000 +0.2000000000i, relative difference nan (declared <= 1e-06); secant iter
+fires   --mutate=cplx_ned (target C1 complex shooting): exit 1; FAIL  C1 complex shooting S_m0.3: W = 0.2626301500 -0.0000000000i (R2; R1 0.2626301500 +0.0000000001i), lambda = 0.06897460 -0.00000000i, spectral S-B lambda = 0.00879564 +0.30852030i, |dlambda|/|lamb
+exit status 1

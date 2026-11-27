@@ -1,0 +1,58 @@
+{
+ "fam": "bbs",
+ "m": 0.6366197723675814,
+ "q": 0.2,
+ "at_throat": false,
+ "res": "R2",
+ "kind": "simple",
+ "xh": 1.0857970464122026,
+ "A1": 0.7017301406249773,
+ "kappa": 0.35086507031248865,
+ "p": 1.7841956109591524,
+ "stage": "low",
+ "rmaxW": 20.0,
+ "n_roots": 1,
+ "roots": [
+  {
+   "W": 0.0007234247257860009,
+   "W2": 5.233433338785506e-07,
+   "nodes": 1,
+   "arc_same_sign": null,
+   "arc_imag": null
+  }
+ ],
+ "sturm": 2,
+ "D_min_abs": 2.403208613738217e-05,
+ "D_first": -0.01307992204723285,
+ "D_last": 0.0049040444950601,
+ "sign_changes": 1,
+ "W_lo": 1e-05,
+ "W_hi": 0.001,
+ "nW": 100,
+ "seconds": 83.0052490234375,
+ "mutate": [],
+ "id": "B1_q0.2"
+}
+	Command being timed: "nice -n 10 /home/nathan/Source/negative-mass-venv314/bin/python bounce.py count B1_q0.2 --res=R2 --stage=low --out=/home/nathan/Source/negative-mass-raw/I223-rpi5/results/B1_q0.2_R2_low.json"
+	User time (seconds): 83.06
+	System time (seconds): 0.18
+	Percent of CPU this job got: 98%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:24.54
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 116500
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 32904
+	Voluntary context switches: 1
+	Involuntary context switches: 19205
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i217/notes/black_universe/evolve_dev_runs.py", line 196, in <module>
+    mode(float(sys.argv[2]), float(sys.argv[3]), float(sys.argv[4]), float(sys.argv[5]), float(sys.argv[6]), *(float(x) for x in sys.argv[7:]))
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i217/notes/black_universe/evolve_dev_runs.py", line 160, in mode
+    lo, hi, fl, k = bisect(run, -br, br)
+                    ~~~~~~^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i217/notes/black_universe/evolve_dev_runs.py", line 117, in bisect
+    raise RuntimeError(f"bracket does not straddle: {rl} {rh}")
+RuntimeError: bracket does not straddle: {'A': -1e-05, 'fate': 1, 'T': 11.92182033080519} {'A': 1e-05, 'fate': 1, 'T': 10.649028124669405}
+        1.76 real         1.61 user         0.06 sys
+           151437312  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               12696  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                 827  voluntary context switches
+                  53  involuntary context switches
+         24903436319  instructions retired
+          5661190014  cycles elapsed
+            93913784  peak memory footprint

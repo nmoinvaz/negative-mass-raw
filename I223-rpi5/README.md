@@ -197,6 +197,24 @@ Development runs are in `dev/` (R1 unless stated; never part of the record). New
   1 (the detail strings of the controls were corrected, nothing else changed); `lowW_range` first returned the glitch of D9, then 0 roots; `rmax_low` removes the
   root of S at m = 1 (low stage), as predicted.
 
+- **D11, the low stage on B (record runs).** After the 126th job (all main-stage runs and the S low-stage R2 runs done), the low-stage R2 runs of B1 at q = 0, 0.1,
+  0.2 ran 16 min each without finishing; the units `nm-i223-w1..3` were stopped by hand at 03:38 (below the 1 h condition, cause then found; their `.log` files held at most
+  `/usr/bin/time` statistics and were overwritten by the reruns of the same jobs, which use the same file names (a slip of the queue script, which does not number reruns; the stop
+  is recorded in `results/status.txt`). Cause: at W = 1e-5 the right start is at r0 = 2e6 and the closed form of A
+  for B loses accuracy there (B ~ 1/x² from O(p/x) terms: the absolute noise 1e-16 x in A reaches 1e-11 at x = 1e5), so the integrator's step collapses (status −1) at
+  x ≈ 1e5 at rtol 1e-12. The main stage reaches r0 = 4.5e4 where the noise is 2e-12, below its tolerances (P2 agrees with #212 to 3e-10).
+
+- **D12, the spectral check of record (run 1, `spectral.log`, `bounce.py` at f6d1802).** 88 of 110 member-grid checks pass, 22 do not (counted per grid, S-A and S-B).
+  Three kinds: (i) **complex eigenvalues** with Re λ > 1e-3 at S m = 0.2, m = 0.3 and B1 q = 0.77 on both grids (λ = 0.1215 ± 0.3732i, 0.0088 ± 0.3085i, 0.0063 ± 0.0222i, equal on S-A and
+  S-B to 1e-6 or better) which the real-W shooting cannot see; at S m = 0.1 the shooting finds two real roots (W = 0.556, 0.608) that are close to each other, at m = 0.2 and 0.3 it finds none;
+  (ii) **weak modes** (W of 1e-3 to 3e-2) on the large boxes of S m = 0.6, B1 q = 0.3 and 0.4, B2 q = 0.1, B3 q = 0.03, 0.06, 0.09: a missed mode, or a rate off by 3e-3 to 0.5 (the energy of a weakly
+  bound state is hypersensitive to the discretization); (iii) S-A only, B3 q = 0.2 … 0.24: the second mode (W = 0.09 … 0.14) is missed at N = 401. Dev probe (scratch, then A8): a complex-W
+  shooting from the spectral eigenvalue converges at S m = 0.2, 0.3 to the same λ to 1e-9.
+
+- **D13, the complex controls and the closing runs.** `controls_run3_c.log` and `controls_run4_c.log` (same result): `cplx_conj` silent (dominance of the growing solution), `cplx_hypot` fires (P4: no root at R1),
+  `cplx_ned` fires after its fix (C1 at S m = 0.3 without the NED term converges to a real W = 0.2626 against the spectral λ = 0.0088 + 0.3085i). `cplx_hypot` was added after the runs of record, is not part of the declared
+  set, and its target (P4) was computed in run 3 before the run it is reported from (run 4). Slips: the loop of unit `nm-i223-u1` wrote four logs to one name (`README_slips.txt`); the logs of the three stopped low-stage runs were overwritten (D11).
+
 ## Amendments
 
 All written before the runs of record they govern.
@@ -261,3 +279,41 @@ and is the mutated quantity in `sturm_sign`.
 
 **A6. Runs of record.** Main stage R1 and R2 and low stage R1 and R2 for the 55 members (S 16, B1 12, B2 12, B3 11, P2 4; B1 q = 0, B2 q = 0, B3 q = 0 are the P2 members
 c = −3, −1, −0.3), three worker units at a time, logs and JSON in `results/`. `bounce.py` at the commit named in the closing comment; no edit to it while the runs go.
+
+**A7. A and A′ of B at large x in the low stage (after D11).** For the B family in the low stage (`Bg(..., stage="low")`), A and A′ are evaluated for x ≥ 30 from the
+series of B in y = 1/x (`B(x) = (1+q²+px)/(1+x²) + πq²x/(1+x²) − (p+πq²)t − 2q²xt/(1+x²) + q²t²`, t = arctan y, 40 terms, coefficients by
+convolution; A = (1 + y⁻²)B, so A = Σ c_n yⁿ without cancellation). Against mpmath at 60 digits: |ΔA| ≤ 1.1e-16 and |ΔA′|/|A′| ≤ 3e-16 at x from 30 to 2e6, at 5 members.
+`check` S2 includes it (declared |ΔA| ≤ 1e-14, |ΔA′| ≤ 1e-12 |A′|; control `ser_coef`). The main stage and the S family are unchanged: the main-stage runs of record, the S low-stage R2
+runs and the first 126 jobs are from `bounce.py` at 9b3db56; the B low-stage runs (and every later `check`, `planted`, `controls`, `spectral`, `report`) from f6d1802, which
+differs from 9b3db56 only in this flag and its check. The remaining low-stage jobs are in `jobs_low.txt` (the queue pointer of the first run is `results/qpos_run1`).
+
+**A8. Complex-plane shooting (after D12).** The throat problem (Y continued analytically through the throat) is not self-adjoint, so W² can be complex, and the real-axis scan cannot
+see it. Added, with the declared shooting settings R1 and R2 of Sec. 3: `bounce.py complex ID...` (**C1**): for each complex eigenvalue λ (Re λ > 1e-3, Im λ > 0) of the S-B spectral problem of the
+member (box from W_ref = 0.03, mapped grid, A4), W₀ = √λ is refined by a 2-D real root (Re, Im) of the complex Wronskian mismatch (hybrid Powell; the mismatch is made analytic in W by
+normalizing (Y, Y_x) by the fixed complex scalar Y + (0.37 + 0.61i) Y_x instead of the real hypot, the same start vectors, arc and matching as the real code with complex W). Criteria,
+declared: R1 and R2 roots agree to 1e-6 relative in W, and λ = W² agrees with the spectral λ to 1e-3 relative. Run on the three members in D12. Counts of members with such a pair
+are reported separately from the real-root counts; the complex search is local to the spectral eigenvalues (no argument-principle count).
+**P4, planted complex bound state:** `u'' = (V + W²)u`, `V = −ν(ν+1)κ² sech²(κx)`, κ = 1, ν = 0.3 + 0.2i, one bound state at `W = νκ` exactly, through `run_chunks_c`
+and the same root finder from a start 15 % off (1.15 W + 0.03i). Declared: `|W − νκ|/|νκ| ≤ 1e-6` (R1) and `≤ 1e-8` (R2). Dev: 2.4e-10 (R1), 1.4e-13 (R2). Controls and
+predictions, written before their development run: `cplx_conj` (the conjugate of W in the left start vector: the wrong branch; P4 finds no root or a wrong one), `cplx_V` (depth × 1.3: relative
+error 0.3 against 1e-6), `cplx_ned` (C1 at S m = 0.3 without the NED term in the shooting: λ differs from the spectral one by far more than 1e-3).
+Development history of P4: a complex secant failed on the real normalization (the mismatch is then not analytic) and a 2-D root with the real hypot stalled; the fixed complex scalar fixed both. A first version integrated 1000 units of free flow
+without renormalization and overflowed; the window is now |x| = 60.
+
+**A9. Reruns of the non-count commands.** `check`, `planted`, `planted_low`, `planted_complex`, `complex`, `spectral` and `controls` are rerun at `bounce.py` ef25201 (`*_run2.log`; the
+f6d1802 logs are kept as run 1). The count runs (`results/*.json`, 220) are from 9b3db56 (main stage, S low stage) and f6d1802 (B low stage); ef25201 and f6d1802 differ only
+in the complex code, the report's complex notes and the controls table; the counting code is unchanged.
+
+**A10. Two complex controls, after their first run (`controls_run2_c.log`, `bounce.py` ef25201).** `cplx_conj` is **silent** on P4 (exit 0): the conjugate of W in the left start vector excites the
+decaying-rightward solution, which the integration suppresses by e^{−2 Re W r0}, as the growing solution dominates (the same mechanism as the silent horizon-exponent control of #212). Reported as a result;
+it stays in the table as silent. A replacement is proposed to the coordinator and **added beside it**, not instead of it: `cplx_hypot` (the real hypot normalization of the first version, non-analytic in W). Prediction,
+written before its run: P4 fails at R1 (no root, as in the development history of P4). `cplx_ned` was mis-built: the mutation also removed the NED term from the spectral eigenvalue it is
+checked against, so C1 failed for the wrong reason (no complex eigenvalue found) and the target string did not match. Fixed (the mutation acts on the shooting only; commit 1b614eb); prediction: C1 at S m = 0.3 fails on the
+comparison with the spectral λ (|Δλ|/|λ| ≫ 1e-3) or by no convergence. Both rerun as run 3 (`controls_run3_c.log`).
+
+## Closing
+
+`bounce.py` at 2db4b58 (branch `wip/i223-black-bounce`, note and output at a44d49d). 220 count runs of record in `results/` (`status.txt`: every run exit 0; the stop of the three B low-stage workers is its only other line), `report.txt`,
+`spectral.log` (run 1, f6d1802) and `spectral_run2.log`, `check*.log`, `planted*.log`, `planted_complex*.log`, `complex*.log` and `complex.json`, `controls_*.log`, the development runs in `dev/`. Outcome: 54 of 55 members have a growing
+radial mode (the exception is B2 at q = 0), complex pairs at S m = 0.2, 0.3 and B1 q = 0.77, a second weak real mode for 0.55 ≤ m ≤ 3 and at q > 0 on B1 and B3, S9 NOT MET at 7 members (Sturm 2, shooting in range 1), S6 met on both grids at 41 of 55,
+26 of 27 declared controls fire (`cplx_conj` silent). The note is `notes/black_universe/README.md`, section "Sourced black bounce and magnetic black universes (#223)".

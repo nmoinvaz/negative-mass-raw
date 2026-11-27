@@ -1,0 +1,1 @@
+u1 launched check, planted, planted_low, planted_complex in a loop with an empty variable in the log name (${c}); all four wrote to _run2.log in turn, so only the last survived (renamed planted_complex_run2.log); the first three were rerun by unit nm-i223-u4

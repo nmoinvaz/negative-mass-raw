@@ -1,0 +1,24 @@
+[FMM90] Frolov, Markov, Mukhanov, "Black holes as possible sources of closed and semiclosed worlds", PRD 41, 383 (1990),
+doi:10.1103/PhysRevD.41.383. Attempts to reach a text, 2026-11-27, from rpi5-ubuntu, plain curl (a generic "curl-client" agent
+string on the first calls, the default agent after; no browser agent string was set) and the WebFetch tool. Nothing was
+downloaded that is a text of the paper.
+
+1. INSPIRE API, literature?q=doi:10.1103/PhysRevD.41.383 (reading/insp_fmm90.json): one hit, control number 267342. Report
+   number IC/88/91 (an ICTP, Trieste, preprint of 1988). External identifiers: OSTI 6852005, ADS 1990PhRvD..41..383F,
+   KEKSCAN 2000-33-351, SPIRES-1928503, MSNET 1032188. The fields `documents` and `urls` were requested and are absent.
+2. KEK scanned preprint (KEKSCAN 2000-33-351). URL built from the identifier, the pattern not verified:
+   https://lib-extopc.kek.jp/preprints/PDF/2000/0033/0033351.pdf   HTTP 200, 189 bytes, an HTML page "Request Rejected" (three calls,
+   both agent settings). Two other guesses (/1988/8805/8805xxx.pdf, /1988/8803/8803351.pdf): the same page.
+   http://www-lib.kek.jp/cgi-bin/img_index?200033351   host not resolved.
+   WebFetch on the first URL: "read ECONNRESET".
+3. OSTI record 6852005, https://www.osti.gov/biblio/6852005: HTTP 200, the abstract (reading/osti_6852005_abstract.txt) and a
+   DOI link to the publisher; no full text. https://www.osti.gov/servlets/purl/6852005: HTTP 404.
+4. ICTP preprint IC/88/91 (guessed URLs): http://streaming.ictp.it/preprints/P/88/091.pdf connection reset;
+   https://streaming.ictp.it/preprints/P/88/091.pdf and https://publications.ictp.it/preprints/P/88/091.pdf no connection;
+   http://publications.ictp.it/preprints/1988/IC88091P.pdf connection reset;
+   https://www.ictp.it/~pub_off/preprints-sources/1988/IC88091P.pdf HTTP 404.
+5. CERN Document Server search (title and report number): an anti-bot challenge page ("Making sure you're not a bot!"), not
+   passed. ADS abstract page: HTTP 202, empty body (a script page).
+Not tried: a browser agent string, shadow libraries, contacting the authors or the archives.
+Result: [FMM90]'s own text was not read. For a person with a browser the KEK scan (KEKSCAN 2000-33-351, the ICTP preprint IC/88/91)
+is the likeliest free copy.

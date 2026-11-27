@@ -1,0 +1,27 @@
+c = -0.3, rho_c = 0.0, h = 0.02, X = 40.0: mode extracted at t_s = 8.12, Y at the corner node 1.999e-03
+A*_h = -7.663931e-07; fate(A < A*) = -1; finders: raw = the code's cell_class with tolerance 1e-2; weighted = 2 e^f r+ r- >= 0.02 with the signs
+   A = A* - 1e-3: raw collapse t = 2.93 l = +0.03;  weighted collapse t = 4.72 l = +0.16;  departure t = 1.15 sign -1
+   A = A* + 1e-3: raw expand t = 8.54 l = +0.33;  weighted expand t = 5.28 l = -0.17;  departure t = 1.15 sign +1
+   A = A* - 1e-4: raw collapse t = 5.30 l = +0.03;  weighted collapse t = 7.10 l = +0.16;  departure t = 3.52 sign -1
+   A = A* + 1e-4: raw expand t = 10.89 l = +0.35;  weighted expand t = 7.65 l = -0.14;  departure t = 3.52 sign +1
+   A = A* - 1e-5: raw collapse t = 7.71 l = +0.03;  weighted collapse t = 9.48 l = +0.16;  departure t = 5.90 sign -1
+   A = A* + 1e-5: raw expand t = 13.27 l = +0.35;  weighted expand t = 10.03 l = -0.14;  departure t = 5.90 sign +1
+   A = A* - 1e-6: raw collapse t = 10.01 l = +0.01;  weighted collapse t = 11.87 l = +0.17;  departure t = 8.27 sign -1
+   A = A* + 1e-6: raw expand t = 15.68 l = +0.31;  weighted expand t = 12.40 l = -0.17;  departure t = 8.27 sign +1
+   A = A* - 1e-7: raw collapse t = 12.30 l = +0.01;  weighted collapse t = 14.24 l = +0.14;  departure t = 10.65 sign -1
+   A = A* + 1e-7: raw expand t = 18.30 l = +0.07;  weighted expand t = 14.81 l = -0.17;  departure t = 10.65 sign +1
+   A = A* - 1e-8: raw collapse t = 14.82 l = -0.01;  weighted collapse t = 16.65 l = +0.06;  departure t = 13.00 sign -1
+   A = A* + 1e-8: raw none;  weighted expand t = 17.32 l = -0.28;  departure t = 13.05 sign +1
+   late diagonal state, A = A* - 1e-8 (cells (j, j); dead cells 1933629):
+      t = 16.0: r 0.9413, f +0.238, r+ -4.731e-02, r- -3.939e-02, 2 e^f r+ r- = +4.730e-03, 2M/r = 1.0047
+      t = 20.0: excised
+      t = 30.0: excised
+      t = 40.0: excised
+      t = 50.0: excised
+   late diagonal state, A = A* + 1e-8 (cells (j, j); dead cells 0):
+      t = 16.0: r 1.0486, f +0.537, r+ +6.915e-02, r- -7.531e-03, 2 e^f r+ r- = -1.781e-03, 2M/r = 0.9982
+      t = 20.0: r 1.7445, f +2.236, r+ +4.526e-01, r- -2.226e-03, 2 e^f r+ r- = -1.885e-02, 2M/r = 0.9811
+      t = 30.0: r 6.1054, f +8.440, r+ +6.775e-01, r- -1.018e-04, 2 e^f r+ r- = -6.381e-01, 2M/r = 0.3619
+      t = 40.0: r 10.9774, f +14.471, r+ +6.945e-01, r- -3.048e-07, 2 e^f r+ r- = -8.157e-01, 2M/r = 0.1843
+      t = 50.0: r 15.9007, f +20.476, r+ +6.994e-01, r- -8.033e-10, 2 e^f r+ r- = -8.775e-01, 2M/r = 0.1225
+rc=0
