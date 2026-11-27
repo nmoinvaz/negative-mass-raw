@@ -1,0 +1,4 @@
+[FAIL] K1: (0.05, 100) L=800: crate FLOOR, scipy FLOOR, p = eta F' = 0.000101; (0.2, -30) L=200: crate F->0 at 11.70094779, scipy other (A termination event occurred.) at 11.70092677 (diff 2.10e-05, 537 steps); (8, 300) L=800: crate F->0 at 7.552855512, scipy F->0 at 7.552889573 (diff 3.41e-05, 544 steps); (0.01, 3) L=800: crate FLOOR, scipy FLOOR, p = eta F' = 0.0001215
+[PASS] K2: (0.05, 100): |N|/sum 4.1e-16; (0.2, -30): |N|/sum 9.5e-13; (8, 300): |N|/sum 1.1e-13; (0.01, 3): |N|/sum 3.4e-16
+
+2 criteria, 1 pass; failed: ['K1']

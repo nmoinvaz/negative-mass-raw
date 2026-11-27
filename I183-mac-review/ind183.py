@@ -78,7 +78,7 @@ for fi, c, v in chosen:
     Fe, F1e, F2e = sol.y[:, -1]
     if abs(eta_end - 1e-6) <= 1e-12:
         kind = "FLOOR"
-    elif abs(Fe) < 1e-3 * abs(fi) or abs(F1e) >= 1e8 * (1 - 1e-12):
+    elif abs(Fe) < 1e-3 * abs(fi) or abs(F1e) >= 1e8 * (1 - 1e-12) or sol.status == 1:
         kind = "F->0"
     elif abs(Fe**2 - eta_end**2 - 1) < 1e-3:
         kind = "a3->0"
