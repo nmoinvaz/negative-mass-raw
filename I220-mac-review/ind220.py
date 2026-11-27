@@ -240,6 +240,8 @@ check("K2", d[0] <= mp.mpf("1e-35") and d[1] <= mp.mpf("1e-33") and d[2] <= mp.m
       f"Omega0..Omega3 - closed: {', '.join(mp.nstr(x, 3) for x in d)}; Omega4 = {mp.nstr(Oms[4], 40)}, closed form {mp.nstr(O4c, 40)}, relative {mp.nstr(r4, 3)}")
 FIT = mp.mpf("-12794.49986002")
 check("K3", abs(O4c - FIT) <= mp.mpf("5e-10"), f"closed form minus #195's fit {FIT}: {mp.nstr(O4c - FIT, 3)}")
+FIT14 = mp.mpf("-12794.499860023")                                   # A1: the 14-digit fit
+check("K3b", abs(O4c - FIT14) <= mp.mpf("5e-10"), f"closed form minus #195's 14-digit fit {FIT14}: {mp.nstr(O4c - FIT14, 3)}")
 bad = [n for n, ok in RESULTS if not ok]
 print(f"\n{len(RESULTS)} criteria, {len(RESULTS) - len(bad)} pass; failed: {bad}", flush=True)
 sys.exit(1 if bad else 0)

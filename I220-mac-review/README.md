@@ -33,7 +33,16 @@ v = √l, 70 digits, V = 17. It shares no code with method B (`PanelB`). The ord
 
 ## Amendments
 
+**A1, 2026-11-27, after run 1.**
+- **K3 is not met as worded**: the closed form minus −12794.49986002 is −3.19e-9, against 5e-10.
+- The error is the review's. The 13 digits typed into the criterion came from `paper_numbers.py`'s `OM4_FIT`, which
+  truncates #195's fit. `order6.py` and `w2_output.txt` quote 14 digits, −12794.499860023, and 5e-10 is half a unit of
+  that last digit.
+- **K3b**: the closed form minus −12794.499860023, within 5e-10. K3 stays NOT MET.
+
 ## Runs (filled in as they are done)
 
 | file | what |
 |---|---|
+| `rerun_01.log`, `rerun_05.log`, `rerun_06.log` | `sym exch6` 7 of 7; `values pslq remainder` over the runner's stored G1, G2, B evaluations 14 of 14 (X1: 1.95e-10 against the 14-digit fit); `reduce6` 8 of 8 |
+| `ind220_run1.txt` | run 1: K1 and K2 pass, **K3 not met** (A1). K1: the order equations from the ℓ-system equal `order6.py`'s h_k (k = 0 … 6) and dY_k/dl, residual 0. K2: the coordinator's hierarchy (no method-B code) gives Ω₀ … Ω₃ to 7e-45 … 6e-38, and **Ω₄ = −12794.49986002319463279201242038108593386, the closed form of `omega4.md` to 1.1e-39 relative** |
