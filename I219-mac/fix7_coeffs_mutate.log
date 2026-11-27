@@ -1,0 +1,63 @@
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 10.34s
+     Running tests/implicit.rs (target/release/deps/implicit-4e0a7f4a04c6bea1)
+
+running 3 tests
+[PASS] f64 Q-A l = 1 None: worst sum|dc_k| / (eps sum|c_k|) 1.21e1 (bar 1e6)
+[NOT MET] (recorded, not gated) f64 Q-A l = 1: observation, worst relative error of c_k, k <= 22: 4.86e-8 (bar 1.1e-10)
+[PASS] f64 Q-A l = 0.25 None: worst sum|dc_k| / (eps sum|c_k|) 3.16e-2 (bar 1e6)
+[PASS] dd Q-A l = 1 None: worst sum|dc_k| / (eps sum|c_k|) 1.15e1 (bar 1e6)
+[NOT MET] (recorded, not gated) f64 Q-A l = 0.25: observation, worst relative error of c_k, k <= 22: 4.86e-8 (bar 1.1e-10)
+[PASS] f64 None: stop ZeroPivot at x = 1, state finite true
+[NOT MET] (recorded, not gated) dd Q-A l = 1: observation, worst relative error of c_k, k <= 42: 2.00e-11 (bar 1.2e-26)
+[PASS] f64 F1 planner: 0 of 5 steps differ in bits
+[PASS] dd Q-A l = 0.25 None: worst sum|dc_k| / (eps sum|c_k|) 1.61e-1 (bar 1e6)
+[NOT MET] (recorded, not gated) dd Q-A l = 0.25: observation, worst relative error of c_k, k <= 42: 2.00e-11 (bar 1.2e-26)
+[PASS] dd None: stop ZeroPivot at x = 1, state finite true
+[PASS] f64 B(QA) None: stop End (wanted End), 11 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.25e0 (bar 1e6)
+[PASS] dd F1 planner: 0 of 5 steps differ in bits
+[PASS] f64 B(QB) None: stop End (wanted End), 15 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.77e2 (bar 1e6)
+[PASS] f64 B(KA) None: stop End (wanted End), 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 6.20e2 (bar 1e6)
+[PASS] f64 B(KB) None: stop End (wanted End), 19 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 3.48e2 (bar 1e6)
+[PASS] dd B(QA) None: stop End (wanted End), 11 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.23e0 (bar 1e6)
+[PASS] f64 B(KC) None: stop End (wanted End), 12 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 4.32e2 (bar 1e6)
+[PASS] f64 B(RA) None: stop End (wanted End), 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.18e3 (bar 1e6)
+[PASS] f64 B(RB) None: stop End (wanted End), 22 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.11e3 (bar 1e6)
+[PASS] f64 B(RC) None: stop End (wanted End), 12 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 7.25e3 (bar 1e6)
+[PASS] dd B(QB) None: stop End (wanted End), 16 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 4.80e2 (bar 1e6)
+[PASS] f64 B(RD) None: stop End (wanted End), 20 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.93e4 (bar 1e6)
+[PASS] f64 F1 None: stop Pivot (wanted Pivot), 84 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 9.93e-1 (bar 1e6)
+[PASS] f64 F2 None: stop Pivot (wanted Pivot), 68 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.32e0 (bar 1e6)
+test misc_f64 ... ok
+[PASS] dd B(KA) None: stop End (wanted End), 15 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.11e3 (bar 1e6)
+[PASS] qd Q-A l = 1 None: worst sum|dc_k| / (eps sum|c_k|) 2.31e0 (bar 1e6)
+[PASS] dd B(KB) None: stop End (wanted End), 22 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 8.77e2 (bar 1e6)
+[PASS] dd B(KC) None: stop End (wanted End), 13 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.01e3 (bar 1e6)
+[NOT MET] (recorded, not gated) qd Q-A l = 1: observation, worst relative error of c_k, k <= 80: 2.94e-15 (bar 1.5e-58)
+[PASS] dd B(RA) None: stop End (wanted End), 15 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 5.49e2 (bar 1e6)
+[PASS] dd B(RB) None: stop End (wanted End), 21 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.28e3 (bar 1e6)
+[PASS] qd Q-A l = 0.25 None: worst sum|dc_k| / (eps sum|c_k|) 2.22e-1 (bar 1e6)
+[PASS] dd B(RC) None: stop End (wanted End), 13 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 7.10e3 (bar 1e6)
+[NOT MET] (recorded, not gated) qd Q-A l = 0.25: observation, worst relative error of c_k, k <= 80: 2.94e-15 (bar 1.5e-58)
+[PASS] dd B(RD) None: stop End (wanted End), 28 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.72e3 (bar 1e6)
+[PASS] qd None: stop ZeroPivot at x = 1, state finite true
+[PASS] qd F1 planner: 0 of 5 steps differ in bits
+[PASS] dd F1 None: stop Pivot (wanted Pivot), 114 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 6.27e-1 (bar 1e6)
+[PASS] dd F2 None: stop Pivot (wanted Pivot), 92 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 7.49e-1 (bar 1e6)
+test misc_dd ... ok
+[PASS] qd B(QA) None: stop End (wanted End), 11 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 5.94e-1 (bar 1e6)
+[PASS] qd B(QB) None: stop End (wanted End), 17 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 6.89e2 (bar 1e6)
+[PASS] qd B(KA) None: stop End (wanted End), 16 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 6.21e3 (bar 1e6)
+[PASS] qd B(KB) None: stop End (wanted End), 22 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.20e4 (bar 1e6)
+[PASS] qd B(KC) None: stop End (wanted End), 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 4.66e3 (bar 1e6)
+[PASS] qd B(RA) None: stop End (wanted End), 16 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.43e3 (bar 1e6)
+[PASS] qd B(RB) None: stop End (wanted End), 25 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.81e4 (bar 1e6)
+[PASS] qd B(RC) None: stop End (wanted End), 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 9.55e2 (bar 1e6)
+[PASS] qd B(RD) None: stop End (wanted End), 31 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.33e3 (bar 1e6)
+[PASS] qd F1 None: stop Pivot (wanted Pivot), 141 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 3.88e-1 (bar 1e6)
+[PASS] qd F2 None: stop Pivot (wanted Pivot), 113 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.84e-1 (bar 1e6)
+test misc_qd ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 24 filtered out; finished in 0.83s
+
+exit 0

@@ -1,0 +1,48 @@
+$ cargo clippy -j 2 --all-targets -- -D warnings
+a12de84
+    Checking multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+error: the loop variable `c` is used to index `corr`
+   --> src/implicit.rs:462:18
+    |
+462 |         for c in 2..=self.cmax {
+    |                  ^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.94.0/index.html#needless_range_loop
+    = note: `-D clippy::needless-range-loop` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::needless_range_loop)]`
+help: consider using an iterator and enumerate()
+    |
+462 -         for c in 2..=self.cmax {
+462 +         for (c, <item>) in corr.iter().enumerate().take(self.cmax + 1).skip(2) {
+    |
+
+error: the loop variable `j` is used to index `lps`
+   --> src/implicit.rs:495:22
+    |
+495 |             for j in 0..n {
+    |                      ^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.94.0/index.html#needless_range_loop
+help: consider using an iterator and enumerate()
+    |
+495 -             for j in 0..n {
+495 +             for (j, <item>) in lps.iter().enumerate().take(n) {
+    |
+
+error: the loop variable `i` is used to index `y0`
+   --> src/implicit.rs:503:18
+    |
+503 |         for i in 0..3 {
+    |                  ^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.94.0/index.html#needless_range_loop
+help: consider using an iterator and enumerate()
+    |
+503 -         for i in 0..3 {
+503 +         for (i, <item>) in y0.iter().enumerate() {
+    |
+
+error: could not compile `multishoot` (lib) due to 3 previous errors
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `multishoot` (lib test) due to 3 previous errors
+exit 101

@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 945, in main
+    table[name]()
+    ~~~~~~~~~~~^^
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 216, in check_P1
+    lines = rust("planted", lane=lane, n=60)
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 104, in rust
+    raise RuntimeError(f"{' '.join(args)} exited {p.returncode}")
+RuntimeError: /Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial/target/release/taylor_radial planted lane=qd n=60 mutate=lowsum exited -15
+time: command terminated abnormally
+       30.88 real        30.81 user         0.04 sys
+            34078720  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                7415  page reclaims
+                  13  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                 128  voluntary context switches
+                1986  involuntary context switches
+          7708469712  instructions retired
+          1931139078  cycles elapsed
+            23151120  peak memory footprint

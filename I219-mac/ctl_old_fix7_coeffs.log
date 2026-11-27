@@ -1,0 +1,33 @@
+# tests/implicit.rs: the fixed text replaced by the pre-fix text; the tests must fail
+--- fixed text
+tally(&mut bad, coeffs::<T>(l, Ctl::None), false);
+--- pre-fix text
+tally(&mut bad, coeffs::<T>(l, Ctl::None), true);
+---
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 5.08s
+     Running tests/implicit.rs (target/release/deps/implicit-4e0a7f4a04c6bea1)
+
+running 1 test
+[met] (recorded, not gated) f64 Q-A l = 1 None: worst sum|dc_k| / (eps sum|c_k|) 1.21e1 (bar 1e6)
+[NOT MET] (recorded, not gated) f64 Q-A l = 1: observation, worst relative error of c_k, k <= 22: 4.86e-8 (bar 1.1e-10)
+[met] (recorded, not gated) f64 Q-A l = 0.25 None: worst sum|dc_k| / (eps sum|c_k|) 3.16e-2 (bar 1e6)
+[NOT MET] (recorded, not gated) f64 Q-A l = 0.25: observation, worst relative error of c_k, k <= 22: 4.86e-8 (bar 1.1e-10)
+[PASS] f64 None: stop ZeroPivot at x = 1, state finite true
+[PASS] f64 F1 planner: 0 of 5 steps differ in bits
+[PASS] f64 B(QA) None: stop End (wanted End), 11 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.25e0 (bar 1e6)
+[PASS] f64 B(QB) None: stop End (wanted End), 15 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.77e2 (bar 1e6)
+[PASS] f64 B(KA) None: stop End (wanted End), 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 6.20e2 (bar 1e6)
+[PASS] f64 B(KB) None: stop End (wanted End), 19 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 3.48e2 (bar 1e6)
+[PASS] f64 B(KC) None: stop End (wanted End), 12 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 4.32e2 (bar 1e6)
+[PASS] f64 B(RA) None: stop End (wanted End), 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.18e3 (bar 1e6)
+[PASS] f64 B(RB) None: stop End (wanted End), 22 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.11e3 (bar 1e6)
+[PASS] f64 B(RC) None: stop End (wanted End), 12 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 7.25e3 (bar 1e6)
+[PASS] f64 B(RD) None: stop End (wanted End), 20 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.93e4 (bar 1e6)
+[PASS] f64 F1 None: stop Pivot (wanted Pivot), 84 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 9.93e-1 (bar 1e6)
+[PASS] f64 F2 None: stop Pivot (wanted Pivot), 68 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.32e0 (bar 1e6)
+test misc_f64 ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 27 filtered out; finished in 0.00s
+
+exit 0

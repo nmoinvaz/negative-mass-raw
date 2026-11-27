@@ -44,7 +44,19 @@ The targets are predicted from the code, not yet computed. A mutation that misse
 | `theta-coef` | `dn.MUT = "theta_coef"` (the code's own mutation of the sphere term) before K1's numerical comparison | K1 |
 | `wrong-W` | K2 compares with 1.02 W | K2 |
 
+## Amendments
+
+**A1, 2026-11-27, after run 1.** K2 failed as worded. At h = 0.01/√3 the fit is meaningless (slopes 0.007 and 0.049,
+W_fit 0.028); at h = 0.005/√3 it gives 2.1604. The coarse h was the review's choice, scaled from D = 5, and is too
+coarse for D = 6. K2 stays NOT MET. **K2b** applies the same bars (1% to W, 0.5% between the two h) to the pair
+h = 0.005/√3 and 0.0025/√3, with X = 12 and the same window, bracket and tolerance. The mutation `wrong-W` is rerun on
+K2b.
+
 ## Runs (filled in as they are done)
 
 | file | what |
 |---|---|
+| `rerun.sh`, `rerun_derive.log`, `rerun_checks_numba.log`, `rerun_checks_numpy.log` | derive: 25 of 25 pass. checks with the numba kernel: 11 of 11 pass (I1, K, P1, P2, P3, C1, C2, G1 at D = 4 and 5, F1, S). checks with the numpy kernel and numba absent: 10 of 11 pass and K is skipped. These are the verdicts of #39's runs of record |
+| `ind39_run1.log` | run 1: **exit 1, K1 passes, K2 fails.** K1: the coordinator's brute-force Ricci tensor gives `dn.py`'s r_uv, f_uv and φ_uv for n = 2 and 3 (sympy residual 0), and `dn.F_np` agrees with them to 2.8e-16 at 40 random states. The constraint comes out as r_uu + f_u r_u = −(r/n)Σε φ_u². K2: at h = 0.01/√3 the fit is meaningless (W_fit 0.028); at 0.005/√3 it gives 2.160443. K2 stays NOT MET as worded; A1 adds K2b |
+| `ind39_run2_k2b.txt` | run 2 (A1): **K2b passes.** W_fit = 2.160443 at h = 0.005/√3 and 2.162520 at 0.0025/√3, against W = 2.164860 (−2.0e-3 and −1.1e-3). The two agree to 9.6e-4, and the A*_h ratio is 4.005, the h² seed |
+| `ind39_run2_mut_*.txt` | `wrong-W` fails exactly K2b (−2.2e-2 against 1.02 W). `theta-coef` fails exactly K1 (`dn.F_np` off by up to 1.0 relative) |

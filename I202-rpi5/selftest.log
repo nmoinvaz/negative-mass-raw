@@ -1,0 +1,17 @@
+PASS    baseline: failing checks none; skipped none
+PASS    --mutate=digit_last: TS13 D = 4: 14th decimal 1 -> 2; fires ['T2', 'T3'], declared ['T2', 'T3']
+PASS    --mutate=digit_8: TS13 D = 4: 8th decimal 3 -> 4; fires ['C1', 'R1', 'T2', 'T3'], declared ['C1', 'R1', 'T2', 'T3']
+PASS    --mutate=digit_12: TS13 D = 9: 12th decimal 6 -> 7; fires ['C1', 'T2', 'T3'], declared ['C1', 'T2', 'T3']
+PASS    --mutate=digit_6: TS13 D = 7: 6th decimal 4 -> 5; fires ['C1', 'K1', 'T2', 'T3'], declared ['C1', 'K1', 'T2', 'T3']
+PASS    --mutate=drop_zero: TS13 D = 5: the printed trailing 0 dropped; fires ['T1', 'T3'], declared ['T1', 'T3']
+PASS    --mutate=sign: conversion W^2 = +omega^2; fires ['C1', 'K1'], declared ['C1', 'K1']
+PASS    --mutate=sqrt: conversion W = sqrt(-omega^2); fires ['C1', 'K1'], declared ['C1', 'K1']
+PASS    --mutate=csv: growth.csv D = 6: 12th decimal + 1; fires ['C1'], declared ['C1']
+PASS    --mutate=profiles: profiles.py's dict D = 11: last digit + 1; fires ['T2'], declared ['T2']
+PASS    --mutate=crate: crate D = 20: 6th decimal + 1 (3e-8 relative, over K1's bar); fires ['K1', 'O1'], declared ['K1', 'O1']
+PASS    --mutate=crate_7: crate D = 20: 7th decimal + 1 (3e-9 relative, under K1's bar); fires ['O1'], declared ['O1']
+PASS    --mutate=onemode: one_mode.log D = 4: last digit + 1; fires ['O1'], declared ['O1']
+PASS    --mutate=wformula: W(r) with 3 (n-2)^2 -> 4 (n-2)^2; fires ['W1'], declared ['W1']
+PASS    --mutate=upot: one_mode.py's U text: n ** 2 -> n ** 3; fires ['W1', 'W2'], declared ['W1', 'W2']
+PASS    --mutate=halfunit: the comparator's tolerance 0.5 -> 0.1 unit; fires ['P1'], declared ['P1']
+selftest passed: every mutation fires its declared checks and no others

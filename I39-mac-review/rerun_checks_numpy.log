@@ -1,0 +1,65 @@
+# 2026-11-27T05:58:29Z 21:58  up 28 days, 15:34, 4 users, load averages: 5.54 4.31 3.54
+checks.py: kernel numpy, numba absent, numpy 2.5.4, python 3.14.7, Nathans-MacBook-Air-M5-3.local, load average at start ?, mutation None, only None, 2026-11-26 21:58:29
+[pass] I1: the constraint solve on the rays returns the Ellis r(l), n = 2, 3, 4  (max error 2.91e-09, per n [6.782e-10, 2.046e-09, 2.909e-09], tol 1e-08)
+[SKIP] K: numba and numpy kernels agree  (numba absent: skipped)
+    P1 D=4 t_c=4.0: h [0.04000, 0.02000, 0.01000] errors [1.439e-03, 3.487e-04, 8.855e-05] orders [2.045, 1.978]
+    P1 D=5 t_c=2.7: h [0.02828, 0.01414, 0.00707] errors [1.218e-02, 2.924e-03, 7.297e-04] orders [2.059, 2.002]
+[pass] P1: static Ellis wormhole: error against the exact static solution converges at second order for t <= t_c  (orders within [1.75, 2.25])
+    P2 D=4 (r, f) vs exact: errors [5.223e-06, 1.300e-06, 3.244e-07] orders [2.006, 2.003]
+    P2 D=4 M - M0: errors [2.300e-05, 6.178e-06, 1.601e-06] orders [1.896, 1.948]
+    P2 D=4 horizon x-: errors [4.049e-05, 1.013e-05, 2.534e-06] orders [1.999, 1.999]
+    P2 D=4 r on horizon: errors [3.250e-05, 8.138e-06, 2.036e-06] orders [1.998, 1.999]
+    P2 D=5 (r, f) vs exact: errors [4.018e-05, 1.009e-05, 2.527e-06] orders [1.994, 1.997]
+    P2 D=5 M - M0: errors [1.601e-04, 4.432e-05, 1.167e-05] orders [1.853, 1.925]
+    P2 D=5 horizon x-: errors [6.006e-05, 1.503e-05, 3.758e-06] orders [1.999, 1.999]
+    P2 D=5 r on horizon: errors [4.795e-05, 1.200e-05, 3.003e-06] orders [1.998, 1.999]
+    P2 D=6 (r, f) vs exact: errors [3.366e-04, 8.576e-05, 2.163e-05] orders [1.972, 1.987]
+    P2 D=6 M - M0: errors [8.882e-04, 2.609e-04, 7.099e-05] orders [1.767, 1.878]
+    P2 D=6 horizon x-: errors [7.920e-05, 1.981e-05, 4.954e-06] orders [1.999, 2.000]
+    P2 D=6 r on horizon: errors [6.292e-05, 1.575e-05, 3.939e-06] orders [1.998, 1.999]
+[pass] P2: Tangherlini in Kruskal coordinates, D = 4, 5, 6: (r, f), M, and the horizon at x- = -U0 with r = (2M)^(1/(n-1)) converge at second order  (orders within [1.75, 2.25])
+    P3 (r, f, phi) vs exact: errors [1.166e-04, 3.053e-05, 7.798e-06] orders [1.934, 1.969]
+    P3 contour r_+ = 0 position: errors [2.890e-04, 7.289e-05, 1.830e-05] orders [1.987, 1.994]
+    P3 contour r_- = 0 position: errors [6.232e-04, 1.577e-04, 3.948e-05] orders [1.983, 1.998]
+    P3 contour slopes dx+/dx- at the finest h: r_+ = 0: 0.666668 (exact 0.666667); r_- = 0: 1.499991 (exact 1.500000); cells misclassified (trapped / anti-trapped / untrapped) [0, 0, 0]
+[pass] P3: Roberts ghost solution (D = 4, exact, nonlinear): second-order error, the two trapping-horizon lines and their slopes, and the cell classification  (slope tol 0.001, at most 3 misclassified cells per row)
+    C1 max |C_++|, |C_--| [5.921e-04, 1.489e-04, 3.727e-05] orders [1.991, 1.999]
+    C2 edge flux residual [4.506e-04, 1.136e-04, 2.849e-05] orders [1.988, 1.995]; largest M change on the edge [1.180e+00, 1.180e+00, 1.180e+00]
+[pass] C1: constraints C_++, C_-- of a pulse run fall at second order  (max norm at t <= 4.24)
+[pass] C2: mass change along the edge x+ = X equals the integral of the flux at second order, with a nonzero flux  (pulse crossing the edge)
+    G1 D=4 h=0.02000: A*_h = 4.7527737916e-05 (30 runs, 12.6 s); slopes 1.187831, 1.176142 (68, 69 pts) -> W_fit 1.181986 vs W 1.181970 (rel +1.40e-05); untuned departure |H| = 2e-3 W at tau = 6.125, seed constant kappa = 0.00424
+    G1 D=4 h=0.01000: A*_h = 1.1884160340e-05 (30 runs, 44.7 s); slopes 1.187806, 1.176046 (136, 139 pts) -> W_fit 1.181926 vs W 1.181970 (rel -3.69e-05); untuned departure |H| = 2e-3 W at tau = 7.306, seed constant kappa = 0.0042
+    G1 D=4: A*_h ratio between the two h 3.999 (h^2 seed predicts 4); untuned departure shifts by 1.181 (ln4/W = 1.173)
+[pass] G1[D=4]: tune p to p*_h, then the departure grows at W = 1.181970 within 1%, at two resolutions that agree within 0.5%  (W_fit 1.181986, 1.181926; rel +1.40e-05, -3.69e-05)
+    G1 D=5 h=0.00707: A*_h = 2.8847906739e-04 (30 runs, 49.2 s); slopes 1.729568, 1.725450 (122, 134 pts) -> W_fit 1.727509 vs W 1.727703 (rel -1.13e-04); untuned departure |H| = 2e-3 W at tau = 3.887, seed constant kappa = 0.0838
+    G1 D=5 h=0.00354: A*_h = 7.2090886533e-05 (30 runs, 185.8 s); slopes 1.735233, 1.719284 (242, 269 pts) -> W_fit 1.727259 vs W 1.727703 (rel -2.57e-04); untuned departure |H| = 2e-3 W at tau = 4.689, seed constant kappa = 0.0838
+    G1 D=5: A*_h ratio between the two h 4.002 (h^2 seed predicts 4); untuned departure shifts by 0.802 (ln4/W = 0.802)
+[pass] G1[D=5]: tune p to p*_h, then the departure grows at W = 1.727703 within 1%, at two resolutions that agree within 0.5%  (W_fit 1.727509, 1.727259; rel -1.13e-04, -2.57e-04)
+    F1 ghost, +A: fate expand at t = 7.396; E0 = -0.0299; diagonal throat at the last live cell t = 16.96 r = 8.5162 H = +1.6148; min-r slice at the end t = 16.49 r = 8.1772
+    F1 ghost, -A: fate collapse at t = 3.734; E0 = +0.0254; diagonal throat at the last live cell t = 5.67 r = 0.2756 H = -4.9671; min-r slice at the end t = 5.69 r = 0.1634; M at the first trapped cell 0.4975
+    F1 normal, +A: fate collapse at t = 6.293; E0 = +0.0022; diagonal throat at the last live cell t = 8.81 r = 0.2666 H = -4.9785; min-r slice at the end t = 8.82 r = 0.2065; M at the first trapped cell 0.4920
+[pass] F1: one pulse of each sign at D = 4: a normal pulse collapses; ghost pulses of the two signs end in a black hole and in an expansion ([SH02]'s two fates). Reported as seen, parameters not tuned  (ghost, +A: expand, ghost, -A: collapse, normal, +A: collapse)
+    S ghost, +A: fate expand -> expand; event time 7.3963 -> 7.3963 (|dt| = 0.00e+00, tolerance 1.13e-01); dead cells 0 -> 0
+    S ghost, -A: fate collapse -> collapse; event time 3.7335 -> 3.7335 (|dt| = 0.00e+00, tolerance 1.13e-01); dead cells 172322 -> 171698
+[pass] S: sensitivity: with r_cut halved and F_cut doubled, one classified collapse and one classified expansion keep their fate and their event time within 4.0 h
+
+10 of 11 checks pass; 0 fail; skipped: K; 297.2 s
+      297.37 real       284.68 user         1.57 sys
+          3533242368  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              472587  page reclaims
+                   4  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+               64353  involuntary context switches
+       2325632212745  instructions retired
+        640407185557  cycles elapsed
+          3545795752  peak memory footprint
+exit 0

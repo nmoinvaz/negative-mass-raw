@@ -1,0 +1,31 @@
+
+thread 'main' (103071581) panicked at src/plane.rs:132:13:
+integrate: more than 300 s by x = 8.615925093112124e1 after 3078143 steps
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 948, in main
+    table[name]()
+    ~~~~~~~~~~~^^
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 247, in check_A
+    lines = rust("row", omega=repr(w), eps=1, lane=lane)
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 104, in rust
+    raise RuntimeError(f"{' '.join(args)} exited {p.returncode}")
+RuntimeError: /Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial/target/release/taylor_radial row omega=0.75 eps=1 lane=dd mutate=noqr exited 101
+      412.68 real       412.11 user         0.27 sys
+           112427008  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               12616  page reclaims
+                   3  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  20  voluntary context switches
+               25945  involuntary context switches
+          2988593609  instructions retired
+           751141713  cycles elapsed
+            22102568  peak memory footprint
