@@ -1,0 +1,11 @@
+  l1 h=0.02: omega = 0.6878669897 -0.6187579851i
+  l1 h=0.01: omega = 0.6878669874 -0.6187579847i
+  darboux: omega = 0.6858832414 -0.6158877372i
+  l2: omega = 1.7467655431 -0.3049962186i
+  test: omega = 1.5820030948 -0.5301250757i
+[FAIL] K1b: |l1 - polar.md| 6.6e-03, |l1 - Darboux partner| 3.5e-03, h spread 2.3e-09
+[FAIL] K2: |l2 - polar.md| 9.1e-03
+[FAIL] K3: |test - polar.md| 9.3e-03, |test - l1| 0.90
+
+3 criteria, 0 pass; mutation V-scale
+rc=1

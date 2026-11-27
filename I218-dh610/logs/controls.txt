@@ -1,0 +1,9 @@
+fires   --mutate=L_sign (target ('l2', -0.3)): exit 0; l2 c = -0.3: n = 23 against 0 unmutated
+fires   --mutate=hz_out (target ('l2', -1.5)): exit 0; l2 c = -1.5: n = 3 against 0 unmutated
+fires   --mutate=rmax (target ('l1', -0.3)): exit 0; l1 c = -0.3: n = 6 against 0 unmutated
+fires   --mutate=g1_wrong (target ('l1', -1.5)): exit 0; l1 c = -1.5: n = 3 against 0 unmutated
+fires   --mutate=scan_range (target ('mads', 0.5)): exit 0; mads c = 0.5: n = 0 against 1 unmutated
+fires   --mutate=ads_bc (target S6 spectral): exit 1; FAIL  S6 spectral S-A c = 0.5: eigenvalues with Re lam > 1e-4: real 1 (shooting 1), complex 0, |dW|/W = ['8.48e-02'] (declared <= 0.002); FAIL  S6 spectral S-B c = 0.5: eigenvalues with Re lam > 1e-4: real 1 (shooting 1), complex 0, |dW|/W = ['8.48e-02'] (declared <= 0.0002)
+fires   --mutate=qnm_L (target P2 Ellis polar l = 2): exit 1; FAIL  P2 Ellis polar l = 2 quasinormal mode against [ABCKY23] Table 1 (M = 0): omega = 1.982217 -0.335140i (printed 1.74 -0.305i), |dRe| = 2.4e-01, |d; FAIL  P2 Ellis polar l = 3 quasinormal mode against [ABCKY23] Table 1 (M = 0): omega = 3.113850 -0.417750i (printed 2.95 -0.410i), |dRe| = 1.6e-01, 
+fires   --mutate=l1_pot (target P3a Ellis polar l = 1): exit 1; FAIL  P3a Ellis polar l = 1 quasinormal mode of the derived system against the master equation (52), (53) of [ABCKY23] at L = 2 (1D shooting): derived; FAIL  P3b the same against the complex-scaled eigenvalue problem for the master equation at L = 2 (finite differences, Richardson in h^2): derived 0
+fires   --mutate=spec_sign (target S6 spectral): exit 1; FAIL  S6 spectral S-A c = 0.5: eigenvalues with Re lam > 1e-4: real 0 (shooting 1), complex 0, |dW|/W = [] (declared <= 0.002); FAIL  S6 spectral S-B c = 0.5: eigenvalues with Re lam > 1e-4: real 0 (shooting 1), complex 0, |dW|/W = [] (declared <= 0.0002)
