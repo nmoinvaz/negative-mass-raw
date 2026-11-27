@@ -63,3 +63,8 @@ symbol's definition. The line is restored, and nothing else changes. Run 2 is th
 
 | file | what |
 |---|---|
+| `rerun_run_03_all_ctlsum.log` | the rerun of `run_03`: its 39 verdict lines up to the grid check **equal the Pi's**. The control summary (`ctlsum`) then crashed, because the review's command left out `--ctldir` and `--ctlprefix`; the error is the review's, and the log is kept |
+| `rerun_2_ctlsum.log`, `rerun_ctlsum_output.txt` | `ctlsum` with the runner's arguments, over its control logs: 27 of 27 PASS, lines equal to `run_03`'s |
+| `ind209_run1.txt` | run 1: crashed at its start (NameError, A1) |
+| `ind209_run2.txt` | run 2: **exit 0, 4 of 4.** The hierarchy with the closed-form Ω's has G₂ … G₅ = −9e-44 … −1e-35. K1: E1 holds at k = 3, 4, 5 to 2.8e-43, 1.7e-40 and 8.6e-38 at the root, and to the same off it, where G_k = −1.2566370614359172954 = −0.4π on both sides. K2: E2 holds at m = 2, 3, 4 (29.2666…, −346.7618…, −2683.4583…) to 4.5e-43 … 1.3e-39. K3: E3 holds to 1.9e-45 … 1.1e-41. K4: with Ω₀ + 1e-3 (G₂ = −0.01257), E2 at m = 2 is off by 0.062: **the hypothesis G_m = 0 is needed, and this hierarchy shows it** |
+| `ind209_run2_mut_*.txt` | `e1-factor` fails exactly K1, `e2-weight` exactly K2, `k4-off` exactly K4. **`e3-Om0` is silent**, and by structure: the constant in E3 multiplies ∫Y_m/sin²θ on one side and 2∫F_{m−1}dθ on the other, which are equal by E1's by-parts step. So E3 holds with any constant in Ω₀'s place, as #209's own `e3_Om0` found |

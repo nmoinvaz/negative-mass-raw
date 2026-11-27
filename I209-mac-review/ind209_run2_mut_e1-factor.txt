@@ -1,0 +1,11 @@
+hierarchy to k = 5 with the closed-form Omegas: G_2..G_5 = ['-9.1e-44', '-5.2e-41', '-2.46e-38', '-1.04e-35'] (18 s)
+  E1 off the root, k = 3: G_k = -1.2566370614359172954, right side -59.161520468789538672
+  E1 off the root, k = 4: G_k = -1.2566370614359172954, right side 692.89529351927884318
+  E1 off the root, k = 5: G_k = -1.2566370614359172954, right side 5366.2884116486472349
+[FAIL] K1: E1: G_k against its right side: k=3 1.0, k=4 1.0, k=5 1.0, k=3 off 0.979, k=4 off 1.0, k=5 off 1.0
+[PASS] K2: E2: m=2 29.266600969 vs 29.266600969 (4.5e-43), m=3 -346.761806025 vs -346.761806025 (2.17e-41), m=4 -2683.45836509 vs -2683.45836509 (1.32e-39)
+[PASS] K3: E3: m=2 1.88e-45, m=3 6.54e-43, m=4 1.12e-41
+[PASS] K4: with Omega0 + 1e-3 (G_2 = -0.01257): E2 at m = 2 off by 0.062
+
+4 criteria, 3 pass; failed: ['K1']  (57 s)
+rc 1
