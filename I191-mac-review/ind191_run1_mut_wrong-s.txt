@@ -1,0 +1,4 @@
+[PASS] K1: L1 f64 K=30: Real; L1 dd K=60: Real; L1 qd K=120: Real; L2 f64 K=30: Real; L2 dd K=60: Real; L2 qd K=120: Real; L3 f64 K=30: Pair; L3 dd K=60: Pair; L3 qd K=120: Pair
+[FAIL] K2: L1 f64: |ds| 2.2e-16 (bar 3.6e-15), |dalpha| 6.4e-15 (bar 8.5e-14); L1 dd: |ds| 0.0e+00 (bar 6.7e-31), |dalpha| 4.6e-31 (bar 5.4e-30); L1 qd: |ds| 0.0e+00 (bar 3.3e-62), |dalpha| 1.9e-64 (bar 1.6e-61); L2 f64: |ds| 2.3e-02 (bar 3.6e-07), |dalpha| 1.1e-06 (bar 1.5e-05) NOT COVERED; L2 dd: |ds| 2.3e-02 (bar 1.6e-16), |dalpha| 0.0e+00 (bar 3.2e-14) NOT COVERED; L2 qd: |ds| 2.3e-02 (bar 2.6e-27), |dalpha| 0.0e+00 (bar 1.7e-24) NOT COVERED; L3 f64: |ds| 7.8e-16 (bar 3.6e-15), |dalpha| 6.7e-15 (bar 4.1e-14); L3 dd: |ds| 9.8e-33 (bar 7.9e-31), |dalpha| 0.0e+00 (bar 1.1e-29); L3 qd: |ds| 2.0e-66 (bar 3.9e-62), |dalpha| 0.0e+00 (bar 1.6e-61)
+
+2 criteria, 1 pass; failed: ['K2']

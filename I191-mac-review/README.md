@@ -44,3 +44,7 @@ Lanes f64, dd and qd at K = 30, 60 and 120 (the suite's orders per lane): nine c
 
 | file | what |
 |---|---|
+| `rerun_test_locate.log`, `.rc` | the PR's suite on this Mac: 4 passed, 1 ignored (the development controls). **Fingerprint 0xa5113e9ccb6776c8**, the same as on the Pi, with `portable` and in the PR's x86 CI: a fourth build, bit for bit |
+| `ind191.py`, `ind191_run1.txt` | run 1: **exit 0, 2 of 2.** K1: the expected kinds in all nine cells (L1 and L2 Real, L3 Pair). K2: the bars cover in all nine. The log end L1 is located with \|ds\| ≤ 2.2e-16 and \|dα\| ≤ 6.4e-15 in f64 (bars 3.6e-15, 8.5e-14). The dressed L2 in f64 has \|ds\| 2.0e-8 (bar 3.6e-7) and \|dα\| 1.1e-6 (bar 1.5e-5). **Limit of the check:** the harness prints s and α in f64, so in dd and qd K2 tests coverage only to f64 resolution (the differences read 0) |
+| `ind191_run1_mut_*.txt` | `wrong-s` fails exactly K2, `pair-as-real` exactly K1 |
+| `rerun_driver.txt`, `.err` | `singularity_locator.py` from a worktree at 71ebf1c, with `compare183` built on this Mac against the review worktree of #183 and the PR clone: **identical to the committed `singularity_locator_output.txt`** except the planted log's file name |
