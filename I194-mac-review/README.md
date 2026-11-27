@@ -52,6 +52,18 @@ The targets are predicted from the code, not yet computed. A mutation that misse
 
 ## Amendments
 
+**A1, 2026-11-27, after run 1 (two processes; no K value printed).**
+- Run 1's K0/K2/K3 process stopped in its coarse scan of the phantom family. At P = 5.02e-4 the code frequency in
+  [0.05, 0.9999] gave no ground-state bracket (`ind194_run1_K023.txt`).
+- The phantom rows of C1 are thin-walled stars of radius 80 to 170 (`phantom_family.txt`). Shooting from the centre in
+  float64 cannot hold their plateau, so **K2 and K3 stay NOT COMPUTED**, which is a failure as worded. The crate's stars
+  and the stored rows are not compared by this review.
+- Run 1's K1 process printed nothing in 23 minutes, and the review stopped it. Development runs `dev_02` and `dev_03` timed
+  one star at P₀: 14 s at rtol 1e-10 and 301 s at 1e-12. The two agree to 4.7e-12 in ω and 2.4e-11 in M. The tolerance
+  pair becomes **1e-10 and 1e-11**; the bars of K0 and K1 are unchanged.
+- K0's ε = −1 point moves from α_c = 2.0, a strong-field row, to the weak-field ε = −1 family at ω = 0.95. It is found
+  as for ε = +1, by walking out in P from the crossing.
+
 ## Runs (filled in as they are done)
 
 | file | what |
