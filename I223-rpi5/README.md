@@ -299,3 +299,10 @@ without renormalization and overflowed; the window is now |x| = 60.
 **A9. Reruns of the non-count commands.** `check`, `planted`, `planted_low`, `planted_complex`, `complex`, `spectral` and `controls` are rerun at `bounce.py` ef25201 (`*_run2.log`; the
 f6d1802 logs are kept as run 1). The count runs (`results/*.json`, 220) are from 9b3db56 (main stage, S low stage) and f6d1802 (B low stage); ef25201 and f6d1802 differ only
 in the complex code, the report's complex notes and the controls table; the counting code is unchanged.
+
+**A10. Two complex controls, after their first run (`controls_run2_c.log`, `bounce.py` ef25201).** `cplx_conj` is **silent** on P4 (exit 0): the conjugate of W in the left start vector excites the
+decaying-rightward solution, which the integration suppresses by e^{−2 Re W r0}, as the growing solution dominates (the same mechanism as the silent horizon-exponent control of #212). Reported as a result;
+it stays in the table as silent. A replacement is proposed to the coordinator and **added beside it**, not instead of it: `cplx_hypot` (the real hypot normalization of the first version, non-analytic in W). Prediction,
+written before its run: P4 fails at R1 (no root, as in the development history of P4). `cplx_ned` was mis-built: the mutation also removed the NED term from the spectral eigenvalue it is
+checked against, so C1 failed for the wrong reason (no complex eigenvalue found) and the target string did not match. Fixed (the mutation acts on the shooting only; commit 1b614eb); prediction: C1 at S m = 0.3 fails on the
+comparison with the spectral λ (|Δλ|/|λ| ≫ 1e-3) or by no convergence. Both rerun as run 3 (`controls_run3_c.log`).

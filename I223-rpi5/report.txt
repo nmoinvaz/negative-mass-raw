@@ -2,8 +2,8 @@ Radial modes, b = 1 (W in units 1/b). Main stage: W in [0.001, 8], R1 and R2; lo
 id               m        q       x_h     kappa       p | nR1 nR2 | W main (R2)                        | lR1 lR2 | Sturm  | count | verdicts
 S_m0        0.0000   0.0000         -         -       - | 1   1   | 1.1819697265                       | 0   0   | -      | 1     | R1 v R2 1.2e-10 ok; low R1 v R2 0.0e+00 ok
 S_m0.1      0.1000   0.0000         -         -       - | 2   2   | 0.5564095926; 0.6081311388         | 0   0   | -      | 2     | R1 v R2 3.0e-09 ok; low R1 v R2 0.0e+00 ok
-S_m0.2      0.2000   0.0000         -         -       - | 0   0   | none                               | 0   0   | -      | 0     | R1 v R2 0.0e+00 ok; low R1 v R2 0.0e+00 ok
-S_m0.3      0.3000   0.0000         -         -       - | 0   0   | none                               | 0   0   | -      | 0     | R1 v R2 0.0e+00 ok; low R1 v R2 0.0e+00 ok
+S_m0.2      0.2000   0.0000         -         -       - | 0   0   | none                               | 0   0   | -      | 0     | R1 v R2 0.0e+00 ok; low R1 v R2 0.0e+00 ok; complex pair W = 0.506993 +0.368096i and conjugate (C1, spectral and shooting)
+S_m0.3      0.3000   0.0000         -         -       - | 0   0   | none                               | 0   0   | -      | 0     | R1 v R2 0.0e+00 ok; low R1 v R2 0.0e+00 ok; complex pair W = 0.398398 +0.387202i and conjugate (C1, spectral and shooting)
 S_m0.4      0.4000   0.0000         -         -       - | 1   1   | 0.0107401464                       | 0   0   | -      | 1     | R1 v R2 3.2e-09 ok; low R1 v R2 0.0e+00 ok
 S_m0.45     0.4500   0.0000         -         -       - | 1   1   | 0.0942891493                       | 0   0   | -      | 1     | R1 v R2 4.4e-10 ok; low R1 v R2 0.0e+00 ok
 S_m0.5      0.5000   0.0000   0.00000   0.00000       - | 1   1   | 0.2024268304                       | 0   0   | 1      | 1     | R1 v R2 5.1e-10 ok; low R1 v R2 0.0e+00 ok; S9 ok
@@ -26,7 +26,7 @@ B1_q0.6     0.6366   0.6000   0.73732   0.32327  0.7789 | 2   2   | 0.0126297199
 B1_q0.7     0.6366   0.7000   0.48099   0.26706  0.3705 | 2   2   | 0.0286422404; 0.2607019704         | 0   0   | 2      | 2     | R1 v R2 1.8e-09 ok; low R1 v R2 0.0e+00 ok; S9 ok
 B1_q0.74    0.6366   0.7400   0.26440   0.19461  0.1895 | 2   2   | 0.0502898680; 0.2244851121         | 0   0   | 2      | 2     | R1 v R2 1.2e-09 ok; low R1 v R2 0.0e+00 ok; S9 ok
 B1_q0.76    0.6366   0.7600  -0.01472   0.09297  0.0953 | 2   2   | 0.1025427653; 0.1522105669         | 0   0   | -      | 2     | R1 v R2 1.0e-09 ok; low R1 v R2 0.0e+00 ok
-B1_q0.77    0.6366   0.7700  -1.43678   0.11172  0.0472 | 1   1   | 0.0395522836                       | 0   0   | -      | 1     | R1 v R2 3.1e-10 ok; low R1 v R2 0.0e+00 ok
+B1_q0.77    0.6366   0.7700  -1.43678   0.11172  0.0472 | 1   1   | 0.0395522836                       | 0   0   | -      | 1     | R1 v R2 3.1e-10 ok; low R1 v R2 0.0e+00 ok; complex pair W = 0.121260 +0.091531i and conjugate (C1, spectral and shooting)
 B1_q0.775   0.6366   0.7750  -2.80480   0.15250  0.0229 | 1   1   | 0.0737792262                       | 0   0   | -      | 1     | R1 v R2 1.0e-10 ok; low R1 v R2 0.0e+00 ok
 B2_q0       0.2122   0.0000   0.00000   0.63662  0.6366 | 0   0   | none                               | 0   0   | 0      | 0     | R1 v R2 0.0e+00 ok; low R1 v R2 0.0e+00 ok; S9 ok; P2 R1 vs #212 c = -1 (n 0, W None): dW/W - ok; P2 R2 vs #212 c = -1 (n 0, W None): dW/W - ok
 B2_q0.1     0.2196   0.1000   0.00000   0.62728  0.6273 | 1   1   | 0.0037625403                       | 0   0   | 1      | 1     | R1 v R2 1.1e-07 ok; low R1 v R2 0.0e+00 ok; S9 ok
@@ -55,4 +55,5 @@ P2_c-10     2.1221   0.0000   4.19708   0.11652  6.3662 | 1   1   | 0.0895350811
 P2_c-1.1    0.2334   0.0000   0.07576   0.62095  0.7003 | 1   1   | 0.6031905199                       | 0   0   | 1      | 1     | R1 v R2 2.6e-10 ok; low R1 v R2 0.0e+00 ok; S9 ok; P2 R1 vs #212 c = -1.1 (n 1, W 0.6031905199): dW/W 2.9e-10 ok; P2 R2 vs #212 c = -1.1 (n 1, W 0.6031905199): dW/W 2.1e-11 ok
 P2_c-0.9    0.1910   0.0000  -0.08183   0.65043  0.5730 | 1   1   | 0.6730206207                       | 0   0   | -      | 1     | R1 v R2 2.8e-09 ok; low R1 v R2 0.0e+00 ok; P2 R1 vs #212 c = -0.9 (n 1, W 0.6730206207): dW/W 2.8e-09 ok; P2 R2 vs #212 c = -0.9 (n 1, W 0.6730206207): dW/W 3.8e-11 ok
 P2_c-0.01   0.0021   0.0000  -7.00216   0.14009  0.0064 | 1   1   | 1.1741182764                       | 0   0   | -      | 1     | R1 v R2 1.9e-10 ok; low R1 v R2 0.0e+00 ok; P2 R1 vs #212 c = -0.01 (n 1, W 1.1741182764): dW/W 2.0e-10 ok; P2 R2 vs #212 c = -0.01 (n 1, W 1.1741182764): dW/W 1.7e-11 ok
-members with at least one growing mode (count, else main stage): 52 of 55
+members with at least one growing mode (real roots by shooting and Sturm, or a confirmed complex pair): 54 of 55
+exit status 1
