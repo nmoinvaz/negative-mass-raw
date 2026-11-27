@@ -1,0 +1,20 @@
+c = -0.3, rho_c = 0.0, h = 0.01, X = 40.0, pulse +-1e-06 on the + ray (centre 3, width 0.5); member: kappa = 0.6013, #212 W = 0.9700800261, ADM mass m = 0.06366
+   odd part of Y per unit A_p, and its ratio to the same at 10 A_p (1 = linear):
+      t =   6.0: Y/A_p +7.292e+00  ratio 1.0000;  dM_diag/A_p +3.646e+00  dM_edge/A_p +8.054e-01 (edge l = +25.3)
+      t =  10.0: Y/A_p +3.472e+02  ratio 1.0000;  dM_diag/A_p +1.744e+02  dM_edge/A_p +4.969e+01 (edge l = +23.3)
+      t =  14.0: Y/A_p +1.165e+04  ratio 1.0428;  dM_diag/A_p +6.912e+03  dM_edge/A_p +8.551e+03 (edge l = +21.3)
+      t =  18.0: Y/A_p +4.275e+04  ratio nan;  dM_diag/A_p +3.014e+04  dM_edge/A_p +3.390e+04 (edge l = +19.3)
+      t =  22.0: Y/A_p +5.236e+04  ratio nan;  dM_diag/A_p +8.330e+03  dM_edge/A_p +7.965e+03 (edge l = +17.3)
+      t =  26.0: Y/A_p +5.524e+04  ratio nan;  dM_diag/A_p +2.906e+03  dM_edge/A_p +3.788e+03 (edge l = +15.3)
+      t =  30.0: Y/A_p +5.635e+04  ratio nan;  dM_diag/A_p +2.559e+03  dM_edge/A_p +3.390e+03 (edge l = +13.3)
+      t =  34.0: Y/A_p +5.689e+04  ratio nan;  dM_diag/A_p +2.751e+03  dM_edge/A_p +3.339e+03 (edge l = +11.3)
+      t =  38.0: Y/A_p +5.720e+04  ratio nan;  dM_diag/A_p +2.980e+03  dM_edge/A_p +3.573e+03 (edge l = +9.3)
+      t =  42.0: Y/A_p +5.740e+04  ratio nan;  dM_diag/A_p +2.361e+03  dM_edge/A_p +2.140e+03 (edge l = +7.3)
+      t =  46.0: Y/A_p +5.753e+04  ratio nan;  dM_diag/A_p -1.720e+04  dM_edge/A_p -1.668e+04 (edge l = +5.3)
+      t =  50.0: Y/A_p +5.763e+04  ratio nan;  dM_diag/A_p -2.529e+04  dM_edge/A_p -1.497e+05 (edge l = +3.3)
+      t =  54.0: Y/A_p +5.770e+04  ratio nan;  dM_diag/A_p +4.153e+06  dM_edge/A_p +7.942e+06 (edge l = +1.3)
+   local rate of ln|Y| (odd part):
+      [10, 16] +0.776; [16, 22] +0.081; [22, 28] +0.010; [28, 34] +0.003; [34, 40] +0.001; [40, 46] +0.001; [46, 52] +0.000
+   late value of Y/A_p (median over the last 8 time units): +5.7678e+04; peak |Y|/A_p 5.774e+04 at t = 56.6; sign changes 4; rate of ln|Y| over the last window +0.000; saturated (rate < 0.05 in magnitude over the last window and within 10 % of the late value from t = 21.64453857212022): True
+   at the last rows (t = 56.3): M at the diagonal cell, A = +A_p: -21.20870 (static 0.50000); at the edge cell (l = +0.1): -18.05407 (static 0.49880); member m = 0.06366; odd dM_diag/A_p -1.231e+07, dM_edge/A_p -9.607e+06; 2M/r at the diagonal -2.0646
+rc=0
