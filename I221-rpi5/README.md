@@ -133,6 +133,55 @@ text above says "all three fields"). No criterion or tolerance was changed. Decl
 The issue's acceptance "the row mutation fires on each row": `last_digit:D` fires G2 at all 16 D (G2 alone at D <= 11, where G4's
 bar is 1e-8 and G6 reads D >= 20 only).
 
+## Amendment A2: the printed-digits script (written before it was run)
+
+`printed_digits.py` (this folder; reads the checkout, writes nothing there) answers "does this printed number change?" for the
+numbers that read the D <= 11 rows. It parses the printed strings from `paper/3-wormhole-largeD/main.tex` (Table 1: W²a², relative
+difference from the three-term formula, (difference)·s², for D <= 11; Table 2: 1/(Wa) and the predicted slope 1/(√2 W a) at D = 4, 5, 6)
+and from `notes/wormhole_largeD/README.md` (the table's [TS13] column at D = 4, 10; the e-folding times 0.846, 0.579, 0.462 of
+"What it means"), recomputes each from the old rows (`git show 4bced01:…/growth.csv`) and the new rows at the printed number of
+decimals or significant digits, and compares. Verdicts: `unchanged` (old = new = printed), `NEW DIFFERS` (new rounding is not the
+printed number), `printed != old` (the printed number was not the old rows' rounding: a discrepancy). Exit 1 unless every cell is
+`unchanged`. The formula is `paper_numbers.py`'s (OM0 = −4 ln 2, OM1 = 2π²/3 + 8 ln²2, s = 2(D − 3)).
+
+`--mutate=bump:D` adds 1e-6 to the new row D (D = 4 … 11). **Predictions:** `bump:4` and `bump:10` fire the Table 1 W²a² cell and
+the README [TS13] cell of that D; `bump:5`, `6`, `7`, `8` fire the Table 1 W²a² cell of that D only; `bump:9` and `bump:11` fire
+nothing (those D are printed nowhere in these two files). The relative-difference and (difference)·s² cells and the 1/W cells are
+not predicted to fire for a 1e-6 shift (largest shift of any such cell: 1e-6 · s² = 2e-4 at D = 10, against units of 0.1 or 1).
+Declared targets come from the development run, as for `check_growth.py`.
+
 ## Runs
 
-(filled in as they are done)
+All exit 0 unless stated; one process at a time, `nice -n 10`, rpi5. `run_mutations.sh OUTDIR` runs `check_growth.py` with no mutation and
+with each of the 64 mutations (65 runs; a mutation exits 1 by design). `compare_targets.py SUMMARY declared_targets.json` compares each
+run's failed checks with the declared ones.
+
+| log | what | result |
+|---|---|---|
+| `growth_4bced01.csv`, `profiles_4bced01.csv`, `logs_check_growth_4bced01.txt`, `logs_paper_numbers_4bced01.txt` | the base commit's files | copies |
+| `dev_01_profiles_growth_only.log` | new `profiles.py --growth-only` | 4 s; 8 rows changed, the D >= 20 rows byte-identical |
+| `dev_02_check_growth_unmutated.log` | first run of the new checker | G1 to G6, R0 to R2 pass |
+| `dev_03_summary.log`, `dev_03_mutations/` | 65 development runs | 64 of 65 as predicted; `source:D` at D >= 20 also fires G6 (A1) |
+| `dev_04_printed_digits/` | `printed_digits.py --mutate=bump:D`, 8 runs | all as predicted (A2) |
+| `run_01_profiles_growth_only.log` | `profiles.py --growth-only` again | growth.csv byte-identical |
+| `run_02_check_growth.log` (= `logs_check_growth.txt`) | checker of record | exit 0; G1 to G6, R0 to R2 pass |
+| `run_03_summary.log`, `run_03_compare_targets.log`, `run_03_mutations/` | 65 runs of record | 65 of 65 on target |
+| `run_04_paper_numbers.log` (= `logs_paper_numbers.txt`) | `paper_numbers.py` on the new csv | exit 0, checks failed: 0; 8 of 37 lines differ from the base's (the eight rows) |
+| `run_05_ts13_digits.log`, `run_05_ts13_digits_selftest.log` | `ts13_digits.py`, `--selftest` on the new csv (read-only) | **exit 1, 1**: C1 fails at 8 of 8 (predicted); selftest baseline fails, 9 of 15 mutations off target |
+| `run_06_ts13_digits_C1_retarget_selftest.log`, `ts13_digits_C1_retarget.diff` | C1 retargeted to the crate, on a scratch copy | passes; 10 of 15 mutations on target, five lose C1 |
+| `run_07_fig6_reader.log`, `run_07_fig6_committed.png`, `run_07_fig6_new.png`, `fig6_reader_check.py` | `fig6_wormhole` into a scratch folder | runs; 0 of 16 rows start with `TS13`; the D <= 11 markers change style |
+| `run_08_read_csv.log` | `w2_highprec.read_csv` on the new file | 16 rows |
+| `run_09_printed_digits.log` | `printed_digits.py` | 31 of 31 cells unchanged |
+| `run_10_printed_digits/`, `run_10_compare.log`, `declared_printed_digits.json` | its 8 mutations and the unmutated run | 9 of 9 on target |
+| `run_11_relabel_readers.log`, `relabel_readers.py` | `stability.py:54` and `order4.py:808` on `w2_output.txt` relabelled | the first raises, the second matches 0 of 16 rows |
+
+Code of record: `wip/i221-growth-lowD` of negative-mass; the note is `notes/wormhole_largeD/growth_lowD.md`.
+
+## Not met, or reported
+
+- **No acceptance criterion of the issue failed.** No criterion or tolerance was changed after a run. No mutation was silent
+  (`bump:9`, `bump:11` of `printed_digits.py` fire nothing by declaration).
+- **`ts13_digits.py` C1 fails** on the new csv, as predicted; the file is not on the task's list (note, "Reported, not fixed").
+- **`make_figures.py`'s marker split** no longer separates the D <= 11 rows; not on the list.
+- **`stability.py:54`** (not mentioned by #200) breaks on the next regenerated `w2_output.txt`.
+- **One prediction was wrong**: `source:D` at D >= 20 (A1).
