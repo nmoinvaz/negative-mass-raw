@@ -190,4 +190,68 @@ single run not finished in 2 h of wall time is stopped and reported with what fi
 
 ## Amendments
 
-(none yet)
+**A1 (2026-11-27, after `run_05`, before `run_06`): the reduction of G₆ by hand, its checks and their controls.** The task asks for the reduction "as far as it goes".
+It went all the way, so the checks of the reduction are declared here, before their run `run_06`.
+
+*What had been seen before this amendment* (disclosure; the files are `dev_16` … `dev_23`, `run_02` … `run_05`):
+- `run_05` (code e7f8c10): PSLQ found in P2 and in P3 the relation [−45, −88, −320, −384, −7200, 28800, −469440, −2432, 0, 0, 69120, 138240, 0 …] (residual 6.4e-196,
+  tolerance 1e-188, d = 200, budget 150.4 and 154.3 below d, the perturbed basis finds nothing): 45Ω₄ = −88π⁴ ln 2 − 320π² ln³2 − 384 ln⁵2 − 7200π²ζ(3) + 28800 ζ(3) ln²2
+  − 469440 ζ(5) − 2432π⁴ + 69120 ζ(3) ln 2 + 138240 ζ(3); zero coefficients on π² ln²2, ln⁴2, every constant of weight ≤ 2, Li₄(½), Li₄(½) ln 2 and Li₅(½). P1 and P4 found nothing.
+  All 21 checks of `run_01` … `run_05` pass (`run_05` exit 0).
+- The reduction below gave the same closed form (`dev_16`, 08:45, **before `run_05` ran**: the PSLQ run is a confirmation of integer coefficients that were already known, not a blind
+  search; the bases P1 … P4 were declared before the reduction was coded). `dev_16` read RD0 … RD7 on G2's saved values: 8 of 8.
+- The mutation runs `dev_17` … `dev_23`. `dev_21` was stopped when RD8 was found to compare with the wrong sign (the check read the vector of the relation, not the closed form's
+  coefficients); `dev_22` is the matrix of the final code (`dev_22_order6_wip.py`, with `rd_kit2` changed afterwards: `dev_23`). Two controls I first wrote were silent where I expected them to fire, and
+  each is a result: `rd_kit` (the sign of ln 2 in C's expansion at π/2) fires only RD4, because the finite part of u θ C and of u C Lc2 move together and cancel in the sum (8J₂ = πΩ₁/2);
+  my first `rd_kit2` (D₃(π/2) = 3ζ(3)/2) is silent on everything but RD4 because the D₃ coefficient integrates to zero, so D₃(π/2) multiplies zero. `rd_kit2` is now J₂ ×1.01 in Lc2(π/2).
+
+*The code:* `order6.py` at commit 7acb933 (= the code of `run_01` … `run_05`, e7f8c10, and the part `reduce6`, checks RD0 … RD8, mutations `rd_*`). *The run:* `run_06_reduce6`:
+`order6.py reduce6 --load=G1.json,G2.json,B.json` (sympy, mpmath 40 digits, about 3 min).
+
+| id | statement | bar |
+|---|---|---|
+| RD0 | the derivative rules ℓ′ = −u, u′ = 1 + u², C′ = 2ℓ + 2 ln 2, D₃′ = 2C, Lc2′ = ℓ² against numerical derivatives at θ = 0.7 | 1e-30 |
+| RD1 | the decomposition of the integrand of G₆ (after E1 … E4, from the closed forms of Y₀ … Y₃, L₀ … L₃ as generators; sympy) into coefficients of C^a D₃^b Lc2^c against the numeric integrand of closed forms (the `order4.py` closed forms and `order5.py`'s L₃) at θ = 0.2, 0.7, 1.1, 1.4 | 30 digits |
+| RD2 | the by-parts identities of the reduction, 12 of them, as sympy residuals: M1, M2, M3 (their coefficients and derivatives), the primitive A of the D₃ coefficient, the u θ C and u θ (ℓ + q) identities, the Lc2 step, the u θ ℓ^b step | residual 0 |
+| RD3 | the slope of G₆ in Ω₄ is −4π; the 1/u terms of the C coefficient cancel after the D₃ step; J₆ (and so ζ(3)²) drops out | exactly |
+| RD4 | the asymptotic series (order 9) of ℓ, u, 1/u, C, D₃, Lc2 at θ → π/2 and θ → 0 (the finite-part kit) against the functions at x = π/2 − θ = 10⁻³ and θ = 10⁻³ | 1e-24 relative |
+| RD5 | the master integrals against their closed forms, quadrature at 40 digits: ∫C², ∫ℓC², ∫θC, ∫ℓ²D₃, ∫C Lc2, ∫u ℓ^b C (b ≤ 3), J_n (n ≤ 6) | 30 digits |
+| RD6 | method A at order 6: G₆ by quadrature (40 digits) of the numeric integrand of closed forms, Ω₄ from the affine G₆ at Ω₄ = 0, 1, against the derived closed form; and its slope against −4π | 30 digits |
+| RD7 | the derived closed form against Ω₄ of G1 and G2 (B1 … B3 reported) | 100 digits |
+| RD8 | the integer relation of `run_05` equals −45 followed by 45 × the derived closed form's coefficients on P2's constants, and every term of the closed form is a constant of P2 | equal |
+
+The closed form is derived by `reduce6` from the integrand, not typed in; RD8 compares it with the vector PSLQ returned.
+
+*Declared targets of the controls* (`declared_red.json`; read from `dev_22` and `dev_23`; a control is on target when the set of checks that fire is exactly the declared set):
+
+| control | what it breaks | fires | silent, and why |
+|---|---|---|---|
+| `rd_w4` | E4's 22ℓ² as 20ℓ² in the symbolic integrand | RD1, RD6, RD7, RD8 | RD0, RD2 … RD5 (the numeric integrand has its own 22) |
+| `rd_M1` | M1's constant 4096 as 4095 | RD2, RD6, RD7, RD8 | RD1, RD3 … RD5 |
+| `rd_M3` | M3's boundary term sign | RD6, RD7, RD8 | RD2: the identity is a sympy residual, the boundary term is not |
+| `rd_master` | ∫ℓ²D₃'s 5ζ(5) as 4ζ(5) | RD5, RD6, RD7, RD8 | RD1 … RD4 |
+| `rd_J5` | J₅'s ζ(5) coefficient 1080 as 1000 | RD5, RD6, RD7, RD8 | RD1 … RD4 |
+| `rd_Dstep` | the sign of the P_{b−1} part of F_b in the primitive A | RD2, RD6, RD7, RD8 | RD1, RD3 … RD5 |
+| `rd_kit` | the sign of ln 2 in C(x) at π/2 | RD4 | RD6 … RD8: the closed form does not depend on it (finite parts cancel in the sum) |
+| `rd_kit2` | Lc2(π/2) = 1.01 J₂ | RD4, RD6, RD7, RD8 | RD1 … RD3, RD5 |
+
+The controls of record are `ctl_red_*` (these eight and the nominal run `ctl_red_nominal`), run with the final code, on `G2.json`.
+
+## Results of record (written after the runs; the criteria above are unchanged)
+
+Code: worktree `~/Source/negative-mass-i220`, branch `wip/i220-omega4`: e7f8c10 (runs 01 … 05), 7acb933 (run 06 and the controls), 0e26546 (the note and the output). `order6_output.txt` of the code repository is `assemble_output.py`'s output of the logs below.
+
+| run | what | exit | wall | peak RSS |
+|---|---|---|---|---|
+| `run_01_sym_exch6` | E0, E1_6 … G6R: 7 of 7 | 0 | 25 s | 81 MB |
+| `run_02_evals_G1` | G1 (170, 1/4, 38, 400 digits) | 0 | 35 min 41 s | 443 MB |
+| `run_03_evals_G2` | G2 (150, 3/10, 36, 360 digits) | 0 | 19 min 20 s | 318 MB |
+| `run_04_evals_B` | B1, B2, B3 (reported) | 0 | 7 min 32 s | 210 MB |
+| `run_05_values_pslq_remainder` | PL0 … PL3, SL, M4, X1, Q1 … Q4, R5, R6, X2: 14 of 14; the real PSLQ verdicts | 0 | 2 min 17 s | 58 MB |
+| `run_06_reduce6` | RD0 … RD8: 9 of 9 | 0 | 2 min 30 s | 77 MB |
+
+**30 of 30 checks pass.** Ω₄ of G1 and G2 agree to 209.4 digits (M4); the derived closed form equals G1 to 250.7 and G2 to 209.4 digits (RD7); PSLQ in P2 and P3 finds
+45Ω₄ = −88π⁴ ln 2 − 320π² ln³2 − 384 ln⁵2 − 7200π²ζ(3) + 28800 ζ(3) ln²2 − 469440ζ(5) − 2432π⁴ + 69120 ζ(3) ln 2 + 138240ζ(3) (residual 6.4e-196), P1 and P4 find nothing.
+**Controls of record** (`ctl_t1_*`, `ctl_t2_*`, `ctl_ex_*`, `ctl_red_*`; `ctl_jobs.txt`, `ctl_queue.log`, three `ctl_queue.sh` workers): 31 runs, 31 on target
+(`ctl_summary.py ctl_t1 --declared declared_t1.json`, likewise t2, ex, red; the summaries are the last section of `order6_output.txt`). Nothing failed that was not a declared target.
+The saved Ω's are `G1.json`, `G2.json`, `B.json` (`ctl_t1_cnom.json` for the control grids). Units are listed in `units.txt`.

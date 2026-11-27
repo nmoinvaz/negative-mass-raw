@@ -1,0 +1,8 @@
+# 2026-11-27 09:01:02 cwd=/Users/nathan/Source/negative-mass-i196/phase2/nonradial
+# cmd: bash -c /Users/nathan/Source/negative-mass/.venv/bin/python taylor_drift.py check --dir=/Users/nathan/Source/negative-mass-raw/I196-mac/dev_jsonl --crate-dir=/Users/nathan/Source/negative-mass-raw/I196-mac/dev_jsonl/crate --steps=/Users/nathan/Source/negative-mass-raw/I196-mac/crate_star_steps.jsonl --only=IDENT,CS,RMX,CLS,COMPLETE --synthetic
+CHECK IDENT: PASS  (l, gamma) = (2, 10): PolarProblem D -2.6455735958523575e-05, DriftProblem with no knob -2.6455735958523575e-05 (equal: True); atol 1e-6 moves D by 1.17e-08, one extra chunk by 6.90e-12 (each must move it)
+CHECK CS: PASS  the crate's star from its dumped Taylor steps in f64 against `starcheck` (double-double) at 12 radii, 4 functions: worst relative 1.87e-16 at (r, f) = (12.0, 'phi0') (bar 1e-14)
+CHECK RMX: PASS  PolarProblem's r_m on scipy's star and on the crate's star equal to the last bit: base: scipy's star np.float64(24.10980364018201), the crate's star np.float64(24.10980364018201), taylor_polar R_M 24.10980364018201; phi: scipy's star np.float64(34.20514015700785), the crate's star np.float64(34.20514015700785), taylor_polar R_M 34.20514015700785
+CHECK CLS: PASS  the classifiers on synthetic tables with known labels: rtol curve ('truncation', 'floor', 'mixed'), plant ('removes', 'none', 'partly'), planted system ('accounts', 'not', 'partly')
+CHECK COMPLETE: PASS  55 of 55 declared scipy cases present and finished
+SUMMARY: 5 passed, 0 failed, 0 skipped of 5
