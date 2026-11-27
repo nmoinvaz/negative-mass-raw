@@ -79,3 +79,9 @@ The targets are predicted from the code, not yet computed. A mutation that misse
 
 | file | what |
 |---|---|
+| `rerun.sh`, `rerun_run_13_final.log`, `compare_rerun.py`, `rerun_compare.txt` | the rerun of run_13_final: rc 1 with **17 passed, 4 failed (X1b ε = −1, C1, C2, F), 1 skipped**, 1556 s. **All 820 lines equal** `taylor_radial_output.txt` once wall times and loads are removed. The expectation is met |
+| `dev_01_smoke.*` | development: the first star code with a pure-Python right-hand side, stopped by the review after 6.7 CPU-minutes without one star |
+| `dev_02_one_star.*`, `dev_03_one_star_rtol12.log` | development: one canonical star at P₀ with the numba right-hand side. rtol 1e-10: 56 shots in 14.3 s, ω = 0.925844439995216 (the crate's star at that P has ω = 0.92584444); rtol 1e-12: 301 s, ω differs by 4.7e-12 and M by 2.4e-11 relative |
+| `ind194_run1_K1.txt`, `ind194_run1_K023.txt` | run 1: K0/K2/K3 stopped in the phantom coarse scan (no bracket at P = 5.02e-4); K1 stopped by the review after 23 minutes with nothing printed (A1) |
+| `ind194_run2_K1.txt`, `ind194_run2_K0.txt` | run 2 (A1): **K1 not met.** dM/dω = 0 at 0.9258444604861 and 0.9289084358526, +4.7e-9 and +4.8e-9 from the crate, with the tolerances agreeing to 1e-11. K0 crashed on the review's `brentq` rtol (A2) |
+| `ind194_run3_K1b.txt`, `ind194_run3_stars.jsonl` | run 3 (A2): **K1b not met as worded.** At rtol 1e-11 the narrow window gives 0.9258444559483 (ε = +1) and 0.9289084310226 (ε = −1), **+1.9e-10 and −3.6e-11 from the crate**. The rtol 1e-10 values differ by 1.8e-9 and 2.3e-9, above the 1e-10 bar: the narrow window turns M's error at rtol 1e-10 (about 2e-11 relative) into about 2e-9 in ω. So the wide window caused K1's offset, and at the finer tolerance the crate's crossing is confirmed to 2e-10. The stored dM/dω = 0 of RESULTS.md (0.92584446, 0.92890838) is off by 4.2e-9 and 5.1e-8, as the crate said |
