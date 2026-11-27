@@ -1,3 +1,6 @@
 nm-i209-dev-ctl: run_controls.sh dev_ctl (development run of the 17 controls, serial)
 nm-i209-dev-ctl2: run_controls.sh dev2_ctl sym_S1 ... cl_moment (the controls added or changed after dev_ctl)
 nm-i209-dev-ex4: dev_exch_04.log (exch with the corrected GROW)
+nm-i209-run-ctl: run_controls.sh ctl (the declared control runs, 27 controls serial), code commit 886f764
+nm-i209-run01: run_01_sym_exact_clausen_exch_grid.log (the declared run of the parts, code commit 886f764)
+nm-i209-run02: run_02_all_ctlsum.log (the declared full run with the controls' summary, writes exchange_review_output.txt), code commit 886f764
