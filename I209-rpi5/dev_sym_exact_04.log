@@ -1,0 +1,35 @@
+# start 2026-11-26T21:49:46-08:00 cwd=/home/nathan/Source/negative-mass-i209/notes/wormhole_largeD cmd=/home/nathan/Source/negative-mass-venv314/bin/python -u exchange_review.py exact
+exchange_review.py  mutate=None  parts=['exact']  mpmath 1.3.0  sympy 1.14.0
+PASS    P0b: K(u) = int_0^u ln(1 + t^2)/(1 + t^2) dt against 2 th ln 2 - Cl2(pi - 2 th), th = 0.3, 0.9, 1.4: worst 49.5 digits (bar 40)
+PASS    P0c: h_1, h_2 from the table (cc, hk) against README's h_1 = Omega0 + l - 2(1 - 1/R), h_2 = Omega1 - 2 Omega0 (1 - 1/R) - Omega0 l - 2 l^2, th = 0.2, 0.8, 1.3: worst 48.2 digits (bar 40)
+PASS    P1: E1 at k = 2, Omega0 = 3/10: G_2 from the definition -38.611288629165385974166194431737227, E1's right side -38.611288629165385974166194431737227, against -4 pi Omega0 - 16 pi ln 2 = -38.611288629165385974166194431737227: 50.0 and 50.0 digits (bar 40; quadrature error estimates 1.0e-95, 1.0e-94)
+PASS    P2_1: E2 at m = 1: int L_1 dth = 4.3551721806072042610013777964752279 against 2 int h_1 ln cos/sin^2 dth = 4.3551721806072042610013777964752279: 50.0 digits (bar 40); closed form -pi Omega0 - 2 pi ln 2 = 4.35517218060720426100137779648: 50.0 digits
+PASS    P2_2: E2 at m = 2: int L_2 dth = 60.965355809403042604798415673109623 against 2 int h_2 ln cos/sin^2 dth = 60.965355809403042604798415673109623: 50.0 digits (bar 40)
+  exact: 35 s
+
+5 passed, 0 failed of 5 checks; 35 s
+	Command being timed: "/home/nathan/Source/negative-mass-venv314/bin/python -u exchange_review.py exact"
+	User time (seconds): 35.42
+	System time (seconds): 0.04
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:35.53
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 56204
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 11792
+	Voluntary context switches: 1
+	Involuntary context switches: 12609
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit=0
+# end 2026-11-26T21:50:22-08:00
