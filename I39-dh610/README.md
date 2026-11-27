@@ -185,5 +185,10 @@ h = 0.005); the sensitivity check S is insensitive on the real cases (zero chang
 `probe_expansion_output.txt` (copied to `runs/run01_probe_expansion.log`): the F1 expansion case, one-sided ghost pulse A = +0.04, on [0, 30]^2
 (t up to 42.4), D = 4 and D = 5, two h each. No cell is excised, max e^(-f) over live cells is 1.00, the values agree between the two h to 3 to 4 digits.
 On the diagonal x+ = x-: r grows about linearly in t (D = 4: 5.0 at t = 12, 13.5 at 24, 25.0 at 40) while its proper time tau saturates (7.43, 8.06, 8.32),
-and H = e^(f/2)(r_+ + r_-)/(sqrt2 r) keeps rising (0.75 at t = 8, 1.21, 2.07, 2.88 at t = 40) instead of tending to a constant. Observed, not interpreted:
-the diagonal of a one-sided run is not the throat once the data are asymmetric, and its proper time is not the observer's.
+and H = e^(f/2)(r_+ + r_-)/(sqrt2 r) keeps rising (0.75 at t = 8, 1.21, 2.07, 2.88 at t = 40) instead of tending to a constant. Observed, not interpreted.
+
+### Amendments after the runs of record
+
+Wording only, no criterion, tolerance or result changed: the probe paragraph above first said that the diagonal of a one-sided run "is not the throat
+"; that is an interpretation, and the measurement behind it is only that the diagonal and the minimum-r slice differ at the end of the F1 expansion run
+(r = 8.516 and 8.177).
