@@ -41,3 +41,36 @@ Y = R Q e^{Kt}, H₀ = a Q e^{Kt} and H₂ = b Q e^{Kt}, with Q = e^{Kx}, so Q�
 3. Consistency (a′ against d a/dρ) and E_tt and E_θθ are the residuals.
 
 K1b passes if every residual is below 1e-25, relative to its largest term, at the members and points of K1. Same mutations.
+
+**A2 (after ind262b's run 1).** ind262b's run 1 was stopped after 40 minutes in sympy's expansion of the explicit background. It
+printed no residual, so it is not a result (`ind262b_run1.txt`). `ind262c.py` is the same check: the same equations, gauge,
+unknowns, solve order, members, points, bar and mutations. The background functions A, R, P, V(P) and V′(P) are abstract in the
+algebra, and their derivatives are evaluated at each point from the explicit forms by mpmath at 40 digits.
+
+**A3 (after ind262c's run 1, a crash).** E_ρρ contains a″, which the first solve order left as a free symbol, so the scale evaluation
+crashed (`ind262c_run1.txt`, no residual printed). Fix: a″ is the total derivative of the scalar equation's a′ = a′(ρ, a), with a′
+substituted again, and then E_ρρ is solved for a. The checks, points and bars are unchanged.
+
+**A4 (after ind262c's run 3).** Run 3 gave about 1e-36 at c = −1, −1.5 and −10, and 1.11e-14 at c = −0.3, which does not fall at
+80 digits. The cause is the check's: it took W = −2 float(c)/π, and float(−3/10) is 1e-17 from the exact −3/10 the algebra
+substitutes, so W − K ≈ 1e-17 there. The residual is proportional to W − K. The values at the other members are exact in binary. Fix:
+W and κ come from the exact rational c. Nothing else changes.
+
+## Results
+
+| check | result | verdict |
+|---|---|---|
+| R | `derive` 4 of 4, `check` 9 of 9, `table`: every verdict line equal to the output of record (one timing differs) | pass |
+| K0 | the background solves the five equations at 4 members × 4 points: 2.2e-39 | pass |
+| K1b (`ind262c_run4.txt`) | at W = K the equations E_ρρ, E_tt and E_θθ become independent of H₀'s amplitude a, and all residuals vanish: c = −1 4.1e-36, −0.3 3.9e-38, −1.5 3.8e-37, −10 1.2e-32 (relative, 40 digits; 2e-76 at 80 digits) | pass |
+| K2 | c = −1, K = κ: 4.1e-36 | pass |
+| `w-off` | 1.0 at every member | fires |
+| `r-to-rho` | 1.0 at every member | fires |
+| `k-kappa` | 1.0 at c = −0.3, −1.5, −10; passes at c = −1, where κ = K, as predicted | fires |
+
+Run history: run 1 of `ind262.py` failed from the over-determined gauge (A1). `ind262b.py` was stopped (A2). `ind262c.py` run 1
+crashed (A3), and run 3 failed at c = −0.3 from float(c) (A4). Run 4 is the result. Every log is kept.
+
+Reading: the closed form is confirmed by a derivation that shares no code with `cminus1_mode.py`, `stability.py` or the master equation.
+Y = R e^{K(t+x)} with K = −2c/π solves the linearized Einstein–scalar equations for every member tested. At W = K the amplitude of
+H₀ drops out of the remaining equations, so the solution is determined up to a free H₀ multiple.
