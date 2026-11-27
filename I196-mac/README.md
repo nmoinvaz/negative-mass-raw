@@ -210,3 +210,17 @@ motivates the task (3.4e-10 on this Mac, 9.0e-10 on the win laptop, at (5, 1000)
   Plant `crate_j_vac` = `crate_j` with `vac_scalar` (the crate's treatment, scipy's integrator). New core group **CJV** (24 cases): rtol 1e-13, atol 1e-14, 8 realizations at (3000, base), (1000, base), (1000, φ_cut).
   Rule: at (3000, base), mean_vac = mean signed gap of CJV, mean_novac that of CJE (rtol 1e-13, atol 1e-14): **H6 supported if |mean_vac| ≤ 0.3 |mean_novac|; ruled out if ≥ 0.7; else undecided.**
   COMPLETE counts 158. `run_V.sh` runs it with `run_A.sh`'s python paused (SIGSTOP by PID, resumed after) so that two processes run at a time.
+
+- **A5 (2026-11-27 12:25, before any `crate_j_r13`, `crate_j_q13` or `crate_j_q12` datum; CJV has 13 of 24 cases and its (3000, base) cell is complete and read).**
+  **CJV result (read):** the 8 realizations at (3000, base), rtol 1e-13, with the exterior scalar plane in vacuum equal CJE's to the printed two digits (mean −1.34e-9 against −1.33e-9):
+  the scalar-plane treatment does not make the offset (H6 will come out *ruled out*, ratio 1.0). **What else is common to all realizations**: the exterior Zerilli column. `PolarProblem.zerilli_q`
+  hard-codes `solve_ivp(..., rtol=1e-11, atol=1e-14)` and ignores `self.rtol`, so the issue's rtol sweep never touches it. The stored full-precision q_ext (`I4-win`, base variant) differs from
+  the crate's by 6e-14 relative at γ = 1000 and 3.6e-14 at 6000 (read from the files; not a run of this issue). With D = Π sin θ_i and sin θ_min = 1.6e-5 at (3000, base), an error of
+  5e-14 in the exterior column can move D by order 5e-14 / 1.6e-5 = 3e-9. **H7**: the offset comes from the Riccati integration of q at rtol 1e-11. Knobs (`DriftProblem`): `riccati_rtol`,
+  `riccati_atol` (a line-for-line copy of `zerilli_q` with the tolerances as parameters; default is `PolarProblem`'s, bit for bit: IDENT, `dev_*_check_IDENT_A5`, which also needs q planted 1e-9 off to move D
+  by 5e-10 and the Riccati at rtol 1e-5 to move it by 6.4e-7 at (2, 10)) and `q_eps` (q multiplied by 1 + q_eps). Plants `crate_j_r13` (Riccati rtol 1e-13, atol 1e-16), `crate_j_q13`, `crate_j_q12`
+  (q planted 1e-13 and 1e-12 too large). New core groups **CJR** (24 cases: `crate_j_r13`, rtol 1e-13, atol 1e-14, 8 realizations at (3000, base), (1000, base), (1000, φ_cut)) and **CJQ** (4 cases: the planted q errors at
+  (1000, base) and (3000, base), rtol 1e-10, extra chunks 0, which differ from CJE's case with the same chunk grid only by q, so the change of D is free of realization noise: the sensitivity of D to q).
+  Rule for H7: at (3000, base), mean_r13 = mean signed gap of CJR, mean_1e11 = that of CJE (rtol 1e-13, atol 1e-14): **H7 supported if |mean_r13| ≤ 0.3 |mean_1e11|; ruled out if ≥ 0.7; else undecided.**
+  COMPLETE counts 186. Order: `run_R.sh` runs as soon as CJV ends, with `run_A.sh`'s python still paused; A resumes after it. The P0 layer rtol 1e-12 will be run from the second slot when `run_B3.sh` has finished P1
+  (`run_P12.sh`), `run_A.sh` continues with 1e-13 and 1e-11; whichever is not finished at 14:30 is reported as not run.

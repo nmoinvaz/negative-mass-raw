@@ -1,0 +1,4 @@
+# 2026-11-27 12:17:14 cwd=/Users/nathan/Source/negative-mass-i196/phase2/nonradial
+# cmd: bash -c /Users/nathan/Source/negative-mass/.venv/bin/python taylor_drift.py check --dir=/Users/nathan/Source/negative-mass-raw/I196-mac/dev_jsonl --crate-dir=/Users/nathan/Source/negative-mass-raw/I196-mac/dev_jsonl/crate --steps=/Users/nathan/Source/negative-mass-raw/I196-mac/crate_star_steps.jsonl --jtable=/Users/nathan/Source/negative-mass-raw/I196-mac/crate_jtable_l5.jsonl --only=IDENT
+CHECK IDENT: PASS  (l, gamma) = (2, 10): PolarProblem D -2.6455735958523575e-05, DriftProblem with no knob -2.6455735958523575e-05 (equal: True); atol 1e-6 moves D by 1.17e-08, one extra chunk by 6.90e-12, 1 ulp of planted noise by 7.48e-12, 1 ulp of the row maximum by 3.43e-12, q planted 1e-9 off by 5.04e-10, the Riccati at rtol 1e-5 by 6.44e-07 (each must move it), the same seed again gives the same D: True
+SUMMARY: 1 passed, 0 failed, 0 skipped of 1
