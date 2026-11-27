@@ -23,3 +23,21 @@ Mutations, each with the check it must fail:
 - `w-off`: the rate K(1 + 1e-3) in place of K. K1 must fail (residuals of order 1e-3 of the terms).
 - `r-to-rho`: δr = ρ e^{Kv} in place of R e^{Kv}. K1 must fail.
 - `k-kappa`: K replaced by κ(c) = A′(ρ_h)/2 at c = −1.5. K1 must fail at c = −1.5, where κ ≠ K.
+
+## Amendment A1 (after run 1, before any change to the claim's test)
+
+Run 1 (`ind262_run1.txt`): K0 passes (the background solves the five equations to 2e-39), and K1 and K2 fail with O(1) residuals. The
+defect is the check's. It imposed δφ = 0 together with the double-null form, which is three gauge conditions for two gauge
+functions. In double-null gauge δφ is not zero in general, so the residuals test an over-determined ansatz, not the claim.
+
+Replacement, written before its first run. The static gauge δg_tρ = 0 and δφ = 0 is reachable: ξ^ρ sets δφ = 0 because φ′ ≠ 0, and
+ξ^t sets δg_tρ = 0. Then
+ds² = −A(1 + H₀) dt² + (1 + H₂) dρ²/A + (R + Y)² dΩ², with Y the gauge-invariant δr − (ρR/√2) δφ.
+
+The linearized equations come from a brute-force Ricci tensor (R_ab = ε φ_a φ_b + V g_ab, ε□φ = V′). The perturbation is
+Y = R Q e^{Kt}, H₀ = a Q e^{Kt} and H₂ = b Q e^{Kt}, with Q = e^{Kx}, so Q′ = K Q/A. The steps:
+1. E_tρ gives b.
+2. The scalar equation and E_ρρ give a and a′.
+3. Consistency (a′ against d a/dρ) and E_tt and E_θθ are the residuals.
+
+K1b passes if every residual is below 1e-25, relative to its largest term, at the members and points of K1. Same mutations.
