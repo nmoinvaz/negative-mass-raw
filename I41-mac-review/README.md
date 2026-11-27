@@ -51,3 +51,8 @@ Reported, not gated: M_AH at e^{−f} = 36.23 (runner 0.22930) if the horizon sp
 
 | file | what |
 |---|---|
+| `rerun.sh`, `rerun_analyze.log`, `rerun_analyze_diff.txt` | `analyze` over the runner's stored runs: **13 checks, 0 failed**, every line of `settled_mass_output.txt`'s analyze section again apart from the timing |
+| `rerun_job/`, `rerun_job_compare.txt` | the job h = 0.01, δ = 1e-6 again, with the runner's p*ₕ files. M_AH(x⁺) agrees to 8e-10 at a quarter of the run, 4.6e-9 at half and 3.7e-7 at three quarters. At the end, deep in the zoom (e^{−f} ≈ 1.5e6), it agrees to 1.6e-5 (0.223109 against 0.223125). **The expectation of 1e-9 is not met past mid-run.** The same code on another machine reproduces the settled value to about 2e-5, larger than the finest-h difference the note quotes (2.4e-6) |
+| `ind41_run1.txt` | run 1: **K1 not met as worded** (A1). Against the runner at h = 0.0025: −5.7e-5, −2.8e-5, +1.4e-5, +2.8e-4; h = 0.005 differs from 0.0025 by 2.1e-3 at e^{−f} = 11.96. K2 passes: x⁻ 9.39768 against 9.39779 |
+| `ind41_run2_K1b.txt` | run 2 (A1): **exit 0, K1b and K2 pass.** h = 0.00125 against the runner: −5.7e-5, −2.8e-5, +9.2e-6, +1.2e-4; h = 0.00125 against 0.0025 within 1.6e-4 at all four points; x⁻ 9.39775 (−4.2e-5). The settled value (e^{−f} ≥ 1e5) is beyond a uniform grid, as foreseen |
+| `ind41_run2_mut_*.txt` | `M-factor` fails exactly K1; `side` (the expansion side, no trapped cell) fails exactly K1 and K2 |
