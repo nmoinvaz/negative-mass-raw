@@ -1,0 +1,8 @@
+  h=0.005: p*_h 2.971214585159e-06; 0 horizon rows; e^-f from nan to nan; first M nan (35 s)
+  h=0.0025: p*_h 7.428059097947e-07; 0 horizon rows; e^-f from nan to nan; first M nan (169 s)
+[FAIL] K1: e^-f 1.335: M nan (h = 0.005: nan) against 0.43732 (+nan); e^-f 1.936: M nan (h = 0.005: nan) against 0.378 (+nan); e^-f 4.074: M nan (h = 0.005: nan) against 0.30314 (+nan); e^-f 11.96: M nan (h = 0.005: nan) against 0.24998 (+nan)
+[FAIL] K2: horizon x- at e^-f = 11.96: nan against 9.39779 (+nan)
+  reported: at e^-f = 36.23, M nan (runner 0.22930), x- nan, 0 rows within 5 % of that e^-f
+
+2 criteria, 0 pass; failed: ['K1', 'K2']; mutation side; 169 s
+rc=1

@@ -1,0 +1,8 @@
+PASS  P2 Ellis polar l = 2 quasinormal mode against [ABCKY23] Table 1 (M = 0): omega = 1.737692 -0.305138i (printed 1.74 -0.305i), |dRe| = 2.3e-03, |dIm| = 1.4e-04 (declared <= 0.005, 0.0005), |D| at the root 1.2e-24 (3 s)
+PASS  P2 Ellis polar l = 3 quasinormal mode against [ABCKY23] Table 1 (M = 0): omega = 2.952415 -0.409984i (printed 2.95 -0.410i), |dRe| = 2.4e-03, |dIm| = 1.6e-05 (declared <= 0.005, 0.0005), |D| at the root 2.9e-25 (5 s)
+PASS  P2 Ellis polar l = 4 quasinormal mode against [ABCKY23] Table 1 (M = 0): omega = 4.076253 -0.449105i (printed 4.08 -0.449i), |dRe| = 3.7e-03, |dIm| = 1.1e-04 (declared <= 0.005, 0.0005), |D| at the root 7.4e-25 (6 s)
+PASS  P3a Ellis polar l = 1 quasinormal mode of the derived system against the master equation (52), (53) of [ABCKY23] at L = 2 (1D shooting): derived 0.681367187 -0.617753448i, master 0.681367187 -0.617753448i, |difference| = 1.5e-12 (declared <= 1e-07) (8 s)
+PASS  P3b the same against the complex-scaled eigenvalue problem for the master equation at L = 2 (finite differences, Richardson in h^2): derived 0.681367187 -0.617753448i, eigenvalue code 0.681367187 -0.617753448i, |difference| = 2.8e-11 (declared <= 1e-08)
+PASS  P4 Ellis, L = -1 (unphysical): double roots of the polar determinant against the bound states of the master equation (finite differences): found ['0.421976', '1.473675'], finite differences ['0.421976', '1.473675'], sign changes 0 (declared relative <= 5e-05)
+PASS  P5 M-AdS radial mode as c -> 0+ against the Ellis value 1.39705243433350684047 (stability.py planted value): W^2(c) - W^2_Ellis = ['1.862863e-04', '1.864029e-03', '1.875713e-02'] at c = (0.0001, 0.001, 0.01); quadratic extrapolation to c = 0: 3.07e-10 (declared <= 1e-08) (31 s)
+rc=0

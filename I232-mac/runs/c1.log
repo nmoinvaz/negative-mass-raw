@@ -1,0 +1,21 @@
+== c = -1: data classes (linear solver, h = 0.01 and 0.005, rate of Y(x = 0) over [16, 20], Richardson) ==
+   kappa = 0.636620; Y_h(0) is the value of Y at the horizon node on the left ray, 'late exponent' that of |Y_h(p)| over p in [8, 16]; 1D/DN: the 1D master equation's Y over the double-null Y at t = 14
+                     class      Y_h(0)  rate Y(x=0)  late exponent Y_h  rate 1D char  1D/DN at t=14
+       R  right pulse only   0.000e+00      0.01154            1.35764      -0.00859         0.9857
+        L  left pulse only  -1.474e-04      0.63661            0.90032       0.63661         1.0000
+            G  both pulses  -1.474e-04      0.63663            0.90032       0.63663         1.0000
+       A0 corner dr = 1e-3   1.262e-03      0.63662            0.90030       0.63662         1.3163
+   A1R dr_p(corner) = 1e-3   0.000e+00      0.63662            0.90037       0.00472         0.0004
+   A1L dr_s(corner) = 1e-3   2.467e-03      0.63660            0.90022       0.63662         2.7506
+   (the pulse classes R, L, G have the static term M = 0 and the 1D equation reproduces them; the corner constants carry M != 0 (linear_derive.py C2))
+   b = sqrt2 kappa = 0.900316: a growing Y_h(p) = c2 exp(b p) is the horizon sector
+== c = -1: projection of the horizon sector (three left pulses at sigma0 = 2.5, 3.5, 4.5; c1, c2 of Y_h = c1 + c2 exp(b p) cancelled from Y_h at p = 0, 2) ==
+   c1, c2 of the three: (+2.447e-11, -1.988e-04); (+3.804e-10, -1.040e-04); (+2.899e-10, -4.723e-05)
+   t =  6.00: |Y(x = 0)| one pulse 3.578e-03, combination 5.001e-04; Y_h one pulse -9.042e-03, combination -7.416e-10
+   t = 10.00: |Y(x = 0)| one pulse 4.382e-02, combination 4.679e-05; Y_h one pulse -1.156e-01, combination +2.620e-08
+   t = 14.00: |Y(x = 0)| one pulse 5.584e-01, combination 2.292e-05; Y_h one pulse -1.477e+00, combination +1.028e-06
+   t = 18.00: |Y(x = 0)| one pulse 7.135e+00, combination 5.764e-06; Y_h one pulse -1.888e+01, combination +2.480e-05
+   rate over [10, 14]: one pulse 0.6359, combination -0.1768; the combination's Y is also the 1D master equation's (u -> 0 at the horizon): it decays
+== late-time profile near the horizon (row p = 8, delta = rho - rho_h in [2e-4, 2e-3]): d ln|Y e^(-W t)| / d ln delta = 0.4995 at c = -1 (W = kappa) ==
+   the branches of the Y equation there: 1 - W/(2 kappa) = 0.5 (regular, Y_h != 0) and 1 + W/(2 kappa) = 1.5 (u -> 0, #212)
+rc=0 wall=81 s

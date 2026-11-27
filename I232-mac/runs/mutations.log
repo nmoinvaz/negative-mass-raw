@@ -1,0 +1,21 @@
+== Mutations: fired sets in mut_<name>.log against the declared ones ==
+  V_sign          fired ['C1', 'C3', 'C5', 'R1', 'R3', 'L1', 'L2', 'L3a', 'L3b', 'L3c', 'L5']  declared ['C1', 'C3', 'C5', 'R1', 'R3', 'L1', 'L2', 'L3a', 'L3b', 'L5', 'L3c']  equal
+  Vp_sign         fired ['C1', 'C3', 'C5', 'R1', 'R3', 'L1', 'L2', 'L3a', 'L3b', 'L3c', 'L5']  declared ['C1', 'C3', 'C5', 'R1', 'R3', 'L1', 'L2', 'L3a', 'L3b', 'L5', 'L3c']  equal
+  Vpp_zero        fired ['C1', 'C3', 'C5', 'R1', 'R3', 'L1', 'L2', 'L3a', 'L3b', 'L5']  declared ['C1', 'C3', 'C5', 'R1', 'R3', 'L1', 'L2', 'L3a', 'L3b', 'L5']  equal
+  eps_sign        fired ['C1', 'C3', 'C5', 'P1a', 'P1c', 'R1', 'R3', 'L1', 'L2', 'L3a', 'L3b', 'L3c', 'L5']  declared ['C1', 'C3', 'C5', 'P1a', 'P1c', 'R1', 'R3', 'L1', 'L2', 'L3a', 'L3b', 'L5', 'L3c']  equal
+  cross_sign      fired ['C1', 'C3', 'C5', 'P1a', 'P1c', 'R1', 'R3', 'L1', 'L2', 'L3a', 'L3b', 'L5']  declared ['C1', 'C3', 'C5', 'P1a', 'P1c', 'R1', 'R3', 'L1', 'L2', 'L3a', 'L3b', 'L5']  equal
+  df_zero         fired ['C1', 'C3', 'C5', 'P1a', 'P1c', 'R1', 'R3', 'L1', 'L2', 'L3a', 'L3b', 'L5']  declared ['C1', 'C3', 'C5', 'P1a', 'P1c', 'R1', 'R3', 'L1', 'L2', 'L3a', 'L3b', 'L5']  equal
+  rm_sign         fired ['C1', 'C3', 'C5', 'P1a', 'P1c', 'R1', 'R3', 'L1', 'L2', 'L3a', 'L3b', 'L5']  declared ['C1', 'C3', 'C5', 'P1a', 'P1c', 'R1', 'R3', 'L1', 'L2', 'L3a', 'L3b', 'L5']  equal
+  bg_b            fired ['C2', 'C2h', 'C3', 'C5', 'R1', 'R3', 'L1', 'L2', 'L3a', 'L3b', 'L5']  declared ['C2', 'C2h', 'C3', 'C5', 'R1', 'R3', 'L1', 'L2', 'L3a', 'L3b', 'L5']  equal
+  mirror          fired ['C2', 'C3', 'C5']  declared ['C2', 'C3', 'C5']  equal
+  interior_scale  fired ['C2', 'C3', 'C5']  declared ['C2', 'C3', 'C5']  equal
+  con_sign        fired ['C5', 'R1', 'R3', 'L2', 'L3a', 'L4', 'L5']  declared ['C5', 'R1', 'R3', 'L2', 'L3a', 'L4', 'L5']  equal
+  vhat_sign       fired ['L2']  declared ['L2']  equal
+  data_shift      fired ['L1']  declared ['L1']  equal
+  seed_h          fired ['L5']  declared ['L5']  equal
+  proj_node       fired ['L3a']  declared ['L3a']  equal
+  freq_V          fired ['P1b']  declared ['P1b']  equal
+  quote           fired ['Q1']  declared ['Q1']  equal
+  prof_rate       fired ['L4']  declared ['L4']  equal
+18 of 18 equal
+rc=0

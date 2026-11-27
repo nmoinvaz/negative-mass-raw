@@ -1,0 +1,81 @@
+settled_mass.py analyze {'raw': '/tmp/claude-1000/-home-nathan-Source-negative-mass-i41/6aeafbfc-d94d-45dc-8475-ad54ab6a4512/scratchpad/devraw', 'mutate': 'hm_swap'}: numba 0.68.1, numpy 2.5.4, python 3.14.10, rpi5-ubuntu, load average at start 3.41 2.64 1.79, mutation hm_swap, 2026-11-27 06:32:58
+
+== Planted exact solutions through the chain
+    P1 h = 0.02: status level 5: columns exhausted at x+ = 11.1300, F = 35.09, columns 557, F to 35.09, max |M - 0.3| 1.411e+00, max |x- - x_h| 8.015e-01
+    P1 h = 0.01: status level 1: no horizon at the first column, columns 320, F to 1.477, max |M - 0.3| 1.741e-05, max |x- - x_h| 8.245e-05
+    P1 h = 0.005: status level 1: no horizon at the first column, columns 641, F to 1.499, max |M - 0.3| 4.481e-06, max |x- - x_h| 2.061e-05
+    P1 h = 0.0025: status level 1: no horizon at the first column, columns 1281, F to 1.496, max |M - 0.3| 1.115e-06, max |x- - x_h| 5.153e-06
+[FAIL] PL1: exact Schwarzschild (M = 0.3) in the stretching gauge, through the chain: M recovered, second order, limit reached  (max |M - 0.3| at h = 0.005: 4.48e-06 (bar 1e-4); orders [16.306, 1.958, 2.006] in (1.75, 2.25); status ['level 5: columns exhausted at x+ = 11.1300, F = 35.09', 'level 1: no horizon at the first column', 'level 1: no horizon at the first column', 'level 1: no horizon at the first column']; F reached [35, 1, 1, 1] of 1.57286e+06)
+    P2 h = 0.02: columns 106 (levels [100, 4, 2]), max |r - r_exact| on r_+ = 0: 5.809e-01, max |x- - 2 a x+| 9.855e-01, min edge 26 cells
+    P2 h = 0.01: columns 200 (levels [200, 0, 0]), max |r - r_exact| on r_+ = 0: 4.266e-05, max |x- - 2 a x+| 3.948e-05, min edge 51 cells
+    P2 h = 0.005: columns 400 (levels [400, 0, 0]), max |r - r_exact| on r_+ = 0: 1.067e-05, max |x- - 2 a x+| 9.877e-06, min edge 101 cells
+    P2 h = 0.0025: columns 800 (levels [800, 0, 0]), max |r - r_exact| on r_+ = 0: 2.670e-06, max |x- - 2 a x+| 2.470e-06, min edge 201 cells
+[FAIL] PL2: exact Roberts ghost solution, moving contour r_+ = 0, two forced zoom levels: r on the contour, second order  (max error at h = 0.005: 1.07e-05 (bar 5e-5); orders [13.733, 1.999, 1.999] in (1.75, 2.25))
+[pass] PL3: level 0 of the chain equals dn.evolve bit for bit (nodes, dead flags) and finds the same first trapped cell  (h = 0.02, delta = 1e-06: nodes equal True, dead equal True, events (385, 385) and (385, 385))
+[FAIL] AN: chain against a zoom-free uniform anisotropic grid (h, h/32): horizon M and x- where e^{-f} < 40  (h = 0.02, delta = 1e-06: events (2, 1) / (385, 385), max |dM| 4.29e+02 (bar 3e-4), max |dx-| 8.14e+00, 4000 columns, AN series to F = 22.22)
+
+== p*_h on this machine against #40's (dh610-fedora)
+    h = 0.02: p*_h = 4.7527725360001875e-05, hi - lo = 6.10e-15, minus #40's +9.16e-15, 18 runs, 14 s
+    h = 0.01: p*_h = 1.1884163318125821e-05, hi - lo = 6.10e-15, minus #40's -4.58e-14, 18 runs, 48 s
+    h = 0.005: p*_h = 2.9711800304035538e-06, hi - lo = 6.10e-15, minus #40's -3.05e-15, 18 runs, 140 s
+    h = 0.0025: p*_h = 7.4280396930694569e-07, hi - lo = 9.54e-15, minus #40's +nan, 23 runs, 627 s
+[pass] RC1: p*_h bisected to hi - lo <= 1e-14 and, where #40 has it, within 1e-11 of #40's
+[pass] RC2: fates (collapse at p*_h - delta, expansion at p*_h + delta; all h, both delta); the first trapped cell and its time against #40's at delta = 1e-8  (events {0.02: [522, 522], 0.01: [1045, 1045], 0.005: [2090, 2090], 0.0025: [4179, 4179]} against #40's {0.02: [522, 522], 0.01: [1045, 1045], 0.005: [2090, 2090]})
+[pass] RC3: M_AH at the first trapped cell against #40's formation value at p*_h - 1e-8  (|dM| 1.5e-04, 1.5e-04, 1.5e-04 (bar 2e-3); M_AH [0.49425, 0.49419, 0.49421], #40 [0.49411, 0.49404, 0.49406])
+/home/nathan/Source/negative-mass-i41/notes/wormhole_evolution/settled_mass.py:721: RuntimeWarning: invalid value encountered in scalar divide
+  worst = max(worst, abs(dMs - flux_integral(s, 0, i1)) / abs(dMs))
+[FAIL] RC4: first law on the horizon: M(x+_b) - M(x+_a) = integral of (r^2/2) e^f r_- phi_+^2 along it, from the first trapped cell to F = 20  (max relative difference 1.68e+00 over all runs (bar 2e-2))
+[FAIL] RC5: every run ends at the declared limit (F = e^-f on the horizon, 786432 <= F_end < 1.57286e+06), horizon at least Nc/8 cells from the box edges, no gaps  (h=0.02,d=1e-06: F_end 10, edge 65/240; h=0.01,d=1e-06: F_end 1, edge 279/480; h=0.005,d=1e-06: F_end 1, edge 559/960; h=0.0025,d=1e-06: F_end 1, edge 1117/1920; h=0.02,d=1e-08: F_end 10, edge 65/240; h=0.01,d=1e-08: F_end 1, edge 280/480; h=0.005,d=1e-08: F_end 1, edge 559/960; h=0.0025,d=1e-08: F_end 1, edge 1117/1920)
+
+== Second-order convergence of M_AH(x+): max |M_h - M_h/2| over windows of x+ - x+_f (cubic splines)
+    RC6 h = (0.02, 0.01, 0.005), delta = 1e-06, x+ - x+_f in [0, 1.5]: E12 2.77e-05, E23 7.07e-06, order 1.97 ok
+    RC6 h = (0.02, 0.01, 0.005), delta = 1e-06, x+ - x+_f in [1.5, 3]: E12 3.62e-03, E23 3.77e-06, order 9.90 OUT
+    RC6 h = (0.02, 0.01, 0.005), delta = 1e-06, x+ - x+_f in [3, 99]: E12 1.69e+00, E23 1.95e+01, order -3.52 OUT
+    RC6 h = (0.02, 0.01, 0.005), delta = 1e-08, x+ - x+_f in [0, 1.5]: E12 2.64e-05, E23 6.72e-06, order 1.98 ok
+    RC6 h = (0.02, 0.01, 0.005), delta = 1e-08, x+ - x+_f in [1.5, 3]: E12 3.62e-03, E23 2.20e-06, order 10.69 OUT
+    RC6 h = (0.02, 0.01, 0.005), delta = 1e-08, x+ - x+_f in [3, 99]: E12 8.33e+00, E23 2.62e+01, order -1.65 OUT
+[FAIL] RC6: M_AH(x+) converges at second order at the three h (0.02, 0.01, 0.005), three windows, both deltas (observed order in (1.5, 2.5))
+    RC6b h = (0.01, 0.005, 0.0025), delta = 1e-06, x+ - x+_f in [0, 1.5]: E12 7.07e-06, E23 1.79e-06, order 1.98 ok
+    RC6b h = (0.01, 0.005, 0.0025), delta = 1e-06, x+ - x+_f in [1.5, 3]: E12 3.77e-06, E23 9.18e-07, order 2.04 ok
+    RC6b h = (0.01, 0.005, 0.0025), delta = 1e-06, x+ - x+_f in [3, 99]: E12 1.93e+01, E23 4.28e+01, order -1.15 OUT
+    RC6b h = (0.01, 0.005, 0.0025), delta = 1e-08, x+ - x+_f in [0, 1.5]: E12 6.72e-06, E23 1.67e-06, order 2.01 ok
+    RC6b h = (0.01, 0.005, 0.0025), delta = 1e-08, x+ - x+_f in [1.5, 3]: E12 2.55e-06, E23 2.05e-06, order 0.31 OUT
+    RC6b h = (0.01, 0.005, 0.0025), delta = 1e-08, x+ - x+_f in [3, 99]: E12 2.59e+01, E23 4.39e+01, order -0.76 OUT
+[FAIL] RC6b: M_AH(x+) converges at second order at the three h (0.01, 0.005, 0.0025), three windows, both deltas (observed order in (1.5, 2.5))
+[FAIL] RC8: M_AH has settled at the limit: the plateau mean over the last 1.0 of x+ differs from the previous 1.0 by <= 1e-4 and the mean horizon flux over the last 0.5 is <= 1e-5, every run  (plateau change -6.7e-01, +3.3e-02, +3.3e-02, +3.3e-02, -6.6e-01, +3.3e-02, +3.3e-02, +3.3e-02; flux 1.9e-02, 8.7e-02, 8.6e-02, 8.7e-02, 1.9e-02, 8.6e-02, 8.6e-02, 8.7e-02)
+[FAIL] RC7: the settled value does not depend on delta: plateau means over the last 1.0 at 1e-6 and 1e-8 agree  (|dM| 3.5e-03, 3.3e-04, 7.8e-07, 1.9e-06 (bar 1e-4))
+
+== M_AH(x+) against x+ - x+_f (a = 1, 8 pi G = 1; M = r_AH / 2); t = (x+ + x-)/sqrt2 at the horizon; finest h
+  delta = 1e-06, h = 0.0025: x+_f = 7.6938, t_f = 10.8669
+    dx+     x+       x-         t       r_AH     M_AH      e^-f       r_-
+     0.00   7.6938   7.67443  10.8669  0.98848  0.49424      1.024    -0.01968
+     0.25   7.9438   7.91452  11.2135  0.98260  0.49130      1.036    -0.03007
+     0.50   8.1937   8.14961  11.5565  0.97380  0.48690      1.055    -0.04607
+     1.00   8.6937   8.59411  12.2244  0.94146  0.47073      1.133     -0.1099
+     1.50   9.1937   8.97505  12.8473  0.87463  0.43732      1.335     -0.2733
+  delta = 1e-08, h = 0.0025: x+_f = 10.4488, t_f = 14.7631
+    dx+     x+       x-         t       r_AH     M_AH      e^-f       r_-
+     0.00  10.4488  10.42943  14.7631  0.98848  0.49424      1.024    -0.01968
+     0.25  10.6988  10.66952  15.1097  0.98261  0.49130      1.036    -0.03006
+     0.50  10.9488  10.90461  15.4527  0.97380  0.48690      1.055    -0.04607
+     1.00  11.4488  11.34911  16.1205  0.94147  0.47073      1.133     -0.1099
+     1.50  11.9488  11.73006  16.7434  0.87464  0.43732      1.335     -0.2733
+
+== Late-time values (reports)
+  delta   h        M_end     plat(1.0)  range(1.0) plat(0.5)  drift(1.0)  plat change  flux(0.5)   2 M_end
+   1e-06    0.02  2.287676  2.100422  8.5e-01  2.287793  -8.52e-01  -6.65e-01  1.88e-02  4.57535
+   1e-06    0.01  0.416730  0.456056  6.5e-02  0.440094  +6.48e-02  +3.31e-02  8.70e-02  0.83346
+   1e-06   0.005  0.417011  0.456380  6.5e-02  0.440525  +6.48e-02  +3.28e-02  8.64e-02  0.83402
+   1e-06  0.0025  0.416585  0.456216  6.5e-02  0.440308  +6.51e-02  +3.29e-02  8.67e-02  0.83317
+   1e-08    0.02  2.283365  2.096941  8.5e-01  2.283484  -8.48e-01  -6.62e-01  1.88e-02  4.56673
+   1e-08    0.01  0.417296  0.456383  6.4e-02  0.440526  +6.44e-02  +3.28e-02  8.64e-02  0.83459
+   1e-08   0.005  0.417012  0.456381  6.5e-02  0.440526  +6.48e-02  +3.28e-02  8.64e-02  0.83402
+   1e-08  0.0025  0.416588  0.456218  6.5e-02  0.440310  +6.51e-02  +3.29e-02  8.67e-02  0.83318
+  delta = 1e-06, h = (0.02, 0.01, 0.005): M_end [2.287676, 0.41673, 0.417011], differences +1.87e+00, -2.80e-04, Richardson (second order) M_end(0) = 0.417104; plateau(1.0) [2.100422, 0.456056, 0.45638], differences +1.64e+00, -3.23e-04, Richardson 0.456488
+  delta = 1e-06, h = (0.01, 0.005, 0.0025): M_end [0.41673, 0.417011, 0.416585], differences -2.80e-04, +4.26e-04, Richardson (second order) M_end(0) = 0.416443; plateau(1.0) [0.456056, 0.45638, 0.456216], differences -3.23e-04, +1.64e-04, Richardson 0.456161
+  delta = 1e-08, h = (0.02, 0.01, 0.005): M_end [2.283365, 0.417296, 0.417012], differences +1.87e+00, +2.84e-04, Richardson (second order) M_end(0) = 0.416917; plateau(1.0) [2.096941, 0.456383, 0.456381], differences +1.64e+00, +1.84e-06, Richardson 0.456380
+  delta = 1e-08, h = (0.01, 0.005, 0.0025): M_end [0.417296, 0.417012, 0.416588], differences +2.84e-04, +4.24e-04, Richardson (second order) M_end(0) = 0.416447; plateau(1.0) [0.456383, 0.456381, 0.456218], differences +1.84e-06, +1.63e-04, Richardson 0.456164
+
+13 checks, 9 failed; 208 s
+mutation hm_swap: fired ['AN', 'PL1', 'PL2', 'RC4', 'RC5', 'RC6', 'RC6b', 'RC7', 'RC8'], declared []: DIFFERENT
+rc 1

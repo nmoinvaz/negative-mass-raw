@@ -1,0 +1,5 @@
+PASS  P2 Ellis polar l = 2 quasinormal mode against [ABCKY23] Table 1 (M = 0): omega = 1.737692 -0.305138i (printed 1.74 -0.305i), |dRe| = 2.3e-03, |dIm| = 1.4e-04 (declared <= 0.005, 0.0005), |D| at the root 3.0e-24 (21 s)
+PASS  P2 Ellis polar l = 3 quasinormal mode against [ABCKY23] Table 1 (M = 0): omega = 2.952415 -0.409984i (printed 2.95 -0.410i), |dRe| = 2.4e-03, |dIm| = 1.6e-05 (declared <= 0.005, 0.0005), |D| at the root 2.9e-25 (26 s)
+PASS  P2 Ellis polar l = 4 quasinormal mode against [ABCKY23] Table 1 (M = 0): omega = 4.076253 -0.449105i (printed 4.08 -0.449i), |dRe| = 3.7e-03, |dIm| = 1.1e-04 (declared <= 0.005, 0.0005), |D| at the root 7.4e-25 (29 s)
+PASS  P3a Ellis polar l = 1 quasinormal mode of the derived system against the master equation (52), (53) of [ABCKY23] at L = 2 (1D shooting): derived 0.681367187 -0.617753448i, master 0.681367187 -0.617753448i, |difference| = 1.5e-12 (declared <= 1e-07) (32 s)
+[stopped by me during P3b: the dense eigenvalue code was too slow; replaced by shift-invert]

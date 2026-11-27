@@ -1,0 +1,11 @@
+[pass] P1a: c = 0: the linear double-null solver, rate of Y(x = 0) over t in [10, 14], Richardson of h = 0.01, 0.005: W^2 a^2 within 1e-4 of 1.39705243433350684  (W^2 = 1.39704126, relative difference 8.0e-06; raw rates 1.181977, 1.181968)
+[FAIL] P1b: c = 0: the master equation of #212 (Y'' = (2/rho) Y' + (1/R^4 - 2/R^2 + W^2) Y, even solution shot to rho = 14): one growing mode in W in [0.3, 3], W^2 a^2 within 1e-8  (roots [], W^2 nan, relative difference 1.0e+00)
+[pass] P1c: c = 0: #39's kernel (evolve.py) on member +- the same data: the odd response's rate over [6, 10] minus the linear solver's, Richardson of h = 0.01, 0.005, moves W^2 a^2 by less than 1e-4  (differences -1.12e-03, -2.87e-04, extrapolated -8.19e-06, W^2 shift 1.4e-05)
+    (P1: 6 s)
+[pass] L3a: c = -1: the horizon values of Y for three left-ray pulses (sigma0 = 2.5, 3.5, 4.5) obey Y_h(p) = c1 + c2 exp(b p), b = sqrt2 kappa: the least-squares residual over p in [1, 16] is 5e-4 or less at h = 0.005 and falls by 4 (+-0.5) from h = 0.01, and the late exponent of |Y_h| (Richardson) equals b to 1e-5  (residual 1.2e-03 (h = 0.01), 3.0e-04 (h = 0.005), ratio 3.99; late exponent 0.900316, 0.900316, 0.900316 against b = 0.900316 (relative 7.4e-08))
+[pass] L3b: c = -1: the combination of the three pulses with c1 = c2 = 0 (from Y_h at p = 0 and p = 2) has |Y(x = 0, t = 14)| smaller by a factor of at least 1e3 than one pulse, and does not grow at kappa (rate over [10, 14] below 0.25 kappa)  (reduction 2.44e+04, rate of the combination -0.1768, of one pulse 0.6359, kappa 0.6366; max |Y_h| of the combination 1.9e-02 against 3.6e+02 for one pulse)
+[pass] L3c: control, c = -1.5: the same operation (the form of Y_h at c = -1 with b of c = -1.5) reduces |Y(x = 0, t = 14)| by less than 100 and the rate stays within 15% of W (the horizon sector is specific to c = -1)  (reduction 4.03e+01, rate of the combination 0.4777, W = 0.4942)
+    (L3: 29 s)
+
+6 checks, 5 pass; failed: ['P1b']; mutation freq_V; 35 s
+rc=1

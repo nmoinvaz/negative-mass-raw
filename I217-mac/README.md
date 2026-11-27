@@ -130,4 +130,10 @@ Estimated from the development jobs: about 30 minutes per lane.
 
 ## Amendments
 
-(none yet)
+**A1, after the first results of D1 (reported diagnostic, not gated; no criterion changed).** Code `evolve.py` at commit `2a00351` (the criteria were declared at `9428081`; the diff adds `resp --tuned` and `bgdep`).
+Reason: the D1 response about the untuned member saturates at every member, but the untuned member's own |Y| on the diagonal reaches 0.1 at t = 13.8 (c = -0.3) to 23.4 (c = -1.5), so the response is then
+linearized about a background that has left the member; reading it as the member's linear problem would be wrong. Added: **D1b** (`post/D1b/resp_tuned_c*.log`; the background is the mode family at the job's A\*;
+c = -1.01 and -0.99 needed jobs of their own, `post/D1b/jobs/`, h = 0.01, X = 50, rho_c = 1) and **bgdep** (`post/D1b/bgdep.log`). No threshold, window or criterion was moved.
+
+**A2, `mut_analysis_pstar_off`.** The analysis run with `pstar_off` raised in E8's order computation (A\* at c = -0.3, h = 0.0025 changed sign under the 3e-8 shift, so log2 of a ratio failed): E8 fired by raising,
+as declared in the development run `dev_121` (E8[c = -0.3]); the rest of its output is the table printed before the raise.
