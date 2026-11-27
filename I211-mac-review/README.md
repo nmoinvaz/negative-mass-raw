@@ -31,7 +31,16 @@ only. The review reads two things independently.
 | `title` | K1 compares with the first sampled title with one word changed | K1 |
 | `fitform` | K2 looks for exp(−H…) in place of exp(H…) | K2 |
 
+## Amendments
+
+**A1, after run 1.** K1 failed at 0806.1370. The review's normalizer turned the accent of "González" into a space
+("gonza lez"), so the author did not match. It now drops combining marks. The sample is seven ids, not six: the rule
+"every fourth in sorted order, starting with the first" gives seven of 25, and the rule is kept. Nothing else changes.
+
 ## Runs
 
 | file | what |
 |---|---|
+| `arxiv_sample.xml`, `sh02_src/` | data: arXiv's API entries for the seven sampled ids (a first http query returned none, and the https retry is kept), and [SH02]'s e-print |
+| `ind211_run1.txt`, `ind211_run1_mut_*.txt` | run 1: K1 failed at 0806.1370 on the review's normalizer (A1). K2 passes |
+| `ind211_run2.txt`, `ind211_run2_mut_*.txt` | run 2: **exit 0, 2 of 2.** K1: all seven sampled entries carry arXiv's title and first author. K2: [SH02]'s `wh_main.tex` line 422 reads "r/a=1+b_4 \exp(H (\tau -b_5))", and `wh_tables.tex` gives H = 1.19, 1.13 and 1.12 as the amplitude falls; literature.md quotes 1.12. `title` fails exactly K1, `fitform` exactly K2 |
