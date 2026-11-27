@@ -77,25 +77,50 @@ A digit count is −log₁₀ of a relative difference between two evaluations. 
 
 ### Controls
 
-Each control is a `--mutate=NAME` run of the part it names. Its targets are declared below after a development run of every
-control (`dev_ctl_*`), before the declared runs. A control that fires nothing on its named target is reported as a result.
+Each control is a `--mutate=NAME` run of the part it names. The targets below were computed in development runs of every
+control (`dev_ctl_*`, `dev2_ctl_*` for the ones added or changed afterwards, `dev3_ctl_cl_moment.log` after `digits()` was
+fixed: it divided by a first moment that the control makes exactly 0), and are declared here and in `TARGETS` of the script,
+before the declared runs. "Silent" lists the checks that the development run showed do not fire; a control that fires on one
+of them, or misses a target, is reported off target. A control that is silent on a check is a result, not a defect.
 
-| name | what it breaks | part |
-|---|---|---|
-| sym_c1 | S3's right side with 2ℓ in place of 3ℓ | sym |
-| sym_P | S4's sign of P′ | sym |
-| exact_L1 | the closed L₁ = −2Ω₀ − l | exact |
-| exact_h2 | README's h₂ with a stray l/10 | exact |
-| e1_sign | the sign of E1's Σ_{j≥1} term | exact, exch |
-| e1_factor | E1's 4∫L_{k−1} taken as 2∫L_{k−1} | exact, exch |
-| e2_weight | E2's weight ln cos replaced by ln cos + ln 2 | exact, exch |
-| bnd_G | Ω₀ shifted by 1/100 on the E-grid, so G₂ ≠ 0 and L_m grows like u | exch |
-| bnd_Y0 | Y_k shifted by 1e-3, so Y_k(0) ≠ 0 | exch |
-| e3_Om0 | P without Ω₀ | exch |
-| e3_factor | the by-parts coefficient 4 taken as 2 | exch |
-| cl_arg | Cl₂(π − θ) in place of Cl₂(π − 2θ), as the task suggests | clausen |
-| cl_arg2 | Cl₂(2θ) in place of Cl₂(π − 2θ) | clausen |
-| grid_coarse | N = 10 on the third grid (`coarse_B` of order5.py) | grid |
-| grid_short | V = 6 on the third grid (`short_tail`) | grid |
-| grid_wrongh | the sign of −l/R in c₂ (`wrong_h`) | grid |
-| grid_wrongOm1 | Ω₁ + 1/100 in the G₄ step (`wrong_Om1`) | grid |
+| name | what it breaks | part | fires (target) | silent (declared) |
+|---|---|---|---|---|
+| sym_S1 | S1's constant 2 taken as 1 | sym | S1 | |
+| sym_S2 | dl/dθ = 2 tan θ taken as tan θ | sym | S2 | |
+| sym_c1 | c₁'s 3l/2 taken as l | sym | S3, S5 | |
+| sym_P | the sign of P′ | sym | S4 | |
+| sym_S6 | the antiderivative −cot θ ℓ + θ | sym | S6 | |
+| sym_S7 | the limit of cot θ ℓ replaced by that of ℓ | sym | S7 | |
+| sym_S8 | the sign of ∫ℓ | sym | S8 | S9 |
+| sym_S9 | C′ = 2 ln(2 sin θ) | sym | S9 | |
+| sym_S10 | I₂ = +π/2 | sym | S10 | |
+| sym_S11 | Σ(π/2)/n² = π³/6 | sym | S11 | |
+| exact_K | K = θ ln 2 − Cl₂(π − 2θ) | exact | P0b, P2_2 | P0c, P1, P2_1 |
+| exact_L1 | the closed L₁ = −2Ω₀ − l | exact | P0c, P1, P2_1, P2_2 | P0b |
+| exact_h2 | README's h₂ with a stray l/10 | exact | P0c | P1, P2_1, P2_2 |
+| e1_sign | the sign of E1's Σ_{j≥1} term | exact, exch | P1, E1_3, E1_4, E1_5 | E2_*, E3G_* |
+| e1_factor | E1's 4∫L_{k−1} taken as 2∫L_{k−1} | exact, exch | P1, E1_3, E1_4, E1_5 | E2_*, E3G_* |
+| e2_weight | E2's weight ln cos replaced by ln cos + ln 2 | exact, exch | P2_1, P2_2, E2_2, E2_3, E2_4 | E1_*, E3G_* |
+| bnd_G | Ω₀ + 1/100 on the E-grid, so G₂ ≠ 0 | exch | P0, BND | E1_*, E2_*, E3_*, E3G_* |
+| bnd_Y0 | Y_k + 1e-3, so Y_k(0) ≠ 0 | exch | P0, BND, E1_*, E2_*, E3_*, E3G_* | |
+| e3_Om0 | P without Ω₀ | exch | E3G_3, E3G_4, E3G_5 | E3_*, E1_*, E2_* |
+| e3_factor | the by-parts coefficient 4 taken as 2 | exch | E3G_3, E3G_4, E3G_5 | E3_*, E1_*, E2_* |
+| cl_moment | ln cos + ln 2 in the moments | clausen | CM | CL1, CL1a, CL2 |
+| cl_arg | Cl₂(π − θ) in place of Cl₂(π − 2θ), as the task suggests | clausen | CL1, CL1a, CL2 | CM |
+| cl_arg2 | Cl₂(2θ) in place of Cl₂(π − 2θ) | clausen | CL1, CL1a | CM, CL2 |
+| grid_coarse | N = 10 on the third grid (`coarse_B` of order5.py) | grid | GR1 … GR4 | |
+| grid_short | V = 6 on the third grid (`short_tail`) | grid | GR1 … GR4 | |
+| grid_wrongh | the sign of −l/R in c₂ (`wrong_h`) | grid | GR1, GR2, GR3 | GR4 |
+| grid_wrongOm1 | Ω₁ + 1/100 in the G₄ step (`wrong_Om1`) | grid | GR1, GR2 | GR3, GR4 |
+
+Two of the silences are results. (1) `bnd_G` leaves E1 and E2 silent because `PanelK`'s L_m = −2Ω − u·(tail from the node to V)
+has no growing term for any Ω₀: the hierarchy it builds is the decaying solution, which equals the throat-analytic one only if
+G_m = 0. The shift shows where it should, at the throat, where the decaying solution's C_m(0) is −G_m, not 0. (2) `cl_arg2`
+leaves ∫C² silent because the orthogonality of sin 2nθ does not see the sign (−1)^{n+1}.
+
+## Logs
+
+- `dev_grid1_*`: the development run of the third grid (96 s). `dev_sym_*`, `dev_exact_*`, `dev_clausen_*`, `dev_exch_*`: the
+  development runs of the parts (the first `dev_sym` attempt ran in the foreground and was stopped by hand; its note is
+  `dev_sym_00_note.txt`). `dev_grid_02.log`: the third grid through the script.
+- `units.txt`: the systemd units.
