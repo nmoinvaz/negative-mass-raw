@@ -1,0 +1,28 @@
+rec_h0.005_d1e-08|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-08 --out=$RAW/runs/h0.005_d1e-08 --pstar=$RAW/runs
+rec_h0.005_d1e-06|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-06 --out=$RAW/runs/h0.005_d1e-06 --pstar=$RAW/runs
+rec_h0.01_d1e-08|timeout 7200 $PY settled_mass_g.py job --h=0.01 --delta=1e-08 --out=$RAW/runs/h0.01_d1e-08 --pstar=$RAW/runs
+rec_h0.01_d1e-06|timeout 7200 $PY settled_mass_g.py job --h=0.01 --delta=1e-06 --out=$RAW/runs/h0.01_d1e-06 --pstar=$RAW/runs
+rec_h0.02_d1e-08|timeout 7200 $PY settled_mass_g.py job --h=0.02 --delta=1e-08 --out=$RAW/runs/h0.02_d1e-08 --pstar=$RAW/runs
+rec_h0.02_d1e-06|timeout 7200 $PY settled_mass_g.py job --h=0.02 --delta=1e-06 --out=$RAW/runs/h0.02_d1e-06 --pstar=$RAW/runs
+rec_rn_h0.005_u0_s1|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-8 --noise=0 --seed=1 --out=$RAW/runs/rn_h0.005_u0_s1 --pstar=$RAW/runs
+rec_rn_h0.005_u1_s1|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-8 --noise=1 --seed=1 --out=$RAW/runs/rn_h0.005_u1_s1 --pstar=$RAW/runs
+rec_rn_h0.005_u1_s2|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-8 --noise=1 --seed=2 --out=$RAW/runs/rn_h0.005_u1_s2 --pstar=$RAW/runs
+rec_rn_h0.005_u1_s3|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-8 --noise=1 --seed=3 --out=$RAW/runs/rn_h0.005_u1_s3 --pstar=$RAW/runs
+rec_rn_h0.005_u64_s1|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-8 --noise=64 --seed=1 --out=$RAW/runs/rn_h0.005_u64_s1 --pstar=$RAW/runs
+rec_rn_h0.01_u0_s1|timeout 7200 $PY settled_mass_g.py job --h=0.01 --delta=1e-8 --noise=0 --seed=1 --out=$RAW/runs/rn_h0.01_u0_s1 --pstar=$RAW/runs
+rec_rn_h0.01_u1_s1|timeout 7200 $PY settled_mass_g.py job --h=0.01 --delta=1e-8 --noise=1 --seed=1 --out=$RAW/runs/rn_h0.01_u1_s1 --pstar=$RAW/runs
+rec_rn_h0.01_u1_s2|timeout 7200 $PY settled_mass_g.py job --h=0.01 --delta=1e-8 --noise=1 --seed=2 --out=$RAW/runs/rn_h0.01_u1_s2 --pstar=$RAW/runs
+rec_rn_h0.01_u1_s3|timeout 7200 $PY settled_mass_g.py job --h=0.01 --delta=1e-8 --noise=1 --seed=3 --out=$RAW/runs/rn_h0.01_u1_s3 --pstar=$RAW/runs
+rec_rn_h0.01_u64_s1|timeout 7200 $PY settled_mass_g.py job --h=0.01 --delta=1e-8 --noise=64 --seed=1 --out=$RAW/runs/rn_h0.01_u64_s1 --pstar=$RAW/runs
+rec_dose_h0.005_k6_s1|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-8 --noise=64 --seed=1 --out=$RAW/runs/dose_h0.005_k6_s1 --pstar=$RAW/runs
+rec_dose_h0.005_k6_s2|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-8 --noise=64 --seed=2 --out=$RAW/runs/dose_h0.005_k6_s2 --pstar=$RAW/runs
+rec_dose_h0.005_k12_s1|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-8 --noise=4096 --seed=1 --out=$RAW/runs/dose_h0.005_k12_s1 --pstar=$RAW/runs
+rec_dose_h0.005_k12_s2|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-8 --noise=4096 --seed=2 --out=$RAW/runs/dose_h0.005_k12_s2 --pstar=$RAW/runs
+rec_dose_h0.005_k20_s1|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-8 --noise=1048576 --seed=1 --out=$RAW/runs/dose_h0.005_k20_s1 --pstar=$RAW/runs
+rec_dose_h0.005_k20_s2|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-8 --noise=1048576 --seed=2 --out=$RAW/runs/dose_h0.005_k20_s2 --pstar=$RAW/runs
+rec_dose_h0.005_k28_s1|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-8 --noise=268435456 --seed=1 --out=$RAW/runs/dose_h0.005_k28_s1 --pstar=$RAW/runs
+rec_dose_h0.005_k28_s2|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-8 --noise=268435456 --seed=2 --out=$RAW/runs/dose_h0.005_k28_s2 --pstar=$RAW/runs
+rec_dose_h0.005_k36_s1|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-8 --noise=68719476736 --seed=1 --out=$RAW/runs/dose_h0.005_k36_s1 --pstar=$RAW/runs
+rec_dose_h0.005_k36_s2|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-8 --noise=68719476736 --seed=2 --out=$RAW/runs/dose_h0.005_k36_s2 --pstar=$RAW/runs
+rec_scan_h0.01|timeout 7200 $PY settled_mass_g.py scan --h=0.01 --out=$RAW/runs --pstar=$RAW/runs
+rec_scan_h0.005|timeout 7200 $PY settled_mass_g.py scan --h=0.005 --out=$RAW/runs --pstar=$RAW/runs

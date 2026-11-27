@@ -66,5 +66,5 @@ a.set_title("The settled mass against the distance from threshold", loc="left", 
 a.grid(True, color=GRID, lw=0.8)
 a.set_axisbelow(True)
 a.legend(frameon=False, loc="center right")
-fig.savefig(out, format="svg")
+fig.savefig(out, format=out.rsplit(".", 1)[-1], dpi=90)
 print("wrote", out)

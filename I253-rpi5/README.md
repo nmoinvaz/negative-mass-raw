@@ -175,3 +175,38 @@ Nothing above this line is changed. The development jobs and analyses are in `de
 
 The exact sets are the `MUTATIONS` dictionary of `settled_mass_g.py` at the commit named in the runs of record. Mispredicted targets: `normal_drop` and `normal_sign` (silent in RC4, covered by FLX), `family_B` (also PL3G, RC3 to RC8 and
 TRK, because the whole run changes), `col_shift`, `hm_swap`, `short_limit` (RN0 also fires: the stored noise-0 run is from the unmutated code), `rn_ref` (RNR is a baseline failure).
+
+---
+# Runs of record (third commit)
+
+Code: `settled_mass_g.py` at `dead4f0` (worktree branch `wip/i253-g-settled-mass`), unchanged since the second commit; `settled_mass.py`, `threshold.py`, `dn.py` as at main 0d1d376. All runs: systemd user units
+`nm-i253-rec-*`, `nm-i253-recmut-*`, `nice -n 10`, one thread, three workers sharing the queue `launch_I253.sh` (lists `jobs_rec.txt`, `jobs_rec_mut.txt`; `queue.log`, `logs/`, `done/`).
+Window 13:05 to 13:28 (PST, 2026-11-27); load average 1.4 to 2.5.
+
+| what | list / command | wall time each | exit |
+|---|---|---|---|
+| p*ₕ of G, three h (read from #40's raw, hashes in `runs/pstar_G_h*.json`) | `settled_mass_g.py pstar` | instant | 0 |
+| six jobs, h = 0.02, 0.01, 0.005 × δ = 1e-6, 1e-8 | `jobs_rec.txt` | 4 to 31 s, peak rss 0.74 GB | 0 (6 of 6) |
+| ten ulp-noise runs (h = 0.01, 0.005; u = 0, 2⁻⁵² × 3 seeds, 64 × 2⁻⁵²) | `jobs_rec.txt` | 9 to 34 s | 0 (10 of 10) |
+| ten dose runs (h = 0.005, 2^k × 2⁻⁵², k = 6, 12, 20, 28, 36, seeds 1, 2), exploratory | `jobs_rec.txt` | 24 to 35 s | 0 (8), **1 (k = 36, both seeds: empty series, `IndexError`, logs kept)** |
+| scans, δ = 1e-12 to 1e-1, h = 0.01 and 0.005 | `jobs_rec.txt` | 54 s, 173 s | 0 (2 of 2) |
+| analysis of record, 19 checks (`analyze_record.log`, copied to `settled_mass_g_output.txt`) | `settled_mass_g.py analyze --raw=...` | 61 s | **1: RC7 and RNR fail** |
+| 20 mutated analyses (`mut/mut_*.log`) | `jobs_rec_mut.txt` | 13 to 156 s | 0 (20 of 20: fired set = declared set, MATCH) |
+
+All 26 series of the runs of record are bit-identical to the development runs (`dev/runs/`); the mutated analyses give the sets of the second commit.
+
+## Result
+
+- 17 of 19 checks pass; RC7 and RNR fail as declared (not met). PL1 and PL2 lines equal #41's; PL3 prints #41's line.
+- G's plateau at h = 0.005, δ = 1e-8 is 0.235548 a (r_AH = 0.47110); S's 0.223085; difference +1.25e-2; declared bar 5.97e-4; verdict "differs".
+- Convergence: orders 1.93 to 2.20; first law over the whole series to the limit 3.8e-5 (h = 0.005).
+- Roundoff floor: scatter between roundoff realizations 6.6e-6 (h = 0.005, last window) = 0.19 of the h-difference; "approached" in the last window, "not reached" in the first two.
+- Note and proposed text: `notes/wormhole_evolution/settled_mass_g.md`; figure `settled_mass_g.svg` (`plot_settled_mass_g.py`).
+
+## Mistakes and slips
+
+- The first launch of the development workers named the list in `dev/` while the launcher reads it from this folder; the workers exited at once and were relaunched (no run was lost).
+- A foreground `until` loop over the mutation queue exceeded the 2 min tool limit and was moved to the background; no run was affected.
+- The first form of RNR passed vacuously when both scatters were zero; fixed in the second commit before the runs of record (the check now requires a nonzero scatter at 2⁻⁵²).
+- The dose scan at 2^36 × 2⁻⁵² (1.5e-5 relative noise) breaks the data (empty series); the two logs are kept in `logs/`.
+- The README of the first commit predicted the noise runs would calibrate the roundoff sensitivity; RNR shows they do not (reported).
