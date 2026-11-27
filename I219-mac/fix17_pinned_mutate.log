@@ -1,0 +1,24 @@
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 3.85s
+     Running tests/implicit.rs (target/release/deps/implicit-4e0a7f4a04c6bea1)
+
+running 6 tests
+digest f64 b124d44e9758f1a1
+digest-full f64 50775575530f4fa9
+test digest_f64 ... ok
+digest dd 92ec461781147d77
+digest-full dd 13ac06786e54ccb1
+test digest_dd ... ok
+test digest_pinned_fails_on_a_flip ... ok
+digest qd 75902b0bf76ced2a
+digest-full qd b37fa8d9cb20094f
+test digest_qd ... ok
+flipped bit of a checkpoint: base 74a43c7032030f97 -> 74a43c7032030f97, full 8dc37bcfbef8f752 -> 1276e8dc9a9b46eb
+test digest_sees_a_checkpoint ... ok
+digest od c542a935a4215b82
+digest-full od 801e3f57cd16e9b1
+test digest_od ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 26 filtered out; finished in 6.72s
+
+exit 0
