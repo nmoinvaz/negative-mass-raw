@@ -62,6 +62,9 @@ author name "Claudel" in a reference list).
 | FMM89 | none | INSPIRE abstract only; publisher page HTTP 403 | INSPIRE: PLB 216, 272 (1989), 10.1016/0370-2693(89)91114-3 |
 | FMM90 | none | INSPIRE abstract only; publisher page HTTP 403 | INSPIRE: PRD 41, 383 (1990), 10.1103/PhysRevD.41.383 |
 | Smo92 | none | INSPIRE abstract only; the IOP page answers HTTP 200 but its full text was not read | INSPIRE: CQG 9, 173–192 (1992), 10.1088/0264-9381/9/1/016. [Smo06] prints 173–191 |
+| MSOF23 | 2304.12018 v2 (7 Jul 2023) | abstract, §4 results, §5 final remarks; the rest by search | INSPIRE and arXiv page: JCAP 06 (2023) 028, 10.1088/1475-7516/2023/06/028 |
+| CK21 | 2106.14761 v1 (28 Jun 2021) | abstract, conclusion, the passages on the energy conditions | INSPIRE and arXiv page: PRD 104, 024071, 10.1103/PhysRevD.104.024071; the arXiv page has the DOI only |
+| BCHM25 | 2412.02742 v2 (26 Dec 2024) | abstract, introduction, passages on the new universe by search | INSPIRE: PRL 134, 181401 (2025), 10.1103/PhysRevLett.134.181401; the arXiv page has no journal reference |
 | FGG90, OY18, CAMB20, Dym19 | listed in BHR21's reference [3] | not read; bibliographic data only | INSPIRE: NPB 339, 417 (1990); PLB 785, 197 (2018) and arXiv 1601.03929; EPJC 80, 373 (2020) and arXiv 1909.07129; Universe 5, 111 (2019) |
 
 Bibliographic discrepancies found: BW22's arXiv page ("Phys. Rev. D 15"), Hay06's title (arXiv "non-singular", journal
@@ -82,3 +85,17 @@ papers print was read here.
   `e^{2ν} = A`, `e^{2μ₂} = A⁻¹`, `e^{2μ₃} = R²` (TeX lines 360–366), so `g^{tt} = e^{−2ν}` and `g^{rr} = −e^{−2μ₂}`. In □δφ the
   coefficient of δφ̈ relative to that of δφ'' is then `e^{2μ₂−2ν} = 1/A²`, not the printed `e^{−2μ₂−2ν} = 1`. This is the
   first row of #212's table (mixed-sign exponent of μ₂). The other four rows rest on #212's sympy derivation.
+
+## Amendments
+
+- The plan above named the issue's list. Three papers were added after the reading of the listed ones, from the INSPIRE citer
+  lists of BF06 and SV19 (`inspire_citer_searches.txt`: `refersto:recid:` with a title word) and chosen from their titles as
+  bearing on the same claim (formation by collapse, a baby universe or a bounce): MSOF23, CK21, BCHM25. Their reading is in the
+  table. The first citer queries (`refersto:arxiv:` with an abstract field) ignored the filter and returned unrelated records;
+  they are not used and were not kept.
+- Seven further citers of SV19 and BF06 are listed in `notes/literature.md` by title only, and not read.
+- `verify_refs.py` was extended with MSOF23, CK21 and BCHM25 and an `ONLY=` filter after its first run; `verify_table.txt`
+  holds both runs. The arXiv API returned HTTP 429 or a timeout for 14 of the 22 arXiv ids over the two runs; `arxiv_meta.txt`
+  (from arXiv's own abstract pages) is the arXiv-side record.
+- Not done: reading the full texts of FMM89, FMM90 and Smo92 (publisher access), BKZ12 §III and its quasinormal-mode part,
+  Smo06 §4.

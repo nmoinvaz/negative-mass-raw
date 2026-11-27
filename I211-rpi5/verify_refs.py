@@ -5,6 +5,7 @@
     verify_refs.py [outdir]
 """
 import json
+import os
 import sys
 import time
 import urllib.parse
@@ -39,6 +40,9 @@ REFS = {
     "OY18": ("1601.03929", None),
     "CAMB20": ("1909.07129", None),
     "Dym19": (None, "a Dymnikova and t Universes inside a black hole with the de Sitter interior"),
+    "MSOF23": ("2304.12018", None),
+    "CK21": ("2106.14761", None),
+    "BCHM25": ("2412.02742", None),
 }
 
 
@@ -68,10 +72,12 @@ def arxiv(aid):
 
 
 def main():
-    import os
     os.makedirs(OUT, exist_ok=True)
     rows = []
+    only = os.environ.get("ONLY")
     for key, (aid, q) in REFS.items():
+        if only and key not in only.split(","):
+            continue
         rec = {"key": key}
         try:
             total, hits = inspire(f"arxiv:{aid}" if aid else q)
