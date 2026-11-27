@@ -1,0 +1,28 @@
+# tests/implicit.rs: the fixed text replaced by the pre-fix text; the tests must fail
+--- fixed text
+let d = (0..3).map(|f| (a[f] - b[f]).to_f64().abs()).fold(0.0, nanmax);
+--- pre-fix text
+let d = (0..3).map(|f| (a[f] - b[f]).to_f64().abs()).fold(0.0, f64::max);
+---
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 4.79s
+     Running tests/implicit.rs (target/release/deps/implicit-4e0a7f4a04c6bea1)
+
+running 1 test
+[FAIL] f64 KA Project NanPos: 1 crossings found, 1 expected, worst position error NaN (bar 1.1e-10)
+[PASS] f64 KA Project NanState: stop End, 14 steps, err 1.77e-16 (bar 1.1e-10), n_rel_max 7.05e-17
+
+thread 'controls_without_hooks' (102776238) panicked at tests/implicit.rs:1500:9:
+control NanState did not fire: f64 KA Project NanState: stop End, 14 steps, err 1.77e-16 (bar 1.1e-10), n_rel_max 7.05e-17
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test controls_without_hooks ... FAILED
+
+failures:
+
+failures:
+    controls_without_hooks
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 27 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--test implicit`
+exit 101

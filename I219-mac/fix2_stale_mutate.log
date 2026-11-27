@@ -1,0 +1,21 @@
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+error[E0716]: temporary value dropped while borrowed
+    --> tests/implicit.rs:1092:38
+     |
+1092 |     let mut f = Walker::<T, _>::new(&PolyEq::f1(), -1.0, y0, o);
+     |                                      ^^^^^^^^^^^^              - temporary value is freed at the end of this statement
+     |                                      |
+     |                                      creates a temporary value which is freed while still in use
+...
+1095 |         f.set_control(c);
+     |         - borrow later used here
+     |
+help: consider using a `let` binding to create a longer lived value
+     |
+1092 ~     let binding = PolyEq::f1();
+1093 ~     let mut f = Walker::<T, _>::new(&binding, -1.0, y0, o);
+     |
+
+For more information about this error, try `rustc --explain E0716`.
+error: could not compile `multishoot` (test "implicit") due to 1 previous error
+exit 101

@@ -1,0 +1,20 @@
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 5.56s
+     Running tests/implicit.rs (target/release/deps/implicit-4e0a7f4a04c6bea1)
+
+running 1 test
+[FAIL] f64 B(KA) NanCoeff: 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) NaN (bar 1e6)
+[FAIL] f64 F1 NanCoeff: 84 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) NaN (bar 1e6)
+[FAIL] dd B(KA) NanCoeff: 15 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) NaN (bar 1e6)
+[FAIL] dd F1 NanCoeff: 114 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) NaN (bar 1e6)
+[FAIL] dd KA Project WrongStart: stop End, 19 steps, err 1.47e0 (bar 1.2e-26), n_rel_max 4.21e-33
+[FAIL] dd KA Project SwitchMid: stop End, 18 steps, err 9.44e-1 (bar 1.2e-26), n_rel_max 5.68e-33
+[FAIL] dd KA Project WrongForm: stop End, 16 steps, err 1.01e4 (bar 1.2e-26), n_rel_max 4.57e-33
+[FAIL] dd KA Conserve WrongStart: stop Tiny, 33 steps, err 1.47e0 (bar 1.2e-26), n_rel_max 1.14e-31
+[FAIL] dd KA Conserve SwitchMid: stop End, 18 steps, err 9.44e-1 (bar 1.2e-26), n_rel_max 8.35e-32
+[FAIL] dd KA Conserve WrongForm: stop End, 16 steps, err 1.01e4 (bar 1.2e-26), n_rel_max 8.62e-32
+test controls_without_hooks ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 26 filtered out; finished in 0.02s
+
+exit 0

@@ -1,0 +1,17 @@
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 4.88s
+     Running tests/implicit.rs (target/release/deps/implicit-4e0a7f4a04c6bea1)
+
+running 2 tests
+[FAIL] lanes QA LanePerturb: Fl<DV,1> 5.22e1, Fl<Du,1> value 5.22e1 (bar 1.2e-30)
+[PASS] lanes QA None: Fl<DV,1> 0.00e0, Fl<Du,1> value 0.00e0 (bar 1.2e-30)
+[FAIL] lanes QA NanLane: Fl<DV,1> NaN, Fl<Du,1> value NaN (bar 1.2e-30)
+[PASS] lanes KC None: Fl<DV,1> 0.00e0, Fl<Du,1> value 0.00e0 (bar 1.2e-30)
+test lanes ... ok
+[FAIL] lanes KC LanePerturb: Fl<DV,1> 1.33e9, Fl<Du,1> value 1.33e9 (bar 1.2e-30)
+[FAIL] lanes KC NanLane: Fl<DV,1> NaN, Fl<Du,1> value NaN (bar 1.2e-30)
+test lanes_controls ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 27 filtered out; finished in 0.00s
+
+exit 0
