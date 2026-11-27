@@ -169,3 +169,51 @@ On the grids of record, as separate processes (each started with `runrec.sh`, `n
 | `run_06` | `order7.py reduce7 --load=G1.json,G2.json,B.json` | RD1, A7 |
 
 **Stop condition:** any single run not finished in 3 h of wall time is stopped and reported with what finished. Memory is reported only. If G1 or G2 stops, the other grid and B1 … B3 are reported and PSLQ runs at the digits they share.
+
+## Amendments
+
+**A1 (2026-11-27, 14:30, before the runs of record of `reduce7`, of the exchange controls and of PSLQ): the reduction by hand, its checks, the split of PSLQ, and the targets of the exchange controls.**
+
+*What had been seen before this amendment* (disclosure; `dev_13` … `dev_20`, scratch in the issue's comment of 14:12):
+- `dev_15` (`reduce7` on the code before RD5b and RD5c): RD1 … RD6 pass (6 of 6): the 37 integrations by parts leave I_final with no u, 1/u or new generator; G₇(Ω₅ = 0) = 513467.62545644651939787084471209 from them
+  equals the quadrature of the integrand of closed forms to 39.1 digits; the masters of the closed form agree with 30-digit quadrature to 25.6 … 30.0 digits (RD5's bar is 25 for that reason); the two masters ⟨lt²C²⟩, ⟨lt³D₃⟩ were identified first
+  by PSLQ at 55 digits (`scratch_masters2.out`: ⟨lt²C²⟩/π = (3/4)ζ(3)² − (95/96)ζ(6), ⟨lt³D₃⟩/π = (9/16)ζ(3)² − (11/4)ζ(6)); ⟨lt³D₃⟩ was then also derived by hand (generating function of the Beta moments and two Euler sums).
+- **The closed form of Ω₅ was in hand, and equal to a 148-digit development grid (`dev_05`) to 148.1 digits, before any PSLQ on the real Ω₅ ran.** The PSLQ of the runs of record confirms known integer coefficients; it is not a blind search. The bases Q1 … Q9 were declared before the reduction was coded.
+- `dev_20_ex_*` (the exchange controls, 11 mutations): the targets below are what they fired; the two that did not fire as I first wrote them are results: `e2w_g` only reaches E2Wa (the hook is in E2Wa's left side; E2Wb's weight and P are built together),
+  and `e5_const` is silent because the constant of W is zero: W(π/2) = 0 identically once Ω₀ = −4 ln 2 and Ω₁ = 2π²/3 + 8 ln²2 (the 64J₂ − 32πq² − 24πqΩ₀ − 4πΩ₀² − 4πΩ₁ of the limit cancels).
+
+*The checks of the reduction* (`order7.py reduce7`, run `run_07_reduce7` on the grids of record; bars written after `dev_15`):
+
+| id | statement | bar |
+|---|---|---|
+| RD1 | the integrand of G₇ after E1 … E5 as coefficients of C^a D₃^b Lc2^c, and again in lt = ln(2 cos θ), K₂ = ∫lt² (the masters' variables), against the numeric integrand of closed forms at θ = 0.2, 0.7, 1.1, 1.4 | 30 digits |
+| RD2 | the 37 integrations by parts: I_start − Σ dF − I_final = 0 symbolically; the primitives of the D₃² and D₃ coefficients have residual 0; no u, 1/u left in I_final | exactly |
+| RD3 | the 1/u part of the CD₃ coefficient after the D₃² step, the 1/u part of the C coefficient after the D₃ step, and K₃ other than in CK₃ all vanish; the slope of G₇ in Ω₅ is −4π | exactly |
+| RD4 | the series (order 10) of lt, u, 1/u, C, D₃, K₂, K₃ at θ → π/2 and 0 (the finite-part kit) against the functions at x = θ = 10⁻³ | 1e-24 relative |
+| RD5 | the 18 master integrals ⟨C^a D₃^b K₂^c θ^j lt^k⟩ against their closed forms, quadrature at 30 digits | 25 digits |
+| RD5b | ⟨lt²C²⟩ and ⟨lt³D₃⟩ against their closed forms at 100 digits (found at 55) | 90 digits |
+| RD5c | the Euler sums used (ΣH_n/n³, ΣH_n/n⁵, ΣH_n²/n⁴, ΣH_n^{(2)}/n², ΣH_n^{(2)}/n⁴, Σ(H_n^{(2)})²/n², ΣH_nH_n^{(2)}/n³) against their closed forms, and (π/4)Σs_m² against π(3ζ(3)²/4 − 95ζ(6)/96), Euler–Maclaurin at 40 digits | 30 digits |
+| RD6 | G₇(Ω₅ = 0) = Σ B[F_i] + ∫I_final (quadrature at 45 digits) against the quadrature of the integrand of closed forms | 30 digits |
+| A7 | method A: Ω₅ from the closed-form integrand at Ω₅ = 0, 1 (quadrature at 40 digits, 150 guard digits) against G1, G2, and its slope against −4π | 30 digits |
+| RD7 | Ω₅ of the closed form of the reduction (boundary terms + masters) against G1, G2 | 100 digits |
+| RD8 | the PSLQ relation of `run_06*` for Q6 equals 315 × the closed form's coefficients (the integer vector) | equal |
+
+*Not derived by hand:* ⟨lt²C²⟩ (identified; by Parseval it is (π/4)Σs_m², an Euler-sum combination that RD5c checks numerically). The Euler sums are taken as known facts, checked numerically by RD5c; none is proved here.
+
+*PSLQ is split over processes by basis* (same code, same bases, same d; each process loads `G1.json`, `G2.json`): `run_06a` Q1 … Q4, `run_06b` Q5, Q6, `run_06c` Q7, Q8, Q9 (parts `pslq --bases=…`); `run_05` is `values remainder`; `run_07` is `reduce7`.
+
+*Targets of the exchange controls* (`declared_ex.json`; read from `dev_20_ex_*` and `dev_14_exch7`; a control is on target when the set of checks that fire is exactly the declared set):
+
+| control | what it breaks | fires | silent |
+|---|---|---|---|
+| `e1_sign` | the sign of E1's second integral | E1_7, E123_7, G7R | E2_6 … E2_4, E3_7, E4_7, E2Wa, E2Wb, E5_7 |
+| `e2_weight` | E2's weight ℓ as ℓ + ln 2 | E2_6, E2_5, E2_4, E123_7, G7R | E1_7, E3_7, E4_7, E2Wa, E2Wb, E5_7 |
+| `e3_factor` | E3's 4 as 2 | E3_7, E123_7, G7R | E1_7, E2_x, E4_7, E2Wx, E5_7 |
+| `e4_g` | E4's 22ℓ² as 20ℓ² | E4_7, E5_7, G7R | E2Wb: its weight and P are built from the same g |
+| `e4_noC` | E4's 16uC dropped | E4_7, E5_7, G7R | E2Wb (same reason) |
+| `e2w_g` | E2Wa's 12ℓ² as 10ℓ² on the left | E2Wa | everything else |
+| `e2w_P` | P's D₃/2 dropped | E2Wb, E5_7, G7R | E4_7, E2Wa |
+| `e5_noD3` | W's 16D₃ cot θ dropped | E5_7, G7R | E4_7, E2Wa, E2Wb |
+| `e5_const` | W(π/2) not subtracted | none: **the constant is zero** | all |
+| `wrong_h` | the sign of −l/R in c₂ (Ω₀ ≠ −4 ln 2 then) | E4_7, G7R | E1_7, E2_x, E3_7, E2Wx, E5_7: E4 is the only step that uses Ω₀ = −4 ln 2 |
+| `wrong_c7` | the sign of l⁶/(720R) in c₇ | none: **E1 … E5 hold for any table** (E0 and the values see it) | all |
