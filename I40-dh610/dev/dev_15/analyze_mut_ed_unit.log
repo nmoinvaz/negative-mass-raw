@@ -1,0 +1,30 @@
+threshold.py analyze {'raw': '/home/nathan/Source/negative-mass-raw/I40-dh610/dev/dev_17/ed_unit'}: numba 0.68.1, numpy 2.5.4, python 3.14.10, dh610-fedora, load average at start 15.93 14.01 14.83, mutation ed_unit, 2026-11-26 23:19:02
+analyze: /home/nathan/Source/negative-mass-raw/I40-dh610/dev/dev_17/ed_unit: 3 jobs; mutation ed_unit
+[pass] BR[D=4 S h=0.02]: the bisection ended with hi - lo <= 1e-14 and no run static through X  (hi - lo = 9.09e-15, stopped None, )
+[pass] FM[D=4 S h=0.02]: every series point with |p - p*_h| >= 1e-11 lands on its own side of p*_h (fate monotone) and ends in an event  (0 of 34 points off; below that, 0 of 4 points off the side (roundoff floor, not fitted))
+    SL D=4 S h = 0.02: p*_h = 4.752772535085e-05; primary slope 0.846642 +- 0.000380 (OLS SE), n = 34, rms 0.0119; collapse 0.847335, expansion 0.845950; spread [0.844435, 0.849102]; 1/W = 0.846045, rel dev +7.05e-04
+[pass] SL[D=4 S h=0.02]: 1/W lies inside the spread of the fitted slopes (windows x {joint, collapse, expansion})  (primary 0.846642, spread [0.844435, 0.849102], 1/W 0.846045)
+[pass] BR[D=4 S h=0.01]: the bisection ended with hi - lo <= 1e-14 and no run static through X  (hi - lo = 9.09e-15, stopped None, )
+[pass] FM[D=4 S h=0.01]: every series point with |p - p*_h| >= 1e-11 lands on its own side of p*_h (fate monotone) and ends in an event  (0 of 34 points off; below that, 0 of 4 points off the side (roundoff floor, not fitted))
+    SL D=4 S h = 0.01: p*_h = 1.188416336390e-05; primary slope 0.846522 +- 0.000323 (OLS SE), n = 34, rms 0.0102; collapse 0.846853, expansion 0.846191; spread [0.845217, 0.848691]; 1/W = 0.846045, rel dev +5.63e-04
+[pass] SL[D=4 S h=0.01]: 1/W lies inside the spread of the fitted slopes (windows x {joint, collapse, expansion})  (primary 0.846522, spread [0.845217, 0.848691], 1/W 0.846045)
+[pass] BR[D=4 S h=0.005]: the bisection ended with hi - lo <= 1e-14 and no run static through X  (hi - lo = 9.09e-15, stopped None, )
+[pass] FM[D=4 S h=0.005]: every series point with |p - p*_h| >= 1e-11 lands on its own side of p*_h (fate monotone) and ends in an event  (0 of 34 points off; below that, 0 of 4 points off the side (roundoff floor, not fitted))
+    SL D=4 S h = 0.005: p*_h = 2.971180033455e-06; primary slope 0.846522 +- 0.000261 (OLS SE), n = 34, rms 0.0082; collapse 0.846853, expansion 0.846191; spread [0.845723, 0.848441]; 1/W = 0.846045, rel dev +5.63e-04
+[pass] SL[D=4 S h=0.005]: 1/W lies inside the spread of the fitted slopes (windows x {joint, collapse, expansion})  (primary 0.846522, spread [0.845723, 0.848441], 1/W 0.846045)
+    PS D=4 S: p*_h = 4.7527725351e-05, 1.1884163364e-05, 2.9711800335e-06; Richardson order 2.000; with p* = 0: orders 2.000, 2.000; Richardson p* = -7.4484964159e-10
+[pass] PS[D=4 S]: p*_h converges at second order (order in [1.75, 2.25])  (p*_h = 4.7527725351e-05, 1.1884163364e-05, 2.9711800335e-06; Richardson order 2.000; with p* = 0: orders 2.000, 2.000; Richardson p* = -7.4484964159e-10)
+[pass] RA[D=4 S]: primary slopes at the two finest h agree within 0.5%  (0.846522, 0.846522; rel diff 1.52e-12; coarsest 0.846642)
+    ED D=4 S h = 0.01: event tol0.1: slope 0.598318 +- 0.000179 (n = 16), primary spread [0.845217, 0.848691]
+    ED D=4 S h = 0.01: event rexp3: slope 0.598137 +- 0.000144 (n = 16), primary spread [0.845217, 0.848691]
+[FAIL] ED[D=4 S]: the slope does not depend on the event definition: each alternative lies inside the primary spread
+
+Null constraints along the two runs that bracket p*_h (lo = last collapse, hi = last expansion), over the nodes of the event cell's past,
+max |C| and max |C| / max(sum of the absolute values of its terms); change with h against the change of p*_h and of the primary slope
+
+Formation values at the first trapped cell and the stall, p* -/+ 1e-8 (not settled masses; #41's question stays open)
+D family h    side fate     T       event cell offset (cells, l)   r_cell   M_cell   M_hor=r^(D-3)/2 | stall: t     r      l     span  dl/dt
+
+11 of 12 checks pass; 1 fail: ED[D=4 S]
+mutation ed_unit: expected to fire []; fired ['ED']; targets all fired
+0.0 s

@@ -1,0 +1,6 @@
+threshold.py g6 {'out': '/home/nathan/Source/negative-mass-raw/I40-dh610/dev/dev_13/g6'}: numba 0.68.1, numpy 2.5.4, python 3.14.10, dh610-fedora, load average at start 20.75 20.52 18.79, mutation None, 2026-11-26 22:38:19
+    G1 D=6 h=0.00289: A*_h = 3.7060443312e-04 (30 runs, 138.8 s); slopes 2.103172, 2.217887 (218, 256 pts) -> W_fit 2.160530 vs W 2.164860 (rel -2.00e-03); untuned departure |H| = 2e-3 W at tau = 3.457, seed constant kappa = 0.292
+    G1 D=6 h=0.00144: A*_h = 9.2536844313e-05 (30 runs, 324.5 s); slopes 2.159285, 2.165817 (424, 524 pts) -> W_fit 2.162551 vs W 2.164860 (rel -1.07e-03); untuned departure |H| = 2e-3 W at tau = 4.099, seed constant kappa = 0.291
+    G1 D=6: A*_h ratio between the two h 4.005 (h^2 seed predicts 4); untuned departure shifts by 0.642 (ln4/W = 0.640)
+[pass] G1[D=6]: tune p to p*_h, then the departure grows at W = 2.164860 within 1%, at two resolutions that agree within 0.5%  (W_fit 2.160530, 2.162551; rel -2.00e-03, -1.07e-03)
+g6 done: True; 463.3 s

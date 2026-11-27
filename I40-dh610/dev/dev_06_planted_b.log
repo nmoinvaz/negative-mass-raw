@@ -1,0 +1,14 @@
+threshold.py planted {}: numba 0.68.1, numpy 2.5.4, python 3.14.10, dh610-fedora, load average at start 13.87 14.50 15.70, mutation None, 2026-11-26 22:23:11
+    PL D=4: planted slope 0.846045, q = 0.01414, sigma = 0.01; seed 1: p* recovered 4.699999999957071e-05 (planted 4.700000000000000e-05), primary slope 0.846416 +- 0.000307 (OLS SE), spread [0.845074, 0.848361]; over 40 seeds: 1/W inside the spread in 40, p* recovered in 40, primary rel error mean +3.1e-05, rms 3.7e-04
+[pass] PL[D=4]: planted type I series through the same bisection and fit code: p* recovered and 1/W inside the fit spread in at least 90% of 40 noise seeds  (40 of 40 inside, p* 40 of 40)
+    PX D=4: planted slope 1/(sqrt2 W) = 0.598244; seed 1 fitted 0.598635, spread [0.597401, 0.600926] against 1/W = 0.846045; rejected in 40 of 40 seeds
+[pass] PX[D=4]: a planted series with the time unit scaled by sqrt2 (slope 1/(sqrt2 W)) is rejected by the comparison with 1/W in every seed  (40 of 40)
+    PL D=5: planted slope 0.578803, q = 0.00500, sigma = 0.01; seed 1: p* recovered 4.699999999957071e-05 (planted 4.700000000000000e-05), primary slope 0.579251 +- 0.000287 (OLS SE), spread [0.577851, 0.581171]; over 40 seeds: 1/W inside the spread in 40, p* recovered in 40, primary rel error mean +2.8e-05, rms 4.5e-04
+[pass] PL[D=5]: planted type I series through the same bisection and fit code: p* recovered and 1/W inside the fit spread in at least 90% of 40 noise seeds  (40 of 40 inside, p* 40 of 40)
+    PX D=5: planted slope 1/(sqrt2 W) = 0.409276; seed 1 fitted 0.409637, spread [0.408166, 0.411684] against 1/W = 0.578803; rejected in 40 of 40 seeds
+[pass] PX[D=5]: a planted series with the time unit scaled by sqrt2 (slope 1/(sqrt2 W)) is rejected by the comparison with 1/W in every seed  (40 of 40)
+    PL D=6: planted slope 0.461924, q = 0.00354, sigma = 0.01; seed 1: p* recovered 4.699999999957071e-05 (planted 4.700000000000000e-05), primary slope 0.462317 +- 0.000284 (OLS SE), spread [0.461014, 0.464299]; over 40 seeds: 1/W inside the spread in 40, p* recovered in 40, primary rel error mean +4.6e-05, rms 5.5e-04
+[pass] PL[D=6]: planted type I series through the same bisection and fit code: p* recovered and 1/W inside the fit spread in at least 90% of 40 noise seeds  (40 of 40 inside, p* 40 of 40)
+    PX D=6: planted slope 1/(sqrt2 W) = 0.326629; seed 1 fitted 0.326986, spread [0.325693, 0.329088] against 1/W = 0.461924; rejected in 40 of 40 seeds
+[pass] PX[D=6]: a planted series with the time unit scaled by sqrt2 (slope 1/(sqrt2 W)) is rejected by the comparison with 1/W in every seed  (40 of 40)
+0.7 s
