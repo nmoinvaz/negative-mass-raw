@@ -40,3 +40,6 @@ Consequences, by hand:
 
 | file | what |
 |---|---|
+| `rerun.log`, `rerun_diff.txt` | the rerun: **28 checks, 0 failed**; the output equals `baby_universes_junction_output.txt` apart from the Python version line and the timing |
+| `ind224_run1.txt` | run 1: **exit 0, 2 of 2.** K1: the isotropic gluing u(F) equals the note's, residual 0, and solving [K^x] = [K^θ] for u returns it. K2: p_x < 0 at 200 random points; u(F) is stationary only at F = 1/3, where u = 2/√3 |
+| `ind224_run1_mut_dS-normal.txt` | `dS-normal` fails exactly K1 and K2 |
