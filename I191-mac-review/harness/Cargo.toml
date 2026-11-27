@@ -1,0 +1,12 @@
+[package]
+name = "locate_harness"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "ind191's harness: multisolver's locate (PR #26 at 0db3966) on planted coefficient files"
+
+[dependencies]
+multisolver = { path = "/Users/nathan/Source/negative-mass-r191/multisolver" }
+
+[profile.release]
+opt-level = 3

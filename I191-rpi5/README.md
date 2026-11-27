@@ -176,9 +176,23 @@ Im s), the exponent alpha (F) = alpha_field + f with its bar, the kind, against 
 
 ## 7. Runs
 
-Units (systemd, nice 10): `nm-i191-dev00` (exploration rerun), `nm-i191-dev02` (degrees up to 9). Logs in this folder:
-`dev_00_*` (exploration; `explore1`, `explore2`, `probe`, `explore3` seeds 1 and 2, analysis), `dev_01_degrees.log`,
-`dev_02_*` (random exploration with degrees up to 9), `dev_03_noise.log`. Scripts in `sys/`.
+Units (systemd, nice 10, one at a time): `nm-i191-dev00` (exploration rerun), `nm-i191-dev02` (degrees up to 9), `nm-i191-dev03` (stopped,
+A2), `nm-i191-dev03b`, `nm-i191-build183`, `-build183b`, `-build183c` (the harness's builds). Tests and clippy ran in the terminal (each test run under 10 s,
+builds up to 2 min). Logs in this folder, none overwritten:
+
+| log | what |
+|---|---|
+| `dev_00_*`, `dev_01_degrees`, `dev_02_*`, `dev_03_noise_dressed_stopped`, `dev_03b_noise` | design exploration (section 3); scripts in `sys/explore/`, launchers `sys/run_dev0*.sh` |
+| `dev_04_build_compare183`, `dev_05_*` | the harness's first build, its first probe (the id collision of A1) and the check of one record |
+| `dev_10_planted_first.log`, `dev_10_lstsq_unit.log` | the first run of the suite (68 of 69 gated cells meet 1 to 4; D6 f64 not met, A4) and of the `lstsq` unit test |
+| `dev_11_controls.log` | the controls' development run (A3) |
+| `dev_12_locate_*`, `dev_13_locate_*` | the fingerprint's first run (control silent, A5) and its rerun, default and portable |
+| `dev_14_clippy_*`, `dev_14b_clippy_*` | clippy before and after the fixes (A6) |
+| `dev_15`, `dev_16`, `dev_17` | the harness's rebuild and two driver runs before the record (a crash on a missing `alpha_pred`, then the ulp column) |
+| **`run_01_*`** | **run of record** of the library at multisolver 0db3966 (`run_01_commit.txt`): the locate tests, the unit test and the doc test in the default build and with `--features portable` (exit 0, the same fingerprint 0xa5113e9ccb6776c8), and the controls' development printer again (identical to dev_11) |
+| **`run_02_*`** | **run of record** of the comparison with #183: the harness built at 0db3966 (`run_02_build_compare183.log`), the driver's stdout (`run_02_compare183.log`, the same as `notes/warp/singularity_locator_output.txt`), its exit code |
+
+Scripts in `sys/`: `explore/` (the python prototype and the exploration), `compare183/` (the harness, a cargo package), `build_compare183.sh`, `run_dev0*.sh`.
 
 ## Amendments
 
@@ -203,3 +217,46 @@ pure series P3, C2 and P6 plus noise, and set three conditions, all met here: (1
 run, from an a-priori argument where one exists and else from dev_03b with a margin of 10 over the measured amplification, never at
 the measured value (section 4, "Where the tolerances come from"); (2) one dressed case with noise, N3 = D3 plus noise, is printed and
 **not gated**; (3) dev_03 and dev_03b are recorded above, with their parameters, before the criteria. D1 to D6, C4 and C5 are unchanged.
+
+**A3 (after dev_11, `dev_11_controls.log`; before the run of record): the controls' targets**, computed from the development run and declared
+here (`controls_fire` in `tests/locate.rs` asserts them):
+
+| control | check | target | development run |
+|---|---|---|---|
+| `wrong-sigma` | 2 | all 72 cells (24 cases x 3 lanes) | fires in 72 of 72 |
+| `wrong-alpha` | 2 | all 72 cells | fires in 72 of 72 |
+| `pair-by-ratio` | 1 and 2 | the 18 cells of C1 to C5 and N2 | fires in 18 of 18 (kind Unresolved, s off by 0.7 to 2.6) |
+| `bar-shrunk` (bars x 1e-3) | 3 | every cell except ten | **silent in ten cells**, reported as silent: P1 in f64 and double-double (the error is 0), D1, D2, C4 in double-double and quad-double, T1 and T2 in quad-double (the error is at least a thousand times below the bar); fires in the other 62 |
+| `window-early` (ratio model, first order 2, degree 2) | 2 | **T1, T2 and T3 in the three lanes** (9 cells), cases with a farther singularity | fires on them; also on C1 to C5, N2, N3, D1, D3 to D6 in every lane and on D2 in dd and qd (47 of 72); silent on P1 to P6, N1, O8 (the ratio model is exact there) and on D2 in f64 |
+| `window-short` (ratio model, the last 8 orders, degree 2) | 2 | **N1, N2 and T3 in the three lanes** (9 cells): the noisy and the two-pole cases | fires on them; also on C1 to C5, D6 and in places on D2 to D5, N3, O8, T1, T2 (42 of 72); silent on P1 to P6 and D1 |
+
+A window that starts too early (first order 2) fails on the planted two-singularity cases and one that is too short (8 orders) fails
+on the noisy ones, as the issue asks.
+
+**A4 (after dev_10, `dev_10_planted_first.log`): D6 in f64 is NOT MET.** The first run of the suite: 68 of the 69 gated cells meet criteria 1 to 4.
+D6 (alpha = 1e-8, s = 2, dressed with poles at +-8i) in f64 (K = 30) does not meet criteria 1, 2 and 4: kind `Unresolved` (bar 1.1 of |s|), error of s
+0.41, error of alpha 12; criterion 3 **holds**: the bar covers the errors, and the locator says `Unresolved`, so it gives no confident wrong
+answer. Cause: the dressing's coefficients (1/64)^(k/2) swamp the alpha-sized coefficients of the singular part (1e-8 2^-k/k) up to order about 16; the
+contamination decays like 4^-k, and the default windows start at 0.2 to 0.6 K = 6 to 18, so none starts where the data are clean (about order 24 of 30, i.e. 0.8 K, with 7
+rows and degree at most 3), which the default grid does not contain. A window starting near 0.8 K would resolve this regime; it is not implemented. D6 in dd and qd
+meet all four criteria. The coordinator (hc, 2026-11-26): leave it NOT MET, change neither the cases nor the tolerances nor the grid, report it with the cause. The test
+`planted_suite` asserts the 68 cells and names D6 f64 as excepted; `d6_f64_is_not_met` records what the locator does there (the failures 1, 2 and 4, the kind
+`Unresolved`, the bar above 5%); neither makes the cell meet its criteria.
+
+**A5 (after dev_12): the fingerprint control.** The bitwise check across backends (`bitwise_across_backends`: FNV-1a of the results of every cell,
+constant 0xa5113e9ccb6776c8 from the default build on aarch64) has the control "one f64 coefficient changed in its lowest bit changes the fingerprint". As first coded
+(coefficient 10 of P1) it was **silent** (`dev_12_locate_default.log`, "control did not fire": a pure pole's results do not move by one ulp of one coefficient). The same
+one-ulp mutation at coefficient 20 of D3 (f64) fires, and is the control of record. The check (the fingerprint against the constant) did not change. Both
+backends gave the constant: default 0xa5113e9ccb6776c8, `--features portable` 0xa5113e9ccb6776c8 (`dev_13_locate_*.log`).
+
+**A6 (tooling): rustfmt and clippy.** The Pi's stable toolchain had neither. The coordinator allowed (hc, 2026-11-26) `rustup component add rustfmt clippy`
+(toolchain components, nothing else); run as `rustup component add rustfmt clippy --toolchain stable`; versions: rustfmt 1.11.0-stable (0ef1bc3860 2026-11-09), clippy
+0.1.100 (0ef1bc3860 2026-11-09), rustc 1.100.0. `cargo fmt` (width 120) then `cargo clippy --all-targets -j 1 -- -D warnings` in the default build and with `--features portable`:
+the first pass (`dev_14_clippy_*.log`) reported one lint in `src/locate.rs` (an indexed loop in `spread`) and two kinds in the tests (negated float comparisons,
+a lazy `then`), all fixed without changing a result; the second pass (`dev_14b_clippy_*.log`) is clean in both builds. The `+avx2,+fma` build was **not run** (no x86 here); the
+default build is aarch64 NEON, and `--features portable` was run. multisolver has no `mutate` feature.
+
+**A7 (the pull request).** https://github.com/nmoinvaz/multisolver/pull/26 (branch `feat/locate-singularity`, commits a2d767e and 0db3966 on main 8e699ab, label
+`enhancement`). Its CI (x86 SSE2, AVX2, portable and MSRV 1.89 on Ubuntu, NEON on Ubuntu and macOS, Windows MSVC, rustfmt, clippy on SSE2, portable and NEON, docs, coverage) passed at
+the time of the closing comment; the fingerprint test (`bitwise_across_backends`) is asserted in each test job, so the x86 and Windows jobs agree with the Pi's constant
+0xa5113e9ccb6776c8: the `+avx2,+fma` build was not run on the Pi, and was run by the PR's AVX2 job.

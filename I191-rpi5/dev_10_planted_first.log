@@ -1,0 +1,92 @@
+   Compiling multisolver v0.2.2 (/home/nathan/Source/negative-mass-i191-libs/multisolver)
+    Finished `release` profile [optimized] target(s) in 3.22s
+     Running tests/locate.rs (target/release/build/multisolver/7cc19320f784e021/out/locate-7cc19320f784e021)
+
+running 1 test
+ P1  F64 Real Ratio     first   6 deg  1 | s: err 0.0e0 bar 1.8e-15 tol 2.2e-12 | alpha: err 0.0e0 bar 1.4e-14 tol 2.2e-10 | skew 0e0
+ P1   Dd Real Ratio     first  18 deg  1 | s: err 0.0e0 bar 3.9e-31 tol 4.9e-28 | alpha: err 0.0e0 bar 3.2e-30 tol 4.9e-26 | skew 0e0
+ P1   Qd Real Ratio     first  24 deg  1 | s: err 2.3e-65 bar 1.9e-62 tol 2.4e-59 | alpha: err 1.4e-63 bar 1.6e-61 tol 2.4e-57 | skew 0e0
+ P2  F64 Real Ratio     first   6 deg  1 | s: err 1.5e-16 bar 2.4e-15 tol 2.2e-12 | alpha: err 4.4e-16 bar 8.9e-14 tol 2.2e-10 | skew 0e0
+ P2   Dd Real Ratio     first  12 deg  1 | s: err 3.1e-33 bar 3.9e-31 tol 4.9e-28 | alpha: err 4.0e-31 bar 1.6e-29 tol 4.9e-26 | skew 0e0
+ P2   Qd Real Ratio     first  24 deg  1 | s: err 1.5e-64 bar 1.9e-62 tol 2.4e-59 | alpha: err 1.4e-63 bar 3.1e-61 tol 2.4e-57 | skew 0e0
+ P3  F64 Real Ratio     first   6 deg  1 | s: err 0.0e0 bar 1.8e-15 tol 2.2e-12 | alpha: err 8.9e-16 bar 1.4e-14 tol 2.2e-10 | skew 0e0
+ P3   Dd Real Ratio     first  12 deg  1 | s: err 4.6e-33 bar 3.9e-31 tol 4.9e-28 | alpha: err 1.8e-31 bar 3.2e-30 tol 4.9e-26 | skew 0e0
+ P3   Qd Real Ratio     first  24 deg  1 | s: err 7.6e-65 bar 1.9e-62 tol 2.4e-59 | alpha: err 3.4e-63 bar 1.6e-61 tol 2.4e-57 | skew 0e0
+ P4  F64 Real Ratio     first   6 deg  1 | s: err 2.5e-16 bar 1.8e-15 tol 2.2e-12 | alpha: err 8.9e-16 bar 1.7e-14 tol 2.2e-10 | skew 0e0
+ P4   Dd Real Ratio     first  12 deg  1 | s: err 3.1e-33 bar 3.9e-31 tol 4.9e-28 | alpha: err 2.5e-31 bar 5.9e-30 tol 4.9e-26 | skew 0e0
+ P4   Qd Real Ratio     first  24 deg  1 | s: err 7.6e-65 bar 1.9e-62 tol 2.4e-59 | alpha: err 6.6e-65 bar 1.6e-61 tol 2.4e-57 | skew 0e0
+ P5  F64 Real Ratio     first   6 deg  1 | s: err 0.0e0 bar 1.8e-15 tol 2.2e-12 | alpha: err 2.4e-15 bar 2.1e-14 tol 2.2e-10 | skew 0e0
+ P5   Dd Real Ratio     first  12 deg  1 | s: err 4.6e-33 bar 3.9e-31 tol 4.9e-28 | alpha: err 1.8e-31 bar 4.7e-30 tol 4.9e-26 | skew 0e0
+ P5   Qd Real Ratio     first  36 deg  1 | s: err 3.8e-65 bar 1.9e-62 tol 2.4e-59 | alpha: err 1.1e-63 bar 1.6e-61 tol 2.4e-57 | skew 0e0
+ P6  F64 Real Ratio     first   6 deg  1 | s: err 2.2e-16 bar 1.8e-15 tol 2.2e-12 | alpha: err 2.4e-15 bar 1.4e-14 tol 2.2e-10 | skew 0e0
+ P6   Dd Real Ratio     first  18 deg  1 | s: err 0.0e0 bar 3.9e-31 tol 4.9e-28 | alpha: err 4.1e-31 bar 6.2e-30 tol 4.9e-26 | skew 0e0
+ P6   Qd Real Ratio     first  24 deg  1 | s: err 9.4e-65 bar 1.9e-62 tol 2.4e-59 | alpha: err 4.8e-63 bar 1.6e-61 tol 2.4e-57 | skew 0e0
+ D1  F64 Real Ratio     first  18 deg  1 | s: err 1.2e-11 bar 4.2e-10 tol 1.0e-2 | alpha: err 3.1e-10 bar 2.2e-8 tol 1.0e-1 | skew 0e0
+ D1   Dd Real Ratio     first  36 deg  1 | s: err 1.0e-22 bar 3.4e-18 tol 1.0e-6 | alpha: err 5.1e-21 bar 3.1e-16 tol 1.0e-4 | skew 0e0
+ D1   Qd Real Ratio     first  72 deg  1 | s: err 1.1e-44 bar 1.6e-36 tol 1.0e-9 | alpha: err 1.1e-42 bar 3.0e-34 tol 1.0e-7 | skew 0e0
+ D2  F64 Real Ratio     first  18 deg  4 | s: err 3.4e-11 bar 1.8e-8 tol 1.0e-2 | alpha: err 3.8e-9 bar 1.5e-6 tol 1.0e-1 | skew 0e0
+ D2   Dd Real Ratio     first  36 deg  7 | s: err 4.0e-20 bar 1.6e-16 tol 1.0e-6 | alpha: err 1.4e-17 bar 5.6e-14 tol 1.0e-4 | skew 0e0
+ D2   Qd Real Ratio     first  72 deg  9 | s: err 1.0e-28 bar 4.0e-25 tol 1.0e-9 | alpha: err 9.5e-26 bar 3.1e-22 tol 1.0e-7 | skew 0e0
+ D3  F64 Real Ratio     first  18 deg  3 | s: err 1.5e-5 bar 3.3e-4 tol 1.0e-2 | alpha: err 1.4e-3 bar 2.1e-2 tol 1.0e-1 | skew 0e0
+ D3   Dd Real Ratio     first  36 deg  8 | s: err 1.8e-12 bar 4.4e-10 tol 1.0e-6 | alpha: err 7.8e-10 bar 1.7e-7 tol 1.0e-4 | skew 0e0
+ D3   Qd Real Ratio     first  72 deg  9 | s: err 7.2e-17 bar 2.9e-14 tol 1.0e-9 | alpha: err 6.4e-14 bar 2.2e-11 tol 1.0e-7 | skew 0e0
+ D4  F64 Real Ratio     first  18 deg  4 | s: err 8.5e-9 bar 4.9e-6 tol 1.0e-2 | alpha: err 3.1e-7 bar 4.1e-4 tol 1.0e-1 | skew 0e0
+ D4   Dd Real Ratio     first  36 deg  9 | s: err 2.8e-14 bar 2.3e-12 tol 1.0e-6 | alpha: err 1.3e-11 bar 9.2e-10 tol 1.0e-4 | skew 0e0
+ D4   Qd Real Ratio     first  72 deg  9 | s: err 1.1e-17 bar 2.6e-16 tol 1.0e-9 | alpha: err 1.0e-14 bar 2.0e-13 tol 1.0e-7 | skew 0e0
+ D5  F64 Real Ratio     first  18 deg  3 | s: err 1.2e-5 bar 2.7e-4 tol 1.0e-2 | alpha: err 1.1e-3 bar 1.7e-2 tol 1.0e-1 | skew 0e0
+ D5   Dd Real Ratio     first  36 deg  8 | s: err 9.2e-13 bar 2.8e-10 tol 1.0e-6 | alpha: err 3.9e-10 bar 1.1e-7 tol 1.0e-4 | skew 0e0
+ D5   Qd Real Ratio     first  72 deg  9 | s: err 7.3e-17 bar 1.7e-14 tol 1.0e-9 | alpha: err 6.6e-14 bar 1.3e-11 tol 1.0e-7 | skew 0e0
+ D6  F64 Unresolved ThreeTerm first   6 deg  2 | s: err 4.1e-1 bar 1.1e0 tol 1.0e-2 | alpha: err 1.2e1 bar 4.5e1 tol 1.0e-1 | skew 0e0  FAILS ["1 kind", "2 tolerance", "4 bar useful"]
+ D6   Dd Real Ratio     first  36 deg  4 | s: err 1.3e-8 bar 2.5e-6 tol 1.0e-6 | alpha: err 3.0e-6 bar 5.4e-4 tol 1.0e-4 | skew 0e0
+ D6   Qd Real Ratio     first  72 deg  9 | s: err 4.7e-17 bar 4.7e-15 tol 1.0e-9 | alpha: err 4.3e-14 bar 3.6e-12 tol 1.0e-7 | skew 0e0
+ C1  F64 Pair ThreeTerm first   6 deg  2 | s: err 4.2e-16 bar 3.8e-15 tol 2.2e-11 | alpha: err 1.3e-14 bar 9.4e-14 tol 2.2e-9 | skew 2e-15
+ C1   Dd Pair ThreeTerm first  12 deg  2 | s: err 5.7e-32 bar 3.9e-31 tol 4.9e-27 | alpha: err 4.9e-31 bar 2.0e-29 tol 4.9e-25 | skew 2e-30
+ C1   Qd Pair ThreeTerm first  24 deg  2 | s: err 2.1e-64 bar 1.9e-62 tol 2.4e-58 | alpha: err 1.3e-62 bar 1.6e-61 tol 2.4e-56 | skew 2e-62
+ C2  F64 Pair ThreeTerm first   6 deg  2 | s: err 5.7e-16 bar 4.7e-15 tol 2.2e-11 | alpha: err 5.8e-15 bar 2.5e-13 tol 2.2e-9 | skew 5e-15
+ C2   Dd Pair ThreeTerm first  12 deg  2 | s: err 4.0e-32 bar 3.9e-31 tol 4.9e-27 | alpha: err 6.7e-31 bar 3.9e-29 tol 4.9e-25 | skew 2e-31
+ C2   Qd Pair ThreeTerm first  24 deg  2 | s: err 1.8e-64 bar 1.9e-62 tol 2.4e-58 | alpha: err 9.8e-63 bar 1.6e-61 tol 2.4e-56 | skew 5e-64
+ C3  F64 Pair ThreeTerm first   6 deg  2 | s: err 1.5e-14 bar 3.1e-12 tol 2.2e-11 | alpha: err 4.0e-13 bar 2.0e-10 tol 2.2e-9 | skew 5e-13
+ C3   Dd Pair ThreeTerm first  12 deg  2 | s: err 1.8e-30 bar 4.1e-29 tol 4.9e-27 | alpha: err 1.0e-28 bar 5.4e-27 tol 4.9e-25 | skew 1e-28
+ C3   Qd Pair ThreeTerm first  24 deg  2 | s: err 1.4e-63 bar 9.4e-62 tol 2.4e-58 | alpha: err 2.4e-62 bar 2.1e-59 tol 2.4e-56 | skew 2e-62
+ C4  F64 Pair ThreeTerm first  18 deg  2 | s: err 4.9e-11 bar 1.1e-8 tol 1.0e-2 | alpha: err 5.1e-10 bar 6.1e-8 tol 1.0e-1 | skew 2e-9
+ C4   Dd Pair ThreeTerm first  36 deg  2 | s: err 5.2e-22 bar 1.2e-17 tol 1.0e-6 | alpha: err 3.5e-20 bar 1.5e-15 tol 1.0e-4 | skew 4e-20
+ C4   Qd Pair ThreeTerm first  72 deg  2 | s: err 8.4e-44 bar 6.0e-36 tol 1.0e-9 | alpha: err 1.6e-41 bar 7.7e-34 tol 1.0e-7 | skew 4e-42
+ C5  F64 Pair ThreeTerm first  18 deg  2 | s: err 1.6e-4 bar 4.5e-4 tol 1.0e-2 | alpha: err 1.8e-3 bar 8.4e-3 tol 1.0e-1 | skew 1e-2
+ C5   Dd Pair ThreeTerm first  36 deg  9 | s: err 1.7e-11 bar 5.4e-10 tol 1.0e-6 | alpha: err 5.1e-9 bar 5.1e-8 tol 1.0e-4 | skew 6e-9
+ C5   Qd Pair ThreeTerm first  72 deg  9 | s: err 7.4e-15 bar 4.4e-13 tol 1.0e-9 | alpha: err 2.4e-12 bar 2.4e-10 tol 1.0e-7 | skew 6e-12
+ T1  F64 Real ThreeTerm first   6 deg  9 | s: err 4.5e-13 bar 5.5e-11 tol 1.0e-2 | alpha: err 6.1e-11 bar 8.1e-9 tol 1.0e-1 | skew 0e0 | farther: s err 3.8e-11 bar 3.0e-10, alpha err 5.2e-9 bar 3.6e-8
+ T1   Dd Real ThreeTerm first  36 deg  9 | s: err 1.1e-19 bar 4.4e-17 tol 1.0e-6 | alpha: err 5.4e-17 bar 1.7e-14 tol 1.0e-4 | skew 0e0 | farther: s err 1.6e-15 bar 4.5e-13, alpha err 6.7e-13 bar 1.4e-10
+ T1   Qd Real ThreeTerm first  72 deg  9 | s: err 3.9e-29 bar 1.9e-25 tol 1.0e-9 | alpha: err 3.7e-26 bar 1.5e-22 tol 1.0e-7 | skew 0e0 | farther: s err 6.0e-18 bar 3.8e-15, alpha err 4.5e-15 bar 2.1e-12
+ T2  F64 Real ThreeTerm first   6 deg  9 | s: err 1.8e-5 bar 3.1e-5 tol 1.0e-2 | alpha: err 4.6e-3 bar 8.6e-3 tol 1.0e-1 | skew 0e0 | farther: s err 3.1e-4 bar 1.2e-3, alpha err 1.7e-3 bar 9.7e-3
+ T2   Dd Real ThreeTerm first  36 deg  9 | s: err 6.0e-15 bar 1.3e-12 tol 1.0e-6 | alpha: err 2.7e-12 bar 8.8e-10 tol 1.0e-4 | skew 0e0 | farther: s err 1.8e-9 bar 3.4e-8, alpha err 2.1e-7 bar 3.5e-6
+ T2   Qd Real ThreeTerm first  72 deg  9 | s: err 1.8e-22 bar 2.7e-19 tol 1.0e-9 | alpha: err 2.3e-19 bar 2.8e-16 tol 1.0e-7 | skew 0e0 | farther: s err 9.2e-12 bar 8.7e-10, alpha err 4.6e-9 bar 3.4e-7
+ T3  F64 Real ThreeTerm first   6 deg  2 | s: err 7.1e-15 bar 9.5e-13 tol 2.2e-11 | alpha: err 4.0e-13 bar 7.9e-11 tol 2.2e-9 | skew 0e0 | farther: s err 1.8e-12 bar 6.6e-10, alpha err 1.8e-11 bar 1.1e-8
+ T3   Dd Real ThreeTerm first  12 deg  2 | s: err 4.3e-31 bar 4.1e-30 tol 4.9e-27 | alpha: err 2.9e-29 bar 6.0e-28 tol 4.9e-25 | skew 0e0 | farther: s err 7.8e-27 bar 1.5e-24, alpha err 2.1e-25 bar 8.2e-23
+ T3   Qd Real ThreeTerm first  36 deg  2 | s: err 4.1e-64 bar 1.9e-62 tol 2.4e-58 | alpha: err 1.5e-61 bar 8.1e-61 tol 2.4e-56 | skew 0e0 | farther: s err 1.9e-54 bar 1.6e-51, alpha err 1.5e-52 bar 2.5e-49
+ N1  F64 Real Ratio     first  12 deg  1 | s: err 3.1e-11 bar 2.7e-10 tol 2.0e-10 | alpha: err 6.3e-10 bar 9.1e-9 tol 7.0e-9 | skew 0e0
+ N1   Dd Real Ratio     first  12 deg  1 | s: err 1.3e-20 bar 4.5e-20 tol 2.0e-19 | alpha: err 3.7e-19 bar 3.7e-18 tol 7.0e-18 | skew 0e0
+ N1   Qd Real Ratio     first  24 deg  1 | s: err 3.5e-40 bar 4.0e-39 tol 2.0e-38 | alpha: err 1.1e-38 bar 4.5e-37 tol 7.0e-37 | skew 0e0
+ N2  F64 Pair ThreeTerm first   6 deg  2 | s: err 1.6e-10 bar 3.2e-9 tol 3.0e-9 | alpha: err 1.2e-9 bar 1.5e-7 tol 1.3e-7 | skew 4e-9
+ N2   Dd Pair ThreeTerm first  12 deg  2 | s: err 1.0e-19 bar 1.0e-18 tol 3.0e-18 | alpha: err 3.9e-18 bar 8.7e-17 tol 1.3e-16 | skew 4e-18
+ N2   Qd Pair ThreeTerm first  24 deg  2 | s: err 8.4e-39 bar 4.7e-38 tol 3.0e-37 | alpha: err 5.4e-37 bar 6.4e-36 tol 1.3e-35 | skew 6e-37
+ O8  F64 Real Ratio     first   6 deg  1 | s: err 2.2e-16 bar 1.8e-15 tol 2.2e-12 | alpha: err 2.4e-15 bar 1.4e-14 tol 2.2e-10 | skew 0e0
+ O8   Dd Real Ratio     first  12 deg  1 | s: err 1.4e-20 bar 4.5e-20 tol 2.0e-19 | alpha: err 3.9e-19 bar 3.7e-18 tol 7.0e-18 | skew 0e0
+ O8   Qd Real Ratio     first  24 deg  1 | s: err 3.5e-40 bar 4.1e-39 tol 2.0e-38 | alpha: err 1.1e-38 bar 4.6e-37 tol 7.0e-37 | skew 0e0
+ N3  F64 Real Ratio     first  18 deg  3 | s: err 1.5e-5 bar 3.3e-4 tol 1.0e-2 | alpha: err 1.4e-3 bar 2.1e-2 tol 1.0e-1 | skew 0e0
+ N3   Dd Real Ratio     first  36 deg  8 | s: err 2.0e-12 bar 4.4e-10 tol 1.0e-6 | alpha: err 8.2e-10 bar 1.7e-7 tol 1.0e-4 | skew 0e0
+ N3   Qd Real Ratio     first  72 deg  9 | s: err 7.2e-17 bar 2.9e-14 tol 1.0e-9 | alpha: err 6.4e-14 bar 2.2e-11 tol 1.0e-7 | skew 0e0
+
+thread 'planted_suite' (3033857) panicked at tests/locate.rs:442:5:
+failed cells:
+D6 F64: ["1 kind", "2 tolerance", "4 bar useful"]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test planted_suite ... FAILED
+
+failures:
+
+failures:
+    planted_suite
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 1 filtered out; finished in 1.77s
+
+error: test failed, to rerun pass `--test locate`
