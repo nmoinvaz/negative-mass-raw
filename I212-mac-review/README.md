@@ -48,6 +48,13 @@ The targets are predicted from the code, not yet computed. A mutation that misse
 | `wrong-m` | 3m = −2c/π replaced by −c/π, which breaks asymptotic flatness, moves ρ_h and κ | K1, K2, K3 |
 | `short-X` | X = 20 (the bound state is cut) | K2 |
 
+## Amendments
+
+**A1, 2026-11-27, after run 1's mutations.** `wrong-m` crashed (`max()` of no roots): with the wrong mass, A has no
+root on [−60, 60] at c = −10, and `horizon()` raised before any criterion was reported. A member with no horizon now
+fails K1 and K2, where it used to stop the program. No bar, member, grid or tolerance changes. Run 2 reruns the base
+case and the three mutations with A1.
+
 ## Runs (filled in as they are done)
 
 | file | what |
