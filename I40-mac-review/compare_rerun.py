@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Compares the coordinator's rerun jobs (rerun/) with the runner's (I40-dh610/runs): p*_h, and fate and event cell of
+"""Compares the coordinator's rerun jobs (rerun_1/, or the folder named by argv[1]) with the runner's (I40-dh610/runs): p*_h, and fate and event cell of
 each series point with e <= 9. Exits non-zero when an expectation of README.md's "Rerun" fails."""
 import json, os, sys
 R = os.path.dirname(os.path.abspath(__file__))
 RAW = os.path.expanduser("~/Source/negative-mass-raw/I40-dh610/runs")
 bad = 0
-for name in sorted(os.listdir(os.path.join(R, sys.argv[1] if len(sys.argv) > 1 else "rerun_cmp"))):
-    d = os.path.join(R, sys.argv[1] if len(sys.argv) > 1 else "rerun_cmp", name)
+for name in sorted(os.listdir(os.path.join(R, sys.argv[1] if len(sys.argv) > 1 else "rerun_1"))):
+    d = os.path.join(R, sys.argv[1] if len(sys.argv) > 1 else "rerun_1", name)
     if not os.path.isdir(d):
         continue
     a, b = json.load(open(os.path.join(d, "summary.json"))), json.load(open(os.path.join(RAW, name, "summary.json")))
