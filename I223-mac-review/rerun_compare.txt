@@ -1,0 +1,16 @@
+== check_run2.log vs check_.log:       55 and       55 verdict lines, 0 differing
+== planted_run2.log vs planted_.log:        2 and        2 verdict lines, 2 differing
+1c1
+< PASS  P1 planted Ellis (S, m = 0) R1: growing modes 1 (declared 1); W^2 a^2 = 1.397052434007015; reference 1.39705243433350684047; |difference| = 3.265e-10 (declared <= 1e-07); nodes 0
+---
+> PASS  P1 planted Ellis (S, m = 0) R1: growing modes 1 (declared 1); W^2 a^2 = 1.397052434006996; reference 1.39705243433350684047; |difference| = 3.265e-10 (declared <= 1e-07); nodes 0
+== planted_complex_run2.log vs planted_complex_.log:        2 and        2 verdict lines, 2 differing
+2c2
+< PASS  P4 planted complex bound state R2: W = 0.3000000000 +0.2000000000i, reference 0.3000000000 +0.2000000000i, relative difference 1.442e-13 (declared <= 1e-08); secant iterations 14
+---
+> PASS  P4 planted complex bound state R2: W = 0.3000000000 +0.2000000000i, reference 0.3000000000 +0.2000000000i, relative difference 1.441e-13 (declared <= 1e-08); secant iterations 21
+== complex_run2.log vs complex_S_m0.2.log:        3 and        3 verdict lines, 6 differing
+1,3c1,3
+< PASS  C1 complex shooting S_m0.2: W = 0.5069928780 +0.3680959496i (R2; R1 0.5069928782 +0.3680959498i), lambda = 0.12154715 +0.37324405i, spectral S-B lambda = 0.12154715 +0.37324405i, |dlambda|/|lambda| = 5.68e-10 (de
+< PASS  C1 complex shooting S_m0.3: W = 0.3983975976 +0.3872015107i (R2; R1 0.3983975976 +0.3872015108i), lambda = 0.00879564 +0.30852030i, spectral S-B lambda = 0.00879564 +0.30852030i, |dlambda|/|lambda| = 9.02e-13 (de
+< PASS  C1 complex shooting B1_q0.77: W = 0.1212595737 +0.0915306664i (R2; R1 0.1212595737 +0.0915306664i), lambda = 0.00632602 +0.02219794i, spectral S-B lambda = 0.00632602 +0.02219794i, |dlambda|/|lambda| = 3.74e-10 (
