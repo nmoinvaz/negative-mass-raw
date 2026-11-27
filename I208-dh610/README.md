@@ -105,6 +105,7 @@ in a Rust crate, no matching) shares none of the matched machinery and is the in
 | Q1, Q2, Q3 | PSLQ tool checks of P1, P2, P3 (below): the planted relation is recovered exactly and the perturbed basis on the planted target finds nothing | exact recovery; none |
 | R3 | five-term series s − 4 ln 2 + Ω₁/s + Ω₂/s² + Ω₃/s³ (Ω₁, Ω₂, Ω₃ of B4) against #195's qd W² at D = 1000, 2000, 5103, 10⁴ (the values of the 64-D list of `w2_output.txt`): x = rem·s⁴; |x − Ω₄| falls with D at the four D, and at D = 10⁴ it is below 0.05 % of |Ω₄|, Ω₄ = −12794.499860023 (#195's fit, `w2_output.txt`) | falling; 0.05 % |
 | R4 | two-point extrapolation (s₂x₂ − s₁x₁)/(s₂ − s₁) from D = 5103 and 10⁴ | within 0.1 of Ω₄ |
+| X3 | **added by amendment A2 after `run_02`**: Ω₃ of B3 and B4 against the closed form of the P2 relation found there, 22π⁴/45 + 16π² ln²2/3 + 32 ln⁴2/3 − 320ζ(3) ln 2 − 384ζ(3) (part `closedform`, run_03) | 100 digits |
 
 Reported and not gated: the digits of B3, B4 against B1, B2, and of B1 against B2; Ω₃ to 110 digits of every grid; rem·s⁴ and
 (rem·s⁴ − Ω₄)s at the 64 values of D (the second tends to Ω₅); each PSLQ verdict on the real Ω₃.
@@ -155,6 +156,7 @@ and bᵢ the true constants of the basis: the vector (den, −c₁ … −c_m) m
 | `short_tail` | V = 6 on every grid |
 | `pslq_wrong_basis` | π⁴ + √2·10⁻³ in the basis given to PSLQ (the planted target is built from the true π⁴) |
 | `wrong_Om3_series` | Ω₃ + 1/100 in the five-term series of R3, R4 |
+| `wrong_closed` | 23π⁴ in place of 22π⁴ in X3 (A2) |
 
 **Targets, computed in the development runs `dev_09` … `dev_27` before being declared** (nominal: every check passes except X1, which fails as worded; the lists are the
 checks that fail beyond X1; `PL3` is evaluated only under `wrong_Om0`, `wrong_Om1`).
@@ -170,6 +172,7 @@ checks that fail beyond X1; `PL3` is evaluated only under `wrong_Om0`, `wrong_Om
 | `short_tail` | PL0 … PL2, SL, X1b, R3, R4 | E0, M3, Q1 … Q3 (both grids truncate at V = 6 and agree with each other) |
 | `pslq_wrong_basis` | Q1, Q2, Q3 | all others |
 | `wrong_Om3_series` | R3, R4 | all others |
+| `wrong_closed` (A2) | X3 (the part `closedform` has no other check): `dev_31`, 2.5 digits against the bar 100 | |
 
 X1 has no control (it fails nominally, a defect of its wording); X1b is the check that every value-changing control fires.
 
@@ -181,10 +184,13 @@ what finished. Memory is reported only. The development runs used the units `nm-
 
 | run | what | unit | wall | exit |
 |---|---|---|---|---|
-| `run_01_sym` | `order5.py sym` | `nm-i208-01` | pending | |
-| `run_02_evals_pslq_remainder` | `order5.py evals pslq remainder --save=run_02_evals.json --w2raw=inputs_w2_growthD.txt` (the real PSLQ is on) | `nm-i208-02` | pending | |
+| `run_01_sym` | `order5.py sym` | `nm-i208-01` | 0:01.88, peak 58 MiB | 0 |
+| `run_02_evals_pslq_remainder` | `order5.py evals pslq remainder --save=run_02_evals.json --w2raw=inputs_w2_growthD.txt` (the real PSLQ is on) | `nm-i208-02` | 11:06.23, peak 130 MiB | 1 (X1 as worded) |
+| `run_03_closedform` | `order5.py closedform --load=run_02_evals.json` (A2) | foreground | pending | |
 
-Code of the runs of record: worktree commit and sha256 in `run_00_code.txt`. Commands run from `notes/wormhole_largeD`. `order5_output.txt` is the concatenation of the two logs in order.
+Code of `run_01`, `run_02`: worktree commit 57710d3, `order5.py` sha256 2cd0cbea… (`run_00_code.txt`); `run_03`: the commit after amendment A2, which adds `closed_omega3`, `check_closedform`,
+the control `wrong_closed` and the `closedform` hook (23 lines added, 3 changed: the usage line, the mutation list, the `--load` condition; `dev_30_order5_wip.py`). Commands run from
+`notes/wormhole_largeD`. `order5_output.txt` is the concatenation of the three logs in order.
 
 ## Amendments
 
@@ -194,3 +200,13 @@ Code of the runs of record: worktree commit and sha256 in `run_00_code.txt`. Com
 −652.8401075700561254352393037996473610805 truncated, so every Ω₃ equal to the median differs from it by 4.7e-29. The coordinator ruled: X1 stays as worded and **NOT MET**
 (a defect of the criterion's wording, reported as such); **X1b** is added with the same bar, 1e-30, against the 40-digit median (raw I195-dh610/dev_25_pslq_omega3.log
 line 1; the fit's range is 2.74e-35). X1b was added after the development runs; Ω₃ of the development grids is 3.8e-38 from the median.
+
+### A2 (2026-11-26, after run_02): the PSLQ relation, and its check X3
+
+`run_02` (11 of 12 checks met, X1 as worded not) found, with the real Ω₃ and the declared P2 (tolerance 1e-98, H = 10⁶, d = 110): the relation (45, −22, −240, −480, 14400, 0, 17280, 0, 0, 0, 0, 0, 0)
+on (Ω₃, π⁴, π² ln²2, ln⁴2, ζ(3) ln 2, Li₄(½), ζ(3), π² ln 2, ln³2, π², ln²2, ln 2, 1), residual 2.73e-107, largest coefficient 17280 (its own budget 13·log10(34561) + 1 = 60 against
+the declared 82.9 < 110), the perturbed basis finds nothing: it counts under the rules above. P1 and P3 found nothing. So Ω₃ = 22π⁴/45 + 16π² ln²2/3 + 32 ln⁴2/3 − 320ζ(3) ln 2 − 384ζ(3)
+(status: *identification*). The relation contains ζ(3) alone, weight 3, with Li₄(½) absent; that is why P1 (pure weight 4) found nothing at #195's 35 digits or here.
+
+**Added after seeing this**, declared before its run: criterion **X3** (table above, bar 100 digits on B3 and B4, whose errors are 112 and 133 digits; B1 and B2 reported) and its control `wrong_closed`
+(targets computed in `dev_30`, `dev_31`: nominal 112.2/133.4/48.9/64.4 digits, mutated 2.5). A development probe before it (`dev_29_closedform_probe`) gave the same digits. No bar of an earlier criterion was changed.
