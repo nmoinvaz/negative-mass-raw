@@ -1,0 +1,15 @@
+threshold.py analyze {'raw': '/home/nathan/Source/negative-mass-raw/I40-dh610/runs/mut/theta_coef'}: numba 0.68.1, numpy 2.5.4, python 3.14.10, dh610-fedora, load average at start 19.63 18.96 17.86, mutation theta_coef, 2026-11-27 01:32:59
+analyze: /home/nathan/Source/negative-mass-raw/I40-dh610/runs/mut/theta_coef: 3 jobs; mutation theta_coef
+[FAIL] JOB[D=4 S h=0.02]: job finished  (failed: RuntimeError('bracket [-0.01, 0.01] does not straddle the threshold: fate -1 at 0.01, wanted 1'))
+[FAIL] JOB[D=4 S h=0.01]: job finished  (failed: RuntimeError('bracket [-0.01, 0.01] does not straddle the threshold: fate -1 at 0.01, wanted 1'))
+[FAIL] JOB[D=4 S h=0.005]: job finished  (failed: RuntimeError('bracket [-0.01, 0.01] does not straddle the threshold: fate -1 at 0.01, wanted 1'))
+
+Null constraints along the two runs that bracket p*_h (lo = last collapse, hi = last expansion), over the nodes of the event cell's past,
+max |C| and max |C| / max(sum of the absolute values of its terms); change with h against the change of p*_h and of the primary slope
+
+Formation values at the first trapped cell and the stall, p* -/+ 1e-8 (not settled masses; #41's question stays open)
+D family h    side fate     T       event cell offset (cells, l)   r_cell   M_cell   M_hor=r^(D-3)/2 | stall: t     r      l     span  dl/dt
+
+0 of 3 checks pass; 3 fail: JOB[D=4 S h=0.02], JOB[D=4 S h=0.01], JOB[D=4 S h=0.005]
+mutation theta_coef: expected to fire ['JOB']; fired ['JOB']; targets all fired
+0.0 s
