@@ -138,4 +138,21 @@ import `settled_mass.py` as it was then).
 
 ## Runs of record
 
-(filled after the runs)
+Code: `settled_mass.py` at 4706c38 for the jobs, the first analysis and the 15 mutated analyses; 16a04d2 adds three reports (the M_AH table to the limit, the F* columns of `sh02`, the command
+`sh02_uniform`) and changes no check; the second analysis, `sh02` and `sh02_uniform` were run at 16a04d2. All runs: systemd user units, `nice -n 10`, one thread, at most 3 at once.
+
+| what | unit | command or script | wall time | exit |
+|---|---|---|---|---|
+| p*ₕ, four h (18, 18, 18, 23 runs) | `nm-i41-pstar0.0025`, `pstar0.005`, `pstar-fast` | `settled_mass.py pstar --h=H` | 627 s, 140 s, 48 s, 14 s | 0 |
+| p*_AN, h = 0.02, Q = 32 | `nm-i41-pstaran2` (dev folder, copied to `runs/`) | `settled_mass.py pstar_an` | 79 s | 0 |
+| jobs, h = 0.02, 0.01, 0.005, 0.0025 at δ = 1e-6 and 1e-8 | `nm-i41-rec-jobs-a`, `-b` | `launch_jobs.sh` | 3 s to 102 s each, peak rss 1.79 GB (h = 0.0025, δ = 1e-8) | 0 (8 of 8) |
+| analysis of record (13 checks) | `nm-i41-rec-analyze` (4706c38), `nm-i41-rec2-analyze` (16a04d2) | `settled_mass.py analyze --raw=...` | 30 s, 43 s | 0, 0 |
+| 15 mutated analyses | `nm-i41-rec-mut-a`, `-b`, `-c` | `launch_mut.sh` | about 5 min each | 1 each (a check fires), fired set = declared set in 15 of 15 |
+| M at the limit against δ (family S, h = 0.01) | `nm-i41-rec-scan` | `settled_mass.py scan` | 66 s | 0 |
+| SH02 Table I through the chain, h = 0.01, 0.005 | `nm-i41-rec-scan` (first), `nm-i41-rec2-sh02` (with F*) | `settled_mass.py sh02` | 40 s, 105 s | 0 |
+| SH02 data on a uniform grid of 9600 cells | `nm-i41-rec2-uniform` | `settled_mass.py sh02_uniform` | about 6 min, peak about 2 GB | 0 |
+
+Result: 13 of 13 checks pass; M_AH settles at 0.22308 a (r_AH = 0.44617 a) to e^{−f} = 1.57e6 on the horizon; see `settled_mass_output.txt` in the repository and `analyze_record.log` here
+(`analyze_record_1.log` is the first analysis, at 4706c38). Mistakes of the runs of record: the shell that moved the old `sh02` logs aside used an empty variable in one name, so
+`runs/sh02_h_1.log` (renamed `sh02_h0.005_1.log`) holds only the first h = 0.005 stdout and the first h = 0.01 stdout was overwritten (its numbers are in `sh02_h0.01.json`, which the rerun rewrote with the
+same E0, x_H and M and the added F*).
