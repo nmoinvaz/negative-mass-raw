@@ -204,6 +204,13 @@ Development runs are in `dev/` (R1 unless stated; never part of the record). New
   for B loses accuracy there (B ~ 1/x² from O(p/x) terms: the absolute noise 1e-16 x in A reaches 1e-11 at x = 1e5), so the integrator's step collapses (status −1) at
   x ≈ 1e5 at rtol 1e-12. The main stage reaches r0 = 4.5e4 where the noise is 2e-12, below its tolerances (P2 agrees with #212 to 3e-10).
 
+- **D12, the spectral check of record (run 1, `spectral.log`, `bounce.py` at f6d1802).** 88 of 110 member-grid checks pass, 22 do not (counted per grid, S-A and S-B).
+  Three kinds: (i) **complex eigenvalues** with Re λ > 1e-3 at S m = 0.2, m = 0.3 and B1 q = 0.77 on both grids (λ = 0.1215 ± 0.3732i, 0.0088 ± 0.3085i, 0.0063 ± 0.0222i, equal on S-A and
+  S-B to 1e-6 or better) which the real-W shooting cannot see; at S m = 0.1 the shooting finds two real roots (W = 0.556, 0.608) that are close to each other, at m = 0.2 and 0.3 it finds none;
+  (ii) **weak modes** (W of 1e-3 to 3e-2) on the large boxes of S m = 0.6, B1 q = 0.3 and 0.4, B2 q = 0.1, B3 q = 0.03, 0.06, 0.09: a missed mode, or a rate off by 3e-3 to 0.5 (the energy of a weakly
+  bound state is hypersensitive to the discretization); (iii) S-A only, B3 q = 0.2 … 0.24: the second mode (W = 0.09 … 0.14) is missed at N = 401. Dev probe (scratch, then A8): a complex-W
+  shooting from the spectral eigenvalue converges at S m = 0.2, 0.3 to the same λ to 1e-9.
+
 ## Amendments
 
 All written before the runs of record they govern.
@@ -275,3 +282,20 @@ convolution; A = (1 + y⁻²)B, so A = Σ c_n yⁿ without cancellation). Agains
 `check` S2 includes it (declared |ΔA| ≤ 1e-14, |ΔA′| ≤ 1e-12 |A′|; control `ser_coef`). The main stage and the S family are unchanged: the main-stage runs of record, the S low-stage R2
 runs and the first 126 jobs are from `bounce.py` at 9b3db56; the B low-stage runs (and every later `check`, `planted`, `controls`, `spectral`, `report`) from f6d1802, which
 differs from 9b3db56 only in this flag and its check. The remaining low-stage jobs are in `jobs_low.txt` (the queue pointer of the first run is `results/qpos_run1`).
+
+**A8. Complex-plane shooting (after D12).** The throat problem (Y continued analytically through the throat) is not self-adjoint, so W² can be complex, and the real-axis scan cannot
+see it. Added, with the declared shooting settings R1 and R2 of Sec. 3: `bounce.py complex ID...` (**C1**): for each complex eigenvalue λ (Re λ > 1e-3, Im λ > 0) of the S-B spectral problem of the
+member (box from W_ref = 0.03, mapped grid, A4), W₀ = √λ is refined by a 2-D real root (Re, Im) of the complex Wronskian mismatch (hybrid Powell; the mismatch is made analytic in W by
+normalizing (Y, Y_x) by the fixed complex scalar Y + (0.37 + 0.61i) Y_x instead of the real hypot, the same start vectors, arc and matching as the real code with complex W). Criteria,
+declared: R1 and R2 roots agree to 1e-6 relative in W, and λ = W² agrees with the spectral λ to 1e-3 relative. Run on the three members in D12. Counts of members with such a pair
+are reported separately from the real-root counts; the complex search is local to the spectral eigenvalues (no argument-principle count).
+**P4, planted complex bound state:** `u'' = (V + W²)u`, `V = −ν(ν+1)κ² sech²(κx)`, κ = 1, ν = 0.3 + 0.2i, one bound state at `W = νκ` exactly, through `run_chunks_c`
+and the same root finder from a start 15 % off (1.15 W + 0.03i). Declared: `|W − νκ|/|νκ| ≤ 1e-6` (R1) and `≤ 1e-8` (R2). Dev: 2.4e-10 (R1), 1.4e-13 (R2). Controls and
+predictions, written before their development run: `cplx_conj` (the conjugate of W in the left start vector: the wrong branch; P4 finds no root or a wrong one), `cplx_V` (depth × 1.3: relative
+error 0.3 against 1e-6), `cplx_ned` (C1 at S m = 0.3 without the NED term in the shooting: λ differs from the spectral one by far more than 1e-3).
+Development history of P4: a complex secant failed on the real normalization (the mismatch is then not analytic) and a 2-D root with the real hypot stalled; the fixed complex scalar fixed both. A first version integrated 1000 units of free flow
+without renormalization and overflowed; the window is now |x| = 60.
+
+**A9. Reruns of the non-count commands.** `check`, `planted`, `planted_low`, `planted_complex`, `complex`, `spectral` and `controls` are rerun at `bounce.py` ef25201 (`*_run2.log`; the
+f6d1802 logs are kept as run 1). The count runs (`results/*.json`, 220) are from 9b3db56 (main stage, S low stage) and f6d1802 (B low stage); ef25201 and f6d1802 differ only
+in the complex code, the report's complex notes and the controls table; the counting code is unchanged.
