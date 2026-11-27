@@ -43,6 +43,14 @@ setting is L = 40 at h = 0.02 and 0.01, with ω the root with Re ω > 0.
 
 ## Amendments
 
+**A1, 2026-11-27, after run 1.**
+- **K1 is not met**: |ℓ = 1 − polar.md| = 5.1e-6 and |ℓ = 1 − Darboux partner| = 1.0e-5 against 1e-6, while h = 0.02 and
+  0.01 agree to 7.6e-9.
+- The cause is the review's domain. With θ = 0.9 the outgoing wave of ω = 0.68 − 0.62i decays as exp(−0.146|s|), only to
+  2.9e-3 at L = 40, and the two partner potentials have different tails (1/x⁴ against 2/x²). For ℓ = 2 the decay is
+  exp(−1.17|s|), and K2 passes.
+- **K1b** adds the same bars at L = 160 (decay 7e-11), h = 0.02 and 0.01. K1 stays NOT MET.
+
 ## Runs (filled in as they are done)
 
 | file | what |

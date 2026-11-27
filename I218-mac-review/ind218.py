@@ -7,10 +7,10 @@ import numpy as np
 import scipy.sparse as sps
 from scipy.sparse.linalg import eigs
 
-MUT = sys.argv[1].split("=", 1)[1] if len(sys.argv) > 1 and sys.argv[1].startswith("--mutate=") else None
+MUT = next((a.split("=", 1)[1] for a in sys.argv[1:] if a.startswith("--mutate=")), None)
 TH = 0.0 if MUT == "no-scaling" else 0.9
 SC = 1.01 if MUT == "V-scale" else 1.0
-L = 40.0
+L = 160.0 if "--k1b" in sys.argv else 40.0                      # A1: K1b at L = 160
 POT = {"l1": lambda R2: 1 / R2 ** 2, "darboux": lambda R2: 2 / R2 - 3 / R2 ** 2,
        "l2": lambda R2: 6 / R2 - 3 / R2 ** 2, "test": lambda R2: 2 / R2 + 1 / R2 ** 2}
 RES = []
@@ -43,7 +43,7 @@ w2 = qnm("l2", 0.01, ref2)
 wt = qnm("test", 0.01, reft)
 for k, v in (("l1 h=0.02", w1[0.02]), ("l1 h=0.01", w1[0.01]), ("darboux", wd), ("l2", w2), ("test", wt)):
     print(f"  {k}: omega = {v.real:.10f} {v.imag:+.10f}i", flush=True)
-check("K1", abs(w1[0.01] - ref1) <= 1e-6 and abs(w1[0.01] - wd) <= 1e-6 and abs(w1[0.02] - w1[0.01]) <= 1e-5,
+check("K1b" if L == 160.0 else "K1", abs(w1[0.01] - ref1) <= 1e-6 and abs(w1[0.01] - wd) <= 1e-6 and abs(w1[0.02] - w1[0.01]) <= 1e-5,
       f"|l1 - polar.md| {abs(w1[0.01] - ref1):.1e}, |l1 - Darboux partner| {abs(w1[0.01] - wd):.1e}, h spread {abs(w1[0.02] - w1[0.01]):.1e}")
 check("K2", abs(w2 - ref2) <= 2e-6, f"|l2 - polar.md| {abs(w2 - ref2):.1e}")
 check("K3", abs(wt - reft) <= 1e-3 and abs(wt - w1[0.01]) > 0.5, f"|test - polar.md| {abs(wt - reft):.1e}, |test - l1| {abs(wt - w1[0.01]):.2f}")
