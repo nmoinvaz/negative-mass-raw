@@ -1,0 +1,8 @@
+settled_mass_g.py planted {'pstar': '/home/nathan/Source/negative-mass-raw/I253-rpi5/runs'}: numba 0.68.1, numpy 2.5.4, python 3.14.10, rpi5-ubuntu, load average at start 0.23 0.24 0.72, mutation None, 2026-11-27 12:28:07
+[pass] PL1: #41's PL1 through this driver: the printed lines equal #41's output of record, and equal those of settled_mass's own track  (5 lines compared with 5 of #41; equal to #41: True; equal without the wrapper: True; verdict line [pass])
+[pass] PL2: #41's PL2 through this driver: the printed lines equal #41's output of record, and equal those of settled_mass's own track  (5 lines compared with 5 of #41; equal to #41: True; equal without the wrapper: True; verdict line [pass])
+[pass] PL3: #41's PL3 through this driver (S, h = 0.02, delta = 1e-6): level 0 equals dn.evolve bit for bit; the printed line equals #41's  ([pass] PL3: level 0 of the chain equals dn.evolve bit for bit (nodes, dead flags) and finds the same first trapped cell  (h = 0.02, delta = 1e-06: nodes equal True, dead equal True, events (385, 385) and (385, 385)))
+[pass] PL3G: family G: level 0 of the chain equals dn.evolve bit for bit (nodes, dead flags) and finds the same first trapped cell  (h = 0.02, delta = 1e-06: nodes equal True, dead equal True, events (398, 436) and (398, 436))
+[pass] TRK: track wrapper: recomputed phi_+ of field 0 equals settled_mass.track's (relative 1e-12), and the normal field's phi_+ is nonzero on the horizon  (171 columns, max relative difference 2.3e-14, smallest max|phi_+(normal)| over series 1.82e-03)
+
+5 checks, 0 failed; 46 s
