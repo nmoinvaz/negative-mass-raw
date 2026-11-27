@@ -1,0 +1,18 @@
+== Mutations: fired sets in run01_mut_<name>.log against the declared ones ==
+  d_emF       fired ['D1']  declared ['D1']  equal
+  d_Gode      fired ['D1']  declared ['D1']  equal
+  d_hz        fired ['D2']  declared ['D2']  equal
+  d_prop      fired ['D4']  declared ['D4']  equal
+  d_gauge     fired ['D3a']  declared ['D3a']  equal
+  d_res       fired ['D6']  declared ['D6']  equal
+  d_log       fired ['D7']  declared ['D7']  equal
+  k_emF       fired ['N1', 'N2', 'N3', 'N4', 'N6', 'N7', 'N9', 'N10', 'N11']  declared ['N1', 'N2', 'N3', 'N4', 'N6', 'N7', 'N9', 'N10', 'N11']  equal
+  k_FV        fired ['N1', 'N2', 'N3', 'N4', 'N6', 'N7', 'N9', 'N10', 'N11']  declared ['N1', 'N2', 'N3', 'N4', 'N6', 'N7', 'N9', 'N10', 'N11']  equal
+  k_cross     fired ['N2', 'N3', 'N4', 'N6', 'N7', 'N9', 'N10', 'N11']  declared ['N2', 'N3', 'N4', 'N6', 'N7', 'N9', 'N10', 'N11']  equal
+  k_con       fired ['N3', 'N4', 'N7', 'N11']  declared ['N3', 'N4', 'N7', 'N11']  equal
+  fn_aT       fired ['N4', 'N5', 'N6', 'N7', 'N11']  declared ['N4', 'N5', 'N6', 'N7', 'N11']  equal
+  fn_dirU     fired ['N4', 'N5', 'N6', 'N7', 'N11']  declared ['N4', 'N5', 'N6', 'N7', 'N11']  equal
+  fn_b        fired ['N5']  declared ['N5']  equal
+  plant_sign  fired ['N6']  declared ['N6']  equal
+  ctl_lambda  fired ['N7']  declared ['N7']  equal
+16 of 16 equal

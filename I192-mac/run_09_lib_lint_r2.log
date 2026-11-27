@@ -1,0 +1,8 @@
+# 2026-11-27 13:02:18 cwd=/Users/nathan/Source/negative-mass-raw/I192-mac
+# cmd: bash -c cd /Users/nathan/Source/negative-mass-i192-libs/multishoot && git log --oneline -1 &&  cargo fmt --check && echo fmt-ok && cargo clippy -j 2 --all-targets --features mutate -- -D warnings && echo clippy-mutate-ok && cargo clippy -j 2 --all-targets --features portable,mutate -- -D warnings && echo clippy-portable-mutate-ok && cargo clippy -j 2 --all-targets -- -D warnings && echo clippy-default-ok && RUSTDOCFLAGS='-D warnings' cargo doc --no-deps -j 2 --features portable,mutate && echo doc-ok
+60d21ab table: test the review's edge cases and a control for the step-list check
+fmt-ok
+clippy-mutate-ok
+clippy-portable-mutate-ok
+clippy-default-ok
+doc-ok

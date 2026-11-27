@@ -1,0 +1,64 @@
+# 2026-11-27 12:28:08 cwd=/Users/nathan/Source/negative-mass-raw/I192-mac
+# cmd: bash -c cd /Users/nathan/Source/negative-mass-i192-libs/multishoot && cargo test --release -j 2 --test table -- --test-threads 2 --nocapture 2>&1
+    Finished `release` profile [optimized] target(s) in 0.01s
+     Running tests/table.rs (target/release/deps/table-d4e62248c785bbe9)
+
+running 15 tests
+test find_and_headroom ... ok
+PE dd last=2: steps 42, C1 maxE NaN (bar 1.0e-24) at step 0 f 0 x0 0.125 h 0.875: NaN, C2 violations 0, C3 violations 0, digest 47660f65234a3ed4
+PE dd last=3: steps 63, C1 maxE 2.140e-28 (bar 1.0e-24) at step 3 f 0 x0 1.38342963423409376e-1 h 7.711e-2, C2 violations 0, C3 violations 0, digest 17659b6f0753430d
+PE dd last=4: steps 68, C1 maxE 1.671e-28 (bar 1.0e-24) at step 0 f 0 x0 3.55813308142051490e-2 h 8.302e-2, C2 violations 0, C3 violations 0, digest 6b406f74f5e49477
+test pe_last_dd ... ok
+PE qd last=2: steps 48, C1 maxE NaN (bar 1.0e-54) at step 0 f 0 x0 0.125 h 0.875: NaN, C2 violations 0, C3 violations 0, digest 27ff9cab8e5c0199
+PE qd last=3: steps 70, C1 maxE 1.517e-58 (bar 1.0e-54) at step 2 f 0 x0 9.55745055911249169e-2 h 7.230e-2, C2 violations 0, C3 violations 0, digest ca8a129c2783c532
+PH dd clean: table steps 158, plane steps 90, plane error 5.948e-32 (bar 1.233e-28), ln_vol error 2.958e-30 (bar 3.819e-27), C3 violations 0
+test ph_dd ... ok
+PH f64 clean: table steps 125, plane steps 86, plane error 5.374e-16 (bar 1.110e-12), ln_vol error 3.553e-15 (bar 3.440e-11), C3 violations 0
+test ph_f64 ... ok
+PE qd last=4: steps 72, C1 maxE 1.276e-58 (bar 1.0e-54) at step 0 f 0 x0 3.25251036939800536e-2 h 7.589e-2, C2 violations 0, C3 violations 0, digest ddf7c37de676db5e
+test pe_last_qd ... ok
+PA dd last=4: steps 371, C1 maxE 1.631e-29 (bar 1.0e-24) at step 354 f 2 x0 2.16968401859050779e1 h 6.596e-1, C2 violations 0, C3 violations 0, digest 6939d511435ecced
+PB dd last=4: steps 26, C1 maxE 6.738e-29 (bar 1.0e-24) at step 24 f 0 x0 1.96531481346980748e1 h 1.173e0, C2 violations 0, C3 violations 0, digest a994767068eb1a1c
+PC dd last=4: steps 184, C1 maxE 5.545e-28 (bar 1.0e-24) at step 156 f 0 x0 1.28712314571979469e1 h 7.210e-2, C2 violations 0, C3 violations 0, digest 365da269c7e2948d
+PD dd last=4: steps 41, C1 maxE 1.959e-31 (bar 1.0e-24) at step 39 f 0 x0 2.93911078987363439e0 h 5.645e-2, C2 violations 0, C3 violations 0, digest 54072c80538c44cf
+PE dd last=4: steps 68, C1 maxE 1.671e-28 (bar 1.0e-24) at step 0 f 0 x0 3.55813308142051490e-2 h 8.302e-2, C2 violations 0, C3 violations 0, digest 6b406f74f5e49477
+PF dd last=4: steps 362, C1 maxE 1.405e-29 (bar 1.0e-24) at step 23 f 2 x0 1.92504869807941326e1 h 7.995e-1, C2 violations 0, C3 violations 0, digest a274ccd7001851bf
+PP dd last=4: steps 1, C1 maxE 3.454e-32 (bar 1.0e-24) at step 0 f 0 x0 2.27499999999999991e0 h 0.000e0, C2 violations 0, C3 violations 0, digest 014221d6d8a975d8
+test planted_dd ... ok
+PA f64 last=4: steps 274, C1 maxE 4.471e-16 (bar 1.0e-12) at step 270 f 2 x0 2.41400664723759810e1 h 4.902e-1, C2 violations 0, C3 violations 0, digest 280f62a3ab45ae7a
+PB f64 last=4: steps 15, C1 maxE 1.085e-15 (bar 1.0e-12) at step 8 f 0 x0 1.34191751807186215e1 h 3.397e0, C2 violations 0, C3 violations 0, digest 899abaa14b883dc3
+PC f64 last=4: steps 131, C1 maxE 4.761e-15 (bar 1.0e-12) at step 14 f 0 x0 1.09781895186540854e1 h 1.360e-1, C2 violations 0, C3 violations 0, digest d151afba86408879
+PD f64 last=4: steps 53, C1 maxE 7.841e-15 (bar 1.0e-12) at step 10 f 0 x0 4.82849617558786415e-1 h 5.529e-2, C2 violations 0, C3 violations 0, digest 799052772125188b
+PF f64 last=4: steps 266, C1 maxE 5.232e-16 (bar 1.0e-12) at step 262 f 0 x0 1.13925941485357239e-3 h 7.931e-5, C2 violations 0, C3 violations 0, digest aa43a114b56a5755
+PP f64 last=4: steps 1, C1 maxE 9.333e-16 (bar 1.0e-12) at step 0 f 0 x0 2.27499999999999991e0 h 0.000e0, C2 violations 0, C3 violations 0, digest 366eaf099a2e72de
+test planted_f64 ... ok
+PH qd clean: table steps 193, plane steps 95, plane error 2.568e-64 (bar 1.505e-60), ln_vol error 2.476e-62 (bar 4.662e-59), C3 violations 0
+test ph_qd ... ok
+PA qd last=4: steps 371, C1 maxE 1.327e-59 (bar 1.0e-54) at step 357 f 2 x0 2.25547286257705295e1 h 5.617e-1, C2 violations 0, C3 violations 0, digest a2bbea4542aea07b
+PB qd last=4: steps 31, C1 maxE 2.548e-59 (bar 1.0e-54) at step 29 f 0 x0 1.97019847280674760e1 h 9.151e-1, C2 violations 0, C3 violations 0, digest 179001490fee523e
+PC qd last=4: steps 193, C1 maxE 5.374e-58 (bar 1.0e-54) at step 189 f 0 x0 1.38686795011176081e1 h 1.389e-1, C2 violations 0, C3 violations 0, digest 3ce8f712140f1d2c
+PD qd last=4: steps 1, C1 maxE 2.192e-64 (bar 1.0e-54) at step 0 f 0 x0 2.99999999999999956e0 h 1.750e0, C2 violations 0, C3 violations 0, digest 8af916f973af2bc8
+PE qd last=4: steps 72, C1 maxE 1.276e-58 (bar 1.0e-54) at step 0 f 0 x0 3.25251036939800536e-2 h 7.589e-2, C2 violations 0, C3 violations 0, digest ddf7c37de676db5e
+PF qd last=4: steps 362, C1 maxE 1.151e-59 (bar 1.0e-54) at step 31 f 2 x0 1.68367648823000948e1 h 9.328e-1, C2 violations 0, C3 violations 0, digest 40c69cd73f665084
+PP qd last=4: steps 1, C1 maxE 3.991e-65 (bar 1.0e-54) at step 0 f 0 x0 2.27499999999999991e0 h 0.000e0, C2 violations 0, C3 violations 0, digest d3ad435d9866e420
+PS qd last=4: steps 374, C1 maxE 1.151e-59 (bar 1.0e-54) at step 316 f 0 x0 1.76120193897199434e-1 h 1.248e-2, C2 violations 0, C3 violations 0, digest ea5fd49419737db1
+test planted_qd ... ok
+PG f64 with the pole at 15: 23 steps
+PG dd with the pole at 15: 33 steps
+PG qd with the pole at 15: 35 steps
+test pole_off_the_path_and_nan ... ok
+PG f64: Stall at 4.99999999999999112
+test pole_on_the_path_f64 ... ok
+PG dd: NotFinite at x = 4.99999999994734790, order 29; 5 - x = 5.265e-11, overflow distance 5.307e-11
+PG qd: NotFinite at x = 4.99999286999441495, order 59; 5 - x = 7.130e-6, overflow distance 7.285e-6
+test pole_on_the_path_wide_lanes_recorded ... ok
+ref_scale PC f64: C1 maxE 1.000e-4 (bar 1.0e-12)
+ref_scale PC dd: C1 maxE 1.000e-4 (bar 1.0e-24)
+ref_scale PC qd: C1 maxE 1.000e-4 (bar 1.0e-54)
+test ref_scale_fires ... ok
+test shift_of_a_polynomial_is_exact ... ok
+PC od last=4: steps 316, C1 maxE 1.069e-118 (bar 1.0e-114) at step 280 f 0 x0 1.30371473587367781e1 h 4.741e-2, C2 violations 0, C3 violations 0, digest 512343075b563b4d
+test planted_od_pc ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.96s
+

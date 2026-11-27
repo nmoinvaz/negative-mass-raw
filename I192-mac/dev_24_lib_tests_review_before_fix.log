@@ -1,0 +1,89 @@
+# 2026-11-27 12:59:45 cwd=/Users/nathan/Source/negative-mass-raw/I192-mac
+# cmd: bash -c cd /Users/nathan/Source/negative-mass-i192-libs/multishoot && git log --oneline -1 && git status --short && cargo test --release -j 2 --test table -- --test-threads 2 2>&1
+3a64b91 table: test the tables on planted functions with their controls
+ M tests/table.rs
+    Finished `release` profile [optimized] target(s) in 0.00s
+     Running tests/table.rs (target/release/deps/table-d4e62248c785bbe9)
+
+running 25 tests
+test default_last_fits_small_nb ... FAILED
+test find_and_headroom ... ok
+test hmax_bounds_the_stored_step ... FAILED
+test c3_fires ... ok
+test pe_last_dd ... ok
+test pe_last_qd ... ok
+test ph_dd ... ok
+test ph_f64 ... ok
+test ph_qd ... ok
+test piece_end_before_path_end ... FAILED
+test planted_dd ... ok
+test planted_f64 ... ok
+test planted_od_pc ... ok
+test planted_qd ... ok
+test pole_off_the_path_and_nan ... ok
+test pole_on_the_path_f64 ... ok
+test pole_on_the_path_wide_lanes_recorded ... ok
+test ref_scale_fires ... ok
+test series_index_is_checked - should panic ... FAILED
+test shift_of_a_polynomial_is_exact ... ok
+test tablejets_names_an_order_beyond_nb - should panic ... FAILED
+test tablejets_rejects_a_repeated_entry - should panic ... FAILED
+test tiny_path_is_not_a_stall ... FAILED
+test width_is_a_point_where_the_test_passes ... ok
+test huge_path_ends ... FAILED
+
+failures:
+
+---- default_last_fits_small_nb stdout ----
+
+thread 'default_last_fits_small_nb' (105876778) panicked at tests/table.rs:1374:5:
+assertion failed: o.last <= 1
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- hmax_bounds_the_stored_step stdout ----
+
+thread 'hmax_bounds_the_stored_step' (105876780) panicked at tests/table.rs:1435:18:
+Ok(Table { dir: 1.0, nb: 2, nf: 1, start: [1.0], end: [1.0000000000000002], width: [5.551115123125783e-16], c: [1.0, 0.0] })
+
+---- piece_end_before_path_end stdout ----
+
+thread 'piece_end_before_path_end' (105876972) panicked at tests/table.rs:1423:5:
+assertion `left == right` failed: the first step ends at the piece end
+  left: (-1.8014398509481984e16, 1.0)
+ right: (-1.8014398509481984e16, 0.0)
+
+---- series_index_is_checked stdout ----
+note: test did not panic as expected at tests/table.rs:1446:4
+---- tablejets_names_an_order_beyond_nb stdout ----
+
+thread 'tablejets_names_an_order_beyond_nb' (105877640) panicked at src/table.rs:515:9:
+Table::shifted: kj = 3 must be in 1..=2
+note: panic did not contain expected string
+      panic message: "Table::shifted: kj = 3 must be in 1..=2"
+ expected substring: "exceeds the table's nb"
+---- tablejets_rejects_a_repeated_entry stdout ----
+note: test did not panic as expected at tests/table.rs:1456:4
+---- tiny_path_is_not_a_stall stdout ----
+
+thread 'tiny_path_is_not_a_stall' (105877642) panicked at tests/table.rs:1386:73:
+a step of 6e-302 moves x: Stall { x: 0.0 }
+
+---- huge_path_ends stdout ----
+
+thread 'huge_path_ends' (105876781) panicked at tests/table.rs:1405:10:
+the width search does not end: Timeout
+
+
+failures:
+    default_last_fits_small_nb
+    hmax_bounds_the_stored_step
+    huge_path_ends
+    piece_end_before_path_end
+    series_index_is_checked
+    tablejets_names_an_order_beyond_nb
+    tablejets_rejects_a_repeated_entry
+    tiny_path_is_not_a_stall
+
+test result: FAILED. 17 passed; 8 failed; 0 ignored; 0 measured; 0 filtered out; finished in 20.01s
+
+error: test failed, to rerun pass `--test table`

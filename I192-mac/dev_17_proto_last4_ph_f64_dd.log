@@ -1,0 +1,26 @@
+# 2026-11-27 12:21:14 cwd=/Users/nathan/Source/negative-mass-raw/I192-mac
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python -u proto_table.py --cases  --ph --ph-fractions 0.3 --ph-controls --ph-ctls fraction_one,loose_tail --lanes f64,dd
+  .. PH f64 plane step 25 x = 0.0668156 h = 1.034e-02 reach/w 0.6862
+  .. PH f64 plane step 50 x = 4.46433 h = 6.907e-01 reach/w 0.7465
+  .. PH f64 plane step 75 x = 29.2481 h = 1.000e+00 reach/w 0.4090
+PH f64 fraction=0.3 ctl=None: kt 22 nb 34 tail 1.110e-16 table steps 125 plane steps 86  plane err 1.572e-67 (bar 1.110e-12) PASS  ln_vol err 1.602e-14 (bar 1.087e-11) PASS  max (shift+step)/w 9.6099e-01, plane steps past w: 0
+  .. PH dd plane step 25 x = 0.0489287 h = 7.051e-03 reach/w 0.9633
+  .. PH dd plane step 50 x = 2.39402 h = 3.450e-01 reach/w 0.9627
+  .. PH dd plane step 75 x = 25.0901 h = 1.000e+00 reach/w 0.3073
+PH dd  fraction=0.3 ctl=None: kt 42 nb 54 tail 1.233e-32 table steps 158 plane steps 90  plane err 6.853e-66 (bar 1.233e-28) PASS  ln_vol err 1.550e-30 (bar 1.207e-27) PASS  max (shift+step)/w 1.0780e+00, plane steps past w: 14
+  .. PH f64 plane step 25 x = 0.0655855 h = 1.015e-02 reach/w 1.0792
+  .. PH f64 plane step 50 x = 4.28811 h = 6.634e-01 reach/w 1.1458
+  .. PH f64 plane step 75 x = 29.0116 h = 1.000e+00 reach/w 0.4378
+PH f64 fraction=0.3 ctl=fraction_one: kt 22 nb 34 tail 1.110e-16 table steps 41 plane steps 86  plane err 9.738e-66 (bar 1.110e-12) PASS  ln_vol err 1.322e-12 (bar 1.087e-11) PASS  max (shift+step)/w 1.6433e+00, plane steps past w: 40
+  .. PH f64 plane step 25 x = 0.0668642 h = 1.035e-02 reach/w 0.5719
+  .. PH f64 plane step 50 x = 4.47254 h = 6.920e-01 reach/w 0.4847
+  .. PH f64 plane step 75 x = 29.2596 h = 1.000e+00 reach/w 0.0722
+PH f64 fraction=0.3 ctl=loose_tail: kt 22 nb 34 tail 1.110e-16 table steps 55 plane steps 86  plane err 1.162e-65 (bar 1.110e-12) PASS  ln_vol err 2.602e-14 (bar 1.087e-11) PASS  max (shift+step)/w 6.0899e-01, plane steps past w: 0
+  .. PH dd plane step 25 x = 0.0423302 h = 6.100e-03 reach/w 1.0043
+  .. PH dd plane step 50 x = 1.79046 h = 2.580e-01 reach/w 1.0045
+  .. PH dd plane step 75 x = 22.8957 h = 1.000e+00 reach/w 0.2348
+PH dd  fraction=0.3 ctl=fraction_one: kt 42 nb 54 tail 1.233e-32 table steps 51 plane steps 93  plane err 1.489e-66 (bar 1.233e-28) PASS  ln_vol err 3.842e-24 (bar 1.207e-27) FAIL  max (shift+step)/w 1.7106e+00, plane steps past w: 50
+  .. PH dd plane step 25 x = 0.041373 h = 5.962e-03 reach/w 0.2618
+  .. PH dd plane step 50 x = 1.60543 h = 1.953e-01 reach/w 0.4684
+  .. PH dd plane step 75 x = 22.0273 h = 1.000e+00 reach/w 0.0992
+PH dd  fraction=0.3 ctl=loose_tail: kt 42 nb 54 tail 1.233e-32 table steps 49 plane steps 93  plane err 2.413e-66 (bar 1.233e-28) PASS  ln_vol err 3.125e-24 (bar 1.207e-27) FAIL  max (shift+step)/w 4.6842e-01, plane steps past w: 0

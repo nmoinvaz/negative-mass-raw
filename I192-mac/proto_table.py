@@ -167,7 +167,7 @@ def valid_none(x, dirn):
 
 
 class Case:
-    def __init__(self, name, funcs, xa, xb, valid=valid_none, hmax=INF, lanes=("f64", "dd", "qd"), last=2):
+    def __init__(self, name, funcs, xa, xb, valid=valid_none, hmax=INF, lanes=("f64", "dd", "qd"), last=4):
         self.name, self.funcs, self.xa, self.xb, self.valid, self.hmax, self.lanes, self.last = (
             name, funcs, f64(xa), f64(xb), valid, hmax, lanes, last)
 
@@ -458,12 +458,15 @@ def fr_mul(a, b):
 
 
 PMAT = [[1, 1, 0, 1], [1, 2, 1, 1], [0, 1, 2, 1], [1, 1, 1, 3]]
+# the exponents of y' = (M / x) y on the columns of P: A2 of the README (the first, (1, -2, 3, -1), made the plane of exponents (1, -2)
+# a non-dominant one, whose roundoff grows as x^5 over the path: ill-posed in every lane but a 90-digit one)
+EXPS = (-1, -2, -3, -4)
 
 
 def mmat():
     p = [[Fraction(x) for x in r] for r in PMAT]
     d = [[Fraction(0)] * 4 for _ in range(4)]
-    for i, v in enumerate((1, -2, 3, -1)):
+    for i, v in enumerate(EXPS):
         d[i][i] = Fraction(v)
     m = fr_mul(fr_mul(p, d), fr_inv(PMAT))
     assert all(x.denominator == 1 for r in m for x in r)
@@ -577,7 +580,7 @@ def run_ph(lane, fraction=None, ctl=None, report=True):
             y = [a - d * b for a, b in zip(y, qq)]
         err2 += sum(a * a for a in y)
     perr = err2.sqrt()
-    ref = ln_gram_ref() - (xb / xa).ln()
+    ref = ln_gram_ref() + (EXPS[0] + EXPS[1]) * (xb / xa).ln()
     lerr = abs(ln_vol - ref)
     pbar, lbar = 10000 * eps, 10000 * eps * max(D(1), abs(ref))
     if report:
@@ -604,12 +607,13 @@ def main():
     ap.add_argument("--ph-fractions", default="0.3")
     ap.add_argument("--ph-controls", action="store_true")
     ap.add_argument("--ph-ctls", default="wide,fraction_one,loose_tail")
+    ap.add_argument("--export-ph-tables", action="store_true", help="the step lists of PH's tables (no plane run)")
     a = ap.parse_args()
     out = {}
     lanes = a.lanes.split(",")
     for name in [c for c in a.cases.split(",") if c]:
         if name == "PE":
-            run_case("PE", lanes, a.controls, out, lasts=[2, 3])
+            run_case("PE", lanes, a.controls, out, lasts=[4, 2, 3])
         elif name == "PS":
             case = CASES["PS"]
             for ctl in (None, "unscaled"):
@@ -617,6 +621,8 @@ def main():
                 err, where = c1(case, t)
                 bar = 10 * LANES["qd"]["tail"]
                 print(f"PS qd ctl={ctl}: steps {len(t.start)} first step [{float(t.start[0])!r}, {float(t.end[0])!r}] width {fmt(t.width[0])}  C1 maxE {fmt(err)} (bar {fmt(bar)}) {'PASS' if err <= bar else 'FAIL'}")
+                if ctl is None:
+                    out["PS/qd/last4"] = dict(steps=len(t.start), start=[float(x) for x in t.start], end=[float(x) for x in t.end])
         elif name == "PG":
             case = CASES["PG"]
             for lane in lanes:
@@ -626,6 +632,14 @@ def main():
                 print(f"PG {lane} with the pole moved to 15: error {t2.error}, steps {len(t2.start)}")
         else:
             run_case(name, lanes, a.controls, out)
+    if a.export_ph_tables:
+        for lane in lanes:
+            eps = LANES[lane]["eps"]
+            kt = optimal_kt(100 * eps)
+            case = Case("PH", [F_INV1], "1e-3", 40, valid_none)
+            t = build(case, lane, tail=eps, nb=kt + 12)
+            print(f"PH {lane} table: kt {kt} nb {kt + 12} steps {len(t.start)}")
+            out[f"PH/{lane}/last4"] = dict(steps=len(t.start), start=[float(x) for x in t.start], end=[float(x) for x in t.end])
     if a.ph:
         for fr in a.ph_fractions.split(","):
             for lane in lanes:

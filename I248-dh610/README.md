@@ -114,4 +114,16 @@ horizon_sector.py derive|check --mutate=NAME   # every mutation below
 
 ## Amendments
 
-None yet.
+**A1, 2026-11-27, after the runs of record.** The runs of record are of code commit 69de2ea. After them the subcommand `horizon_sector.py mutations DIR PREFIX`
+(a report of stored mutation logs against the declared sets) and its line in the docstring were added; no check, bar or mutation changed. Its output over the
+16 logs is `runs/run01_mutations_report.txt` (16 of 16 equal).
+
+## Runs of record (files in `runs/`)
+
+| file | what | result |
+|---|---|---|
+| `run01_derive.log` | `derive` | 8 of 8 |
+| `run01_check.log` | `check` | 11 of 11, 562 s |
+| `run01_table.log` | `table` | the class table |
+| `run01_mut_<name>.log` | 16 mutations (7 derive, 9 check) | every fired set equals the declared one |
+| `run01_mutations_report.txt` | `mutations` over the 16 logs | 16 of 16 equal |
