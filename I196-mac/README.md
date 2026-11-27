@@ -224,3 +224,22 @@ motivates the task (3.4e-10 on this Mac, 9.0e-10 on the win laptop, at (5, 1000)
   Rule for H7: at (3000, base), mean_r13 = mean signed gap of CJR, mean_1e11 = that of CJE (rtol 1e-13, atol 1e-14): **H7 supported if |mean_r13| ≤ 0.3 |mean_1e11|; ruled out if ≥ 0.7; else undecided.**
   COMPLETE counts 186. Order: `run_R.sh` runs as soon as CJV ends, with `run_A.sh`'s python still paused; A resumes after it. The P0 layer rtol 1e-12 will be run from the second slot when `run_B3.sh` has finished P1
   (`run_P12.sh`), `run_A.sh` continues with 1e-13 and 1e-11; whichever is not finished at 14:30 is reported as not run.
+
+- **A6 (2026-11-27 12:55, before any `planes_*.jsonl` datum of record; the dev run `dev_47` of the planes is read).**
+  What I read first. CJQ (`jsonl/scipy_CJQ.jsonl`): D's sensitivity to a planted relative error of q is (ΔD/D)/(Δq/q) = −1.46 and −0.24 at γ = 1000, 0 and −0.43 at γ = 3000, so q's known error
+  (6e-14) moves D by at most 1e-13, and the Riccati's tolerance (H7) cannot make a bias of 1e-9. CJN per-entry noise (12 cases, 11 to 16 s each): the scatter of D is 3e-10 at 1 ulp (as at no noise), about 1e-9
+  at 10 ulp, 1e-8 at 100 ulp. CJN row-maximum noise at 0.01 ulp took 500 to 580 s a case against 13 s (thrash, as in `dev_38`; 3 of 4 cases done; the case at 0.1 ulp would hit the 900 s cap four times).
+  **Planes** (`taylor_drift.py planes`, new; the crate's `rows` command got `planes=1`, new): scipy's two orthonormal 3-planes at r_m against the crate's double-double ones, as the sine of the largest principal angle.
+  `dev_47` at (3000, base), crate_j, rtol 1e-13, atol 1e-14, extra chunks 0 … 3: **interior plane ε_Y = 2.4e-14, 7.8e-15, 2.7e-14, 2.0e-14; exterior plane ε_Z = 2.2e-16 in all four, its metric direction 0 (to the last bit)
+  and its scalar plane 2.5e-16 … 3.5e-16.** The whole error of D sits in the interior plane: ε_Y / sin θ_min (1.6e-5) = 1.5e-9 … 1.7e-9, the size of the bias.
+  Changes, declared before any planes datum of record:
+  1. **Dropped from the core**: CJR (24 cases, not run; a stopped `run_R.sh` has 1 case, kept) and the row-maximum noise of CJN (8 cases; 3 done, kept; extras X_CJN_ROW, X_CJR). I stopped `run_B3.sh` and `run_R.sh` by PID (frozen, children stopped,
+     then killed) at 12:50. COMPLETE counts 154: P0 24, P1 6, N0 6, N1 6, CJE 72, CJN 12 (per entry), CJV 24, CJQ 4.
+  2. **H7 is re-based** on CJQ (it was on CJR): sens = max over the two planted q errors of |ΔD/D| / (Δq/q) at (3000, base); t = sens × 6e-14 / |bias|, bias = |mean signed gap| of CJE at (3000, base), rtol 1e-13, atol 1e-14.
+     *Supported* if t ≥ 0.3; *ruled out* if t ≤ 0.03; else *undecided*. (CJQ is read: t = 0.43 × 6e-14 / 1.3e-9 = 2e-5.)
+  3. **H8, roundoff accumulation of the interior plane's renormalizations.** The interior plane is renormalized every 2/γ (12 000 times at (1000, base)). Knob `chunk_factor` (interior only): 1/4, 1/2, 1 (as PolarProblem), 2, 4, 8 times as many.
+     Plants `crate_j_cf025`, `_cf05`, `crate_j`, `_cf2`, `_cf4`, `_cf8`; (1000, base), rtol 1e-13, atol 1e-14, extra chunks 0 … 3, `planes_CF.jsonl` (24 cases). Per factor the median ε_Y over the four.
+     **H8 supported if median(8×) / median(1×) ≥ 2.0 and median(1/4×) / median(1×) ≤ 0.7; ruled out if the three medians (1/4×, 1×, 8×) lie within a factor 1.3 of each other; else undecided.**
+  4. Also planes at (3000, base) (extra chunks 0 … 3, `planes_3000.jsonl`) and (1000, φ_cut) (`planes_1000phi.jsonl`). The planes files are not in COMPLETE.
+  5. Order: `run_F.sh` (the planes) and `run_B4.sh` (P1 at rtol 1e-10, then P0 at rtol 1e-12, then X_ATOL and X_P1_13) in the two slots; `run_A.sh`'s python resumes (SIGCONT) when `run_F.sh` ends. Whatever of P0 is not finished at 14:30 is reported
+     as not run. Total estimate about 7 h.
