@@ -33,6 +33,8 @@ Rows (the csv written by profiles.py; the crate column is w2_output.txt):
 - **G3** The source field is `w2_crate qd (#195)` for D >= 20 and `TS13 Table I` for D <= 11.
 - **G4** For each D <= 11, the W2a2 field equals profiles.py's `TS13[D]` rounded to 12 decimals (string of exactly 12 decimals).
   8 of 8. The checker takes `TS13` from the source text of profiles.py (ast), not from an import.
+- **G6** (added before the first run of `check_growth.py`) For each D <= 11, the whole row (all three fields) equals the same row of
+  `git show 613e866:notes/wormhole_largeD/growth.csv`: those rows stay as they are. 8 of 8.
 - **G5** The table's value at D = 50 equals the 64-value list's value at D = 50 rounded to the table's number of decimals (two
   places of the same file that must agree).
 - *Reported, not gated:* crate − csv for all 16 rows (the TS13 rows differ from the crate by 9.5e-12 to 6.2e-10 and are expected
@@ -60,9 +62,38 @@ of row D's W2a2, +1 unit of the 12th decimal; D any of the 16), `drop_row:D`, `s
 (the reference truncates instead of rounding), `list50` (the list's D = 50 value + 2e-18), `wrong_om2` (the π² ln 2 term of Ω2
 flipped), `wrong_om3` (the 384ζ(3) term of Ω3 flipped), `s_off` (s = 2(D − 2)).
 
-**Declared targets: none yet.** Each mutation's targets are computed in a development run (`dev_*`), then written below under
-"Declared targets" in an amendment committed before the runs of record (`run_*`). A mutation is on target when exactly its declared
-checks fail and no other; one that fails nothing is reported silent.
+**Declared targets** (amendment A1, committed before any run of record). The development run is `dev_04_summary.log` (56 runs,
+`run_mutations.sh`, one log each in `dev_04_mutations/`); `declared_targets.json` holds the targets as read from it. Summary:
+
+| mutation | declared checks that fail (and no other) |
+|---|---|
+| none | none, exit 0 |
+| `last_digit:D`, D = 4 … 11 | G4, G6 |
+| `last_digit:D`, D = 20, 30, 50, 100 | G2 |
+| `last_digit:D`, D = 200, 500, 1000, 2000 | G2, R1, R2 (the remainder checks read these four rows) |
+| `drop_row:D`, D = 4 … 11 | G1, G3, G4, G6 |
+| `drop_row:D`, D = 20, 30, 50, 100 | G1, G2, G3 |
+| `drop_row:D`, D = 200, 500, 1000, 2000 | G1, G2, G3, R1, R2 |
+| `source:D`, D = 4 … 11 | G3, G6 |
+| `source:D`, D >= 20 | G3 |
+| `ts13_swap` | G4, G6 |
+| `crate_scale` | G2, G5 (the list's D = 50 is not scaled) |
+| `round_trunc` | G2 (at D = 50, 100, 200), G4 (at D = 5, 6, 8, 9, 10, 11) |
+| `list50` | G5 |
+| `wrong_om2` | R0, R1, R2 |
+| `wrong_om3` | R0, R2 (R1 stops at Omega_2) |
+| `s_off` | R1, R2 |
+
+No mutation was silent in the development run. The predictions I wrote down before it (a one-digit change fails G2 at D >= 20 and
+G4, G6 at D <= 11, and also R1, R2 at the four D of the remainder checks) all held. A run of record is on target when
+`compare_targets.py` finds exactly the declared checks, no more, no fewer.
+
+## Ruling already made on the data
+
+- The old csv's `modes_r.py` rows do not reproduce across machines: the unmodified `profiles.py` rerun on this machine
+  (`dev_01_*`, 1 min) differs from the committed rows by 1e-12 (D = 50) to 2.7e-8 (D = 2000), and `profiles.csv` by up to 1.8e-9
+  relative (270 of 600 cells in the D = 10 column, whose eigenvalue is TS13's fixed value). The new D >= 20 rows do not depend on
+  the machine.
 
 ## Files that read, or quote, growth.csv (found by grep of the worktree, 613e866)
 
