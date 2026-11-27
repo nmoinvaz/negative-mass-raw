@@ -145,4 +145,45 @@ solution); the kernel mutations do not fire K (they act on both kernels, as desi
 
 ### Runs of record
 
-(added after the runs)
+All by `runs/run01_run.sh`, one thread each, `nice -n 10`, systemd user units `nm-i39-run01-checks`, `nm-i39-run01-numpy`, `nm-i39-run01-mutC`,
+`nm-i39-run01-mutD` (four at once), started 2026-11-26 21:25 on dh610-fedora, load average 18 of 20 at the start (shared with choptuik-large-d).
+Code `wip/i39-throat-evolution` at a00d354. Logs, `/usr/bin/time -v` files, exit codes and the numbers as JSON are in `runs/`; no run was stopped
+and none came near the 2 h stop (the longest, the numpy-kernel run, took 17 min 38 s).
+
+| run | what | result | wall time | peak rss |
+|---|---|---|---|---|
+| `run01_checks` | all checks, numba kernel | 11 of 11 pass, rc 0 | 4 min 30 s | 270 MB |
+| `run01_numpy_checks` | `DN_NO_NUMBA=1 --kernel=numpy` | 10 of 11 pass, K skipped (numba absent), rc 0; the log equals the numba run's apart from timings and K (`diff` of the two logs, all digits) | 17 min 38 s | 2.8 GB |
+| `run01_mut_<name>` (14) | one mutation each | each rc 1, and the checks that fired equal the declared list exactly in all 14 | 10 s to 4 min 25 s | 270 MB |
+| `run01_probe_expansion` | `notes/wormhole_evolution/probe_expansion.py`, the expansion case on a long rectangle (not a check) | see below | 32 s | |
+
+Numbers of the run of record (from `runs/run01_checks.log`):
+
+| check | numbers |
+|---|---|
+| I1 | max error 2.9e-9 (n = 2, 3, 4), tolerance 1e-8 |
+| K | max difference 0 on all three grids (bit-identical), same dead masks (4536 dead cells on the collapsing grid) |
+| P1 | D = 4: errors 1.44e-3, 3.49e-4, 8.86e-5, orders 2.045, 1.978. D = 5: 1.22e-2, 2.92e-3, 7.30e-4, orders 2.059, 2.002 |
+| P2 | worst orders: (r, f) 1.972; M 1.767 (D = 6), 1.853 (D = 5), 1.896 (D = 4); horizon position and r on it 1.998 to 2.000; at the finest h = 0.00125: (r, f) errors 3.2e-7, 2.5e-6, 2.2e-5 (D = 4, 5, 6), horizon x- error 2.5e-6, 3.8e-6, 5.0e-6 |
+| P3 | (r, f, phi) orders 1.934, 1.969; contour orders 1.98 to 2.00; slopes 0.666668 (2/3) and 1.499991 (3/2); 0 misclassified cells at the three h |
+| C1, C2 | orders 1.991, 1.999 and 1.988, 1.995; M changes by 1.18 along the edge |
+| G1 D = 4 | A*_h = 4.753e-5 (h = 0.02), 1.188e-5 (0.01), ratio 3.999; W_fit 1.181988, 1.181934 against W = 1.181970 (+1.5e-5, -3.0e-5); the two agree to 4.6e-5 |
+| G1 D = 5 | A*_h = 2.885e-4 (h = 0.00707), 7.209e-5 (0.00354), ratio 4.002; W_fit 1.727492, 1.727247 against 1.727703 (-1.2e-4, -2.6e-4); the two agree to 1.4e-4 |
+| untuned departure | \|H\| = 2e-3 W at tau = 6.125, 7.306 (D = 4, h = 0.02, 0.01; the shift 1.181 against ln4/W = 1.173); 3.887, 4.689 (D = 5; 0.802 against 0.802). kappa = 2e-3 W e^(-W tau)/h^2 = 0.00424, 0.00420 (D = 4) and 0.0838, 0.0838 (D = 5) |
+| F1 (D = 4, h = 0.02) | ghost +A: expands, E0 = -0.0299; ghost -A: collapses at t = 3.73, E0 = +0.0254, M at the first trapped cell 0.4975; normal +A: collapses at t = 6.29, E0 = +0.0022, M 0.4920. E0 < 0 expands and E0 > 0 collapses, as in [SH02]. At the end of the expansion run the diagonal throat has r = 8.516, the minimum-r slice r = 8.177 |
+| S | fate unchanged and event time unchanged (difference 0) for both cases; dead cells 172322 -> 171698 in the collapse |
+
+Seed: the unstable mode's seed constant is the same at the two resolutions (kappa 0.00424 and 0.00420 at D = 4; 0.0838 and 0.0838 at D = 5), so
+the untuned departure time is (1/W) ln(1/(kappa h^2)) to 0.7 % (D = 4) and 0.0 % (D = 5), and p*_h scales as h^2 with ratio 3.999 and 4.002.
+
+**What disagrees or was not met.** Nothing failed in a run of record. Points to read: the untuned-departure shift at D = 4 (1.181) differs from
+ln4/W (1.173) by 0.7 %; M's observed order in P2 is 1.77 to 1.95, inside the declared band but below 2 (higher-order terms still present at
+h = 0.005); the sensitivity check S is insensitive on the real cases (zero change) and is shown to fire only under `cut_extreme`.
+
+### Probe: the expanding branch on a long rectangle (not a check)
+
+`probe_expansion_output.txt` (copied to `runs/run01_probe_expansion.log`): the F1 expansion case, one-sided ghost pulse A = +0.04, on [0, 30]^2
+(t up to 42.4), D = 4 and D = 5, two h each. No cell is excised, max e^(-f) over live cells is 1.00, the values agree between the two h to 3 to 4 digits.
+On the diagonal x+ = x-: r grows about linearly in t (D = 4: 5.0 at t = 12, 13.5 at 24, 25.0 at 40) while its proper time tau saturates (7.43, 8.06, 8.32),
+and H = e^(f/2)(r_+ + r_-)/(sqrt2 r) keeps rising (0.75 at t = 8, 1.21, 2.07, 2.88 at t = 40) instead of tending to a constant. Observed, not interpreted:
+the diagonal of a one-sided run is not the throat once the data are asymmetric, and its proper time is not the observer's.
