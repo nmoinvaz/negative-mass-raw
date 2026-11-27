@@ -149,4 +149,29 @@ motivates the task (3.4e-10 on this Mac, 9.0e-10 on the win laptop, at (5, 1000)
 
 ## Amendments
 
-(none yet)
+- **A1 (2026-11-27, before the first run of record).** `dev_07` (the crate's quad-double rows at γ = 1000) was stopped by me after 9 min, by the PIDs of its
+  script, its python and its rust child, to free a thread; `dev_07_note.txt` says so, and it has no `.rc`. `run_B.sh` redoes it as a run of record
+  (`crate --qd --qd-gammas=1000`, γ = 1000 only) together with the dd, order 24 and f64 reference rows, ahead of its scipy cases. `taylor_drift.py` got the
+  `--qd-gammas` flag for this (commit 2cc3857, after the one the README names, ec7b99a); nothing else changed. The runs of record started at 09:08 (A: `run_01`, B: `run_02`).
+
+- **A2 (2026-11-27 09:55, before any NOISE, NOISEROW, X_ATOL or P1 run; P0 at rtol 1e-10 has 5 of 6 cases and N0 has 3 of 6, which I have read).** Three changes,
+  none of which moves a threshold of the rules above.
+  1. **The amplitude of planted noise is measured, and the declared knob does not match it.** `taylor_drift.py jround` (`dev_33`) evaluates the generated
+     `J_and_h` in f64 at the inputs the integrator gives it (scipy's star, l = 5, 40 radii in [0.5, 34.2], γ = 1000 and 3000) against the same source at 60 digits
+     (`taylor_polar.mp_J`). The relative error of an entry is 2651 ulp rms (max 57481 ulp, at r = 32.5, entry (3, 5)), because small entries of a row inherit the
+     rounding of its large terms; relative to the largest entry of its row it is 1.05 ulp rms (γ = 1000) and 0.93 (γ = 3000), max 11.4 and 6.0. The knob `noise_ulp`
+     (1 ulp of each entry) therefore plants far less than the generated J's rounding for the small entries. New knob `noise_row`: every nonzero entry gets the
+     absolute noise `noise_row` · 2⁻⁵³ · ξ · (largest entry of its row), ξ standard normal. New core group **NOISEROW**, 7 cases: noise_row 1.0 with seeds 1, 2, 3 and 0.1 with
+     seeds 1, 2 at (1000, base); 1.0 with seeds 1, 2 at (3000, base); rtol 1e-10. **The verdict on H3 (rule 4) is taken from NOISEROW** with the same thresholds
+     (0.3, 0.03, linear 0.5); the 7 NOISE cases stay in the core grid and are reported beside them. COMPLETE counts 62 cases (`dev_35` pass, `dev_36` `drop_cell` fails,
+     61 of 62). IDENT also requires the new knob to move D and to repeat with its seed (`dev_34`: 1 ulp of the row maximum moves D by 3.4e-12 at (2, 10), a chunk by 6.9e-12,
+     1 ulp per entry by 7.5e-12).
+  2. **A fifth hypothesis, H5**: scipy's absolute tolerance atol = 1e-14 sets the plane error. The gaps correspond to plane errors (gap × smallest sine of the
+     principal angles) of 1.7e-14 to 2.7e-13, the size of atol. Rule: the gap at (atol 1e-17, rtol 1e-13) against the gap at (atol 1e-14, rtol 1e-13) in X_ATOL's three cells
+     (1000 base, 1000 φ_cut, 3000 base) is *removes* (≤ 0.1) in all three: *supported*; *none* (≥ 0.5) in all three: *ruled out*; otherwise *undecided*. The naming rule
+     now counts five hypotheses.
+  3. **The order of the rest of process B changes** (`run_B2.sh`, started by `watch_swap.sh` when N1 has 6 cases, replacing `run_B.sh` by PID: it freezes it, stops its
+     child and it): N0 and N1 as before, then NOISEROW, NOISE, P1 (rtol 1e-10, 1e-13), then X_ATOL, X_N0R13, X_P2, X_P1R (rtol 1e-12). X_ATOL moves ahead of the other
+     extras for H5. Resumable files, so no case is run twice. `run_A.sh` still lists X_ATOL after P0; it will find those cases done.
+  Also `planted` records the principal angles of the planes it produces (in the file from the start) and takes `--noise-ulp`; the planted system's plane errors are
+     err × smallest sine = 3e-16 … 6e-17 (`planted.jsonl`), 100 to 1000 times below the real problem's.
