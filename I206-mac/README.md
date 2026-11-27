@@ -179,3 +179,23 @@ Over the 9000 sweep series the default grid has 2340 right and 30 confidently wr
 `Unresolved`) and no wrong ones, and the wrong ones are the same cells. A weak singularity is first resolved at m of about 100 to 1000 in f64,
 1e4 to 1e6 in double-double and 1e4 to 1e6 in quad-double; **where it is first resolved the locator is often wrong** (W3 in quad-double at m = 1e3: 12 wrong of 28 resolved;
 in double-double at m = 300: 4 of 4).
+
+## Results (the runs of record, `run_00` to `run_08`, at multisolver 21b9829; every exit code 0)
+
+`run_00_commit.txt`: 21b9829754d4120c81327ca9171b9a48b705ef97, clean tree. Pull request: https://github.com/nmoinvaz/multisolver/pull/28 (commits c5b5ea7 and 21b9829 on main 63d6e4d, label `enhancement`).
+
+| criterion (section 4) | verdict | number and log |
+|---|---|---|
+| 1. D6 in f64 meets #191's 1 to 4 | **NOT MET** | `Unresolved` (ratio, first order 24, degree 1): error of s 2.1e-4, of alpha 1.0e-2 (within 1e-2 and 0.1), bars cover, bar of alpha 2.7 (at most 10), **bar of s 0.053 \|s\| above the cutoff 0.05**; only criterion 1 fails (#191: 1, 2, 4). `run_01`, `run_06` |
+| 2. the other 68 cells meet 1 to 4 | met | 68 of 68, `planted_suite` ok in both builds; the controls of #191 fire, `bar-shrunk` silent in 8 cells. `run_01`, `run_02` |
+| 3. exploration coverage at factor 2 | met | Python: 259 resolved, 257 covered, 2 uncovered; control 44. Port: 256 of 256, control 31. `run_03`, `run_04` |
+| 4. noise-only 300 of 300 `Unresolved` | met | 300 of 300; smallest bar of s over \|s\| 0.383, 0.465, 0.619 (f64, dd, qd). `run_01`, `run_05` |
+| 5. entire 9 of 9 `Unresolved` | met | 9 of 9, bars 1.57 to 2.22 \|s\|. `run_01`, `run_05` |
+| 6. weak singularities never confidently wrong | **NOT MET** | 1 of 2700: W3, f64, m = 100, seed 14: `Real`, ratio, first order 6, degree 1, s = 0.874 for 1 (error 0.126, bar 0.027); also wrong on #191's grid (`dev_02`, `run_05`). 2699 `Unresolved` |
+| 7. fingerprint across backends | met here | 0x0f1c7236bd56966f default and `--features portable` (`run_01`, `run_02`); CI jobs: see the pull request |
+| 8. fmt, clippy (both builds), docs | met here | `run_08_*` exit 0; CI: see the pull request |
+
+The controls fired on their declared targets in `run_01` and `run_02` (`controls_fire`, `late_window_controls_fire`, `bitwise_across_backends`). The sweep of `run_07` is identical to `dev_10` (all 180 rows).
+Not run: `+avx2,+fma` (this Mac is aarch64; the AVX2 job of the pull request is its check).
+
+**Disagrees with the repository's text:** `notes/warp/singularity_locator.md` and the description of multisolver#26 quote the fingerprint 0xa5113e9ccb6776c8; the merged test asserts 0xf3a13cba157d2e3c (eb52618) and passes on this Mac at main.
