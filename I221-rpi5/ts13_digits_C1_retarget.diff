@@ -1,0 +1,8 @@
+240,242c240,242
+<     bad_c = [D for D in D_CSV if d["csv"][D][0] != str(rnd(w2[D], 12)) or ndec(pr[D]) <= 12]
+<     check("C1", not bad_c, f"{len(D_CSV) - len(bad_c)} of {len(D_CSV)} rows D = 4..11 equal -omega^2 at 12 decimals; TS13 prints "
+<           f"{min(ndec(pr[D]) for D in D_CSV)} to {max(ndec(pr[D]) for D in D_CSV)} decimals there" + (f"; NOT MET at D = {bad_c}" if bad_c else ""))
+---
+>     bad_c = [D for D in D_CSV if d["csv"][D][0] != str(rnd(crate[D], 12))]
+>     check("C1", not bad_c, f"{len(D_CSV) - len(bad_c)} of {len(D_CSV)} rows D = 4..11 equal the crate's value at 12 decimals"
+>           + (f"; NOT MET at D = {bad_c}" if bad_c else ""))

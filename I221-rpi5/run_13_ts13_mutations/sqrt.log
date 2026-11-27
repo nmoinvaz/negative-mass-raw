@@ -1,0 +1,63 @@
+ts13_digits.py  mutate=sqrt  tex=found
+
+PASS    T1: 11 of 11 rows hold 15 significant digits
+PASS    T2: 11 of 11 rows equal -(profiles.py's TS13 dict), which holds -omega^2
+PASS    T3: 11 of 11 rows equal the TeX source's table
+PASS    R1: 5 of 5 quoted values (D = [4, 10, 20, 50, 100]) are the printed ones rounded to their digits
+FAIL    C1: 0 of 8 old rows D = 4..11 (growth.csv at 4bced01) equal -omega^2 at 12 decimals; TS13 prints 13 to 14 decimals there; NOT MET at D = [4, 5, 6, 7, 8, 9, 10, 11]
+PASS    C2: 8 of 8 rows D = 4..11 of growth.csv equal the crate's value at 12 decimals
+FAIL    K1: W^2 a^2 = -omega^2 against the crate: relative difference at most 9.28e-1 (bar 1e-8); D = 4: 1.1819697262261457769134342818118081030253772142584566421139685768719894201568720 against 1.397052434333506, 1.54e-1; NOT MET at D = [4, 5, 6, 7, 8, 9, 10, 11, 20, 50, 100]
+PASS    P1: the comparator accepts the crate's own values at 15 significant digits: 11 of 11
+PASS    O1: 4 of 4 one_mode.log values (D = [4, 10, 20, 50]) equal the crate rounded to their 12 digits
+PASS    W1: (3.18) equals one_mode.py's U at 4 radii for 11 of 11 D
+PASS    W2: one_mode.py's source line 'U = Ufun or (lambda r: ...)' holds U: (n - 2) * (n - 4) / (4 * r ** 2) - 3 * n ** 2 / (4 * r ** (2 * n))
+
+  TS13 Table I as printed (omega^2, a = 1), its conversion, and growth.csv (as in this checkout; D = 4..11 are the crate's since #221)
+  D    printed omega^2        digits  W^2 a^2 = -omega^2     growth.csv value (source)                  csv - round(-omega^2, 12)
+  4    -1.39705243371511       15    1.1819697262261457769134342818118081030253772142584566421139685768719894201568720 1.397052434334 (w2_crate qd (#195))        +2.2e-01
+  5    -2.98495893027790       15    1.7277033687175295891085949682404192873953391876260905427238114800603629775156175 2.984958930352 (w2_crate qd (#195))        +1.3e+00
+  6    -4.68662054299460       15    2.1648603980383123078402148698430661140061313530786846747635609348274307876822661 4.686620543119 (w2_crate qd (#195))        +2.5e+00
+  7    -6.46258414126318       15    2.5421613129900273895403860524095350353734603319326299521140147843043379539516252 6.462584141370 (w2_crate qd (#195))        +3.9e+00
+  8    -8.28975936306259       15    2.8791942211428860118185794989525614152284218630670775087720695034178736174109381 8.289759363072 (w2_crate qd (#195))        +5.4e+00
+  9    -10.1535530451867       15    3.1864640348177005589468024411252599856358194597435530767120449722762205465747607 10.153553044946 (w2_crate qd (#195))       +7.0e+00
+  10   -12.0442650147438       15    3.4704848385699367581670403038496208836497619421348622058227131295070355085508487 12.044265014498 (w2_crate qd (#195))       +8.6e+00
+  11   -13.9552091676647       15    3.7356671650007445490663780060885975310971639308103804778437218099394115721957695 13.955209167496 (w2_crate qd (#195))       +1.0e+01
+  20   -31.5751101285105       15    5.6191734381944912521458083131726566590821808127492507772873848391494969915379957 31.575110128358 (w2_crate qd (#195))       +2.6e+01
+  50   -91.3457759137153       15    9.5574984129590782788968235747454867950503979612088570159172651008058522981737677 91.345775913630 (w2_crate qd (#195))       +8.2e+01
+  100  -191.283017729717       15    13.830510392957918601124405704203452715309255115301903065971713949628524760444290 191.283017730359 (w2_crate qd (#195))      +1.8e+02
+
+  against the crate (qd, w2_output.txt), and F1: the digits TS13's printed values share with it
+  D    crate (qd)                       crate - TS13    relative    agreeing digits   last printed decimal
+  4    1.39705243433350684047           +2.15e-01    1.5e-01       0.81            14th: differs by 2.15e+13 units
+  5    2.98495893035176025288           +1.26e+00    4.2e-01       0.38            14th: differs by 1.26e+14 units
+  6    4.68662054311946478597           +2.52e+00    5.4e-01       0.27            14th: differs by 2.52e+14 units
+  7    6.46258414136979192072           +3.92e+00    6.1e-01       0.22            14th: differs by 3.92e+14 units
+  8    8.28975936307247807905           +5.41e+00    6.5e-01       0.19            14th: differs by 5.41e+14 units
+  9    10.1535530449455332068           +6.97e+00    6.9e-01       0.16            13th: differs by 6.97e+13 units
+  10   12.044265014497883034            +8.57e+00    7.1e-01       0.15            13th: differs by 8.57e+13 units
+  11   13.9552091674964118962           +1.02e+01    7.3e-01       0.14            13th: differs by 1.02e+14 units
+  20   31.5751101283584884014           +2.60e+01    8.2e-01       0.09            13th: differs by 2.6e+14 units
+  50   91.345775913629637607            +8.18e+01    9.0e-01       0.05            13th: differs by 8.18e+14 units
+  100  191.283017730358956057           +1.77e+02    9.3e-01       0.03            12th: differs by 1.77e+14 units
+  F1: TS13's printed digits agree with the crate to the last printed decimal at 0 of 11 rows; they agree to 0.03 .. 0.81 significant digits
+
+  one_mode.log N4 (TS13's own W(r), shooting; shares no code with the crate) against TS13 and the crate
+  D    one_mode -E         crate rounded    TS13 - one_mode    crate - one_mode
+  4    1.39705243433       1.39705243433    -2.15e-01         +3.51e-12
+  10   12.0442650145       12.0442650145    -8.57e+00         -2.12e-12
+  20   31.5751101284       31.5751101284    -2.60e+01         -4.15e-11
+  50   91.3457759136       91.3457759136    -8.18e+01         +2.96e-11
+
+  growth.csv's D = 4..11 rows: A the old rows (OLD_ROWS: TS13 printed, rounded), B the current rows (the crate rounded to 12 decimals)
+  D    A - crate    B - crate    A = B at 8 decimals   A = B at 10 decimals
+  4    -6.19e-10   +4.93e-13   yes                   NO
+  5    -7.38e-11   +2.40e-13   yes                   NO
+  6    -1.24e-10   -4.65e-13   yes                   NO
+  7    -1.07e-10   +2.08e-13   yes                   NO
+  8    -9.48e-12   -4.78e-13   yes                   yes
+  9    +2.41e-10   +4.67e-13   NO                    NO
+  10   +2.46e-10   +1.17e-13   yes                   NO
+  11   +1.69e-10   -4.12e-13   yes                   NO
+
+2 failed: ['C1', 'K1']
+exit 1

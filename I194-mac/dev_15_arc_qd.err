@@ -1,0 +1,74 @@
+chunk 1 start: alpha_c 1.066518 fnorm ["1.6e-3", "5.9e-25", "1.8e-30"]
+chunk 1: 10 points, refused 0, stalled false, alpha_c 1.083695 omega 0.43811783 t 4.4s
+chunk 2 start: alpha_c 1.083695 fnorm ["1.8e-2", "5.6e-24", "1.8e-30"]
+chunk 2: 10 points, refused 1, stalled false, alpha_c 1.110438 omega 0.42827271 t 19.8s
+chunk 3 start: alpha_c 1.110438 fnorm ["3.3e-2", "3.7e-24", "3.0e-30"]
+chunk 3: 10 points, refused 0, stalled false, alpha_c 1.144298 omega 0.42321222 t 6.8s
+chunk 4 start: alpha_c 1.144298 fnorm ["5.0e-2", "1.5e-23", "1.0e-30"]
+chunk 4: 10 points, refused 0, stalled false, alpha_c 1.183365 omega 0.42239362 t 8.1s
+chunk 5 start: alpha_c 1.183365 fnorm ["1.5e-1", "7.9e-23", "3.4e-30"]
+chunk 5: 10 points, refused 0, stalled false, alpha_c 1.228297 omega 0.42489442 t 25.4s
+chunk 6 start: alpha_c 1.228297 fnorm ["2.4e-1", "5.4e-22", "9.7e-31"]
+chunk 6: 10 points, refused 0, stalled false, alpha_c 1.279242 omega 0.43018783 t 6.4s
+chunk 7 start: alpha_c 1.279242 fnorm ["3.1e-1", "7.1e-21", "2.9e-30"]
+chunk 7: 10 points, refused 0, stalled false, alpha_c 1.336144 omega 0.43789505 t 7.9s
+chunk 8 start: alpha_c 1.336144 fnorm ["2.3e-1", "1.5e-20", "2.8e-30"]
+chunk 8: 10 points, refused 0, stalled false, alpha_c 1.400677 omega 0.44802548 t 10.4s
+chunk 9 start: alpha_c 1.400677 fnorm ["3.0e-1", "1.2e-19", "2.0e-30"]
+chunk 9: 10 points, refused 1, stalled false, alpha_c 1.467596 omega 0.45951898 t 11.6s
+chunk 10 start: alpha_c 1.467596 fnorm ["3.9e-1", "4.6e-20", "3.5e-30"]
+chunk 10: 10 points, refused 0, stalled false, alpha_c 1.537967 omega 0.47232340 t 41.0s
+chunk 11 start: alpha_c 1.537967 fnorm ["4.9e-1", "1.3e-18", "4.3e-30"]
+chunk 11: 10 points, refused 0, stalled false, alpha_c 1.599492 omega 0.48394233 t 10.7s
+chunk 12 start: alpha_c 1.599492 fnorm ["6.4e-1", "6.2e-20", "3.0e-30"]
+chunk 12: 10 points, refused 0, stalled false, alpha_c 1.655881 omega 0.49485024 t 11.1s
+chunk 13 start: alpha_c 1.655881 fnorm ["3.9e-1", "2.6e-5", "4.3e-26", "1.9e-30"]
+chunk 13: 10 points, refused 0, stalled false, alpha_c 1.706249 omega 0.50475896 t 11.1s
+chunk 14 start: alpha_c 1.706249 fnorm ["3.9e-1", "9.6e-6", "7.3e-27", "2.6e-30"]
+chunk 14: 10 points, refused 0, stalled false, alpha_c 1.753132 omega 0.51409761 t 11.6s
+chunk 15 start: alpha_c 1.753132 fnorm ["5.7e-1", "2.1e-6", "4.0e-28", "2.7e-30"]
+chunk 15: 10 points, refused 0, stalled false, alpha_c 1.796950 omega 0.52291047 t 11.6s
+chunk 16 start: alpha_c 1.796950 fnorm ["4.1e-1", "2.1e-7", "1.2e-29"]
+chunk 16: 10 points, refused 0, stalled false, alpha_c 1.838228 omega 0.53127772 t 11.7s
+chunk 17 start: alpha_c 1.838228 fnorm ["5.4e-1", "3.6e-7", "4.9e-29"]
+chunk 17: 10 points, refused 0, stalled false, alpha_c 1.877471 omega 0.53928353 t 10.8s
+chunk 18 start: alpha_c 1.877471 fnorm ["3.8e-1", "7.7e-8", "6.1e-30"]
+chunk 18: 10 points, refused 0, stalled false, alpha_c 1.914408 omega 0.54685972 t 11.2s
+chunk 19 start: alpha_c 1.914408 fnorm ["4.2e-1", "1.0e-7", "1.0e-29"]
+chunk 19: 10 points, refused 0, stalled false, alpha_c 1.950448 omega 0.55428604 t 11.1s
+chunk 20 start: alpha_c 1.950448 fnorm ["4.8e-1", "4.0e-8", "2.1e-30"]
+chunk 20: 10 points, refused 0, stalled false, alpha_c 1.984907 omega 0.56141529 t 10.7s
+chunk 21 start: alpha_c 1.984907 fnorm ["4.4e-1", "4.3e-8", "2.7e-30"]
+
+thread 'main' (102582421) panicked at src/table.rs:230:44:
+range end index 56 out of range for slice of length 30
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 952, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 919, in main
+    lines = run_stage(stage)
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 700, in run_stage
+    lines = rust(st["cmd"], timeout=3600, tag=f"{TAG or name}{'_' + MUTATE if MUTATE else ''}", **kw)
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 104, in rust
+    raise RuntimeError(f"{' '.join(args)} exited {p.returncode}")
+RuntimeError: /Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial/target/release/taylor_radial arc eps=-1 omega=0.66 omega_to=0.45 dw=0.003 alphas=1.1,1.15,1.17,1.2,1.25,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2.0 verbose=1 alpha_stop=2.0 chunk=10 ds=0.05 ds_max=5 modes=1.1,1.2,1.5,2.0 zvariants=2.0 exited 101
+      387.38 real       585.33 user         4.58 sys
+           583204864  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              128954  page reclaims
+                 531  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  64  voluntary context switches
+              382570  involuntary context switches
+           405649601  instructions retired
+           165477220  cycles elapsed
+            17318440  peak memory footprint
