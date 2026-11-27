@@ -1,0 +1,33 @@
+# planted values at eaf55a8 (pre_eaf55a8_mutate.log) against b6d7087's code (post_02691af_test_mutate.log, the run of 02691af)
+# lines '[PASS|NOT MET|met] ...' of the planted checks, controls excluded; the format of three checks changed (stop printed, 'observation'), normalized by sed:
+#   sed -E 's/stop (End|Pivot), //; s/: observation,/:/; s/ None:/:/; s/ None / /'
+# pre:      167 lines, post:      194 lines
+# lines only in pre (a value that changed or disappeared):        0
+# lines only in post (new checks):
+[PASS] dd Q-A l = 0.25: worst sum|dc_k| / (eps sum|c_k|) 1.61e-1 (bar 1e6)
+[PASS] dd Q-A l = 1: worst sum|dc_k| / (eps sum|c_k|) 1.15e1 (bar 1e6)
+[PASS] dd: 1 crossings after two forms at the end of one step, the first at 0.00e0 from 0
+[PASS] dd: advance without form refused true, walk to 2 off by 0.00e0, refused after set_y true, after a stop true
+[PASS] dd: empty polynomial returns true, constant kept true, 1 + 2x + 3x^2 about 2 exact true
+[PASS] dd: first run Pivot with an estimate true, second run End with one false
+[PASS] dd: stop End after 1 steps, state off by 3.08e-33, 1 crossings, the first 0.00e0 from 0
+[PASS] dd: stop End at 2, 1 landings, 8 steps against 8 with the checkpoint once
+[PASS] f64 Q-A l = 0.25: worst sum|dc_k| / (eps sum|c_k|) 3.16e-2 (bar 1e6)
+[PASS] f64 Q-A l = 1: worst sum|dc_k| / (eps sum|c_k|) 1.21e1 (bar 1e6)
+[PASS] f64: 1 crossings after two forms at the end of one step, the first at 0.00e0 from 0
+[PASS] f64: advance without form refused true, walk to 2 off by 0.00e0, refused after set_y true, after a stop true
+[PASS] f64: empty polynomial returns true, constant kept true, 1 + 2x + 3x^2 about 2 exact true
+[PASS] f64: estimate x = 1, beta = 1 for x = 1, beta = 1
+[PASS] f64: first run Pivot with an estimate true, second run End with one false
+[PASS] f64: pivot 2^-1030, y''_1 = 1e0, worst difference from y'' = x's series 0.00e0
+[PASS] f64: stop End after 1 steps, state off by 5.55e-17, 1 crossings, the first 0.00e0 from 0
+[PASS] f64: stop End at 2, 1 landings, 8 steps against 8 with the checkpoint once
+[PASS] f64: y''_2 = 6.223015277861142e-61 for 2^-200 = 6.223015277861142e-61, relative error 0.00e0
+[PASS] qd Q-A l = 0.25: worst sum|dc_k| / (eps sum|c_k|) 2.22e-1 (bar 1e6)
+[PASS] qd Q-A l = 1: worst sum|dc_k| / (eps sum|c_k|) 2.31e0 (bar 1e6)
+[PASS] qd: 1 crossings after two forms at the end of one step, the first at 0.00e0 from 0
+[PASS] qd: advance without form refused true, walk to 2 off by 0.00e0, refused after set_y true, after a stop true
+[PASS] qd: empty polynomial returns true, constant kept true, 1 + 2x + 3x^2 about 2 exact true
+[PASS] qd: first run Pivot with an estimate true, second run End with one false
+[PASS] qd: stop End after 1 steps, state off by 9.50e-66, 1 crossings, the first 0.00e0 from 0
+[PASS] qd: stop End at 2, 1 landings, 8 steps against 8 with the checkpoint once

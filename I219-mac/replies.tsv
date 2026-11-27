@@ -1,0 +1,19 @@
+PRRT_kwDOVqMTLM68pIUG	Fixed in e7a3df3.
+PRRT_kwDOVqMTLM68pIUM	Fixed in e7a3df3: the README and the `Branch` docs now say `Project` is one Newton correction and promise neither a zero of N nor a crossing.
+PRRT_kwDOVqMTLM68pIUR	Fixed in 97ab1ff.
+PRRT_kwDOVqMTLM68pIUZ	Fixed in b52b50e: `l^j` is applied in pieces that stay normal where it is not an `f64`, so `y''_2` of the example is 2^-200.
+PRRT_kwDOVqMTLM68pIUe	Fixed in 9d0b921: `form` divides by `A0` where the cached reciprocal is not finite.
+PRRT_kwDOVqMTLM68pIUk	Fixed in b6630a0: each accepted step's crossing is looked for once, however often `form` runs.
+PRRT_kwDOVqMTLM68pIUr	Fixed in 2b05b94: the three coefficients are scaled by one power of two before `rho`.
+PRRT_kwDOVqMTLM68pIUz	Fixed in 6547399: `advance` returns `Stop::NotFormed` unless a `form` succeeded for the current state, and `advance`, `set_y` and a stopped `form` clear that.
+PRRT_kwDOVqMTLM68pIU6	Fixed in 682eb5a.
+PRRT_kwDOVqMTLM68pIU-	Fixed in e25569b: `run` evaluates `A0` at the end of the last accepted step, without projecting it or stepping, and records the crossing.
+PRRT_kwDOVqMTLM68pIVF	Fixed in b68b9de.
+PRRT_kwDOVqMTLM68pIVN	Fixed in 0fe9e37: a NaN position now fails `crossings`, and so does a NaN end state in `closed_form`, each with a control.
+PRRT_kwDOVqMTLM68pIVS	Fixed in 5675c3a: a control flips the last bit of every planned step and the check must report all five.
+PRRT_kwDOVqMTLM68pIVZ	Fixed in 24933e4: the worst ratio keeps a NaN, and a control feeds the check one.
+PRRT_kwDOVqMTLM68pIVc	Fixed in 26ff096: `path_steps` returns the stop and only accepted steps, and the check needs the planned stop and at least one step, with two controls that cut a path short.
+PRRT_kwDOVqMTLM68pIVf	Fixed in 7897d40: the gated check is now the sum of the coefficient errors against the sum of the coefficients at s = 1, with two controls, and the per-coefficient bound is printed as an observation.
+PRRT_kwDOVqMTLM68pIVk	Fixed in 6a2fdfd.
+PRRT_kwDOVqMTLM68pIVn	Fixed in 6a2fdfd: a coefficient off by 1e-20 and a NaN in each lane must fail the check.
+PRRT_kwDOVqMTLM68pIVt	Fixed in 15b83c4: `digest-full` adds the checkpoint states, stops and crossing steps, `digest_od` covers the octo-double cells, and the first digest keeps its values.

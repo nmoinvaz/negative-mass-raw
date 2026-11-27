@@ -1,0 +1,730 @@
+﻿2026-11-27T06:30:45.0633092Z Current runner version: '2.338.2'
+2026-11-27T06:30:45.0668907Z ##[group]Runner Image Provisioner
+2026-11-27T06:30:45.0670221Z Hosted Compute Agent
+2026-11-27T06:30:45.0671127Z Version: 20261111.635
+2026-11-27T06:30:45.0672186Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-27T06:30:45.0673328Z Build Date: 2026-11-11T01:49:01Z
+2026-11-27T06:30:45.0674541Z Worker ID: {76eae872-502e-4d27-b00f-deadaeb8d807}
+2026-11-27T06:30:45.0675685Z Region: centralus
+2026-11-27T06:30:45.0676765Z Cloud: Azure
+2026-11-27T06:30:45.0677691Z ##[endgroup]
+2026-11-27T06:30:45.0679917Z ##[group]Operating System
+2026-11-27T06:30:45.0680926Z Ubuntu
+2026-11-27T06:30:45.0681851Z 26.04.1
+2026-11-27T06:30:45.0682661Z LTS
+2026-11-27T06:30:45.0683501Z ##[endgroup]
+2026-11-27T06:30:45.0684378Z ##[group]Runner Image
+2026-11-27T06:30:45.0685501Z Image: ubuntu-26.04
+2026-11-27T06:30:45.0686782Z Version: 20261116.202.1
+2026-11-27T06:30:45.0688978Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261116.202/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-27T06:30:45.0691955Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261116.202
+2026-11-27T06:30:45.0693891Z ##[endgroup]
+2026-11-27T06:30:45.0696182Z ##[group]GITHUB_TOKEN Permissions
+2026-11-27T06:30:45.0699301Z Contents: read
+2026-11-27T06:30:45.0700550Z Metadata: read
+2026-11-27T06:30:45.0701633Z Packages: read
+2026-11-27T06:30:45.0702641Z ##[endgroup]
+2026-11-27T06:30:45.0706408Z Secret source: Actions
+2026-11-27T06:30:45.0708196Z Cache mode: write
+2026-11-27T06:30:45.0709969Z Prepare workflow directory
+2026-11-27T06:30:45.1278079Z Prepare all required actions
+2026-11-27T06:30:45.1327558Z Getting action download info
+2026-11-27T06:30:45.3688299Z Download action repository 'actions/checkout@v7' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-27T06:30:45.5546369Z Complete job name: Ubuntu x86_64 AVX2
+2026-11-27T06:30:45.6419875Z ##[group]Run actions/checkout@v7
+2026-11-27T06:30:45.6420818Z with:
+2026-11-27T06:30:45.6421528Z   repository: nmoinvaz/multishoot
+2026-11-27T06:30:45.6426041Z   token: ***
+2026-11-27T06:30:45.6426581Z   ssh-strict: true
+2026-11-27T06:30:45.6427073Z   ssh-user: git
+2026-11-27T06:30:45.6427575Z   persist-credentials: true
+2026-11-27T06:30:45.6428102Z   clean: true
+2026-11-27T06:30:45.6428603Z   sparse-checkout-cone-mode: true
+2026-11-27T06:30:45.6429167Z   fetch-depth: 1
+2026-11-27T06:30:45.6429642Z   fetch-tags: false
+2026-11-27T06:30:45.6430134Z   show-progress: true
+2026-11-27T06:30:45.6430627Z   lfs: false
+2026-11-27T06:30:45.6431082Z   submodules: false
+2026-11-27T06:30:45.6431576Z   set-safe-directory: true
+2026-11-27T06:30:45.6432124Z   allow-unsafe-pr-checkout: false
+2026-11-27T06:30:45.6433000Z env:
+2026-11-27T06:30:45.6433494Z   CARGO_TERM_COLOR: always
+2026-11-27T06:30:45.6434088Z   RUSTFLAGS: -C target-feature=+avx2,+fma
+2026-11-27T06:30:45.6434686Z ##[endgroup]
+2026-11-27T06:30:45.9631244Z Syncing repository: nmoinvaz/multishoot
+2026-11-27T06:30:45.9633513Z ##[group]Getting Git version info
+2026-11-27T06:30:45.9634513Z Working directory is '/home/runner/work/multishoot/multishoot'
+2026-11-27T06:30:45.9635797Z [command]/usr/bin/git version
+2026-11-27T06:30:45.9643836Z git version 2.56.1
+2026-11-27T06:30:45.9665581Z ##[endgroup]
+2026-11-27T06:30:45.9676406Z Temporarily overriding HOME='/home/runner/work/_temp/40619463-17e0-4827-8d8f-3a8be7039a06' before making global git config changes
+2026-11-27T06:30:45.9678125Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-27T06:30:45.9681982Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/multishoot/multishoot
+2026-11-27T06:30:45.9753233Z Deleting the contents of '/home/runner/work/multishoot/multishoot'
+2026-11-27T06:30:45.9755646Z ##[group]Determining repository object format
+2026-11-27T06:30:45.9757525Z ##[endgroup]
+2026-11-27T06:30:45.9758594Z ##[group]Initializing the repository
+2026-11-27T06:30:45.9761026Z [command]/usr/bin/git init /home/runner/work/multishoot/multishoot
+2026-11-27T06:30:45.9886390Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-27T06:30:45.9888278Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-27T06:30:45.9889635Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-27T06:30:45.9890616Z hint: call:
+2026-11-27T06:30:45.9891166Z hint:
+2026-11-27T06:30:45.9892219Z hint: 	git config --global init.defaultBranch <name>
+2026-11-27T06:30:45.9893059Z hint:
+2026-11-27T06:30:45.9893830Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-27T06:30:45.9895385Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-27T06:30:45.9896718Z hint:
+2026-11-27T06:30:45.9897844Z hint: 	git branch -m <name>
+2026-11-27T06:30:45.9898988Z hint:
+2026-11-27T06:30:45.9900482Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-27T06:30:45.9902107Z Initialized empty Git repository in /home/runner/work/multishoot/multishoot/.git/
+2026-11-27T06:30:45.9910659Z [command]/usr/bin/git remote add origin https://github.com/nmoinvaz/multishoot
+2026-11-27T06:30:45.9965138Z ##[endgroup]
+2026-11-27T06:30:45.9966547Z ##[group]Disabling automatic garbage collection
+2026-11-27T06:30:45.9967881Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-27T06:30:46.0000349Z ##[endgroup]
+2026-11-27T06:30:46.0001596Z ##[group]Setting up auth
+2026-11-27T06:30:46.0002344Z Removing SSH command configuration
+2026-11-27T06:30:46.0005249Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-27T06:30:46.0037276Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-27T06:30:46.0483758Z Removing HTTP extra header
+2026-11-27T06:30:46.0490304Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-27T06:30:46.0524623Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-27T06:30:46.0788032Z Removing includeIf entries pointing to credentials config files
+2026-11-27T06:30:46.0793554Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-27T06:30:46.0829125Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-27T06:30:46.1117064Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-4288c457-4750-4f1e-b1a7-b9684b567307.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-27T06:30:46.1158671Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/multishoot/multishoot/.git.path /home/runner/work/_temp/git-credentials-4288c457-4750-4f1e-b1a7-b9684b567307.config
+2026-11-27T06:30:46.1192232Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/multishoot/multishoot/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-4288c457-4750-4f1e-b1a7-b9684b567307.config
+2026-11-27T06:30:46.1230099Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-4288c457-4750-4f1e-b1a7-b9684b567307.config
+2026-11-27T06:30:46.1266900Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-4288c457-4750-4f1e-b1a7-b9684b567307.config
+2026-11-27T06:30:46.1298092Z ##[endgroup]
+2026-11-27T06:30:46.1299873Z ##[group]Fetching the repository
+2026-11-27T06:30:46.1306254Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +cbcf4a41ea0e8e220619167929fb1f2eb91e96b6:refs/remotes/pull/73/merge
+2026-11-27T06:30:46.5459448Z From https://github.com/nmoinvaz/multishoot
+2026-11-27T06:30:46.5460982Z  * [new ref]         cbcf4a41ea0e8e220619167929fb1f2eb91e96b6 -> pull/73/merge
+2026-11-27T06:30:46.5464066Z ##[endgroup]
+2026-11-27T06:30:46.5465115Z ##[group]Determining the checkout info
+2026-11-27T06:30:46.5466789Z ##[endgroup]
+2026-11-27T06:30:46.5470640Z [command]/usr/bin/git sparse-checkout disable
+2026-11-27T06:30:46.5531379Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-27T06:30:46.5566565Z ##[group]Checking out the ref
+2026-11-27T06:30:46.5570834Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/73/merge
+2026-11-27T06:30:46.5741713Z Note: switching to 'refs/remotes/pull/73/merge'.
+2026-11-27T06:30:46.5742656Z 
+2026-11-27T06:30:46.5743406Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-27T06:30:46.5744738Z changes and commit them, and you can discard any commits you make in this
+2026-11-27T06:30:46.5746228Z state without impacting any branches by switching back to a branch.
+2026-11-27T06:30:46.5746960Z 
+2026-11-27T06:30:46.5747520Z If you want to create a new branch to retain commits you create, you may
+2026-11-27T06:30:46.5748690Z do so (now or later) by using -c with the switch command. Example:
+2026-11-27T06:30:46.5749372Z 
+2026-11-27T06:30:46.5749739Z   git switch -c <new-branch-name>
+2026-11-27T06:30:46.5750219Z 
+2026-11-27T06:30:46.5750581Z Or undo this operation with:
+2026-11-27T06:30:46.5751013Z 
+2026-11-27T06:30:46.5751414Z   git switch -
+2026-11-27T06:30:46.5751953Z 
+2026-11-27T06:30:46.5752896Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-27T06:30:46.5754355Z 
+2026-11-27T06:30:46.5756089Z HEAD is now at cbcf4a4 Merge 02691afae3eb086e821f2883e081d0cc3a11b7a6 into 7b14116305f96074344c34c6a13dbbd4697a718b
+2026-11-27T06:30:46.5759525Z ##[endgroup]
+2026-11-27T06:30:46.5802094Z [command]/usr/bin/git log -1 --format=%H
+2026-11-27T06:30:46.5828816Z cbcf4a41ea0e8e220619167929fb1f2eb91e96b6
+2026-11-27T06:30:46.6150990Z ##[group]Run cargo build --release 
+2026-11-27T06:30:46.6152050Z cargo build --release 
+2026-11-27T06:30:46.6189653Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-27T06:30:46.6190805Z env:
+2026-11-27T06:30:46.6191370Z   CARGO_TERM_COLOR: always
+2026-11-27T06:30:46.6192183Z   RUSTFLAGS: -C target-feature=+avx2,+fma
+2026-11-27T06:30:46.6193088Z ##[endgroup]
+2026-11-27T06:30:47.9916815Z     Updating crates.io index
+2026-11-27T06:30:48.5059169Z  Downloading crates ...
+2026-11-27T06:30:48.6174135Z   Downloaded crossbeam-deque v0.8.8
+2026-11-27T06:30:48.6196303Z   Downloaded either v1.19.0
+2026-11-27T06:30:48.6275634Z   Downloaded crossbeam-epoch v0.9.21
+2026-11-27T06:30:48.6284622Z   Downloaded crossbeam-utils v0.8.23
+2026-11-27T06:30:48.6358668Z   Downloaded rayon-core v1.13.0
+2026-11-27T06:30:48.6401686Z   Downloaded multisolver v0.2.2
+2026-11-27T06:30:48.6437761Z   Downloaded rayon v1.12.0
+2026-11-27T06:30:48.6531465Z   Downloaded multidouble v5.1.0
+2026-11-27T06:30:48.6881192Z    Compiling crossbeam-utils v0.8.23
+2026-11-27T06:30:48.6882471Z    Compiling crossbeam-epoch v0.9.21
+2026-11-27T06:30:48.6883369Z    Compiling crossbeam-deque v0.8.8
+2026-11-27T06:30:48.6884000Z    Compiling rayon-core v1.13.0
+2026-11-27T06:30:53.1127242Z    Compiling either v1.19.0
+2026-11-27T06:30:54.6088878Z    Compiling rayon v1.12.0
+2026-11-27T06:30:56.8338277Z    Compiling multidouble v5.1.0
+2026-11-27T06:30:59.6498836Z    Compiling multisolver v0.2.2
+2026-11-27T06:31:02.2257591Z    Compiling multishoot v4.2.0 (/home/runner/work/multishoot/multishoot)
+2026-11-27T06:31:33.0231251Z     Finished `release` profile [optimized] target(s) in 46.02s
+2026-11-27T06:31:33.0464508Z ##[group]Run cargo test --release 
+2026-11-27T06:31:33.0464854Z cargo test --release 
+2026-11-27T06:31:33.0498494Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-27T06:31:33.0498845Z env:
+2026-11-27T06:31:33.0499049Z   CARGO_TERM_COLOR: always
+2026-11-27T06:31:33.0499315Z   RUSTFLAGS: -C target-feature=+avx2,+fma
+2026-11-27T06:31:33.0499593Z ##[endgroup]
+2026-11-27T06:31:33.0979610Z    Compiling multishoot v4.2.0 (/home/runner/work/multishoot/multishoot)
+2026-11-27T06:35:05.8403764Z     Finished `release` profile [optimized] target(s) in 3m 32s
+2026-11-27T06:35:05.8547035Z      Running unittests src/lib.rs (target/release/build/multishoot/d916e899c5c99203/out/multishoot-d916e899c5c99203)
+2026-11-27T06:35:05.8559151Z 
+2026-11-27T06:35:05.8559369Z running 21 tests
+2026-11-27T06:35:05.8618269Z test lane::tests::recip_parts_control_one_ulp_fails ... ok
+2026-11-27T06:35:05.8636598Z test periodic::tests::dmat_control_wrong_parity_fails ... ok
+2026-11-27T06:35:05.8666662Z test periodic::tests::dmat_differentiates_harmonics ... ok
+2026-11-27T06:35:05.8672620Z test periodic::tests::pi_od_control_quad_parts_fail ... ok
+2026-11-27T06:35:05.8673394Z test periodic::tests::pi_od_is_pi ... ok
+2026-11-27T06:35:05.8674108Z test periodic::tests::resampler_factor_in_double_double ... ok
+2026-11-27T06:35:05.8674809Z test periodic::tests::sin_cos_agree ... ok
+2026-11-27T06:35:05.8675444Z test periodic::tests::dmat_control_transposed_differs ... ok
+2026-11-27T06:35:05.8676583Z test periodic::tests::sin_cos_pi_large_q_control_former_remainder_fails ... ok
+2026-11-27T06:35:05.8706848Z test periodic::tests::dmat_equals_direct_sums ... ok
+2026-11-27T06:35:05.8746222Z test lane::tests::recip_parts_are_one_over_k ... ok
+2026-11-27T06:35:05.8747092Z test periodic::tests::sin_cos_pi_od_control_short_series_fails ... ok
+2026-11-27T06:35:05.8747854Z test periodic::tests::sin_cos_pi_reduces_large_p ... ok
+2026-11-27T06:35:05.8760647Z test periodic::tests::sin_cos_pi_reduction_control_half_period_differs ... ok
+2026-11-27T06:35:05.8761448Z test taylor::tests::kth_root_agrees_with_powf ... ok
+2026-11-27T06:35:05.8762130Z test periodic::tests::sin_cos_pi_takes_large_denominators ... ok
+2026-11-27T06:35:05.8776579Z test taylor::tests::kth_root_control_neighbours_fail ... ok
+2026-11-27T06:35:05.8777609Z test taylor::tests::steps_within_is_the_largest_count ... ok
+2026-11-27T06:35:05.8786954Z test taylor::tests::kth_root_follows_its_input ... ok
+2026-11-27T06:35:05.8791261Z test taylor::tests::kth_root_is_correctly_rounded ... ok
+2026-11-27T06:35:05.9453161Z test periodic::tests::sin_cos_pi_od_agrees ... ok
+2026-11-27T06:35:05.9453573Z 
+2026-11-27T06:35:05.9454030Z test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+2026-11-27T06:35:05.9454421Z 
+2026-11-27T06:35:05.9456629Z      Running tests/anm.rs (target/release/build/multishoot/a6ceac81321b9697/out/anm-a6ceac81321b9697)
+2026-11-27T06:35:05.9467260Z 
+2026-11-27T06:35:05.9467439Z running 2 tests
+2026-11-27T06:35:05.9641824Z test anm_follows_the_eigenvalue_through_shooting ... ok
+2026-11-27T06:35:05.9988847Z test anm_series_through_the_session_is_bitwise ... ok
+2026-11-27T06:35:05.9989473Z 
+2026-11-27T06:35:05.9989993Z test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+2026-11-27T06:35:05.9990669Z 
+2026-11-27T06:35:05.9995071Z      Running tests/damping.rs (target/release/build/multishoot/467ec74962a17085/out/damping-467ec74962a17085)
+2026-11-27T06:35:06.0004745Z 
+2026-11-27T06:35:06.0004947Z running 4 tests
+2026-11-27T06:35:06.4077420Z test correction_rule_is_affine_covariant ... ok
+2026-11-27T06:35:06.7246506Z test residual_rule_evaluates_once_per_trial ... ok
+2026-11-27T06:35:06.8221735Z test correction_rule_converges_where_residual_rule_refuses ... ok
+2026-11-27T06:35:06.9032110Z test affine_covariance_control_residual_rule_differs ... ok
+2026-11-27T06:35:06.9032746Z 
+2026-11-27T06:35:06.9033629Z test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.90s
+2026-11-27T06:35:06.9034026Z 
+2026-11-27T06:35:06.9039328Z      Running tests/dmat_c.rs (target/release/build/multishoot/8736f8bc30a9c477/out/dmat_c-8736f8bc30a9c477)
+2026-11-27T06:35:06.9050228Z 
+2026-11-27T06:35:06.9050397Z running 11 tests
+2026-11-27T06:35:06.9466694Z test dmat_c_apply_at_control_without_remainder_differs ... ok
+2026-11-27T06:35:06.9496333Z test dmat_c_apply_at_is_apply ... ok
+2026-11-27T06:35:06.9836544Z test dmat_c_parts_match_mpmath ... ok
+2026-11-27T06:35:06.9929170Z test dmat_c_row_sums_by_lane ... ok
+2026-11-27T06:35:06.9936740Z test dmat_c_mpmath_control_without_remainder_fails ... ok
+2026-11-27T06:35:07.0036988Z test dmat_c_rows_control_one_remainder_moved_fails ... ok
+2026-11-27T06:35:07.0153966Z test dmat_c_split_control_without_row_sums_fails ... ok
+2026-11-27T06:35:07.0267516Z test dmat_c_split_exact_with_row_sums ... ok
+2026-11-27T06:35:07.0526727Z test dmat_c_rows_sum_to_zero ... ok
+2026-11-27T06:35:07.1888770Z test dmat_c_differentiates_harmonics_in_wide_lanes ... ok
+2026-11-27T06:35:07.1908857Z test dmat_c_harmonics_control_without_remainder_fails ... ok
+2026-11-27T06:35:07.1909330Z 
+2026-11-27T06:35:07.1909751Z test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.29s
+2026-11-27T06:35:07.1910366Z 
+2026-11-27T06:35:07.1914523Z      Running tests/eigen.rs (target/release/build/multishoot/084e98a93b94dce2/out/eigen-084e98a93b94dce2)
+2026-11-27T06:35:07.1924092Z 
+2026-11-27T06:35:07.1924269Z running 9 tests
+2026-11-27T06:35:07.2000185Z test eigenpair_control_phase_row_along_amplitude_fails ... ok
+2026-11-27T06:35:07.2099413Z test jet_bytes_control_one_ulp_differs ... ok
+2026-11-27T06:35:07.2100175Z test jet_bytes_match_reference ... ok
+2026-11-27T06:35:07.2114451Z test jet_orders_match_central_differences ... ok
+2026-11-27T06:35:07.2156326Z test jet_control_frozen_parameter_fails ... ok
+2026-11-27T06:35:07.2309560Z test jet_precisions_control_wrong_quad_fails ... ok
+2026-11-27T06:35:07.2310497Z test jet_precisions_agree ... ok
+2026-11-27T06:35:07.2334784Z test eigenpair_control_wrong_coefficient_fails ... ok
+2026-11-27T06:35:07.2335461Z test eigenpair_converges_in_double_and_quad ... ok
+2026-11-27T06:35:07.2336019Z 
+2026-11-27T06:35:07.2336455Z test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+2026-11-27T06:35:07.2337056Z 
+2026-11-27T06:35:07.2340223Z      Running tests/family.rs (target/release/build/multishoot/e539dbbee815eaff/out/family-e539dbbee815eaff)
+2026-11-27T06:35:07.2349898Z 
+2026-11-27T06:35:07.2350038Z running 4 tests
+2026-11-27T06:35:07.2894963Z test family_is_the_layout_reindexed ... ok
+2026-11-27T06:35:11.0670844Z test bordered_factors_pass_the_fold ... ok
+2026-11-27T06:35:16.4362243Z test continuation_passes_the_bratu_fold ... ok
+2026-11-27T06:35:16.5594754Z test moved_fold_fails_the_fold_checks ... ok
+2026-11-27T06:35:16.5595251Z 
+2026-11-27T06:35:16.5596166Z test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 9.32s
+2026-11-27T06:35:16.5597033Z 
+2026-11-27T06:35:16.5603385Z      Running tests/fast.rs (target/release/build/multishoot/bb7806e17bc10ecf/out/fast-bb7806e17bc10ecf)
+2026-11-27T06:35:16.5614647Z 
+2026-11-27T06:35:16.5615019Z running 31 tests
+2026-11-27T06:35:16.6165746Z test assembled_bytes_match_reference ... ok
+2026-11-27T06:35:16.6178113Z test assembled_f64_jacobian_is_the_engines ... ok
+2026-11-27T06:35:16.6236999Z test assembled_f64_jacobian_control_unprojected_differs ... ok
+2026-11-27T06:35:16.6571550Z test assembled_bytes_control_one_ulp_differs ... ok
+2026-11-27T06:35:16.6770029Z test dd_columns_are_read_where_the_matrix_is_zero ... ok
+2026-11-27T06:35:16.6884761Z test dd_columns_control_not_given_differ ... ok
+2026-11-27T06:35:16.8198554Z test dd_columns_control_rounded_columns_differ ... ok
+2026-11-27T06:35:16.8303088Z test dd_columns_project_to_the_dd_jacobians_rows ... ok
+2026-11-27T06:35:16.8830387Z test f64_by_double_block_is_the_double_double_jacobian ... ok
+2026-11-27T06:35:16.9091559Z test f64_jacobian_and_staircase_scale_rows ... ok
+2026-11-27T06:35:16.9402290Z test f64_by_takes_each_blocks_lanes ... ok
+2026-11-27T06:35:16.9406400Z test f64_by_block_lanes_is_jacobian_f64 ... ok
+2026-11-27T06:35:17.0327626Z test f64_jacobians_match_the_exact_one ... ok
+2026-11-27T06:35:17.0517913Z test f64_projection_control_unprojected_fails ... ok
+2026-11-27T06:35:17.0521031Z test f64_scaling_control_wrong_factor_differs ... ok
+2026-11-27T06:35:17.0644975Z test f64_jacobian_projects_its_rows ... ok
+2026-11-27T06:35:17.0706490Z test four_tangents_control_base_precision_differs ... ok
+2026-11-27T06:35:17.1043556Z test four_tangents_equal_one ... ok
+2026-11-27T06:35:17.1884324Z test fast_bytes_match_reference ... ok
+2026-11-27T06:35:17.2466649Z test newton_step_mixed_control_other_storage_differs ... ok
+2026-11-27T06:35:17.2497846Z test mixed_newton_reaches_quad_double ... ok
+2026-11-27T06:35:17.2595341Z test fast_bytes_control_one_ulp_differs ... ok
+2026-11-27T06:35:17.2616560Z test pointwise_f64_control_coupled_differs ... ok
+2026-11-27T06:35:17.2678046Z test newton_step_mixed_is_the_loops_step ... ok
+2026-11-27T06:35:17.2770321Z test project_f64_block_refuses_bad_inputs ... ok
+2026-11-27T06:35:17.2786774Z test pointwise_f64_jacobian_equals_per_column ... ok
+2026-11-27T06:35:17.3031234Z test mixed_newton_converges ... ok
+2026-11-27T06:35:17.3085060Z test staircase_refuses_other_layouts ... ok
+2026-11-27T06:35:17.3102497Z test staircase_solves_the_f64_system ... ok
+2026-11-27T06:35:17.3132828Z test zero_dd_column_replaces_the_matrix_entries ... ok
+2026-11-27T06:35:17.4482271Z test quasi_mixed_newton_converges_from_fewer_factorizations ... ok
+2026-11-27T06:35:17.4482754Z 
+2026-11-27T06:35:17.4485599Z      Running tests/frobenius.rs (target/release/build/multishoot/d50d9564044ddda2/out/frobenius-d50d9564044ddda2)
+2026-11-27T06:35:17.4487061Z test result: ok. 31 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.89s
+2026-11-27T06:35:17.4487771Z 
+2026-11-27T06:35:17.4496418Z 
+2026-11-27T06:35:17.4496676Z running 6 tests
+2026-11-27T06:35:17.4532934Z test bessel_pointwise_jacobian_control_one_side_wrong_differs ... ok
+2026-11-27T06:35:17.4540600Z test bessel_pointwise_jacobian_equals_per_column ... ok
+2026-11-27T06:35:17.4543461Z test prepare_control_counts_each_evaluation ... ok
+2026-11-27T06:35:17.4547120Z test prepare_runs_once_per_evaluation ... ok
+2026-11-27T06:35:17.4559162Z test bessel_control_wrong_frobenius_coefficient_fails ... ok
+2026-11-27T06:35:17.4559869Z test bessel_converges_to_its_closed_form ... ok
+2026-11-27T06:35:17.4560147Z 
+2026-11-27T06:35:17.4563277Z test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+2026-11-27T06:35:17.4564644Z      Running tests/gcr.rs (target/release/build/multishoot/f8da5e5f81cceb90/out/gcr-f8da5e5f81cceb90)
+2026-11-27T06:35:17.4565314Z 
+2026-11-27T06:35:17.4574422Z 
+2026-11-27T06:35:17.4574599Z running 1 test
+2026-11-27T06:35:17.5485377Z test refined_newton_converges_like_exact_newton ... ok
+2026-11-27T06:35:17.5485801Z 
+2026-11-27T06:35:17.5486433Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+2026-11-27T06:35:17.5487043Z 
+2026-11-27T06:35:17.5490450Z      Running tests/implicit.rs (target/release/build/multishoot/9b0151d34fba104f/out/implicit-9b0151d34fba104f)
+2026-11-27T06:35:17.5499918Z 
+2026-11-27T06:35:17.5500056Z running 25 tests
+2026-11-27T06:35:17.5586348Z test closed_form_f64 ... ok
+2026-11-27T06:35:17.5776331Z test crossings_dd ... ok
+2026-11-27T06:35:17.5826366Z test crossings_f64 ... ok
+2026-11-27T06:35:17.5947034Z test closed_form_dd ... ok
+2026-11-27T06:35:17.6416222Z test digest_dd ... ok
+2026-11-27T06:35:17.6476181Z test digest_f64 ... ok
+2026-11-27T06:35:17.7526907Z test controls_without_hooks ... ok
+2026-11-27T06:35:17.7946336Z test digest_pinned_fails_on_a_flip ... ok
+2026-11-27T06:35:18.1647134Z test crossings_qd ... ok
+2026-11-27T06:35:18.1726324Z test digest_sees_a_checkpoint ... ok
+2026-11-27T06:35:18.1786308Z test edges_dd ... ok
+2026-11-27T06:35:18.1816251Z test edges_f64 ... ok
+2026-11-27T06:35:18.2926212Z test closed_form_qd ... ok
+2026-11-27T06:35:18.3046160Z test fold_dd ... ok
+2026-11-27T06:35:18.3076150Z test fold_f64 ... ok
+2026-11-27T06:35:18.3346601Z test edges_qd ... ok
+2026-11-27T06:35:18.3361447Z test lanes ... ok
+2026-11-27T06:35:18.3413027Z test lanes_controls ... ok
+2026-11-27T06:35:18.3863310Z test misc_dd ... ok
+2026-11-27T06:35:18.3946248Z test misc_f64 ... ok
+2026-11-27T06:35:18.5746411Z test fold_qd ... ok
+2026-11-27T06:35:18.6680303Z test digest_qd ... ok
+2026-11-27T06:35:19.8357051Z test misc_qd ... ok
+2026-11-27T06:35:23.8998830Z test digest_od ... ok
+2026-11-27T06:35:29.4154710Z test octo_double ... ok
+2026-11-27T06:35:29.4154922Z 
+2026-11-27T06:35:29.4155189Z test result: ok. 25 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 11.87s
+2026-11-27T06:35:29.4155542Z 
+2026-11-27T06:35:29.4160868Z      Running tests/interp.rs (target/release/build/multishoot/2c9c19b66e107817/out/interp-2c9c19b66e107817)
+2026-11-27T06:35:29.4172676Z 
+2026-11-27T06:35:29.4172816Z running 7 tests
+2026-11-27T06:35:29.4826405Z test arctan_map_inverts ... ok
+2026-11-27T06:35:29.5006550Z test mapped_dmat_differentiates_in_theta ... ok
+2026-11-27T06:35:29.5376439Z test identity_maps_give_the_uniform_grid ... ok
+2026-11-27T06:35:29.8326612Z test resample_in_moves_to_a_mapped_grid ... ok
+2026-11-27T06:35:29.8635688Z test interp_at_evaluates_the_interpolant ... ok
+2026-11-27T06:35:30.0531243Z test resample_in_keeps_quad_and_octo_double ... ok
+2026-11-27T06:35:30.9745792Z test uniform_interp_keeps_each_precision ... ok
+2026-11-27T06:35:30.9746392Z 
+2026-11-27T06:35:30.9746658Z test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.56s
+2026-11-27T06:35:30.9747020Z 
+2026-11-27T06:35:30.9751969Z      Running tests/jacobian_tangents.rs (target/release/build/multishoot/273d48d4600b0794/out/jacobian_tangents-273d48d4600b0794)
+2026-11-27T06:35:30.9762918Z 
+2026-11-27T06:35:30.9763090Z running 3 tests
+2026-11-27T06:35:30.9764959Z test jacobian_tangents_timing ... ignored
+2026-11-27T06:35:54.9543452Z test jacobian_tangents_is_jacobian_bitwise ... ok
+2026-11-27T06:36:04.7941995Z test with_tangents_is_the_layout_bitwise ... ok
+2026-11-27T06:36:04.7942410Z 
+2026-11-27T06:36:04.7943004Z test result: ok. 2 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 33.82s
+2026-11-27T06:36:04.7943677Z 
+2026-11-27T06:36:04.7950495Z      Running tests/jet_session.rs (target/release/build/multishoot/ed7472af4e9e8ad8/out/jet_session-ed7472af4e9e8ad8)
+2026-11-27T06:36:04.7961864Z 
+2026-11-27T06:36:04.7963091Z running 3 tests
+2026-11-27T06:36:04.7966545Z test bits_differ_counts_missing_rows ... ok
+2026-11-27T06:36:04.8010783Z test session_calls_the_order_methods_in_sequence ... ok
+2026-11-27T06:36:05.8188545Z test session_orders_are_residual_jet_bitwise ... ok
+2026-11-27T06:36:05.8190044Z 
+2026-11-27T06:36:05.8190548Z test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.02s
+2026-11-27T06:36:05.8190934Z 
+2026-11-27T06:36:05.8196119Z      Running tests/jet_tangent.rs (target/release/build/multishoot/50e6bd12b1fd0111/out/jet_tangent-50e6bd12b1fd0111)
+2026-11-27T06:36:05.8207481Z 
+2026-11-27T06:36:05.8207625Z running 7 tests
+2026-11-27T06:36:05.8936717Z test tangent_checks_the_pair_layout ... ok
+2026-11-27T06:36:05.9427713Z test tangent_bitwise_check_rejects_a_moved_order ... ok
+2026-11-27T06:36:05.9869736Z test tangent_forms_again_when_the_seed_underflows ... ok
+2026-11-27T06:36:06.2277246Z test anm_takes_the_tangent_update_through_jet_orders ... ok
+2026-11-27T06:36:08.7633084Z test tangent_series_is_the_planted_branch ... ok
+2026-11-27T06:36:13.7184690Z test branch_session_is_residual_jet_bitwise ... ok
+2026-11-27T06:36:22.3292890Z test tangent_orders_agree_with_residual_jet ... ok
+2026-11-27T06:36:22.3293627Z 
+2026-11-27T06:36:22.3293907Z test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 16.51s
+2026-11-27T06:36:22.3294432Z 
+2026-11-27T06:36:22.3315366Z      Running tests/jvp.rs (target/release/build/multishoot/b77d670d64b519e9/out/jvp-b77d670d64b519e9)
+2026-11-27T06:36:22.3326333Z 
+2026-11-27T06:36:22.3326499Z running 4 tests
+2026-11-27T06:36:22.6248395Z test jvp_residual_control_one_ulp_differs ... ok
+2026-11-27T06:36:22.7946537Z test jvp_bytes_match_reference ... ok
+2026-11-27T06:36:23.9409283Z test jvp_bytes_control_one_ulp_differs ... ok
+2026-11-27T06:36:24.0589382Z test jvp_matches_the_jacobian ... ok
+2026-11-27T06:36:24.0589936Z 
+2026-11-27T06:36:24.0590633Z test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.73s
+2026-11-27T06:36:24.0591446Z 
+2026-11-27T06:36:24.0595006Z      Running tests/lm.rs (target/release/build/multishoot/e020e66ba6bd3679/out/lm-e020e66ba6bd3679)
+2026-11-27T06:36:24.0606780Z 
+2026-11-27T06:36:24.0607083Z running 1 test
+2026-11-27T06:36:24.2125292Z test lm_converges_on_the_planted_problem ... ok
+2026-11-27T06:36:24.2125709Z 
+2026-11-27T06:36:24.2126989Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
+2026-11-27T06:36:24.2127613Z 
+2026-11-27T06:36:24.2131007Z      Running tests/mobius.rs (target/release/build/multishoot/2ebd39a9d9b8337c/out/mobius-2ebd39a9d9b8337c)
+2026-11-27T06:36:24.2141876Z 
+2026-11-27T06:36:24.2142012Z running 7 tests
+2026-11-27T06:36:24.2160452Z test affine_series_control_swapped_sizes_fail ... ok
+2026-11-27T06:36:24.2161080Z test affine_series_diverges_where_mobius_converges ... ok
+2026-11-27T06:36:24.2913920Z test mobius_bytes_match_reference ... ok
+2026-11-27T06:36:24.2914654Z test tau_maps_the_documented_pole ... ok
+2026-11-27T06:36:24.3483917Z test mobius_bytes_control_one_ulp_differs ... ok
+2026-11-27T06:36:24.7075087Z test mul_w_is_the_cauchy_product ... ok
+2026-11-27T06:36:24.7566804Z test mobius_sum_is_its_closed_form ... ok
+2026-11-27T06:36:24.7567201Z 
+2026-11-27T06:36:24.7567629Z test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.54s
+2026-11-27T06:36:24.7568242Z 
+2026-11-27T06:36:24.7577181Z      Running tests/mode.rs (target/release/build/multishoot/0adee823843d3c94/out/mode-0adee823843d3c94)
+2026-11-27T06:36:24.7589174Z 
+2026-11-27T06:36:24.7589346Z running 33 tests
+2026-11-27T06:36:24.7592548Z test complex_rate_on_quad_tangents_panics - should panic ... ok
+2026-11-27T06:36:24.7593349Z test complex_rate_on_real_tangents_panics - should panic ... ok
+2026-11-27T06:36:24.9597676Z test complex_rate_rows_scale ... ok
+2026-11-27T06:36:24.9646935Z test complex_rate_projection_control_real_only_differs ... ok
+2026-11-27T06:36:24.9676482Z test complex_rate_projects_both_parts ... ok
+2026-11-27T06:36:24.9706400Z test complex_rate_rows_scale_control_wrong_factor ... ok
+2026-11-27T06:36:25.1027489Z test mode_matrix_refuses_a_wrong_row_scale ... ok
+2026-11-27T06:36:25.1627433Z test mode_bytes_control_one_ulp_differs ... ok
+2026-11-27T06:36:25.2156495Z test mode_bytes_match_reference ... ok
+2026-11-27T06:36:25.2657065Z test pointwise_mode_control_coupled_differs ... ok
+2026-11-27T06:36:25.3516382Z test pointwise_mode_matrix_equals_per_column ... ok
+2026-11-27T06:36:25.4394401Z test rate_zero_control_unscaled_differs ... ok
+2026-11-27T06:36:25.5117176Z test rate_zero_is_the_jacobian_block ... ok
+2026-11-27T06:36:25.6322120Z test rate_zero_is_the_projected_jacobian_block ... ok
+2026-11-27T06:36:25.7013660Z test rate_zero_is_the_scaled_jacobian_block ... ok
+2026-11-27T06:36:25.8847348Z test rate_zero_projected_controls_differ ... ok
+2026-11-27T06:36:25.8937080Z test real_rate_is_the_explicit_shift ... ok
+2026-11-27T06:36:26.6702675Z test real_rate_is_the_explicit_shift_in_quad_and_octo ... ok
+2026-11-27T06:36:26.8966754Z test real_rate_matrix_control_one_ulp_differs ... ok
+2026-11-27T06:36:27.3489262Z test mode_winding_counts_and_locates_the_modes ... ok
+2026-11-27T06:36:28.8157655Z test mode_winding_is_the_one_by_one_count ... ok
+2026-11-27T06:36:32.9462070Z test real_rate_matrix_is_mode_matrix_at_double ... ok
+2026-11-27T06:36:32.9465006Z test shift_control_real_rate_moves_the_tangent ... ok
+2026-11-27T06:36:32.9470050Z test shift_identity_controls_signed_zero_and_value_differ ... ok
+2026-11-27T06:36:32.9470785Z test shift_is_the_identity_without_a_tangent_or_a_rate ... ok
+2026-11-27T06:36:32.9471395Z test shift_quad_and_octo_controls_differ ... ok
+2026-11-27T06:36:32.9471951Z test shift_real_rate_moves_quad_and_octo_tangents ... ok
+2026-11-27T06:36:32.9632419Z test real_rate_matrix_quad_agrees_with_double ... ok
+2026-11-27T06:36:34.3524706Z test wave_determinant_is_planted ... ok
+2026-11-27T06:36:35.7296672Z test real_rate_matrix_octo_agrees_with_quad ... ok
+2026-11-27T06:36:35.7531928Z test wave_quad_determinant_is_planted ... ok
+2026-11-27T06:36:36.3235787Z test winding_counts_the_planted_zeros ... ok
+2026-11-27T06:36:36.3761254Z test mode_logdets_are_each_rates_logdet ... ok
+2026-11-27T06:36:36.3766410Z 
+2026-11-27T06:36:36.3766896Z test result: ok. 33 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 11.62s
+2026-11-27T06:36:36.3767287Z 
+2026-11-27T06:36:36.3784976Z      Running tests/nan.rs (target/release/build/multishoot/9d6edf3e3fe86801/out/nan-9d6edf3e3fe86801)
+2026-11-27T06:36:36.3796369Z 
+2026-11-27T06:36:36.3796591Z running 6 tests
+2026-11-27T06:36:36.3830481Z test max_abs_control_old_fold_drops_nan ... ok
+2026-11-27T06:36:36.3832283Z test planner_norm_control_amax_skips_nan ... ok
+2026-11-27T06:36:36.3832656Z test planner_norm_propagates_nan ... ok
+2026-11-27T06:36:36.3832949Z test max_abs_propagates_nan ... ok
+2026-11-27T06:36:36.3833269Z test newton_nan_control_old_fold_scores_zero ... ok
+2026-11-27T06:36:36.3833621Z test newton_on_nan_residual_does_not_converge ... ok
+2026-11-27T06:36:36.3833842Z 
+2026-11-27T06:36:36.3834091Z test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-11-27T06:36:36.3834446Z 
+2026-11-27T06:36:36.3838077Z      Running tests/newton.rs (target/release/build/multishoot/a84ba9c322f8899b/out/newton-a84ba9c322f8899b)
+2026-11-27T06:36:36.3848408Z 
+2026-11-27T06:36:36.3848551Z running 10 tests
+2026-11-27T06:36:36.4554023Z test newton_step_solves_the_linear_system ... ok
+2026-11-27T06:36:36.4903734Z test newton_error_estimate_matches_the_error ... ok
+2026-11-27T06:36:36.4996404Z test planted_residual_vanishes ... ok
+2026-11-27T06:36:36.5330797Z test pointwise_control_coupled_problem_differs ... ok
+2026-11-27T06:36:36.5698836Z test pointwise_jacobian_equals_per_column ... ok
+2026-11-27T06:36:36.6122588Z test planted_newton_converges ... ok
+2026-11-27T06:36:36.8106625Z test results_bytes_match_reference ... ok
+2026-11-27T06:36:36.8604481Z test newton_refuses_options_out_of_range ... ok
+2026-11-27T06:36:36.9255403Z test results_bytes_control_one_ulp_differs ... ok
+2026-11-27T06:36:36.9880403Z test jacobian_matches_central_differences ... ok
+2026-11-27T06:36:36.9880852Z 
+2026-11-27T06:36:36.9881268Z test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.60s
+2026-11-27T06:36:36.9881756Z 
+2026-11-27T06:36:36.9885030Z      Running tests/plane.rs (target/release/build/multishoot/b1f13e13164844ac/out/plane-b1f13e13164844ac)
+2026-11-27T06:36:36.9897191Z 
+2026-11-27T06:36:36.9897472Z running 17 tests
+2026-11-27T06:36:36.9904072Z test controls_orthonormality ... ok
+2026-11-27T06:36:37.0161280Z test controls_wrong_inputs_f64 ... ok
+2026-11-27T06:36:37.0176322Z test extreme_scales_in_every_lane ... ok
+2026-11-27T06:36:37.0206346Z test p1_dd ... ok
+2026-11-27T06:36:37.0246188Z test p1_f64 ... ok
+2026-11-27T06:36:37.1753702Z test p1_od ... ok
+2026-11-27T06:36:37.1933062Z test p1_qd ... ok
+2026-11-27T06:36:37.4439615Z test p2_dd ... ok
+2026-11-27T06:36:37.4496404Z test controls_wrong_inputs_dd ... ok
+2026-11-27T06:36:37.4586195Z test p2_f64 ... ok
+2026-11-27T06:36:37.4676218Z test p3_dd ... ok
+2026-11-27T06:36:37.4706553Z test p3_f64 ... ok
+2026-11-27T06:36:37.4777277Z test controls_wrong_inputs_od ... ok
+2026-11-27T06:36:37.4777953Z test p_and_its_inverse ... ok
+2026-11-27T06:36:37.5275454Z test p3_qd ... ok
+2026-11-27T06:36:39.8340850Z test p2_qd ... ok
+2026-11-27T06:36:41.4390651Z test controls_wrong_inputs_qd ... ok
+2026-11-27T06:36:41.4391030Z 
+2026-11-27T06:36:41.4391442Z test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.45s
+2026-11-27T06:36:41.4392072Z 
+2026-11-27T06:36:41.4395302Z      Running tests/precision.rs (target/release/build/multishoot/3d653fc7e0225f8d/out/precision-3d653fc7e0225f8d)
+2026-11-27T06:36:41.4406989Z 
+2026-11-27T06:36:41.4407139Z running 4 tests
+2026-11-27T06:36:41.5656541Z test precisions_agree_on_the_residual ... ok
+2026-11-27T06:36:41.8196956Z test residual_bytes_match_reference ... ok
+2026-11-27T06:36:43.8334046Z test planted_converges_in_quad_and_octo ... ok
+2026-11-27T06:36:43.8379583Z test residual_bytes_control_one_ulp_differs ... ok
+2026-11-27T06:36:43.8383829Z 
+2026-11-27T06:36:43.8384412Z test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.40s
+2026-11-27T06:36:43.8388645Z      Running tests/predict.rs (target/release/build/multishoot/2ac7120b04777803/out/predict-2ac7120b04777803)
+2026-11-27T06:36:43.8389721Z 
+2026-11-27T06:36:43.8398899Z 
+2026-11-27T06:36:43.8399102Z running 1 test
+2026-11-27T06:36:43.8502603Z test tangent_is_the_eigenvalue_direction ... ok
+2026-11-27T06:36:43.8503005Z 
+2026-11-27T06:36:43.8503414Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+2026-11-27T06:36:43.8504009Z 
+2026-11-27T06:36:43.8505371Z      Running tests/prepare.rs (target/release/build/multishoot/d546f4d89336a3b4/out/prepare-d546f4d89336a3b4)
+2026-11-27T06:36:43.8515181Z 
+2026-11-27T06:36:43.8515451Z running 4 tests
+2026-11-27T06:36:43.8532513Z test block_states_panics_on_a_failed_preparation - should panic ... ok
+2026-11-27T06:36:43.8539636Z test failed_preparation_is_every_entry_points_error ... ok
+2026-11-27T06:36:43.8544352Z test try_block_states_refuses_a_malformed_z ... ok
+2026-11-27T06:36:43.9467037Z test try_prepare_gives_the_bits_of_prepare ... ok
+2026-11-27T06:36:43.9467461Z 
+2026-11-27T06:36:43.9467887Z test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+2026-11-27T06:36:43.9468478Z 
+2026-11-27T06:36:43.9475530Z      Running tests/projected.rs (target/release/build/multishoot/7f278db4eda963c7/out/projected-7f278db4eda963c7)
+2026-11-27T06:36:43.9485794Z 
+2026-11-27T06:36:43.9486338Z running 14 tests
+2026-11-27T06:36:43.9677676Z test project_rows_refuses_bad_layouts ... ok
+2026-11-27T06:36:44.0878807Z test projected_bytes_match_reference ... ok
+2026-11-27T06:36:44.1275245Z test projected_jet_control_unprojected_fails ... ok
+2026-11-27T06:36:44.1309179Z test projected_bytes_control_one_ulp_differs ... ok
+2026-11-27T06:36:44.1742403Z test projected_jet_is_the_jacobian_product ... ok
+2026-11-27T06:36:45.6266938Z test projected_jvp_control_unprojected_fails ... ok
+2026-11-27T06:36:46.9056521Z test projected_jvp_is_the_jacobian_product ... ok
+2026-11-27T06:36:47.0884107Z test projected_rows_scale_after_the_projection ... ok
+2026-11-27T06:36:47.1289260Z test projected_rows_scale_control_wrong_factor_fails ... ok
+2026-11-27T06:36:47.1654884Z test projector_control_double_double_fails ... ok
+2026-11-27T06:36:47.2036843Z test projector_is_exact_in_octo ... ok
+2026-11-27T06:36:48.4368735Z test projected_jacobian_control_unprojected_fails ... ok
+2026-11-27T06:36:48.4754306Z test projected_jacobian_matches_central_differences ... ok
+2026-11-27T06:36:48.5200065Z test projected_newton_reaches_the_exact_rows ... ok
+2026-11-27T06:36:48.5201291Z 
+2026-11-27T06:36:48.5201962Z test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.57s
+2026-11-27T06:36:48.5202691Z 
+2026-11-27T06:36:48.5210671Z      Running tests/raw_reads.rs (target/release/build/multishoot/5f1fcb86918c0b05/out/raw_reads-5f1fcb86918c0b05)
+2026-11-27T06:36:48.5220768Z 
+2026-11-27T06:36:48.5221013Z running 6 tests
+2026-11-27T06:36:48.5265498Z test extra_rows_control_renormalized_sum_fails_dd ... ok
+2026-11-27T06:36:48.5280712Z test extra_rows_read_parts_as_they_are_dd ... ok
+2026-11-27T06:36:48.5586619Z test extra_rows_read_parts_as_they_are_qd ... ok
+2026-11-27T06:36:48.5603393Z test extra_rows_control_renormalized_sum_fails_qd ... ok
+2026-11-27T06:36:48.6890437Z test extra_rows_control_renormalized_sum_fails_od ... ok
+2026-11-27T06:36:48.7001735Z test extra_rows_read_parts_as_they_are_od ... ok
+2026-11-27T06:36:48.7002141Z 
+2026-11-27T06:36:48.7002550Z test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.18s
+2026-11-27T06:36:48.7003146Z 
+2026-11-27T06:36:48.7007152Z      Running tests/relayout.rs (target/release/build/multishoot/351aecf683d6b58b/out/relayout-351aecf683d6b58b)
+2026-11-27T06:36:48.7016801Z 
+2026-11-27T06:36:48.7016951Z running 5 tests
+2026-11-27T06:36:48.7100805Z test planted_solution_moves_to_new_nodes ... ok
+2026-11-27T06:36:48.7101475Z test resampler_is_exact_on_grids_of_any_size ... ok
+2026-11-27T06:36:48.7114837Z test renode_does_not_depend_on_threads ... ok
+2026-11-27T06:36:48.7147254Z test planted_solution_resamples_to_more_points ... ok
+2026-11-27T06:36:48.7175454Z test resampler_moves_resolved_fields_exactly ... ok
+2026-11-27T06:36:48.7178501Z 
+2026-11-27T06:36:48.7178983Z test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+2026-11-27T06:36:48.7179573Z 
+2026-11-27T06:36:48.7180386Z      Running tests/row_scale.rs (target/release/build/multishoot/effc5279b3b75e5d/out/row_scale-effc5279b3b75e5d)
+2026-11-27T06:36:48.7189808Z 
+2026-11-27T06:36:48.7189939Z running 3 tests
+2026-11-27T06:36:48.7848781Z test row_scale_control_wrong_length_fails ... ok
+2026-11-27T06:36:48.7892834Z test row_scale_control_wrong_factor_fails ... ok
+2026-11-27T06:36:48.7894789Z test row_scale_scales_residual_jacobian_and_jet ... ok
+2026-11-27T06:36:48.7895126Z 
+2026-11-27T06:36:48.7895369Z test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+2026-11-27T06:36:48.7895737Z 
+2026-11-27T06:36:48.7902205Z      Running tests/series.rs (target/release/build/multishoot/180161d39ca9d7c8/out/series-180161d39ca9d7c8)
+2026-11-27T06:36:48.7909564Z 
+2026-11-27T06:36:48.7909705Z running 8 tests
+2026-11-27T06:36:48.7915718Z test f64_lane_at_a_rate_panics - should panic ... ok
+2026-11-27T06:36:48.7922605Z test real_tangent_at_a_complex_rate_panics - should panic ... ok
+2026-11-27T06:36:48.7935661Z test same_bits_control_zero_sign_differs ... ok
+2026-11-27T06:36:48.7936754Z test periodic_solve_is_planted_at_a_rate ... ok
+2026-11-27T06:36:48.7956684Z test solve_at_control_fewer_steps_differs ... ok
+2026-11-27T06:36:48.7959243Z test solve_at_is_solve_bitwise ... ok
+2026-11-27T06:36:48.7973963Z test periodic_solve_control_unrefined_fails ... ok
+2026-11-27T06:36:48.8099891Z test periodic_solve_is_planted_in_every_lane ... ok
+2026-11-27T06:36:48.8100304Z 
+2026-11-27T06:36:48.8100743Z test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+2026-11-27T06:36:48.8101199Z 
+2026-11-27T06:36:48.8102951Z      Running tests/slaved.rs (target/release/build/multishoot/24c87856ece7c0b4/out/slaved-24c87856ece7c0b4)
+2026-11-27T06:36:48.8112355Z 
+2026-11-27T06:36:48.8112533Z running 9 tests
+2026-11-27T06:36:48.9681648Z test slaved_bytes_match_reference ... ok
+2026-11-27T06:36:49.0385458Z test slaved_jacobian_control_nan_fails ... ok
+2026-11-27T06:36:49.0990818Z test slaved_bvp_converges_to_its_closed_form ... ok
+2026-11-27T06:36:49.1591345Z test slaved_residual_returns_the_factorization_error ... ok
+2026-11-27T06:36:49.1667162Z test slaved_bvp_control_wrong_order_fails ... ok
+2026-11-27T06:36:49.1726766Z test slaved_jacobian_matches_central_differences ... ok
+2026-11-27T06:36:49.2037022Z test slaved_bytes_control_one_ulp_differs ... ok
+2026-11-27T06:36:49.4164108Z test slaved_series_is_its_closed_form ... ok
+2026-11-27T06:36:49.5622864Z test slaved_series_controls_fail ... ok
+2026-11-27T06:36:49.5623820Z 
+2026-11-27T06:36:49.5624184Z test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.75s
+2026-11-27T06:36:49.5624683Z 
+2026-11-27T06:36:49.5630359Z      Running tests/spectrum.rs (target/release/build/multishoot/a314cb6d13bb6a1c/out/spectrum-a314cb6d13bb6a1c)
+2026-11-27T06:36:49.5642807Z 
+2026-11-27T06:36:49.5643057Z running 1 test
+2026-11-27T06:36:49.5667931Z test spectrum_recovers_planted_coefficients ... ok
+2026-11-27T06:36:49.5668232Z 
+2026-11-27T06:36:49.5668505Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-11-27T06:36:49.5668915Z 
+2026-11-27T06:36:49.5670802Z      Running tests/split.rs (target/release/build/multishoot/95473e36191aba7a/out/split-95473e36191aba7a)
+2026-11-27T06:36:49.5679573Z 
+2026-11-27T06:36:49.5679712Z running 7 tests
+2026-11-27T06:36:49.5707928Z test split_bounds ... ok
+2026-11-27T06:36:49.5946606Z test split_control_ulp_and_wrong_piece_break_rows ... ok
+2026-11-27T06:36:49.7022031Z test split_does_not_depend_on_the_backend ... ok
+2026-11-27T06:36:49.7086419Z test split_is_the_same_on_tasks ... ok
+2026-11-27T06:36:49.7266640Z test split_refuses_a_pin_across_moved_nodes ... ok
+2026-11-27T06:36:49.7519660Z test split_has_the_same_root ... ok
+2026-11-27T06:36:50.2382356Z test split_keeps_the_residual_bitwise ... ok
+2026-11-27T06:36:50.2382741Z 
+2026-11-27T06:36:50.2383110Z test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.67s
+2026-11-27T06:36:50.2383478Z 
+2026-11-27T06:36:50.2388147Z      Running tests/sub.rs (target/release/build/multishoot/c8ddcc30c13a911f/out/sub-c8ddcc30c13a911f)
+2026-11-27T06:36:50.2399772Z 
+2026-11-27T06:36:50.2399942Z running 3 tests
+2026-11-27T06:36:50.2591854Z test sub_blocks_evaluate_only_what_they_meet ... ok
+2026-11-27T06:36:50.2592538Z test sub_blocks_check_their_input ... ok
+2026-11-27T06:37:18.6208677Z test sub_blocks_are_the_whole_bitwise ... ok
+2026-11-27T06:37:18.6228890Z 
+2026-11-27T06:37:18.6229397Z test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 28.38s
+2026-11-27T06:37:18.6229922Z 
+2026-11-27T06:37:18.6229926Z 
+2026-11-27T06:37:18.6230010Z running 1 test
+2026-11-27T06:37:18.6231826Z      Running tests/subspace.rs (target/release/build/multishoot/d6fa8384d1851612/out/subspace-d6fa8384d1851612)
+2026-11-27T06:37:18.6548922Z test factors_and_subspace_do_not_depend_on_threads ... ok
+2026-11-27T06:37:18.6549215Z 
+2026-11-27T06:37:18.6549579Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+2026-11-27T06:37:18.6550264Z 
+2026-11-27T06:37:18.6552749Z      Running tests/taylor.rs (target/release/build/multishoot/c336b84e9d92b385/out/taylor-c336b84e9d92b385)
+2026-11-27T06:37:18.6563010Z 
+2026-11-27T06:37:18.6563161Z running 21 tests
+2026-11-27T06:37:18.6574365Z test layout_offsets ... ok
+2026-11-27T06:37:18.6601684Z test planned_segments_end_at_their_nodes ... ok
+2026-11-27T06:37:18.6670649Z test plan_points_match_reference ... ok
+2026-11-27T06:37:18.6686650Z test plan_points_control_tolerance_differs ... ok
+2026-11-27T06:37:18.6693496Z test planner_nan_control_finite_plans ... ok
+2026-11-27T06:37:18.6694199Z test planner_one_ulp_control_early_stop_fails ... ok
+2026-11-27T06:37:18.6694853Z test planner_reaches_an_end_one_ulp_away ... ok
+2026-11-27T06:37:18.6701017Z test planner_bound_control_doubled_steps_fails ... ok
+2026-11-27T06:37:18.6710706Z test planner_rejects_infinite_end - should panic ... ok
+2026-11-27T06:37:18.6711441Z test planner_rejects_nan_coefficient - should panic ... ok
+2026-11-27T06:37:18.6712119Z test planner_reports_an_underflowing_tolerance - should panic ... ok
+2026-11-27T06:37:18.6721814Z test planner_rejects_zero_tolerance - should panic ... ok
+2026-11-27T06:37:18.6722995Z test planner_underflow_control_normal_tolerance_plans ... ok
+2026-11-27T06:37:18.6766539Z test planner_bound_holds ... ok
+2026-11-27T06:37:18.6784077Z test rotor_carried_to_double_double ... ok
+2026-11-27T06:37:18.6788658Z test rotor_carried_control_wrong_coefficient_fails ... ok
+2026-11-27T06:37:18.6804629Z test plan_points_do_not_depend_on_threads ... ok
+2026-11-27T06:37:18.6821495Z test taylor_check_estimates_the_paths_error ... ok
+2026-11-27T06:37:18.6825495Z test taylor_check_refuses_a_step_it_cannot_halve ... ok
+2026-11-27T06:37:18.6826464Z test stepping_bytes_match_reference ... ok
+2026-11-27T06:37:18.6843246Z test stepping_bytes_control_one_ulp_differs ... ok
+2026-11-27T06:37:18.6843655Z 
+2026-11-27T06:37:18.6844091Z test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+2026-11-27T06:37:18.6844722Z 
+2026-11-27T06:37:18.6847123Z      Running tests/taylor_order.rs (target/release/build/multishoot/2f7567c30eb62519/out/taylor_order-2f7567c30eb62519)
+2026-11-27T06:37:18.6857873Z 
+2026-11-27T06:37:18.6858076Z running 5 tests
+2026-11-27T06:37:18.6886776Z test order_guess_is_the_cost_model_optimum ... ok
+2026-11-27T06:37:18.6939938Z test refined_orders_control_wrong_range_fails ... ok
+2026-11-27T06:37:18.7032370Z test auto_order_holds_the_planner_bound ... ok
+2026-11-27T06:37:19.0624826Z test auto_order_is_the_least_cost ... ok
+2026-11-27T06:37:19.1073596Z test auto_order_bytes_match_reference ... ok
+2026-11-27T06:37:19.1074008Z 
+2026-11-27T06:37:19.1074435Z test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.42s
+2026-11-27T06:37:19.1075004Z 
+2026-11-27T06:37:19.1082264Z    Doc-tests multishoot
+2026-11-27T06:37:19.7354014Z 
+2026-11-27T06:37:19.7354402Z running 1 test
+2026-11-27T06:37:19.7408325Z test src/shooting.rs - shooting::Shooting<E,B>::plan_segments_auto (line 288) ... ignored
+2026-11-27T06:37:19.7408775Z 
+2026-11-27T06:37:19.7496775Z test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.01s
+2026-11-27T06:37:19.7497255Z 
+2026-11-27T06:37:19.7834883Z Post job cleanup.
+2026-11-27T06:37:19.8705366Z [command]/usr/bin/git version
+2026-11-27T06:37:19.8747543Z git version 2.56.1
+2026-11-27T06:37:19.8784357Z Temporarily overriding HOME='/home/runner/work/_temp/16b3dc2f-8a28-448f-a4ae-902068077a3b' before making global git config changes
+2026-11-27T06:37:19.8785753Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-27T06:37:19.8790843Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/multishoot/multishoot
+2026-11-27T06:37:19.8828917Z Removing SSH command configuration
+2026-11-27T06:37:19.8833119Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-27T06:37:19.8875221Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-27T06:37:19.9159950Z Removing HTTP extra header
+2026-11-27T06:37:19.9165040Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-27T06:37:19.9202456Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-27T06:37:19.9471131Z Removing includeIf entries pointing to credentials config files
+2026-11-27T06:37:19.9477851Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-27T06:37:19.9505187Z includeif.gitdir:/home/runner/work/multishoot/multishoot/.git.path
+2026-11-27T06:37:19.9506250Z includeif.gitdir:/home/runner/work/multishoot/multishoot/.git/worktrees/*.path
+2026-11-27T06:37:19.9506748Z includeif.gitdir:/github/workspace/.git.path
+2026-11-27T06:37:19.9507122Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-27T06:37:19.9514747Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/multishoot/multishoot/.git.path
+2026-11-27T06:37:19.9538782Z /home/runner/work/_temp/git-credentials-4288c457-4750-4f1e-b1a7-b9684b567307.config
+2026-11-27T06:37:19.9551052Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/multishoot/multishoot/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-4288c457\-4750\-4f1e\-b1a7\-b9684b567307\.config
+2026-11-27T06:37:19.9595611Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/multishoot/multishoot/.git/worktrees/*.path
+2026-11-27T06:37:19.9619340Z /home/runner/work/_temp/git-credentials-4288c457-4750-4f1e-b1a7-b9684b567307.config
+2026-11-27T06:37:19.9632095Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/multishoot/multishoot/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-4288c457\-4750\-4f1e\-b1a7\-b9684b567307\.config
+2026-11-27T06:37:19.9670778Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-27T06:37:19.9702451Z /github/runner_temp/git-credentials-4288c457-4750-4f1e-b1a7-b9684b567307.config
+2026-11-27T06:37:19.9713121Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-4288c457\-4750\-4f1e\-b1a7\-b9684b567307\.config
+2026-11-27T06:37:19.9751396Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-27T06:37:19.9779261Z /github/runner_temp/git-credentials-4288c457-4750-4f1e-b1a7-b9684b567307.config
+2026-11-27T06:37:19.9787332Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-4288c457\-4750\-4f1e\-b1a7\-b9684b567307\.config
+2026-11-27T06:37:19.9824008Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-27T06:37:20.0106288Z Removing credentials config '/home/runner/work/_temp/git-credentials-4288c457-4750-4f1e-b1a7-b9684b567307.config'
+2026-11-27T06:37:20.0289565Z Cleaning up orphan processes
