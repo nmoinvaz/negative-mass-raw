@@ -145,4 +145,30 @@ PID and reported with what finished. Memory is reported (`/usr/bin/time -l`) and
 
 ## Amendments
 
-(none yet)
+### A1 (2026-11-26, before any run of record; the development runs are dev_01 to dev_03 here)
+
+Method and criteria changed after development runs, none after a run of record. Nothing below loosens a criterion on data.
+
+1. **The decaying plane starts from the spectral projector, not an arbitrary plane.** The README's "from an arbitrary start plane" was
+   wrong for the star. With an arbitrary plane, D(σ²) of the ε = +1 star at ω = 0.925 had a second sign change that moved with the far
+   radius (σ² = 3.54e-3, 3.67e-3, 7.64e-3 at R scales 0.5, 1, 1.5) and had |D| = 1.7e-4 at its "root": the start plane's component along
+   the decaying pair changes sign with σ², and D changes sign with it. The star now starts the plane from P e_A and P e_G̃, P the
+   projector onto the contracting eigenspace of the frozen matrix in (A, A′, G̃, χ/r²), formed in the lane by the matrix sign function
+   (`radial.rs: decaying_start`), as `radial_modes.py` does. The control `arbstart` puts the arbitrary plane back. The planted problem keeps
+   its arbitrary plane; P1 requires the sign of det C (the plane's orientation against the decaying pair) to be constant on the grid, and P2's
+   reference orients by it.
+2. **S5** is 13 stars at ω = 0.93 spaced 1e-4 (degree 12), not four rows: the declared rule's truncation error would have exceeded 1e-18.
+3. **The family has 35 stored rows**, not 36 (1.10, 1.15, 1.17, 1.20, 1.25, 1.30, 1.40 to 4.00 in steps of 0.1 (27), 4.015, 4.017906).
+4. **The star's layout.** Outward segments are at most 2.5/k long (an outward shot amplifies roundoff by e^{2kΔ}: a residual floor of 4.8e-27
+   at Δ = 10.5, k = 0.66 became 6.6e-30 at 3.5/k), the boundary-value problem ends at r_t = r_cut + 40/k where P < 1e-44 at r_cut, and the
+   exterior r_cut to R is the vacuum chain (P = 0, m = M, u from the exterior Riccati equation integrated inward). Newton uses NLEQ-ERR's
+   iterate scaling (`Scaling::Iterates`): without it Newton stalled at 2e-24 to 5e-18 scaled residual on tail unknowns of size 1e-70.
+5. **G1's reference** evaluates `radial_rhs_generated.py` with exact rationals: the file writes 8/3 and the like as float divisions, which
+   gave 4.6e-16 against the crate's exact constants (the crate is right; first run of G1).
+6. **Controls.** `tailk` is silent by construction (the star does not feel its far condition; §7 of RESULTS.md found the same), replaced by
+   `znorm` (Z(R) = 1: no α(∞) = 1 normalization). `start` changes the start of χ at r_s = 1e-8, an effect of order r_s³: expected silent.
+7. **FOLD.** `locate_fold`'s corrector did not converge on the k-pinned family (message in the output); the fold is reported by the sign change
+   of t_k (multisolver's detection) and ω_min and its α_c by the extremum of the interpolating polynomial of ω(α_c) (2 windows).
+8. **Newton tolerance** for stars is 1e-28 (scaled rows); S4's limit 1e-28 is unchanged.
+
+Controls' targets and effects: Amendment A2, after the control development runs.
