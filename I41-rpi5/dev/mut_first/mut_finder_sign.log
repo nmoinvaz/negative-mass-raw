@@ -1,0 +1,30 @@
+settled_mass.py analyze {'raw': '/tmp/claude-1000/-home-nathan-Source-negative-mass-i41/6aeafbfc-d94d-45dc-8475-ad54ab6a4512/scratchpad/devraw', 'mutate': 'finder_sign'}: numba 0.68.1, numpy 2.5.4, python 3.14.10, rpi5-ubuntu, load average at start 3.53 2.62 1.77, mutation finder_sign, 2026-11-27 06:32:46
+
+== Planted exact solutions through the chain
+    P1 h = 0.02: status level 0: no horizon at the first column, columns 0, F to 0, max |M - 0.3| inf, max |x- - x_h| inf
+    P1 h = 0.01: status level 0: no horizon at the first column, columns 0, F to 0, max |M - 0.3| inf, max |x- - x_h| inf
+    P1 h = 0.005: status level 0: no horizon at the first column, columns 0, F to 0, max |M - 0.3| inf, max |x- - x_h| inf
+    P1 h = 0.0025: status level 0: no horizon at the first column, columns 0, F to 0, max |M - 0.3| inf, max |x- - x_h| inf
+[FAIL] PL1: exact Schwarzschild (M = 0.3) in the stretching gauge, through the chain: M recovered, second order, limit reached  (max |M - 0.3| at h = 0.005: inf (bar 1e-4); orders [nan, nan, nan] in (1.75, 2.25); status ['level 0: no horizon at the first column', 'level 0: no horizon at the first column', 'level 0: no horizon at the first column', 'level 0: no horizon at the first column']; F reached [0, 0, 0, 0] of 1.57286e+06)
+    P2 h = 0.02: columns 0 (levels []), max |r - r_exact| on r_+ = 0: inf, max |x- - 2 a x+| inf, min edge nan cells
+    P2 h = 0.01: columns 0 (levels []), max |r - r_exact| on r_+ = 0: inf, max |x- - 2 a x+| inf, min edge nan cells
+    P2 h = 0.005: columns 0 (levels []), max |r - r_exact| on r_+ = 0: inf, max |x- - 2 a x+| inf, min edge nan cells
+    P2 h = 0.0025: columns 0 (levels []), max |r - r_exact| on r_+ = 0: inf, max |x- - 2 a x+| inf, min edge nan cells
+[FAIL] PL2: exact Roberts ghost solution, moving contour r_+ = 0, two forced zoom levels: r on the contour, second order  (max error at h = 0.005: inf (bar 5e-5); orders [nan, nan, nan] in (1.75, 2.25))
+[pass] PL3: level 0 of the chain equals dn.evolve bit for bit (nodes, dead flags) and finds the same first trapped cell  (h = 0.02, delta = 1e-06: nodes equal True, dead equal True, events (385, 385) and (385, 385))
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-i41/notes/wormhole_evolution/settled_mass.py", line 913, in <module>
+    main()
+    ~~~~^^
+  File "/home/nathan/Source/negative-mass-i41/notes/wormhole_evolution/settled_mass.py", line 901, in main
+    sys.exit(analyze_cmd(opts["raw"], an=not opts.get("noan")))
+             ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-i41/notes/wormhole_evolution/settled_mass.py", line 678, in analyze_cmd
+    r = an_grid_check(raw)
+  File "/home/nathan/Source/negative-mass-i41/notes/wormhole_evolution/settled_mass.py", line 626, in an_grid_check
+    Nm = int(round((float(s["xm"][s["F"] < Fstop].max()) + 0.8) / hm))
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/nathan/Source/negative-mass-venv314/lib/python3.14/site-packages/numpy/_core/_methods.py", line 41, in _amax
+    return umr_maximum(a, axis, None, out, keepdims, initial, where)
+ValueError: zero-size array to reduction operation maximum which has no identity
+rc 1
