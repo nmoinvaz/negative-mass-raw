@@ -211,6 +211,10 @@ Development runs are in `dev/` (R1 unless stated; never part of the record). New
   bound state is hypersensitive to the discretization); (iii) S-A only, B3 q = 0.2 … 0.24: the second mode (W = 0.09 … 0.14) is missed at N = 401. Dev probe (scratch, then A8): a complex-W
   shooting from the spectral eigenvalue converges at S m = 0.2, 0.3 to the same λ to 1e-9.
 
+- **D13, the complex controls and the closing runs.** `controls_run3_c.log` and `controls_run4_c.log` (same result): `cplx_conj` silent (dominance of the growing solution), `cplx_hypot` fires (P4: no root at R1),
+  `cplx_ned` fires after its fix (C1 at S m = 0.3 without the NED term converges to a real W = 0.2626 against the spectral λ = 0.0088 + 0.3085i). `cplx_hypot` was added after the runs of record, is not part of the declared
+  set, and its target (P4) was computed in run 3 before the run it is reported from (run 4). Slips: the loop of unit `nm-i223-u1` wrote four logs to one name (`README_slips.txt`); the logs of the three stopped low-stage runs were overwritten (D11).
+
 ## Amendments
 
 All written before the runs of record they govern.
@@ -306,3 +310,10 @@ it stays in the table as silent. A replacement is proposed to the coordinator an
 written before its run: P4 fails at R1 (no root, as in the development history of P4). `cplx_ned` was mis-built: the mutation also removed the NED term from the spectral eigenvalue it is
 checked against, so C1 failed for the wrong reason (no complex eigenvalue found) and the target string did not match. Fixed (the mutation acts on the shooting only; commit 1b614eb); prediction: C1 at S m = 0.3 fails on the
 comparison with the spectral λ (|Δλ|/|λ| ≫ 1e-3) or by no convergence. Both rerun as run 3 (`controls_run3_c.log`).
+
+## Closing
+
+`bounce.py` at 2db4b58 (branch `wip/i223-black-bounce`, note and output at a44d49d). 220 count runs of record in `results/` (`status.txt`: every run exit 0; the stop of the three B low-stage workers is its only other line), `report.txt`,
+`spectral.log` (run 1, f6d1802) and `spectral_run2.log`, `check*.log`, `planted*.log`, `planted_complex*.log`, `complex*.log` and `complex.json`, `controls_*.log`, the development runs in `dev/`. Outcome: 54 of 55 members have a growing
+radial mode (the exception is B2 at q = 0), complex pairs at S m = 0.2, 0.3 and B1 q = 0.77, a second weak real mode for 0.55 ≤ m ≤ 3 and at q > 0 on B1 and B3, S9 NOT MET at 7 members (Sturm 2, shooting in range 1), S6 met on both grids at 41 of 55,
+26 of 27 declared controls fire (`cplx_conj` silent). The note is `notes/black_universe/README.md`, section "Sourced black bounce and magnetic black universes (#223)".
