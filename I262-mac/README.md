@@ -104,7 +104,8 @@ in `runs/`. A single run not finished in 2 h of wall time is stopped and reporte
 
 ## Runs of record (2026-11-27, after the criteria commit be43bc1c)
 
-Code `cminus1_mode.py` at 2f0eea2 (unchanged since the development mutation runs), `runs/run_all.sh` two workers, nice 10, one process each. Exit codes: `derive` 0, `check` 0,
+Code `cminus1_mode.py` at 2f0eea2, the commit made after the development runs. The script was edited while the development mutation runs went on (N8 and `fit_eps` added, the `j_g1` set
+corrected, two lines added to `table`), so the early development runs did not contain N8; the runs of record are the first runs of the committed script. `runs/run_all.sh`: two workers, nice 10, one process each. Exit codes: `derive` 0, `check` 0,
 `table` 0; every mutation run 1 (its declared checks fail). No run was stopped; none was rerun.
 
 | run | result |
