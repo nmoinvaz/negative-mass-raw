@@ -51,3 +51,6 @@ The targets are predicted from the code, not yet computed. A mutation that misse
 
 | file | what |
 |---|---|
+| `rerun_run_0*.*`, `rerun_run_02_evals.json` | the four reruns: **every line equals dh610's except the timings**, with the same exit codes (0, 1, 0, 0). X1 fails as worded, as on dh610. The expectation written above is met |
+| `ind208.py`, `ind208_run1.txt` | run 1: **exit 0, 3 of 3.** K1: `order5.py`'s h_k and dY_k/dl for k = 0 … 5 follow from the ℓ-system (sympy residual 0). K2: Ω₀ … Ω₂ match their closed forms to 7.2e-45, 1.6e-44 and 4.1e-40. Ω₃ = −652.840107570056125435239303799647361080405 matches Ω₃* to 5.6e-38 and #195's median to 9.5e-38. Orders 2 to 5 take 12 to 41 s each. K3: every slope is −4π to 1.3e-47, and G₅(0)/(4π) matches Ω₃* to 8.6e-41 relative |
+| `ind208_run1_mut_*.txt` | `k1-B` fails exactly K1, K2 and K3. `short-V` fails exactly K2 and K3 (Ω₃ off by 3.5e-9). `drop-z3` fails exactly K2 and K3: without its −384ζ(3) term the closed form is 462 away from the computed Ω₃ |
