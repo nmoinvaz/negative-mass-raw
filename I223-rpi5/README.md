@@ -183,6 +183,20 @@ Development runs are in `dev/` (R1 unless stated; never part of the record). New
   grows to thousands in the free region and steps over the well (u unchanged, D = −2W). Fixed by integrating the free part with `run_chunks` to
   |x| = 40 and the well with `max_step = 0.5`. The real potentials have power-law tails and showed no such skipping (P1, P2 agree with #212).
 
+- **D8, the spectral check.** First run (box from the largest shooting rate): B1 at q = 0.5 lost its weak mode (box too small), B3 at q = 0.15 gave 4.6e-2
+  at S-A. Box from the smallest rate on the plain grid: garbage for X > 250 (spacing at the centre of the Chebyshev grid 7 to 14 against structure of
+  size 1 to 3). A sinh-mapped grid fixed it (A4): 12 R1 members, 5e-8 at worst for the mapped ones, including the weak mode of B1 at q = 0.5 (6.7e-3) and the
+  throat member B3 at q = 0.15 (1e-8; #212's plain grid gave 4.5e-3 at throat members).
+- **D9, the glitch in P3.** With the range excluded (`lowW_range`) `planted_low` found 2 roots, one of them a single wrong point of D(W) (W = 2.57e-4: D = +1.3e-3
+  between neighbours of −4.5e-4). Cause: a step of `run_chunks` crossed the well (|x| < 40) in the free region and the terminal event at x = −40 was located
+  from a dense-output polynomial of that step. Fixed: free flow up to |x| = 1040, the well with `max_step = 0.5`. The real runs use power-law tails and
+  have not shown it; every root of record is checked against a second resolution, Sturm and the spectral count.
+- **D10, the controls (dev).** All 21 controls fire (`dev/controls_dev{1,2,3}.log`). Differences from A3's predictions: `hz_start` moves W of B3 at q = 0.15 by 0.17
+  (predicted 1e-4); `ned_off` removes the second mode of that member (2 modes → 1; predicted a 1 % change of the rates), so the weak-ish mode (W = 0.045) is
+  produced by the charge; `B1` at q = 0.3, the member chosen for the Sturm and spectral controls, has two modes in range (a weak one of 1.8e-3) and Sturm 2, not
+  1 (the detail strings of the controls were corrected, nothing else changed); `lowW_range` first returned the glitch of D9, then 0 roots; `rmax_low` removes the
+  root of S at m = 1 (low stage), as predicted.
+
 ## Amendments
 
 All written before the runs of record they govern.
@@ -230,3 +244,20 @@ All written before the runs of record they govern.
 
 `ned_off` and `hz_start`, `rmax_low` are agreement controls: the NED term itself is guarded by S1, S4, S5, S8 (the zero-charge members P1, P2 have Λ ≡ 0), and
 `ned_off` shows that it matters at the member.
+
+**A4. The spectral grid (S6), after D8.** The box rule is `X = max(X0, kX/W)` with W the smallest shooting rate of the member in the declared range (the
+declared "W the shooting rate" for a member with one mode). For X > 150 the Chebyshev nodes ξ are mapped, `x_* = X sinh(aξ)/sinh(a)` with a = 5 (derivative by
+the chain rule); for X ≤ 150 the grid is the plain one of Sec. 3. N, X0, kX and the tolerances are as declared. Counted: real eigenvalues λ > 1e-6; modes
+below W = 1e-3 are outside this check, as they are outside the declared range.
+
+**A5. Control targets, declared after the development run of D10** (`CONTROLS` in `bounce.py`; kind in brackets; check/planted: exit 1 with a FAIL line holding the target):
+`sv_V`, `sv_L` (check, S1); `bbs_A` (check, S1 background); `bbs_V20` (check, S1 [BBS12] printed (20)); `ned_T` (check, S4 NED source); `master_ned`, `master_p`,
+`bkz41_sign` (check, S4 linearized); `family_ned` (check, S5 family); `veff_ned` (check, S8 Vhat); `bg_kappa` (check, S3 horizons); `az_series` (check, S2 float64);
+`eps`, `throat_wall`, `rmax` (planted, P1); `hz_start`, `ned_off` (agree: R1 with the mutation against the unmutated R2 of B3 at q = 0.15, fires when the counts differ or
+a rate differs by more than 1e-6); `scan_range`, `sturm_sign` (sturm: B1 at q = 0.3, shooting count in range against the Sturm count, fires when they differ);
+`spec_sign` (spectral, S6, B1 at q = 0.3); `lowW_V`, `lowW_range` (plantedlow, P3); `rmax_low` (agreelow: low-stage R1 with the mutation against the unmutated low-stage R2 of S at m = 1).
+The agreement controls do not test the NED term itself (see A3); the Sturm controls fire against the Sturm count, which is not mutated by `scan_range`
+and is the mutated quantity in `sturm_sign`.
+
+**A6. Runs of record.** Main stage R1 and R2 and low stage R1 and R2 for the 55 members (S 16, B1 12, B2 12, B3 11, P2 4; B1 q = 0, B2 q = 0, B3 q = 0 are the P2 members
+c = −3, −1, −0.3), three worker units at a time, logs and JSON in `results/`. `bounce.py` at the commit named in the closing comment; no edit to it while the runs go.

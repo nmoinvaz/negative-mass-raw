@@ -1,0 +1,12 @@
+fires   --mutate=eps (target P1 planted): exit 1; FAIL  P1 planted Ellis (S, m = 0) R1: growing modes 3 (declared 1); W^2 a^2 = 0.009142923677800; reference 1.39705243433350684047; |differen
+fires   --mutate=throat_wall (target P1 planted): exit 1; FAIL  P1 planted Ellis (S, m = 0) R1: growing modes 0 (declared 1); no growing mode found
+fires   --mutate=rmax (target P1 planted): exit 1; FAIL  P1 planted Ellis (S, m = 0) R1: growing modes 1 (declared 1); W^2 a^2 = 1.397052903487435; reference 1.39705243433350684047; |differen
+fires   --mutate=hz_start (target R1 v R2): exit 0; B3_q0.15: n_roots 2 against 2; max |dW|/W = 1.679e-01 (declared <= 1e-06)
+fires   --mutate=ned_off (target R1 v R2): exit 0; B3_q0.15: n_roots 1 against 2; max |dW|/W = 2.265e+01 (declared <= 1e-06)
+fires   --mutate=lowW_V (target P3 planted): exit 1; FAIL  P3 planted weak bound state R1: roots 1 (declared 1), W = 5.9999999992e-05, reference 3.0000000000e-05, relative difference 1.000e+00 (declared <= 0.001);
+fires   --mutate=lowW_range (target P3 planted): exit 1; FAIL  P3 planted weak bound state R1: roots 2 (declared 1), W = 2.5580569309e-04, reference 3.0000000000e-05, relative difference 7.527e+00 (declared <= 0.001);
+fires   --mutate=rmax_low (target low R1 v R2): exit 0; S_m1 low stage: n_roots 0 against 1; max |dW|/W = 0.000e+00 (declared <= 0.0001)
+fires   --mutate=scan_range (target S9 Sturm): exit 0; B1_q0.3: shooting n_roots 0, Sturm 2 (unmutated: 1 and 1)
+fires   --mutate=sturm_sign (target S9 Sturm): exit 0; B1_q0.3: shooting n_roots 2, Sturm 0 (unmutated: 1 and 1)
+fires   --mutate=spec_sign (target S6 spectral): exit 1; FAIL  S6 spectral S-A (u-form, X = 6784) B1_q0.3: positive real eigenvalues 0 (shooting 2), complex with Re > 1e-3: 0, W = [], |dW|/W = [] (; FAIL  S6 spectral S-B (u-form, X = 13569) B1_q0.3: positive real eigenvalues 0 (shooting 2), complex with Re > 1e-3: 0, W = [], |dW|/W = [] 
+exit 0
