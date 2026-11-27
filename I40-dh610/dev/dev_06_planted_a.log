@@ -1,0 +1,14 @@
+threshold.py planted {}: numba 0.68.1, numpy 2.5.4, python 3.14.10, dh610-fedora, load average at start 13.82 14.54 15.74, mutation None, 2026-11-26 22:22:50
+    PL D=4: planted slope 0.846045, q = 0.01414, sigma = 0.01; p* recovered 4.699999999957071e-05 (planted 4.700000000000000e-05); primary slope 0.846416 +- 0.000307 (OLS SE), rel +4.39e-04; spread [0.846040, 0.846917]
+[pass] PL[D=4]: planted type I series, through the same bisection and fit code, recovers p* and a slope whose spread contains 1/W  (|p* error| 4.3e-16 <= 2e-14; 1/W inside [0.846040, 0.846917])
+    PX D=4: planted slope 1/(sqrt2 W) = 0.598244; fitted 0.598635, spread [0.598304, 0.599337] against 1/W = 0.846045
+[pass] PX[D=4]: a planted series with the time unit scaled by sqrt2 (slope 1/(sqrt2 W)) is rejected by the comparison with 1/W
+    PL D=5: planted slope 0.578803, q = 0.00500, sigma = 0.01; p* recovered 4.699999999957071e-05 (planted 4.700000000000000e-05); primary slope 0.579251 +- 0.000287 (OLS SE), rel +7.74e-04; spread [0.578759, 0.579712]
+[pass] PL[D=5]: planted type I series, through the same bisection and fit code, recovers p* and a slope whose spread contains 1/W  (|p* error| 4.3e-16 <= 2e-14; 1/W inside [0.578759, 0.579712])
+    PX D=5: planted slope 1/(sqrt2 W) = 0.409276; fitted 0.409637, spread [0.409105, 0.410241] against 1/W = 0.578803
+[pass] PX[D=5]: a planted series with the time unit scaled by sqrt2 (slope 1/(sqrt2 W)) is rejected by the comparison with 1/W
+    PL D=6: planted slope 0.461924, q = 0.00354, sigma = 0.01; p* recovered 4.699999999957071e-05 (planted 4.700000000000000e-05); primary slope 0.462317 +- 0.000284 (OLS SE), rel +8.52e-04; spread [0.461856, 0.462782]
+[pass] PL[D=6]: planted type I series, through the same bisection and fit code, recovers p* and a slope whose spread contains 1/W  (|p* error| 4.3e-16 <= 2e-14; 1/W inside [0.461856, 0.462782])
+    PX D=6: planted slope 1/(sqrt2 W) = 0.326629; fitted 0.326986, spread [0.326538, 0.327577] against 1/W = 0.461924
+[pass] PX[D=6]: a planted series with the time unit scaled by sqrt2 (slope 1/(sqrt2 W)) is rejected by the comparison with 1/W
+0.0 s

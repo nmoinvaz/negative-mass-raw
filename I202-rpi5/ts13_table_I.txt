@@ -1,0 +1,32 @@
+TS13 (Torii, Shinkai, arXiv:1309.2058v1, PRD 88, 064027), page 5, "TABLE I: The negative eigenvalues ω²."
+Reading 1 of 3: typed by eye from the rendered page (ts13_download/img/table_crop-5.png, pdftoppm 300 dpi of the arXiv v1 PDF),
+before the text layer and the TeX source were compared. Columns: n (= D, the spacetime dimension), ω² (a = 1).
+The n = 100 entry is typeset "− 191.283017729717" with a space after the minus sign; the others have none.
+
+  n      ω²
+  4      −1.39705243371511
+  5      −2.98495893027790
+  6      −4.68662054299460
+  7      −6.46258414126318
+  8      −8.28975936306259
+  9      −10.1535530451867
+  10     −12.0442650147438
+  11     −13.9552091676647
+  20     −31.5751101285105
+  50     −91.3457759137153
+  100    − 191.283017729717
+
+Every entry has 15 significant digits (14 decimals for n = 4..8, 13 for n = 9..11, 20 and 50, 12 for n = 100); the table
+states no uncertainty. n = 5 and n = 6 end in a printed 0.
+
+Conventions read from the same paper (TeX source, NdimWH_130910rev2.tex):
+  - n-dimensional spacetime: S = ∫ dⁿx √−g [...], metric ds² = −f e^{−2δ}dt² + f⁻¹dr² + R²h_ij dx^i dx^j, h the unit
+    (n−2)-sphere (lines 269-306). So n = D.
+  - throat radius R(0) = a; "we can assume a = 1 and f₀ = 1 without loss of generality" by t̃ = t/a, r̃ = r/a, R̃ = R/a
+    (line 377, note_1). So ω² here is ω²a².
+  - static solution f ≡ 1, R′ = √(1 − (a/R)^{2(n−3)}) (Eq. massless-sol-2), so r is proper distance and t the throat's
+    proper time: the same coordinates as this repository's ds² = −dt² + dl² + r(l)² dΩ.
+  - perturbations f₀+εf₁e^{iωt} etc. (lines 483-490), so a mode e^{Wt} has ω² = −W², and W²a² = −ω².
+  - regularized master equation −Ψ₁″ + W(r)Ψ₁ = ω²Ψ₁ (3.17) with W(r) = −[3(n−2)²/R₀^{2(n−3)} − (n−4)(n−6)]/(4R₀²) (3.18).
+    No numerical method, grid, domain or tolerance is stated for the eigenvalue search; the acknowledgments say "Numerical
+    computations were carried out on SR16000 at YITP in Kyoto University, and on the RIKEN Integrated Cluster of Clusters".

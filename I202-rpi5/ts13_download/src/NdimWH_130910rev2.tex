@@ -1,0 +1,1081 @@
+%\documentclass[eqsecnum,aps,showpacs,amsmath,nofootinbib,superscriptaddress,preprintnumbers]{revtex4}
+\documentclass[eqsecnum,aps,showpacs,amsmath,nofootinbib,twocolumn, superscriptaddress,preprintnumbers]{revtex4}
+%\documentclass[eqsecnum,aps,showpacs,amsmath,nofootinbib,superscriptaddress,preprintnumbers,preprint]{revtex4}
+%\documentclass[seceq]{ptptex}
+\usepackage{dcolumn}
+
+\usepackage{epsfig, color,graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%%
+%%
+%<<<<<<<<<<<<< new command >>>>>>>>>>>>>>>%
+%\newcommand{\nn}{\nonumber \\}
+%\newcommand{\bea}{\begin{eqnarray}}
+%\newcommand{\ena}{\end{eqnarray}}
+%\newcommand{\vs}[1]{\vspace{#1 mm}}
+%\newcommand{\hs}[1]{\hspace{#1 mm}}
+%\renewcommand{\a}{\alpha}
+%\renewcommand{\b}{\beta}
+%\renewcommand{\c}{\gamma}
+%\renewcommand{\d}{\delta}
+%\newcommand{\e}{\epsilon}
+%\newcommand{\s}{\sigma}
+%\newcommand{\G}{\Gamma}
+%\renewcommand{\k}{\kappa}
+%\newcommand{\la}{\lambda}
+%\newcommand{\pa}{\partial}
+%\newcommand{\p}[1]{(\ref{#1})}
+%\newcommand{\gsim}{\, \mbox{\raisebox{-1.ex}{$\stackrel{\textstyle>}{\textstyle\sim}$}}\,}
+%\newcommand{\lsim}{\, \mbox{\raisebox{-1.ex}{$\stackrel{\textstyle<}{\textstyle\sim}$}}\,}
+%%
+%\newcommand{\tm}{\tilde{m}}
+%\newcommand{\tr}{\tilde{r}}
+%\newcommand{\tl}{\tilde{l}}
+%\newcommand{\squaret}{\kern1pt\vbox{\hrule height 0.9pt\hbox{\vrule width
+%0.9pt\hskip 2pt\vbox{\vskip 5.5pt}\hskip 3pt\vrule width 0.3pt}\hrule height
+%0.3pt}\kern1pt}
+%%
+\begin{document}
+
+%\baselineskip=24pt
+
+%%
+%\preprint{preprint-??? version 20130801 HS}
+%%
+%<<<<<<<<<<<<< TITLE >>>>>>>>>>>>>>>%
+%%
+\title{Wormholes in higher dimensional space-time: \\
+%I. 
+Exact solutions and their linear stability analysis
+}
+%%
+%<<<<<<<<<<<<< AUTHOR >>>>>>>>>>>>>>>%
+%%
+\author{Takashi Torii}\email{torii@ge.oit.ac.jp}
+\affiliation{Department of General Education, Osaka Institute of Technology,
+Asahi-ku, Osaka 535-8585, Japan}
+
+\author{Hisa-aki Shinkai}\email{shinkai@is.oit.ac.jp}
+\affiliation{Department of Information Systems, Osaka Institute of Technology,
+Kitayama, Hirakata, Osaka 573-0196, Japan}
+\affiliation{Computational Astrophysics Laboratory,
+ Institute of Physical \& Chemical Research (RIKEN),\\
+ Hirosawa, Wako, Saitama, 351-0198 Japan
+}
+
+%<<<<<<<<<<<<< DATE >>>>>>>>>>>>>>>%
+\date{\today %~~ \color{blue} revised version 1 (HS) \color{black}
+}
+
+
+%======================================%
+%<<<<<<<<<<<<< ABSTRACT >>>>>>>>>>>>>>>%
+%======================================%
+\begin{abstract}
+We derive the simplest traversable wormhole solutions in $n$-dimensional general relativity, 
+assuming static and spherically symmetric spacetime with 
+a ghost scalar field. 
+This is the generalization of 
+the Ellis solution (or the so-called Morris-Thorne's traversable wormhole)
+into a higher-dimension. 
+We also study their stability using linear 
+perturbation analysis. 
+%We derive Ellis's solutions (or the so-called Morris-Thorne's traversable wormhole)
+%in $n$-dimensional general relativity, and study their stability using linear 
+We obtain the master equation for the perturbed gauge-invariant variable 
+and search their eigenvalues. 
+Our analysis shows that all higher-dimensional wormholes have an unstable mode
+against the perturbations with which the throat radius is changed.
+The instability is consistent with the earlier numerical analysis in 
+four-dimensional solution.  
+
+%{\color{red}
+%\noindent
+%ÅEreference 
+%}
+
+ 
+%We know numerically the four-dimensional Ellis wormhole 
+%is unstable against an input of scalar-pulse from one side.  
+
+%We investigate this feature for higher-dimensional versions, 
+%both in $n$-dimensional general relativity and in 5-dimensional Gauss-Bonnet gravity. 
+%evolved it numerically in dual-null coordinate with/without Gauss-Bonnet corrections.   
+%Preliminary results show that those are also unstable. 
+%We also find that the throat of wormhole in Gauss-Bonnet gravity 
+%tends to expand (or shrink) after an input of ghost-scalar pulse 
+%if the coupling constant $\alpha$ is positive (negative).
+
+
+\end{abstract}
+
+%<<<<<<<<<<<<< PACS NUMBER >>>>>>>>>>>>>>>%
+\pacs{04.20.-q, 04.40.-b, 04.50.-h}
+
+% 04.20.-q : Classical general relativity
+% 04.40.-b : Self-gravitating systems; continuous media and classical fields in curved spacetime
+% 04.50.-h : Higher-dimensional gravity and other theories of gravity
+
+\maketitle
+
+
+%======================================%
+%======================================%
+%<<<<<<<<<<<< SECTION I  >>>>>>>>>>>>>>%
+\section{Introduction}
+\label{section_intro}
+%======================================%
+%======================================%
+Wormholes are popular tools in science fiction as a way 
+for rapid interstellar travel, time machines and warp drives.  
+However, wormholes are also a scientific topic,  
+just after the birth of general relativity. 
+
+Historically, a ``tunnel structure" in the Schwarzschild solution
+was first pointed out by Flamm in 1916\cite{Flamm1916}.  
+Einstein and Rosen \cite{EinsteinRosen} proposed a ``bridge structure"
+between black holes in order to obtain a regular solution without a singularity. 
+The name ``wormhole" was coined by John A. Wheeler in 1957,  
+and its fantastic applications are popularized 
+after the influential study of traversable wormholes by
+Morris and Thorne \cite{MT}.  
+
+Morris and Thorne  considered ``traversable conditions" for human travel 
+through wormholes responding to Carl Sagan's idea for his novel ({\it Contact}),  
+and concluded that such a wormhole solution is available 
+if we allow ``exotic matter" (negative-energy matter). 
+
+The introduction of exotic matter sounds to be unusual for the first time, but 
+such matter appears in quantum field theory and in alternative
+gravitational theories such as scalar-tensor theories. 
+%{\color{red}
+%We are also familiar with the name ``dark energy" for explaining the unknown source
+%of the accelerating expansion of the Universe.  (??)
+%}
+The Morris-Thorne solution is constructed with a
+massless Klein-Gordon field whose gravitational coupling takes the opposite
+sign to normal, which appears in Ellis's earlier work \cite{Ellis}, 
+who called it a drainhole, 
+and also in more general framework of scalar-tensor
+theories by Bronnikov in the same year\cite{Bronnikov1973}. 
+(See a review e.g. by Visser \cite{MVbook} for earlier works; See also e.g. Lobo
+\cite{Lobobook} for recent works).
+
+
+Since the difference of light bending behavior between the Ellis wormhole and 
+Schwarzschild black hole were reported by Abe\cite{abe2010}, the microlensing images
+with wormholes are also getting attention from the observational point of view \cite{toki,yoo}.
+
+%Ellis (Morris-Thorne) wormhole solution was studied in many contexts. 
+%Among them, we focus its higher dimensional extensions and their stability. 
+
+One of our main motivations in this paper is the dynamical features of wormholes.
+A wormhole is supposed to connect two spacetimes as a two-way interface, while
+a black hole is an one-way interface. 
+From this analogy, Hayward \cite{Hayward1999} proposed a unified understanding 
+of black holes and traversable wormholes, {\it i.e.} a wormhole 
+throat can be interpreted as a degenerate horizon.
+This idea predicts that a wormhole changes to a black hole in its dynamical 
+evolutions in the classical process. 
+
+This is numerically shown by one of the authors \cite{ShinkaiHayward}.
+Using a dual-null formulation for space-time integration, 
+they observed that the wormhole is unstable against
+Gaussian pulses in either an exotic or normal massless Klein-Gordon field. 
+The wormhole throat suffers a bifurcation of the horizon and either explodes to form
+an inflationary universe or collapses to a black hole, whether the total input
+energy is negative or positive, respectively. 
+
+These basic behaviors were repeatedly confirmed by other groups
+\cite{Doroshkevich,Sarbach2}, together with linear perturbation analysis \cite{Sarbach1} 
+\footnote{
+Armendariz-Picon\cite{Armendariz-Picon} reported that the Ellis wormhole is stable
+using perturbation analysis. 
+However, Gonzalez et al \cite{Sarbach1} reported that 
+his conclusion is within the limited class of perturbations and
+the Ellis wormhole is unstable}. 
+The wormhole solutions with a conformal scalar field were reported\cite{Bronnikov1973,BarceloVisser}, and their instabilities are shown also 
+using linear perturbation analysis
+\cite{BronnikovGrinyok2004}. 
+There are also discussions on the wormhole solutions in alternative/modified 
+gravity (e.g. \cite{BKZ2012, NovikovShatskiy}). 
+Wormhole thermodynamics is also proposed based on these properties \cite{Hayward2009}.
+
+We, therefore, understand that four-dimensional Ellis wormhole is unstable. 
+If this feature can also be seen in higher-dimensional spacetime, 
+it should be generic independent of the dimension.
+The higher-dimensional theories such as string/M theories are applied for various unsolved problems in gravitational phenomena and cosmology, and we gain new insights into them.
+The wormholes in higher dimensional general relativity 
+lead to the study in such fundamental theories.
+
+Wormhole study in higher-dimensional spacetime is not a new topic. 
+We can find the articles from 1980s 
+\cite{ChadosDetweiler,Clement84}, and 
+the recent studies include higher-curvature terms (see e.g. \cite{MaedaNozawa}
+and \cite{KKK} and references therein).
+Most of the research concerns the solutions and their energy conditions mainly, 
+but to our knowledge there is no general discussion on the stability analysis of the
+solutions. 
+%M. S. R. Delgaty and R. B. Mann, ÅgTraversable wormholes in (2+1) and (3+1) dimensions with a cosmological constant,Åh
+%Int. J. Mod. Phys. D 4, 231 (1995) [arXiv:gr-qc/9404046].
+ 
+%A. DeBenedictis and A. Das, ÅgHigher dimensional wormhole geometries with compact dimensions,Åh Nucl. Phys. B653, 279 (2003) [arXiv:gr-qc/0207077].
+
+%R. R. Caldwell and D. Langlois, ÅgShortcuts in the fifth dimension,Åh Phys. Lett. B 511, 129 (2001) [arXiv:gr-qc/0103070].
+
+%His proposal is that the two are dynamically interconvertible,
+%and that traversable wormholes are understandable as black holes under negative
+%energy density.
+
+%Studies on wormholes in Gauss-Bonnet gravity have long histories. 
+%Several solutions and their classifications are reported in \cite{P28_BhawalKar,P28_Dotti}, 
+%while their energy conditions are considered in \cite{P28_MaedaNozawa}.
+%Similar researches are extended to the Lovelock gravity\cite{P28_DehghaniDayyani}, 
+%%to the Yang-Mills-Gauss-Bonnet system \cite{P28_Mazharimousavi}, 
+%and also to the Dilatonic Gauss-Bonnet system \cite{KKK}.
+%Our aim is to investigate their dynamical features.  
+
+
+In this article, we 
+construct Ellis solutions in higher-dimensional general relativity, 
+and study their stability using the linear perturbation technique. 
+The full numerical studies will be shown in our follow up paper. 
+%(b) dynamical effects of Gauss-Bonnet coupling constant in 5-dimensional wormhole solution. 
+
+This paper is organized as follows. 
+In Section~\ref{section_2}, we derive our higher-dimensional wormhole solutions. 
+In Section~\ref{section_3}, we show the linear perturbation analysis. 
+The conclusion and discussion are shown in Section~\ref{section_4}. 
+
+
+%======================================%
+%======================================%
+%<<<<<<<<<<<< SECTION II  >>>>>>>>>>>>>>%
+\section{Wormhole solutions}
+\label{section_2}
+%======================================%
+%======================================%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Field equations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Action and basic equations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+We start from the $n$-dimensional Einstein-Klein-Gordon system
+%========<Equation>========%
+\begin{eqnarray}
+S = \int \! d^{n}x \sqrt{-g} \bigg[\frac{1}{2\kappa_n^2}R 
+-\frac{1}{2} \epsilon (\nabla \phi)^2-V(\phi) \bigg],
+\label{action1}
+\end{eqnarray}
+where $\kappa_n^2$ is a $n$-dimensional gravitational constant.
+The scalar field $\phi$ can be called as {\it normal} (or {\it ghost}) field 
+if $\epsilon=1\; (-1)$. 
+
+This action derives the Einstein equation 
+\begin{eqnarray}
+%========<Equation>========%
+G_{\mu\nu}=\kappa_n^2 T_{\mu\nu}, 
+\end{eqnarray}
+where 
+\begin{eqnarray}
+%========<Equation>========%
+T_{\mu\nu} = \epsilon(\partial_{\mu}\phi)(\partial_{\nu}\phi)-g_{\mu\nu}\Bigl[\frac{1}{\:2\:}\epsilon (\nabla\phi)^2+V(\phi)\Bigr], \label{Tmunu}
+\end{eqnarray}
+and the Klein-Gordon equation
+\begin{eqnarray}
+%========<Equation>========%
+%\squaret 
+\kern1pt\vbox{\hrule height 0.9pt\hbox{\vrule width
+0.9pt\hskip 2pt\vbox{\vskip 5.5pt}\hskip 3pt\vrule width 0.3pt}\hrule height
+0.3pt}\kern1pt
+\phi  =-\epsilon \frac{dV}{d\phi}.
+\label{KG}
+\end{eqnarray}
+
+We consider the %spherically symmetric 
+space-time with the metric 
+\begin{eqnarray}
+%========<Equation>========%
+ds^2 &=& - f(t,r)e^{-2\delta(t,r)}dt^2 + f(t,r)^{-1} dr^2 \nonumber \\ 
+&& + R(t,r)^2 h_{ij}dx^i dx^j,
+\label{metric}
+\end{eqnarray}
+where $h_{ij}dx^i dx^j$ represents the line element of a unit $(n-2)$-dimensional
+constant curvature space with curvature $k=\pm1,\:0$ and volume $\Sigma_k$.
+
+%The non-zero components of $G_{\mu\nu}$ and $T_{\mu\nu}$ for the metric (\ref{metric}) are shown in the Appendix A.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Static wormhole solution with massless scalar field in spacetime $k=1$}
+%\label{massless}
+In order to construct a static wormhole solution, we restrict the metric function 
+as $f=f(r)$, $R=R(r)$, $\phi=\phi(r)$, and $\delta=0$.
+The $(t,t)$,  $(r,r)$, and  $(t,r)$ components of the Einstein equations, then, become
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{widetext}
+\begin{eqnarray}%========<Equation>========%
+&&-\frac{n-2}{2}f^2\biggl[\frac{2R''}{R}+\frac{f'R'}{fR}+\frac{(n-3)R'^2}{R^2}\biggr] +\frac{(n-2)(n-3)kf}{2R^2}
+=\kappa_n^2f\Bigl[ \frac{1}{\:2\:}\epsilon f \phi'^2+V(\phi)\Bigr], 
+%=\frac{\kappa_n^2}{2\epsilon}f^2\phi'^2, 
+\rule[0mm]{0mm}{8mm} 
+\label{Einstein_static_tt}\\
+%
+&&\frac{n-2}{2}\frac{R'}{R}\biggl[\frac{f'}{f}+\frac{(n-3)R'}{R}\biggr] -\frac{(n-2)(n-3)k}{2fR^2}
+=\frac{\kappa_n^2}{f}\Bigl[\frac{1}{\:2\:}\epsilon f \phi'^2-V(\phi)\Bigr],
+%= \frac{\kappa_n^2}{2}\epsilon  \phi'^2, 
+\rule[0mm]{0mm}{8mm} \\
+%
+&&\frac{f''}{2}+(n-3)f\biggl(\frac{R''}{R}+\frac{f'R'}{fR}+\frac{n-4}{2}\frac{{R'}^2}{R^2}\biggr)
+-\frac{(n-3)(n-4)k}{2R^2}
+=\kappa_n^2\Bigr[\frac{1}{\:2\:}\epsilon f \phi'^2+V(\phi)\Bigr],
+%=\frac{\kappa_n^2}{2}\epsilon f \phi'^2. 
+\rule[0mm]{0mm}{8mm}
+\label{Einstein_static_ij}
+\end{eqnarray}
+\end{widetext}
+respectively, and the Klein-Gordon equation becomes
+\begin{eqnarray}%========<Equation>========%
+\frac{1}{R^{n-2}}\big(R^{n-2}f\phi'\big)' 
+=-\epsilon \frac{dV}{d\phi}. 
+\label{KG-2}
+\end{eqnarray}
+
+Hereafter, we assume that the scalar field is ghost ($\epsilon=-1$)
+and massless ($V(\phi)=0$).
+The Klein-Gordon equation (\ref{KG-2}) is integrated as 
+\begin{eqnarray}
+\phi' = \frac{C}{fR^{n-2}}, 
+\label{masless-KG-1}
+\end{eqnarray}
+where $C$ is an integration constant.
+The Einstein equations 
+(\ref{Einstein_static_tt})--(\ref{Einstein_static_ij}) are reduced to 
+\begin{eqnarray}%========<Equation>========%
+\frac{(n-2)R'}{R}\Big[\frac{f'}{f}+\frac{(n-3)R'}{R}\Big]
+-\frac{(n-2)(n-3)k}{fR^2} \nonumber \\
+=-\frac{\kappa_n^2 C^2}{f^2R^{2(n-2)}}
+\label{masless-eq-1}
+\end{eqnarray}
+and
+\begin{eqnarray}%========<Equation>========%
+\frac{(n-2)R''}{R}=\frac{\kappa_n^2 C^2}{f^2R^{2(n-2)}}.
+\label{masless-eq-2}
+\end{eqnarray}
+
+We assume the throat of the wormhole is at $r=0$, and 
+$a$ is the radius of the throat, i.e., $R(0)=a$. 
+By the regularity conditions at the throat,   
+\begin{eqnarray}%========<Equation>========%
+R(0)=a>0, \;\mbox{and}\; f(0)=f_0>0,
+\label{regularity}
+\end{eqnarray}
+where $f_0$ is a constant. Here we can assume $a=1$ and $f_0=1$ without loss of generality \cite{note_1},
+but we keep $a$ in the equations in this section for later convenience.
+We also assume the reflection symmetry with respect to the throat: 
+\begin{eqnarray}%========<Equation>========%
+R'(0)=0, \;\mbox{and}\; f'(0)=0.
+\label{reflection}
+\end{eqnarray}
+There is a shift symmetry of the scalar field $\phi$ and we impose $\phi(0)=0$. 
+By substituting these conditions into Eq.~(\ref{masless-eq-1}), 
+the integration constant $C$ is determined as 
+\begin{eqnarray}%========<Equation>========%
+\kappa_n^2 C^2 = (n-2)(n-3)ka^{2(n-3)}.
+\label{constant_C}
+\end{eqnarray}
+For the case $k=0$, the constant $C$ vanishes and the solution becomes
+trivial. For the case $k=-1$, Eq.~(\ref{constant_C}) is not satisfied and there is no wormhole solution. Below we assume  $k=1$.
+
+
+The solution of Eqs.~(\ref{masless-KG-1})--(\ref{masless-eq-2}) is obtained as 
+\begin{eqnarray}%========<Equation>========%
+f&\equiv& 1, 
+\label{massless-sol-1}
+\\
+R' &=& \sqrt{1-\Big(\frac{a}{R}\Big)^{2(n-3)}}, 
+%~~~{\color{green} \biggl[R'' = \frac{n-3}{R^{2n-5}}  \biggr]}
+\label{massless-sol-2}
+\\
+\phi&=& \frac{\sqrt{(n-2)(n-3)}}{\kappa_n} a^{n-3}  \int\frac{1}{R(r)^{n-2}}dr.
+\label{massless-sol-3}
+\end{eqnarray}
+The Eq.~(\ref{massless-sol-2}) is integrated to give
+\begin{eqnarray}%========<Equation>========%
+r(R)=-mB_{z}\Big(\!-m,\: \frac{1}{\:2\:} \Big)
+-\frac{\sqrt{\pi}\Gamma[1-m]}{\Gamma[m(n-4)]},
+\label{massless-sol-4}
+\end{eqnarray}
+where $m={1}/{2(n-3)}$ and $z=R^m$. $B_{z}(p,q)$ is the incomplete beta function defined by
+\begin{eqnarray}%========<Equation>========%
+B_{z}(p, q):= \int_0^{z} t^{p-1}(1-t)^{q-1} dt
+\end{eqnarray}
+which can be expressed by the hypergeometric function $F(\alpha, \beta, \gamma; z)$ as
+\begin{eqnarray}%========<Equation>========%
+B_{z}(p, q)=\frac{z^p}{p}F(p,\: 1-q,\: p+1;\: z).
+\end{eqnarray}
+Although Eq.~(\ref{massless-sol-4}) is implicit with respect to $R$, it is rewritten in the explicit form
+by using the inverse incomplete beta function.
+For $n=4$, this solution reduces to Ellis's wormhole solution.
+\begin{equation}%========<Equation>========%
+f\equiv 1, ~~~
+R=\sqrt{r^2+a^2}, ~~~
+\phi=\sqrt{2}\tan^{-1} \frac{r}{a}.
+\end{equation}
+
+At the throat, we find
+\begin{eqnarray}%========<Equation>========%
+R''(a)=\frac{n-3}{a}, \mbox{~and~}
+\phi'(a)=\frac{\sqrt{(n-2)(n-3)}}{\kappa_n a}.
+\end{eqnarray}
+These indicate that the throat of the wormhole has larger curvature
+and the scalar field $\phi$ becomes steeper as $n$ goes higher. 
+%As the dimensions $n$ becomes large, 
+%variations of the function $R$ becomes large, and $\phi$ becomes steep around the throat.
+%For large $r$, 
+At the spacial infinity, 
+the scalar field $\phi(r)$ becomes constant and the function $R(r)$ is proportional to $r$.
+We plotted these behaviors in Figure~\ref{fig1}. 
+For $n\to \infty$, the functions have the limiting solution, 
+$R= r+a$ and $\phi = \pi/2~(r>0)$.
+
+\begin{widetext}
+%%--figures-------------------------------------------------------------
+\begin{center}
+\begin{figure}[tb]
+\includegraphics[width=16cm]{fig_1.eps}
+%\includegraphics[width=8cm]{fig1_b.pdf.eps}
+%\vspace*{-10mm}
+\caption{The $n$-dimensional wormhole solutions;  
+(a) The circumference radius $R$ and (b) the scalar field $\phi$ are plotted as a function of the radial coordinate $r$. The cases of $n=4$--$10$ are shown.}
+\label{fig1}
+\end{figure}
+\end{center}
+%%--figures-------------------------------------------------------------
+\end{widetext}
+
+
+%======================================%
+%======================================%
+%<<<<<<<<<<<< SECTION II  >>>>>>>>>>>>>%
+\section{Stability analysis}
+\label{section_3}
+%======================================%
+%======================================%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In this section, we investigate the linear stability of the higher-dimensional wormhole
+solution obtained in the previous section.
+In the non-linear analysis in four-dimensional spacetime, it is shown that the 
+instability occurs
+by resolution of the degeneracy of a double trapping horizon by perturbing the 
+throat radius
+\cite{ShinkaiHayward}. 
+Hence we follow the analysis in Ref.~\cite{Sarbach1},
+where the throat radius is not fixed.
+
+We focus on the ``spherical" modes, where the $(n-2)$-dimensional constant curvature space
+is not perturbed \cite{spherical}. 
+In the time-dependent and spherically symmetric spacetime, the metric is written as 
+Eq.~(\ref{metric}) generally.  We write the perturbed functions as 
+\begin{eqnarray}%========<Equation>========%
+f(t,r)\:=\!\!&&\!\!f_0(r)+\varepsilon f_1(r)e^{i\omega t}, \\
+\delta(t,r)\:=\!\!&&\!\!\delta_0(r)+\varepsilon\delta_1(r)e^{i\omega t}, \\
+R(t,r)\:=\!\!&&\!\!R_0(r)+\varepsilon R_1(r)e^{i\omega t}, \\
+\phi(t,r)\:=\!\!&&\!\!\phi_0(r)+ \varepsilon\phi_1(r)e^{i\omega t}.
+\end{eqnarray}
+$\varepsilon$ is an infinitesimal parameter. The variables with subscript 0 denote the static solution obtained in the previous section.
+This ansatz contains one gauge mode. 
+
+
+%--------------------------------------------------------------------
+\begin{widetext}
+The first-order equations of the Einstein equations become
+%-----------
+\begin{eqnarray}
+&&
+%(t,t) ~~~~~
+R_1''
++\frac{(n-3) R_0'}{R_0}R_1'
++\frac{R_0'}{2}f_1'
++\frac{(n-3)}{2 R_0}f_1
+-\sqrt{\frac{n-3}{n-2}} \frac{1}{R_0^{n-3}}\phi_1'
+=0,
+\label{lin_tt}
+\\ %----------------------
+&&
+%(r,r) ~~~~~
+\frac{(n-3) R_0'}{R_0}R_1'
++\frac{n-3}{R_0^{2 n-4}}R_1
++\frac{R_0'}{2}f_1'
++\frac{(n-3)}{2 R_0}f_1
+-R_0' \delta_1'
++\sqrt{\frac{n-3}{n-2}} \frac{1}{R_0^{n-3}}\phi_1'
++R_1 \omega ^2
+=0,
+\label{lin_rr}
+\\ %----------------------
+&&
+%(t,r) ~~~~~
+2R_1'
+-R_0'f_1
+-2 \sqrt{\frac{n-3}{n-2}} \frac{1}{R_0^{n-3}}\phi_1
+=0,
+\label{lin_rt}
+\end{eqnarray}
+for the $(t,t)$, $(r,r)$, and $(t,r)$ components, respectively. 
+Here we assume $a=1$.
+{}From  Eq.~(\ref{lin_rt}),  $f_1$ is
+%-----------
+\begin{eqnarray}
+f_1=
+2\sqrt{\frac{n-3}{n-2}}\frac{1}{R_0^{n-3}R_0'}\phi_1 
+-\frac{2}{R_0'}R_1'.
+\label{eq_f1}
+\end{eqnarray}
+%
+%\begin{eqnarray}
+%{\color{green}
+%\biggl[
+%f_1'=
+%-\frac{2 }{R_0'}R_1''
+%+\frac{2 (n-3) }{R_0^{2 n-5}R_0'^2}R_1'
+%+2\sqrt{\frac{n-3}{n-2}}\frac{1}{R_0^{n-3}R_0'}\phi_1'
+%-2(n-3)\sqrt{\frac{n-3}{n-2}}\frac{1}{R_0^{n-2}R_0'^2}\phi_1
+%\biggr]
+%\nonumber
+%\label{eq_f1r}
+%}
+%\end{eqnarray}
+%-----------
+By substituting Eq.~(\ref{eq_f1}) into Eqs.~(\ref{lin_tt}) and (\ref{lin_rr}),  we find
+%-----------
+\begin{eqnarray}
+R_1''
+-\frac{n-3}{R_0^{2 n-4}}R_1
++R_0' \delta_1'
+-2\sqrt{\frac{n-3}{n-2}}\frac{1}{R_0^{n-3}}\phi_1' 
+=\omega ^2R_1.
+\label{eq_R1rr}
+\end{eqnarray}
+%-----------
+With Eq.~(\ref{eq_f1}), the Klein-Gordon equation turns out to be
+%-----------
+\begin{eqnarray}
+&&\phi_1''
++\frac{(n-2)+(n-4) R_0^{-2n+6}}{R_0R_0'}\phi_1'
+-\frac{2 (n-3)^2}{R_0^{2 n-4}R_0'^2}\phi_1
+-\frac{2 \sqrt{(n-2)_3}}{R_0^{n-2}R_0'}R_1'' 
+\nonumber
+\\
+&&~~~~~+\frac{\sqrt{(n-2)_3}\bigl[(n-2)+(n-4) R_0^{-2 n+6}\bigr]}{R_0^{n-1}R_0'^2} R_1'
+-\frac{(n-2) \sqrt{(n-2)_3}R_0' }{R_0^{n}} R_1
+-\frac{\sqrt{(n-2)_3}}{R_0^{n-2}}\delta_1' 
+=
+-\omega^2\phi_1.
+\label{eq_phi1rr}
+\end{eqnarray}
+%-----------
+
+\end{widetext}
+
+By introducing the new variable, 
+\begin{eqnarray}
+\psi_1=R_0^{\frac{n-2}{2}}\Bigl(\phi_1-\frac{\phi_0'}{R_0'}R_1\Bigr),
+\end{eqnarray}
+we find Eqs.~(\ref{eq_R1rr}) and (\ref{eq_phi1rr}) give the single master equation, 
+\begin{eqnarray}
+-\psi_1''+V(r)\psi_1=\omega^2 \psi_1, 
+\label{master_1}
+\end{eqnarray}
+with the potential, 
+%
+\begin{equation}
+V(r)=
+\frac{n-2}{2}\biggl[\frac{n-3}{R_0^{2(n-2)}}+\frac{(n-4)R_0'^2}{2R_0^2}\biggl]
++\frac{2(n-3)^2}{R_0^{2(n-2)}{R_0'}^2}. \label{potentialfunc}
+\end{equation}
+The variable 
+$\psi_1$ is gauge invariant under the spherically symmetric ansatz.  However, 
+$R_0'$ is zero at the throat, and the potential $V$ diverges there. 
+Hence we regularize the master equation (\ref{master_1})\cite{note_2}.
+
+It is easily checked that the master equation (\ref{master_1}) has a 0-mode solution 
+\begin{eqnarray}
+\bar{\psi}_1=\frac{1}{R_0^{\frac{n-4}{2}}R_0'}.
+\label{0-mode}
+\end{eqnarray}
+With the 0-mode solution, we define differential operators
+\begin{eqnarray}
+{\cal D}_{+}=\dfrac{d}{dr}-\frac{\bar{\psi}_1'}{\bar{\psi}_1}
+\quad \mbox{and} \quad 
+{\cal D}_{-}=-\dfrac{d}{dr}-\frac{\bar{\psi}_1'}{\bar{\psi}_1}.
+\label{dif-ope}
+\end{eqnarray}
+Then the master equation, (\ref{master_1}), can be written as
+\begin{eqnarray}
+{\cal D}_{-}{\cal D}_{+}\psi_1=\omega^2 \phi_1.
+\label{master_2}
+\end{eqnarray}
+Operating ${\cal D}_{+}$ from the left and defining the new variable $\Psi_1={\cal D}_{+}\psi_1$,
+we find the regularized master equation
+\begin{eqnarray}
+-\Psi_1''+W(r)\Psi_1=\omega^2 \Psi_1,
+\label{master_3}
+\end{eqnarray}
+where 
+\begin{equation}
+W(r)=-\frac{1}{4R_0^2}\Bigl[\frac{3(n-2)^2}{R_0^{2(n-3)}}-(n-4)(n-6)\Bigr].
+\label{regularpot}
+\end{equation}
+Figure~\ref{fig_pot} shows the configurations of the potential function $W(r)$.
+Now the potential function is regular everywhere.
+For $n=4$, $W(r)$ has the minimum at the throat and is negative definite.
+For $n\geq 5$, $W(r)$ has the minimum at the throat, while it increases apart from the throat and becomes 
+positive for large $r$.
+
+We search the eigenfunctions $\Psi_1(r)$ of Eq.~(\ref{master_3}), and
+find them in any dimension $n$. There exists one negative eigenvalue 
+for $\omega^2$, which are listed in Table~\ref{table-eigenvals}. 
+The existence of the eigenfunction with negative $\omega^2$ implies that
+the solution is unstable. 
+We find large negative $\omega^2$ for higher $n$, which indicates the time-scale of
+instability becomes shorter.  This feature corresponds to the depth of the potential $W$. 
+The associated eigenfunctions $\Psi_1(r)$ are shown in Figure~\ref{fig_psi}.
+
+
+
+%%--figures-------------------------------------------------------------
+\begin{figure}[t]
+%\begin{center}
+\includegraphics[width=7.5cm]{fig_2.eps}
+%\end{center}
+%\vspace*{-10mm}
+\caption{
+The potential function $W(r)$ is plotted. 
+$W(r)$ is finite everywhere, and negative around the throat.
+}
+\label{fig_pot}
+\end{figure}
+%%--figures-------------------------------------------------------------
+
+
+%%--figures-------------------------------------------------------------
+\begin{figure}[th]
+%\begin{center}
+\includegraphics[width=7.5cm]{fig_3.eps}
+%\end{center}
+%\vspace*{-10mm}
+\caption{
+The eigenfunction $\Psi_1$ [Eq.~(\ref{master_3})] is plotted as a function of radial coordinate $r$. 
+}
+\label{fig_psi}
+\end{figure}
+%%--figures-------------------------------------------------------------
+
+%%--table-------------------------------------------------------------
+\begin{table}[t]
+\caption{The negative eigenvalues $\omega^2$.
+\label{table-eigenvals}}
+\begin{tabular}{rr}
+\hline
+$n$ & $\omega^2$~~~~~~~~~~ \\
+\hline
+4&$-1.39705243371511$\\
+5&$-2.98495893027790$\\
+6&$-4.68662054299460$\\
+7&$-6.46258414126318$\\
+8&$-8.28975936306259$\\
+9&$-10.1535530451867~\:$\\
+10&$-12.0442650147438~\:$\\
+11&$-13.9552091676647~\:$\\
+20&$-31.5751101285105~\:$\\
+50&$-91.3457759137153~\:$\\
+~~100&$~~-191.283017729717~~~\:\!$\\
+\hline
+\end{tabular}
+\end{table}
+%%--table-------------------------------------------------------------
+
+
+%and for $n=4$ and 8 we also plot both $\tilde{\Psi}_1(r)$ and $W(r)$ in Figure \ref{fig_psi48}.
+%%%--figures-------------------------------------------------------------
+%\begin{figure}[h]
+%%\begin{center}
+%\includegraphics[width=6cm]{n=4.pdf.eps}
+%\includegraphics[width=6cm]{n=8.pdf.eps}
+%%\end{center}
+%%\vspace*{-10mm}
+%\caption{The eigen-function $\Psi_1$ and the potential $W$ for $n=4$ and $n=10$. 
+%}
+%\label{fig_psi48}
+%\end{figure}
+%%%--figures-------------------------------------------------------------
+
+%\vspace{40mm}
+
+
+%======================================%
+%======================================%
+%<<<<<<<<<<<< SECTION IV  >>>>>>>>>>>>>%
+\section{Conclusions and Discussions
+}
+\label{section_4}
+%======================================%
+%======================================%
+%
+We derived the simplest wormhole solutions 
+in higher-dimensional general relativity.
+The spacetime is assumed to be static and spherically symmetric, 
+has ghost scalar field, 
+and has reflection symmetry at the throat.  
+The four-dimensional version is known as the Ellis (Morris-Thorne) 
+solution. 
+At the throat, both the ingoing and outgoing expansions vanish, which means 
+that the throat consists of a degenerate horizon. 
+
+The obtained solutions are expressed with the incomplete beta function. 
+We expect that the solution can be expressed more simple functional form if we use
+another coordinate system.  Or such an expression might have appeared in the 
+literature, but we have not noticed it.  
+However, we believe the successive stability analysis is new to us. 
+
+
+From the stability analysis using the linear perturbation technique, 
+we showed that the solutions have one negative mode, 
+which concludes that 
+all wormholes are linearly unstable.
+The time scale of instability becomes shorter as $n$ becomes large. 
+
+By extrapolating the knowledge of four-dimensional Ellis's wormhole, we expect 
+that these higher-dimensional wormholes also change to a black hole or 
+an expanding throat.  This is actually true.  
+In our succeeding papers, we will 
+report the numerical evolutions of higher-dimensional wormholes,  
+%{\color{blue} (both in general relativity and Gauss-Bonnet gravity)}
+in which we show the above predictions are realized. 
+Both linearly perturbed solutions and solutions with nonlinear pulse input 
+suffer the bifurcations of horizons and turn to either black hole or expanding throat. 
+In order to obtain a robust wormhole solution for such a disturbance, we may have to work 
+in modified gravity theories, as was recently reported in dilaton-Gauss-Bonnet gravity\cite{KKK}. 
+
+The instability of wormholes requires additional maintenance techniques in science fiction. 
+Not only so, but this indicates that such a simple wormhole construction cannot be available as an 
+astrophysical object with the present setting. 
+
+
+\section*{Acknowledgements}
+T.T. thanks Ken Kamano, Hideki Maeda, Umpei Miyamoto, Masaaki Morita and Makoto Narita for useful discussions. 
+We also thank the anonymous referee for pointing out earlier references. 
+This work was supported in part by the Grant-in-Aid for
+Scientific Research Fund of the JSPS (C) No. 22540293, and (C) No. 25400277. 
+Numerical computations were carried out on SR16000 at YITP in Kyoto University, 
+and on the RIKEN Integrated Cluster of Clusters (RICC).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{99}
+\bibitem{Flamm1916}
+L. Flamm, Physik Z. 17, 448 (1916).
+%Physikalische Zeitschrift 
+%Flamm, L. (1916). "Beitr\UTF{00E4}ge zur Einsteinschen Gravitationstheorie". Physikalische Zeitschrift 17: 448.
+%Beitraege zur Einsteinschen Gravitationstheorie. Hirzel, Leipzig 1916.
+%http://books.google.co.jp/books?id=_mo4AAAAIAAJ&pg=PA134&lpg=PA134&dq=zur+Einsteinschen+Gravitationstheorie+Flamm,+L.&source=bl&ots=MQgoNy3KiX&sig=6ixXjymxioioQD7pBAm1x6iCJXg&hl=ja&sa=X&ei=Gp8dUqaaMoGpkwXSh4CIDQ&ved=0CE4Q6AEwBQ#v=onepage&q=zur%20Einsteinschen%20Gravitationstheorie%20Flamm%2C%20L.&f=false
+\bibitem{EinsteinRosen}
+A. Einstein and N. Rosen, Phys. Rev. 48, 73 (1935).
+
+\bibitem{MT}
+M. S. Morris \& K. S. Thorne, {Am. J. Phys.} {56}, 395 (1988).
+%\href{http://dx.doi.org/10.1086/300499}
+%
+\bibitem{Ellis} 
+H. G. Ellis, {J. Math. Phys.} {14}, 395 (1973).
+%
+\bibitem{Bronnikov1973}
+K. A. Bronnikov. Acta Phys. Polon. B4, 251 (1973). 
+%Scalar-tensor theory and scalar charge
+%
+\bibitem{MVbook}
+M. Visser, {\em Lorentzian Wormholes} (AIP Press, 1995).
+%
+\bibitem{Lobobook}
+F. S. N. Lobo, in {\em Classical and Quantum Gravity Research Progress} (Nova Sci. Pub., 2008). 
+[arXiv:0710.4474]
+
+\bibitem{abe2010} 
+%{\it Gravitational Microlensing by the Ellis Wormhole}
+F. Abe, Astrophys. J. 725, 787 (2010) . 
+\bibitem{toki} 
+%{\it Astrometric Image Centroid Displacements due to Gravitational Microlensing by the Ellis Wormhole} 
+Y. Toki, T. Kitamura, H. Asada, \& F. Abe, Astrophys. J. 740, 121 (2011) . 
+\bibitem{yoo} 
+%{\it Wave Effect in Gravitational Lensing by the Ellis Wormhole} 
+C-M. Yoo, T. Harada, \& N. Tsukamoto. \prd  {87}, 084045  (2013).
+
+\bibitem{Hayward1999}
+S A Hayward, {Int. J. Mod. Phys.} {D 8}, 373 (1999).
+%S A Hayward, S-W Kim \& H Lee, {Phys. Rev.} {\bf D65}, 064003 (2002).
+%
+\bibitem{ShinkaiHayward}
+H. Shinkai \& S.A. Hayward, \prd {66}, 044005 (2002).
+%
+\bibitem{Doroshkevich}
+A. Doroshkevich, J. Hansen, I. Novikov, A. Shatskiy, Int. J. Mod. Phys. {D 18}, 1665  (2009).
+%
+\bibitem{Sarbach2}
+  J. A. Gonzalez, F. S. Guzman \& O. Sarbach, Class. Quant. Grav. {26}, 015011 (2009).
+  %J A Gonzalez, F S Guzman & O Sarbach, PRD80 (2009) 024023. 
+  %O. Sarbach \& T. Zannias, \prd 81, 047502 (2010).
+%
+\bibitem{Sarbach1}
+  J. A. Gonzalez, F. S. Guzman \& O. Sarbach, Class. Quant. Grav. {26}, 015010 (2009).
+%
+\bibitem{Armendariz-Picon}
+C. Armendariz-Picon, \prd {65}, 104010 (2002).
+%
+\bibitem{BarceloVisser}
+C. Barcel\'o and M. Visser, Class. Quant. Grav. 17, 3843 (2000).
+\bibitem{BronnikovGrinyok2004}
+K.A. Bronnikov, S.V. Grinyok, Grav. Cosmol. 10, 237 (2004). [gr-qc/0411063]
+%Conformal continuations and wormhole instability in scalar-tensor gravity
+%http://jp.arxiv.org/pdf/gr-qc/0411063
+%\bibitem{BronnikovGrinyok2005}
+%K.A. Bronnikov, S.V. Grinyok, Grav. Cosmol. 11 (2005) 75 [gr-qc/0509062]
+%Electrically charged and neutral wormhole instability in scalar-tensor gravity
+%
+\bibitem{BKZ2012}
+%Instabilities of wormholes and regular black holes supported by a phantom scalar field,  
+K.A. Bronnikov, R.A. Konoplya, A. Zhidenko, \prd 86, 024028 (2012). 
+
+\bibitem{NovikovShatskiy}
+%{\it On stability of a new model of wormhole},  
+I. Novikov, A. Shatskiy,  JETP 141, 801 (2012) [arXiv:1201.4112]
+
+\bibitem{Hayward2009}
+%Wormhole dynamics in spherical symmetry 
+S. A. Hayward, \prd 79, 124001 (2009). 
+
+\bibitem{ChadosDetweiler}
+A. Chodos and S. Detweiler, 
+%ÅgSpherical symmetric solutions in five-dimensional general relativity,Åh 
+Gen. Rel. Grav. 14,  879 (1982).
+\bibitem{Clement84}
+G. Cl\'ement, 
+%ÅgA class of wormhole solutions to higher-dimensional general relativity,Åh 
+Gen. Rel. Grav. 16, 131 (1984).
+
+\bibitem{MaedaNozawa}
+H. Maeda \& M. Nozawa, \prd 78, 024005 (2008).
+\bibitem{KKK}
+%\bibitem[\protect\citeauthoryear{Kanti et al.}{2008}]{P28_Kanti}
+P. Kanti, B. Kleihaus \& J. Kunz, \prl 107, 271101 (2011); \prd 85, 044007 (2012).
+%WH sols in  Dilatonic-Gauss-Bonnet. 
+
+
+\bibitem{note_1}
+Introducing the new variables $\tilde{t}=t/a$, $\tilde{r}=r/a$, $\tilde{R}=R/a$, 
+we can scale out the throat radius $a$.
+
+\bibitem{spherical}
+In the higher-dimensional spacetime, the constant curvature spaces with $k=1$ are not only 
+the spherically symmetric but there are other spaces such as the one with Bohm metric.
+However, here we will call the modes ``spherical".
+
+\bibitem{note_2}
+See discussions in Ref.~\cite{Sarbach1} for details.
+
+\end{thebibliography}
+\end{document}
+
+
+%%%%%%%%%  belows are scratches.  
+
+
+
+\if0
+\bibitem{GM}
+  G.~W.~Gibbons and K.~-i.~Maeda,
+  %``Black Holes and Membranes in Higher Dimensional Theories with Dilaton Fields,''
+  Nucl.\ Phys.\ B {\bf 298} (1988) 741.
+\bibitem{GHS}
+ D.~Garfinkle, G.~T.~Horowitz and A.~Strominger,
+  %``Charged black holes in string theory,''
+  Phys.\ Rev.\ D {\bf 43} (1991) 3140
+   [Erratum-ibid.\ D {\bf 45} (1992) 3888].
+\bibitem{MT}
+  R.~R.~Metsaev and A.~A.~Tseytlin,
+  %``Order alpha-prime (Two Loop) Equivalence of the String Equations of Motion
+  %and the Sigma Model Weyl Invariance Conditions: Dependence on the Dilaton and
+  %the Antisymmetric Tensor,''
+  Nucl.\ Phys.\  B {\bf 293} (1987) 385.
+\bibitem{Lovelock} %----------------------
+D. Lovelock,
+  J. Math. Phys. {\bf 12} (1971) 984;  {\bf 13} (1972) 874.
+\bibitem{Zumino} %----------------------
+  B. Zumino,
+  Phys. Rep. {\bf 137} (1986) 109.
+\fi
+\end{thebibliography}
+
+
+%
+\bibitem[\protect\citeauthoryear{Zwiebach}{1985}]{P28_Zwiebach}
+   B. Zwiebach, 
+   Phys. Lett. {\bf B 156}, 315 (1985).
+%
+\bibitem[\protect\citeauthoryear{GolodPiran}{2012}]{P28_GolodPiran}
+S. Golod \& T. Piran, \prd 85, 104015 (2012).
+%
+\bibitem[\protect\citeauthoryear{Izaurieta \& Rodriguez}{2012}]{P28_Izaurieta}
+F. Izaurieta \& E. Rodriguez, arXiv:1207.1496
+%
+\bibitem[\protect\citeauthoryear{Deppe et al.}{2012}]{P28_Deppe}
+N. Deppe, C. D. Leonard, T. Taves, G. Kunstatter, R. B. Mann, arXiv:1208.5250
+
+%
+\bibitem[\protect\citeauthoryear{Bhawal \& Kar}{1992}]{P28_BhawalKar}
+B. Bhawal \& S. Kar, \prd 46, 2464 (1992).
+%WH sols and $a$-$\alpha$ relations.
+%
+\bibitem[\protect\citeauthoryear{Dotti et al.}{2007}]{P28_Dotti}
+G. Dotti, J. Oliva \& R. Troncoso, \prd 76, 064038  (2007).
+%exhaustive classification of sols
+
+%\item M G Richarte \& C Simeone, PRD 76 (2007) 087502\\
+%thin-shell WHs supported by ordinary matter.
+%
+\bibitem[\protect\citeauthoryear{Maeda \& Nozawa}{2008}]{P28_MaedaNozawa}
+H. Maeda \& M. Nozawa, \prd 78, 024005  (2008).
+%WH sols and energy conditions.
+
+\bibitem[\protect\citeauthoryear{Dehghani \& Dayyani}{2009}]{P28_DehghaniDayyani}
+M H Dehghani \& Z Dayyani, PRD 79, 064010  (2009).
+%WH sols and $a$-$\alpha$ relations in  Lovelock. 
+%\bibitem[\protect\citeauthoryear{Mazharimousavi et al.}{2011}]{P28_Mazharimousavi}
+%S. H. Mazharimousavi+, \cqg 28, 025004  (2011).
+%thin-shell WHs in  Einstein-Yang-Mills-Gauss-Bonnet.
+
+%
+\bibitem{HKL}\bibitem{Cl}G Cl\'ement, {Am. J. Phys.} {\bf 57}, 967 (1989).
+\bibitem{dne}S A Hayward, {Class. Quantum Grav.} {\bf 10}, 779 (1993).
+\bibitem{sph}S A Hayward, {Phys. Rev.} {\bf D53}, 1938 (1996).
+\bibitem{1st}S A Hayward, {Class. Quantum Grav.} {\bf 15}, 3147 (1998).
+\bibitem{bhd}S A Hayward, {Phys. Rev.} {\bf D49}, 6467 (1994).
+\bibitem{BCCF}K A Bronnikov, G Cl\'ement, C P Constantinidis \& J C Fabris,
+{Phys. Lett.} {\bf A243}, 121 (1998).
+\bibitem{AP}C Armendariz-Picon, On a class of stable, traversable Lorentzian
+wormholes in classical general relativity, gr-qc/0201027.
+\bibitem{Ch}M W Choptuik, {Phys. Rev. Lett.} {\bf 70}, 9 (1993).
+\bibitem{W}J A Wheeler, {Ann. Phys.} {\bf 2}, 604 (1957).
+\bibitem{R}T A Roman, {Phys. Rev.} {\bf D47}, 1370 (1993).
+\bibitem{RS}I H Redmount \& W-M Suen, {Phys. Rev.} {\bf D47}, 2163 (1993).
+
+\bibitem[\protect\citeauthoryear{NobelPrizeOrg}{2011}]{O25-01_NP}
+\href{http://www.nobelprize.org/}
+{Nobelprize.org (2011)}.
+%
+%
+\bibitem[\protect\citeauthoryear{Schmidt et al.}{1998}]{O25-01_Schmidt98}
+B.~Schmidt et al., 
+\href{http://dx.doi.org/10.1086/300499}
+{\apj {\bf 116}, 1009, (1998)}.
+%
+%
+\bibitem[\protect\citeauthoryear{Perlmutter et al.}{1999}]{O25-01_Perlmutter99}
+S.~Perlmutter et al., 
+\href{http://dx.doi.org/10.1086/307221}
+{\apj {\bf 517}, 565, (1999)}.
+%
+%
+\bibitem{O25-01_EatH}
+Bruce Allen et al. (LIGO Scientific Collaboration), 
+\href{http://www.einsteinathome.org/}{Einstein@Home}.
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{widetext}
+
+{\color{blue}
+\section{Curvatures and energy-momentum tensors}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+For the spherically symmetric metric (\ref{metric}), the 
+Einstein tensors are 
+\begin{eqnarray}%========<Equation>========%
+&&G_{tt} =\frac{n-2}{2}\biggl[(n-3)\frac{\dot{R}^2}{R^2}
+-\frac{\dot{R}\dot{f}}{Rf}\biggr]
+-\frac{n-2}{2}f^2e^{-2\delta}\biggl[\frac{2R''}{R}+\frac{f'R'}{fR}+(n-3)\frac{R'^2}{R^2}\biggr] +\frac{f}{2R^2}{}^{(n-2)}\!{\cal R},\\
+%
+&&G_{rr} =-\frac{n-2}{2f^2}e^{2\delta}
+\biggl[\frac{2\ddot{R}}{R}+(n-3)\frac{\dot{R}^2}{R^2}-\frac{\dot{R}\dot{f}}{Rf}+\frac{2\dot{R}}{R}\dot{\delta}\biggr]
++\frac{n-2}{2}\frac{R'}{R}\biggl[\frac{f'}{f}+(n-3)\frac{R'}{R}-2\delta' \biggr] -\frac{1}{2fR^2}{}^{(n-2)}\!{\cal R}, \rule[0mm]{0mm}{8mm}
+%\nonumber \\&&  
+\\
+%
+&&G_{tr}=-(n-2)\biggl[\frac{\dot{R}'}{R}+\frac{1}{2fR}(\dot{f}R'-f'\dot{R})+\frac{\dot{R}}{R}\delta'\biggl],
+\rule[0mm]{0mm}{8mm}
+\\ \nonumber
+\\
+%
+&&G_{ij}=\frac{e^{2\delta}}{f}\left[\frac{\ddot{f}}{2f}
+-\frac{\dot{f}}{f}\biggl(\frac{\dot{f}}{f}-\frac{\dot{\delta}}{2}\biggr)
+-(n-3)\biggl(
+\frac{\ddot{R}}{R}+\frac{n-4}{2}\frac{\dot{R}^2}{R^2}
+-\frac{\dot{R}}{R}\biggl(\frac{\dot{f}}{f}-\dot{\delta}\biggr)
+\biggr) \right]g_{ij}
+\rule[0mm]{0mm}{8mm}
+\nonumber \\
+&& \hspace{10mm}
++\Biggl[\frac{f''}{2}-\delta''-\delta'\biggl(\frac{3f'}{2f}-\delta'\biggr)
++(n-3)f\biggl(\frac{R''}{R}+\frac{R'}{R}\biggl(\frac{f'}{f}-\delta'\biggr)
++\frac{n-4}{2}\frac{{R'}^2}{R^2}\biggr)\Biggr]g_{ij}
+ \nonumber\\
+\rule[0mm]{0mm}{8mm}
+&& \hspace{10mm}
++{}^{(n-2)}\!{\cal R}_{ij}-\frac{1}{2R^2}{}^{(n-2)}\!{\cal R}g_{ij}
+%\rule[0mm]{0mm}{5mm}
+\end{eqnarray}
+where we use the curvatures of the unit $(n-2)$-dimensional constant curvature space
+\begin{eqnarray}%========<Equation>========%
+\label{sph_Rie_ten}
+&&{}^{(n-2)}\!{\cal R}_{ijkl}=k(h_{ik}h_{jl}-h_{il}h_{jk}),
+\\
+\label{sph_Ric_ten}
+&&{}^{(n-2)}\!{\cal R}_{ij}=(n-3)kh_{ij},\rule[0mm]{0mm}{6mm}
+\\
+\label{sph_Ric_sca}
+&&{}^{(n-2)}\!{\cal R}=(n-2)(n-3)k. \rule[0mm]{0mm}{6mm}
+\end{eqnarray}  %--------------------------%
+
+
+
+%-------------------------------------------------------
+
+The components of the energy-momentum tensors (\ref{Tmunu}) 
+becomes
+\begin{eqnarray}%========<Equation>========%
+&&T_{tt} = \frac{1}{\:2\:}\epsilon\dot{\phi}^2
++f\Bigl[ \frac{1}{\:2\:}\epsilon f e^{-2\delta}\phi'^2+V(\phi)\Bigr], \rule[0mm]{0mm}{8mm} \\
+%
+&&T_{rr} = \frac{1}{\:2\:} \epsilon e^{2\delta}\frac{\dot{\phi}^2}{f^2}
++f^{-1} \Bigl[\frac{1}{\:2\:}\epsilon f \phi'^2-V(\phi)\Bigr], \rule[0mm]{0mm}{8mm} \\
+%
+&&T_{tr} =\epsilon \dot{\phi} \phi' , \rule[0mm]{0mm}{6mm} \\
+%
+&&T_{ij}=\Bigr[\frac{1}{\:2\:}\epsilon \Bigl(\frac{e^{2\delta}}{f}\dot{\phi}^2- f \phi'^2\Bigr)-V(\phi)\Bigr]R^2h_{ij}. \rule[0mm]{0mm}{8mm}
+\end{eqnarray}
+
+}
+
+
+\end{widetext}
+
+

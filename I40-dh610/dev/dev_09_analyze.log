@@ -1,0 +1,26 @@
+threshold.py analyze {'raw': '/home/nathan/Source/negative-mass-raw/I40-dh610/dev/dev_09'}: numba 0.68.1, numpy 2.5.4, python 3.14.10, dh610-fedora, load average at start 21.22 19.26 17.61, mutation None, 2026-11-26 22:31:44
+analyze: /home/nathan/Source/negative-mass-raw/I40-dh610/dev/dev_09: 2 jobs; mutation None
+[FAIL] G6: D = 6 growth control  (/home/nathan/Source/negative-mass-raw/I40-dh610/dev/dev_09/g6/g6.json missing)
+[pass] BR[D=4 S h=0.02]: the bisection ended with hi - lo <= 1e-14 and no run static through X  (hi - lo = 9.09e-15, stopped None, )
+[pass] FM[D=4 S h=0.02]: every series point with |p - p*_h| >= 1e-11 lands on its own side of p*_h (fate monotone) and ends in an event  (0 of 34 points off; below that, 0 of 6 points off the side (roundoff floor, not fitted))
+    SL D=4 S h = 0.02: p*_h = 4.752772535085e-05; primary slope 0.846642 +- 0.000380 (OLS SE), n = 34, rms 0.0119; collapse 0.847335, expansion 0.845950; spread [0.844435, 0.849102]; 1/W = 0.846045, rel dev +7.05e-04
+[pass] SL[D=4 S h=0.02]: 1/W lies inside the spread of the fitted slopes (windows x {joint, collapse, expansion})  (primary 0.846642, spread [0.844435, 0.849102], 1/W 0.846045)
+[pass] BR[D=4 G h=0.02]: the bisection ended with hi - lo <= 1e-14 and no run static through X  (hi - lo = 5.68e-15, stopped None, B = 0.1)
+[pass] FM[D=4 G h=0.02]: every series point with |p - p*_h| >= 1e-11 lands on its own side of p*_h (fate monotone) and ends in an event  (0 of 34 points off; below that, 0 of 6 points off the side (roundoff floor, not fitted))
+    SL D=4 G h = 0.02: p*_h = 1.494576357090e-02; primary slope 0.898291 +- 0.005730 (OLS SE), n = 34, rms 0.1799; collapse 0.894814, expansion 0.901768; spread [0.864041, 0.958733]; 1/W = 0.846045, rel dev +6.18e-02
+[FAIL] SL[D=4 G h=0.02]: 1/W lies inside the spread of the fitted slopes (windows x {joint, collapse, expansion})  (primary 0.898291, spread [0.864041, 0.958733], 1/W 0.846045)
+
+Null constraints along the two runs that bracket p*_h (lo = last collapse, hi = last expansion), over the nodes of the event cell's past,
+max |C| and max |C| / max(sum of the absolute values of its terms); change with h against the change of p*_h and of the primary slope
+    CS D=4 S h = 0.02: lo: |C++| 5.922e-05 (rel 5.91e-05), |C--| 5.919e-05 (rel 5.90e-05), event [959, 959], repro 5.6e-17; hi: |C++| 5.832e-05 (rel 5.83e-05), |C--| 5.832e-05 (rel 5.83e-05), event [1125, 1125], repro 5.6e-17; max 5.922e-05, max rel 5.91e-05
+    CS D=4 G h = 0.02: lo: |C++| 1.045e-04 (rel 1.02e-04), |C--| 7.097e-05 (rel 6.27e-05), event [936, 1073], repro 1.1e-16; hi: |C++| 1.045e-04 (rel 1.02e-04), |C--| 7.049e-05 (rel 6.23e-05), event [1232, 1232], repro 1.1e-16; max 1.045e-04, max rel 1.02e-04
+
+Formation values at the first trapped cell and the stall, p* -/+ 1e-8 (not settled masses; #41's question stays open)
+D family h    side fate     T       event cell offset (cells, l)   r_cell   M_cell   M_hor=r^(D-3)/2 | stall: t     r      l     span
+4 G  0.02  -1 collapse   15.867      61 +0.8627   0.99006  0.49515  0.49503 |  12.39 1.00276 +0.5824 9.66
+4 G  0.02   1 expand     20.464       0 +0.0000   n/a (expansion event: r = rexp) |  12.40 1.00325 +0.5835 10.96
+4 S  0.02  -1 collapse   14.779       0 +0.0000   0.98821  0.49420  0.49411 |   6.25 1.00000 +0.0000 14.72
+4 S  0.02   1 expand     19.615       0 +0.0000   n/a (expansion event: r = rexp) |   6.28 1.00000 +0.0000 15.22
+
+11 of 38 checks pass; 27 fail: G6, JOB[D=4 S h=0.01], JOB[D=4 S h=0.005], JOB[D=4 O h=0.02], JOB[D=4 O h=0.01], JOB[D=4 O h=0.005], SL[D=4 G h=0.02], JOB[D=4 G h=0.01], JOB[D=4 G h=0.005], JOB[D=5 S h=0.00707107], JOB[D=5 S h=0.00353553], JOB[D=5 S h=0.00176777], JOB[D=5 O h=0.00707107], JOB[D=5 O h=0.00353553], JOB[D=5 O h=0.00176777], JOB[D=5 G h=0.00707107], JOB[D=5 G h=0.00353553], JOB[D=5 G h=0.00176777], JOB[D=6 S h=0.005], JOB[D=6 S h=0.0025], JOB[D=6 S h=0.00125], JOB[D=6 O h=0.005], JOB[D=6 O h=0.0025], JO
+1.1 s
