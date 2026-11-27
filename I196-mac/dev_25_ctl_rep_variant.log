@@ -1,0 +1,4 @@
+# 2026-11-27 09:04:59 cwd=/Users/nathan/Source/negative-mass-i196/phase2/nonradial
+# cmd: bash -c /Users/nathan/Source/negative-mass/.venv/bin/python taylor_drift.py check --dir=/Users/nathan/Source/negative-mass-raw/I196-mac/dev_jsonl --crate-dir=/Users/nathan/Source/negative-mass-raw/I196-mac/dev_jsonl/crate --steps=/Users/nathan/Source/negative-mass-raw/I196-mac/crate_star_steps.jsonl --only=REP --mutate=rep_variant
+CHECK REP: FAIL  scipy on this Mac against the win laptop's stored scipy D at (5, 1000): worst 1.01e+00 (bar 1e-08); base (rtol1e-10, phi_cut1e-9, R60): here -1.930185963245563e-10, win laptop -9.588096329373367e-11, 1.01e+00; rtol 1e-12: not run; phi_cut 1e-12 (larger r_m): not run
+SUMMARY: 0 passed, 1 failed, 0 skipped of 1  [mutation rep_variant]

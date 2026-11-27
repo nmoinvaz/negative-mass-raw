@@ -121,4 +121,81 @@ path dependency on the clone).
 
 ## Amendments
 
-(none yet)
+**A1 (after the development runs dev_01 ... dev_11; before the runs of record): what they showed, the controls' targets, and what the
+tests record.** Nothing declared above is changed. The development runs, none overwritten (`*.log`, `*.rc`, `*.commit` hold the clone's
+state at the run):
+
+| run | what | result |
+|---|---|---|
+| `dev_01_explore_191grid` | Python exploration on the #191 grid (the instrument check) | 540 rows **identical** to I191-rpi5 `dev_02_rows_d9_*` (all fields equal); 256 resolved, 254 covered, 2 misses (bar exactly 0), control (factor 0.002) covers 52: fires |
+| `dev_02_report_at_main` | `late_windows_report` on main + the new tests (default grid = #191's) | D6 f64 `Unresolved`, fails 1, 2, 4 (as #191); noise-only 300 of 300 `Unresolved`; entire 9 of 9; weak 2700: one right (W2, f64, m = 100) and **one confidently wrong (W3, f64, m = 100, seed 14)**, 2698 `Unresolved` |
+| `dev_03_report_new_grid` | the same with starts 0.2 ... 0.8, and the #191 grid in the same run | D6 f64 `Unresolved`: ratio, first 24, degree 1, **error of s 2.1e-4, bar of s 0.053 \|s\|** (cutoff 0.05), error of alpha 1.0e-2, bar of alpha 2.7: fails only criterion 1 (kind); noise-only 300 of 300 and entire 9 of 9 `Unresolved` (both grids); weak: the same confidently wrong cell, no right one |
+| `dev_04_explore_new_grid`, `dev_05_explore_rust` | Python exploration with starts up to 0.8, and the port on the same dumped series | Python: 259 resolved, **257 covered, 2 misses** (the same two, bar 0) at factor 2, control covers 44: fires. Port: 256 of 256 resolved cells covered, alpha 256, kind 256 (the #191 grid: 254 of 254), control covers 31: fires |
+| `dev_06_locate_new_grid` | the full `tests/locate.rs` on the new grid before the tests were updated | **4 failed** as expected: `d6_f64_is_not_met` (the failures are now `1 kind` alone), `controls_fire` (the cells where `bar-shrunk` is silent: 8, not 10), `bitwise_across_backends` (the grid changed the results), the weak test (the cell above); `planted_suite` passes: the other 68 cells meet 1 to 4 |
+| `dev_07_locate_default`, `dev_08_locate_portable` | the updated tests, default and `--features portable` | 9 passed, 4 ignored; fingerprint 0x0f1c7236bd56966f in both |
+| `dev_09_d6_grids` | D6 f64 under five grids (reported) | default: as above; #191: fails 1, 2, 4; **without 0.8 (0.2 ... 0.7): `Unresolved`, first 21, error 2.9e-3, bar 0.22, fails 1 and 4**; 0.7 and 0.8 only: as default; **0.8 alone: `Real`, first 24, degree 2, error 3.9e-4, bar 0.021, meets 1 to 4** (a data point, not adopted: the grid is the issue's) |
+| `dev_10_weak_sweep` | the weak singularities at m = 1 ... 1e9, both grids (reported) | below |
+| `dev_11_clippy_*` | clippy, `--all-targets -D warnings`, default and portable | clean |
+
+**The controls' targets** (the tests assert them):
+
+| control | target | development run |
+|---|---|---|
+| `grid-191` (D6 f64, starts 0.2 ... 0.6) | fails exactly 1, 2 and 4 | fires (dev_03, dev_09) |
+| `grid-no-0.8` (starts 0.2 ... 0.7), reported | D6 f64 fails again (1 and 4) | fires (dev_09); so 0.8 K is what brings the error of s from 2.9e-3 to 2.1e-4 and the bar from 0.22 to 0.053 |
+| the six of #191 | as #191 A3, with **`bar-shrunk` silent in eight cells, not ten**: P1 f64 and double-double, D1 and D2 in double-double and quad-double, C4 and T1 in quad-double (on the new grid C4 in double-double and T2 in quad-double fire: their chosen cells changed) | dev_06, dev_07 |
+| `bars-shrunk` (exploration) | covered below 254 | fires: 44 (Python), 31 (port) |
+| `planted-resolved` | the pole of P1 is `Real` in the three lanes | fires 3 of 3 |
+| `loose-bar` | the check fails on 100 of 100 noise-only series per lane and 3 of 3 entire per lane | fires 300 of 300 and 9 of 9 |
+| `wrong-location` | `ConfidentlyWrong` for W1 to W3 in the three lanes | fires 9 of 9 |
+| `bar-shrunk-weak` | `ConfidentlyWrong` on the noise-free W1 to W3 in 8 of 9 cells; **silent on W3 in f64** (the error is 0). On the weak series with noise it has nothing to flag: 2699 of 2700 are `Unresolved` and the one resolved is wrong already, so this control is vacuous there (reported) | fires 8 of 9 |
+| `fingerprint-flip` | one coefficient of D3 (f64) and one of the f64 noise-only series of seed 1, each changed in its lowest bit, change the fingerprint | fires (the test asserts both) |
+
+**What the tests record** (the criteria are not changed): criterion 1 and criterion 6 are **NOT MET**; the tests state it as #191's did for D6.
+`d6_f64_is_not_met` asserts the failures `["1 kind"]`, kind `Unresolved`, a bar of s above 5%, and the error of s and alpha within
+the tolerances; `planted_suite` excepts D6 f64 and asserts the other 68 cells. `weak_singularities_are_confidently_wrong_only_at_the_known_cell`
+asserts that the confidently wrong results of the 2700 are exactly {W3, f64, m = 100, seed 14}: it fails if another is wrong or if this
+one is not, and the criterion's verdict changes with it. The fingerprint now mixes the kind and the model as well, and folds the noise-only series of seeds 1 to 10,
+the entire functions and the weak series at m = 10 (seeds 1 to 10); NaN payloads are folded as one pattern (their bits are the platform's). Its constants: 0xc534cbdcc58395a4 at
+the first commit (the grid alone, the old fingerprint) and 0x0f1c7236bd56966f at the second.
+
+**The sweep** (reported; resolved right + confidently wrong out of 100 seeds; the amplitude m is the ratio of the root mean square of the singular coefficients to the noise's;
+`dev_10_weak_sweep.log`; the default grid, and the #191 grid agrees except where noted):
+
+| | m = 100 | 300 | 1e3 | 1e4 | 1e6 | 1e9 |
+|---|---|---|---|---|---|---|
+| W1 f64 | 0 + 0 | 1 + 1 | 10 + 2 | 99 + 1 | 99 + 1 | 99 + 1 |
+| W1 dd | 0 + 0 | 0 + 0 | 0 + 0 | 0 + 0 | 45 + 0 | 100 + 0 |
+| W1 qd | 0 | 0 | 0 | 0 | 0 | 0 |
+| W2 f64 | 0 + 0 (#191 grid: 1 + 0) | 7 + 0 | 70 + 0 | 100 + 0 | 100 + 0 | 100 + 0 |
+| W2 dd | 0 | 0 | 0 (#191 grid: 1 + 0) | 95 + 0 (#191 grid: 41 + 0) | 100 + 0 | 100 + 0 |
+| W2 qd | 0 | 0 | 0 | 1 + 0 (#191 grid: 0) | 100 + 0 (#191 grid: 15 + 0) | 100 + 0 |
+| W3 f64 | 0 + 1 | 9 + 1 | 55 + 1 | 100 + 0 | 100 + 0 | 100 + 0 |
+| W3 dd | 0 | 0 + 4 | 37 + 2 | 100 + 0 | 99 + 1 | 99 + 1 |
+| W3 qd | 0 | 0 | 16 + 12 | 99 + 1 | 100 + 0 | 100 + 0 |
+
+Over the 9000 sweep series the default grid has 2340 right and 30 confidently wrong results, the #191 grid 2202 and 30: the late windows add right results
+(W2 in double- and quad-double most; five cells differ, and in two the default grid has one right result fewer, W2 f64 at m = 100 and W2 double-double at m = 1e3, one series each, left
+`Unresolved`) and no wrong ones, and the wrong ones are the same cells. A weak singularity is first resolved at m of about 100 to 1000 in f64,
+1e4 to 1e6 in double-double and 1e4 to 1e6 in quad-double; **where it is first resolved the locator is often wrong** (W3 in quad-double at m = 1e3: 12 wrong of 28 resolved;
+in double-double at m = 300: 4 of 4).
+
+## Results (the runs of record, `run_00` to `run_08`, at multisolver 21b9829; every exit code 0)
+
+`run_00_commit.txt`: 21b9829754d4120c81327ca9171b9a48b705ef97, clean tree. Pull request: https://github.com/nmoinvaz/multisolver/pull/28 (commits c5b5ea7 and 21b9829 on main 63d6e4d, label `enhancement`).
+
+| criterion (section 4) | verdict | number and log |
+|---|---|---|
+| 1. D6 in f64 meets #191's 1 to 4 | **NOT MET** | `Unresolved` (ratio, first order 24, degree 1): error of s 2.1e-4, of alpha 1.0e-2 (within 1e-2 and 0.1), bars cover, bar of alpha 2.7 (at most 10), **bar of s 0.053 \|s\| above the cutoff 0.05**; only criterion 1 fails (#191: 1, 2, 4). `run_01`, `run_06` |
+| 2. the other 68 cells meet 1 to 4 | met | 68 of 68, `planted_suite` ok in both builds; the controls of #191 fire, `bar-shrunk` silent in 8 cells. `run_01`, `run_02` |
+| 3. exploration coverage at factor 2 | met | Python: 259 resolved, 257 covered, 2 uncovered; control 44. Port: 256 of 256, control 31. `run_03`, `run_04` |
+| 4. noise-only 300 of 300 `Unresolved` | met | 300 of 300; smallest bar of s over \|s\| 0.383, 0.465, 0.619 (f64, dd, qd). `run_01`, `run_05` |
+| 5. entire 9 of 9 `Unresolved` | met | 9 of 9, bars 1.57 to 2.22 \|s\|. `run_01`, `run_05` |
+| 6. weak singularities never confidently wrong | **NOT MET** | 1 of 2700: W3, f64, m = 100, seed 14: `Real`, ratio, first order 6, degree 1, s = 0.874 for 1 (error 0.126, bar 0.027); also wrong on #191's grid (`dev_02`, `run_05`). 2699 `Unresolved` |
+| 7. fingerprint across backends | met here | 0x0f1c7236bd56966f default and `--features portable` (`run_01`, `run_02`); the PR's CI at 21b9829: Ubuntu x86_64 SSE2, AVX2 and portable, Ubuntu ARM64 NEON, macOS ARM64 NEON and Windows MSVC all pass the same assertion |
+| 8. fmt, clippy (both builds), docs | met here | `run_08_*` exit 0; CI at 21b9829: all 15 checks pass (Rustfmt, Clippy SSE2, NEON, portable, Docs, MSRV, six test jobs, Coverage, codecov); CodeRabbit (one full review requested, after its rate limit, none by usage credit): no actionable comments |
+
+The controls fired on their declared targets in `run_01` and `run_02` (`controls_fire`, `late_window_controls_fire`, `bitwise_across_backends`). The sweep of `run_07` is identical to `dev_10` (all 180 rows).
+Not run: `+avx2,+fma` (this Mac is aarch64; the AVX2 job of the pull request is its check).
+
+**Disagrees with the repository's text:** `notes/warp/singularity_locator.md` and the description of multisolver#26 quote the fingerprint 0xa5113e9ccb6776c8; the merged test asserts 0xf3a13cba157d2e3c (eb52618) and passes on this Mac at main.

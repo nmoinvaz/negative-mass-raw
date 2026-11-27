@@ -1,0 +1,16 @@
+nm-i220-dev01b: dev_01_grid_40_0.5_18_120
+nm-i220-dev02: dev_02_grid_100_0.25_30_260
+nm-i220-dev03: dev_03_grid_60_0.4_24_200
+nm-i220-dev04: dev_04_cnom (first version, --cgrids --no-real)
+nm-i220-dev_05_ctl_wrong_c6, nm-i220-dev_06_ctl_wrong_Om2: dev_05, dev_06
+nm-i220-wA, wB, wC: dev_07 ... dev_09 (wA, wB, wX stopped by me when the code changed)
+nm-i220-dev10: dev_10_exch6
+nm-i220-wX: dev_11_ctl_exch6_* (stopped by me)
+nm-i220-fA, fB, fC: dev_12 (control matrix of the code of record)
+nm-i220-fX: dev_13_exch_*
+nm-i220-fL, fL2: dev_14_load_*, dev_15_load_*
+nm-i220-proto6: scratch (sympy prototype of the reduced integrand, not kept)
+nm-i220-run02: run_02_evals_G1; nm-i220-run03: run_03_evals_G2; nm-i220-run0104: run_01_sym_exch6 then run_04_evals_B (code e7f8c10)
+nm-i220-run05: run_05_values_pslq_remainder (code e7f8c10)
+nm-i220-run06: run_06_reduce6 (code 7acb933)
+nm-i220-cq1, cq2, cq3: ctl_queue.sh workers (ctl_t1_*, ctl_t2_*, ctl_ex_*, ctl_red_*; code 7acb933)

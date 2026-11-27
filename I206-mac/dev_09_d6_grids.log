@@ -1,0 +1,18 @@
+    Finished `release` profile [optimized] target(s) in 0.01s
+     Running tests/locate.rs (target/release/deps/locate-10c603275d18cb8b)
+
+running 1 test
+default 0.2 ... 0.8:
+ D6  F64 Unresolved Ratio     first  24 deg  1 | s: err 2.1e-4 bar 5.3e-2 tol 1.0e-2 | alpha: err 1.0e-2 bar 2.7e0 tol 1.0e-1 | skew 0e0  FAILS ["1 kind"]
+#191 0.2 ... 0.6:
+ D6  F64 Unresolved ThreeTerm first   6 deg  2 | s: err 4.1e-1 bar 1.1e0 tol 1.0e-2 | alpha: err 1.2e1 bar 4.5e1 tol 1.0e-1 | skew 0e0  FAILS ["1 kind", "2 tolerance", "4 bar useful"]
+without 0.8, 0.2 ... 0.7:
+ D6  F64 Unresolved Ratio     first  21 deg  1 | s: err 2.9e-3 bar 2.2e-1 tol 1.0e-2 | alpha: err 8.1e-2 bar 1.0e1 tol 1.0e-1 | skew 0e0  FAILS ["1 kind", "4 bar useful"]
+0.7 and 0.8 only:
+ D6  F64 Unresolved Ratio     first  24 deg  1 | s: err 2.1e-4 bar 5.3e-2 tol 1.0e-2 | alpha: err 1.0e-2 bar 2.7e0 tol 1.0e-1 | skew 0e0  FAILS ["1 kind"]
+0.8 only:
+ D6  F64 Real Ratio     first  24 deg  2 | s: err 3.9e-4 bar 2.1e-2 tol 1.0e-2 | alpha: err 2.0e-2 bar 1.7e0 tol 1.0e-1 | skew 0e0
+test d6_grid_report ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 12 filtered out; finished in 0.00s
+
