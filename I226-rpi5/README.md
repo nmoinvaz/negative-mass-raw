@@ -51,6 +51,12 @@ Development numbers (max |C| over the slab; the last column is the ratio at the 
 | S p* + 1e-8, t ≤ 10 (5) | 4.606e-05, 1.159e-05, 3.498e-06 | 3.973, 3.314 |
 | S p* − 1e-8, t ≤ 8 (6) | 7.776e-05, 1.909e-05, 9.883e-06 | 4.073, 1.932 |
 | S p* + 1e-8, t ≤ 8 (6) | 7.776e-05, 1.905e-05, 8.392e-06 | 4.081, 2.270 |
+| bracket lo, t ≤ 16 (5) | 4.606e-05, 1.183e-05, 6.251e-06 | 3.893, 1.892 |
+| bracket hi, t ≤ 16 (5) | 4.606e-05, 1.181e-05, 6.456e-06 | 3.900, 1.829 |
+| bracket lo, t ≤ 12 (6) | 7.776e-05, 2.192e-05, 2.055e-05 | 3.548, 1.066 |
+| bracket hi, t ≤ 12 (6) | 7.776e-05, 2.101e-05, 2.066e-05 | 3.701, 1.017 |
+
+The bracket rows are the amplitudes of #40; #40's own event-past maxima at the finest halving were 0.43 to 0.64 (D = 6) and 1.4 to 1.6 (D = 5).
 
 ## Declared
 

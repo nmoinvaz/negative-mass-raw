@@ -1,0 +1,4 @@
+# 2026-11-27 11:22:06 cwd=/Users/nathan/Source/negative-mass-i196/phase2/nonradial
+# cmd: bash -c /Users/nathan/Source/negative-mass/.venv/bin/python taylor_drift.py check --dir=/Users/nathan/Source/negative-mass-raw/I196-mac/dev_jsonl --crate-dir=/Users/nathan/Source/negative-mass-raw/I196-mac/dev_jsonl/crate --steps=/Users/nathan/Source/negative-mass-raw/I196-mac/crate_star_steps.jsonl --jtable=/Users/nathan/Source/negative-mass-raw/I196-mac/crate_jtable_l5.jsonl --only=CJ --mutate=cj_shift
+CHECK CJ: FAIL  the crate's J tables in f64 against the generated J at 60 digits on the exact star, 576 entries (12 radii, gamma 1000 and 3000): rms 1810986812792250.00 ulp, max 22217743973237828.0 ulp (bars 10, 100); the generated J in f64 on its own inputs, same entries: rms 30637798 ulp, max 519682798 ulp
+SUMMARY: 0 passed, 1 failed, 0 skipped of 1  [mutation cj_shift]
