@@ -1,0 +1,30 @@
+settled_mass_g.py analyze {'raw': '/home/nathan/Source/negative-mass-raw/I253-rpi5/dev', 'mutate': 'pstar_off'}: numba 0.68.1, numpy 2.5.4, python 3.14.10, rpi5-ubuntu, load average at start 2.97 1.94 1.36, mutation pstar_off, 2026-11-27 12:46:19
+
+== Declared chain (#41's constants) and the planted cases through this driver
+[pass] CFG: the chain constants of settled_mass.py and the rectangle of #40's G equal the declared values (#41's)  (F1 1.5, K 20, W1 2.4, dxp 12.0, dm 3.0, X 28.0)
+[pass] PL1: #41's PL1 through this driver: the printed lines equal #41's output of record, and equal those of settled_mass's own track  (5 lines compared with 5 of #41; equal to #41: True; equal without the wrapper: True; verdict line [pass])
+[pass] PL2: #41's PL2 through this driver: the printed lines equal #41's output of record, and equal those of settled_mass's own track  (5 lines compared with 5 of #41; equal to #41: True; equal without the wrapper: True; verdict line [pass])
+[pass] PL3: #41's PL3 through this driver (S, h = 0.02, delta = 1e-6): level 0 equals dn.evolve bit for bit; the printed line equals #41's  ([pass] PL3: level 0 of the chain equals dn.evolve bit for bit (nodes, dead flags) and finds the same first trapped cell  (h = 0.02, delta = 1e-06: nodes equal True, dead equal True, events (385, 385) and (385, 385)))
+[pass] PL3G: family G: level 0 of the chain equals dn.evolve bit for bit (nodes, dead flags) and finds the same first trapped cell  (h = 0.02, delta = 1e-06: nodes equal True, dead equal True, events (398, 436) and (398, 436))
+[pass] TRK: track wrapper: recomputed phi_+ of field 0 equals settled_mass.track's (relative 1e-12), and the normal field's phi_+ is nonzero on the horizon  (171 columns, max relative difference 2.3e-14, smallest max|phi_+(normal)| over series 1.82e-03)
+
+== p*_h of G: #40's bracket, and the fates on this machine at p*_h -/+ 1e-10
+    h = 0.02 (job.log h = '0.02'): p*_h = 1.4945763570900113e-02, hi - lo = 5.68e-15; fates at p*_h -/+ 1e-10 on this machine: [-1, 1]
+    h = 0.01 (job.log h = '0.01'): p*_h = 1.4877359967478583e-02, hi - lo = 5.68e-15; fates at p*_h -/+ 1e-10 on this machine: [-1, 1]
+    h = 0.005 (job.log h = '0.005'): p*_h = 1.4860254854126537e-02, hi - lo = 5.68e-15; fates at p*_h -/+ 1e-10 on this machine: [-1, 1]
+[pass] RC1: #40's p*_h of G (hi - lo <= 1e-14, h of its job.log exact), and on this machine fate(p*_h - 1e-10) = collapse, fate(p*_h + 1e-10) = expansion
+    run h = 0.02, delta = 1e-08 failed: RuntimeError('fates at p*_h -/+ delta: 1, 1 (wanted -1, +1)')
+    run h = 0.01, delta = 1e-08 failed: RuntimeError('fates at p*_h -/+ delta: 1, 1 (wanted -1, +1)')
+    run h = 0.005, delta = 1e-08 failed: RuntimeError('fates at p*_h -/+ delta: 1, 1 (wanted -1, +1)')
+[FAIL] RC2: fates, first trapped cell and its time  (a run failed: (0.02, 1e-08): RuntimeError('fates at p*_h -/+ delta: 1, 1 (wanted -1, +1)'); (0.01, 1e-08): RuntimeError('fates at p*_h -/+ delta: 1, 1 (wanted -1, +1)'); (0.005, 1e-08): RuntimeError('fates at p*_h -/+ delta: 1, 1 (wanted -1, +1)'))
+[FAIL] TRK: track wrapper  (a run failed)
+[FAIL] RC3: formation value  (a run failed)
+[FAIL] RC4: first law  (a run failed)
+[FAIL] RC5: limit  (a run failed)
+[FAIL] RC6: convergence  (a run failed)
+[FAIL] RC8: settled  (a run failed)
+[FAIL] RC7: delta independence  (a run failed)
+
+15 checks, 8 failed; 139 s
+mutation pstar_off: fired ['RC2', 'RC3', 'RC4', 'RC5', 'RC6', 'RC7', 'RC8', 'TRK'], declared []: DIFFERENT
+rc 1

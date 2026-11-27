@@ -119,3 +119,59 @@ The acceptance of the issue is RC5, RC6 (M_AH(t) second order at three h up to t
 - `dev/planted_dev1.log`: `settled_mass_g.py planted` (PL1, PL2, PL3 through the driver, PL3G, TRK): 5 checks, 0 failed, 46 s. PL1 and PL2 lines are equal to #41's, with and without the wrapper.
   G at h = 0.02, δ = 1e-6: first trapped cell (398, 436); level 0 equals `dn.evolve`.
 - `runs/pstar_G_h*.json`: p*ₕ read from #40's raw: 0.014945763570900113, 0.014877359967478583, 0.014860254854126537 (h = 0.02, 0.01, 0.005); hi − lo 5.7e-15 each.
+
+---
+# Second commit: development results, changes made during development, and the declared mutation targets (before the runs of record)
+
+Nothing above this line is changed. The development jobs and analyses are in `dev/` (jobs `dev/runs/`, `dev/analyze_dev1.log` to `dev/analyze_dev3.log`, scans, dose runs, 20 + 3 mutated analyses in
+`dev/mut/`). The jobs of the runs of record repeat the development jobs (same code, same inputs) and must reproduce them.
+
+## What the development runs showed (not changed afterwards)
+
+- The chain runs for G at the declared parameters, nothing changed: all six runs end at the limit (F_end 1.54e6 to 1.57e6), the horizon at least Nc/8 cells from the box edges. Jobs 2 to 29 s, peak rss 0.73 GB.
+- 17 of 19 checks pass in development (`dev/analyze_dev3.log`); **RC7 and RNR fail and stay declared as written, reported as not met**.
+  - RC7: the plateau at δ = 1e-6 and 1e-8 differs by 5.9e-4, 5.7e-4, 5.7e-4 (h = 0.02, 0.01, 0.005), bar 1e-4. The difference is the same at the three h, so it is not truncation. The supplementary scan
+    (`dev/scan_G_h*.log`) shows G's plateau still rising by 3.5e-4 to 6.0e-4 per decade of δ from 1e-7 to 1e-12 (S's is flat to 1e-3).
+  - RNR: scatter at 64 × 2⁻⁵² is 0.5 to 1.4 times that at 2⁻⁵². The injected noise is not what sets the scatter (exploratory dose scan: flat at 6e-6 in the last window from 2⁻⁵² to 2⁻⁴⁰, then growing
+    with the noise: 5.5e-4 at 2⁻³², 4.2e-2 at 2⁻²⁴, 2⁻²⁴ ≈ 6e-8; the run at 2⁻¹⁶ ends with an empty series, logs kept). So the noise runs measure the scatter between roundoff realizations, not a calibrated response.
+- RC4: the normal field's term is below 1e-5 of ΔM, so RC4 cannot test it (mutations `normal_drop`, `normal_sign` were silent in RC4). A planted check FLX was added (below).
+- The comparison (reported, not a check): G's plateau at h = 0.005, δ = 1e-8 is 0.235548, S's 0.223085, difference +1.25e-2 against a bar of 6.0e-4 (h 1.05e-5, δ 5.66e-4, machine 2e-5).
+
+## Changes made during development (all before the runs of record)
+
+- **RNR** now also requires the scatter at 2⁻⁵² to be nonzero (the first form passed vacuously if both scatters were 0).
+- **FLX added**: the first-law integrand on planted series with known integrals (ghost only −0.025, normal only +0.025, equal fluxes 0). Mutations `flux_sign`, `normal_drop`, `normal_sign` fire it.
+- The scan's δ list extends to 1e-12 (13 values, 1e-12 to 1e-1), at h = 0.01 and 0.005; the dose runs (2^k × 2⁻⁵², k = 6, 12, 20, 28, 36, seeds 1, 2, h = 0.005) and the first law over the whole series are reports.
+- The mutation `delta_swap` is dropped: RC7 fails without any mutation, so no mutation can make it fire. `noise_inert` is not an analysis mutation: the job with `--mutate=noise_inert --noise=64` gave a series bit-identical
+  to the run of record (`dev/mut_noise_inert_job.log`), so the injection is what makes the noise runs differ.
+- `dev/runs/` holds the runs of the first development analysis; no parameter of the chain, bar or limit was changed.
+- Baseline failures: RC7 and RNR fail in the analysis of record, so they are in every target set of a mutation whose analysis completes. A mutation whose runs fail (`finder_sign`, `pstar_off`, `theta_coef`,
+  `family_B`) reports the checks after the failed runs as failed and skips CMPT and the noise checks.
+
+## Mutations: fired in development = declared (the runs of record must give the same sets)
+
+| mutation | predicted (above) | fired in development = declared |
+|---|---|---|
+| `mass_exponent` | PL1, RC3, RC4 | PL1, RC3, RC4, RN0 (+ baseline RC7, RNR) |
+| `finder_sign` | PL1, PL2, TRK?, RC2 to RC8 | PL1, PL2, RC2 to RC8, TRK |
+| `hm_swap` | PL1, PL2, RC4 to RC8, others unknown | PL1, PL2, RC4, RC5, RC6, RC7, RC8, RN0, RNR |
+| `interp_shift` | PL1, PL2, RC6 to RC8, others unknown | PL1, PL2, RC6, RC7, RC8, RN0, RNR |
+| `flux_sign` | RC4 | RC4, FLX (+ baseline) |
+| `normal_drop` | RC4 if the normal flux is ≥ 2 % of ΔM, else silent | **silent in RC4**; FLX only (+ baseline) |
+| `normal_sign` | RC4 if the normal flux matters, else silent | **silent in RC4**; FLX only (+ baseline) |
+| `time_unit` | RC2 | RC2 (+ baseline) |
+| `no_zoom` | PL1, RC5 to RC8, others unknown | PL1, RC5, RC6, RC7, RC8, RN0, RNR |
+| `short_limit` | RC5, RC8 | RC5, RC8, RN0 (+ baseline) |
+| `pstar_off` | RC2 to RC8 | RC2 to RC8, TRK |
+| `pstar_shift` | RC1 | RC1 (+ baseline) |
+| `theta_coef` | everything | PL1, PL2, PL3, PL3G, RC1 to RC8, TRK |
+| `rcut_off` | PL3, PL3G | PL3, PL3G (+ baseline) |
+| `col_shift` | PL2, RC6 | PL2, RC6, RN0 (+ baseline) |
+| `family_B` | RC1, RC2 | PL3G, RC1 to RC8, TRK |
+| `crit_dm` | CFG | CFG (+ baseline) |
+| `trk_shift` | TRK | TRK (+ baseline) |
+| `rn_ref` | RN0, RNR | RN0 (+ baseline) |
+| `cmp_bar0` | CMPT | CMPT (+ baseline) |
+
+The exact sets are the `MUTATIONS` dictionary of `settled_mass_g.py` at the commit named in the runs of record. Mispredicted targets: `normal_drop` and `normal_sign` (silent in RC4, covered by FLX), `family_B` (also PL3G, RC3 to RC8 and
+TRK, because the whole run changes), `col_shift`, `hm_swap`, `short_limit` (RN0 also fires: the stored noise-0 run is from the unmutated code), `rn_ref` (RNR is a baseline failure).

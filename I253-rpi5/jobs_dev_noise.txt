@@ -1,0 +1,10 @@
+dev_rn_h0.005_u0_s1|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-8 --noise=0 --seed=1 --out=$RAW/dev/runs/rn_h0.005_u0_s1 --pstar=$RAW/dev/runs
+dev_rn_h0.005_u1_s1|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-8 --noise=1 --seed=1 --out=$RAW/dev/runs/rn_h0.005_u1_s1 --pstar=$RAW/dev/runs
+dev_rn_h0.005_u1_s2|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-8 --noise=1 --seed=2 --out=$RAW/dev/runs/rn_h0.005_u1_s2 --pstar=$RAW/dev/runs
+dev_rn_h0.005_u1_s3|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-8 --noise=1 --seed=3 --out=$RAW/dev/runs/rn_h0.005_u1_s3 --pstar=$RAW/dev/runs
+dev_rn_h0.005_u64_s1|timeout 7200 $PY settled_mass_g.py job --h=0.005 --delta=1e-8 --noise=64 --seed=1 --out=$RAW/dev/runs/rn_h0.005_u64_s1 --pstar=$RAW/dev/runs
+dev_rn_h0.01_u0_s1|timeout 7200 $PY settled_mass_g.py job --h=0.01 --delta=1e-8 --noise=0 --seed=1 --out=$RAW/dev/runs/rn_h0.01_u0_s1 --pstar=$RAW/dev/runs
+dev_rn_h0.01_u1_s1|timeout 7200 $PY settled_mass_g.py job --h=0.01 --delta=1e-8 --noise=1 --seed=1 --out=$RAW/dev/runs/rn_h0.01_u1_s1 --pstar=$RAW/dev/runs
+dev_rn_h0.01_u1_s2|timeout 7200 $PY settled_mass_g.py job --h=0.01 --delta=1e-8 --noise=1 --seed=2 --out=$RAW/dev/runs/rn_h0.01_u1_s2 --pstar=$RAW/dev/runs
+dev_rn_h0.01_u1_s3|timeout 7200 $PY settled_mass_g.py job --h=0.01 --delta=1e-8 --noise=1 --seed=3 --out=$RAW/dev/runs/rn_h0.01_u1_s3 --pstar=$RAW/dev/runs
+dev_rn_h0.01_u64_s1|timeout 7200 $PY settled_mass_g.py job --h=0.01 --delta=1e-8 --noise=64 --seed=1 --out=$RAW/dev/runs/rn_h0.01_u64_s1 --pstar=$RAW/dev/runs

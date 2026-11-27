@@ -1,0 +1,12 @@
+settled_mass_g.py job {'h': '0.005', 'delta': '1e-8', 'noise': '68719476736', 'seed': '2', 'out': '/home/nathan/Source/negative-mass-raw/I253-rpi5/dev/runs/dose_h0.005_k36_s2', 'pstar': '/home/nathan/Source/negative-mass-raw/I253-rpi5/dev/runs'}: numba 0.68.1, numpy 2.5.4, python 3.14.10, rpi5-ubuntu, load average at start 3.10 1.64 1.14, mutation None, 2026-11-27 12:41:19
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-i253/notes/wormhole_evolution/settled_mass_g.py", line 670, in <module>
+    main()
+    ~~~~^^
+  File "/home/nathan/Source/negative-mass-i253/notes/wormhole_evolution/settled_mass_g.py", line 655, in main
+    job_cmd(float(opts["h"]), float(opts["delta"]), opts["out"], opts["pstar"], noise=float(opts.get("noise", 0.0)), seed=int(opts.get("seed", 0)))
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-i253/notes/wormhole_evolution/settled_mass_g.py", line 169, in job_cmd
+    Np=r["Np"], nm0=r["nm0"], F1=r["F1"], K=r["K"], Nc=r["Nc"], levels=len(r["levels"]), cols=int(len(s["r"])), xp0=float(s["xp"][0]),
+                                                                                                                          ~~~~~~~^^^
+IndexError: index 0 is out of bounds for axis 0 with size 0
