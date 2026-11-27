@@ -54,6 +54,6 @@ Mutations (`--mutate=`), each with the checks it must fail:
 Logs: `ind248_run1.txt`, `ind248_mut_*.txt`, `rerun_{derive,check,table}.{log,err}` (check's peak RSS 1.57 GB).
 
 Reading: the coefficient of the growing horizon sector for class L, computed by transport along the data ray inside the horizon
-(ρ from −0.07 to 0) with no 2D solver, equals the 2D Kruskal solver's to its printed digits. The transport equations reproduce an exact
+(Π from −0.1 to 0, ρ < 0) with no 2D solver, equals the 2D Kruskal solver's to its printed digits. The transport equations reproduce an exact
 pure-gauge solution to 3e-14, and a ray datum of zero exterior support gives c₂ ≠ 0. The claim that c₂ is fixed by data at and before the
 horizon crossing, and is nonzero for a generic pulse there, is confirmed by a second method.
