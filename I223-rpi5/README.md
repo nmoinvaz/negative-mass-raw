@@ -155,8 +155,78 @@ wall time is stopped and reported with what finished. Results: `results/<id>_<R1
 
 ## Development history
 
-(filled as the work proceeds)
+Development runs are in `dev/` (R1 unless stated; never part of the record). Newest facts first within each item.
+
+- **D1, scratch derivation (sympy, before this README).** The master equation of Sec. 2 with `tt` and `xx` residual 0, the gauge
+  `δR = 0`, the gauge map, and the NED extension of [BKZ12] (41): `A·Ũ = ε φ′²/R′² (R²(V + Λ) − 1) + 2φ′R V_φ/R′ + ε V_φφ`, i.e. V → V + Λ in the
+  first term only. `bounce.py check` now re-derives all of it.
+- **D2, horizon survey (scratch, no count).** Every declared B member has one outermost horizon, simple except at B2; A > 0 outside it.
+  B2 at q = 0.8, 0.81 has two further, inner horizons (x = −1.64, −0.31 and −2.61, −0.16), unused.
+- **D3, `check` development.** The first `check` failed S2 and S8 because of errors in the checks, not in the background: S8 compared
+  `A·Ũ + R_{x*x*}/R` where the potential is `A²Ũ + R_{x*x*}/R`; S2 took A/z at z = 1e-9 with the float horizon (a float x_h is off by 4e-15,
+  which at z = 1e-9 is a relative 1e-6), and for B2 the float throat mass gives A(0) = −5e-17. The checks were corrected (exact x_h,
+  exact throat mass in the reference); the numerical background code was not changed. `check` then exits 0 (about 42 s).
+- **D4, first R1 runs.** `planted --res=R1`: W²a² = 1.397052434007020, 3.265e-10 from the reference, the same as #212's R1. P2 at c = −10, −1.1, −0.9,
+  −0.3, −0.01, −1 equal #212's table (one mode each, none at c = −1; |ΔW|/W 3e-10 to 3e-9 at R1). About 11 s to 47 s per member at R1, S at m = 0.5 (extremal) 146 s,
+  B2 at q = 0.81 88 s.
+- **D5, the Sturm count.** First version (u form): a wrong `2·A·Ar` for `2·Ar²` in `Vhat` (8 nodes at c = −1, caught by comparing with the shooting
+  count of 0), then, after the fix, a hang at x_h = 0: `Vhat` there is a cancellation of O(1) terms down to O(x) and the noise in it (1e-16) is
+  larger than rtol·|u_x| at z0 = 1e-8, so the step size collapsed. `P2_c-1` and `B2_q0.5` ran 16 min without finishing; their units `nm-i223-dev1`
+  and `nm-i223-dev3` were stopped by hand at 01:04 (log empty, a stop below the 1 h condition but with the cause known). The Sturm count is now
+  integrated in the Y form at W = 0 (u = Y/x, x > 0, the same nodes). The same wrong `2·A·Ar` had been written into the spectral
+  routine, which had not been run.
+- **D6, the weak second mode.** Dev R1: the black bounce S at m = 0.55, 0.6 and B1 at q = 0.5 have two growing modes in the declared range (second W =
+  0.0046, 0.0024, 0.0067, one node). S at m = 0.75, 1, 3 have Sturm 2 and shooting 1; at m = 1 a probe finds the second root at W ≈ 1.1e-4 (the mismatch
+  changes sign between 9.4e-5 and 1.4e-4), at m = 3 there is no sign change down to 3e-5. S at m = 10 has Sturm 1. Reported to the coordinator, ruling
+  below (A2).
+- **D7, the planted weak bound state.** The first version of P3 found no root: for the exponentially decaying planted potential the integrator's step
+  grows to thousands in the free region and steps over the well (u unchanged, D = −2W). Fixed by integrating the free part with `run_chunks` to
+  |x| = 40 and the well with `max_step = 0.5`. The real potentials have power-law tails and showed no such skipping (P1, P2 agree with #212).
 
 ## Amendments
 
-(none yet)
+All written before the runs of record they govern.
+
+**A1. Details left open in Sections 3 and 6.**
+- S6: real eigenvalues are counted for `λ > W_LO² = 1e-6` (W = 1e-3), complex ones are flagged for `Re λ > 1e-3`, as declared.
+- S2 criteria: `|ΔA|/|A| ≤ 1e-11` (where |A| > 1e-3), `|ΔA′| ≤ 1e-11` absolute, `|Δ(A/z)|/|A/z| ≤ 1e-11`, at 7 members, z from 1e-9 to 0.3, x to 3000.
+- Added checks (so S1 also holds the printed forms): S1 against [BBS12] (8)–(12), (15) as printed, printed (20) against (9) at 30 digits (declared ≤ 1e-25),
+  [BW22] (11)–(13), (16), (17), (21), (22) at Q = 0 against an independent Einstein tensor in their conventions (signature +−−−, `G^ν_μ = −T^ν_μ`), S4 NED source
+  (`T^t_t = T^x_x = −L/2`, `T^θ_θ = F L_F − L/2`, `F = 2q²/r⁴` on the perturbed metric), `dF = 0`, and the NED equation.
+- S9 is integrated in the Y form at W = 0 (D5). Criterion as worded: the Sturm count equals the shooting count in the declared range. Where it does not,
+  S9 is reported NOT MET with both counts (coordinator's ruling).
+
+**A2. The low-W stage (coordinator's ruling on D6: "keep the declared range, add a declared low-W stage").**
+- Shooting on W ∈ [1e-5, 1e-3], log grid, `nW` = 40 (R1) and 100 (R2), the declared rtol, z0, delta and rmax0 of Sec. 3, and its own outer radius
+  `r0 = max(rmax0, 20/W)` (3e6 at W = 1e-5, below the integrator's guard of 1e7; the wrong solution is suppressed by e^{-40} over the distance 1/W-scaled
+  r0). Same code path as the main stage (`count ID --stage=low`), JSON `<id>_<res>_low.json`. Run for every member, at R1 and R2.
+- Tolerances: R1 and R2 of the low stage agree in the count and in W to 1e-4 relative.
+- **P3, planted weak bound state:** `u'' = (V + W²)u`, `V = −ν(ν+1)κ² sech²(κx)`, κ = 1, ν = 3e-5, one bound state at `W = νκ = 3e-5` exactly, run through the low stage's
+  outer-radius rule, chunked integration, log grid and Brent (not through the background code). Declared: exactly one root on [1e-5, 1e-3] and
+  `|W − νκ|/(νκ) ≤ 1e-3` (R1), `≤ 1e-4` (R2). Dev: 1.3e-10 (R1), 5.0e-13 (R2).
+- Reporting: the count of a member is its main-stage count plus its low-stage count; where the Sturm count (x_h ≥ 0) is larger still, the Sturm count is the
+  count and the missing rate is stated to lie below 1e-5, unresolved. Each weak mode is confirmed at a second resolution (R1 and R2 roots, and the Sturm
+  count). The rates of the second mode are given against m and q as observed; no reading of the mode is offered.
+
+**A3. Control predictions, written before the development run of the controls** (`controls` runs each `--mutate=` and asserts its target):
+
+| control | target | predicted effect |
+|---|---|---|
+| `sv_V`, `sv_L` | S1 | the S-family V and Λ equations and the [BW22] printed components fail, residual O(m) |
+| `bbs_A` | S1 background | the B-family equations fail |
+| `bbs_V20` | S1 [BBS12] printed (20) | printed (20) against (9) off by O(1) |
+| `ned_T` | S4 NED source | `S_th − Λ` fails, and the S4 background lines |
+| `master_ned`, `master_p`, `bkz41_sign` | S4 linearized | G1 tt/xx residuals ≠ 0, gauge map ≠ 0; (41) line |
+| `family_ned` | S5 | difference of the size of the NED term |
+| `veff_ned` | S8 | difference `A R Λ_R`-sized |
+| `bg_kappa`, `az_series` | S3, S2 | S3 off by a factor 2; S2 about 5e-4 |
+| `eps`, `throat_wall`, `rmax` | P1 | 3 growing modes at Ellis (as #212); 0 modes; error about 5e-7 against 1e-7 |
+| `hz_start` | R1 v R2 on B3, q = 0.15 | W differs by about 1e-4 (#212: 1.9e-4) |
+| `ned_off` | R1 v R2 on B3, q = 0.15 | a change of the rates of order 1 %, the NED term being 0.09 A/R⁴ in V̂ |
+| `scan_range`, `sturm_sign` | S9 on B1, q = 0.3 | shooting 0 against Sturm 1; Sturm differs from 1 |
+| `spec_sign` | S6 on B1, q = 0.3 | count mismatch |
+| `lowW_V`, `lowW_range` | P3 | root at 6e-5 (relative error 1); no root |
+| `rmax_low` | low-stage R1 v R2 on S, m = 1 | the root moves or disappears |
+
+`ned_off` and `hz_start`, `rmax_low` are agreement controls: the NED term itself is guarded by S1, S4, S5, S8 (the zero-charge members P1, P2 have Λ ≡ 0), and
+`ned_off` shows that it matters at the member.
