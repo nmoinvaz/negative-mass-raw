@@ -1,0 +1,27 @@
+# tests/implicit.rs: the fixed text replaced by the pre-fix text; the tests must fail
+--- fixed text
+pass: stop == want && !pts.is_empty() && worst <= 1e6,
+--- pre-fix text
+pass: worst <= 1e6,
+---
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 6.48s
+     Running tests/implicit.rs (target/release/deps/implicit-4e0a7f4a04c6bea1)
+
+running 1 test
+[PASS] f64 B(KA) Cut(0): stop StepLimit (wanted End), 0 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 0.00e0 (bar 1e6)
+
+thread 'controls_without_hooks' (102726859) panicked at tests/implicit.rs:1264:13:
+control Cut(0) did not fire: f64 B(KA) Cut(0): stop StepLimit (wanted End), 0 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 0.00e0 (bar 1e6)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test controls_without_hooks ... FAILED
+
+failures:
+
+failures:
+    controls_without_hooks
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 26 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--test implicit`
+exit 101

@@ -1,0 +1,161 @@
+nmoinvaz/multishoot#73 implicit: Taylor steps of N(x, y, y', y'') = 0 with the root branch carried by continuity
+
+PRRT_kwDOVqMTLM68pIUG  README.md:96  coderabbitai (bot)  comment 4715614972
+  **<picture><img src="https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/amber-16.svg" width="16" height="16" align="absmiddle" alt=""></picture> Minor** · **Functional Correctness** · **Quick win**
+
+  **Escape the pipes in `|A0|` inside the table cell.**
+
+  GitHub treats the unescaped pipes as column separators, even inside inline code. The rendered row drops the pivot threshold and crossing description. Write `\|A0\|` in the table source. ([github.github.com](https://github.github.com/gfm/))
+
+  _Source: Linters/SAST tools_
+
+PRRT_kwDOVqMTLM68pIUM  README.md:107-108  coderabbitai (bot)  comment 4715614983
+  **<picture><img src="https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/amber-16.svg" width="16" height="16" align="absmiddle" alt=""></picture> Minor** · **Functional Correctness** · **Quick win**
+
+  **Describe `Project` as one Newton correction, not an exact projection.**
+
+  For `N = y''² - 1` and `y'' = 2`, the correction gives `y'' = 1.25`, so `N` remains `0.5625`. Keep the recommendation to use `Project` near double roots, but do not promise an exact zero or a successful crossing. Make the same correction in the `Branch` documentation.
+
+PRRT_kwDOVqMTLM68pIUR  src/implicit.rs:222  coderabbitai (bot)  comment 4715614990
+  **<picture><img src="https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/amber-16.svg" width="16" height="16" align="absmiddle" alt=""></picture> Minor** · **Functional Correctness** · **Quick win**
+
+  **Return without writing when `poly` is empty.**
+
+  `taylor_shift(&[], x0, &mut [])` passes the output-length check. The loop still executes once and indexes `poly[0]`. Return early for an empty input. A one-element input must still write its constant coefficient.
+
+PRRT_kwDOVqMTLM68pIUZ  src/implicit.rs:499  coderabbitai (bot)  comment 4715614999
+  **<picture><img src="https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/major-16.svg" width="16" height="16" align="absmiddle" alt=""></picture> Major** · **Functional Correctness** · **Heavy lift**
+
+  **Scale each jet coefficient without first rounding `l^j` to `f64`.**
+
+  For `N = y'' - 2^1000 x²` at `x0 = 0` with `l = 2^-600`, `l²` underflows to zero before the multiplication. `Recursion::form` then returns zero for `y''_2` instead of the representable value `2^-200`. Apply the combined binary exponent to the coefficient, using bounded scaling factors if necessary.
+
+PRRT_kwDOVqMTLM68pIUe  src/implicit.rs:550  coderabbitai (bot)  comment 4715615008
+  **<picture><img src="https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/amber-16.svg" width="16" height="16" align="absmiddle" alt=""></picture> Minor** · **Functional Correctness** · **Quick win**
+
+  **Use direct division when the cached reciprocal overflows.**
+
+  For `N = 2^-1030 (y'' - x)` in `f64`, the pivot at `x = 0` is finite and nonzero. Its reciprocal is infinite, so `Walker::form` returns `Stop::NonFinite` even though the exact `y''_1` is `1`. Keep the cached multiplication for a finite reciprocal. Otherwise, use `-r / a0` for a finite nonzero pivot.
+
+PRRT_kwDOVqMTLM68pIUk  src/implicit.rs:924-927  coderabbitai (bot)  comment 4715615014
+  **<picture><img src="https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/amber-16.svg" width="16" height="16" align="absmiddle" alt=""></picture> Minor** · **Functional Correctness** · **Quick win**
+
+  **Repeated `form` calls append the same crossing again.**
+
+  `Walker::form` appends a crossing whenever `prev` brackets a sign change of `A0`. It does not consume `prev` or record that the crossing was reported. `advance` sets `prev`, and `set_y` clears it. Neither changes `prev` during `form`. A caller that calls `form` twice before `advance` therefore appends the same crossing twice. `WalkOut::crossings` then lists one double root more than once.
+
+  Each accepted step must contribute at most one crossing. A repeated `form` call at the same point must not append a second entry for that step.
+
+PRRT_kwDOVqMTLM68pIUr  src/implicit.rs:995  coderabbitai (bot)  comment 4715615027
+  **<picture><img src="https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/amber-16.svg" width="16" height="16" align="absmiddle" alt=""></picture> Minor** · **Functional Correctness** · **Quick win**
+
+  **Normalize the pivot coefficients before calculating `rho`.**
+
+  For `N = 2^-550(1-x)y''` at `x = 0` with zero state and a matching `pivot_abs`, `a[1]` is nonzero but `a[1] * a[1]` underflows. The calculation produces `0/0`, so the pure-power estimate returns `None` instead of `x = 1`, `beta = 1`. Normalize the three coefficients by a common power of two before multiplying.
+
+PRRT_kwDOVqMTLM68pIUz  src/implicit.rs:1070  coderabbitai (bot)  comment 4715615038
+  **<picture><img src="https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/major-16.svg" width="16" height="16" align="absmiddle" alt=""></picture> Major** · **Data Integrity & Integration** · **Quick win**
+
+  **Do not advance with a stale Taylor series.**
+
+  For `y'' = 1`, start at `x = 0` with `[0, 0, 1]`. Call `form`, advance to `1`, then advance to `2` without forming again. The second advance succeeds with `[0.5, 1, 1]` instead of `[2, 2, 1]`. `set_y` also leaves the old series available to `advance`.
+
+  Require a successful `form` for the current state. Invalidate readiness before forming, after a successful advance, and after `set_y`. Keep the existing manual workflow valid when the caller forms before each advance.
+
+PRRT_kwDOVqMTLM68pIU6  src/implicit.rs:1107  coderabbitai (bot)  comment 4715615048
+  **<picture><img src="https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/amber-16.svg" width="16" height="16" align="absmiddle" alt=""></picture> Minor** · **Functional Correctness** · **Quick win**
+
+  **Coalesce duplicate checkpoint positions before walking.**
+
+  For `run(2.0, &[1.0, 1.0])` from `x = 0`, the first landing leaves the second `1.0` as the next target. `advance` then sees zero distance and returns `Stop::Tiny`. Deduplicate the sorted targets so the walk records the checkpoint and continues to `2.0`.
+
+PRRT_kwDOVqMTLM68pIU-  src/implicit.rs:1113-1114  coderabbitai (bot)  comment 4715615055
+  **<picture><img src="https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/major-16.svg" width="16" height="16" align="absmiddle" alt=""></picture> Major** · **Functional Correctness** · **Heavy lift**
+
+  **Check the last accepted step for a crossing.**
+
+  For `N = y''² - x²` on the branch `y'' = x`, an order-5 walk can take one step from `-1` to `1`. The pivot changes sign, but `run` returns `Stop::End` before checking the pivot at `1`. The result has no crossing. Check the accepted endpoint for diagnostics without projecting it or treating it as another step.
+
+PRRT_kwDOVqMTLM68pIVF  src/implicit.rs:1145  coderabbitai (bot)  comment 4715615063
+  **<picture><img src="https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/amber-16.svg" width="16" height="16" align="absmiddle" alt=""></picture> Minor** · **Data Integrity & Integration** · **Quick win**
+
+  **Return a zero estimate only for the current `Stop::Pivot`.**
+
+  After a pivot stop with an estimate, call `run` again with the current `x` as the endpoint. The second call returns `Stop::End` but copies the previous estimate into `WalkOut::zero`. Return `None` for non-pivot stops. Keep the estimate for the call that stopped at the pivot.
+
+PRRT_kwDOVqMTLM68pIVN  tests/implicit.rs:342  coderabbitai (bot)  comment 4715615074
+  **<picture><img src="https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/amber-16.svg" width="16" height="16" align="absmiddle" alt=""></picture> Minor** · **Functional Correctness** · **Quick win**
+
+  **Reject non-finite crossing locations.**
+
+  A crossing with `located: true` and `x: NaN` can pass when the count is correct. `f64::max` keeps the prior finite error. Require a finite position error for each crossing before applying the tolerance. ([doc.rust-lang.org](https://doc.rust-lang.org/std/primitive.f64.html?utm_source=openai))
+
+PRRT_kwDOVqMTLM68pIVS  tests/implicit.rs:461-464  coderabbitai (bot)  comment 4715615080
+  **<picture><img src="https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/amber-16.svg" width="16" height="16" align="absmiddle" alt=""></picture> Minor** · **Functional Correctness** · **Quick win**
+
+  **Give the planner bitwise check a wrong-result control.**
+
+  The control matrix never calls `planner`, and the planner test only compares unmodified results. Feed the same comparison a result with one bit changed and assert that it fails. As per coding guidelines, “each new accuracy check comes with a control that feeds it a wrong result.”
+
+  _Source: Coding guidelines_
+
+PRRT_kwDOVqMTLM68pIVZ  tests/implicit.rs:701  coderabbitai (bot)  comment 4715615088
+  **<picture><img src="https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/major-16.svg" width="16" height="16" align="absmiddle" alt=""></picture> Major** · **Functional Correctness** · **Quick win**
+
+  **Fail the step-sum check on a non-finite error.**
+
+  If a computed coefficient is NaN, `num` becomes NaN. `f64::max` ignores that value and retains the previous finite `worst`, so the test can pass. Reject non-finite measurements before updating `worst`. ([doc.rust-lang.org](https://doc.rust-lang.org/std/primitive.f64.html?utm_source=openai))
+
+PRRT_kwDOVqMTLM68pIVc  tests/implicit.rs:705  coderabbitai (bot)  comment 4715615092
+  **<picture><img src="https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/major-16.svg" width="16" height="16" align="absmiddle" alt=""></picture> Major** · **Functional Correctness** · **Quick win**
+
+  **Fail the step-sum check if the planted walk did not reach its expected stop.**
+
+  If the first `form()` fails, `path_steps` returns no samples and `step_sum` passes with `worst == 0.0`. If a later `advance()` fails, the check can pass using only a prefix, including the step that failed. Return the stop with the samples. Require samples from accepted steps and the expected stop for each path before testing the error bound.
+
+PRRT_kwDOVqMTLM68pIVf  tests/implicit.rs:789  coderabbitai (bot)  comment 4715615096
+  **<picture><img src="https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/major-16.svg" width="16" height="16" align="absmiddle" alt=""></picture> Major** · **Functional Correctness** · **Heavy lift**
+
+  **Separate the coefficient observation from a gated accuracy check.**
+
+  The test header declares a per-coefficient pass criterion, but `recorded = true` prevents that criterion from failing the suite. The known misses are not evidence that the criterion holds. If the original bound is intentionally observational, label it as such and add a gated criterion that reflects the supported accuracy contract, with a wrong-result control. As per coding guidelines, “Every check must be able to fail.”
+
+  _Source: Coding guidelines_
+
+PRRT_kwDOVqMTLM68pIVk  tests/implicit.rs:911-912  coderabbitai (bot)  comment 4715615107
+  **<picture><img src="https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/amber-16.svg" width="16" height="16" align="absmiddle" alt=""></picture> Minor** · **Functional Correctness** · **Quick win**
+
+  **Reject a non-finite lane coefficient comparison.**
+
+  If one coefficient from either lane is NaN, `f64::max` can leave the corresponding worst error unchanged. The final assertion can pass. Validate each coefficient error before updating the maxima. ([doc.rust-lang.org](https://doc.rust-lang.org/std/primitive.f64.html?utm_source=openai))
+
+PRRT_kwDOVqMTLM68pIVn  tests/implicit.rs:923  coderabbitai (bot)  comment 4715615113
+  **<picture><img src="https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/amber-16.svg" width="16" height="16" align="absmiddle" alt=""></picture> Minor** · **Functional Correctness** · **Quick win**
+
+  **Give the lane-equivalence check a wrong-result control.**
+
+  The lane test compares only unmodified coefficients. Perturb a lane coefficient above the tolerance and assert that the same predicate rejects it. As per coding guidelines, “each new accuracy check comes with a control that feeds it a wrong result.”
+
+  _Source: Coding guidelines_
+
+PRRT_kwDOVqMTLM68pIVq  tests/implicit.rs:937-938  coderabbitai (bot)  comment 4715615117
+  **<picture><img src="https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/amber-16.svg" width="16" height="16" align="absmiddle" alt=""></picture> Minor** · **Functional Correctness** · **Quick win**
+
+  **Complete the required AVX2/FMA validation.**
+
+  The PR reports default and portable aarch64 results, but says the `+avx2,+fma` build was not run. Run the release suite with those target features and record the bitwise comparison. As per coding guidelines, “run `cargo test --release` on the default build, with `--features portable`, with `-C target-feature=+avx2,+fma`, and on aarch64 (NEON).”
+
+  _Source: Coding guidelines_
+
+PRRT_kwDOVqMTLM68pIVt  tests/implicit.rs:949-951  coderabbitai (bot)  comment 4715615122
+  **<picture><img src="https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/amber-16.svg" width="16" height="16" align="absmiddle" alt=""></picture> Minor** · **Data Integrity & Integration** · **Quick win**
+
+  **Include checkpoint states and octo-double results in the backend comparison.**
+
+  The digest hashes the final state but not `c.out.cps`. A backend can change a checkpoint coefficient by one bit without changing the digest. The digest tests also omit `OD`. Include the checkpoint states and the octo-double smoke results in the comparison. As per coding guidelines, “Comparisons across backends are bitwise.”
+
+  Also applies to: 990-993
+
+  _Source: Coding guidelines_
+
+20 threads (20 bot, 0 human), 0 review-body findings
