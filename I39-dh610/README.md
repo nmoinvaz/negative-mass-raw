@@ -67,4 +67,82 @@ No tolerance appears in `derive.py`: its checks are exact symbolic zeros.
 
 ## Step 2 criteria
 
-(not written yet; the coordinator's ruling comes first)
+Written after the coordinator's ruling (6b02d78) and after the development runs `dev/dev_s2_01` to `dev_s2_17`, and **before the first
+run of record**. The code is `notes/wormhole_evolution/{dn.py,checks.py}` on `wip/i39-throat-evolution`; the numbers below are the
+`CRIT` and `MUTATIONS` tables of `checks.py` at the commit that carries this README's commit hash in its message. Nothing here is
+changed after a run of record has been seen. A criterion that is not met is reported as not met.
+
+### What the ruling asked for, and where it is met
+
+| ruling | met by |
+|---|---|
+| numba kernel for production, numpy kernel as reference; they agree to roundoff on a declared grid | K: three declared grids, tolerance 1e-12 on every field, same dead cells |
+| `--kernel=numpy` runs with numba absent | `DN_NO_NUMBA=1 python checks.py --kernel=numpy` (K is then SKIPPED, and reported as skipped, not passed); run of record below |
+| P2 Tangherlini with its horizon at r = (2M)^(1/(n-1)); P3 the exact Roberts-form ghost solution; each with a mutation | P2, P3, `MUTATIONS` |
+| both throat definitions written, the difference stated | F1 prints the diagonal throat and the minimum-r slice for each pulse |
+| excision r_cut = 0.05, F_cut = 25; a sensitivity check with r_cut halved and F_cut doubled; the horizon-formation time within a tolerance declared first | S, tolerance below |
+| G1: tune to p*_h, fit the growth, 1 % at D = 4 and D = 5 at two resolutions that agree; the fit window declared after a development run; one untuned departure time as the seed c | G1 and its printed untuned departure |
+| static check windowed: second-order deviation for t <= t_c | P1, t_c below |
+
+### Criteria (the CRIT table)
+
+| id | what | criterion |
+|---|---|---|
+| I1 | constraint solve on the rays returns the Ellis r(l), n = 2, 3, 4, h = 0.02, N = 400 | max error <= 1e-8 |
+| K | numba against numpy: Ellis D = 4 with a symmetric pulse (A = 0.05, x_c = 1.5, w = 0.5; h = 0.02, N = 150), Kruskal Tangherlini D = 5 (h = 0.01, N = 60), a collapsing Ellis D = 4 (A = -0.1, same shape, with excision) | max abs difference of every live field <= 1e-12 and identical dead masks |
+| P1 | static Ellis, error of (r, f, phi) against the exact static solution over the whole rectangle | D = 4: t_c = 4.0, h = 0.04, 0.02, 0.01; D = 5: t_c = 2.7, h = 0.0283, 0.0141, 0.00707; observed order of each halving in [1.75, 2.25] |
+| P2 | Kruskal Tangherlini, r_h = 1, M = 1/2, D = 4, 5, 6, rectangle [0, 0.6]^2, h = 0.005, 0.0025, 0.00125, excision off | orders in [1.75, 2.25] of four errors: max (r, f) against the exact solution; max over interior nodes of M - 1/2; the max deviation of the r_+ = 0 contour (scanned along x-) from x- = -U0 = 0.5; the max deviation of r on that contour from r_h = (2M)^(1/(n-1)) = 1 |
+| P3 | Roberts ghost solution, n = 2, a = 3/4, rectangle [1, 3]^2, h = 0.04, 0.02, 0.01 | orders in [1.75, 2.25] of the max (r, f, phi) error, of the r_+ = 0 contour position against x+ = x-/(2a) and of the r_- = 0 contour against x+ = 2a x-; at the finest h the fitted slopes within 1e-3 of 2/3 and 3/2; no more than 3 cells per row of the cell classification (trapped, anti-trapped, neither) differ from the exact r_+, r_- |
+| C1 | constraints C_++, C_-- (second-order node differences), D = 4, symmetric ghost pulse A = 0.05, x_c = 1.5, w = 0.5, X = 3 (t <= 4.24), h = 0.04, 0.02, 0.01 | max norm orders in [1.75, 2.25] |
+| C2 | M(X, x-) - M(X, 0) against the integral of the flux -(r^n/n) e^f r_+ sum eps phi_-^2 along the edge, same runs | residual orders in [1.75, 2.25], and the M change on the edge > 1e-5 (a pulse really crosses it) |
+| G1 | symmetric ghost pulse on the Ellis wormhole (A in phi, x_c = 3, w = 0.5, the pulse on both rays with the parity of phi); bisect A in [-0.01, 0.01] until the bracket is <= 1e-10; run both bracket ends; fit ln\|H\| against tau over the points after the global minimum of \|H\| with \|H\|/W in [1e-3, 1e-2]; W_fit = the mean of the two sides' slopes | D = 4: h = 0.02, 0.01, X = 20; D = 5: h = 0.00707, 0.00354, X = 15. \|W_fit/W - 1\| <= 1 % at each h; \|W_fit(h)/W_fit(h/2) - 1\| <= 0.5 %. W = sqrt(W^2 a^2) of #195: 1.181970 (D = 4), 1.727703 (D = 5). Reported, not gated: A*_h and its ratio between the two h, the untuned (A = 0) departure time of \|H\| = 2e-3 W and the seed constant kappa = 2e-3 W e^(-W tau)/h^2 |
+| F1 | one-sided pulses at D = 4, h = 0.02, X = 12, a Gaussian in d phi/dx+ (the form of [SH02] (3.1)): ghost with A = +0.04 and -0.04, normal (second field) with A = +0.04; x_c = 3, w = 1/sqrt3 | qualitative, reported as seen: gated only on a normal pulse collapsing and the two ghost signs ending in a collapse and an expansion. Printed: fate, event time, E0 (M(X,0) minus the unperturbed Ellis M at the same x+), both throat definitions, M at the first trapped cell |
+| S | F1's two ghost cases rerun with r_cut = 0.025, F_cut = 50 | same fate; event times within 4 sqrt2 h (four diagonal cells) |
+
+Fixed parameters: ncorr = 1 (predictor + one corrector), excision r_cut = 0.05 a and e^(-f) > F_cut = 25, trapped and anti-trapped tests with
+tolerance 1e-2 (r_+ and r_- below -1e-2, or above 1e-2), expansion event: the diagonal cell anti-trapped with r >= 2; collapse event: the
+first trapped cell in row order; trapped and expansion events stop a G1 or fate run. t = (x+ + x-)/sqrt2; tau on the diagonal.
+
+### Mutations (the MUTATIONS table; each target list is what fired in development runs dev_s2_16 and dev_s2_17)
+
+| name | what it breaks | must fire |
+|---|---|---|
+| theta_coef | sphere-term coefficient n - 1 -> n in the kernel | P1 P2 P3 C1 C2 G1 F1 |
+| scalar_coef | scalar-equation coefficient n -> n - 1 in the kernel | P1 P3 C1 C2 G1 F1 |
+| ghost_sign | sign of the matter source of f in the kernel | P1 P3 C1 C2 G1 F1 |
+| no_corrector | the corrector step dropped (predictor only) | P2 P3 C1 C2 |
+| numpy_Spert | S multiplied by 1 + 1e-8 in the numpy kernel only | K |
+| data_constraint_sign | sign of the constraint in the data solve | I1 P1 C1 C2 G1 F1 |
+| ellis_charge | the data's scalar charge q times 1.1 | I1 P1 C1 C2 G1 F1 |
+| constraint_sign | sign of the matter term in C_++, C_-- | C1 |
+| flux_sign | sign of the flux in the edge identity | C2 |
+| mass_exponent | M with r^n instead of r^(n-1) | P2 C2 |
+| finder_sign | the sign of the trapped test | P3 G1 F1 S |
+| finder_swap | the r_+ contour returned for r_- and the reverse | P2 P3 |
+| time_unit | tau times sqrt2 in the G1 fit | G1 |
+| cut_extreme | S's variant thresholds r_cut = 1.5, F_cut = 1.5 (above the throat radius) | S |
+
+Silent in development (not predicted, reported): `no_corrector` does not fire P1 (the predictor-only scheme is second order on the static
+solution); the kernel mutations do not fire K (they act on both kernels, as designed); no mutation fires I1 except the two data mutations.
+
+### Changes made during development, none after a run of record
+
+- dev_s2_03: exact Tangherlini in Kruskal coordinates replaced the f = 0, linear-r data (Birkhoff), which ran into the singularity within the
+  domain for n >= 3. **The design (section 8) said "exterior only" for P2; the ruling asks for the horizon at (2M)^(1/(n-1)), which only the Kruskal
+  data contain. P2 as built is the Kruskal one; the exterior-only static tortoise case is not built.**
+- dev_s2_07, dev_s2_11: D = 5 at h = 0.0141 has an O(h^2) floor in H (about 1e-3) that hides the growth; the D = 5 pair moved from (0.0141, 0.00707)
+  to (0.00707, 0.00354) before any run of record. D = 4 unchanged (0.02, 0.01).
+- dev_s2_05b to dev_s2_06: the trapped test needed a tolerance (the static throat is marginally trapped: r_+ = r_- = 0).
+- dev_s2_11, dev_s2_14, dev_s2_15: F1's first pulse (a Gaussian in phi) has almost no linear energy overlap with the static flux
+  (E0 = +0.0096 A - 4.66 A^2 at h = 0.02), so both signs had E0 < 0 although they ended in different fates. F1 now uses a Gaussian in d phi/dx+
+  like [SH02] (3.1). G1 keeps the phi pulse (its threshold is where the linear projection on the unstable mode vanishes, A*_h ~ 5e-5).
+- dev_s2_09: P2's finest three h (0.005 .. 0.00125) because M's order approaches 2 from below (1.57 .. 1.77 at h = 0.01 .. 0.0025 for D = 6).
+- dev_s2_16, dev_s2_17: `numpy_swapEW` was a no-op (the update is symmetric under E <-> W) and is replaced by `numpy_Spert`; `finder_sign` did not reach
+  P3 (P3 had its own classifier) and now does; `cut_extreme` at r_cut = 0.9 was silent (the event comes before the excision), now r_cut = 1.5.
+- A defect found in `checks.py`: `check()` kept numpy booleans, so a printed [FAIL] was not counted in the summary or the exit code for K. Fixed
+  (coerced to bool) before any run of record; dev_s2_16 and dev_s2_17 summaries and exit codes were affected, their FAIL lines and the target lists
+  above were taken from the FAIL lines.
+
+### Runs of record
+
+(added after the runs)

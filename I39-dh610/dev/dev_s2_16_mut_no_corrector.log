@@ -1,0 +1,49 @@
+checks.py: kernel numba, numba present, mutation no_corrector, only None
+[pass] I1: the constraint solve on the rays returns the Ellis r(l), n = 2, 3, 4  (max error 2.91e-09, per n [6.784e-10, 2.046e-09, 2.909e-09], tol 1e-08)
+    K ellis D=4 pulse N=150: max |numba - numpy| 0.00e+00, dead cells 0 / 0
+    K kruskal D=5 N=60: max |numba - numpy| 0.00e+00, dead cells 0 / 0
+    K ellis D=4 collapse N=150: max |numba - numpy| 0.00e+00, dead cells 4463 / 4463
+[pass] K: numba and numpy kernels agree to roundoff on three declared grids, with the same dead cells  (max diff 0.00e+00, tol 1e-12, same dead masks True)
+    P1 D=4 t_c=4.0: h [0.04000, 0.02000, 0.01000] errors [2.029e-03, 4.952e-04, 1.263e-04] orders [2.034, 1.971]
+    P1 D=5 t_c=2.7: h [0.02828, 0.01414, 0.00707] errors [1.276e-02, 3.130e-03, 7.898e-04] orders [2.027, 1.987]
+[pass] P1: static Ellis wormhole: error against the exact static solution converges at second order for t <= t_c  (orders within [1.75, 2.25])
+    P2 D=4 (r, f) vs exact: errors [1.753e-03, 8.776e-04, 4.391e-04] orders [0.998, 0.999]
+    P2 D=4 M - M0: errors [8.985e-04, 4.759e-04, 2.451e-04] orders [0.917, 0.957]
+    P2 D=4 horizon x-: errors [5.244e-04, 2.721e-04, 1.386e-04] orders [0.946, 0.974]
+    P2 D=4 r on horizon: errors [5.757e-04, 2.959e-04, 1.500e-04] orders [0.960, 0.980]
+    P2 D=5 (r, f) vs exact: errors [7.699e-03, 3.894e-03, 1.958e-03] orders [0.984, 0.992]
+    P2 D=5 M - M0: errors [4.275e-03, 2.366e-03, 1.248e-03] orders [0.854, 0.923]
+    P2 D=5 horizon x-: errors [8.498e-04, 4.400e-04, 2.238e-04] orders [0.950, 0.975]
+    P2 D=5 r on horizon: errors [9.223e-04, 4.734e-04, 2.398e-04] orders [0.962, 0.981]
+    P2 D=6 (r, f) vs exact: errors [2.891e-02, 1.493e-02, 7.591e-03] orders [0.953, 0.976]
+    P2 D=6 M - M0: errors [1.327e-02, 7.989e-03, 4.426e-03] orders [0.732, 0.852]
+    P2 D=6 horizon x-: errors [1.066e-03, 5.529e-04, 2.814e-04] orders [0.947, 0.974]
+    P2 D=6 r on horizon: errors [1.150e-03, 5.909e-04, 2.995e-04] orders [0.960, 0.980]
+[FAIL] P2: Tangherlini in Kruskal coordinates, D = 4, 5, 6: (r, f), M, and the horizon at x- = -U0 with r = (2M)^(1/(n-1)) converge at second order  (orders within [1.75, 2.25])
+    P3 (r, f, phi) vs exact: errors [2.786e-02, 1.388e-02, 6.927e-03] orders [1.005, 1.003]
+    P3 contour r_+ = 0 position: errors [2.896e-02, 1.454e-02, 7.282e-03] orders [0.994, 0.997]
+    P3 contour r_- = 0 position: errors [4.181e-02, 2.139e-02, 1.082e-02] orders [0.967, 0.984]
+    P3 contour slopes dx+/dx- at the finest h: r_+ = 0: 0.670402 (exact 0.666667); r_- = 0: 1.491663 (exact 1.500000); cells misclassified (trapped / anti-trapped / untrapped) [32, 66, 134]
+[FAIL] P3: Roberts ghost solution (D = 4, exact, nonlinear): second-order error, the two trapping-horizon lines and their slopes, and the cell classification  (slope tol 0.001, at most 3 misclassified cells per row)
+    C1 max |C_++|, |C_--| [1.885e-03, 9.341e-04, 4.649e-04] orders [1.013, 1.007]
+    C2 edge flux residual [3.499e-03, 1.829e-03, 9.353e-04] orders [0.936, 0.968]; largest M change on the edge [1.167e+00, 1.173e+00, 1.176e+00]
+[FAIL] C1: constraints C_++, C_-- of a pulse run fall at second order  (max norm at t <= 4.24)
+[FAIL] C2: mass change along the edge x+ = X equals the integral of the flux at second order, with a nonzero flux  (pulse crossing the edge)
+    G1 D=4 h=0.02000: A*_h = -7.1550942957e-05 (30 runs, 3.3 s); slopes 1.179284, 1.178090 (69, 69 pts) -> W_fit 1.178687 vs W 1.181970 (rel -2.78e-03); untuned departure |H| = 2e-3 W at tau = 5.811, seed constant kappa = 0.00615
+    G1 D=4 h=0.01000: A*_h = -1.7943270504e-05 (30 runs, 13.9 s); slopes 1.184898, 1.175820 (137, 139 pts) -> W_fit 1.180359 vs W 1.181970 (rel -1.36e-03); untuned departure |H| = 2e-3 W at tau = 6.963, seed constant kappa = 0.0063
+    G1 D=4: A*_h ratio between the two h 3.988 (h^2 seed predicts 4); untuned departure shifts by 1.153 (ln4/W = 1.173)
+[pass] G1[D=4]: tune p to p*_h, then the departure grows at W = 1.181970 within 1%, at two resolutions that agree within 0.5%  (W_fit 1.178687, 1.180359; rel -2.78e-03, -1.36e-03)
+    G1 D=5 h=0.00707: A*_h = 3.1451087445e-04 (30 runs, 19.9 s); slopes 1.721885, 1.725176 (122, 134 pts) -> W_fit 1.723531 vs W 1.727703 (rel -2.42e-03); untuned departure |H| = 2e-3 W at tau = 3.837, seed constant kappa = 0.0914
+    G1 D=5 h=0.00354: A*_h = 7.9183466733e-05 (30 runs, 71.5 s); slopes 1.732159, 1.718251 (242, 270 pts) -> W_fit 1.725205 vs W 1.727703 (rel -1.45e-03); untuned departure |H| = 2e-3 W at tau = 4.634, seed constant kappa = 0.0921
+    G1 D=5: A*_h ratio between the two h 3.972 (h^2 seed predicts 4); untuned departure shifts by 0.797 (ln4/W = 0.802)
+[pass] G1[D=5]: tune p to p*_h, then the departure grows at W = 1.727703 within 1%, at two resolutions that agree within 0.5%  (W_fit 1.723531, 1.725205; rel -2.42e-03, -1.45e-03)
+    F1 ghost, +A: fate expand at t = 7.396; E0 = -0.0299; diagonal throat at the last live cell t = 16.96 r = 8.5163 H = +1.6166; min-r slice at the end t = 16.48 r = 8.1671
+    F1 ghost, -A: fate collapse at t = 3.734; E0 = +0.0254; diagonal throat at the last live cell t = 5.70 r = 0.2291 H = -6.1000; min-r slice at the end t = 5.70 r = 0.1971; M at the first trapped cell 0.4977
+    F1 normal, +A: fate collapse at t = 6.718; E0 = +0.0022; diagonal throat at the last live cell t = 9.21 r = 0.2932 H = -3.9356; min-r slice at the end t = 9.23 r = 0.1798; M at the first trapped cell 0.4916
+[pass] F1: one pulse of each sign at D = 4: a normal pulse collapses; ghost pulses of the two signs end in a black hole and in an expansion ([SH02]'s two fates). Reported as seen, parameters not tuned  (ghost, +A: expand, ghost, -A: collapse, normal, +A: collapse)
+    S ghost, +A: fate expand -> expand; event time 7.3963 -> 7.3963 (|dt| = 0.00e+00, tolerance 1.13e-01); dead cells 0 -> 0
+    S ghost, -A: fate collapse -> collapse; event time 3.7335 -> 3.7335 (|dt| = 0.00e+00, tolerance 1.13e-01); dead cells 171638 -> 171422
+[pass] S: sensitivity: with r_cut halved and F_cut doubled, one classified collapse and one classified expansion keep their fate and their event time within 4.0 h
+
+7 of 11 checks pass; 4 fail: P2, P3, C1, C2; 117.6 s
+mutation no_corrector: expected to fire []; fired ['C1', 'C2', 'P2', 'P3']; targets all fired
