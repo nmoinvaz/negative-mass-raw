@@ -105,6 +105,7 @@ in a Rust crate, no matching) shares none of the matched machinery and is the in
 | Q1, Q2, Q3 | PSLQ tool checks of P1, P2, P3 (below): the planted relation is recovered exactly and the perturbed basis on the planted target finds nothing | exact recovery; none |
 | R3 | five-term series s − 4 ln 2 + Ω₁/s + Ω₂/s² + Ω₃/s³ (Ω₁, Ω₂, Ω₃ of B4) against #195's qd W² at D = 1000, 2000, 5103, 10⁴ (the values of the 64-D list of `w2_output.txt`): x = rem·s⁴; |x − Ω₄| falls with D at the four D, and at D = 10⁴ it is below 0.05 % of |Ω₄|, Ω₄ = −12794.499860023 (#195's fit, `w2_output.txt`) | falling; 0.05 % |
 | R4 | two-point extrapolation (s₂x₂ − s₁x₁)/(s₂ − s₁) from D = 5103 and 10⁴ | within 0.1 of Ω₄ |
+| RD0 … RD8, A5 | **added by amendment A3 after `run_03`**: the reduction of G₅ by hand (parts `reduce5`, `a5`, run_04), below | residual 0, or 30 digits (RD6 25) |
 | X3 | **added by amendment A2 after `run_02`**: Ω₃ of B3 and B4 against the closed form of the P2 relation found there, 22π⁴/45 + 16π² ln²2/3 + 32 ln⁴2/3 − 320ζ(3) ln 2 − 384ζ(3) (part `closedform`, run_03) | 100 digits |
 
 Reported and not gated: the digits of B3, B4 against B1, B2, and of B1 against B2; Ω₃ to 110 digits of every grid; rem·s⁴ and
@@ -157,6 +158,11 @@ and bᵢ the true constants of the basis: the vector (den, −c₁ … −c_m) m
 | `pslq_wrong_basis` | π⁴ + √2·10⁻³ in the basis given to PSLQ (the planted target is built from the true π⁴) |
 | `wrong_Om3_series` | Ω₃ + 1/100 in the five-term series of R3, R4 |
 | `wrong_closed` | 23π⁴ in place of 22π⁴ in X3 (A2) |
+| `wrong_E3` | the factor 4 of E3 written 2 (A3) |
+| `wrong_AD` | the F₂ term of A_D with coefficient 352 + 32 (A3) |
+| `wrong_C2` | ∫C² = π⁵/180 in place of π⁵/360 (A3) |
+| `wrong_reg` | J₂ in place of J₁ in the regularized u(Lc2, θ) integral (A3) |
+| `wrong_J4` | J₄ + πζ(3)/8 (A3) |
 
 **Targets, computed in the development runs `dev_09` … `dev_27` before being declared** (nominal: every check passes except X1, which fails as worded; the lists are the
 checks that fail beyond X1; `PL3` is evaluated only under `wrong_Om0`, `wrong_Om1`).
@@ -173,6 +179,11 @@ checks that fail beyond X1; `PL3` is evaluated only under `wrong_Om0`, `wrong_Om
 | `pslq_wrong_basis` | Q1, Q2, Q3 | all others |
 | `wrong_Om3_series` | R3, R4 | all others |
 | `wrong_closed` (A2) | X3 (the part `closedform` has no other check): `dev_31`, 2.5 digits against the bar 100 | |
+| `wrong_E3` (A3) | RD1, RD3, RD4, RD6, RD8, A5 | RD0, RD2, RD5, RD7 (RD2 compares two builds that both carry the factor) |
+| `wrong_AD` (A3) | RD3, RD4 | the others (RD8 uses the coefficients of the C terms as printed, which RD4 checks) |
+| `wrong_C2` (A3) | RD5, RD8, A5 | the others |
+| `wrong_reg` (A3) | RD6, RD8, A5 | the others |
+| `wrong_J4` (A3) | RD5, RD7, RD8, A5 | RD6 (it uses J₁, J₂, J₃ only) |
 
 X1 has no control (it fails nominally, a defect of its wording); X1b is the check that every value-changing control fires.
 
@@ -186,11 +197,12 @@ what finished. Memory is reported only. The development runs used the units `nm-
 |---|---|---|---|---|
 | `run_01_sym` | `order5.py sym` | `nm-i208-01` | 0:01.88, peak 58 MiB | 0 |
 | `run_02_evals_pslq_remainder` | `order5.py evals pslq remainder --save=run_02_evals.json --w2raw=inputs_w2_growthD.txt` (the real PSLQ is on) | `nm-i208-02` | 11:06.23, peak 130 MiB | 1 (X1 as worded) |
-| `run_03_closedform` | `order5.py closedform --load=run_02_evals.json` (A2) | foreground | pending | |
+| `run_03_closedform` | `order5.py closedform --load=run_02_evals.json` (A2) | foreground | 0:00.56, peak 53 MiB | 0 |
+| `run_04_reduce5_a5` | `order5.py reduce5 a5 --load=run_02_evals.json` (A3) | `nm-i208-04` | 3:14.73, peak 64 MiB | 0 |
 
 Code of `run_01`, `run_02`: worktree commit 57710d3, `order5.py` sha256 2cd0cbea… (`run_00_code.txt`); `run_03`: the commit after amendment A2, which adds `closed_omega3`, `check_closedform`,
 the control `wrong_closed` and the `closedform` hook (23 lines added, 3 changed: the usage line, the mutation list, the `--load` condition; `dev_30_order5_wip.py`). Commands run from
-`notes/wormhole_largeD`. `order5_output.txt` is the concatenation of the three logs in order.
+`notes/wormhole_largeD`. `order5_output.txt` is the concatenation of the four logs in order.
 
 ## Amendments
 
@@ -210,3 +222,35 @@ the declared 82.9 < 110), the perturbed basis finds nothing: it counts under the
 
 **Added after seeing this**, declared before its run: criterion **X3** (table above, bar 100 digits on B3 and B4, whose errors are 112 and 133 digits; B1 and B2 reported) and its control `wrong_closed`
 (targets computed in `dev_30`, `dev_31`: nominal 112.2/133.4/48.9/64.4 digits, mutated 2.5). A development probe before it (`dev_29_closedform_probe`) gave the same digits. No bar of an earlier criterion was changed.
+
+### A3 (2026-11-26, after run_03): the reduction of G₅ by hand, method A at order 5, and their checks
+
+**What was found** (development scripts, logs kept: `dev_28_a5` with `dev_32`, `dev_33` the numerical method A; `dev_34_reduce5_explore`, `dev_35_reduce5_assemble` the sympy reduction): the exchange identities
+E1 and E2 of #26 turn G₅ into one integral of closed forms, but the integrand holds Y₄, which has no closed form. **E3** removes it: Y₄ enters only through (4ℓ + 2c₁)Y₄/S = 2P′Y₄, with c₁ = Ω₀ − 3ℓ − S and
+P = cot θ (ℓ − Ω₀), P′ = (Ω₀ − ℓ − S)/S, so ∫2P′Y₄ dθ = −2∫P Y₄′ dθ = −4∫(ℓ − Ω₀)F₃ dθ (Y₄′ = 2 tan θ F₃, the boundary terms PY₄ vanish: Y₄ ~ θ² at 0 and ~ ℓ⁴ at π/2, P ~ 1/θ and ~ x ln x).
+The integrand then needs only Y₀ … Y₃ and L₀ … L₃, all closed in #26 (L₃ through Lc2 and the polylogarithms of omega2.md). At Ω₀ = −4 ln 2 it is rest + cC·C + cD·D₃ + cL·Lc2 with
+cL = −1024 q u (q = ln 2); cD = 32(6ℓ − 8q) + 32(11ℓ² + 8qℓ − Ω₁)/S has an antiderivative A_D (ℓ, cot θ, θ, K), with A_D(π/2) = 0 and D₃(0) = 0, so ∫cD D₃ = −2∫A_D C; then
+cC − 2A_D (K = 2qθ − C) = u(64(16q² + 8q + Ω₁) + 128(8q − 3)ℓ − 512ℓ²) + 512 C, with the cot θ and θ terms cancelling exactly. What remains: ∫uℓⁿC = (2J_{n+2} + 2qJ_{n+1})/(n + 1), ∫C² = π⁵/360
+(Parseval), the regularized ∫u[−1024q(Lc2 − J₂) + 128 qΩ₁(θ − π/2)] = −1024qJ₃ + 128qΩ₁J₁ (the divergent constants cancel: −1024qJ₂ + 64π qΩ₁ = 0), and the log-cosine moments J_n (n ≤ 4) and ∫ℓᵇ/S = −bJ_{b−1}.
+Assembled in sympy, G₅ = 4π(Ω₃ᶜ − Ω₃) with Ω₃ᶜ the closed form of A2: **the PSLQ identification becomes a derivation if RD0 … RD8 pass.**
+
+**Criteria** (bars written after `dev_37`, whose values were 42 to 45 digits; the bars are below them):
+
+| id | statement | bar |
+|---|---|---|
+| RD0 | c₁ = Ω₀ − 3ℓ − S and (4ℓ + 2c₁)/S = 2P′ (sympy) | residual 0 |
+| RD1 | E3 at j = 3 (closed Y₃, F₂): ∫2P′Y₃ = −4∫(ℓ − Ω₀)F₂ | 30 digits |
+| RD2 | the decomposition rest + cC C + cD D₃ + cL Lc2 (sympy) against method A's integrand with Y₄ removed, θ = 0.2, 0.7, 1.1, 1.4 | 30 digits |
+| RD3 | A_D′ = cD (sympy), A_D(π/2) = 0, and ∫cD D₃ = −2∫A_D C (quadrature) | residual 0; 30 digits |
+| RD4 | cC − 2A_D = u P(ℓ) + 512 C with P as above (sympy) | residual 0 |
+| RD5 | ∫uℓⁿC for n = 0, 1, 2 and ∫C² = π⁵/360 (quadrature) | 30 digits |
+| RD6 | the divergence cancels (sympy), and the regularized integral by quadrature | residual 0; 25 digits |
+| RD7 | ∫ℓᵇ/S = −bJ_{b−1}, b ≤ 5, and J_n (n ≤ 4) from the Beta function against quadrature | 30 digits |
+| RD8 | the assembly: G₅ = 0 gives Ω₃ = 22π⁴/45 + 16π² ln²2/3 + 32 ln⁴2/3 − 320ζ(3) ln 2 − 384ζ(3), and the slope is −4π (sympy) | difference 0 |
+| A5 | method A at order 5, 40 digits, G₅ by quadrature of the Y₄-free integrand with the closed forms of order4.py (30 + 80 guard digits): slope against −4π, Ω₃ against the closed form, against B4 and against the derived G₅(0) | 30 digits each |
+
+Quadrature as in #26 (Gauss–Legendre on [0, 1], tanh-sinh in π/2 − θ beyond; the angle is recomputed from x at the guarded precision, because u ~ 1/x multiplies terms in θ). **Status:** *derived* if RD0 … RD8 pass, with the facts
+it takes: E1, E2 (#26: N4a, N4bg), E3 (RD1, and the boundary argument above), the closed forms Y₃, L₃ (#26), Ω₀, Ω₁, Ω₂ (#26), Parseval for ∫C², the Beta-function moments. It is not independent of A5 (same E1 to E3);
+**B is the independent check** (A5 against B4, and the identification found by PSLQ on B's value). Targets of the controls (table above) were computed in `dev_39` … `dev_43`.
+
+**Runs of record, summary** (`order5_output.txt`): 24 checks, 23 met, X1 (as worded) not met. The note is `omega3.md`; `assemble_output.py` writes the output file from the four logs.
