@@ -1,0 +1,46 @@
+# start 2026-11-26T21:48:50-08:00 cwd=/home/nathan/Source/negative-mass-i209/notes/wormhole_largeD cmd=/home/nathan/Source/negative-mass-venv314/bin/python -u exchange_review.py exact
+exchange_review.py  mutate=None  parts=['exact']  mpmath 1.3.0  sympy 1.14.0
+PASS    P0b: K(u) = int_0^u ln(1 + t^2)/(1 + t^2) dt against 2 th ln 2 - Cl2(pi - 2 th), th = 0.3, 0.9, 1.4: worst 49.5 digits (bar 40)
+PASS    P0c: h_1, h_2 from the table (cc, hk) against README's h_1 = Omega0 + l - 2(1 - 1/R), h_2 = Omega1 - 2 Omega0 (1 - 1/R) - Omega0 l - 2 l^2, th = 0.2, 0.8, 1.3: worst 48.2 digits (bar 40)
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-i209/notes/wormhole_largeD/exchange_review.py", line 293, in <module>
+    check_exact()
+    ~~~~~~~~~~~^^
+  File "/home/nathan/Source/negative-mass-i209/notes/wormhole_largeD/exchange_review.py", line 252, in check_exact
+    ok = digits(lhs, target) > 40 and digits(rhs, target) > 40
+         ~~~~~~^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-i209/notes/wormhole_largeD/exchange_review.py", line 72, in digits
+    a, b = mp.mpf(a), mp.mpf(b)
+           ~~~~~~^^^
+  File "/home/nathan/Source/negative-mass-venv314/lib/python3.14/site-packages/mpmath/ctx_mp_python.py", line 79, in __new__
+    v._mpf_ = mpf_pos(cls.mpf_convert_arg(val, prec, rounding), prec, rounding)
+                      ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-venv314/lib/python3.14/site-packages/mpmath/ctx_mp_python.py", line 98, in mpf_convert_arg
+    raise TypeError("cannot create mpf from " + repr(x))
+TypeError: cannot create mpf from mpc(real='-38.611288629165385974166194431737226618453942485275542', imag='1.0972943146084205278299015970344737088043782699691537e-48')
+Command exited with non-zero status 1
+	Command being timed: "/home/nathan/Source/negative-mass-venv314/bin/python -u exchange_review.py exact"
+	User time (seconds): 12.98
+	System time (seconds): 0.05
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:13.06
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 56984
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 11937
+	Voluntary context switches: 1
+	Involuntary context switches: 4446
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
+exit=1
+# end 2026-11-26T21:49:03-08:00
