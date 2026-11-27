@@ -197,7 +197,7 @@ It went all the way, so the checks of the reduction are declared here, before th
 - `run_05` (code e7f8c10): PSLQ found in P2 and in P3 the relation [−45, −88, −320, −384, −7200, 28800, −469440, −2432, 0, 0, 69120, 138240, 0 …] (residual 6.4e-196,
   tolerance 1e-188, d = 200, budget 150.4 and 154.3 below d, the perturbed basis finds nothing): 45Ω₄ = −88π⁴ ln 2 − 320π² ln³2 − 384 ln⁵2 − 7200π²ζ(3) + 28800 ζ(3) ln²2
   − 469440 ζ(5) − 2432π⁴ + 69120 ζ(3) ln 2 + 138240 ζ(3); zero coefficients on π² ln²2, ln⁴2, every constant of weight ≤ 2, Li₄(½), Li₄(½) ln 2 and Li₅(½). P1 and P4 found nothing.
-  All 17 checks of `run_01` … `run_05` pass (`run_05` exit 0).
+  All 21 checks of `run_01` … `run_05` pass (`run_05` exit 0).
 - The reduction below gave the same closed form (`dev_16`, 08:45, **before `run_05` ran**: the PSLQ run is a confirmation of integer coefficients that were already known, not a blind
   search; the bases P1 … P4 were declared before the reduction was coded). `dev_16` read RD0 … RD7 on G2's saved values: 8 of 8.
 - The mutation runs `dev_17` … `dev_23`. `dev_21` was stopped when RD8 was found to compare with the wrong sign (the check read the vector of the relation, not the closed form's
@@ -236,3 +236,22 @@ The closed form is derived by `reduce6` from the integrand, not typed in; RD8 co
 | `rd_kit2` | Lc2(π/2) = 1.01 J₂ | RD4, RD6, RD7, RD8 | RD1 … RD3, RD5 |
 
 The controls of record are `ctl_red_*` (these eight and the nominal run `ctl_red_nominal`), run with the final code, on `G2.json`.
+
+## Results of record (written after the runs; the criteria above are unchanged)
+
+Code: worktree `~/Source/negative-mass-i220`, branch `wip/i220-omega4`: e7f8c10 (runs 01 … 05), 7acb933 (run 06 and the controls), 0e26546 (the note and the output). `order6_output.txt` of the code repository is `assemble_output.py`'s output of the logs below.
+
+| run | what | exit | wall | peak RSS |
+|---|---|---|---|---|
+| `run_01_sym_exch6` | E0, E1_6 … G6R: 7 of 7 | 0 | 25 s | 81 MB |
+| `run_02_evals_G1` | G1 (170, 1/4, 38, 400 digits) | 0 | 35 min 41 s | 443 MB |
+| `run_03_evals_G2` | G2 (150, 3/10, 36, 360 digits) | 0 | 19 min 20 s | 318 MB |
+| `run_04_evals_B` | B1, B2, B3 (reported) | 0 | 7 min 32 s | 210 MB |
+| `run_05_values_pslq_remainder` | PL0 … PL3, SL, M4, X1, Q1 … Q4, R5, R6, X2: 14 of 14; the real PSLQ verdicts | 0 | 2 min 17 s | 58 MB |
+| `run_06_reduce6` | RD0 … RD8: 9 of 9 | 0 | 2 min 30 s | 77 MB |
+
+**30 of 30 checks pass.** Ω₄ of G1 and G2 agree to 209.4 digits (M4); the derived closed form equals G1 to 250.7 and G2 to 209.4 digits (RD7); PSLQ in P2 and P3 finds
+45Ω₄ = −88π⁴ ln 2 − 320π² ln³2 − 384 ln⁵2 − 7200π²ζ(3) + 28800 ζ(3) ln²2 − 469440ζ(5) − 2432π⁴ + 69120 ζ(3) ln 2 + 138240ζ(3) (residual 6.4e-196), P1 and P4 find nothing.
+**Controls of record** (`ctl_t1_*`, `ctl_t2_*`, `ctl_ex_*`, `ctl_red_*`; `ctl_jobs.txt`, `ctl_queue.log`, three `ctl_queue.sh` workers): 31 runs, 31 on target
+(`ctl_summary.py ctl_t1 --declared declared_t1.json`, likewise t2, ex, red; the summaries are the last section of `order6_output.txt`). Nothing failed that was not a declared target.
+The saved Ω's are `G1.json`, `G2.json`, `B.json` (`ctl_t1_cnom.json` for the control grids). Units are listed in `units.txt`.

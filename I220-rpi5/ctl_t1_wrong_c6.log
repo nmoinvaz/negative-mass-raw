@@ -1,0 +1,114 @@
+order6.py  mutate=wrong_c6  parts=['sym', 'evals', 'values', 'pslq', 'remainder']  mpmath 1.3.0  sympy 1.14.0
+FAIL    E0: h_k (k = 0 .. 6) and dY_k/dl (k = 1 .. 6) from the epsilon-expansion of the master equation against the table: residuals ['-Y0*l**5/(60*R)'] (1.0 s)
+  G1: N=84 w=0.25 V=28 dps=200 panels=112  216 s
+    Omega0 = -2.77258872223978123766892848583270627230200053744102101648272
+    Omega1 = 10.4233603787385171432264808771974205307202232175835584458771
+    Omega2 = 74.3693867279333175953846702958466172667341434150203368770111
+    Omega3 = -652.84010757005612543523930379964736108046174754557825736454474541984957010981385688446526998633149743225936765
+    Omega4 = -12794.4846797185389830561961558013495930805783463585974439541451009409764277181127864687446361057430196796205909336526785481490587189889893614998334436592094699607736918781706463497
+    slopes G2 .. G6 = -12.566370614359172954 -12.566370614359172954 -12.566370614359172954 -12.566370614359172954 -12.566370614359172954
+  G2: N=80 w=0.3 V=28 dps=190 panels=94  164 s
+    Omega0 = -2.77258872223978123766892848583270627230200053744102101648272
+    Omega1 = 10.4233603787385171432264808771974205307202232175835584458771
+    Omega2 = 74.3693867279333175953846702958466172667341434150203368770111
+    Omega3 = -652.84010757005612543523930379964736108046174754557825736454474541984957010981385688446526998633149743225936765
+    Omega4 = -12794.484679718538983056196155801349593080578346358597443954145100940976427718112786468744636105743019679620590933681444415235064728219899757287482074324942319805066181553
+    slopes G2 .. G6 = -12.566370614359172954 -12.566370614359172954 -12.566370614359172954 -12.566370614359172954 -12.566370614359172954
+PASS    PL0: planted: Omega0 against its closed form, digits: G1 125.0, G2 113.0 (bar 100 on G1, G2; the others reported)
+PASS    PL1: planted: Omega1 against its closed form, digits: G1 124.5, G2 112.4 (bar 100 on G1, G2; the others reported)
+PASS    PL2: planted: Omega2 against its closed form, digits: G1 124.4, G2 112.2 (bar 100 on G1, G2; the others reported)
+PASS    PL3: planted: Omega3 against its closed form, digits: G1 124.7, G2 112.2 (bar 100 on G1, G2; the others reported)
+PASS    SL: slope of G_k in Omega_(k-2) against -4 pi, k = 2 .. 6, digits: G1 126.8/126.8/126.8/126.8/126.8, G2 113.7/113.7/113.7/113.7/113.7 (bar 100 on G1, G2)
+PASS    M4: Omega4 of G1 against G2 (two grids, two precisions): 113.6 digits (bar 100); |diff| = 2.88e-110
+  reported: digits between evaluations, Omega3 / Omega4: G1-G2 112.2/113.6
+FAIL    X1: Omega4 against #195's fit -12794.499860023 (14 digits, half a unit of its last digit is 5e-10; the fit's range over its cells is 1.5e-30): G1 0.0152, G2 0.0152 (bar 5e-10 on G1, G2)
+  PSLQ at 113 digits (the two grids share 113.6), tolerance 1e-101
+PASS    Q1: P1 = {Omega4, pi^4 ln 2, pi^2 ln^3 2, ln^5 2, pi^2 zeta(3), zeta(3) ln^2 2, zeta(5)}, n = 7, H = 1000000000, d = 113: planted relation (den 13, seed 220001) recovered: True (0 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 66.1
+    REAL P1: skipped (--no-real)
+PASS    Q2: P2 = {Omega4, pi^4 ln 2, pi^2 ln^3 2, ln^5 2, pi^2 zeta(3), zeta(3) ln^2 2, zeta(5), pi^4, pi^2 ln^2 2, ln^4 2, zeta(3) ln 2, zeta(3), pi^2 ln 2, ln^3 2, pi^2, ln^2 2, ln 2, 1}, n = 18, H = 100000, d = 113: planted relation (den 13, seed 220002) recovered: True (4 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 96.4
+    REAL P2: skipped (--no-real)
+PASS    Q3: P3 = {Omega4, pi^4 ln 2, pi^2 ln^3 2, ln^5 2, pi^2 zeta(3), zeta(3) ln^2 2, zeta(5), pi^4, pi^2 ln^2 2, ln^4 2, zeta(3) ln 2, zeta(3), pi^2 ln 2, ln^3 2, pi^2, ln^2 2, ln 2, 1, Li4(1/2), Li4(1/2) ln 2, Li5(1/2)}, n = 21, H = 10000, d = 113: planted relation (den 21, seed 220003) recovered: True (9 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 91.3
+    REAL P3: skipped (--no-real)
+PASS    Q4: P4 = {Omega4, pi^4 ln 2, pi^2 ln^3 2, ln^5 2, pi^2 zeta(3), zeta(3) ln^2 2, zeta(5), Li4(1/2) ln 2, Li5(1/2)}, n = 9, H = 1000000000, d = 113: planted relation (den 9, seed 220004) recovered: True (0 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 84.7
+    REAL P4: skipped (--no-real)
+  six-term series s - 4 ln 2 + Omega1/s + ... + Omega4/s^4 against W^2 (qd, w2_output.txt), s = 2(D - 3):
+  D       s       remainder              rem*s^5 (tends to Omega5)
+  1000   1994    1.35387811061e-12      42678.1255353
+  2000   3994    4.10499733463e-14      41720.8532851
+  5103   10200   3.71946383243e-16      41065.8861558
+  10000  19994   1.27505744416e-17      40740.6721665
+PASS    R5: rem*s^5 at D = 1000, 2000, 5103, 10^4 falls (True); |x(10^4) - x(5103)| = 325.21 (bar 500: a wrong Omega4 adds (error)*s, 10^4 per unit)
+PASS    R6: two-point extrapolation (s2 x2 - s1 x1)/(s2 - s1) from D = 5103, 10^4: Omega5 ~ 40401.977 (bar 4.0e4 to 4.2e4: an estimate, not a bound)
+FAIL    X2: Omega4 against the polynomial extrapolation in 1/s of #195's 64 W^2 values (Omega0 .. Omega3 fixed at the closed forms), windows of the K largest s, |difference| G1: K = 14 0.015, K = 18 0.015, K = 22 0.015, K = 26 0.015, K = 30 0.015, K = 36 0.015, K = 44 0.015; G2: K = 14 0.015, K = 18 0.015, K = 22 0.015, K = 26 0.015, K = 30 0.015, K = 36 0.015, K = 44 0.015 (bar 1e-25 on every window; the spread over windows is an estimator range, 0.015; not a bound)
+  reported, not gated: rem*s^5 at the D of the list
+  D       rem*s^5
+  50      81200.248596567
+  54      78066.011211309
+  59      74750.585117086
+  64      71962.037419222
+  70      69154.171209002
+  76      66802.293941029
+  83      64501.74460726
+  90      62570.986784212
+  98      60713.670592776
+  107     58967.474239499
+  116     57501.384943063
+  126     56126.131738731
+  137     54852.613312272
+  149     53684.310626892
+  162     52619.638104967
+  177     51590.825180278
+  192     50726.925079603
+  200     50320.505251651
+  209     49901.384838558
+  227     49165.116719084
+  247     48475.556503059
+  269     47837.784106538
+  292     47275.631411477
+  318     46739.693041166
+  346     46253.963374353
+  376     45814.911613612
+  409     45407.254661917
+  445     45032.237527163
+  484     44689.512586822
+  500     44564.505356152
+  527     44370.896886609
+  573     44083.331931367
+  623     43819.159849995
+  678     43573.717919842
+  737     43351.211933434
+  802     43143.963227103
+  873     42952.76232432
+  949     42779.647221028
+  1000    42678.125535309
+  1032    42619.501229627
+  1123    42470.845645165
+  1221    42335.200094006
+  1329    42208.483265018
+  1445    42093.022145774
+  1572    41985.632769639
+  1710    41886.44091518
+  1860    41794.667372755
+  2000    41720.853285077
+  2023    41709.650399676
+  2201    41630.395457465
+  2394    41556.90392869
+  2604    41488.355773414
+  2832    41424.395475863
+  3081    41364.2081037
+  3351    41307.799924133
+  3645    41254.514844314
+  3965    41204.006282493
+  4313    41155.959353072
+  4691    41110.079941091
+  5103    41065.886155787
+  5550    41023.264892658
+  6037    40981.731464807
+  6567    40941.043289955
+  7143    40900.966505932
+  7770    40861.151461059
+  8452    40821.346961771
+  9193    40781.313268178
+  10000   40740.672166464
+
+12 passed, 3 failed of 15 checks; 418 s

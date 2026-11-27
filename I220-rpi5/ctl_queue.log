@@ -1,0 +1,62 @@
+2026-11-27T09:26:14-08:00 start ctl_t1_cnom
+2026-11-27T09:26:14-08:00 start ctl_t1_wrong_h
+2026-11-27T09:28:23-08:00 start ctl_t1_wrong_c6
+2026-11-27T09:33:08-08:00 end ctl_t1_cnom rc 0
+2026-11-27T09:33:08-08:00 start ctl_t1_wrong_Om0
+2026-11-27T09:33:15-08:00 end ctl_t1_wrong_h rc 1
+2026-11-27T09:33:15-08:00 start ctl_t1_wrong_Om1
+2026-11-27T09:35:21-08:00 end ctl_t1_wrong_c6 rc 1
+2026-11-27T09:35:21-08:00 start ctl_t1_wrong_Om2
+2026-11-27T09:40:02-08:00 end ctl_t1_wrong_Om0 rc 1
+2026-11-27T09:40:02-08:00 start ctl_t1_wrong_Om3
+2026-11-27T09:40:07-08:00 end ctl_t1_wrong_Om1 rc 1
+2026-11-27T09:40:07-08:00 start ctl_t1_coarse_B
+2026-11-27T09:40:26-08:00 end ctl_t1_coarse_B rc 1
+2026-11-27T09:40:26-08:00 start ctl_t1_short_tail
+2026-11-27T09:42:12-08:00 end ctl_t1_wrong_Om2 rc 1
+2026-11-27T09:42:12-08:00 start ctl_ex_nominal
+2026-11-27T09:42:34-08:00 end ctl_t1_short_tail rc 1
+2026-11-27T09:42:34-08:00 start ctl_ex_e1_sign
+2026-11-27T09:42:36-08:00 end ctl_ex_nominal rc 0
+2026-11-27T09:42:36-08:00 start ctl_ex_e2_weight
+2026-11-27T09:42:58-08:00 end ctl_ex_e1_sign rc 1
+2026-11-27T09:42:58-08:00 start ctl_ex_e3_factor
+2026-11-27T09:42:59-08:00 end ctl_ex_e2_weight rc 1
+2026-11-27T09:43:00-08:00 start ctl_ex_e4_g
+2026-11-27T09:43:21-08:00 end ctl_ex_e3_factor rc 1
+2026-11-27T09:43:21-08:00 start ctl_ex_e4_noC
+2026-11-27T09:43:23-08:00 end ctl_ex_e4_g rc 1
+2026-11-27T09:43:23-08:00 start ctl_ex_wrong_h
+2026-11-27T09:43:45-08:00 end ctl_ex_e4_noC rc 1
+2026-11-27T09:43:45-08:00 start ctl_ex_wrong_c6
+2026-11-27T09:43:46-08:00 end ctl_ex_wrong_h rc 1
+2026-11-27T09:43:46-08:00 start ctl_red_nominal
+2026-11-27T09:44:08-08:00 end ctl_ex_wrong_c6 rc 0
+2026-11-27T09:44:08-08:00 start ctl_red_rd_w4
+2026-11-27T09:46:15-08:00 end ctl_red_nominal rc 0
+2026-11-27T09:46:15-08:00 start ctl_red_rd_M1
+2026-11-27T09:46:39-08:00 end ctl_red_rd_w4 rc 1
+2026-11-27T09:46:39-08:00 start ctl_red_rd_M3
+2026-11-27T09:46:48-08:00 end ctl_t1_wrong_Om3 rc 1
+2026-11-27T09:46:48-08:00 start ctl_red_rd_master
+2026-11-27T09:48:43-08:00 end ctl_red_rd_M1 rc 1
+2026-11-27T09:48:43-08:00 start ctl_red_rd_J5
+2026-11-27T09:49:07-08:00 end ctl_red_rd_M3 rc 1
+2026-11-27T09:49:07-08:00 start ctl_red_rd_Dstep
+2026-11-27T09:49:16-08:00 end ctl_red_rd_master rc 1
+2026-11-27T09:49:16-08:00 start ctl_red_rd_kit
+2026-11-27T09:51:12-08:00 end ctl_red_rd_J5 rc 1
+2026-11-27T09:51:12-08:00 start ctl_red_rd_kit2
+2026-11-27T09:51:35-08:00 end ctl_red_rd_Dstep rc 1
+2026-11-27T09:51:35-08:00 start ctl_t2_nominal
+2026-11-27T09:51:44-08:00 end ctl_red_rd_kit rc 1
+2026-11-27T09:51:44-08:00 start ctl_t2_pslq_wrong_basis
+2026-11-27T09:52:12-08:00 end ctl_t2_nominal rc 0
+2026-11-27T09:52:12-08:00 start ctl_t2_pslq_wrong_target
+2026-11-27T09:52:30-08:00 end ctl_t2_pslq_wrong_basis rc 1
+2026-11-27T09:52:30-08:00 start ctl_t2_wrong_Om4_series
+2026-11-27T09:52:57-08:00 end ctl_t2_pslq_wrong_target rc 1
+2026-11-27T09:52:57-08:00 start ctl_t2_wrong_closed3
+2026-11-27T09:53:06-08:00 end ctl_t2_wrong_Om4_series rc 1
+2026-11-27T09:53:33-08:00 end ctl_t2_wrong_closed3 rc 1
+2026-11-27T09:53:39-08:00 end ctl_red_rd_kit2 rc 1
