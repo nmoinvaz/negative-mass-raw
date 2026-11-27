@@ -101,6 +101,38 @@ of record):
 A run of record is on target when `compare_targets.py` finds exactly the declared checks, no more and no fewer (the script and the
 driver `run_mutations.sh` are #200's, with the path and the names changed). A mutation that fires nothing is reported as silent.
 
+## Amendment A1: declared targets (after the development run, before any run of record)
+
+Development run: `dev_03_summary.log` (65 runs, `run_mutations.sh`, one log each in `dev_03_mutations/`); `declare_targets.py` wrote
+`declared_targets.json` from it. The unmutated checker, `dev_02_check_growth_unmutated.log`, passes G1 to G6 and R0 to R2 (exit 0).
+64 of 65 runs matched the predictions above. **One prediction was wrong:** `source:D` for D >= 20 fires G3 **and G6**, not G3 alone,
+because G6 compares all three fields of a row with 4bced01's and the mutation changes the third (a slip in my prediction table; G6's
+text above says "all three fields"). No criterion or tolerance was changed. Declared targets:
+
+| mutation | checks that fail (and no other) |
+|---|---|
+| none | none, exit 0 |
+| `last_digit:D`, D = 4 … 11 | G2 |
+| `last_digit:D`, D = 20, 30, 50, 100 | G2, G6 |
+| `last_digit:D`, D = 200 … 2000 | G2, G6, R1, R2 |
+| `drop_row:D`, D = 4 … 11 | G1, G2, G3, G4 |
+| `drop_row:D`, D = 20 … 100 | G1, G2, G3, G6 |
+| `drop_row:D`, D = 200 … 2000 | G1, G2, G3, G6, R1, R2 |
+| `source:D`, D = 4 … 11 | G3 |
+| `source:D`, D >= 20 | G3, G6 |
+| `revert_lowD` | G2, G3 |
+| `ts13_swap` | G2, G4 |
+| `ts13_digit:D`, D = 4 … 11 | G4 |
+| `crate_scale` | G2, G5 |
+| `round_trunc` | G2 |
+| `list50` | G5 |
+| `wrong_om2` | R0, R1, R2 |
+| `wrong_om3` | R0, R2 |
+| `s_off` | R1, R2 |
+
+The issue's acceptance "the row mutation fires on each row": `last_digit:D` fires G2 at all 16 D (G2 alone at D <= 11, where G4's
+bar is 1e-8 and G6 reads D >= 20 only).
+
 ## Runs
 
 (filled in as they are done)
