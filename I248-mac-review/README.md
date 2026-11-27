@@ -38,3 +38,22 @@ Mutations (`--mutate=`), each with the checks it must fail:
 - `no-pot`: the potential's terms dropped from the evolution equations. K2 and K1 must fail.
 - `pulse-centre`: class L's pulse centred at U = 0.01 instead of 0. K1 must fail (c₂ depends on the data near the crossing); K2 is
   unaffected.
+
+## Results (runs of 2026-11-27, after the criteria commit)
+
+| check | result | verdict |
+|---|---|---|
+| R | `derive` 8 of 8, `check` 11 of 11, `table`: class L c₂ = −9.610862e-04 at the fit and the three slices. The verdict lines equal dh610's but for roundoff-level digits (N5's slice deviations 3.3e-10 against 3.4e-10; N7's fit 3.1e-13 against 1.5e-13) | pass |
+| K0 | c₂ at 4000 and 8000 RK4 steps: −9.61086221625969e-04, −9.61086221625966e-04 (2.9e-15) | pass |
+| K1 | c₂ = −9.61086221626e-04 against −9.610862e-04: 2.3e-8 relative, the note's printed digits | pass |
+| K2 | pure gauge transported along the ray: max \|P − exact\| / max \|exact\| = 3.3e-14; c₂ = −2.0e-20 | pass |
+| `eps-sign` | K1 −1.0302e-03 (7.2 %), K2 1.86 | fires (K1, K2) |
+| `no-pot` | K1 +1.73e-05, K2 0.97 | fires (K1, K2) |
+| `pulse-centre` | K1 −9.2430e-04 (3.8 %); K2 unchanged | fires (K1 only), as declared |
+
+Logs: `ind248_run1.txt`, `ind248_mut_*.txt`, `rerun_{derive,check,table}.{log,err}` (check's peak RSS 1.57 GB).
+
+Reading: the coefficient of the growing horizon sector for class L, computed by transport along the data ray inside the horizon
+(ρ from −0.07 to 0) with no 2D solver, equals the 2D Kruskal solver's to its printed digits. The transport equations reproduce an exact
+pure-gauge solution to 3e-14, and a ray datum of zero exterior support gives c₂ ≠ 0. The claim that c₂ is fixed by data at and before the
+horizon crossing, and is nonzero for a generic pulse there, is confirmed by a second method.
