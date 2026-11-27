@@ -98,3 +98,26 @@ Targets computed in the development runs `dev_92` (all) and `dev_93` (`freq_V`, 
 ## Budget
 
 Development to this point about 4 h; the runs of record (check 2 min, table 1 min, c1 1 min, 18 mutations about 20 min on two lanes, derivation 3 s) well under 1 h. No run lasts more than 3 minutes; the 2 h stop does not bind.
+
+## Amendments after the declaration
+
+- **A1** (before the runs of record): none.
+- **A2** (after the first runs of record, before any claim relied on them): six checks of `linear_derive.py` had no mutation (A0, B3, C1, D1, D2, D3a). Six were added
+  (`lin_const` A0, `Y_coef` B3, `M_ep` C1, `hz_rp` D1, `exp_W` D2, `exp_one` D3a); each was written with its expected single target and run in `dev/dev_95_derive_mut_*.log`
+  (each fired exactly that check), then `derive` and its eleven mutations were rerun as the runs of record. The checks and their results are unchanged. The first `derive.log` is kept in `runs/superseded/`; the five
+  `derive_mut_*.log` of the first run were overwritten by identical reruns (fired sets equal).
+- The issue comment "criteria declared" says 22 criteria; the count is 18 in `linear.py check` and 12 in `linear_derive.py`.
+
+## Runs of record (`runs/`, `run.sh` starts them; two lanes, nice 10, one thread; source at wip/i232-c1-linear 8937f9b plus the A2 mutations of `linear_derive.py`)
+
+| step | log | rc | wall | result |
+|---|---|---|---|---|
+| `linear_derive.py` | derive.log | 0 | 3 s | 12 of 12 |
+| `linear.py check` | check.log | 0 | 111 s | 18 of 18 |
+| `linear.py table` | table.log | 0 | 63 s | Table 1 |
+| `linear.py c1` | c1.log | 0 | 81 s | data classes, projection, profile |
+| 11 `linear_derive.py --mutate=` | derive_mut_*.log | 1 each (a mutated run is meant to exit 1) | 2-3 s | fired sets equal the declared ones, 11 of 11 |
+| 18 `linear.py check --mutate=` | mut_*.log | 1 each | 113-141 s | `linear.py mutations runs mut` (mutations.log, rc 0): 18 of 18 equal |
+
+No criterion failed. Raw values are in the logs; `notes/black_universe/linear_output.txt` is `check`, `table`, `c1` and `mutations` in that order.
+Largest memory use was not recorded (reported only; nothing was stopped).
