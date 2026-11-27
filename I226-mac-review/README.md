@@ -47,3 +47,27 @@ Mutations (`--mutate=`), each with the check it must fail:
 
 K3 is a prediction, not a check that needs a control: it can fail in either direction (an out-of-band first ratio, or no plateau at
 the extension h).
+
+## Results (runs of 2026-11-27, after the criteria commit b63eaf0e)
+
+| check | result | verdict |
+|---|---|---|
+| K0 | max \|C₊₊\| = 7.8290e-05 (the runner's dn.py: 7.841e-05) | pass |
+| K1 | rms ΔC / model at a = 256: D = 5 1.0669, D = 6 0.9902 (240000 and 480251 nodes) | pass |
+| K2 | rms ΔC(1024) / rms ΔC(256) = 4.0006 | pass |
+| K3 | static D = 6, h = 0.005 … 0.000625: max 7.8290e-05, 1.8654e-05, 4.8665e-06, 3.5886e-06; ratios 4.197, 3.833, **1.356** (the runner's: 4.204, 3.758, 1.337) | pass |
+| `csign` | K0: 3.08 | fires |
+| `model-exp` | K1: 0.6496, 0.5739 | fires, narrowly at D = 5 (the band's r is 1 to 2, so r^±1 moves the model by a factor 1.6 to 1.7) |
+| `noise-sq` | K1: 0.6160, 0.5717 | fires |
+| R1 | `analyze` on the stored runs: every line equal but the path line | pass |
+| R3 | `controls` (K0 to K3) pass; K3 reads ratio − 1 = 0.0 here because `np.longdouble` is float64 on macOS: vacuous on this machine, as stated above. Its `quad_h` control still fires (−2.0e-2) | pass; K3 vacuous here |
+| R2a | `st_D6_k0` max 7.84054553e-05 against the stored 7.84054213e-05: 4.3e-7 relative | **not met as worded** (bar 1e-8) |
+| R2b | `sm_D6_k2` max 9.9481e-06 against 9.8825e-06 (+0.66 %), and its node moved from i = j = 4368 to 4519 | measurement |
+
+Logs: `ind226_run1.txt`, `ind226_mut_{csign,model-exp,noise-sq}.txt`, `rerun_output.txt` (with `make_output_mac.sh`), `jobs/`.
+
+**Amendment A1 (R2a).** The bar 1e-8 was set without computing the roundoff part of the coarse-h maximum. The model of K1 (rms
+1.0e-5 at a = 256, h = 0.00125) gives about 1.2e-9 rms at a = 1, h = 0.005 (scaled by a and h^−5/2), or 1.5e-5 of the maximum. The
+observed machine difference, 3.4e-11 absolute, is below that. R2a stays not met as worded. With the bar the model gives, it would
+pass, and the difference is itself evidence that the coarse-h maximum carries roundoff at the 1e-6 level. R2b moves by 0.66 % where
+the runner finds roundoff twice the truncation, and the largest node changes. Both are what roundoff predicts and truncation does not.
