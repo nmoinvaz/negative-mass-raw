@@ -1,0 +1,27 @@
+# tests/implicit.rs: the fixed text replaced by the pre-fix text; the tests must fail
+--- fixed text
+pass: wv <= tol && wu <= tol,
+--- pre-fix text
+pass: wu <= tol,
+---
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 4.11s
+     Running tests/implicit.rs (target/release/deps/implicit-4e0a7f4a04c6bea1)
+
+running 1 test
+[PASS] lanes QA LanePerturb(V): Fl<DV,1> 5.22e1, Fl<Du,1> value 0.00e0 (bar 1.2e-30)
+
+thread 'lanes_controls' (103176124) panicked at tests/implicit.rs:1123:17:
+control LanePerturb(V) did not fire: lanes QA LanePerturb(V): Fl<DV,1> 5.22e1, Fl<Du,1> value 0.00e0 (bar 1.2e-30)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test lanes_controls ... FAILED
+
+failures:
+
+failures:
+    lanes_controls
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 33 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--test implicit`
+exit 101

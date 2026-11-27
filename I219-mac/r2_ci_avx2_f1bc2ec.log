@@ -1,0 +1,732 @@
+Ubuntu x86_64 AVX2	Set up job	﻿2026-11-27T07:12:31.5617994Z Current runner version: '2.338.2'
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5636587Z ##[group]Runner Image Provisioner
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5637246Z Hosted Compute Agent
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5637736Z Version: 20261111.635
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5638185Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5638746Z Build Date: 2026-11-11T01:49:01Z
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5639241Z Worker ID: {adf7f268-04ea-434c-9d6f-a49ccd6fca02}
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5639747Z Region: us-west-2
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5640368Z Cloud: AWS
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5640840Z ##[endgroup]
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5641775Z ##[group]Operating System
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5642232Z Ubuntu
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5642594Z 26.04.1
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5642961Z LTS
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5643347Z ##[endgroup]
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5643753Z ##[group]Runner Image
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5644186Z Image: ubuntu-26.04
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5644587Z Version: 20261116.88.1
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5645352Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261116.88/images/ubuntu/Ubuntu2604-Readme.md
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5646591Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261116.88
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5647293Z ##[endgroup]
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5648120Z ##[group]GITHUB_TOKEN Permissions
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5649670Z Contents: read
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5650075Z Metadata: read
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5650740Z Packages: read
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5651194Z ##[endgroup]
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5652713Z Secret source: Actions
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5653409Z Cache mode: write
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.5653895Z Prepare workflow directory
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.6012498Z Prepare all required actions
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.6051504Z Getting action download info
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:31.9451229Z Download action repository 'actions/checkout@v7' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+Ubuntu x86_64 AVX2	Set up job	2026-11-27T07:12:33.2978964Z Complete job name: Ubuntu x86_64 AVX2
+Ubuntu x86_64 AVX2	Checkout repository	﻿2026-11-27T07:12:33.3807040Z ##[group]Run actions/checkout@v7
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:33.3808292Z with:
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:33.3809080Z   repository: nmoinvaz/multishoot
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:33.3816612Z   token: ***
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:33.3817462Z   ssh-strict: true
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:33.3818276Z   ssh-user: git
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:33.3819088Z   persist-credentials: true
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:33.3819976Z   clean: true
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:33.3820944Z   sparse-checkout-cone-mode: true
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:33.3821893Z   fetch-depth: 1
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:33.3822683Z   fetch-tags: false
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:33.3823486Z   show-progress: true
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:33.3824288Z   lfs: false
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:33.3825014Z   submodules: false
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:33.3825870Z   set-safe-directory: true
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:33.3826815Z   allow-unsafe-pr-checkout: false
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:33.3827956Z env:
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:33.3829379Z   CARGO_TERM_COLOR: always
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:33.3830555Z   RUSTFLAGS: -C target-feature=+avx2,+fma
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:33.3831600Z ##[endgroup]
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.4579957Z Syncing repository: nmoinvaz/multishoot
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.4582714Z ##[group]Getting Git version info
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.4583403Z Working directory is '/home/runner/work/multishoot/multishoot'
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.4584222Z [command]/usr/bin/git version
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.4584661Z git version 2.56.1
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.4586160Z ##[endgroup]
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.4592108Z Temporarily overriding HOME='/home/runner/work/_temp/e7c4605e-bb5d-4a04-8ddb-16552a56b488' before making global git config changes
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.4593146Z Adding repository directory to the temporary git global config as a safe directory
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.4593981Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/multishoot/multishoot
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5029564Z Deleting the contents of '/home/runner/work/multishoot/multishoot'
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5032402Z ##[group]Determining repository object format
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5035382Z ##[endgroup]
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5036054Z ##[group]Initializing the repository
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5036871Z [command]/usr/bin/git init /home/runner/work/multishoot/multishoot
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5451587Z hint: Using 'master' as the name for the initial branch. This default branch name
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5452489Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5453094Z hint: to use in all of your new repositories, which will suppress this warning,
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5453533Z hint: call:
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5453779Z hint:
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5454154Z hint: 	git config --global init.defaultBranch <name>
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5454501Z hint:
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5454837Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5455313Z hint: 'development'. The just-created branch can be renamed via this command:
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5455795Z hint:
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5456106Z hint: 	git branch -m <name>
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5456401Z hint:
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5456790Z hint: Disable this message with "git config set advice.defaultBranchName false"
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5470599Z Initialized empty Git repository in /home/runner/work/multishoot/multishoot/.git/
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5479502Z [command]/usr/bin/git remote add origin https://github.com/nmoinvaz/multishoot
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5540396Z ##[endgroup]
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5541168Z ##[group]Disabling automatic garbage collection
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5543158Z [command]/usr/bin/git config --local gc.auto 0
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5564561Z ##[endgroup]
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5565113Z ##[group]Setting up auth
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5565462Z Removing SSH command configuration
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5569141Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.5593909Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.8529878Z Removing HTTP extra header
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.8535041Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.8560825Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.8737560Z Removing includeIf entries pointing to credentials config files
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.8742457Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.8765045Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.8942859Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-c74a420d-c52b-4e0b-bb0e-dbcb0e56dc09.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.8967032Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/multishoot/multishoot/.git.path /home/runner/work/_temp/git-credentials-c74a420d-c52b-4e0b-bb0e-dbcb0e56dc09.config
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.8986703Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/multishoot/multishoot/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-c74a420d-c52b-4e0b-bb0e-dbcb0e56dc09.config
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.9012240Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-c74a420d-c52b-4e0b-bb0e-dbcb0e56dc09.config
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.9032287Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-c74a420d-c52b-4e0b-bb0e-dbcb0e56dc09.config
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.9050079Z ##[endgroup]
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.9051137Z ##[group]Fetching the repository
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:36.9055676Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +e3bae76ddf91e2c14ba4c453736a81e1266b3cd6:refs/remotes/pull/73/merge
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5277749Z From https://github.com/nmoinvaz/multishoot
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5278620Z  * [new ref]         e3bae76ddf91e2c14ba4c453736a81e1266b3cd6 -> pull/73/merge
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5280728Z ##[endgroup]
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5281279Z ##[group]Determining the checkout info
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5281763Z ##[endgroup]
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5286402Z [command]/usr/bin/git sparse-checkout disable
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5331635Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5352025Z ##[group]Checking out the ref
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5355623Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/73/merge
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5488489Z Note: switching to 'refs/remotes/pull/73/merge'.
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5488955Z 
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5489178Z You are in 'detached HEAD' state. You can look around, make experimental
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5489743Z changes and commit them, and you can discard any commits you make in this
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5490441Z state without impacting any branches by switching back to a branch.
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5490739Z 
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5491005Z If you want to create a new branch to retain commits you create, you may
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5491385Z do so (now or later) by using -c with the switch command. Example:
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5491637Z 
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5491747Z   git switch -c <new-branch-name>
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5491920Z 
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5492018Z Or undo this operation with:
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5492204Z 
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5492333Z   git switch -
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5492698Z 
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5492975Z Turn off this advice by setting config variable advice.detachedHead to false
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5493289Z 
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5493675Z HEAD is now at e3bae76 Merge f1bc2ec2c060a91d5775fe00533123308fa74f60 into 7b14116305f96074344c34c6a13dbbd4697a718b
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5499208Z ##[endgroup]
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5540584Z [command]/usr/bin/git log -1 --format=%H
+Ubuntu x86_64 AVX2	Checkout repository	2026-11-27T07:12:37.5561106Z e3bae76ddf91e2c14ba4c453736a81e1266b3cd6
+Ubuntu x86_64 AVX2	Build project	﻿2026-11-27T07:12:37.5774351Z ##[group]Run cargo build --release 
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:37.5774809Z ^[[36;1mcargo build --release ^[[0m
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:37.5797630Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:37.5797969Z env:
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:37.5798245Z   CARGO_TERM_COLOR: always
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:37.5798514Z   RUSTFLAGS: -C target-feature=+avx2,+fma
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:37.5798787Z ##[endgroup]
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:43.5691270Z ^[[1m^[[92m    Updating^[[0m crates.io index
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:43.7201687Z ^[[1m^[[92m Downloading^[[0m crates ...
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:43.7612165Z ^[[1m^[[92m  Downloaded^[[0m either v1.19.0
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:43.7668208Z ^[[1m^[[92m  Downloaded^[[0m crossbeam-deque v0.8.8
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:43.7765428Z ^[[1m^[[92m  Downloaded^[[0m rayon-core v1.13.0
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:43.7840795Z ^[[1m^[[92m  Downloaded^[[0m crossbeam-epoch v0.9.21
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:43.7855184Z ^[[1m^[[92m  Downloaded^[[0m crossbeam-utils v0.8.23
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:43.7930911Z ^[[1m^[[92m  Downloaded^[[0m multisolver v0.2.2
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:43.7949140Z ^[[1m^[[92m  Downloaded^[[0m rayon v1.12.0
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:43.8003864Z ^[[1m^[[92m  Downloaded^[[0m multidouble v5.1.0
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:43.8514352Z ^[[1m^[[92m   Compiling^[[0m crossbeam-utils v0.8.23
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:43.8515092Z ^[[1m^[[92m   Compiling^[[0m crossbeam-epoch v0.9.21
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:43.8515576Z ^[[1m^[[92m   Compiling^[[0m crossbeam-deque v0.8.8
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:43.8516093Z ^[[1m^[[92m   Compiling^[[0m rayon-core v1.13.0
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:51.1242255Z ^[[1m^[[92m   Compiling^[[0m either v1.19.0
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:52.2645275Z ^[[1m^[[92m   Compiling^[[0m rayon v1.12.0
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:54.4551693Z ^[[1m^[[92m   Compiling^[[0m multidouble v5.1.0
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:56.8010416Z ^[[1m^[[92m   Compiling^[[0m multisolver v0.2.2
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:12:58.6862491Z ^[[1m^[[92m   Compiling^[[0m multishoot v4.2.0 (/home/runner/work/multishoot/multishoot)
+Ubuntu x86_64 AVX2	Build project	2026-11-27T07:13:22.2922770Z ^[[1m^[[92m    Finished^[[0m `release` profile [optimized] target(s) in 43.07s
+Ubuntu x86_64 AVX2	Run tests	﻿2026-11-27T07:13:22.3029656Z ##[group]Run cargo test --release 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:13:22.3030046Z ^[[36;1mcargo test --release ^[[0m
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:13:22.3048333Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:13:22.3048755Z env:
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:13:22.3049014Z   CARGO_TERM_COLOR: always
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:13:22.3049309Z   RUSTFLAGS: -C target-feature=+avx2,+fma
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:13:22.3049582Z ##[endgroup]
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:13:22.3279267Z ^[[1m^[[92m   Compiling^[[0m multishoot v4.2.0 (/home/runner/work/multishoot/multishoot)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9515510Z ^[[1m^[[92m    Finished^[[0m `release` profile [optimized] target(s) in 2m 50s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9544448Z ^[[1m^[[92m     Running^[[0m unittests src/lib.rs (target/release/build/multishoot/d916e899c5c99203/out/multishoot-d916e899c5c99203)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9552546Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9552787Z running 21 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9588426Z test periodic::tests::dmat_control_wrong_parity_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9589119Z test lane::tests::recip_parts_control_one_ulp_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9601214Z test periodic::tests::dmat_differentiates_harmonics ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9612370Z test periodic::tests::pi_od_control_quad_parts_fail ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9614186Z test periodic::tests::dmat_control_transposed_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9622975Z test periodic::tests::pi_od_is_pi ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9625084Z test periodic::tests::resampler_factor_in_double_double ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9626592Z test periodic::tests::sin_cos_agree ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9640946Z test periodic::tests::sin_cos_pi_large_q_control_former_remainder_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9651996Z test periodic::tests::dmat_equals_direct_sums ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9680648Z test lane::tests::recip_parts_are_one_over_k ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9681399Z test periodic::tests::sin_cos_pi_reduction_control_half_period_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9682152Z test periodic::tests::sin_cos_pi_takes_large_denominators ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9682781Z test periodic::tests::sin_cos_pi_reduces_large_p ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9683392Z test taylor::tests::kth_root_agrees_with_powf ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9690900Z test periodic::tests::sin_cos_pi_od_control_short_series_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9697914Z test taylor::tests::kth_root_follows_its_input ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9698478Z test taylor::tests::kth_root_control_neighbours_fail ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9698827Z test taylor::tests::kth_root_is_correctly_rounded ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:12.9699159Z test taylor::tests::steps_within_is_the_largest_count ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.0152877Z test periodic::tests::sin_cos_pi_od_agrees ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.0153261Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.0153548Z test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.0154078Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.0155964Z ^[[1m^[[92m     Running^[[0m tests/anm.rs (target/release/build/multishoot/a6ceac81321b9697/out/anm-a6ceac81321b9697)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.0164898Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.0165092Z running 2 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.0295275Z test anm_follows_the_eigenvalue_through_shooting ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.0523162Z test anm_series_through_the_session_is_bitwise ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.0523435Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.0523659Z test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.0524010Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.0525618Z ^[[1m^[[92m     Running^[[0m tests/damping.rs (target/release/build/multishoot/467ec74962a17085/out/damping-467ec74962a17085)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.0533531Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.0533668Z running 4 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.3779735Z test correction_rule_is_affine_covariant ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.6473309Z test residual_rule_evaluates_once_per_trial ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.6795323Z test correction_rule_converges_where_residual_rule_refuses ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.7418806Z test affine_covariance_control_residual_rule_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.7419599Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.7419927Z test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.69s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.7421186Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.7422905Z ^[[1m^[[92m     Running^[[0m tests/dmat_c.rs (target/release/build/multishoot/8736f8bc30a9c477/out/dmat_c-8736f8bc30a9c477)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.7432871Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.7433526Z running 11 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.7681554Z test dmat_c_apply_at_control_without_remainder_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.7791270Z test dmat_c_apply_at_is_apply ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.8030888Z test dmat_c_parts_match_mpmath ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.8060697Z test dmat_c_mpmath_control_without_remainder_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.8090620Z test dmat_c_row_sums_by_lane ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.8130609Z test dmat_c_rows_control_one_remainder_moved_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.8180568Z test dmat_c_split_control_without_row_sums_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.8242333Z test dmat_c_split_exact_with_row_sums ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.8442076Z test dmat_c_rows_sum_to_zero ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9476155Z test dmat_c_differentiates_harmonics_in_wide_lanes ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9501743Z test dmat_c_harmonics_control_without_remainder_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9502099Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9502342Z test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.21s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9502778Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9506606Z ^[[1m^[[92m     Running^[[0m tests/eigen.rs (target/release/build/multishoot/084e98a93b94dce2/out/eigen-084e98a93b94dce2)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9514120Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9514247Z running 9 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9540693Z test eigenpair_control_phase_row_along_amplitude_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9731240Z test jet_bytes_match_reference ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9731841Z test jet_control_frozen_parameter_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9756919Z test jet_orders_match_central_differences ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9781344Z test eigenpair_converges_in_double_and_quad ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9781989Z test eigenpair_control_wrong_coefficient_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9782802Z test jet_bytes_control_one_ulp_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9818191Z test jet_precisions_agree ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9829882Z test jet_precisions_control_wrong_quad_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9830145Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9830582Z test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9830885Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9836111Z ^[[1m^[[92m     Running^[[0m tests/family.rs (target/release/build/multishoot/e539dbbee815eaff/out/family-e539dbbee815eaff)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9846116Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:13.9846339Z running 4 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:14.0311337Z test family_is_the_layout_reindexed ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:17.1030641Z test bordered_factors_pass_the_fold ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.4872364Z test continuation_passes_the_bratu_fold ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.5857965Z test moved_fold_fails_the_fold_checks ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.5858275Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.5858481Z test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 7.60s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.5858954Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.5864071Z ^[[1m^[[92m     Running^[[0m tests/fast.rs (target/release/build/multishoot/bb7806e17bc10ecf/out/fast-bb7806e17bc10ecf)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.5871194Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.5871515Z running 31 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.6252026Z test assembled_bytes_match_reference ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.6286230Z test assembled_f64_jacobian_control_unprojected_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.6350930Z test assembled_f64_jacobian_is_the_engines ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.6731188Z test assembled_bytes_control_one_ulp_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.6783778Z test dd_columns_are_read_where_the_matrix_is_zero ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.6789712Z test dd_columns_control_not_given_differ ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.7475051Z test dd_columns_control_rounded_columns_differ ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.7893099Z test dd_columns_project_to_the_dd_jacobians_rows ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.8218952Z test f64_by_double_block_is_the_double_double_jacobian ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.8494951Z test f64_by_takes_each_blocks_lanes ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.8811203Z test f64_jacobian_and_staircase_scale_rows ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.9180964Z test f64_by_block_lanes_is_jacobian_f64 ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.9492366Z test f64_projection_control_unprojected_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.9496451Z test f64_jacobians_match_the_exact_one ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.9585406Z test f64_jacobian_projects_its_rows ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.9722262Z test four_tangents_control_base_precision_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:21.9884076Z test f64_scaling_control_wrong_factor_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.0089719Z test four_tangents_equal_one ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.0111823Z test fast_bytes_match_reference ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.0512815Z test newton_step_mixed_control_other_storage_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.0979445Z test newton_step_mixed_is_the_loops_step ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.1090924Z test mixed_newton_reaches_quad_double ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.1108417Z test fast_bytes_control_one_ulp_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.1126847Z test pointwise_f64_control_coupled_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.1136265Z test pointwise_f64_jacobian_equals_per_column ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.1221192Z test project_f64_block_refuses_bad_inputs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.1411517Z test staircase_refuses_other_layouts ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.1499537Z test staircase_solves_the_f64_system ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.1499944Z test zero_dd_column_replaces_the_matrix_entries ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.1651389Z test mixed_newton_converges ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.2656081Z test quasi_mixed_newton_converges_from_fewer_factorizations ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.2656726Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.2656990Z test result: ok. 31 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.68s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.2657368Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.2661095Z ^[[1m^[[92m     Running^[[0m tests/frobenius.rs (target/release/build/multishoot/d50d9564044ddda2/out/frobenius-d50d9564044ddda2)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.2669026Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.2669354Z running 6 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.2695107Z test bessel_pointwise_jacobian_equals_per_column ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.2696332Z test bessel_pointwise_jacobian_control_one_side_wrong_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.2699527Z test prepare_control_counts_each_evaluation ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.2703754Z test prepare_runs_once_per_evaluation ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.2715388Z test bessel_control_wrong_frobenius_coefficient_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.2715942Z test bessel_converges_to_its_closed_form ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.2716152Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.2716373Z test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.2716619Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.2719760Z ^[[1m^[[92m     Running^[[0m tests/gcr.rs (target/release/build/multishoot/f8da5e5f81cceb90/out/gcr-f8da5e5f81cceb90)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.2727361Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.2727581Z running 1 test
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.3413776Z test refined_newton_converges_like_exact_newton ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.3414619Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.3415325Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.3415835Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.3418183Z ^[[1m^[[92m     Running^[[0m tests/implicit.rs (target/release/build/multishoot/9b0151d34fba104f/out/implicit-9b0151d34fba104f)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.3427081Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.3427353Z running 27 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.3480970Z test closed_form_f64 ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.3661203Z test crossings_dd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.3661960Z test closed_form_dd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.3690865Z test crossings_f64 ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.3991388Z test digest_dd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.4040957Z test digest_f64 ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.4971152Z test controls_without_hooks ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.7921867Z test crossings_qd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.8211153Z test digest_pinned_fails_on_a_flip ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.9091305Z test closed_form_qd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.9150767Z test digest_sees_a_checkpoint ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.9180450Z test edges_dd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:22.9240522Z test edges_f64 ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:23.0270912Z test edges_qd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:23.0320565Z test fold_dd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:23.0350659Z test fold_f64 ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:23.1961956Z test fold_qd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:23.1991081Z test lanes ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:23.2010583Z test lanes_controls ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:23.2348516Z test misc_dd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:23.2410592Z test misc_f64 ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:23.4261216Z test digest_qd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:24.2028895Z test misc_qd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:24.2029679Z test parts_see_a_lower_part ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:35.6995200Z test digest_od ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:38.5672947Z test octo_double ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:51.9843008Z test digest_od_sees_the_lower_parts ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:51.9844105Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:51.9844913Z test result: ok. 27 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 29.64s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:51.9845263Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:51.9848663Z ^[[1m^[[92m     Running^[[0m tests/interp.rs (target/release/build/multishoot/2c9c19b66e107817/out/interp-2c9c19b66e107817)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:51.9857747Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:51.9857975Z running 7 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:52.0291773Z test arctan_map_inverts ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:52.0411168Z test mapped_dmat_differentiates_in_theta ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:52.0669944Z test identity_maps_give_the_uniform_grid ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:52.2681710Z test resample_in_moves_to_a_mapped_grid ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:52.2790993Z test interp_at_evaluates_the_interpolant ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:52.4248354Z test resample_in_keeps_quad_and_octo_double ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:53.0079636Z test uniform_interp_keeps_each_precision ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:53.0080094Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:53.0080523Z test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.02s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:53.0081121Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:53.0084391Z ^[[1m^[[92m     Running^[[0m tests/jacobian_tangents.rs (target/release/build/multishoot/273d48d4600b0794/out/jacobian_tangents-273d48d4600b0794)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:53.0092524Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:53.0092759Z running 3 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:16:53.0093363Z test jacobian_tangents_timing ... ignored
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:11.0293379Z test jacobian_tangents_is_jacobian_bitwise ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:18.4991201Z test with_tangents_is_the_layout_bitwise ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:18.4991750Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:18.4992201Z test result: ok. 2 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 25.49s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:18.4992600Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:18.4999182Z ^[[1m^[[92m     Running^[[0m tests/jet_session.rs (target/release/build/multishoot/ed7472af4e9e8ad8/out/jet_session-ed7472af4e9e8ad8)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:18.5008051Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:18.5008231Z running 3 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:18.5010422Z test bits_differ_counts_missing_rows ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:18.5038143Z test session_calls_the_order_methods_in_sequence ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:19.3058633Z test session_orders_are_residual_jet_bitwise ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:19.3059110Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:19.3059412Z test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.80s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:19.3059811Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:19.3065582Z ^[[1m^[[92m     Running^[[0m tests/jet_tangent.rs (target/release/build/multishoot/50e6bd12b1fd0111/out/jet_tangent-50e6bd12b1fd0111)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:19.3074188Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:19.3074316Z running 7 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:19.3730843Z test tangent_checks_the_pair_layout ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:19.4015976Z test tangent_bitwise_check_rejects_a_moved_order ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:19.4491798Z test tangent_forms_again_when_the_seed_underflows ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:19.5854165Z test anm_takes_the_tangent_update_through_jet_orders ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:21.5799879Z test tangent_series_is_the_planted_branch ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:25.5933539Z test branch_session_is_residual_jet_bitwise ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:31.9978345Z test tangent_orders_agree_with_residual_jet ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:31.9978662Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:31.9979366Z test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 12.69s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:31.9979630Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:31.9993048Z ^[[1m^[[92m     Running^[[0m tests/jvp.rs (target/release/build/multishoot/b77d670d64b519e9/out/jvp-b77d670d64b519e9)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:32.0002163Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:32.0002404Z running 4 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:32.2781825Z test jvp_bytes_match_reference ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:32.3011351Z test jvp_bytes_control_one_ulp_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.2491785Z test jvp_residual_control_one_ulp_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.3331683Z test jvp_matches_the_jacobian ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.3332033Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.3332265Z test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.33s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.3332663Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.3337744Z ^[[1m^[[92m     Running^[[0m tests/lm.rs (target/release/build/multishoot/e020e66ba6bd3679/out/lm-e020e66ba6bd3679)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.3347596Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.3347842Z running 1 test
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.4514122Z test lm_converges_on_the_planted_problem ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.4514926Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.4515326Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.4515708Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.4516627Z ^[[1m^[[92m     Running^[[0m tests/mobius.rs (target/release/build/multishoot/2ebd39a9d9b8337c/out/mobius-2ebd39a9d9b8337c)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.4525526Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.4527598Z running 7 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.4550996Z test affine_series_control_swapped_sizes_fail ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.4551639Z test affine_series_diverges_where_mobius_converges ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.5108337Z test mobius_bytes_match_reference ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.5109229Z test tau_maps_the_documented_pole ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.5426130Z test mobius_bytes_control_one_ulp_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.7978453Z test mul_w_is_the_cauchy_product ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.8908797Z test mobius_sum_is_its_closed_form ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.8909176Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.8909435Z test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.44s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.8909871Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.8914464Z ^[[1m^[[92m     Running^[[0m tests/mode.rs (target/release/build/multishoot/0adee823843d3c94/out/mode-0adee823843d3c94)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.8923911Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.8924094Z running 33 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.8926126Z test complex_rate_on_real_tangents_panics - should panic ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:33.8926758Z test complex_rate_on_quad_tangents_panics - should panic ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:34.0410547Z test complex_rate_rows_scale_control_wrong_factor ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:34.0471312Z test complex_rate_projection_control_real_only_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:34.0472389Z test complex_rate_rows_scale ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:34.1026687Z test complex_rate_projects_both_parts ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:34.1642637Z test mode_bytes_control_one_ulp_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:34.2041251Z test mode_matrix_refuses_a_wrong_row_scale ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:34.2080958Z test mode_bytes_match_reference ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:34.3074093Z test pointwise_mode_control_coupled_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:34.3551351Z test pointwise_mode_matrix_equals_per_column ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:34.4175705Z test rate_zero_control_unscaled_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:34.4841480Z test rate_zero_is_the_jacobian_block ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:34.6162676Z test rate_zero_is_the_projected_jacobian_block ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:34.6791502Z test rate_zero_is_the_scaled_jacobian_block ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:34.8084223Z test rate_zero_projected_controls_differ ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:34.8746206Z test real_rate_is_the_explicit_shift ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:35.4251284Z test real_rate_is_the_explicit_shift_in_quad_and_octo ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:35.5466936Z test real_rate_matrix_control_one_ulp_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:35.8645336Z test mode_winding_counts_and_locates_the_modes ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:37.0838587Z test mode_winding_is_the_one_by_one_count ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:39.9201493Z test real_rate_matrix_is_mode_matrix_at_double ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:39.9231622Z test shift_control_real_rate_moves_the_tangent ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:39.9250995Z test shift_identity_controls_signed_zero_and_value_differ ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:39.9267263Z test shift_is_the_identity_without_a_tangent_or_a_rate ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:39.9281031Z test shift_quad_and_octo_controls_differ ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:39.9330611Z test shift_real_rate_moves_quad_and_octo_tangents ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.3899548Z test wave_determinant_is_planted ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.4036145Z test real_rate_matrix_octo_agrees_with_quad ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.4459593Z test real_rate_matrix_quad_agrees_with_double ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.5060774Z test wave_quad_determinant_is_planted ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.9325251Z test mode_logdets_are_each_rates_logdet ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.9661599Z test winding_counts_the_planted_zeros ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.9662222Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.9662687Z test result: ok. 33 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 9.07s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.9663164Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.9671944Z ^[[1m^[[92m     Running^[[0m tests/nan.rs (target/release/build/multishoot/9d6edf3e3fe86801/out/nan-9d6edf3e3fe86801)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.9680465Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.9680956Z running 6 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.9702426Z test newton_on_nan_residual_does_not_converge ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.9705600Z test planner_norm_control_amax_skips_nan ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.9706041Z test max_abs_propagates_nan ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.9706668Z test planner_norm_propagates_nan ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.9706963Z test max_abs_control_old_fold_drops_nan ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.9707912Z test newton_nan_control_old_fold_scores_zero ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.9709375Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.9709618Z test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.9709936Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.9711800Z ^[[1m^[[92m     Running^[[0m tests/newton.rs (target/release/build/multishoot/a84ba9c322f8899b/out/newton-a84ba9c322f8899b)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.9718829Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:42.9719075Z running 10 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.0371248Z test newton_error_estimate_matches_the_error ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.0381367Z test newton_step_solves_the_linear_system ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.0573685Z test planted_residual_vanishes ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.0921099Z test pointwise_control_coupled_problem_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.1087805Z test pointwise_jacobian_equals_per_column ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.1695001Z test planted_newton_converges ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.2885831Z test results_bytes_match_reference ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.3281287Z test newton_refuses_options_out_of_range ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.3902362Z test results_bytes_control_one_ulp_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.4375013Z test jacobian_matches_central_differences ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.4375366Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.4375730Z test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.47s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.4376051Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.4384746Z ^[[1m^[[92m     Running^[[0m tests/plane.rs (target/release/build/multishoot/b1f13e13164844ac/out/plane-b1f13e13164844ac)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.4394268Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.4394437Z running 17 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.4440680Z test controls_orthonormality ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.4661093Z test controls_wrong_inputs_f64 ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.4664173Z test extreme_scales_in_every_lane ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.4692820Z test p1_dd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.4703040Z test p1_f64 ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.5719479Z test p1_od ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.5860846Z test p1_qd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.7221015Z test controls_wrong_inputs_od ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.7350933Z test p2_f64 ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.7400720Z test controls_wrong_inputs_dd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.7467325Z test p2_dd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.7483673Z test p3_f64 ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.7485919Z test p3_dd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.7488334Z test p_and_its_inverse ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:43.7751253Z test p3_qd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:45.2368755Z test p2_qd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:46.2624350Z test controls_wrong_inputs_qd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:46.2624737Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:46.2625040Z test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.82s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:46.2625510Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:46.2628212Z ^[[1m^[[92m     Running^[[0m tests/precision.rs (target/release/build/multishoot/3d653fc7e0225f8d/out/precision-3d653fc7e0225f8d)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:46.2636834Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:46.2637245Z running 4 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:46.5501265Z test precisions_agree_on_the_residual ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:46.6925917Z test residual_bytes_match_reference ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:47.9402190Z test planted_converges_in_quad_and_octo ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.0595426Z test residual_bytes_control_one_ulp_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.0595826Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.0596072Z test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.80s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.0596326Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.0601664Z ^[[1m^[[92m     Running^[[0m tests/predict.rs (target/release/build/multishoot/2ac7120b04777803/out/predict-2ac7120b04777803)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.0610449Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.0610594Z running 1 test
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.0669774Z test tangent_is_the_eigenvalue_direction ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.0670340Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.0670630Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.0670925Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.0674014Z ^[[1m^[[92m     Running^[[0m tests/prepare.rs (target/release/build/multishoot/d546f4d89336a3b4/out/prepare-d546f4d89336a3b4)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.0682030Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.0682237Z running 4 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.0694748Z test block_states_panics_on_a_failed_preparation - should panic ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.0702491Z test try_block_states_refuses_a_malformed_z ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.0703371Z test failed_preparation_is_every_entry_points_error ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.1300675Z test try_prepare_gives_the_bits_of_prepare ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.1301181Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.1302161Z test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.1302615Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.1304269Z ^[[1m^[[92m     Running^[[0m tests/projected.rs (target/release/build/multishoot/7f278db4eda963c7/out/projected-7f278db4eda963c7)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.1313549Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.1314024Z running 14 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.1411142Z test project_rows_refuses_bad_layouts ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.2198270Z test projected_bytes_match_reference ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.2459738Z test projected_bytes_control_one_ulp_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.2466255Z test projected_jet_control_unprojected_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:48.2731878Z test projected_jet_is_the_jacobian_product ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:49.3281446Z test projected_jvp_control_unprojected_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:50.3345939Z test projected_jvp_is_the_jacobian_product ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:50.4750056Z test projected_rows_scale_after_the_projection ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:50.5051874Z test projected_rows_scale_control_wrong_factor_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:50.5291478Z test projector_control_double_double_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:50.5861410Z test projector_is_exact_in_octo ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.5521734Z test projected_jacobian_matches_central_differences ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.5578082Z test projected_jacobian_control_unprojected_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.5893251Z test projected_newton_reaches_the_exact_rows ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.5893758Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.5894799Z test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.46s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.5895181Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.5897610Z ^[[1m^[[92m     Running^[[0m tests/raw_reads.rs (target/release/build/multishoot/5f1fcb86918c0b05/out/raw_reads-5f1fcb86918c0b05)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.5906457Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.5906578Z running 6 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.5942502Z test extra_rows_control_renormalized_sum_fails_dd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.5943331Z test extra_rows_read_parts_as_they_are_dd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.6161767Z test extra_rows_control_renormalized_sum_fails_qd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.6193543Z test extra_rows_read_parts_as_they_are_qd ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.7289209Z test extra_rows_control_renormalized_sum_fails_od ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.7360998Z test extra_rows_read_parts_as_they_are_od ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.7361407Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.7361664Z test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.7361927Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.7364672Z ^[[1m^[[92m     Running^[[0m tests/relayout.rs (target/release/build/multishoot/351aecf683d6b58b/out/relayout-351aecf683d6b58b)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.7372803Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.7373181Z running 5 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.7441519Z test resampler_is_exact_on_grids_of_any_size ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.7470885Z test planted_solution_moves_to_new_nodes ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.7471431Z test planted_solution_resamples_to_more_points ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.7471895Z test renode_does_not_depend_on_threads ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.7497884Z test resampler_moves_resolved_fields_exactly ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.7498207Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.7498485Z test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.7498742Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.7501386Z ^[[1m^[[92m     Running^[[0m tests/row_scale.rs (target/release/build/multishoot/effc5279b3b75e5d/out/row_scale-effc5279b3b75e5d)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.7508774Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.7508885Z running 3 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.7916422Z test row_scale_control_wrong_length_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8031858Z test row_scale_scales_residual_jacobian_and_jet ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8044027Z test row_scale_control_wrong_factor_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8044337Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8044606Z test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8045054Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8047956Z ^[[1m^[[92m     Running^[[0m tests/series.rs (target/release/build/multishoot/180161d39ca9d7c8/out/series-180161d39ca9d7c8)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8056441Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8056685Z running 8 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8074733Z test f64_lane_at_a_rate_panics - should panic ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8090736Z test real_tangent_at_a_complex_rate_panics - should panic ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8094806Z test same_bits_control_zero_sign_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8095524Z test periodic_solve_is_planted_at_a_rate ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8096132Z test solve_at_control_fewer_steps_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8099170Z test solve_at_is_solve_bitwise ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8101819Z test periodic_solve_control_unrefined_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8183087Z test periodic_solve_is_planted_in_every_lane ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8183460Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8183732Z test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8184089Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8185853Z ^[[1m^[[92m     Running^[[0m tests/slaved.rs (target/release/build/multishoot/24c87856ece7c0b4/out/slaved-24c87856ece7c0b4)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8193424Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.8193598Z running 9 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:51.9551721Z test slaved_bytes_match_reference ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.0131547Z test slaved_jacobian_control_nan_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.0642773Z test slaved_bvp_converges_to_its_closed_form ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.1108355Z test slaved_residual_returns_the_factorization_error ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.1211640Z test slaved_jacobian_matches_central_differences ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.1232602Z test slaved_bvp_control_wrong_order_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.1581411Z test slaved_bytes_control_one_ulp_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.2917977Z test slaved_series_is_its_closed_form ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.3888189Z test slaved_series_controls_fail ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.3893913Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.3894205Z test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.57s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.3894584Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.3895881Z ^[[1m^[[92m     Running^[[0m tests/spectrum.rs (target/release/build/multishoot/a314cb6d13bb6a1c/out/spectrum-a314cb6d13bb6a1c)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.3904993Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.3905131Z running 1 test
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.3920353Z test spectrum_recovers_planted_coefficients ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.3920657Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.3920912Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.3921192Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.3922384Z ^[[1m^[[92m     Running^[[0m tests/split.rs (target/release/build/multishoot/95473e36191aba7a/out/split-95473e36191aba7a)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.3929049Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.3929196Z running 7 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.3959847Z test split_bounds ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.4180862Z test split_control_ulp_and_wrong_piece_break_rows ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.4773496Z test split_is_the_same_on_tasks ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.4921973Z test split_refuses_a_pin_across_moved_nodes ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.4998427Z test split_does_not_depend_on_the_backend ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.5234809Z test split_has_the_same_root ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.9227016Z test split_keeps_the_residual_bitwise ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.9227281Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.9227519Z test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.53s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.9227785Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.9231414Z ^[[1m^[[92m     Running^[[0m tests/sub.rs (target/release/build/multishoot/c8ddcc30c13a911f/out/sub-c8ddcc30c13a911f)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.9239810Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.9239946Z running 3 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.9383648Z test sub_blocks_check_their_input ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:17:52.9385162Z test sub_blocks_evaluate_only_what_they_meet ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.4883639Z test sub_blocks_are_the_whole_bitwise ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.4884133Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.4884391Z test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 21.56s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.4884668Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.4887767Z ^[[1m^[[92m     Running^[[0m tests/subspace.rs (target/release/build/multishoot/d6fa8384d1851612/out/subspace-d6fa8384d1851612)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.4896531Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.4897188Z running 1 test
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5141880Z test factors_and_subspace_do_not_depend_on_threads ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5142230Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5142436Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5142827Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5145051Z ^[[1m^[[92m     Running^[[0m tests/taylor.rs (target/release/build/multishoot/c336b84e9d92b385/out/taylor-c336b84e9d92b385)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5153577Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5153736Z running 21 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5163013Z test layout_offsets ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5190934Z test planned_segments_end_at_their_nodes ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5194879Z test plan_points_match_reference ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5229434Z test planner_bound_control_doubled_steps_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5233394Z test planner_nan_control_finite_plans ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5241674Z test planner_bound_holds ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5242244Z test planner_one_ulp_control_early_stop_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5246732Z test planner_reaches_an_end_one_ulp_away ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5247331Z test planner_rejects_infinite_end - should panic ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5247904Z test planner_rejects_nan_coefficient - should panic ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5249011Z test planner_reports_an_underflowing_tolerance - should panic ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5251078Z test planner_underflow_control_normal_tolerance_plans ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5255771Z test plan_points_control_tolerance_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5256397Z test planner_rejects_zero_tolerance - should panic ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5294266Z test rotor_carried_to_double_double ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5301377Z test rotor_carried_control_wrong_coefficient_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5319518Z test plan_points_do_not_depend_on_threads ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5328446Z test stepping_bytes_control_one_ulp_differs ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5328963Z test taylor_check_refuses_a_step_it_cannot_halve ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5334288Z test taylor_check_estimates_the_paths_error ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5338942Z test stepping_bytes_match_reference ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5339215Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5339519Z test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5339864Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5340925Z ^[[1m^[[92m     Running^[[0m tests/taylor_order.rs (target/release/build/multishoot/2f7567c30eb62519/out/taylor_order-2f7567c30eb62519)
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5349005Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5349136Z running 5 tests
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5371006Z test order_guess_is_the_cost_model_optimum ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5399471Z test refined_orders_control_wrong_range_fails ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.5487880Z test auto_order_holds_the_planner_bound ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.8068353Z test auto_order_is_the_least_cost ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.8488571Z test auto_order_bytes_match_reference ... ok
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.8489163Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.8489516Z test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.31s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.8489881Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:14.8493224Z ^[[1m^[[92m   Doc-tests^[[0m multishoot
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:15.4615926Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:15.4616445Z running 1 test
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:15.4631533Z test src/shooting.rs - shooting::Shooting<E,B>::plan_segments_auto (line 288) ... ignored
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:15.4631991Z 
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:15.4640112Z test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s
+Ubuntu x86_64 AVX2	Run tests	2026-11-27T07:18:15.4689326Z 
+Ubuntu x86_64 AVX2	Post Checkout repository	﻿2026-11-27T07:18:15.4788440Z Post job cleanup.
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.5455696Z [command]/usr/bin/git version
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.5487064Z git version 2.56.1
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.5510584Z Temporarily overriding HOME='/home/runner/work/_temp/88212521-3858-47d1-9b37-be6d77cf66c0' before making global git config changes
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.5511495Z Adding repository directory to the temporary git global config as a safe directory
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.5514273Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/multishoot/multishoot
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.5541673Z Removing SSH command configuration
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.5545685Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.5570917Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.5759893Z Removing HTTP extra header
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.5763956Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.5791599Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.5968454Z Removing includeIf entries pointing to credentials config files
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.5972188Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.5992009Z includeif.gitdir:/home/runner/work/multishoot/multishoot/.git.path
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.5992884Z includeif.gitdir:/home/runner/work/multishoot/multishoot/.git/worktrees/*.path
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.5993384Z includeif.gitdir:/github/workspace/.git.path
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.5993878Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.5997042Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/multishoot/multishoot/.git.path
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.6014424Z /home/runner/work/_temp/git-credentials-c74a420d-c52b-4e0b-bb0e-dbcb0e56dc09.config
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.6021560Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/multishoot/multishoot/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-c74a420d\-c52b\-4e0b\-bb0e\-dbcb0e56dc09\.config
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.6048031Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/multishoot/multishoot/.git/worktrees/*.path
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.6066184Z /home/runner/work/_temp/git-credentials-c74a420d-c52b-4e0b-bb0e-dbcb0e56dc09.config
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.6070518Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/multishoot/multishoot/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-c74a420d\-c52b\-4e0b\-bb0e\-dbcb0e56dc09\.config
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.6092381Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.6108058Z /github/runner_temp/git-credentials-c74a420d-c52b-4e0b-bb0e-dbcb0e56dc09.config
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.6112614Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-c74a420d\-c52b\-4e0b\-bb0e\-dbcb0e56dc09\.config
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.6134155Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.6149802Z /github/runner_temp/git-credentials-c74a420d-c52b-4e0b-bb0e-dbcb0e56dc09.config
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.6154563Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-c74a420d\-c52b\-4e0b\-bb0e\-dbcb0e56dc09\.config
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.6179014Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Ubuntu x86_64 AVX2	Post Checkout repository	2026-11-27T07:18:15.6353729Z Removing credentials config '/home/runner/work/_temp/git-credentials-c74a420d-c52b-4e0b-bb0e-dbcb0e56dc09.config'
+Ubuntu x86_64 AVX2	Complete job	﻿2026-11-27T07:18:15.6475533Z Cleaning up orphan processes
