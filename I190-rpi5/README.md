@@ -263,3 +263,25 @@ the dd conserve walk ends `End` at 3000 after 132 steps with relative error 10.9
 the other three planted walks as the baseline's to rounding. So the cause was the Cauchy sums' accumulator. The crate commit is
 after e091d45 (wip branch); the library is unchanged since 6bfd9b1. `run_24_on_offgrid_ctl` was stopped (my unit) for the rebuild
 and is marked `.stopped`; the feature-on arms are rerun as `run_30` and later.
+
+## Result (criteria against outcomes; the runs of record)
+
+Library: multishoot PR https://github.com/nmoinvaz/multishoot/pull/73, branch `feat/implicit-taylor-r2` at eaf55a8 (on main 70fea18); the
+first branch `feat/implicit-taylor` (6bfd9b1, on 70fac93) is superseded, not deleted (no force-push). Crate: worktree branch
+`wip/i190-implicit-taylor` (rev eaf55a8 in `Cargo.toml`).
+
+| criterion | outcome |
+|---|---|
+| planted cases first, each lane and mode, criteria written before the first run | gated cells all met in f64, dd, qd (`run_20_default`, `run_36`, `run_37`, `summary_run_20.md`); NOT MET and recorded: `coeffs` (every lane), `Conserve` on K-B, R-B, R-D (9 cells) and the crossings of K-B, R-B (6), f64 F1 `Conserve` (1); see D1, A1, E1 |
+| a branch-choice control fails on a stated planted case | `wrong_start`, `switch_mid`, `WrongForm` fail `closed_form` on K-A (1.5, 0.94, 1e4 against 1.2e-26 dd); 6 library controls fail exactly their rows in 3 lanes (A2) |
+| crate behind a feature; #167's, #184's, #183's checks pass on and off; same eta\*, kinds | conical_global.py 17 and all controls on target, conical_loglog.py 20 and 17 of 17, conical_offgrid.py ctl 16 of 16 and n-drift, recip-dd on target; 126, 124 and 68 lines without a gated difference, 537 eta\* equal to 10 digits (largest relative difference 2.5e-15), off equal to the baseline exactly; first feature-on loglog run failed `plant_scale` (D2) |
+| pull request to multishoot, posted on the issue | multishoot#73, comment 7209531728 |
+| `cargo fmt`, clippy (mutate; portable,mutate), bitwise across backends | clean (`run_38` to `run_40`); digests equal on NEON and portable (`run_36`, `run_37`); `+avx2,+fma` not run |
+
+Units (systemd user, `nm-i190-*`): dev01b, dev02, dev03, dev04, clippy1, run01, run02, run_03_clippy_portable_mutate,
+run_04_clippy_nofeatures, build-base, build-on, build-off, build2-off, build2-on, build3-on, build4-off, build4-on, queue1 to
+queue5, run15, run16, run_17..19 clippy (and the `b` reruns), run_20_default, run_21_portable, run_36, run_37, run_38..40 clippy.
+`dev01` was a unit that failed at once (a relative path), rerun as dev01b. One unit of mine was stopped by me: `queue3`
+(for the crate rebuild; `run_24_on_offgrid_ctl.stopped`). The first clippy runs of the Cauchy change failed on a lint
+(`run_17..19_*_failed1`), kept. The skipped jobs `run_12`, `run_13`, `run_14` carry an rc file that says so.
+Timings are in `arm_table.md` (2 threads, nice 10, load at each start in the table). Memory is reported only.

@@ -1,0 +1,12 @@
+[pass] P1: static Ellis wormhole: error against the exact static solution converges at second order for t <= t_c  (orders within [1.75, 2.25])
+    P3 (r, f, phi) vs exact: errors [1.166e-04, 3.053e-05, 7.798e-06] orders [1.934, 1.969]
+    P3 contour r_+ = 0 position: errors [2.890e-04, 7.289e-05, 1.830e-05] orders [1.987, 1.994]
+    P3 contour r_- = 0 position: errors [6.232e-04, 1.577e-04, 3.948e-05] orders [1.983, 1.998]
+    P3 contour slopes dx+/dx- at the finest h: r_+ = 0: 0.666668 (exact 0.666667); r_- = 0: 1.499991 (exact 1.500000); cells misclassified (trapped / anti-trapped / untrapped) [0, 0, 0]
+[pass] P3: Roberts ghost solution (D = 4, exact, nonlinear): second-order error, the two trapping-horizon lines and their slopes, and the cell classification  (slope tol 0.001, at most 3 misclassified
+    C1 max |C_++|, |C_--| [5.921e-04, 1.489e-04, 3.727e-05] orders [1.991, 1.999]
+    C2 edge flux residual [4.506e-04, 1.136e-04, 2.849e-05] orders [1.988, 1.995]; largest M change on the edge [1.180e+00, 1.180e+00, 1.180e+00]
+[pass] C1: constraints C_++, C_-- of a pulse run fall at second order  (max norm at t <= 4.24)
+[pass] C2: mass change along the edge x+ = X equals the integral of the flux at second order, with a nonzero flux  (pulse crossing the edge)
+
+5 of 6 checks pass; 0 fail; skipped: K; 1.1 s

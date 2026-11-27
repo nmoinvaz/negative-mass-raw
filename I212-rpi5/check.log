@@ -1,0 +1,59 @@
+PASS  S1 background (sympy, closed form): (4) (A' R^2)' + 2 R^2 V: residual 0
+PASS  S1 background (sympy, closed form): (5) 2 R''/R + eps phi'^2: residual 0
+PASS  S1 background (sympy, closed form): (6) A (R^2)'' - R^2 A'' - 2: residual 0
+PASS  S1 background (sympy, closed form): (3) eps (A R^2 phi')' - R^2 V_phi: residual 0
+PASS  S1 background (sympy, closed form): theta-theta: 1 - A (R R')' - R^2 V - R A' R': residual 0
+PASS  S2 background (mpmath 40 digits, 5 members, 7 points): max residual 9.224e-39 (declared <= 1e-30)
+PASS  S3 horizon A'(h) = 2 (rho_0 - h)/R^2 ([BF06] (7); (8) as printed has no 2): max abs difference 5.522e-39
+      elapsed 1 s
+PASS  S4 linearized equations (sympy, generic A, R, phi0): background (0, 0): 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0): background (0, 1): 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0): background (1, 1): 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0): background (2, 2): 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0): background S: 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0): G1 t-t residual after the master equation: 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0): G1 rho-rho residual after the master equation: 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0): BK (0, 0) residual after the master equation: 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0): BK (1, 1) residual after the master equation: 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0): [BKZ12] (41): A*Utilde - rhs: 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0):   ... and eps = +1: 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0): gauge map F = -phi0' Y/R' residual: 0
+PASS  S5 family coefficients vs generic derived equation (mpmath 30 digits): max abs difference 2.958e-31
+      elapsed 26 s
+PASS  S8 Vhat of u = Y/rho against [BKZ12] (40), (41) (mpmath 30 digits, members c = 0, -0.3, -1.5): max abs difference 1.104e-29 (declared <= 1e-25)
+PASS  S7 Poeschl-Teller limit c -> -1 (sympy): limit of Vhat = 2*A1**2*(1 - t)/t**2; residual of u = sech(A1 x/2), W = A1/2: 0
+PASS  S7b Vhat of the member c = -1.0001 against the Poeschl-Teller well: max |Vhat - V_PT|/(A1^2/2) over the well = 1.504e-03 (declared <= 3e-3)
+PASS  S7c c -> -1 from above (sympy): limit of Vhat = 2*A1**2*(t + 1)/t**2; residual of u = 1/sinh(A1 x/2), W = A1/2: 0
+PASS  S7d Vhat of the member c = -0.9999 against (A1^2/2)/sinh^2(A1 x/2): max relative difference, -6 <= A1 x <= 3, |A1 x| >= 0.5 = 1.287e-03 (declared <= 3e-3)
+      [BKZ12] (37) as printed: U = e^{-2 mu2} ( eps (e^{2 mu3} - V) phi'^2/mu3'^2 - 2 phi' V_phi/mu3' + eps V_phiphi ),
+      against (41) U/A = eps phi'^2/R'^2 (R^2 V - 1) + 2 phi' R V_phi/R' + eps V_phiphi, eps = -1, member c = -0.3:
+        rho      U/A from (41)        U/A from (37) as printed     ratio
+          -1.3      1.1214451614828     -3.0086214446693     -2.6828075
+           0.7      1.8119886601538     -5.7642134060857     -3.1811531
+           2.4    0.016827991372832     -2.3715406416267     -140.92833
+      (36) as printed: e^{-2 mu2 - 2 nu} ddot(dphi) - dphi'' - dphi' (nu' - 2 mu3' + mu2') + U dphi = 0 gives, with (7), the
+      coefficients 1 and -2 R'/R. The derived equation has 1/A^2 and A'/A + 2 R'/R (= nu' - mu2' + 2 mu3').
+	Command being timed: "/home/nathan/Source/negative-mass-venv314/bin/python stability.py check"
+	User time (seconds): 27.09
+	System time (seconds): 0.12
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:27.29
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 126444
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 24186
+	Voluntary context switches: 24
+	Involuntary context switches: 5461
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit 0

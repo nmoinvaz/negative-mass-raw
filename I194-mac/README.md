@@ -171,4 +171,47 @@ Method and criteria changed after development runs, none after a run of record. 
    of t_k (multisolver's detection) and ω_min and its α_c by the extremum of the interpolating polynomial of ω(α_c) (2 windows).
 8. **Newton tolerance** for stars is 1e-28 (scaled rows); S4's limit 1e-28 is unchanged.
 
-Controls' targets and effects: Amendment A2, after the control development runs.
+
+### A2 (2026-11-26, after dev_01 to dev_05 and the stopped run_03, on the coordinator's ruling; no run of record has produced a family row yet)
+
+The one arclength run of the whole family (run_03, checks C, F, Z) was stopped at 2 h 29 min (rc 143) with nothing finished. The cost, measured:
+
+| run | what | number |
+|---|---|---|
+| dev_02 (old Newton) | arclength from ω = 0.45 to α_c = 3.736 | 1370 points, 137 chunks, 2168 s, 1.6 s per point |
+| dev_03 (new Newton) | to α_c = 2.02, four mode scans | 630 s |
+| dev_05 (new Newton, load averages 23.5 / 17.5 / 12.1 on 10 cores, `par = false`) | chunks 1 to 10 | 3.0 s per point; 84 % and 80 % of busy samples in `bvp::recursion`, 1.1 of 2 threads busy |
+| projection (not measured: the new code never ran beyond α_c = 2.02) | to 4.017906 | 1900 to 3600 points, 0.9 to 3 h, before rows and scans |
+
+1. **C as worded is NOT MET.** The README's C asks for the pseudo-arclength continuation from the weak-field star to α_c = 4.017906. It is reported as not met
+   (driver check `C2`), with the reason above. The stored rows are still compared (check `C1`) by the procedure below.
+2. **Procedure.** (a) Stage `arc`: multisolver's arclength continuation of the α_c-pinned family from the weak-field star (ω = 0.66, continued to 0.45)
+   through the ω-fold to α_c = 2.0, chunks of 10 points, rows at the 13 stored α_c ≤ 2.0 (1.10 to 2.0), mode scans at 1.10, 1.20, 1.50, 2.00, the
+   variants at 2.00. (b) Stages `stepA`, `stepB`, `stepC`: rows at the 22 stored α_c > 2.0 (2.1 to 4.017906) by Newton at each α_c on the same multishoot
+   layout (`solve_z`), α_c stepped up from the ω = 0.45 star: first step 0.01, at most 0.05, ×1.3 after a success, halved after a failure; a step is
+   taken when Newton reaches a scaled residual ≤ 1e-24 and k changes by at most 25 % (|Δ ln k| ≤ 0.25, a guard against landing on another star); the
+   step lands on every target. If the step falls below 1e-7 the stepping stops, the last α_c reached is reported and no other method is tried.
+   Mode scans at 2.5, 3.0 (`stepB`, with the variants at 3.0), 3.5, 3.9, 4.0, 4.015 (`stepC`). Every bar of the row comparisons and of the mode
+   scans is as declared above. Each stage is one child process of at most 3600 s of wall time, stopped by its PID at that limit.
+3. **`par = true`.** The arclength corrector's Jacobian, LU and tangent run on rayon tasks (they ran serially in dev_01 to dev_05: `cont.rs` passed `par = false`),
+   with `RAYON_NUM_THREADS=2`. multishoot documents that the result does not depend on `par`; dev_06 (`par=0`) and dev_07 (`par=1`) run one chunk of 10 points
+   and are compared digit by digit: **all 7 JSON lines are identical** except their timing fields (the start star, both rows at α_c = 1.07 and 1.08 to 30 digits with their residual norms, the chunk's end point, the ten path points (α_c, ω) in full f64 representation). Chunk 1 took 16.5 s with `par=0` and 12.9 s with `par=1`, load averages 8 to 11 on 10 cores: one measurement, not a benchmark.
+4. **Driver.** The child's output is streamed to the log and the JSON lines are written and flushed as they arrive (`--stage=NAME` runs one stage and writes
+   RAW/NAME.jsonl; `--arc-log=a.jsonl,b.jsonl,...` evaluates C, F, Z from the stage logs). Each child is capped at 3600 s.
+5. **A hypothesis, untested** (no run spent on it): the arclength step stays near 1e-3 in α_c because the scaled step norm (`Scaling::Iterates`, needed so that Newton
+   sees the tail unknowns of size 1e-44 and below) lets the tail, ln P ≈ −2kr over 44 decades, set the step. dk/k per point was 6e-4 on the weak side and 1.6e-3 at k = 0.35.
+
+**A2, development results (dev_08 to dev_11), written after them; nothing below moves a declared bar.**
+
+- dev_08 failed in its first second (an empty `modes=` and the target 4.017906 formatted as 4.01791 by `:g`; run_03 had the second bug too). Fixed.
+- dev_09 stalled at α_c = 3.4824498 (target 3.5) because `step_family` also required Newton's own flag `converged` (tolerance 1e-28), which A2 does not
+  declare. dev_10 logged the reasons: at α_c = 3.0 every refused step had a scaled residual of 2.2e-27 to 3.0e-27 (bar 1e-24) with the flag false.
+  The code now takes a step when the scaled residual is at most 1e-24 and |Δ ln k| ≤ 0.25, as A2 says.
+- dev_11 (stage `stepA`, 1486 s, load averages 3 to 7 on 10 cores): rows 2.1 to 3.9 (19 rows), 362 solves, 106 refused; **stalled at α_c = 3.9935489**
+  (k = 0.1038, ω = 0.99460), target 4.0, with the step below 1e-7: Newton's scaled residual stays at 2e-6 to 8e-6 for every step down to 1e-7 (its first
+  iterate 1.5). Not a turning point in α_c (the stored family is smooth to 4.017906). By the ruling the stepping stops there and no other method is tried.
+  The accepted rows' scaled residuals grow with α_c: 6.6e-29 (3.5), 2.7e-28 (3.6), 1.3e-27 (3.7), 5.5e-27 (3.8), 7.3e-27 (3.9).
+  Against the stored table: 48 of 57 tokens equal; 9 differ by 1.0 to 1.5 half-units of the last printed digit (relative at most 5.0e-8; the stored rows are
+  boundary-value solutions at 1e-8): ω at 2.3, 2.8, 3.9; N at 2.1, 2.4, 2.8, 3.5, 3.9; M at 2.4. Not equal as worded; reported, not loosened.
+
+Controls' targets and effects: Amendment A3, after the control development runs.

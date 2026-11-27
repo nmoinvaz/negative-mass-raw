@@ -1,0 +1,11 @@
+[package]
+name = "ind190"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+multishoot = { path = "/Users/nathan/Source/negative-mass-r190/multishoot" }
+
+[profile.release]
+opt-level = 3

@@ -1,0 +1,10 @@
+checks.py: kernel numba, numba present, mutation None, only ['F1', 'S']
+    F1 ghost, +A: fate expand at t = 7.396; E0 = -0.0299; diagonal throat at the last live cell t = 16.96 r = 8.5162 H = +1.6148; min-r slice at the end t = 16.49 r = 8.1772
+    F1 ghost, -A: fate collapse at t = 3.734; E0 = +0.0254; diagonal throat at the last live cell t = 5.67 r = 0.2756 H = -4.9671; min-r slice at the end t = 5.69 r = 0.1634; M at the first trapped cell 0.4975
+    F1 normal, +A: fate collapse at t = 6.293; E0 = +0.0022; diagonal throat at the last live cell t = 8.81 r = 0.2666 H = -4.9785; min-r slice at the end t = 8.82 r = 0.2065; M at the first trapped cell 0.4920
+[pass] F1: one pulse of each sign at D = 4: a normal pulse collapses; ghost pulses of the two signs end in a black hole and in an expansion ([SH02]'s two fates). Reported as seen, parameters not tuned  (ghost, +A: expand, ghost, -A: collapse, normal, +A: collapse)
+    S ghost, +A: fate expand -> expand; event time 7.3963 -> 7.3963 (|dt| = 0.00e+00, tolerance 1.13e-01); dead cells 0 -> 0
+    S ghost, -A: fate collapse -> collapse; event time 3.7335 -> 3.7335 (|dt| = 0.00e+00, tolerance 1.13e-01); dead cells 172322 -> 171698
+[pass] S: sensitivity: with r_cut halved and F_cut doubled, one classified collapse and one classified expansion keep their fate and their event time within 4.0 h
+
+2 of 2 checks pass; 0 fail; 3.1 s

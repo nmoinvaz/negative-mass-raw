@@ -1,0 +1,20 @@
+# systemd user units of I212-rpi5 (all: systemd-run --user --unit=<name> nice -n 10, OMP_NUM_THREADS=1)
+# development (logs in dev/)
+nm-i212-devscan-103215, nm-i212-devscan-100110, nm-i212-devscan-090705   scan of the members, rtol 1e-10 (dev/devscan_*.log)
+nm-i212-devcheck, nm-i212-devcheck2                                        stability.py check (dev/check_dev1.log, check_dev2.log)
+nm-i212-devplanted                                                         stability.py planted (dev/planted_dev1.log)
+nm-i212-devmut1                                                            check mutations (dev/mut_check_dev1.log)
+nm-i212-devctl1, devctl2, devctl3, devhz                                   numeric controls (dev/ctl_*.log)
+nm-i212-devm1, devm2, devm3                                                R1 of 19 members (dev/members/)
+nm-i212-devspec                                                            spectral check (dev/spectral_dev.log)
+nm-i212-devctlall                                                          stability.py controls (dev/controls_dev1.log)
+# runs of record
+nm-i212-check
+nm-i212-planted
+nm-i212-m1
+nm-i212-m2
+nm-i212-m3
+nm-i212-spectral
+nm-i212-controls
+nm-i212-check2
+nm-i212-controls2

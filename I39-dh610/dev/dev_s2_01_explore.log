@@ -1,0 +1,24 @@
+== static Ellis, error vs exact, region = whole rectangle, t_c = sqrt2 X
+n=2 h=0.04 N=71: max err (r,f,phi) 1.4393e-03  r only 6.5554e-04
+n=2 h=0.02 N=141: max err (r,f,phi) 3.4875e-04  r only 1.5837e-04  order 2.045
+n=2 h=0.01 N=283: max err (r,f,phi) 8.8553e-05  r only 4.0276e-05  order 1.978
+n=2 h=0.005 N=566: max err (r,f,phi) 2.2138e-05  r only 1.0069e-05  order 2.000
+n=3 h=0.028 N=68: max err (r,f,phi) 1.1391e-02  r only 3.9196e-03
+n=3 h=0.014 N=136: max err (r,f,phi) 2.8296e-03  r only 9.7451e-04  order 2.009
+n=3 h=0.007 N=273: max err (r,f,phi) 7.1822e-04  r only 2.4762e-04  order 1.978
+n=3 h=0.0035 N=545: max err (r,f,phi) 1.7798e-04  r only 6.1340e-05  order 2.013
+== Tangherlini invariants
+n=2 h=0.04 N=88: M0=0.7500 rh=1.50000 max|M-M0| 9.714e-01  contour pts 0 r on contour mean nan dead 308
+n=2 h=0.02 N=175: M0=0.7500 rh=1.50000 max|M-M0| 1.175e+00 order -0.27  contour pts 0 r on contour mean nan dead 1069
+n=2 h=0.01 N=350: M0=0.7500 rh=1.50000 max|M-M0| 1.366e+00 order -0.22  contour pts 0 r on contour mean nan dead 4160
+n=3 h=0.04 N=88: M0=2.2500 rh=2.12132 max|M-M0| 3.919e+00  contour pts 0 r on contour mean nan dead 2809
+n=3 h=0.02 N=175: M0=2.2500 rh=2.12132 max|M-M0| 4.402e+00 order -0.17  contour pts 0 r on contour mean nan dead 10888
+n=3 h=0.01 N=350: M0=2.2500 rh=2.12132 max|M-M0| 5.536e+00 order -0.33  contour pts 0 r on contour mean nan dead 43337
+n=4 h=0.04 N=88: M0=6.7500 rh=2.38110 max|M-M0| 1.374e+01  contour pts 0 r on contour mean nan dead 4250
+n=4 h=0.02 N=175: M0=6.7500 rh=2.38110 max|M-M0| 1.839e+01 order -0.42  contour pts 0 r on contour mean nan dead 16605
+n=4 h=0.01 N=350: M0=6.7500 rh=2.38110 max|M-M0| 2.605e+01 order -0.50  contour pts 0 r on contour mean nan dead 66168
+== Roberts
+h=0.04 N=50: max err 1.1664e-04  contour r+=0: n=37 slope 0.66670 (2/3) maxdev 2.890e-04;  r-=0: n=25 slope 1.49984 (3/2) maxdev 6.232e-04
+h=0.02 N=100: max err 3.0526e-05 order 1.934  contour r+=0: n=74 slope 0.66667 (2/3) maxdev 7.289e-05;  r-=0: n=50 slope 1.49996 (3/2) maxdev 1.577e-04
+h=0.01 N=200: max err 7.7977e-06 order 1.969  contour r+=0: n=149 slope 0.66667 (2/3) maxdev 1.830e-05;  r-=0: n=100 slope 1.49999 (3/2) maxdev 3.948e-05
+h=0.005 N=400: max err 1.9699e-06 order 1.985  contour r+=0: n=299 slope 0.66667 (2/3) maxdev 4.584e-06;  r-=0: n=200 slope 1.50000 (3/2) maxdev 9.877e-06

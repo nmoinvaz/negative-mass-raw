@@ -1,0 +1,7 @@
+dev_05_profile: the run_03 arc command (omega 0.66 -> 0.45 start, arclength in alpha_c, chunk=10 ds=0.05 ds_max=5) with rows at 1.10..1.30 and no mode scans,
+verbose=1, from /Users/nathan/Source/negative-mass-i194 commit 64ff7f5 (+ the uncommitted driver edit, not used here). Stopped by me at the 420 s
+condition (SIGTERM, PID 56023), rc 143. It is a diagnostic of the cost, not a run of record. Two `sample` profiles (20 s each, 1 ms) of PID 56023 at
+about 110 s and 250 s: dev_05_profile.sample_a.txt, .sample_b.txt; shares by dev_05_sample_shares.py.
+machine   Apple M5, 10 cores, 32 GB; RAYON_NUM_THREADS=2; nice 10; load averages (1, 5, 15 min) 23.51 17.51 12.11 at 19:48, after the run;
+          other jobs on the machine: two python solvers at 100 % CPU, CloudMounter 99 %, mediaanalysisd 74 %
+chunks    1..10 took 17.9 32.9 23.8 20.9 25.6 36.2 29.1 31.5 43.0 35.6 s (sum 296.5 s, 100 points: 3.0 s per point); the same chunks in dev_03 took 12 to 20 s

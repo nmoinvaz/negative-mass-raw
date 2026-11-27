@@ -1,0 +1,27 @@
+=== mutate bg_V
+FAIL  S1 background (sympy, closed form): (4) (A' R^2)' + 2 R^2 V: residual 6*m*rho/b**2
+FAIL  S1 background (sympy, closed form): (3) eps (A R^2 phi')' - R^2 V_phi: residual 3*sqrt(2)*m*(-b**2 + rho**2)/(2*b**3)
+FAIL  S1 background (sympy, closed form): theta-theta: 1 - A (R R')' - R^2 V - R A' R': residual -3*m*rho/b**2
+FAIL  S2 background (mpmath 40 digits, 5 members, 7 points): max residual 6.482e+01 (declared <= 1e-30)
+exit 
+=== mutate bg_A
+FAIL  S1 background (sympy, closed form): (4) (A' R^2)' + 2 R^2 V: residual 2*m*(-Ts*b**2 - 3*Ts*rho**2 - 3*b*rho)/b**3
+FAIL  S1 background (sympy, closed form): (3) eps (A R^2 phi')' - R^2 V_phi: residual 2*sqrt(2)*m*(Ts*rho + b)/b**2
+FAIL  S1 background (sympy, closed form): theta-theta: 1 - A (R R')' - R^2 V - R A' R': residual m*(Ts*b**2 + 3*Ts*rho**2 + 3*b*rho)/b**3
+exit 
+=== mutate bg_kappa
+FAIL  S3 horizon A'(h) = 2 (rho_0 - h)/R^2 ([BF06] (7); (8) as printed has no 2): max abs difference 6.013e-01
+exit 
+=== mutate master_p
+FAIL  S4 linearized equations (sympy, generic A, R, phi0): G1 t-t residual after the master equation: W**2*Y(rho)/R(rho) - 3*epsilon*A(rho)**2*Derivative(P0(rho), rho)**2*Derivative(Y(rho), rho)/(2*Derivative(R(rho), rho)) - epsilon*A(rho)**2*Y(rho)*Derivative(P0(rho), rho)**2/(2*R(rho)) + epsilon*A(rho)*Y(rho)*Derivative(A(rho), rho)*Derivative(P0(rho), rho)**2/(2*Derivative(R(rho), rho)) - 2*A(rho)**2*Derivative(P0(rho), (rho, 2))*Derivative(Y(rho), rho)/(R(rho)*Derivative(P0(rho), rho)) + A(rho)*Y(rho)*Derivative(A(rho), rho)*Derivative(P0(rho), (rho, 2))/(R(rho)*Derivative(P0(rho), rho)) + A(rho)*Derivative(A(rho), rho)*Derivative(Y(rho), rho)/(2*R(rho)) + 2*A(rho)*Y(rho)*Derivative(A(rho), rho)*Derivative(R(rho), rho)/R(rho)**2 - 2*A(rho)*Y(rho)/R(rho)**3
+FAIL  S4 linearized equations (sympy, generic A, R, phi0): G1 rho-rho residual after the master equation: -W**2*Y(rho)/(A(rho)**2*R(rho)) + 3*epsilon*Derivative(P0(rho), rho)**2*Derivative(Y(rho), rho)/(2*Derivative(R(rho), rho)) + epsilon*Y(rho)*Derivative(P0(rho), rho)**2/(2*R(rho)) - epsilon*Y(rho)*Derivative(A(rho), rho)*Derivative(P0(rho), rho)**2/(2*A(rho)*Derivative(R(rho), rho)) + 2*Derivative(P0(rho), (rho, 2))*Derivative(Y(rho), rho)/(R(rho)*Derivative(P0(rho), rho)) + 2*Derivative(R(rho), rho)*Derivative(Y(rho), rho)/R(rho)**2 - Y(rho)*Derivative(A(rho), rho)*Derivative(P0(rho), (rho, 2))/(A(rho)*R(rho)*Derivative(P0(rho), rho)) - Derivative(A(rho), rho)*Derivative(Y(rho), rho)/(2*A(rho)*R(rho)) - 2*Y(rho)*Derivative(A(rho), rho)*Derivative(R(rho), rho)/(A(rho)*R(rho)**2) + 2*Y(rho)/(A(rho)*R(rho)**3)
+FAIL  S4 linearized equations (sympy, generic A, R, phi0): gauge map F = -phi0' Y/R' residual: -Derivative(P0(rho), rho)*Derivative(Y(rho), rho)/R(rho)
+FAIL  S5 family coefficients vs generic derived equation (mpmath 30 digits): max abs difference 3.831e-01
+exit 
+=== mutate bkz41_sign
+FAIL  S4 linearized equations (sympy, generic A, R, phi0): [BKZ12] (41): A*Utilde - rhs: -4*A(rho)*R(rho)*Derivative(P0(rho), rho)*Derivative(P0(rho), (rho, 2))/Derivative(R(rho), rho) - 8*A(rho)*Derivative(P0(rho), rho)**2 - 4*R(rho)*Derivative(A(rho), rho)*Derivative(P0(rho), rho)**2/Derivative(R(rho), rho)
+FAIL  S4 linearized equations (sympy, generic A, R, phi0):   ... and eps = +1: 4*A(rho)*R(rho)*Derivative(P0(rho), rho)*Derivative(P0(rho), (rho, 2))/Derivative(R(rho), rho) + 8*A(rho)*Derivative(P0(rho), rho)**2 + 4*R(rho)*Derivative(A(rho), rho)*Derivative(P0(rho), rho)**2/Derivative(R(rho), rho)
+exit 
+=== mutate family_q
+FAIL  S5 family coefficients vs generic derived equation (mpmath 30 digits): max abs difference 8.072e-01
+exit 

@@ -1,0 +1,70 @@
+conical_offgrid.py: grid ctl; controls run every check (on the ctl grid) and must fail their targets and no others
+[PASS] n_table: the lane's N (hp.rs EvalS, double-double) at 40 rational points against det_classify.conical_N() (typed): worst |dN|/sum|terms| 1.77e-32; against conical_limit.build_N() (rebuilt from D): 1.77e-32; threshold 1e-26
+  (0 s)
+[PASS] series_hp: tables_hp.rs equals the regenerated table: True; the lane series of 3 pairs [(0.001, 100000.0, 6), (0.01, -1000000.0, 5), (0.1, 30000000.0, 6)] at the radius shown: dd: worst relative difference of F, F', F'' 3.7e-32 (bar 1.0e-26, mpmath at 50 digits); qd: worst relative difference of F, F', F'' 4.8e-65 (bar 1.0e-55, mpmath at 90 digits); the chosen start residuals of the pairs ['6.1e-22', '6.1e-22', '9.3e-28'] (bar 1e-20)
+  (1 s)
+[PASS] plant_167: #167's planted cases through the same crate: matching (|C- - a|, |e|, |C+ - b|, nodes) linear: 6.5e-28, 5.8e-34, 3.5e-29, 2.8e-29, cubic: 7.7e-28, 5.9e-34, 4.0e-29, 2.1e-29 (bars 1e-20, 1e-22); blowup: 8 walks, worst error 7.5e-12, worst bar 1.2e-12 (1e-8), kinds right: True
+  (1 s)
+[FAIL] plant_far: planted equations started at x0 = 1e6 and walked inward by hp_walk with the locator: F'' = 2F^3 (pl6) and F F'' + F'^2 = 0 (pl7), x* = 0.7321, error and bar <= 1e-8; (1 + x^2) F'' + 4 x F' + 2 (F - 7/10) = 0 (pl4), exact alpha + (a + b x)/(1 + x^2): pl6 dd: x* error 0.0e+00, bar 0.0e+00, 490 steps from 1e6; pl7 dd: x* error 7.1e-14, bar 2.6e-14, 420 steps from 1e6; pl4 dd: worst relative error of F, F', F'' at 1e3, 10, 1 1.8e-27 (bar 1.0e-24); pl6 qd: x* error 0.0e+00, bar 0.0e+00, 429 steps from 1e6; pl7 qd: x* error 6.8e-15, bar 2.6e-15, 391 steps from 1e6; pl4 qd: worst relative error of F, F', F'' at 1e3, 10, 1 1.1e-27 (bar 1.0e-50)
+  (1 s)
+[PASS] regress167: #167's 187 grid points through `offgrid` (hp walker, series tables of 8 parts) and through #167's `conical_global scan --rstop=1e-8` (both run here): class and kind equal and eta* within 1e-8 at 172 singular points (worst difference 1.8e-13); mismatches []
+  (56 s)
+[NOTE] scan_first_pass: the first pass (stop at R <= 1e-8 max(1, x)) and the pass of record (R <= 1e-12 max(1, x)) differ at 2 of 31 points:
+   F_inf=4 C=10000: first pass S:a3->0 at 3.851819411; record S:F->0 at 3.527557745
+   F_inf=16 C=100000: first pass S:a3->0 at 15.9477322; record S:F->0 at 15.86125434
+  region A: 14 points, classes {'S:F->0': 9, 'FLOOR:log': 3, 'S:a3->0': 2}; singular eta* from 1.282 to 1e+04
+  region B: 10 points, classes {'S:F->0': 6, 'FLOOR:log': 4}; singular eta* from 1.288 to 3162
+  region C: 7 points, classes {'S:F->0': 6, 'S:a3->0': 1}; singular eta* from 15.62 to 2500
+  chosen start radius L: {200.0: 4, 800.0: 2, 3200.0: 9, 12800.0: 4, 51200.0: 6, 204800.0: 6}; worst start residual 3.9e-21
+  scan of record (class of each point; singular eta* to 10 digits, F_inf then C: label@eta*):
+   F_inf=1: -1e+08:F->0@9999.996516 -100000:F->0@316.1612721 -10000:F->0@99.83572354 0:F->0@1.281933263 10000:FLOOR:log 100000:FLOOR:log 1e+08:FLOOR:log
+   F_inf=4: -1e+08:F->0@4999.980435 -100000:F->0@157.7461609 -10000:F->0@49.09921366 0:F->0@3.035483925 10000:F->0@3.527557745 100000:a3->0@3.870076593 1e+08:a3->0@3.872978153
+   F_inf=0.01: -100000:F->0@3162.269412 -10000:F->0@999.9779473 0:F->0@1.288571687 10000:FLOOR:log 100000:FLOOR:log
+   F_inf=0.1: -100000:F->0@999.9779119 -10000:F->0@316.1706753 0:F->0@1.288259072 10000:FLOOR:log 100000:FLOOR:log
+   F_inf=16: -1e+08:F->0@2499.576479 -100000:F->0@71.22701017 -10000:F->0@15.62204114 0:F->0@15.78191794 10000:F->0@15.81421368 100000:F->0@15.86125434 1e+08:a3->0@15.96866047
+  FLOOR points (7): F at 1e-6 and p = eta F' at 1e-2, 1e-4, 1e-6; p0 C/(4 F_inf^2) at 1e-6:
+   F_inf=0.01 C=10000 (log): F = 0.00999917; p = 3.9951e-08, 3.9957e-08, 3.9962e-08; p0 C/(4 F_inf^2) = 0.999047
+   F_inf=0.01 C=100000 (log): F = 0.00999991; p = 3.9985e-09, 3.9987e-09, 3.9988e-09; p0 C/(4 F_inf^2) = 0.999710
+   F_inf=0.1 C=10000 (log): F = 0.0999215; p = 4.0084e-06, 4.0250e-06, 4.0418e-06; p0 C/(4 F_inf^2) = 1.010442
+   F_inf=0.1 C=100000 (log): F = 0.0999917; p = 4.0035e-07, 4.0088e-07, 4.0140e-07; p0 C/(4 F_inf^2) = 1.003503
+   F_inf=1 C=10000 (log): F = 0.723178; p = 1.7306e-03, 1.3907e-02, 1.3777e-01; p0 C/(4 F_inf^2) = 344.425606
+   F_inf=1 C=100000 (log): F = 0.986813; p = 1.0569e-04, 6.9420e-04, 6.0813e-03; p0 C/(4 F_inf^2) = 152.033401
+   F_inf=1 C=1e+08 (log): F = 0.999998; p = 4.6020e-08, 1.3500e-07, 7.3540e-07; p0 C/(4 F_inf^2) = 18.385046
+  FLOOR, p(1e-6)/p(1e-4) within 10% of 1 (a log end, p0 = p): 4 of 7; larger (p still rising at the floor: the flow closes on a singularity below it): 3
+   F_inf=0.01: 2 floor points, 2 with p flat; p(1e-6)/p(1e-4) from 1.0000 to 1.0001
+   F_inf=0.1: 2 floor points, 2 with p flat; p(1e-6)/p(1e-4) from 1.0013 to 1.0042
+   F_inf=1: 3 floor points, 0 with p flat; p(1e-6)/p(1e-4) from 5.4473 to 9.9064
+  flat FLOOR points (4): p0 C/(4 F_inf^2) from 0.99905 to 1.01044
+  kappa-curve ends: 3 at R <= 1e-12 and 5 at R <= 1e-8; by F_inf (points, C range, eta* range, sqrt(F_inf^2 - 1)):
+   F_inf=4: 2 points, C from 100000 to 1e+08, eta* from 3.8700766 to 3.8729782; sqrt(F_inf^2 - 1) = 3.8729833
+   F_inf=16: 1 points, C from 1e+08 to 1e+08, eta* from 15.96866 to 15.96866; sqrt(F_inf^2 - 1) = 15.968719
+  F->0 points with eta* < 1e-4: 0
+  FLOOR: p0 F_inf > 0 at every FLOOR point: True
+  F->0 points: 21, eta* from 1.282 to 1e+04; measured exponent against 2/(eta*^2 + 4): worst relative difference 2.9e-03
+[PASS] scan: 31 points (ctl grid), classes {'S:F->0': 21, 'FLOOR:log': 7, 'S:a3->0': 3}; every point has a verdict (none NOSTART, STEPLIMIT, NONFINITE, TINYSTEP: True); start residual <= 1e-20 at every start: True; every SINGULAR has a bar <= 1e-8 max(1, eta*): True (max bar 3.2e-14); THROUGH 0, GLOBAL 0; not classified []
+  (9 s)
+[PASS] spread: the same point from the next start radius 4 L (residual <= 1e-20 there too): 31 of 31 points have a second start; class and kind equal, eta* within 1e-8 max(1, eta*), FLOOR p0 within a relative 1e-9; worst eta* difference 0.0e+00; mismatches 0 []
+  (5 s)
+[PASS] dd_qd: quad-double (kt 60, tol 1e-64) against double-double on 31 points (start radius >= 204800 and the 30 smallest and 30 largest eta*): class and kind equal, eta* within 1e-12 max(1, eta*), FLOOR p0 within a relative 1e-12; worst relative eta* difference 0.0e+00; mismatches 0 []
+  (221 s)
+[PASS] modes: `project` (Newton on F'' at each step) against `conserve` (N constant) over 31 points: class and kind equal, eta* within 1e-10 max(1, eta*), FLOOR p0 within 1e-10; worst relative eta* difference 0.0e+00; mismatches 0 []
+  (5 s)
+[PASS] symmetry: (F_inf, C) -> (-F_inf, -C) over 31 points: class and kind equal, eta* within 1e-10 max(1, eta*), |p0| within a relative 1e-10; worst relative eta* difference 0.0e+00; mismatches 0 []
+  (5 s)
+[PASS] n4_factor: the lowest-degree part of N (degree 4 in F, F', F'') equals -(eta F'' + F')^2 [(eta^2+1)(eta^2+2) F'^2 + 2F((eta^2+1)F'' + eta F')] (sympy, expanded): True; with F'/F = 1/(2 chi), chi = sqrt(eta^2+1) h, h = K + 7/8 asinh(eta) + eta sqrt(eta^2+1)/8, the second factor vanishes identically (Bernoulli equation (eta^2+1) psi' + eta psi + (eta^2+1)(1 + eta^2/4) psi^2 = 0, sympy): True
+  (0 s)
+[PASS] closed_form: F_inf -> 0: N4 = -(eta F'' + F')^2 [(eta^2+1)(eta^2+2) F'^2 + 2F((eta^2+1)F'' + eta F')] gives F'/F = 1/(2 chi), F -> 0 at the root of h; the crate's eta* against it: relative difference at F_inf = 0.005 <= 1e-4 and the difference falls by 4 +- 1 per halving of F_inf (O(F_inf^2)): c=-100: eta*0 = 9.409550756, difference at F_inf = 0.04, 0.02, 0.01, 0.005: 2.04e-04, 5.09e-05, 1.27e-05, 3.18e-06; ratios 4.00, 4.00; c=0: eta*0 = 1.288574873, difference at F_inf = 0.04, 0.02, 0.01, 0.005: 5.09e-05, 1.27e-05, 3.19e-06, 7.96e-07; ratios 4.00, 4.00; c=6: eta*0 = 0.4573391187, difference at F_inf = 0.04, 0.02, 0.01, 0.005: 6.36e-04, 1.59e-04, 3.99e-05, 9.97e-06; ratios 4.00, 4.00
+  (2 s)
+   line F_inf=0.1: 31 points (C from -1e+07 to 1e+07), classes {'S:F->0': 18, 'FLOOR:log': 13}
+   F_inf=0.1: C in (3.16228, 10) S:F->0|FLOOR:log -> C* = 6.15078139003 (F->0@9.99999e-07 | FLOOR:log p0=3.690e+00), 40 iterations, width 6.2e-12
+[PASS] bisect: 1 class changes along the lines of [0.1] bisected in C to relative width 1e-12; both ends keep their different labels and no end is THROUGH, NOSTART, STEPLIMIT, NONFINITE or TINYSTEP (THROUGH ends 0)
+  (13 s)
+[PASS] independent: own Dormand-Prince 5(4) integration in mpmath (30 digits, relative tolerance 1e-13, F'' by Newton on the cubic; no Rust, no multishoot; shares N and the series with the crate) from the same start against the crate's state, relative |dF|, |dF'| <= 1e-8: (5,3000) from L=800 to eta = 20: relative |dF| 4.2e-14, |dF'| 2.5e-11 (978 steps, 4 s)
+  (4 s)
+[FAIL] recip_check: a quad-double walk of (0.1, 3e4) to eta = 20 with every step halved (106 to 215 steps) changes F and F' by a relative 1.3e-28 (bar 1e-55); the control (--mutate=recip-dd, constants rounded to double-double) must exceed 1e-45
+  (5 s)
+[PASS] step_halving: order 30, tol 1e-32 against order 36, tol 1e-38 (double-double) at 4 points: class and kind equal, eta* within 1e-10 max(1, eta*), p0 within 1e-10; worst relative eta* difference 0.0e+00; mismatches 0 []
+  (1 s)
+
+checks: 14 passed, 2 failed ['plant_far', 'recip_check']. 331 s
+control recip-dd: target checks ['plant_far', 'recip_check'], failed ['plant_far', 'recip_check']
