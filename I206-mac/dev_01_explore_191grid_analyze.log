@@ -1,0 +1,14 @@
+rows (mode 8): 270 resolved (bar of s < 5% of |s|): 256
+fac 0.002: resolved 256 sigma cov 52 (misses 204) alpha cov 33 kind right 256
+fac 1: resolved 256 sigma cov 251 (misses 5) alpha cov 254 kind right 256
+fac 2: resolved 256 sigma cov 254 (misses 2) alpha cov 256 kind right 256
+fac 3: resolved 256 sigma cov 254 (misses 2) alpha cov 256 kind right 256
+f64 rows 90 resolved 78 median bar/err 3.6646708346658516 median err 3.524986798322083e-08
+dd rows 90 resolved 88 median bar/err 15.643164663931735 median err 5.822954504629192e-14
+qd rows 90 resolved 90 median bar/err 44.962779447570625 median err 2.7095509688880856e-21
+unresolved (bs>=0.05): [(3, 'real', 'f64', 0.73, 0.5), (7, 'real', 'f64', 0.53, 0.7), (8, 'pair', 'f64', 1.05, 1.5), (25, 'real', 'f64', 0.13, 1e-06), (25, 'real', 'dd', 0.87, 1e-06), (29, 'pair', 'f64', 0.61, 1e-06), (1, 'pair', 'f64', 0.13, 1e-06), (1, 'pair', 'dd', 0.47, 1e-06), (11, 'real', 'f64', 0.12, 1.5), (27, 'pair', 'f64', 0.2, -0.3), (28, 'real', 'f64', 0.2, -0.3), (42, 'real', 'f64', 0.05, -0.5), (43, 'pair', 'f64', 0.16, 0.7), (44, 'real', 'f64', 0.83, 1e-06)]
+resolved misses at fac 2:
+{'ci': 16, 'kind': 'real', 'lane': 'f64', 'mode': 8, 'fam': 'A', 'es': 1.281168332308954e-16, 'bs': 0.0, 'ea': 1.0547118733938987e-15, 'ba': 5.329070518200751e-15, 'kd': 'real', 'noise': 0.0, 'p': {'alpha': 0.2, 'sigma': -1.7331415343747756, 'tau': 0, 'amp': 1.215066591970879}}
+{'ci': 16, 'kind': 'real', 'lane': 'qd', 'mode': 8, 'fam': 'A', 'es': 1.7532218912169182e-64, 'bs': 0.0, 'ea': 6.077163357286271e-64, 'ba': 1.1546610378843915e-62, 'kd': 'real', 'noise': 0.0, 'p': {'alpha': 0.2, 'sigma': -1.7331415343747756, 'tau': 0, 'amp': 1.215066591970879}}
+GATE (covered >= 254 and misses <= 2 at factor 2): MET (covered 254 of 256, misses 2)
+CONTROL (factor 0.002 covers fewer than 254): FIRES (covered 52)

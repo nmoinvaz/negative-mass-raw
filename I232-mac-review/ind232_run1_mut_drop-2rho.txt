@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-raw/I232-mac-review/ind232.py", line 39, in <module>
+    at_kappa = sorted(sp.nsimplify(sp.simplify(r.subs(W, kap))) for r in roots)
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/sympy/core/decorators.py", line 248, in _func
+    return func(self, other)
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/sympy/core/expr.py", line 400, in __lt__
+    return StrictLessThan(self, other)
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/sympy/core/relational.py", line 848, in __new__
+    raise TypeError("Invalid comparison of non-real %s" % me)
+TypeError: Invalid comparison of non-real sqrt(3)*I/2
+rc=1
