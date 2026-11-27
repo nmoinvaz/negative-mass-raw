@@ -1,0 +1,152 @@
+throat_locus.py analyze {'raw': '/home/nathan/Source/negative-mass-raw/I225-dh610/dev/rec'}: numba 0.68.1, numpy 2.5.4, python 3.14.10, dh610-fedora, load average at start 17.79 19.35 19.45, mutation rho_diag, 2026-11-27 08:47:08
+throat_locus.py analyze: mode record, mutation rho_diag, numba 0.68.1, numpy 2.5.4, 2026-11-27 08:47:09
+    PB D = 4, v = 0.1, h = 0.01, t in [0.8, 4.0]: l 4.2e-06, r 3.5e-05, f 7.6e-05, tau 3.6e-05, v 4.9e-06; orders l [1.96, 2.01], r [2.00, 1.99], f [2.00, 1.99], tau [2.00, 1.99], v [2.02, 1.99]
+    PB D = 4, v = 0.5, h = 0.01, t in [0.8, 4.0]: l 3.3e-05, r 5.3e-05, f 1.3e-04, tau 6.9e-05, v 3.6e-05; orders l [2.03, 1.98], r [2.00, 1.99], f [2.00, 1.99], tau [2.00, 1.99], v [2.00, 1.99]
+    PB D = 4, v = -0.3, h = 0.01, t in [0.8, 4.0]: l 2.1e-06, r 3.1e-06, f 9.6e-06, tau 1.9e-06, v 2.9e-06; orders l [2.19, 2.08], r [2.01, 1.98], f [2.00, 1.98], tau [1.99, 2.00], v [2.00, 1.98]
+    PB D = 5, v = 0.1, h = 0.005, t in [0.8, 2.7]: l 1.1e-05, r 1.2e-04, f 3.5e-04, tau 1.0e-04, v 2.0e-05; orders l [2.00, 1.99], r [1.99, 1.99], f [1.99, 1.99], tau [1.99, 1.99], v [1.99, 2.00]
+    PB D = 5, v = 0.5, h = 0.005, t in [0.8, 2.7]: l 9.3e-06, r 2.9e-05, f 6.9e-05, tau 2.7e-05, v 1.3e-05; orders l [2.00, 1.98], r [1.99, 1.99], f [1.99, 1.99], tau [1.99, 1.99], v [1.99, 2.00]
+    PB D = 5, v = -0.3, h = 0.005, t in [0.8, 2.7]: l 2.1e-05, r 8.3e-05, f 2.4e-04, tau 7.5e-05, v 3.6e-05; orders l [2.00, 1.99], r [1.99, 1.99], f [1.99, 1.99], tau [1.99, 1.99], v [1.99, 2.00]
+[pass] PB: planted static wormhole in the pair-rescaled coordinates (drift v): the locus's l, r_min, f, tau, v against the exact ones, second order in h (PG: orders of l, r, f; tau and v carry the drift window's smoothing floor)  (bars {'l': 0.0002, 'r': 0.0005, 'f': 0.001, 'tau': 0.0005, 'v': 0.001}, orders in [1.75, 2.25])
+    PG D = 4, F(x) = x (1 - c (1 - e^(-x/b))), c = 0.15, b = 3, h = 0.01, t in [0.8, 4.0]: l 3.3e-06, r 3.4e-05, f 7.4e-05, tau 4.1e-05, v 2.1e-04; orders l [2.03, 1.97], r [2.00, 1.99], f [2.00, 1.99]
+    PG D = 5, F(x) = x (1 - c (1 - e^(-x/b))), c = 0.15, b = 3, h = 0.005, t in [0.8, 2.7]: l 6.2e-06, r 1.0e-04, f 3.0e-04, tau 8.3e-05, v 2.1e-04; orders l [2.00, 1.97], r [1.99, 1.99], f [1.99, 1.99]
+[pass] PG: planted static wormhole in another double-null gauge (f != 0, drifting throat): the locus's l, r_min, f, tau against the exact ones, second order in h (PG: orders of l, r, f; tau and v carry the drift window's smoothing floor)  (bars {'l': 0.0002, 'r': 0.0005, 'f': 0.001, 'tau': 0.0005, 'v': 0.001}, orders in [1.75, 2.25])
+    PM the ODE members against GGS09a's closed form (gamma_1 = (0.3, 0.5)): masses 7.9e-06; the fit recovers s_th (n = 2, 3) to 9.8e-10
+    PM the evolved static wormhole (D = 4, h = 0.01, v = 0.1, t = 5.0): r_th 0.999887; M on the two sides against 1/(2r): 6.5e-05; fitted s_th +5.11e-06
+[pass] PM: member machinery: the ODE members reproduce GGS09a's closed form, the fit recovers s_th from M(r) on both sides, and an evolved symmetric static wormhole gives M = 1/(2r) and s_th = 0  (bars: masses 1e-05, s_th 1e-06, evolved |s_th| 0.02, M 0.002)
+[FAIL] PO: locus frame: rho, p_par = rho and w on planted fields (one null stream and a two-sided state) at drifts v = 0, 0.3, -0.5, n = 2, 3  (max deviation 3.0e+00, bar 1e-12)
+    PL de Sitter, H = W, rho = const, w = -1: class DS (expected DS), slope test met (expected met)
+    PL finite-time divergence, r = (tau_s - tau)^-2, rho = -4H^2, w = -1/3: class FT (expected FT), slope test not met (expected not met)
+    PL flat stiff fluid, a ~ tau^(1/3), w = +1: class STIFF (expected STIFF), slope test not met (expected not met)
+    PL Gaussian growth, r = exp(tau^2/2), H = tau, w = -1/3: class GROW (expected GROW), slope test not met (expected not met)
+    PL decelerating radiation, a ~ tau^(1/2), w = +1/3: class OTHER (expected OTHER), slope test not met (expected not met)
+[pass] PL: planted series with known classes (#213's five) through the classification used on the locus
+    PS D = 4, h index 0, drift v = 0.1 (lam = 0.904534): p*_h = 4.155041224294e-05, bracket 7.3e-14; locus tau slope 0.846052 +- 0.000027 (OLS), rel to 1/W +8.44e-06, spread [0.845875, 0.846227]; diagonal t (#40's events) 0.912185 +- 0.011052, rel +7.82e-02, spread [0.844027, 0.978603]
+[pass] PS: planted lifetime series (family S in the pair-rescaled coordinates, throat drifting at v): the slope of the locus's tau against ln(1/|p - p*_h|) is 1/W  (|slope W - 1| <= 0.001 in every case)
+[pass] JOB[D=4 G h=0.02]: all series points and both bracket ends are present and each ran to #40's event  (38 of 38 series, 2 of 2 bracket)
+[pass] CTL[D=4 G h=0.02]: control: the same amplitudes run through the locus code give #40's event, cell and time bit for bit, and #40's diagonal slope 0.898291  (40 of 40 points equal; diagonal slope 0.898291 +- 0.005730 (rel to 1/W +0.0618))
+[pass] FA[D=4 G h=0.02]: every series point with e <= 11 has the same fate on #40's events and on the locus's levels, on its own side of p*_h  (0 of 34 points off)
+    SL D=4 G h=0.02: p*_h = 1.494576357090e-02; locus tau slope 0.849542 +- 0.000249 (OLS SE), n = 34; collapse 0.849923, expansion 0.849160; spread [0.848178, 0.852161]; 1/W = 0.846045, rel +4.13e-03
+       locus t slope 0.870881 +- 0.000192 (rel +2.94e-02); diagonal t of #40 0.898291 +- 0.005730 (rel +6.18e-02, spread [0.864041, 0.958733]); alternative levels (0.75, 3) tau 0.849918; drift at the events [0.0602, 0.0946]
+[pass] ED[D=4 G h=0.02]: the locus tau slope does not depend on the event level: the alternative levels (r_min = 0.75, 3) give a slope inside the primary fit spread  (alternative 0.849918, primary spread [0.848178, 0.852161])
+[pass] JOB[D=4 G h=0.01]: all series points and both bracket ends are present and each ran to #40's event  (38 of 38 series, 2 of 2 bracket)
+[pass] CTL[D=4 G h=0.01]: control: the same amplitudes run through the locus code give #40's event, cell and time bit for bit, and #40's diagonal slope 0.898043  (40 of 40 points equal; diagonal slope 0.898043 +- 0.005462 (rel to 1/W +0.0615))
+[pass] FA[D=4 G h=0.01]: every series point with e <= 11 has the same fate on #40's events and on the locus's levels, on its own side of p*_h  (0 of 34 points off)
+    SL D=4 G h=0.01: p*_h = 1.487735996748e-02; locus tau slope 0.849536 +- 0.000247 (OLS SE), n = 34; collapse 0.849925, expansion 0.849146; spread [0.848179, 0.852151]; 1/W = 0.846045, rel +4.13e-03
+       locus t slope 0.870901 +- 0.000191 (rel +2.94e-02); diagonal t of #40 0.898043 +- 0.005462 (rel +6.15e-02, spread [0.863276, 0.957708]); alternative levels (0.75, 3) tau 0.849913; drift at the events [0.0605, 0.0946]
+[pass] ED[D=4 G h=0.01]: the locus tau slope does not depend on the event level: the alternative levels (r_min = 0.75, 3) give a slope inside the primary fit spread  (alternative 0.849913, primary spread [0.848179, 0.852151])
+[pass] RA[D=4 G]: the locus tau slopes at the two finest h agree within 0.5%  (0.849542 (h = 0.02), 0.849536 (h = 0.01); rel +6.90e-06)
+    MB D=4 G h=0.02: p*_h -/+ 10^-9; per profile slice: t, tau, r_th, drift v, lapse f, M(r) on the + and - side at r = (1.25, 1.5, 2.0, 3.0, 4.0) r_th, fitted s_th = r_th N'/N (gamma_1 = s_th/sqrt(1 - s_th^2) in D = 4), normal/ghost charge ratio q_n^2/q_g^2, pair rate lambda (1/lambda), member e-fold
+       t   4.0 tau   3.99 r_th 1.0062 v +0.0059 f +0.0547 s_th +0.0399 (rms 9.0e-03) gamma_1 0.0399 q ratio +6.1e-09 lambda 2.8516 (1/lambda 0.3507) member 0.8504 (1/lambda / member 0.4124); M(1.5, 2, 3 r_th) + [0.3608, 0.2854, 0.2065] - [0.3316, 0.2485, 0.1656]
+       t   5.0 tau   4.96 r_th 1.0241 v +0.0950 f +0.0729 s_th +0.0357 (rms 4.8e-03) gamma_1 0.0357 q ratio +1.3e-03 lambda 1.3348 (1/lambda 0.7492) member 0.8657 (1/lambda / member 0.8654); M(1.5, 2, 3 r_th) + [0.3527, 0.2762, 0.2013] - [0.3317, 0.2453, 0.1627]
+       t   6.0 tau   5.91 r_th 1.0183 v +0.0599 f +0.0634 s_th +0.0299 (rms 3.5e-03) gamma_1 0.0299 q ratio +4.3e-03 lambda 1.1746 (1/lambda 0.8514) member 0.8610 (1/lambda / member 0.9888); M(1.5, 2, 3 r_th) + [0.3486, 0.2724, 0.1991] - [0.3375, 0.2584, 0.1642]
+       t   7.0 tau   6.88 r_th 1.0132 v +0.0646 f +0.0595 s_th +0.0315 (rms 6.9e-03) gamma_1 0.0315 q ratio -1.1e-03 lambda 1.1713 (1/lambda 0.8538) member 0.8567 (1/lambda / member 0.9966); M(1.5, 2, 3 r_th) + [0.3467, 0.2701, 0.1963] - [0.3282, 0.2368, 0.1685]
+       t   8.0 tau   7.86 r_th 1.0095 v +0.0686 f +0.0567 s_th +0.0379 (rms 8.7e-03) gamma_1 0.0379 q ratio -1.4e-03 lambda 1.1728 (1/lambda 0.8527) member 0.8533 (1/lambda / member 0.9993); M(1.5, 2, 3 r_th) + [0.3454, 0.2690, 0.1945] - [0.3269, 0.2351, 0.1436]
+       t   9.0 tau   8.82 r_th 1.0068 v +0.0717 f +0.0543 s_th +0.0478 (rms 7.7e-04) gamma_1 0.0478 q ratio -4.6e-04 lambda 1.1751 (1/lambda 0.8510) member 0.8505 (1/lambda / member 1.0005); M(1.5, 2, 3 r_th) + [0.3443, 0.2680, 0.1936] - [0.3260, 0.2342, 0.1415]
+       t  10.0 tau   9.79 r_th 1.0050 v +0.0742 f +0.0520 s_th +0.0485 (rms 2.0e-04) gamma_1 0.0485 q ratio +2.2e-06 lambda 1.1772 (1/lambda 0.8495) member 0.8489 (1/lambda / member 1.0006); M(1.5, 2, 3 r_th) + [0.3437, 0.2673, 0.1927] - [0.3255, 0.2336, 0.1405]
+       t  11.0 tau  10.77 r_th 1.0038 v +0.0763 f +0.0501 s_th +0.0485 (rms 5.2e-05) gamma_1 0.0486 q ratio +7.6e-06 lambda 1.1787 (1/lambda 0.8484) member 0.8479 (1/lambda / member 1.0005); M(1.5, 2, 3 r_th) + [0.3432, 0.2669, 0.1921] - [0.3252, 0.2334, 0.1401]
+       t  12.0 tau  11.75 r_th 1.0031 v +0.0780 f +0.0484 s_th +0.0484 (rms 2.8e-05) gamma_1 0.0485 q ratio -8.1e-06 lambda 1.1796 (1/lambda 0.8478) member 0.8474 (1/lambda / member 1.0004); M(1.5, 2, 3 r_th) + [0.3430, 0.2667, 0.1918] - [0.3250, 0.2333, 0.1400]
+       t  13.0 tau  12.71 r_th 1.0028 v +0.0794 f +0.0470 s_th +0.0483 (rms 1.6e-05) gamma_1 0.0484 q ratio -8.0e-06 lambda 1.1799 (1/lambda 0.8475) member 0.8472 (1/lambda / member 1.0004); M(1.5, 2, 3 r_th) + [0.3429, 0.2665, 0.1917] - [0.3249, 0.2333, 0.1399]
+       t  14.0 tau  13.69 r_th 1.0028 v +0.0806 f +0.0456 s_th +0.0482 (rms 6.3e-06) gamma_1 0.0483 q ratio -1.2e-06 lambda 1.1799 (1/lambda 0.8476) member 0.8471 (1/lambda / member 1.0005); M(1.5, 2, 3 r_th) + [0.3429, 0.2665, 0.1916] - [0.3250, 0.2333, 0.1400]
+       t  15.0 tau  14.67 r_th 1.0027 v +0.0816 f +0.0439 s_th +0.0482 (rms 7.9e-06) gamma_1 0.0482 q ratio +6.4e-09 lambda 1.1792 (1/lambda 0.8481) member 0.8471 (1/lambda / member 1.0012); M(1.5, 2, 3 r_th) + [0.3430, 0.2666, 0.1917] - [0.3251, 0.2335, 0.1401]
+       t  16.0 tau  15.63 r_th 1.0021 v +0.0824 f +0.0410 s_th +0.0481 (rms 3.4e-05) gamma_1 0.0482 q ratio -2.2e-10 lambda 1.1774 (1/lambda 0.8493) member 0.8466 (1/lambda / member 1.0033); M(1.5, 2, 3 r_th) + [0.3431, 0.2668, 0.1918] - [0.3253, 0.2337, 0.1403]
+       t  17.0 tau  16.61 r_th 0.9994 v +0.0830 f +0.0335 s_th +0.0482 (rms 1.5e-04) gamma_1 0.0482 q ratio -1.9e-08 lambda 1.1726 (1/lambda 0.8528) member 0.8442 (1/lambda / member 1.0101); M(1.5, 2, 3 r_th) + [0.3434, 0.2674, 0.1923] - [0.3254, 0.2343, 0.1410]
+       t  18.0 tau  17.60 r_th 0.9892 v +0.0833 f +0.0110 s_th +0.0485 (rms 5.3e-04) gamma_1 0.0486 q ratio -1.1e-08 lambda 1.1597 (1/lambda 0.8623) member 0.8356 (1/lambda / member 1.0319); M(1.5, 2, 3 r_th) + [0.3437, 0.2688, 0.1938] - [0.3253, 0.2358, 0.1428]
+       t  19.0 tau  18.61 r_th 0.9535 v +0.0824 f -0.0640 s_th +0.0498 (rms 1.7e-03) gamma_1 0.0498 q ratio -1.6e-10 lambda 1.1261 (1/lambda 0.8880) member 0.8054 (1/lambda / member 1.1025); M(1.5, 2, 3 r_th) + [0.3444, 0.2732, 0.1988] - [0.3247, 0.2402, 0.1488]
+       t  20.0 tau  19.69 r_th 0.8147 v +0.0753 f -0.3673 s_th +0.0555 (rms 5.0e-03) gamma_1 0.0556 q ratio +1.9e-10 lambda 1.0704 (1/lambda 0.9343) member 0.6878 (1/lambda / member 1.3583); M(1.5, 2, 3 r_th) + [0.3463, 0.2896, 0.2197] - [0.3232, 0.2567, 0.1734]
+[pass] CMP1[D=4 G h=0.02]: the member at #40's stall time (t = 12.0): its e-fold (T(gamma_1) r_th, GGS09a) against the growth rate of the unstable mode from the two runs that bracket p*_h, within 2%  (t = 12.0: 1/lambda 0.8478, member 0.8474 (r_th 1.0031, gamma_1 0.048), rel +0.000)
+[pass] CMP2[D=4 G h=0.02]: the member at #40's stall time (t = 12.0): its e-fold (T(gamma_1) r_th, GGS09a) against the locus tau slope of the series, within 2%  (series slope 0.8495, member 0.8474, rel +0.002; the member's e-fold over t in [8, 20]: [0.853, 0.851, 0.849, 0.848, 0.847, 0.847, 0.847, 0.847, 0.847, 0.844, 0.836, 0.805, 0.688])
+[pass] CMP3[D=4 G h=0.02]: at every profile slice with t in [7, 15] the growth rate of the unstable mode is the member's (T(gamma_1) r_th, GGS09a) within 2%: the member follows the drifting throat  (8 slices; 1/lambda / member - 1 in [-0.0034, +0.0006])
+[pass] DR[D=4 G h=0.02]: the throat radius of the locus from t = 10 to 15: a plateau, |change| <= 1%  (r_th 1.0050 -> 1.0027, change -0.0023)
+       the normal field's charge ratio q_n^2/q_g^2 over t in [11, 15]: [+7.6e-06, -8.1e-06, -8.0e-06, -1.2e-06]; reported, not gated
+    MB D=4 G h=0.01: p*_h -/+ 10^-9; per profile slice: t, tau, r_th, drift v, lapse f, M(r) on the + and - side at r = (1.25, 1.5, 2.0, 3.0, 4.0) r_th, fitted s_th = r_th N'/N (gamma_1 = s_th/sqrt(1 - s_th^2) in D = 4), normal/ghost charge ratio q_n^2/q_g^2, pair rate lambda (1/lambda), member e-fold
+       t   4.0 tau   3.99 r_th 1.0063 v +0.0061 f +0.0546 s_th +0.0399 (rms 9.0e-03) gamma_1 0.0399 q ratio +5.9e-09 lambda 2.8527 (1/lambda 0.3505) member 0.8504 (1/lambda / member 0.4122); M(1.5, 2, 3 r_th) + [0.3608, 0.2854, 0.2065] - [0.3315, 0.2484, 0.1656]
+       t   5.0 tau   4.95 r_th 1.0241 v +0.0953 f +0.0730 s_th +0.0357 (rms 4.9e-03) gamma_1 0.0357 q ratio +1.2e-03 lambda 1.3393 (1/lambda 0.7467) member 0.8657 (1/lambda / member 0.8625); M(1.5, 2, 3 r_th) + [0.3527, 0.2763, 0.2013] - [0.3316, 0.2452, 0.1627]
+       t   6.0 tau   5.92 r_th 1.0183 v +0.0599 f +0.0634 s_th +0.0298 (rms 3.7e-03) gamma_1 0.0298 q ratio +4.2e-03 lambda 1.1744 (1/lambda 0.8515) member 0.8610 (1/lambda / member 0.9889); M(1.5, 2, 3 r_th) + [0.3486, 0.2724, 0.1991] - [0.3372, 0.2587, 0.1642]
+       t   7.0 tau   6.88 r_th 1.0132 v +0.0646 f +0.0596 s_th +0.0315 (rms 6.9e-03) gamma_1 0.0315 q ratio -1.0e-03 lambda 1.1713 (1/lambda 0.8538) member 0.8567 (1/lambda / member 0.9966); M(1.5, 2, 3 r_th) + [0.3467, 0.2701, 0.1963] - [0.3281, 0.2368, 0.1686]
+       t   8.0 tau   7.85 r_th 1.0095 v +0.0686 f +0.0568 s_th +0.0380 (rms 8.7e-03) gamma_1 0.0380 q ratio -1.4e-03 lambda 1.1728 (1/lambda 0.8527) member 0.8533 (1/lambda / member 0.9993); M(1.5, 2, 3 r_th) + [0.3454, 0.2690, 0.1945] - [0.3269, 0.2351, 0.1436]
+       t   9.0 tau   8.82 r_th 1.0068 v +0.0717 f +0.0543 s_th +0.0478 (rms 7.3e-04) gamma_1 0.0479 q ratio -4.6e-04 lambda 1.1751 (1/lambda 0.8510) member 0.8505 (1/lambda / member 1.0005); M(1.5, 2, 3 r_th) + [0.3443, 0.2679, 0.1936] - [0.3260, 0.2341, 0.1415]
+       t  10.0 tau   9.79 r_th 1.0050 v +0.0742 f +0.0521 s_th +0.0485 (rms 1.9e-04) gamma_1 0.0485 q ratio +2.2e-06 lambda 1.1772 (1/lambda 0.8495) member 0.8489 (1/lambda / member 1.0006); M(1.5, 2, 3 r_th) + [0.3436, 0.2673, 0.1927] - [0.3254, 0.2336, 0.1405]
+       t  11.0 tau  10.77 r_th 1.0038 v +0.0763 f +0.0501 s_th +0.0485 (rms 5.3e-05) gamma_1 0.0486 q ratio +7.6e-06 lambda 1.1787 (1/lambda 0.8484) member 0.8479 (1/lambda / member 1.0005); M(1.5, 2, 3 r_th) + [0.3432, 0.2669, 0.1921] - [0.3251, 0.2334, 0.1401]
+       t  12.0 tau  11.74 r_th 1.0031 v +0.0780 f +0.0485 s_th +0.0484 (rms 2.9e-05) gamma_1 0.0485 q ratio -8.0e-06 lambda 1.1796 (1/lambda 0.8478) member 0.8474 (1/lambda / member 1.0004); M(1.5, 2, 3 r_th) + [0.3430, 0.2667, 0.1918] - [0.3250, 0.2333, 0.1400]
+       t  13.0 tau  12.71 r_th 1.0028 v +0.0794 f +0.0470 s_th +0.0483 (rms 1.5e-05) gamma_1 0.0484 q ratio -8.0e-06 lambda 1.1799 (1/lambda 0.8475) member 0.8472 (1/lambda / member 1.0004); M(1.5, 2, 3 r_th) + [0.3429, 0.2665, 0.1917] - [0.3249, 0.2333, 0.1399]
+       t  14.0 tau  13.69 r_th 1.0028 v +0.0806 f +0.0456 s_th +0.0482 (rms 3.7e-06) gamma_1 0.0483 q ratio -1.2e-06 lambda 1.1799 (1/lambda 0.8476) member 0.8471 (1/lambda / member 1.0005); M(1.5, 2, 3 r_th) + [0.3429, 0.2665, 0.1916] - [0.3250, 0.2333, 0.1400]
+       t  15.0 tau  14.66 r_th 1.0027 v +0.0816 f +0.0440 s_th +0.0482 (rms 3.6e-06) gamma_1 0.0482 q ratio +6.1e-09 lambda 1.1792 (1/lambda 0.8481) member 0.8471 (1/lambda / member 1.0012); M(1.5, 2, 3 r_th) + [0.3429, 0.2666, 0.1917] - [0.3251, 0.2335, 0.1401]
+       t  16.0 tau  15.64 r_th 1.0021 v +0.0824 f +0.0410 s_th +0.0481 (rms 3.2e-05) gamma_1 0.0482 q ratio -9.8e-10 lambda 1.1774 (1/lambda 0.8494) member 0.8466 (1/lambda / member 1.0033); M(1.5, 2, 3 r_th) + [0.3431, 0.2668, 0.1918] - [0.3252, 0.2337, 0.1403]
+       t  17.0 tau  16.61 r_th 0.9994 v +0.0831 f +0.0335 s_th +0.0482 (rms 1.5e-04) gamma_1 0.0482 q ratio -1.9e-08 lambda 1.1726 (1/lambda 0.8528) member 0.8443 (1/lambda / member 1.0101); M(1.5, 2, 3 r_th) + [0.3433, 0.2674, 0.1923] - [0.3254, 0.2343, 0.1410]
+       t  18.0 tau  17.60 r_th 0.9892 v +0.0833 f +0.0111 s_th +0.0485 (rms 5.3e-04) gamma_1 0.0486 q ratio -1.1e-08 lambda 1.1598 (1/lambda 0.8622) member 0.8356 (1/lambda / member 1.0318); M(1.5, 2, 3 r_th) + [0.3437, 0.2688, 0.1938] - [0.3253, 0.2358, 0.1428]
+       t  19.0 tau  18.60 r_th 0.9540 v +0.0824 f -0.0629 s_th +0.0498 (rms 1.7e-03) gamma_1 0.0498 q ratio -1.7e-10 lambda 1.1265 (1/lambda 0.8877) member 0.8058 (1/lambda / member 1.1016); M(1.5, 2, 3 r_th) + [0.3444, 0.2731, 0.1988] - [0.3247, 0.2401, 0.1487]
+       t  20.0 tau  19.69 r_th 0.8149 v +0.0753 f -0.3668 s_th +0.0555 (rms 5.0e-03) gamma_1 0.0556 q ratio +2.0e-10 lambda 1.0703 (1/lambda 0.9343) member 0.6880 (1/lambda / member 1.3579); M(1.5, 2, 3 r_th) + [0.3463, 0.2896, 0.2197] - [0.3232, 0.2567, 0.1734]
+[pass] CMP1[D=4 G h=0.01]: the member at #40's stall time (t = 12.0): its e-fold (T(gamma_1) r_th, GGS09a) against the growth rate of the unstable mode from the two runs that bracket p*_h, within 2%  (t = 12.0: 1/lambda 0.8478, member 0.8474 (r_th 1.0031, gamma_1 0.048), rel +0.000)
+[pass] CMP2[D=4 G h=0.01]: the member at #40's stall time (t = 12.0): its e-fold (T(gamma_1) r_th, GGS09a) against the locus tau slope of the series, within 2%  (series slope 0.8495, member 0.8474, rel +0.002; the member's e-fold over t in [8, 20]: [0.851, 0.849, 0.848, 0.847, 0.847, 0.847, 0.847, 0.847, 0.844, 0.836, 0.806, 0.688])
+[pass] CMP3[D=4 G h=0.01]: at every profile slice with t in [7, 15] the growth rate of the unstable mode is the member's (T(gamma_1) r_th, GGS09a) within 2%: the member follows the drifting throat  (9 slices; 1/lambda / member - 1 in [-0.0034, +0.0012])
+[pass] DR[D=4 G h=0.01]: the throat radius of the locus from t = 10 to 15: a plateau, |change| <= 1%  (r_th 1.0050 -> 1.0027, change -0.0023)
+       the normal field's charge ratio q_n^2/q_g^2 over t in [11, 15]: [+7.6e-06, -8.0e-06, -8.0e-06, -1.2e-06, +6.1e-09]; reported, not gated
+  --- G D=4 0.05 h=0.02 (A = 5.0000000000e-02, X = 100, 20 s) ---
+       r/a        t       tau        l        v         H     H/W         rho  |rho|/H^2    w_bar
+      1.50     6.25    5.7326   +0.084  +0.0417    0.3618   0.306  -1.380e+00    10.5416 -0.33085
+      3.00     9.19    6.9901   +0.198  +0.0343    0.7603   0.643  -2.606e+00     4.5077 -0.33090
+     10.00    19.54    8.1395   +0.482  +0.0251    1.4536   1.230  -8.487e+00     4.0167 -0.33184
+     25.00    41.07    8.6448   +1.013  +0.0245    2.3005   1.946  -2.120e+01     4.0059 -0.33205
+     50.00    76.88    8.8995   +1.890  +0.0245    3.2536   2.753  -4.240e+01     4.0051 -0.33211
+    final window (last e-fold of r, 5934 points, r/a = 34.1 to 92.7): H max/min 1.649, H end/start 1.649, |rho| max/min 2.718, w_bar in [-0.3321, -0.3321]; 1/H linear in tau: k = 1.9998, tau_s = 9.5141 (last point 9.0627), max residual 2.7e-05 -> class FT
+    slope test (#211): H/W at r/a = 10: 1.230, 25: 1.946, 50: 2.753; bar 10%: not met
+    locus drift v = dl/dt: +0.0245 to +0.0245 over the last three quarters; l at the end +3.385; max |H / H_fields - 1| over the last half 2.7e-05
+    the diagonal of the same run (#213's observer): H/W at r/a = 10: 1.230, 25: 1.946, 50: 2.753; k = 1.9994, tau_s = 9.5180
+  --- G D=4 0.05 h=0.01 (A = 5.0000000000e-02, X = 100, 77 s) ---
+       r/a        t       tau        l        v         H     H/W         rho  |rho|/H^2    w_bar
+      1.50     6.24    5.7275   +0.084  +0.0417    0.3609   0.305  -1.378e+00    10.5848 -0.33095
+      3.00     9.19    6.9870   +0.198  +0.0343    0.7598   0.643  -2.603e+00     4.5092 -0.33101
+     10.00    19.54    8.1379   +0.482  +0.0251    1.4537   1.230  -8.489e+00     4.0167 -0.33184
+     25.00    41.07    8.6432   +1.013  +0.0245    2.3006   1.946  -2.120e+01     4.0059 -0.33205
+     50.00    76.87    8.8978   +1.889  +0.0245    3.2536   2.753  -4.240e+01     4.0050 -0.33212
+    final window (last e-fold of r, 11868 points, r/a = 34.1 to 92.7): H max/min 1.649, H end/start 1.649, |rho| max/min 2.718, w_bar in [-0.3321, -0.3321]; 1/H linear in tau: k = 1.9998, tau_s = 9.5124 (last point 9.0611), max residual 1.6e-05 -> class FT
+    slope test (#211): H/W at r/a = 10: 1.230, 25: 1.946, 50: 2.753; bar 10%: not met
+    locus drift v = dl/dt: +0.0245 to +0.0245 over the last three quarters; l at the end +3.385; max |H / H_fields - 1| over the last half 1.4e-05
+    the diagonal of the same run (#213's observer): H/W at r/a = 10: 1.229, 25: 1.946, 50: 2.753; k = 1.9994, tau_s = 9.5163
+  --- G D=4 tuned h=0.02 (A = 1.4946763571e-02, X = 100, 20 s) ---
+       r/a        t       tau        l        v         H     H/W         rho  |rho|/H^2    w_bar
+      1.50    15.54   14.7341   +0.848  +0.0887    0.3716   0.314  -1.411e+00    10.2204 -0.32078
+      3.01    18.48   15.9808   +1.091  +0.0722    0.7604   0.643  -2.619e+00     4.5297 -0.32256
+     10.00    28.91   17.1321   +1.633  +0.0439    1.4493   1.226  -8.469e+00     4.0315 -0.32827
+     25.01    50.61   17.6390   +2.537  +0.0407    2.2950   1.942  -2.115e+01     4.0157 -0.32971
+     50.00    86.71   17.8941   +3.999  +0.0404    3.2459   2.746  -4.229e+01     4.0138 -0.32996
+    final window (last e-fold of r, 5406 points, r/a = 30.8 to 83.8): H max/min 1.649, H end/start 1.649, |rho| max/min 2.718, w_bar in [-0.3301, -0.3298]; 1/H linear in tau: k = 1.9992, tau_s = 18.5100 (last point 18.0342), max residual 4.1e-05 -> class FT
+    slope test (#211): H/W at r/a = 10: 1.226, 25: 1.942, 50: 2.746; bar 10%: not met
+    locus drift v = dl/dt: +0.0403 to +0.0422 over the last three quarters; l at the end +5.965; max |H / H_fields - 1| over the last half 3.3e-05
+    the diagonal of the same run (#213's observer): H/W at r/a = 10: 1.201, 25: 1.930, 50: 2.740; k = 1.9881, tau_s = 18.5445
+  --- G D=4 tuned h=0.01 (A = 1.4878359967e-02, X = 100, 83 s) ---
+       r/a        t       tau        l        v         H     H/W         rho  |rho|/H^2    w_bar
+      1.50    15.54   14.7295   +0.847  +0.0887    0.3703   0.313  -1.409e+00    10.2783 -0.32053
+      3.00    18.48   15.9789   +1.091  +0.0723    0.7597   0.643  -2.616e+00     4.5329 -0.32229
+     10.00    28.91   17.1323   +1.634  +0.0440    1.4493   1.226  -8.468e+00     4.0315 -0.32827
+     25.00    50.61   17.6390   +2.538  +0.0408    2.2947   1.941  -2.115e+01     4.0158 -0.32968
+     50.00    86.71   17.8943   +4.001  +0.0404    3.2461   2.746  -4.229e+01     4.0138 -0.32997
+    final window (last e-fold of r, 10811 points, r/a = 30.8 to 83.8): H max/min 1.649, H end/start 1.649, |rho| max/min 2.718, w_bar in [-0.3300, -0.3298]; 1/H linear in tau: k = 1.9992, tau_s = 18.5102 (last point 18.0344), max residual 3.9e-05 -> class FT
+    slope test (#211): H/W at r/a = 10: 1.226, 25: 1.941, 50: 2.746; bar 10%: not met
+    locus drift v = dl/dt: +0.0403 to +0.0422 over the last three quarters; l at the end +5.968; max |H / H_fields - 1| over the last half 1.5e-05
+    the diagonal of the same run (#213's observer): H/W at r/a = 10: 1.200, 25: 1.930, 50: 2.740; k = 1.9881, tau_s = 18.5447
+  --- S D=4 0.05 h=0.02 (A = 5.0000000000e-02, X = 200, 63 s) ---
+       r/a        t       tau        l        v         H     H/W         rho  |rho|/H^2    w_bar
+      1.50     5.29    4.8407   -0.000  +0.0000    0.4176   0.353  -1.341e+00     7.6864 -0.33333
+      3.00     8.05    6.0101   -0.000  +0.0000    0.7981   0.675  -2.826e+00     4.4368 -0.33332
+     10.01    18.06    7.1123   +0.000  -0.0000    1.5133   1.280  -9.175e+00     4.0063 -0.33333
+     25.00    38.91    7.5977   +0.000  -0.0000    2.3916   2.023  -2.288e+01     3.9999 -0.33333
+     50.00    73.61    7.8426   +0.000  +0.0000    3.3820   2.861  -4.575e+01     3.9999 -0.33333
+    100.01   143.02    8.0158   -0.000  +0.0000    4.7828   4.046  -9.150e+01     4.0000 -0.33333
+    final window (last e-fold of r, 12453 points, r/a = 73.9 to 200.7): H max/min 1.649, H end/start 1.649, |rho| max/min 2.718, w_bar in [-0.3333, -0.3333]; 1/H linear in tau: k = 2.0000, tau_s = 8.4340 (last point 8.1388), max residual 9.1e-06 -> class FT
+    slope test (#211): H/W at r/a = 10: 1.280, 25: 2.023, 50: 2.861; bar 10%: not met
+    locus drift v = dl/dt: -0.0000 to +0.0000 over the last three quarters; l at the end -0.000; max |H / H_fields - 1| over the last half 1.3e-05
+    the diagonal of the same run (#213's observer): H/W at r/a = 10: 1.280, 25: 2.023, 50: 2.861; k = 2.0000, tau_s = 8.4340
+    KX D4 0.05 h=0.01: class FT, k 1.9998 against S's 2.0 (-1.2e-04)
+    KX D4 0.05 h=0.02: class FT, k 1.9998 against S's 2.0 (-1.2e-04)
+    KX D4 tuned h=0.01: class FT, k 1.9992 against S's 2.0 (-3.9e-04)
+    KX D4 tuned h=0.02: class FT, k 1.9992 against S's 2.0 (-3.9e-04)
+[pass] KX: G on the locus: class FT and k within 1% of the symmetric throat's (#213: D = 4: 2.0, D = 5: 3.9875)
+    RES G D4 0.05: h 0.02 vs 0.01: class FT / FT; tau_s 9.5141 / 9.5124; k 1.9998 / 1.9998; H at fixed r/a [2.77e-05, 2.80e-05, 2.80e-05]
+    RES G D4 tuned: h 0.02 vs 0.01: class FT / FT; tau_s 18.5100 / 18.5102; k 1.9992 / 1.9992; H at fixed r/a [1.28e-05, 1.37e-05, 1.38e-05]
+[pass] RES: two resolutions agree: same class, H at fixed r/a within 1%, k and tau_s within 1%
+[pass] XC: control: family S (A = 0.05) through the locus code gives #213's diagonal run: class, k, tau_s and H/W at r/a = 10, 25, 50  (class FT / FT; k 2.00004 / 2.00004; tau_s 8.43401 / 8.43404; H/W rel dev 1.5e-06)
+
+25 of 26 checks pass; 1 fail: PO
+mutation rho_diag: declared target []; fired ['PO']; targets all fired; extra: ['PO']
+41.2 s
