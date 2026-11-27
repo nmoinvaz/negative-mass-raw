@@ -1,0 +1,34 @@
+/Users/nathan/Source/negative-mass-i217/notes/black_universe/evolve_dev_runs2.py:200: RankWarning: Polyfit may be poorly conditioned
+  out.append(f"[{ta},{tb}] {np.polyfit(tt[m], np.log(y[m]), 1)[0]:+.3f} (|Y| {y[m][0]:.1e} to {y[m][-1]:.1e})")
+/Users/nathan/Source/negative-mass-i217/notes/black_universe/evolve_dev_runs2.py:200: RankWarning: Polyfit may be poorly conditioned
+  out.append(f"[{ta},{tb}] {np.polyfit(tt[m], np.log(y[m]), 1)[0]:+.3f} (|Y| {y[m][0]:.1e} to {y[m][-1]:.1e})")
+/Users/nathan/Source/negative-mass-i217/notes/black_universe/evolve_dev_runs2.py:200: RankWarning: Polyfit may be poorly conditioned
+  out.append(f"[{ta},{tb}] {np.polyfit(tt[m], np.log(y[m]), 1)[0]:+.3f} (|Y| {y[m][0]:.1e} to {y[m][-1]:.1e})")
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i217/notes/black_universe/evolve_dev_runs2.py", line 209, in <module>
+    tuned(float(sys.argv[2]), float(sys.argv[3]), float(sys.argv[4]), float(sys.argv[5]))
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i217/notes/black_universe/evolve_dev_runs2.py", line 200, in tuned
+    out.append(f"[{ta},{tb}] {np.polyfit(tt[m], np.log(y[m]), 1)[0]:+.3f} (|Y| {y[m][0]:.1e} to {y[m][-1]:.1e})")
+                              ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/numpy/lib/_polynomial_impl.py", line 647, in polyfit
+    raise TypeError("expected non-empty vector for x")
+TypeError: expected non-empty vector for x
+       23.78 real        23.58 user         0.09 sys
+           153206784  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               12805  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                 827  voluntary context switches
+                 567  involuntary context switches
+        370137172406  instructions retired
+         78346572409  cycles elapsed
+            95683256  peak memory footprint
