@@ -202,3 +202,11 @@ motivates the task (3.4e-10 on this Mac, 9.0e-10 on the win laptop, at (5, 1000)
   6. **Order**: `run_B3.sh` replaces `run_B2.sh` (CJE, CJN, P1 at rtol 1e-10, then the extras X_ATOL, X_P1_13, X_N0R13, X_P2, X_P3). A is unchanged (P0 first).
   COMPLETE counts 134 core cases (P0 24, P1 6, N0 6, N1 6, CJE 72, CJN 20; `dev_43` pass, `dev_44` `drop_cell` fails 133 of 134). A script change during the runs: `--extra-chunks` takes a list.
   The estimate is revised to about 6.5 h in total (the issue's P0 grid alone is 3.6 h on a thread, the load on the Mac is 4 to 15).
+
+- **A4 (2026-11-27 12:10, before any `crate_j_vac` datum; CJE has 65 of 72 cases and I have read its first 8 cells and settings).** CJE (exact J, 8 realizations) shows at (3000, base), rtol 1e-13: mean signed gap
+  −1.33e-9 (t = −8.2), and −1.66e-9 (t = −5.6, 5 of 8 realizations) with atol 1e-17: a systematic offset of scipy's path against the crate, beyond the scatter, and not moved by atol. At γ = 1000 the means are
+  within 1.5 σ/√8 of zero. A difference of construction I had noted in "What is built" is the candidate: **H6**, the exterior scalar plane. PolarProblem integrates it from R_s = r_m + 40/γ to r_m
+  through the star's J (r < 60), which keeps the scalar–metric couplings proportional to φ0 (about 1e-9 at r_m for φ_cut 1e-9, 1e-12 for φ_cut 1e-12); the crate integrates it in exact vacuum (couplings zero).
+  Plant `crate_j_vac` = `crate_j` with `vac_scalar` (the crate's treatment, scipy's integrator). New core group **CJV** (24 cases): rtol 1e-13, atol 1e-14, 8 realizations at (3000, base), (1000, base), (1000, φ_cut).
+  Rule: at (3000, base), mean_vac = mean signed gap of CJV, mean_novac that of CJE (rtol 1e-13, atol 1e-14): **H6 supported if |mean_vac| ≤ 0.3 |mean_novac|; ruled out if ≥ 0.7; else undecided.**
+  COMPLETE counts 158. `run_V.sh` runs it with `run_A.sh`'s python paused (SIGSTOP by PID, resumed after) so that two processes run at a time.
