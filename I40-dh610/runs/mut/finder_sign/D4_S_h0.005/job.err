@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-i40/notes/wormhole_evolution/threshold.py", line 228, in job
+    lo, hi, stopped = bisect(run, lo, hi, 1e-9 if dn.mut("bisect_loose") else CRIT["bisect_tol"], sink)
+                      ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-i40/notes/wormhole_evolution/threshold.py", line 126, in bisect
+    raise RuntimeError(f"bracket [{lo}, {hi}] does not straddle the threshold: fate {r['fate']} at {p}, wanted {want}")
+RuntimeError: bracket [-0.01, 0.01] does not straddle the threshold: fate 0 at -0.01, wanted -1

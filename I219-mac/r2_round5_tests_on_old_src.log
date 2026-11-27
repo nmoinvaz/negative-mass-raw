@@ -1,0 +1,113 @@
+# round 5: the new checks against src at e3fdc90 (fixes and hooks not applied): the new checks must fail
+e3fdc90
+## feat/implicit-taylor-r2...origin/feat/implicit-taylor-r2
+ M src/control.rs
+ M tests/implicit.rs
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 11.48s
+     Running tests/implicit.rs (target/release/deps/implicit-4e0a7f4a04c6bea1)
+
+running 3 tests
+[PASS] f64 None: advance without form refused true, walk to 2 off by 0.00e0, refused after set_y true, after a stop true
+[PASS] f64 None: 1 crossings after two forms at the end of one step, the first at 0.00e0 from 0
+[PASS] f64 None: stop End after 1 steps, state off by 5.55e-17, 1 crossings, the first 0.00e0 from 0
+[PASS] f64 None: stop End at 2, 1 landings, 8 steps against 8 with the checkpoint once
+[PASS] f64 None: first run Pivot with an estimate true, second run End with one false
+[PASS] f64 None: empty polynomial returns true, constant kept true, 1 + 2x + 3x^2 about 2 exact true
+[PASS] f64 None: 1 crossings after run(1) (one expected), 1 after it resumed to 2 (one), 0 after a restart at 1 (none)
+[PASS] f64 None: [0, 0, 2^1023] kept about 0 true and about -0 true
+[PASS] f64 None: stop End at 1 after 1 steps, 0 crossings (none expected)
+[PASS] f64 None: stop Pivot, estimate off by 0.00e0 of -2^550 with beta 1
+[PASS] f64 None: stop Pivot, estimate None (none expected)
+[PASS] f64 None: stop Pivot, estimate None (none expected)
+[PASS] f64 None: stop End, 1 crossings, located true, 3.81e-6 from 1
+[PASS] f64 None: steps taken true, 1 crossings (one expected), in step 2 (the second)
+[PASS] f64 None: stop End, 1 crossings, located true, x = 8.98846567431158e307 for 2^1023 = 8.98846567431158e307
+[PASS] f64 None: stop End, 1 crossings, located true, 8.88e-16 from 3
+[PASS] f64 None: stop Pivot, estimate off by 0.00e0 of -2^1023 / 3 with beta 0.3333333333333333
+[PASS] f64 None: stop Pivot, estimate off by 0.00e0 of -4 with beta 4
+[FAIL] f64 None: stop Pivot, estimate 3.33e-1 from -1/3 with beta 0.3333333333333333
+[FAIL] f64 None: stop Pivot, estimate off by NaN of -2^1023 with beta NaN
+[FAIL] f64 None: stop End, 1 crossings, located true, 5.00e-1 from 2.5
+[FAIL] f64 None: stop End, 1 crossings, located false, 6.67e-1 from 1/3 (bar 1.1e-10)
+
+thread 'edges_f64' (103588300) panicked at tests/implicit.rs:902:5:
+4 cells not met:
+f64 None: stop Pivot, estimate 3.33e-1 from -1/3 with beta 0.3333333333333333
+f64 None: stop Pivot, estimate off by NaN of -2^1023 with beta NaN
+f64 None: stop End, 1 crossings, located true, 5.00e-1 from 2.5
+f64 None: stop End, 1 crossings, located false, 6.67e-1 from 1/3 (bar 1.1e-10)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test edges_f64 ... FAILED
+[PASS] dd None: advance without form refused true, walk to 2 off by 0.00e0, refused after set_y true, after a stop true
+[PASS] dd None: 1 crossings after two forms at the end of one step, the first at 0.00e0 from 0
+[PASS] dd None: stop End after 1 steps, state off by 3.08e-33, 1 crossings, the first 0.00e0 from 0
+[PASS] dd None: stop End at 2, 1 landings, 8 steps against 8 with the checkpoint once
+[PASS] dd None: first run Pivot with an estimate true, second run End with one false
+[PASS] dd None: empty polynomial returns true, constant kept true, 1 + 2x + 3x^2 about 2 exact true
+[PASS] dd None: 1 crossings after run(1) (one expected), 1 after it resumed to 2 (one), 0 after a restart at 1 (none)
+[PASS] dd None: [0, 0, 2^1023] kept about 0 true and about -0 true
+[PASS] dd None: stop End at 1 after 1 steps, 0 crossings (none expected)
+[PASS] dd None: stop Pivot, estimate off by 0.00e0 of -2^550 with beta 1
+[PASS] dd None: stop Pivot, estimate None (none expected)
+[PASS] dd None: stop Pivot, estimate None (none expected)
+[PASS] dd None: stop End, 1 crossings, located true, 0.00e0 from 1
+[PASS] dd None: steps taken true, 1 crossings (one expected), in step 2 (the second)
+[PASS] dd None: stop End, 1 crossings, located true, x = 8.98846567431158e307 for 2^1023 = 8.98846567431158e307
+[PASS] dd None: stop End, 1 crossings, located true, 0.00e0 from 3
+[PASS] dd None: stop Pivot, estimate off by 0.00e0 of -2^1023 / 3 with beta 0.3333333333333333
+[PASS] dd None: stop Pivot, estimate off by 0.00e0 of -4 with beta 4
+[FAIL] dd None: stop Pivot, estimate 3.33e-1 from -1/3 with beta 0.3333333333333333
+[FAIL] dd None: stop Pivot, estimate off by NaN of -2^1023 with beta NaN
+[FAIL] dd None: stop End, 1 crossings, located true, 5.00e-1 from 2.5
+[FAIL] dd None: stop End, 1 crossings, located true, 7.40e-17 from 1/3 (bar 1.2e-26)
+
+thread 'edges_dd' (103588299) panicked at tests/implicit.rs:902:5:
+4 cells not met:
+dd None: stop Pivot, estimate 3.33e-1 from -1/3 with beta 0.3333333333333333
+dd None: stop Pivot, estimate off by NaN of -2^1023 with beta NaN
+dd None: stop End, 1 crossings, located true, 5.00e-1 from 2.5
+dd None: stop End, 1 crossings, located true, 7.40e-17 from 1/3 (bar 1.2e-26)
+test edges_dd ... FAILED
+[PASS] qd None: advance without form refused true, walk to 2 off by 0.00e0, refused after set_y true, after a stop true
+[PASS] qd None: 1 crossings after two forms at the end of one step, the first at 0.00e0 from 0
+[PASS] qd None: stop End after 1 steps, state off by 9.50e-66, 1 crossings, the first 0.00e0 from 0
+[PASS] qd None: stop End at 2, 1 landings, 8 steps against 8 with the checkpoint once
+[PASS] qd None: first run Pivot with an estimate true, second run End with one false
+[PASS] qd None: empty polynomial returns true, constant kept true, 1 + 2x + 3x^2 about 2 exact true
+[PASS] qd None: 1 crossings after run(1) (one expected), 1 after it resumed to 2 (one), 0 after a restart at 1 (none)
+[PASS] qd None: [0, 0, 2^1023] kept about 0 true and about -0 true
+[PASS] qd None: stop End at 1 after 1 steps, 0 crossings (none expected)
+[PASS] qd None: stop Pivot, estimate off by 0.00e0 of -2^550 with beta 1
+[PASS] qd None: stop Pivot, estimate None (none expected)
+[PASS] qd None: stop Pivot, estimate None (none expected)
+[PASS] qd None: stop End, 1 crossings, located true, 0.00e0 from 1
+[PASS] qd None: steps taken true, 1 crossings (one expected), in step 2 (the second)
+[PASS] qd None: stop End, 1 crossings, located true, x = 8.98846567431158e307 for 2^1023 = 8.98846567431158e307
+[PASS] qd None: stop End, 1 crossings, located true, 0.00e0 from 3
+[PASS] qd None: stop Pivot, estimate off by 0.00e0 of -2^1023 / 3 with beta 0.3333333333333333
+[PASS] qd None: stop Pivot, estimate off by 0.00e0 of -4 with beta 4
+[FAIL] qd None: stop Pivot, estimate 3.33e-1 from -1/3 with beta 0.3333333333333333
+[FAIL] qd None: stop Pivot, estimate off by NaN of -2^1023 with beta NaN
+[FAIL] qd None: stop End, 1 crossings, located true, 5.00e-1 from 2.5
+[FAIL] qd None: stop End, 1 crossings, located true, 7.40e-17 from 1/3 (bar 1.5e-58)
+
+thread 'edges_qd' (103588301) panicked at tests/implicit.rs:902:5:
+4 cells not met:
+qd None: stop Pivot, estimate 3.33e-1 from -1/3 with beta 0.3333333333333333
+qd None: stop Pivot, estimate off by NaN of -2^1023 with beta NaN
+qd None: stop End, 1 crossings, located true, 5.00e-1 from 2.5
+qd None: stop End, 1 crossings, located true, 7.40e-17 from 1/3 (bar 1.5e-58)
+test edges_qd ... FAILED
+
+failures:
+
+failures:
+    edges_dd
+    edges_f64
+    edges_qd
+
+test result: FAILED. 0 passed; 3 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.13s
+
+error: test failed, to rerun pass `--test implicit`
+exit 101

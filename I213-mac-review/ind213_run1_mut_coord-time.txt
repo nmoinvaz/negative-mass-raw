@@ -1,0 +1,20 @@
+/Users/nathan/Source/negative-mass-raw/I213-mac-review/ind213.py:190: RuntimeWarning: invalid value encountered in log
+  q = np.polyfit(np.log(tau_s - tau[sel]), np.log(r[sel]), 1)[0]
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-raw/I213-mac-review/ind213.py", line 208, in <module>
+    a = analyse(th, W)
+  File "/Users/nathan/Source/negative-mass-raw/I213-mac-review/ind213.py", line 190, in analyse
+    q = np.polyfit(np.log(tau_s - tau[sel]), np.log(r[sel]), 1)[0]
+        ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/numpy/lib/_polynomial_impl.py", line 677, in polyfit
+    c, resids, rank, s = lstsq(lhs, rhs, rcond)
+                         ~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/numpy/linalg/_linalg.py", line 2556, in lstsq
+    x, resids, rank, s = _umath_linalg.lstsq(a, b, rcond,
+                         ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+                                             signature=signature)
+                                             ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/numpy/linalg/_linalg.py", line 156, in _raise_linalgerror_lstsq
+    raise LinAlgError("SVD did not converge in Linear Least Squares")
+numpy.linalg.LinAlgError: SVD did not converge in Linear Least Squares
+rc=1

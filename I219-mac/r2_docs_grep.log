@@ -1,0 +1,11 @@
+# the old wording must be absent; the grep exits 1 when it is
+--- at b6d7087 (must match)
+98:| `Stop::ZeroPivot`, `Stop::Pivot`, `WalkOut::zero`, `WalkOut::crossings` | where `A0` vanishes: a step tha
+103:passes a root of N in y'' of even multiplicity (a double root generically, a quadruple one where four root
+112:y'' at each step's start, which brings N back to about roundoff when the state is near the branch and so k
+113:root a double root. It is one correction, not a projection onto N = 0: for `N = y''^2 - 1` at `y'' = 2` it
+16://! passes a root of N in y'' of even multiplicity (a double root generically, a quadruple one where four r
+721:/// A sign change of A0 between two step starts: the branch passes a root of N in y'' of even multiplicity
+722:/// of odd order there. `x` is the zero of A0's series inside the step (`located`), else the step's start.
+--- at HEAD (must print nothing)
+grep exit 1

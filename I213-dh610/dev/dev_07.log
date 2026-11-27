@@ -1,0 +1,33 @@
+== S A=0.05 D=4: N=500, events none, dead cells dn 0
+  diag r, f, rp, rm, H, tau, t: ['0.0e+00', '0.0e+00', '0.0e+00', '0.0e+00', '0.0e+00', '0.0e+00', '0.0e+00']  alive equal: True
+  edge column i0=500: |M - dn.mass_nodes| 3.1e-09; flux-identity residual max 4.385e-02; dn.edge_flux_residual 4.385e-02 (largest M change 1.038e+04)
+  edge column i0=250: |M - dn.mass_nodes| 0.0e+00; flux-identity residual max 7.857e-03
+  edge column i0=125: |M - dn.mass_nodes| 0.0e+00; flux-identity residual max 9.659e-04
+  top row: |M_top - dn.mass_nodes[:, N]| 2.7e-09; mirror |M_top - M_edge| 4.5e-08; top flux residual 4.385e-02
+  constraints: max|C++| dn 7.858e-04 stream 7.858e-04; max|C--| dn 7.858e-04 stream 7.858e-04
+  slice minima: dn.throat_min has 997 slices; stream node-level argmin offset |i - (s-i)|<=1 on 1.0
+  n_anti, n_trap per row equal to dn's: True True
+  stress on the diagonal: |rho - dn.stress rho| 3.6e-15, |p_perp - dn.stress Tang| 0.0e+00, max|T_+-| 2.2e-16; w_bar range -0.333333 .. -0.333333
+  m_diag  |stream - mass at the cell|  0.0
+== S A=0.05 D=5: N=400, events none, dead cells dn 0
+  diag r, f, rp, rm, H, tau, t: ['0.0e+00', '0.0e+00', '0.0e+00', '0.0e+00', '0.0e+00', '0.0e+00', '0.0e+00']  alive equal: True
+  edge column i0=400: |M - dn.mass_nodes| 3.5e-09; flux-identity residual max 1.780e-01; dn.edge_flux_residual 1.780e-01 (largest M change 1.110e+04)
+  edge column i0=200: |M - dn.mass_nodes| 0.0e+00; flux-identity residual max 3.199e-02
+  edge column i0=100: |M - dn.mass_nodes| 0.0e+00; flux-identity residual max 3.288e-02
+  top row: |M_top - dn.mass_nodes[:, N]| 2.3e-09; mirror |M_top - M_edge| 3.3e-08; top flux residual 1.780e-01
+  constraints: max|C++| dn 1.506e-03 stream 1.506e-03; max|C--| dn 1.506e-03 stream 1.506e-03
+  slice minima: dn.throat_min has 797 slices; stream node-level argmin offset |i - (s-i)|<=1 on 1.0
+  n_anti, n_trap per row equal to dn's: True True
+  stress on the diagonal: |rho - dn.stress rho| 7.1e-15, |p_perp - dn.stress Tang| 0.0e+00, max|T_+-| 8.9e-16; w_bar range -0.500000 .. -0.500000
+  m_diag  |stream - mass at the cell|  0.0
+== normal pulse (collapse) D=4: N=500, events {'collapse': (77, 77)}, dead cells dn 148776
+  diag r, f, rp, rm, H, tau, t: ['0.0e+00', '0.0e+00', '0.0e+00', '0.0e+00', '0.0e+00', '0.0e+00', '0.0e+00']  alive equal: True
+  edge column i0=500: |M - dn.mass_nodes| 1.2e-12; flux-identity residual max 4.636e+00; dn.edge_flux_residual 4.636e+00 (largest M change 4.786e+00)
+  edge column i0=250: |M - dn.mass_nodes| 0.0e+00; flux-identity residual max 1.217e+00
+  edge column i0=125: |M - dn.mass_nodes| 0.0e+00; flux-identity residual max 2.620e-01
+  top row: |M_top - dn.mass_nodes[:, N]| 1.2e-12; mirror |M_top - M_edge| 4.5e+01; top flux residual 4.217e+01
+  constraints: max|C++| dn 1.428e+01 stream 1.428e+01; max|C--| dn 1.428e+01 stream 1.428e+01
+  slice minima: dn.throat_min has 244 slices; stream node-level argmin offset |i - (s-i)|<=1 on 0.492
+  n_anti, n_trap per row equal to dn's: True True
+  stress on the diagonal: |rho - dn.stress rho| 2.2e-16, |p_perp - dn.stress Tang| 0.0e+00, max|T_+-| 4.4e-16; w_bar range -0.425484 .. -0.333333
+  m_diag  |stream - mass at the cell|  0.0

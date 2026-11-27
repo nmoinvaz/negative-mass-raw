@@ -1,0 +1,23 @@
+--- P1 (0 s)
+  > {"cmd":"planted","lane":"f64","rm":3,"rfar":45.48529157249598,"order":30,"tol":1.1102230246251565e-14,"grid":60,"nroots":0,"nexact":3,"wall":0.040}
+  > {"cmd":"planted","lane":"dd","rm":3,"rfar":92.44271909999155,"order":30,"tol":1.232595164407831e-30,"grid":60,"nroots":0,"nexact":3,"wall":1.585}
+  > {"cmd":"planted","lane":"qd","rm":3,"rfar":168.46903033498435,"order":56,"tol":1.504632769052528e-62,"grid":60,"nroots":0,"nexact":3,"wall":14.177}
+CHECK P1: FAIL  f64: 0 of 3 roots, worst rel inf (limit 1e-10), 0.0 s, R = 45, orientation of the start plane constant on the grid: True; dd: 0 of 3 roots, worst rel inf (limit 1e-24), 1.6 s, R = 92, orientation of the start plane constant on the grid: True; qd: 0 of 3 roots, worst rel inf (limit 1e-50), 14.2 s, R = 168, orientation of the start plane constant on the grid: True
+--- P2 (16 s)
+  > {"cmd":"pd","s":"-0.9","d":"4.0626140831181684e-1"}
+  > {"cmd":"pd","s":"-0.3125","d":"4.6560554721393982e-1"}
+  > {"cmd":"pd","s":"0.0625","d":"5.1294856253344945e-1"}
+  > {"cmd":"pd","s":"0.75","d":"6.2697367469045584e-1"}
+  > {"cmd":"pd","s":"1.5","d":"7.9651095265922378e-1"}
+  > {"cmd":"pd","s":"-0.9","d":"4.06261408311816812609858457614192e-01"}
+  > {"cmd":"pd","s":"-0.3125","d":"4.65605547213939723120835463350136e-01"}
+  > {"cmd":"pd","s":"0.0625","d":"5.12948562533449255776859157451121e-01"}
+  > {"cmd":"pd","s":"0.75","d":"6.26973674690455809910852579650426e-01"}
+  > {"cmd":"pd","s":"1.5","d":"7.96510952659223733713974634409687e-01"}
+  > {"cmd":"pd","s":"-0.9","d":"4.06261408311816812609858457614193738687526209712792344289750e-01"}
+  > {"cmd":"pd","s":"-0.3125","d":"4.65605547213939723120835463350144938574427823601318287657243e-01"}
+  > {"cmd":"pd","s":"0.0625","d":"5.12948562533449255776859157451138559217656073042449082339469e-01"}
+  > {"cmd":"pd","s":"0.75","d":"6.26973674690455809910852579650406381145162564338267461850032e-01"}
+  > {"cmd":"pd","s":"1.5","d":"7.96510952659223733713974634409716585656059207898592961029874e-01"}
+CHECK P2: FAIL  planted D at 5 non-eigenvalue s against mpmath (Legendre solutions, one orthonormalization): f64: worst relative 1.95e+00 (limit 1e-09); dd: worst relative 1.95e+00 (limit 1e-24); qd: worst relative 1.95e+00 (limit 1e-48)
+0 passed, 2 failed, 0 skipped of 2 checks; mutation: plant_sign; 18 s

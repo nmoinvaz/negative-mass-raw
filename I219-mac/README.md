@@ -107,3 +107,93 @@ more. Also not a result: `ci_avx2_02691af.log` is the "run is still in progress"
   `taylor_shift_with` under `mutate`.
 - Behaviour: `Walker::advance` refuses a stale series; `run` also checks the end of the last accepted step; `WalkOut::zero`
   is `None` unless the stop is `Pivot`; the digest tests assert pinned constants.
+
+## Round 2 (second request on #219, 2026-11-27)
+
+Head after round 1: b6d7087. Head now: 5513db7 (21 new commits on the branch, all plain pushes, no rebase). Not merged, no
+release. Reopened four threads that CodeRabbit had not accepted, requested full reviews (`@coderabbitai review`) at 07:12,
+08:20, 08:51, 09:24 and 09:51 UTC, and answered what each review found. After 09:24 the coordinator's stopping rule applied:
+fix every major finding with a test and a control, fix minor ones where the fix is small and tested, otherwise answer in one
+sentence and leave the thread, and request exactly one more full review if a major finding needed a code change (09:51).
+
+### Digests before and after (`digest`, `digest-full`, as printed by the `digest_*` tests)
+
+| lane | before (b6d7087) | after (5513db7) |
+|---|---|---|
+| f64 | b124d44e9758f1a1, 50775575530f4fa9 | unchanged |
+| dd | 92ec461781147d77, 13ac06786e54ccb1 | unchanged |
+| qd | 75902b0bf76ced2a, b37fa8d9cb20094f | unchanged |
+| od | c542a935a4215b82, 801e3f57cd16e9b1 | 10f1b89a823ad3c3, 1d9549c94134d037 |
+
+od changed on purpose: eight parts per value (`parts` had four), then the K-A step-sum series (full 21d526b7c72a4319), then
+the planned step lengths (full 1d9549c94134d037). Logs: `r2_digest_first_run_2.log` (the first od values),
+`r2_od_pinned_all_mutate.log`, `r2_new_findings_b_all_mutate.log`. Identical on the default and `portable` builds
+(`r2_final_*_portable_mutate.log`) and on CI's AVX2 job (`r2_ci_avx2_*.log`, `digest_od ... ok`).
+
+### Findings by review
+
+| review of | new | fixed | answered, not changed |
+|---|---|---|---|
+| reopened threads (b6d7087) | 4 | 4 (one answered with the run output) | 0 |
+| f1bc2ec | 8 | 8 (3 docs) | 0 |
+| 20a77cc | 7 | 7 (1 docs) | 0 |
+| 3d6dd53 | 9 | 9 (1 docs) | 0 |
+| e3fdc90 | 3 | 3 | 0 |
+| 1fa9869 | 4 | 3 | 1 |
+| total | 35 | 34 | 1 |
+
+Follow-up replies by CodeRabbit on threads already fixed: 7. Fixed 2 (src:1045 end crossing as a preview; src:1111 a sign
+change just beyond a tangent zero), answered with runs 2 (tests:846, tests:949: the matrix of runs), answered not changed 3
+(src:1144 and src:1173: the quotient a0 / a1 itself overflows; src:1111: a root 2.0078125 within a hundredth of a half-bracket
+of the tangent zero). 52 threads on the PR at the end, 51 resolved, 1 open (src:1260).
+
+### Each finding
+
+| review | finding | outcome | commit | check | control |
+|---|---|---|---|---|---|
+| reopened | README:107 `Project` wording | fixed (twice) | 5f0d240, ae24d37 | docs | none |
+| reopened | tests:461 last-bit control run | answered with the run | | `controls_without_hooks` | `r2_final_*_controls_without_hooks.log` |
+| reopened | tests:949 digest | fixed, answered with runs | f1bc2ec, 7b14a17 | `digest_od`, `digest_od_sees_the_lower_parts` | `Poke::EndLower`, `SumLast`, `SumStep`; `r2_ctl_old_od_*.log`, `r2_ctl_old_nohash_h.log` |
+| reopened | README:102 crossing wording | fixed | 6cc2c94 | docs | none |
+| f1bc2ec | README:98, README:116, src:16 | fixed in the docs | ae24d37 | docs | none |
+| f1bc2ec | src:259 `taylor_shift` about 0 | fixed | af79e35 | `shift_zero_point` | `NanCoeff` (test-side); `r2_ctl_old_shift_zero.log` |
+| f1bc2ec | src:1045 non-finite end pivot | fixed; end crossing a preview | 6707ef9, 20a77cc | `end_pole`, `end_preview` | `NoFiniteEnd`, `RecordEnd`; `r2_ctl_old_end_pole.log` |
+| f1bc2ec | src:1117 linear pivot slope squared | fixed | 1a03636 | `linear_pivot` | `PlainRho`; `r2_ctl_old_linear_pivot.log` |
+| f1bc2ec | tests:846 step lengths in the digest | fixed | 7b14a17 | `digest_od_sees_the_lower_parts` | `Poke::SumStep`; `r2_ctl_old_nohash_h.log` |
+| f1bc2ec | tests:1077 lanes one at a time | fixed | 332d95c | `lanes_controls` | `r2_ctl_old_lane_v_only.log`, `r2_ctl_old_lane_u_only.log` |
+| 20a77cc | README:113 `Conserve` outcomes | fixed in the docs | 3d6dd53 | docs | none |
+| 20a77cc | src:1031 sign compared and stored | fixed | f1c0812 | `two_samples` | `LastSign`; `r2_round3_tests_on_old_src.log` |
+| 20a77cc | src:1112 located without a closed bracket | fixed | 6eb4b78 | `located_far` | `OpenBracket`; `r2_round3_located_far_on_old_src.log` |
+| 20a77cc | src:1144 small quadratic coefficient | fixed | 265fdc7 | `quad_small_coeff` | `ScaledQuad` |
+| 20a77cc | src:1159 infinite coordinate | fixed | 265fdc7 | `overflow_coordinate` | `NoFiniteZero` |
+| 20a77cc | tests:1690, tests:1762 controls | fixed | 8336338, 265fdc7 | `shift_zero_point`, `linear_pivot` | `NanCoeff`, `PlainRho` |
+| 3d6dd53 | src:1018 location from the last formed state | fixed in the docs | e3fdc90 | docs | none |
+| 3d6dd53 | src:1109 midpoint overflow | fixed | 68f404a | `midpoint_overflow` | `SumMidpoint` |
+| 3d6dd53 | src:1111 zero midpoint | fixed, then probes closer | 68f404a, 63671f0 | `tangent_midpoint`, `tangent_near_root` | `ZeroMid` |
+| 3d6dd53 | src:1173 fallback overflow | fixed | 45af622 | `rho_fallback_overflow` | `DoubleFirst` |
+| 3d6dd53 | src:1189 numerator overflow | fixed | 45af622 | `zero_numerator_overflow` | `ProductFirst` |
+| 3d6dd53 | tests:1687, 1791, 1843, 1897 | fixed | e3fdc90, 45af622, 68f404a | the checks named | `NanCoeff`, `ScaledQuad`, `OpenBracket`, `WrongStep` |
+| e3fdc90 | src:1170 backward bracket (major) | fixed | 63671f0 | `backward_crossing` | `BackwardBracket`; `r2_round5_tests_on_old_src.log` |
+| e3fdc90 | src:1245 numerator underflow | fixed | 1fa9869 | `zero_numerator_underflow` | `ProductFirst` |
+| e3fdc90 | src:1250 `s l` overflow | fixed | 1fa9869 | `coordinate_overflow` | `ProductX` |
+| 1fa9869 | src:1260 scale after the displacement rounds | answered: out of scope, a follow-up | | | |
+| 1fa9869 | tests:1941, 2032, 2190 | fixed | 5513db7 | `backward_crossing`, `coordinate_overflow` | `NanPos` (test-side) |
+
+### Runs and CI
+
+Local, at 5513db7 (this Mac, aarch64 NEON, 2 threads, nice 10): the implicit suite with `mutate` (34 tests) and with
+`portable,mutate` (34 tests), `controls_without_hooks`, `cargo fmt --check`, clippy in `mutate`, `portable,mutate` and no
+features, `RUSTDOCFLAGS="-D warnings" cargo doc`: all exit 0 (`r2_round6_*.log`, `r2_final_5513db7_*.log`). 81 control cells
+fire. CI at 5513db7: Build run 45980245585 (SSE2, portable, AVX2, NEON, macOS NEON, MSVC, MSRV, mutation controls, Coverage)
+and Lint run 45980245696 (Rustfmt, Clippy x3, Docs) all success (`r2_ci_avx2_5513db7_done.log`;
+`r2_ci_avx2_5513db7.log` is the 82-byte "still in progress" fetch, kept).
+
+### Also changed
+
+- API: `ImplicitControl` (feature `mutate`) has 12 new variants: `RecordEnd`, `ScaledQuad`, `NoFiniteZero`, `DoubleFirst`,
+  `ProductFirst`, `ProductX`, `OpenBracket`, `ZeroMid`, `SumMidpoint`, `BackwardBracket`, `LastSign`, `NoFiniteEnd`.
+  `PlainRho` is now the unscaled formula with no linear shortcut.
+- Behaviour: the crossing at the end of a `run` is in the result and not recorded in the walker (a resuming `form` records it);
+  a crossing is compared with the first `form`'s sign at each start; `located` needs a closed bracket; `WalkOut::zero` is
+  `None` where `beta` is not positive or the coordinate is not finite; a zero midpoint of a wide bracket is resolved by the
+  signs near it.

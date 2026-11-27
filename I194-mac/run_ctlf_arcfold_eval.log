@@ -1,0 +1,12 @@
+--- Cs (0 s)
+  alpha_c=1.1: no row (the continuation did not reach it)
+  alpha_c=1.15: no row (the continuation did not reach it)
+  alpha_c=1.17: no row (the continuation did not reach it)
+  alpha_c=1.2: no row (the continuation did not reach it)
+  alpha_c=1.25: no row (the continuation did not reach it)
+  alpha_c=1.3: no row (the continuation did not reach it)
+CHECK Cs: FAIL  0 of 18 tokens (w, N, M of 6 stored rows) equal their stored print; largest relative difference 0.0e+00; 0 rows beside the arclength path (to alpha_c = 1.0365 in 3 chunks, 30 points, 32 refused steps), 0 rows by Newton stepping in alpha_c (0 solves, 0 refused); omega_min on the path 0.45000000 at alpha_c 1.06652 (path point, not the fold); ERROR reversed continuation: alpha_c fell to 1.0112310983833461 after 3 chunks and never reached 1.3
+--- Fs (0 s)
+  alpha_0=1.1: not computed
+CHECK Fs: FAIL  0 of 1 tokens of the phantom modes table (w, (1-w)^2, roots on [-0.2, (1-w)^2), 'none') equal their stored print or hold on the 4x denser grid
+0 passed, 2 failed, 0 skipped of 2 checks; mutation: None; 0 s
