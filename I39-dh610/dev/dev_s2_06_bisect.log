@@ -1,0 +1,28 @@
+n=2 h=0.02: A* in [4.752770066261e-05, 4.752777516842e-05] after 28 runs, 7.5s
+  collapse side: events {'collapse': (702, 702)} rows 703 tau_end 19.88, |H| range 2.83e-10..1.44e-02
+    window |H| in [1e-08, 1e-06]: 218 pts, slope 0.16450  (W = 1.18197, rel -8.61e-01), H sign -1
+    window |H| in [1e-06, 1e-04]: 332 pts, slope -0.03185  (W = 1.18197, rel -1.03e+00), H sign -1
+    window |H| in [1e-05, 1e-03]: 269 pts, slope 0.10427  (W = 1.18197, rel -9.12e-01), H sign -1
+    window |H| in [1e-04, 3e-03]: 101 pts, slope 1.18216  (W = 1.18197, rel +1.65e-04), H sign -1
+    window |H| in [1e-03, 1e-02]: 68 pts, slope 1.18689  (W = 1.18197, rel +4.16e-03), H sign -1
+  expand side: events {'expand': (852, 852)} rows 853 tau_end 23.14, |H| range 2.83e-10..5.57e-01
+    window |H| in [1e-08, 1e-06]: 219 pts, slope 0.04411  (W = 1.18197, rel -9.63e-01), H sign -1
+    window |H| in [1e-06, 1e-04]: 308 pts, slope -0.01581  (W = 1.18197, rel -1.01e+00), H sign +0
+    window |H| in [1e-05, 1e-03]: 267 pts, slope 0.11122  (W = 1.18197, rel -9.06e-01), H sign +0
+    window |H| in [1e-04, 3e-03]: 102 pts, slope 1.18179  (W = 1.18197, rel -1.52e-04), H sign +1
+    window |H| in [1e-03, 1e-02]: 69 pts, slope 1.17706  (W = 1.18197, rel -4.15e-03), H sign +1
+  untuned A=0: events {'collapse': (269, 269)}, first |H| >= 0.01 W at tau = 7.490
+n=2 h=0.01: A* in [1.188412308693e-05, 1.188419759274e-05] after 28 runs, 25.9s
+  collapse side: events {'collapse': (1375, 1375)} rows 1376 tau_end 19.46, |H| range 1.57e-14..1.43e-02
+    window |H| in [1e-08, 1e-06]: 469 pts, slope 0.08866  (W = 1.18197, rel -9.25e-01), H sign -1
+    window |H| in [1e-06, 1e-04]: 594 pts, slope 0.07040  (W = 1.18197, rel -9.40e-01), H sign -1
+    window |H| in [1e-05, 1e-03]: 409 pts, slope 0.19632  (W = 1.18197, rel -8.34e-01), H sign -1
+    window |H| in [1e-04, 3e-03]: 203 pts, slope 1.18275  (W = 1.18197, rel +6.64e-04), H sign -1
+    window |H| in [1e-03, 1e-02]: 137 pts, slope 1.18695  (W = 1.18197, rel +4.21e-03), H sign -1
+  expand side: events {'expand': (1726, 1726)} rows 1727 tau_end 23.45, |H| range 1.57e-14..5.55e-01
+    window |H| in [1e-08, 1e-06]: 458 pts, slope 0.00674  (W = 1.18197, rel -9.94e-01), H sign -0
+    window |H| in [1e-06, 1e-04]: 583 pts, slope 0.07236  (W = 1.18197, rel -9.39e-01), H sign +0
+    window |H| in [1e-05, 1e-03]: 408 pts, slope 0.19428  (W = 1.18197, rel -8.36e-01), H sign +1
+    window |H| in [1e-04, 3e-03]: 204 pts, slope 1.18117  (W = 1.18197, rel -6.80e-04), H sign +1
+    window |H| in [1e-03, 1e-02]: 139 pts, slope 1.17696  (W = 1.18197, rel -4.24e-03), H sign +1
+  untuned A=0: events {'collapse': (621, 621)}, first |H| >= 0.01 W at tau = 8.656

@@ -1,0 +1,16 @@
+h=0.00707 tol=1e-10: A* ~ 2.884790673852e-04 (28 runs)
+  collapse: tau_end 14.85; |H| at tau = 3,4,5,...:  6.5e-04 9.0e-06 4.6e-04 1.2e-05 1.3e-05 1.6e-05 1.9e-05 2.3e-05 3.8e-05 1.2e-04 5.8e-04 3.2e-03 1.4e-02 1.4e-02
+    sign changes of H: 2
+  expand: tau_end 16.45; |H| at tau = 3,4,5,...:  6.5e-04 9.0e-06 4.6e-04 1.2e-05 1.3e-05 1.5e-05 1.3e-05 1.2e-05 1.6e-04 9.8e-04 5.6e-03 3.1e-02 1.5e-01 5.2e-01
+    sign changes of H: 3
+h=0.00707 tol=1e-13: A* ~ 2.884790369353e-04 (38 runs)
+  collapse: tau_end 18.23; |H| at tau = 3,4,5,...:  6.5e-04 9.0e-06 4.6e-04 1.2e-05 1.3e-05 1.6e-05 1.8e-05 1.9e-05 2.0e-05 2.1e-05 2.3e-05 3.1e-05 7.5e-05 3.2e-04
+    sign changes of H: 2
+  expand: tau_end 20.20; |H| at tau = 3,4,5,...:  6.5e-04 9.0e-06 4.6e-04 1.2e-05 1.3e-05 1.6e-05 1.8e-05 1.9e-05 2.0e-05 1.9e-05 1.3e-05 2.6e-05 2.5e-04 1.5e-03
+    sign changes of H: 3
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-raw/I39-dh610/dev/dev_s2_08_floor.py", line 9, in <module>
+    lo, hi, k = bisect(n, h, X, -0.01, 0.01, tol)
+                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 22, in bisect
+RuntimeError: static through X at A=7.209092305856757e-05
