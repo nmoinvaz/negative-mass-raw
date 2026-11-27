@@ -1,0 +1,9 @@
+N = 500, cells = 250000, h = 0.001, load average at start 9.18 10.03 12.32, one thread
+numba  best    0.015 s  median    0.015 s  ->    61.8 ns/cell ( 16.18 Mcell/s)  value 1.000000
+numpy  best    0.117 s  median    0.117 s  ->   468.3 ns/cell (  2.14 Mcell/s)  value 1.000000
+N = 1000, cells = 1000000, h = 0.001, load average at start 9.18 10.03 12.32, one thread
+numba  best    0.062 s  median    0.062 s  ->    62.1 ns/cell ( 16.11 Mcell/s)  value 1.000000
+numpy  best    0.289 s  median    0.291 s  ->   289.4 ns/cell (  3.46 Mcell/s)  value 1.000000
+N = 2000, cells = 4000000, h = 0.001, load average at start 9.25 10.03 12.31, one thread
+numba  best    0.247 s  median    0.248 s  ->    61.7 ns/cell ( 16.21 Mcell/s)  value 1.000000
+numpy  best    0.769 s  median    0.770 s  ->   192.3 ns/cell (  5.20 Mcell/s)  value 1.000000
