@@ -1,0 +1,24 @@
+# dev_08: plant_scale in the feature-on loglog run (run_10) failed; diagnosis by sys/diag_scale.py and sys/diag_scale2.py
+# (outputs as printed at the time, 2026-11-27 ~02:10 UTC; baseline = target-crate-base, on = target-crate-on at multishoot ff24b6b)
+# diag_scale.py: pl5 from x = 10 to 3000, checkpoints 30 100 300 1000
+base dd conserve stop End steps 132 x 3000.0 err_last 10.994814044201656
+base qd conserve stop End steps 92 x 3000.0 err_last 1.0567909498960738e-28
+base dd project stop End steps 109 x 3000.0 err_last 1.0309099359457636e-31
+base qd project stop End steps 92 x 3000.0 err_last 2.325612640492689e-64
+on dd conserve stop TinyStep steps 397 x 1429.758572795958 err_last 0.9929315849256893
+on qd conserve stop End steps 92 x 3000.0 err_last 3.7932654862912355e-28
+on dd project stop End steps 109 x 3000.0 err_last 2.4602328967022595e-32
+on qd project stop End steps 92 x 3000.0 err_last 2.4297280397954146e-65
+# diag_scale2.py: dd conserve with --hscale
+base hscale 1 stop End steps 132 x 3000.0 err 10.994814044201656
+base hscale 0.999999999 stop End steps 131 x 3000.0 err 9.794380171063969
+base hscale 0.999999 stop End steps 132 x 3000.0 err 12.087754484999282
+base hscale 0.9999 stop End steps 131 x 3000.0 err 7.042608635668005
+base hscale 0.99 stop End steps 132 x 3000.0 err 11.201586515863372
+base hscale 0.9 stop End steps 146 x 3000.0 err 11.464913415241456
+on hscale 1 stop TinyStep steps 397 x 1429.758572795958 err 0.9929315849256893
+on hscale 0.999999999 stop TinyStep steps 397 x 1365.4283596055948 err 0.9929580649704954
+on hscale 0.999999 stop TinyStep steps 398 x 1512.854118178836 err 0.9929021830178425
+on hscale 0.9999 stop TinyStep steps 402 x 1819.7970851897317 err 0.9929609711104215
+on hscale 0.99 stop TinyStep steps 399 x 1316.7047410814018 err 0.9929461649252491
+on hscale 0.9 stop End steps 146 x 3000.0 err 7.261445442080748

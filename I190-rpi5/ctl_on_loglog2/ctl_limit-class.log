@@ -1,0 +1,5 @@
+[FAIL] plant_limit: the planted linear equation (1 + eta^2)F'' + 4 eta F' + 2(F - alpha), alpha = 7/10, F = alpha + (a + b eta)/(1 + eta^2) to 1e12: DD project worst error of F 1.9e-32 (bar 1e-24), verdict OTHER; printed: F', F'' errors 2.5e-20 (project) against 3.7e-31 (conserve): project slaves F'' to the cancellation in F - alpha
+  (0 s)
+
+checks: 0 passed, 1 failed ['plant_limit']. 0 s
+control limit-class: target checks ['plant_limit'], fired ['plant_limit']

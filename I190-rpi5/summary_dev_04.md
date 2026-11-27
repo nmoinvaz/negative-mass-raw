@@ -26,6 +26,7 @@ worst gated values:
 - f64: closed_form err 3.50e-14; crossings position error 7.84e-14; step_sum ratio 2.93e+04
 - dd: closed_form err 4.06e-30; crossings position error 1.00e-29; step_sum ratio 2.22e+04
 - qd: closed_form err 4.04e-62; crossings position error 2.50e-62; step_sum ratio 1.51e+04
+- od: closed_form err nan; crossings position error nan; step_sum ratio nan
 digest dd a8977a5c50933054
 digest f64 b124d44e9758f1a1
 digest qd a97a140ad786c8d8

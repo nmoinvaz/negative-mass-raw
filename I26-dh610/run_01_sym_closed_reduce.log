@@ -1,0 +1,24 @@
+order4.py  mutate=None  parts=['sym', 'closed', 'reduce']  mpmath 1.3.0  sympy 1.14.0
+PASS    E0: h_k (k = 0 .. 4) and dY_k/dl (k = 1 .. 4) from the epsilon-expansion of the master equation against the table: residuals 0 (0.5 s)
+PASS    S1: Y_1, Y_2, Y_3 closed forms: dY_k/dl - F_(k-1) = ['0', '0', '0']
+PASS    S2: L_0, L_1, L_2 closed forms: (R-1)L_k' - L_k/2 - h_k = ['0', '0', '0']
+PASS    S3: L_3 = -2 h_3 + 2 u B, B' = h_3,u/u: (R-1)L_3' - L_3/2 - h_3 = 0
+PASS    S4: L_3 = -2 h_3 + 2 u B with B = -32(ell + ln 2)C + 16 S C + 32 Lc2 + 16 sin cos ell (ell + 2 ln 2) - 4 Omega1 th - 2 Omega1 sin cos (Lc2 = int_0^th ln^2 cos, C = Cl2(pi - 2 th)): (R-1)L_3' - L_3/2 - h_3 = 0
+PASS    N1: K and T closed forms against quadrature at th = 0.3, 0.8, 1.2, 1.5: worst 43.7 digits
+PASS    N2: Y_3 closed form against the integral of F_2 at the same points: worst 44.9 digits
+FAIL    N3: L_2 closed form against -2 h_2(1) + u C_2 by quadrature, 0 guard digits: worst 25.8 digits
+PASS    N3g: L_2 closed form against -2 h_2(1) + u C_2 by quadrature, 30 guard digits: worst 40.1 digits
+PASS    N4a: (E2) at k - 1 = 2: int L_2 dth = 29.2666009690357900122383740034 against 2 int h_2 ln cos/sin^2 = 29.2666009690357900122383740034: 44.5 digits (74 s)
+PASS    N5: L_3 closed form (with Lc2 = int_0^th ln^2 cos by quadrature) against -2 h_3(1) + u C_3 by quadrature at th = 0.4, 1.0, 1.4, Omega2 = 0: worst 45.0 digits
+PASS    H0: L_2 and Y_3 of the raw README against their forms in ell, u, C, D3 at Omega0 = -4 ln 2: residuals ['0', '0']
+PASS    H1: A(ell)/S + B(ell) + gamma C + delta D3 against the integrand of method A, k = 3, 4, four points: worst 45.0 digits
+PASS    H2a: delta = -32 (w0 - S - ell)/S = -32 dP/dth for P = cot th (ell - w0): residual 0
+PASS    H2b: int delta D3 dth = 207.92117926791157620091974447 against 64 int C cot(th) (ell - w0) dth = 207.92117926791157620091974447 (boundary terms vanish): 45.0 digits
+PASS    H3: gamma + 64 cot(th)(ell - w0) - 64 (w0 - 1) u = 0 (sympy, S = u^2/(1 + u^2))
+PASS    H4: int tan th Cl2(pi - 2 th) dth = 2.58385639002498501462302625559; C' = 2 ell + 2 ln 2 to 45.0 digits; boundary |ell C| = 6.7e-22 at x = 1e-25; by parts 2 J_2 + 2 ln 2 J_1 = 2.58385639002498501462302625559 against pi^3/12 (as coded 2.58385639002)
+PASS    H5: int ell^b/sin^2 dth = -b J_(b-1), b = 1 .. 4, by quadrature: worst 43.4 digits
+PASS    H6: J_n = int ell^n dth, n <= 4, from the Beta function series (sympy) against quadrature: worst 43.4 digits; J_3 = -pi*(4*log(2)**3 + pi**2*log(2) + 6*zeta(3))/8
+PASS    H7: G_3 = 0 gives Omega1 = 8*log(2)**2 + 2*pi**2/3; G_4(Omega2 = 0)/(4 pi) with that Omega1 gives Omega2 = -8*pi**2*log(2)/3 - 32*log(2)**3/3 + 80*zeta(3); against 2 pi^2/3 + 8 ln^2 2 and 80 zeta(3) - (8/3) pi^2 ln 2 - (32/3) ln^3 2: differences 0 and 0
+PASS    H8: derived G_3(0) = 130.983809566255401354857024523, G_4(0) = 934.553275985814327489298512125 against method A's: 46.6 and 44.4 digits (27 s)
+
+20 passed, 1 failed of 21 checks; 127 s

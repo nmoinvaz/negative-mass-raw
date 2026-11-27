@@ -1,0 +1,8 @@
+[FAIL] theta_form: conical_N with F' = p nu, F'' = (q - p) nu^2, eta = 1/nu minus A0 + nu^2 A1 + nu^4 A2 expands to -G*nu**2*p**4*q; the crate's N at 40 rational points against conical_N: worst |dN|/sum|terms| 2.08e-32 (threshold 1e-26)
+  (0 s)
+  root series to order 6: 36 s
+[FAIL] root_series: N(G, p, Q_6, sigma) has no term below order sigma^7 (Laurent verifier: lowest order 7); A1(G, p, -p^2) = p**6*(G**2 - 3*G + 1); e1 = -p**2*(G**2 - 3*G + 1)/2; e2 = -(3*G**4*p**2 - 12*G**3*p**2 - 8*G**3*p - G**2*p**2 - 16*G**2 + 20*G*p**2 + 8*G*p - 5*p**2)/8; e1: p^2..p^2, deg_G 2; e2: p^0..p^2, deg_G 4; e3: p^0..p^2, deg_G 6; e4: p^-2..p^2, deg_G 8; e5: p^-2..p^2, deg_G 10; e6: p^-4..p^2, deg_G 12
+  (36 s)
+
+checks: 0 passed, 2 failed ['theta_form', 'root_series']. 36 s
+control theta-coeff: target checks ['theta_form', 'root_series'], fired ['theta_form', 'root_series']

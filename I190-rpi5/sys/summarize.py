@@ -13,7 +13,7 @@ for st, rec, t in cells:
     if t.startswith("control") or t.startswith("lanes") or t.startswith("Fl") or any(w in t for w in ("WrongStart", "SwitchMid", "WrongForm")):
         continue
     parts = t.split()
-    if parts[0] not in ("f64", "dd", "qd"):
+    if parts[0] not in ("f64", "dd", "qd", "od"):
         continue
     if "crossings found" in t: kind = "crossings"
     elif "worst sum|dc_k|" in t: kind = "step_sum"
@@ -28,7 +28,7 @@ for st, rec, t in cells:
     r[(2 if rec else 0) + (0 if ok else 1)] += 1
 print("| lane | check | met (gated) | not met (gated) | met (recorded) | NOT MET (recorded) |")
 print("|---|---|---|---|---|---|")
-for (ln, kind), r in sorted(rows.items(), key=lambda kv: (["f64", "dd", "qd"].index(kv[0][0]), kv[0][1])):
+for (ln, kind), r in sorted(rows.items(), key=lambda kv: (["f64", "dd", "qd", "od"].index(kv[0][0]), kv[0][1])):
     print(f"| {ln} | {kind} | {r[0]} | {r[1]} | {r[2]} | {r[3]} |")
 def worst(pat, lane_):
     v = []
@@ -40,7 +40,7 @@ def worst(pat, lane_):
     return max(v) if v else float("nan")
 print()
 print("worst gated values:")
-for ln in ("f64", "dd", "qd"):
+for ln in ("f64", "dd", "qd", "od"):
     ce = worst(r"stop End.* err ([0-9.e+-]+) ", ln)
     cr = worst(r"worst position error ([0-9.e+-]+) ", ln)
     ss = worst(r"h.k\) ([0-9.e+-]+) \(bar 1e6", ln)

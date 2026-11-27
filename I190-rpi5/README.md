@@ -228,3 +228,38 @@ for the controls that change nothing there were not controls' effects; this tabl
 
 A prediction of the README that `dev_03` did not confirm: none. A prediction that was too narrow: `SkipOrder(3)` also
 fails `crossings` and the folds (N drifts, so every check that depends on the path does).
+
+### E1 Erratum to D1's `fold` row, and the comparator's provenance (A3)
+
+- D1 said of the folds "|x_zero| / (-x_last) <= 2.5e-33 dd, F2 1e-22 (the estimate is exact for a pure power)". The values
+  in `dev_04_implicit` (generated from the log by a script) are, for |x_zero| / (-x_last): dd F1 Project 2.5e-33, dd F1 Conserve 7.7e-19, dd F2 Project 9.3e-23, dd F2 Conserve 3.5e-21, f64 F1 Project 0.0e+00, f64 F2 Project 1.5e-06, f64 F2 Conserve 4.1e-05, qd F1 Project 3.8e-65, qd F1 Conserve 6.7e-51, qd F2 Project 2.5e-55, qd F2 Conserve 2.5e-53.
+  The estimate is exact for a pure power in exact arithmetic; its error here is the conditioning of A0' near the fold
+  (A0'/A0 = 1/(2R), R about 1e-13), larger than eps in f64 for F2. The gate is 1e-3.
+- A3, the comparator `sys/compare_outputs.py` is written from the baseline's lines (`run_06_base_offgrid_ctl`), as the
+  criteria say, but the queue had already finished the first feature-on run (`run_07_on_offgrid_ctl`, 153 s) when I wrote
+  it: the order of the README (comparator before the first feature-on run) was not kept. Its rules were fixed from the
+  baseline's lines and not changed after the first comparison, except one: the line "(series through eta^-17 solved in N s)"
+  (the pickle's build, printed in the first run only) is skipped, which the first comparison showed as a one-line shift.
+
+### D2 The feature-on `conical_loglog.py` failed `plant_scale` (19 of 20), and what was changed
+
+`run_10_on_loglog` (feature on, multishoot ff24b6b): 19 of 20 checks, 17 of 17 controls on target; **`plant_scale` fails**. The
+check requires the four planted walks (dd and qd, `conserve` and `project`) to end `End`; its numbers (errors against bars) are
+all "as predicted", but the dd `conserve` walk, the case predicted to fail, ends `TinyStep` at x = 1430 after 397 steps in
+place of `End` at 3000 after 132 (baseline `run_09_base_loglog`, which passes). `dev_08_plant_scale_diag.log`: the baseline
+ends `End` for every `--hscale` tried; the library ends `TinyStep` for 5 of 6, so it is not a chance of rounding.
+The planted case is the regime where N's scale falls by 7e-38, so the sums of the recursion cancel. `hp.rs` forms every
+Cauchy sum with multidouble's dot accumulator (`Lane::acc`, `field::cs`); the library's `Recursion` summed plain products.
+Change (multishoot commit after ff24b6b): `Scalar::cauchy`, the plain sum by default, multidouble's accumulators for `DD`,
+`QD`, `OD` and `field::cs` for `Fl<T, 1>`. The check, its bars and its planted case are untouched. The runs with the feature on
+at ff24b6b (`run_07`, `run_10`) are kept as superseded; `run_12`, `run_13`, `run_14` were skipped (rc files) and are rerun at
+the new commit with new numbers.
+
+D2 continued. `run_23_on_loglog` (multishoot 6bfd9b1 with `Scalar::cauchy`) failed `plant_scale` again, with the same numbers
+as `run_10` to the last digit (`dd conserve` ends `TinyStep` at 1429.7585 after 397 steps): the change did not reach the crate,
+because the crate's walker runs on its own scalar `W<P>` (hp_lib.rs), which took the trait's default plain sum. `W<P>::cauchy` now
+uses the lane's accumulator (`P::V`'s `acc0`, `acc`, `fin`), the sum `field::cs` forms. `dev_09_plant_scale_diag_accumulator.log`:
+the dd conserve walk ends `End` at 3000 after 132 steps with relative error 10.994814044201656, the baseline's value bit for bit;
+the other three planted walks as the baseline's to rounding. So the cause was the Cauchy sums' accumulator. The crate commit is
+after e091d45 (wip branch); the library is unchanged since 6bfd9b1. `run_24_on_offgrid_ctl` was stopped (my unit) for the rebuild
+and is marked `.stopped`; the feature-on arms are rerun as `run_30` and later.

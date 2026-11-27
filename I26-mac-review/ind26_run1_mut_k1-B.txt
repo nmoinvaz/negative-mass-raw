@@ -1,0 +1,10 @@
+[FAIL] K1: transformation residual 0; h_k (k = 0..4) and dY_k/dl (k = 1..4) against order4.py: ['-L0 + L0/R', '-L1 + L1/R', '-L2 + L2/R'] (0.4 s)
+K2: 304 steps to V = 17, order 40, 70 digits; precompute 3.3 s
+  order 2: G_2(0) = 871.150886316020229611769006426, slope -6.28318530717958647692528676656, Omega0 = 138.647969736080382834079375149792764023471499 (7.2 s)
+  order 3: G_3(0) = 387416.162818648768286596431862, slope -6.28318530717958647692528676656, Omega1 = 61659.1973462825024181857328453062523867711065 (11.6 s)
+  order 4: G_4(0) = -147248412.77560785231560663638, slope -6.28318530717958647692528676656, Omega2 = -23435312.755673781859092469406156708566011333 (17.9 s)
+[FAIL] K2: Omega0 - (-4 ln 2) = 141.0, Omega1 - closed = 6.16e+4, Omega2 - closed = 2.34e+7, Omega2 - A70 = 2.34e+7 (A70 printed to 47 decimals)
+[FAIL] K3: (a) slopes vs -4 pi, relative: k=2 0.5, k=3 0.5, k=4 0.5; (b) G3(Omega1=0) vs closed 2.57, G4(Omega2=0) = -147248412.7756078523156066 vs closed 1.58e+5; (c) int tan Cl2(pi - 2 th) = 2.583856390024985014623026, minus pi^3/12: 0.0
+
+3 criteria, 0 pass; failed: ['K1', 'K2', 'K3']
+rc 1
