@@ -1,0 +1,199 @@
+# 2026-11-27 13:01:45 cwd=/Users/nathan/Source/negative-mass-raw/I192-mac
+# cmd: bash -c cd /Users/nathan/Source/negative-mass-i192-libs/multishoot && git log --oneline -1 &&  cargo test --release -j 2 --features mutate --test table -- --test-threads 2 --nocapture 2>&1
+60d21ab table: test the review's edge cases and a control for the step-list check
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i192-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 9.03s
+     Running tests/table.rs (target/release/deps/table-408194313d215aac)
+
+running 31 tests
+control Wide on PA dd: C1 maxE 1.126e14 (fires), C2 violations 5 (fires), steps 5
+control Wide on PB dd: C1 maxE 3.208e-9 (fires), C2 violations 2 (fires), steps 2
+control Wide on PC dd: C1 maxE 1.000e0 (fires), C2 violations 1 (fires), steps 1
+control Wide on PD dd: C1 maxE 6.520e-5 (fires), C2 violations 1 (fires), steps 1
+control Wide on PF dd: C1 maxE NaN (fires), C2 violations 5 (fires), steps 5
+control Wide on PP dd: C1 maxE 3.454e-32 (silent), C2 violations 0 (silent), steps 1
+test c3_fires ... ok
+control Wide on PA f64: C1 maxE 2.145e14 (fires), C2 violations 5 (fires), steps 5
+control Wide on PB f64: C1 maxE 1.045e-6 (fires), C2 violations 2 (fires), steps 2
+control Wide on PC f64: C1 maxE 1.000e0 (fires), C2 violations 1 (fires), steps 1
+control Wide on PD f64: C1 maxE 3.460e-1 (fires), C2 violations 1 (fires), steps 1
+control Wide on PF f64: C1 maxE inf (fires), C2 violations 5 (fires), steps 5
+control Wide on PP f64: C1 maxE 9.333e-16 (silent), C2 violations 0 (silent), steps 1
+control FractionOne on PA f64: C1 maxE 2.824e-12 (fires), C2 violations 86 (fires), steps 88
+control FractionOne on PB f64: C1 maxE 2.263e-11 (fires), C2 violations 4 (fires), steps 5
+control FractionOne on PC f64: C1 maxE 4.938e-11 (fires), C2 violations 39 (fires), steps 40
+control FractionOne on PD f64: C1 maxE 9.273e-15 (silent), C2 violations 16 (fires), steps 17
+control FractionOne on PF f64: C1 maxE 2.337e-12 (fires), C2 violations 76 (fires), steps 78
+control FractionOne on PP f64: C1 maxE 9.333e-16 (silent), C2 violations 0 (silent), steps 1
+control FractionOne on PA dd: C1 maxE 1.335e-22 (fires), C2 violations 115 (fires), steps 115
+control FractionOne on PB dd: C1 maxE 5.154e-22 (fires), C2 violations 8 (fires), steps 8
+control LooseTail on PA f64: C1 maxE 1.369e-6 (fires), C2 violations 86 (fires), steps 88
+control LooseTail on PB f64: C1 maxE 1.529e-4 (fires), C2 violations 4 (fires), steps 5
+control LooseTail on PC f64: C1 maxE 1.633e-5 (fires), C2 violations 40 (fires), steps 40
+control LooseTail on PD f64: C1 maxE 1.095e-8 (fires), C2 violations 13 (fires), steps 14
+control FractionOne on PC dd: C1 maxE 1.498e-21 (fires), C2 violations 55 (fires), steps 55
+control FractionOne on PD dd: C1 maxE 4.298e-26 (silent), C2 violations 12 (fires), steps 13
+control LooseTail on PF f64: C1 maxE 8.432e-7 (fires), C2 violations 76 (fires), steps 78
+control LooseTail on PP f64: C1 maxE 9.333e-16 (silent), C2 violations 0 (silent), steps 1
+control IgnoreValidTo on PA f64: C1 maxE 5.031e-16 (silent), C2 violations 8 (fires), steps 273
+control IgnoreValidTo on PB f64: C1 maxE 3.675e0 (fires), C2 violations 2 (fires), steps 15
+control FractionOne on PF dd: C1 maxE 1.162e-22 (fires), C2 violations 106 (fires), steps 107
+control FractionOne on PP dd: C1 maxE 3.454e-32 (silent), C2 violations 0 (silent), steps 1
+control LooseTail on PA dd: C1 maxE 3.594e-6 (fires), C2 violations 63 (fires), steps 65
+control LooseTail on PB dd: C1 maxE 2.838e-4 (fires), C2 violations 4 (fires), steps 4
+control LooseTail on PC dd: C1 maxE 2.406e-5 (fires), C2 violations 30 (fires), steps 30
+control LooseTail on PD dd: C1 maxE 1.882e-8 (fires), C2 violations 5 (fires), steps 5
+control IgnoreValidTo on PF f64: C1 maxE 4.747e-16 (silent), C2 violations 8 (fires), steps 264
+control LooseTail on PF dd: C1 maxE 4.204e-6 (fires), C2 violations 56 (fires), steps 56
+control LooseTail on PP dd: C1 maxE 3.454e-32 (silent), C2 violations 0 (silent), steps 1
+control NoShift on PA f64: C1 maxE 7.435e-2 (fires), C2 violations 0 (silent), steps 274
+control NoShift on PB f64: C1 maxE 2.726e2 (fires), C2 violations 0 (silent), steps 15
+control NoShift on PC f64: C1 maxE 1.294e-1 (fires), C2 violations 0 (silent), steps 131
+control NoShift on PD f64: C1 maxE 5.281e-1 (fires), C2 violations 0 (silent), steps 53
+control NoShift on PF f64: C1 maxE 9.274e-2 (fires), C2 violations 0 (silent), steps 266
+control NoShift on PP f64: C1 maxE 3.921e1 (fires), C2 violations 0 (silent), steps 1
+control ShiftF64 on PA f64: C1 maxE 4.471e-16 (silent), C2 violations 0 (silent), steps 274
+control ShiftF64 on PB f64: C1 maxE 1.085e-15 (silent), C2 violations 0 (silent), steps 15
+control ShiftF64 on PC f64: C1 maxE 4.761e-15 (silent), C2 violations 0 (silent), steps 131
+control ShiftF64 on PD f64: C1 maxE 7.841e-15 (silent), C2 violations 0 (silent), steps 53
+control IgnoreValidTo on PA dd: C1 maxE 1.630e-29 (silent), C2 violations 8 (fires), steps 369
+control IgnoreValidTo on PB dd: C1 maxE 1.555e1 (fires), C2 violations 2 (fires), steps 26
+control ShiftF64 on PF f64: C1 maxE 5.232e-16 (silent), C2 violations 0 (silent), steps 266
+control ShiftF64 on PP f64: C1 maxE 9.333e-16 (silent), C2 violations 0 (silent), steps 1
+test controls_f64 ... ok
+control Wide on PA qd: C1 maxE 5.629e13 (fires), C2 violations 5 (fires), steps 5
+control Wide on PB qd: C1 maxE 1.517e-14 (fires), C2 violations 2 (fires), steps 2
+control Wide on PC qd: C1 maxE 2.426e0 (fires), C2 violations 1 (fires), steps 1
+control Wide on PD qd: C1 maxE 2.192e-64 (silent), C2 violations 0 (silent), steps 1
+control Wide on PF qd: C1 maxE NaN (fires), C2 violations 5 (fires), steps 5
+control Wide on PP qd: C1 maxE 3.991e-65 (silent), C2 violations 0 (silent), steps 1
+control IgnoreValidTo on PF dd: C1 maxE 1.405e-29 (silent), C2 violations 8 (fires), steps 360
+control NoShift on PA dd: C1 maxE 5.576e-2 (fires), C2 violations 0 (silent), steps 371
+control NoShift on PB dd: C1 maxE 8.538e1 (fires), C2 violations 0 (silent), steps 26
+control NoShift on PC dd: C1 maxE 8.026e-2 (fires), C2 violations 0 (silent), steps 184
+control NoShift on PD dd: C1 maxE 7.469e-1 (fires), C2 violations 0 (silent), steps 41
+control FractionOne on PA qd: C1 maxE 8.906e-46 (fires), C2 violations 115 (fires), steps 116
+control NoShift on PF dd: C1 maxE 6.550e-2 (fires), C2 violations 0 (silent), steps 362
+control NoShift on PP dd: C1 maxE 3.921e1 (fires), C2 violations 0 (silent), steps 1
+control FractionOne on PB qd: C1 maxE 1.663e-45 (fires), C2 violations 9 (fires), steps 10
+control FractionOne on PC qd: C1 maxE 1.861e-44 (fires), C2 violations 58 (fires), steps 58
+control FractionOne on PD qd: C1 maxE 3.172e-64 (silent), C2 violations 0 (silent), steps 1
+control ShiftF64 on PA dd: C1 maxE 1.631e-29 (silent), C2 violations 0 (silent), steps 371
+control ShiftF64 on PB dd: C1 maxE 6.738e-29 (silent), C2 violations 0 (silent), steps 26
+control ShiftF64 on PC dd: C1 maxE 5.545e-28 (silent), C2 violations 0 (silent), steps 184
+control ShiftF64 on PD dd: C1 maxE 1.959e-31 (silent), C2 violations 0 (silent), steps 41
+control ShiftF64 on PF dd: C1 maxE 1.405e-29 (silent), C2 violations 0 (silent), steps 362
+control ShiftF64 on PP dd: C1 maxE 4.586e-16 (fires), C2 violations 0 (silent), steps 1
+test controls_dd ... ok
+test default_last_fits_small_nb ... ok
+test find_and_headroom ... ok
+test hmax_bounds_the_stored_step ... ok
+path of 1e308: 13117 steps
+test huge_path_ends ... ok
+PE dd last=2: steps 42, C1 maxE NaN (bar 1.0e-24) at step 0 f 0 x0 0.125 h 0.875: NaN, C2 violations 0, C3 violations 0, digest 47660f65234a3ed4
+control FractionOne on PF qd: C1 maxE 7.800e-46 (fires), C2 violations 106 (fires), steps 106
+control FractionOne on PP qd: C1 maxE 3.991e-65 (silent), C2 violations 0 (silent), steps 1
+PE dd last=3: steps 63, C1 maxE 2.140e-28 (bar 1.0e-24) at step 3 f 0 x0 1.38342963423409376e-1 h 7.711e-2, C2 violations 0, C3 violations 0, digest 17659b6f0753430d
+PE dd last=4: steps 68, C1 maxE 1.671e-28 (bar 1.0e-24) at step 0 f 0 x0 3.55813308142051490e-2 h 8.302e-2, C2 violations 0, C3 violations 0, digest 6b406f74f5e49477
+test pe_last_dd ... ok
+PE qd last=2: steps 48, C1 maxE NaN (bar 1.0e-54) at step 0 f 0 x0 0.125 h 0.875: NaN, C2 violations 0, C3 violations 0, digest 27ff9cab8e5c0199
+PE qd last=3: steps 70, C1 maxE 1.517e-58 (bar 1.0e-54) at step 2 f 0 x0 9.55745055911249169e-2 h 7.230e-2, C2 violations 0, C3 violations 0, digest ca8a129c2783c532
+control LooseTail on PA qd: C1 maxE 2.895e-5 (fires), C2 violations 51 (fires), steps 51
+control LooseTail on PB qd: C1 maxE 6.794e-4 (fires), C2 violations 4 (fires), steps 4
+control LooseTail on PC qd: C1 maxE 3.793e-5 (fires), C2 violations 24 (fires), steps 24
+control LooseTail on PD qd: C1 maxE 2.192e-64 (silent), C2 violations 0 (silent), steps 1
+PE qd last=4: steps 72, C1 maxE 1.276e-58 (bar 1.0e-54) at step 0 f 0 x0 3.25251036939800536e-2 h 7.589e-2, C2 violations 0, C3 violations 0, digest ddf7c37de676db5e
+test pe_last_qd ... ok
+PH dd FractionOne: table steps 51, plane steps 92, plane error 3.699e-32 (bar 1.233e-28), ln_vol error 2.236e-23 (bar 3.819e-27), C3 violations 0
+control LooseTail on PF qd: C1 maxE 2.401e-5 (fires), C2 violations 41 (fires), steps 42
+control LooseTail on PP qd: C1 maxE 3.991e-65 (silent), C2 violations 0 (silent), steps 1
+PH dd LooseTail: table steps 49, plane steps 93, plane error 7.956e-32 (bar 1.233e-28), ln_vol error 1.184e-22 (bar 3.819e-27), C3 violations 0
+test ph_controls_dd ... ok
+PH f64 FractionOne: table steps 41, plane steps 86, plane error 6.684e-16 (bar 1.110e-12), ln_vol error 1.205e-11 (bar 3.440e-11), C3 violations 0
+PH f64 LooseTail: table steps 55, plane steps 86, plane error 6.198e-16 (bar 1.110e-12), ln_vol error 2.132e-14 (bar 3.440e-11), C3 violations 0
+test ph_controls_f64 ... ok
+PH qd FractionOne: table steps 62, plane steps 97, plane error 1.295e-64 (bar 1.505e-60), ln_vol error 5.170e-47 (bar 4.662e-59), C3 violations 0
+control IgnoreValidTo on PA qd: C1 maxE 1.327e-59 (silent), C2 violations 8 (fires), steps 369
+control IgnoreValidTo on PB qd: C1 maxE 3.415e0 (fires), C2 violations 2 (fires), steps 31
+PH qd LooseTail: table steps 45, plane steps 102, plane error 2.083e-64 (bar 1.505e-60), ln_vol error 1.523e-37 (bar 4.662e-59), C3 violations 0
+test ph_controls_qd ... ok
+PH dd clean: table steps 158, plane steps 90, plane error 5.948e-32 (bar 1.233e-28), ln_vol error 2.958e-30 (bar 3.819e-27), C3 violations 0
+test ph_dd ... ok
+PH f64 clean: table steps 125, plane steps 86, plane error 5.374e-16 (bar 1.110e-12), ln_vol error 3.553e-15 (bar 3.440e-11), C3 violations 0
+test ph_f64 ... ok
+control IgnoreValidTo on PF qd: C1 maxE 1.151e-59 (silent), C2 violations 8 (fires), steps 361
+PH qd clean: table steps 193, plane steps 95, plane error 2.568e-64 (bar 1.505e-60), ln_vol error 2.476e-62 (bar 4.662e-59), C3 violations 0
+test ph_qd ... ok
+test piece_end_before_path_end ... ok
+PA dd last=4: steps 371, C1 maxE 1.631e-29 (bar 1.0e-24) at step 354 f 2 x0 2.16968401859050779e1 h 6.596e-1, C2 violations 0, C3 violations 0, digest 6939d511435ecced
+PB dd last=4: steps 26, C1 maxE 6.738e-29 (bar 1.0e-24) at step 24 f 0 x0 1.96531481346980748e1 h 1.173e0, C2 violations 0, C3 violations 0, digest a994767068eb1a1c
+control NoShift on PA qd: C1 maxE 5.592e-2 (fires), C2 violations 0 (silent), steps 371
+PC dd last=4: steps 184, C1 maxE 5.545e-28 (bar 1.0e-24) at step 156 f 0 x0 1.28712314571979469e1 h 7.210e-2, C2 violations 0, C3 violations 0, digest 365da269c7e2948d
+PD dd last=4: steps 41, C1 maxE 1.959e-31 (bar 1.0e-24) at step 39 f 0 x0 2.93911078987363439e0 h 5.645e-2, C2 violations 0, C3 violations 0, digest 54072c80538c44cf
+PE dd last=4: steps 68, C1 maxE 1.671e-28 (bar 1.0e-24) at step 0 f 0 x0 3.55813308142051490e-2 h 8.302e-2, C2 violations 0, C3 violations 0, digest 6b406f74f5e49477
+control NoShift on PB qd: C1 maxE 5.774e1 (fires), C2 violations 0 (silent), steps 31
+PF dd last=4: steps 362, C1 maxE 1.405e-29 (bar 1.0e-24) at step 23 f 2 x0 1.92504869807941326e1 h 7.995e-1, C2 violations 0, C3 violations 0, digest a274ccd7001851bf
+PP dd last=4: steps 1, C1 maxE 3.454e-32 (bar 1.0e-24) at step 0 f 0 x0 2.27499999999999991e0 h 0.000e0, C2 violations 0, C3 violations 0, digest 014221d6d8a975d8
+test planted_dd ... ok
+PA f64 last=4: steps 274, C1 maxE 4.471e-16 (bar 1.0e-12) at step 270 f 2 x0 2.41400664723759810e1 h 4.902e-1, C2 violations 0, C3 violations 0, digest 280f62a3ab45ae7a
+PB f64 last=4: steps 15, C1 maxE 1.085e-15 (bar 1.0e-12) at step 8 f 0 x0 1.34191751807186215e1 h 3.397e0, C2 violations 0, C3 violations 0, digest 899abaa14b883dc3
+PC f64 last=4: steps 131, C1 maxE 4.761e-15 (bar 1.0e-12) at step 14 f 0 x0 1.09781895186540854e1 h 1.360e-1, C2 violations 0, C3 violations 0, digest d151afba86408879
+PD f64 last=4: steps 53, C1 maxE 7.841e-15 (bar 1.0e-12) at step 10 f 0 x0 4.82849617558786415e-1 h 5.529e-2, C2 violations 0, C3 violations 0, digest 799052772125188b
+PF f64 last=4: steps 266, C1 maxE 5.232e-16 (bar 1.0e-12) at step 262 f 0 x0 1.13925941485357239e-3 h 7.931e-5, C2 violations 0, C3 violations 0, digest aa43a114b56a5755
+PP f64 last=4: steps 1, C1 maxE 9.333e-16 (bar 1.0e-12) at step 0 f 0 x0 2.27499999999999991e0 h 0.000e0, C2 violations 0, C3 violations 0, digest 366eaf099a2e72de
+test planted_f64 ... ok
+control NoShift on PC qd: C1 maxE 7.197e-2 (fires), C2 violations 0 (silent), steps 193
+control NoShift on PD qd: C1 maxE 5.266e9 (fires), C2 violations 0 (silent), steps 1
+control NoShift on PF qd: C1 maxE 6.571e-2 (fires), C2 violations 0 (silent), steps 362
+control NoShift on PP qd: C1 maxE 3.921e1 (fires), C2 violations 0 (silent), steps 1
+control ShiftF64 on PA qd: C1 maxE 1.327e-59 (silent), C2 violations 0 (silent), steps 371
+control ShiftF64 on PB qd: C1 maxE 2.548e-59 (silent), C2 violations 0 (silent), steps 31
+control ShiftF64 on PC qd: C1 maxE 5.374e-58 (silent), C2 violations 0 (silent), steps 193
+control ShiftF64 on PD qd: C1 maxE 2.192e-64 (silent), C2 violations 0 (silent), steps 1
+control ShiftF64 on PF qd: C1 maxE 1.151e-59 (silent), C2 violations 0 (silent), steps 362
+control ShiftF64 on PP qd: C1 maxE 4.586e-16 (fires), C2 violations 0 (silent), steps 1
+control Unscaled on PS qd: C1 maxE NaN (fires), C2 violations 1 (fires), steps 1
+test controls_qd ... ok
+PC od last=4: steps 316, C1 maxE 1.069e-118 (bar 1.0e-114) at step 280 f 0 x0 1.30371473587367781e1 h 4.741e-2, C2 violations 0, C3 violations 1, digest 512343075b563b4d
+test planted_od_pc ... ok
+PG f64 with the pole at 15: 23 steps
+PG dd with the pole at 15: 33 steps
+PG qd with the pole at 15: 35 steps
+test pole_off_the_path_and_nan ... ok
+PG f64: Stall at 4.99999999999999112
+test pole_on_the_path_f64 ... ok
+PG dd: NotFinite at x = 4.99999999994734790, order 29; 5 - x = 5.265e-11, overflow distance 5.307e-11
+PG qd: NotFinite at x = 4.99999286999441495, order 59; 5 - x = 7.130e-6, overflow distance 7.285e-6
+test pole_on_the_path_wide_lanes_recorded ... ok
+ref_scale PC f64: C1 maxE 1.000e-4 (bar 1.0e-12)
+ref_scale PC dd: C1 maxE 1.000e-4 (bar 1.0e-24)
+ref_scale PC qd: C1 maxE 1.000e-4 (bar 1.0e-54)
+test ref_scale_fires ... ok
+
+thread 'series_index_is_checked' (105886451) panicked at src/table.rs:494:9:
+Table::series: function 1 of 1
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test series_index_is_checked - should panic ... ok
+test shift_of_a_polynomial_is_exact ... ok
+
+thread 'tablejets_names_an_order_beyond_nb' (105886453) panicked at src/table.rs:621:9:
+TableJets::jets: the plan asks for 3 coefficients, which exceeds the table's nb = 2
+test tablejets_names_an_order_beyond_nb - should panic ... ok
+
+thread 'tablejets_rejects_a_repeated_entry' (105886454) panicked at src/table.rs:604:9:
+TableJets::new: an entry occurs twice in the pattern
+test tablejets_rejects_a_repeated_entry - should panic ... ok
+test tiny_path_is_not_a_stall ... ok
+test width_is_a_point_where_the_test_passes ... ok
+PA qd last=4: steps 371, C1 maxE 1.327e-59 (bar 1.0e-54) at step 357 f 2 x0 2.25547286257705295e1 h 5.617e-1, C2 violations 0, C3 violations 0, digest a2bbea4542aea07b
+PB qd last=4: steps 31, C1 maxE 2.548e-59 (bar 1.0e-54) at step 29 f 0 x0 1.97019847280674760e1 h 9.151e-1, C2 violations 0, C3 violations 0, digest 179001490fee523e
+PC qd last=4: steps 193, C1 maxE 5.374e-58 (bar 1.0e-54) at step 189 f 0 x0 1.38686795011176081e1 h 1.389e-1, C2 violations 0, C3 violations 0, digest 3ce8f712140f1d2c
+PD qd last=4: steps 1, C1 maxE 2.192e-64 (bar 1.0e-54) at step 0 f 0 x0 2.99999999999999956e0 h 1.750e0, C2 violations 0, C3 violations 0, digest 8af916f973af2bc8
+PE qd last=4: steps 72, C1 maxE 1.276e-58 (bar 1.0e-54) at step 0 f 0 x0 3.25251036939800536e-2 h 7.589e-2, C2 violations 0, C3 violations 0, digest ddf7c37de676db5e
+PF qd last=4: steps 362, C1 maxE 1.151e-59 (bar 1.0e-54) at step 31 f 2 x0 1.68367648823000948e1 h 9.328e-1, C2 violations 0, C3 violations 0, digest 40c69cd73f665084
+PP qd last=4: steps 1, C1 maxE 3.991e-65 (bar 1.0e-54) at step 0 f 0 x0 2.27499999999999991e0 h 0.000e0, C2 violations 0, C3 violations 0, digest d3ad435d9866e420
+PS qd last=4: steps 374, C1 maxE 1.151e-59 (bar 1.0e-54) at step 316 f 0 x0 1.76120193897199434e-1 h 1.248e-2, C2 violations 0, C3 violations 0, digest ea5fd49419737db1
+test planted_qd ... ok
+
+test result: ok. 31 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 7.42s
+

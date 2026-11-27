@@ -152,3 +152,16 @@ the lane). In the test, a wrong input and no hook: `ref_scale` (the reference fu
   `run_04` portable (15), `run_05` fmt, clippy (mutate, portable+mutate, default), doc with warnings denied, all clean; the 28 digest lines of `run_01` and `run_04` are identical (`cmp`).
 - **Run bookkeeping.** `dev_17` and the earlier `dev_16` ran together with others and `dev_12` has two runs (A1); `dev_13` holds PS at `last` 2. A sed edit of `proto_table.py` replaced
   its `last` default; both older scripts are kept as `.py.txt`. A pkill by name was refused by the auto-mode classifier once, correctly (stop by PID only); the process had already ended.
+
+**A3 (2026-11-27, stage 2 review round). Library `feat/taylor-tables` at bc78792 (module) and 60d21ab (tests); CI of 3a64b91 green on every job, including `Ubuntu x86_64 AVX2` (`+avx2,+fma`), SSE2, portable, mutation controls, Windows MSVC, ARM64 and macOS: the pinned digests hold on x86.**
+
+- CodeRabbit posted 15 findings (README 2, module 8, tests 5). Each edge case got a test **that was run on the code before the fix and failed there for its own reason** (`dev_24`: 8 failures
+  of the 10 new tests; two of them first failed for the wrong reason, `Opts::new(2, ..)`'s `last` 4 and a `last` of nb that reads c_0, which no tail passes, and were corrected before the run kept):
+  `default_last_fits_small_nb`, `tiny_path_is_not_a_stall` (the search returned 0 below 1e-300, so a path of 1e-300 stalled), `huge_path_ends` (`limit / fraction` overflowed to infinity and the halving
+  never ended: stopped by the test's 20 s timeout), `piece_end_before_path_end` (both distances round to 2^54, the step ended at the path's end past the piece's), `hmax_bounds_the_stored_step`,
+  `series_index_is_checked`, `tablejets_rejects_a_repeated_entry`, `tablejets_names_an_order_beyond_nb`. C3 got its control (`c3_fires`: a wrong count, a moved start, no record) and a missing
+  record is now a violation. **Two of the new tests had wrong inputs of mine**: `huge_path_ends` used a constant series where the function is 1 + x (1e6 steps at x = 5.6e4), and the first
+  `hmax` fix skipped the adjustment when the rounded endpoint equalled the stop's coordinate (the test caught it).
+- Not changed: `TableJets::jets` clamping `kj` to `nb` (it would integrate a different system without saying so); it stops with a message.
+- **Runs of record, second set** (module bc78792, tests 60d21ab): `run_06` default (25 passed), `run_07` mutate (31), `run_08` portable,mutate (31), `run_09` fmt, clippy (three feature sets), doc; the 28 digest
+  lines of `run_06` equal `run_01`'s (`cmp`): no table changed. `run_01` to `run_05` stay as the runs of the first commits.
