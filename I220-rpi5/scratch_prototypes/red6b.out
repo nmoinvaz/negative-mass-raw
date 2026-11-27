@@ -1,0 +1,13 @@
+cCC = 3072*ell*u**2 + 2048*q*u**2 + 1024*u**2 | cCD = -512*u | cCL = -2048*u**2
+M1 boundary B[u f C^2] = 0
+M2 boundary B[-ell C D3] = 0
+M3 boundary B[u C Lc] = -pi*q*(12*q**2 + pi**2)/12 + pi*(12*q**2 + pi**2)/12
+D3 coefficient u-powers: [u**(-2), 1]
+D-step: A' - cD = 0
+C coefficient u-powers: [u, u**2, 1]
+u^-1 part of the C coefficient after the D step: 0
+coefficient of J6 left: 0
+slope in w4: -4*pi
+G6(0) = pi**5*(-352*q/45 - 9728/45) + pi**3*(-256*q**3/9 - 640*zeta(3)) + pi*(-512*q**5/15 + 2560*q**2*zeta(3) + 6144*q*zeta(3) - 41728*zeta(5) + 12288*zeta(3))
+Omega4 closed = -128*q**5/15 - 64*pi**2*q**3/9 + 640*q**2*zeta(3) - 88*pi**4*q/45 + 1536*q*zeta(3) - 10432*zeta(5) - 2432*pi**4/45 - 160*pi**2*zeta(3) + 3072*zeta(3)
+Omega4 closed (numeric) = -12794.4998600231946327920124203810859338447198413163781740569
