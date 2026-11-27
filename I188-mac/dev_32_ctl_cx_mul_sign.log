@@ -1,0 +1,6 @@
+# 2026-11-27 12:16:52 cwd=/Users/nathan/Source/negative-mass-raw/I188-mac
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python /Users/nathan/Source/negative-mass-i188/phase2/nonradial/taylor_polar.py --complex --mutate=cx_mul_sign --raw=/Users/nathan/Source/negative-mass-raw --only=P1C
+# taylor_polar.py --complex: start 2026-11-27 12:16:52, load average 5.59, one process, nice 10; lane dd; mutate = cx_mul_sign
+CHECK P1C: FAIL  J = P diag(24 + 7i, 8 - 3i, -8 + 5i, -24 - 11i) P^-1, plane P[:, :2], x = 12; exact Lambda = ln_vol + ln det(Q0^T Q) = (384.804718956 + 48.0j) at 140 digits; f64: plane 2.97e-16 (bar 1.11e-12), Lambda 3.24e+02 (re 3.24e+02, im 1.93e+00; bar 4.31e-10), orthonormality 1.00e+00 (bar 1.11e-14), 95 steps; dd: plane 1.86e-32 (bar 1.23e-28), Lambda 2.84e+02 (re 2.84e+02, im 2.74e+00; bar 4.78e-26), orthonormality 1.00e+00 (bar 1.23e-30), 337 steps; qd: plane 1.13e-65 (bar 1.50e-60), Lambda 2.02e+02 (re 2.02e+02, im 1.74e+00; bar 5.83e-58), orthonormality 1.00e+00 (bar 1.50e-62), 4237 steps
+SUMMARY: 0 passed, 1 failed, 0 skipped of 1 checks; failed: P1C; mutate = cx_mul_sign; 1 s
+CONTROL cx_mul_sign: NOT FIRED on X1

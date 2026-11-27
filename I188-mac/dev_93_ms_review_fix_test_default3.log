@@ -1,0 +1,24 @@
+# 2026-11-27 15:05:45 cwd=/Users/nathan/Source/negative-mass-i188-libs/multishoot
+# cmd: env cargo test --release -j 2 --features mutate --test plane_complex -- --test-threads=1
+
+running 17 tests
+test complex_ln_of_a_complex_panics - should panic ... ok
+test complex_real_embedding_is_exact ... ok
+test complex_sqrt_recip_div ... ok
+test complex_to_f64_of_a_complex_panics - should panic ... ok
+test metrics_one_at_a_time ... ok
+test no_conj_dd ... ok
+test no_conj_f64 ... ok
+test no_conj_qd ... ok
+test p1c_dd ... ok
+test p1c_f64 ... ok
+test p1c_qd ... ok
+test real_embedding_dd ... ok
+test real_embedding_f64 ... ok
+test real_embedding_qd ... ok
+test wrong_inputs_dd ... ok
+test wrong_inputs_f64 ... ok
+test wrong_inputs_qd ... ok
+
+test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.43s
+

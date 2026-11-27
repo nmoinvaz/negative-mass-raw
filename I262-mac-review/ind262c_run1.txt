@@ -1,0 +1,12 @@
+  linearized equations built (2 s)
+  reduced (3 s); unknowns in each: tt: ['a0', 'a1', 'a2', 'b0', 'b1'], tr: ['b0'], rr: ['a0', 'a1', 'a2', 'b0', 'b1'], thth: ['a0', 'a1', 'b0', 'b1'], scal: ['a0', 'a1', 'b0', 'b1']
+  solved (5 s)
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-raw/I262-mac-review/ind262c.py", line 184, in <module>
+    s_ = max(abs(fsc[k](x)), mp.mpf(1))
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/sympy/core/relational.py", line 519, in __bool__
+    raise TypeError(
+    ...<3 lines>...
+    )
+TypeError: cannot determine truth value of Relational: Abs(0.03376373948837992276621294249355595081694*a2 + 661.8910931738976659871647573044558384555) < 1.0
+rc=1

@@ -1,0 +1,10 @@
+[PASS] K0: the background's five residuals at 4 members x 4 points: max 2.24e-39
+  c = -1: worst relative residual of r_+-, F_+-, C_++, C_-- 42.4 over 12 points (largest term 139.0); kappa = 0.636619772368, K = 0.636619772368
+  c = -3/10: worst relative residual of r_+-, F_+-, C_++, C_-- 108.0 over 8 points (largest term 19.0); kappa = 0.601299800808, K = 0.19098593171
+  c = -3/2: worst relative residual of r_+-, F_+-, C_++, C_-- 42.2 over 8 points (largest term 87.1); kappa = 0.551681678846, K = 0.954929658551
+  c = -10: worst relative residual of r_+-, F_+-, C_++, C_-- 34.9 over 8 points (largest term 1.57e+3); kappa = 0.116522026656, K = 6.36619772368
+[FAIL] K1: residuals c = -1: 42.4, c = -3/10: 108.0, c = -3/2: 42.2, c = -10: 34.9; bar 1e-25
+[FAIL] K2: c = -1, K = kappa = 2/pi: 42.4
+
+3 criteria, 1 pass; failed: ['K1', 'K2']; mutation None
+rc=1

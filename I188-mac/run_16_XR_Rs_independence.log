@@ -1,0 +1,5 @@
+# 2026-11-27 13:28:40 cwd=/Users/nathan/Source/negative-mass-i188/phase2/nonradial load=6.38 6.51 6.09
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python -u taylor_polar.py --complex --raw=/Users/nathan/Source/negative-mass-raw --ref-dir=/Users/nathan/Source/negative-mass-raw/I188-mac/ref --jsonl-dir=/Users/nathan/Source/negative-mass-raw/I188-mac/jsonl_rec --only=XR
+# taylor_polar.py --complex: start 2026-11-27 13:28:40, load average 6.38, one process, nice 10; lane dd; mutate = None
+CHECK XR: FAIL  stripped D at R_s = 200.00, 300.00, 600.00 against R_s = 404.85 (dd, 8 points of b1): worst modulus ratio 2.2e-16, worst phase 1.1e-01 rad (bar 1e-09 each); the premise is false: the phase carries tails of the exterior solution that winding2's strip does not remove (1/R_s from the start vectors and the angular term, ln R_s from the mass); they are holomorphic and zero-free at a fixed R_s, so a count is unaffected (XRc)
+SUMMARY: 0 passed, 1 failed, 0 skipped of 1 checks; failed: XR; mutate = None; 54 s

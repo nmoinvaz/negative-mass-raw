@@ -1,0 +1,515 @@
+# 2026-11-27 14:30:23 cwd=/Users/nathan/Source/negative-mass-i188-libs/multishoot
+# cmd: env cargo test --release -j 2 --features portable
+
+running 21 tests
+test periodic::tests::dmat_control_wrong_parity_fails ... ok
+test periodic::tests::dmat_differentiates_harmonics ... ok
+test periodic::tests::pi_od_control_quad_parts_fail ... ok
+test lane::tests::recip_parts_control_one_ulp_fails ... ok
+test periodic::tests::pi_od_is_pi ... ok
+test periodic::tests::sin_cos_agree ... ok
+test periodic::tests::resampler_factor_in_double_double ... ok
+test periodic::tests::dmat_control_transposed_differs ... ok
+test periodic::tests::sin_cos_pi_reduction_control_half_period_differs ... ok
+test periodic::tests::sin_cos_pi_large_q_control_former_remainder_fails ... ok
+test taylor::tests::kth_root_agrees_with_powf ... ok
+test periodic::tests::sin_cos_pi_takes_large_denominators ... ok
+test periodic::tests::sin_cos_pi_reduces_large_p ... ok
+test periodic::tests::sin_cos_pi_od_control_short_series_fails ... ok
+test periodic::tests::dmat_equals_direct_sums ... ok
+test taylor::tests::kth_root_control_neighbours_fail ... ok
+test taylor::tests::kth_root_follows_its_input ... ok
+test taylor::tests::steps_within_is_the_largest_count ... ok
+test taylor::tests::kth_root_is_correctly_rounded ... ok
+test lane::tests::recip_parts_are_one_over_k ... ok
+test periodic::tests::sin_cos_pi_od_agrees ... ok
+
+test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+
+running 2 tests
+test anm_follows_the_eigenvalue_through_shooting ... ok
+test anm_series_through_the_session_is_bitwise ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
+
+
+running 4 tests
+test correction_rule_is_affine_covariant ... ok
+test residual_rule_evaluates_once_per_trial ... ok
+test correction_rule_converges_where_residual_rule_refuses ... ok
+test affine_covariance_control_residual_rule_differs ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.02s
+
+
+running 11 tests
+test dmat_c_rows_control_one_remainder_moved_fails ... ok
+test dmat_c_row_sums_by_lane ... ok
+test dmat_c_split_control_without_row_sums_fails ... ok
+test dmat_c_split_exact_with_row_sums ... ok
+test dmat_c_parts_match_mpmath ... ok
+test dmat_c_apply_at_control_without_remainder_differs ... ok
+test dmat_c_mpmath_control_without_remainder_fails ... ok
+test dmat_c_apply_at_is_apply ... ok
+test dmat_c_rows_sum_to_zero ... ok
+test dmat_c_harmonics_control_without_remainder_fails ... ok
+test dmat_c_differentiates_harmonics_in_wide_lanes ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.31s
+
+
+running 9 tests
+test jet_bytes_match_reference ... ok
+test jet_orders_match_central_differences ... ok
+test jet_control_frozen_parameter_fails ... ok
+test eigenpair_control_phase_row_along_amplitude_fails ... ok
+test jet_bytes_control_one_ulp_differs ... ok
+test jet_precisions_agree ... ok
+test jet_precisions_control_wrong_quad_fails ... ok
+test eigenpair_converges_in_double_and_quad ... ok
+test eigenpair_control_wrong_coefficient_fails ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s
+
+
+running 4 tests
+test family_is_the_layout_reindexed ... ok
+test bordered_factors_pass_the_fold ... ok
+test continuation_passes_the_bratu_fold ... ok
+test moved_fold_fails_the_fold_checks ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 24.37s
+
+
+running 31 tests
+test assembled_bytes_match_reference ... ok
+test dd_columns_are_read_where_the_matrix_is_zero ... ok
+test assembled_f64_jacobian_is_the_engines ... ok
+test assembled_f64_jacobian_control_unprojected_differs ... ok
+test assembled_bytes_control_one_ulp_differs ... ok
+test f64_by_takes_each_blocks_lanes ... ok
+test f64_by_double_block_is_the_double_double_jacobian ... ok
+test f64_projection_control_unprojected_fails ... ok
+test f64_jacobian_and_staircase_scale_rows ... ok
+test f64_jacobian_projects_its_rows ... ok
+test f64_jacobians_match_the_exact_one ... ok
+test four_tangents_control_base_precision_differs ... ok
+test four_tangents_equal_one ... ok
+test fast_bytes_match_reference ... ok
+test dd_columns_project_to_the_dd_jacobians_rows ... ok
+test newton_step_mixed_is_the_loops_step ... ok
+test f64_scaling_control_wrong_factor_differs ... ok
+test pointwise_f64_control_coupled_differs ... ok
+test fast_bytes_control_one_ulp_differs ... ok
+test pointwise_f64_jacobian_equals_per_column ... ok
+test dd_columns_control_not_given_differ ... ok
+test project_f64_block_refuses_bad_inputs ... ok
+test zero_dd_column_replaces_the_matrix_entries ... ok
+test staircase_refuses_other_layouts ... ok
+test newton_step_mixed_control_other_storage_differs ... ok
+test staircase_solves_the_f64_system ... ok
+test mixed_newton_reaches_quad_double ... ok
+test dd_columns_control_rounded_columns_differ ... ok
+test f64_by_block_lanes_is_jacobian_f64 ... ok
+test mixed_newton_converges ... ok
+test quasi_mixed_newton_converges_from_fewer_factorizations ... ok
+
+test result: ok. 31 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.44s
+
+
+running 6 tests
+test bessel_pointwise_jacobian_control_one_side_wrong_differs ... ok
+test bessel_pointwise_jacobian_equals_per_column ... ok
+test prepare_control_counts_each_evaluation ... ok
+test prepare_runs_once_per_evaluation ... ok
+test bessel_control_wrong_frobenius_coefficient_fails ... ok
+test bessel_converges_to_its_closed_form ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 1 test
+test refined_newton_converges_like_exact_newton ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.26s
+
+
+running 27 tests
+test digest_f64 ... ok
+test crossings_f64 ... ok
+test closed_form_f64 ... ok
+test crossings_dd ... ok
+test digest_sees_a_checkpoint ... ok
+test closed_form_dd ... ok
+test digest_dd ... ok
+test edges_f64 ... ok
+test edges_dd ... ok
+test digest_pinned_fails_on_a_flip ... ok
+test fold_f64 ... ok
+test fold_dd ... ok
+test lanes ... ok
+test lanes_controls ... ok
+test misc_f64 ... ok
+test misc_dd ... ok
+test edges_qd ... ok
+test parts_see_a_lower_part ... ok
+test controls_without_hooks ... ok
+test fold_qd ... ok
+test crossings_qd ... ok
+test closed_form_qd ... ok
+test digest_qd ... ok
+test misc_qd ... ok
+test digest_od ... ok
+test octo_double ... ok
+test digest_od_sees_the_lower_parts has been running for over 60 seconds
+test digest_od_sees_the_lower_parts ... ok
+
+test result: ok. 27 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 119.01s
+
+
+running 7 tests
+test arctan_map_inverts ... ok
+test mapped_dmat_differentiates_in_theta ... ok
+test identity_maps_give_the_uniform_grid ... ok
+test resample_in_moves_to_a_mapped_grid ... ok
+test interp_at_evaluates_the_interpolant ... ok
+test resample_in_keeps_quad_and_octo_double ... ok
+test uniform_interp_keeps_each_precision ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.81s
+
+
+running 3 tests
+test jacobian_tangents_timing ... ignored
+test jacobian_tangents_is_jacobian_bitwise ... ok
+test with_tangents_is_the_layout_bitwise has been running for over 60 seconds
+test with_tangents_is_the_layout_bitwise ... ok
+
+test result: ok. 2 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 86.71s
+
+
+running 3 tests
+test bits_differ_counts_missing_rows ... ok
+test session_calls_the_order_methods_in_sequence ... ok
+test session_orders_are_residual_jet_bitwise ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.92s
+
+
+running 7 tests
+test tangent_checks_the_pair_layout ... ok
+test tangent_forms_again_when_the_seed_underflows ... ok
+test tangent_bitwise_check_rejects_a_moved_order ... ok
+test anm_takes_the_tangent_update_through_jet_orders ... ok
+test tangent_series_is_the_planted_branch ... ok
+test branch_session_is_residual_jet_bitwise ... ok
+test tangent_orders_agree_with_residual_jet ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 39.70s
+
+
+running 4 tests
+test jvp_bytes_match_reference ... ok
+test jvp_residual_control_one_ulp_differs ... ok
+test jvp_bytes_control_one_ulp_differs ... ok
+test jvp_matches_the_jacobian ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.92s
+
+
+running 1 test
+test lm_converges_on_the_planted_problem ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.42s
+
+
+running 7 tests
+test tau_maps_the_documented_pole ... ok
+test affine_series_diverges_where_mobius_converges ... ok
+test affine_series_control_swapped_sizes_fail ... ok
+test mobius_bytes_match_reference ... ok
+test mobius_bytes_control_one_ulp_differs ... ok
+test mul_w_is_the_cauchy_product ... ok
+test mobius_sum_is_its_closed_form ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.23s
+
+
+running 33 tests
+test complex_rate_on_real_tangents_panics - should panic ... ok
+test complex_rate_on_quad_tangents_panics - should panic ... ok
+test complex_rate_rows_scale_control_wrong_factor ... ok
+test complex_rate_projects_both_parts ... ok
+test mode_bytes_control_one_ulp_differs ... ok
+test complex_rate_rows_scale ... ok
+test complex_rate_projection_control_real_only_differs ... ok
+test pointwise_mode_matrix_equals_per_column ... ok
+test pointwise_mode_control_coupled_differs ... ok
+test rate_zero_is_the_projected_jacobian_block ... ok
+test rate_zero_is_the_scaled_jacobian_block ... ok
+test rate_zero_is_the_jacobian_block ... ok
+test mode_bytes_match_reference ... ok
+test rate_zero_projected_controls_differ ... ok
+test rate_zero_control_unscaled_differs ... ok
+test real_rate_is_the_explicit_shift ... ok
+test shift_control_real_rate_moves_the_tangent ... ok
+test shift_identity_controls_signed_zero_and_value_differ ... ok
+test shift_is_the_identity_without_a_tangent_or_a_rate ... ok
+test shift_quad_and_octo_controls_differ ... ok
+test shift_real_rate_moves_quad_and_octo_tangents ... ok
+test real_rate_matrix_control_one_ulp_differs ... ok
+test wave_determinant_is_planted ... ok
+test mode_matrix_refuses_a_wrong_row_scale ... ok
+test real_rate_matrix_quad_agrees_with_double ... ok
+test real_rate_matrix_is_mode_matrix_at_double ... ok
+test wave_quad_determinant_is_planted ... ok
+test real_rate_is_the_explicit_shift_in_quad_and_octo ... ok
+test real_rate_matrix_octo_agrees_with_quad ... ok
+test mode_winding_counts_and_locates_the_modes ... ok
+test mode_logdets_are_each_rates_logdet ... ok
+test mode_winding_is_the_one_by_one_count ... ok
+test winding_counts_the_planted_zeros ... ok
+
+test result: ok. 33 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 36.53s
+
+
+running 6 tests
+test planner_norm_propagates_nan ... ok
+test planner_norm_control_amax_skips_nan ... ok
+test max_abs_control_old_fold_drops_nan ... ok
+test newton_nan_control_old_fold_scores_zero ... ok
+test newton_on_nan_residual_does_not_converge ... ok
+test max_abs_propagates_nan ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 10 tests
+test planted_residual_vanishes ... ok
+test newton_step_solves_the_linear_system ... ok
+test newton_error_estimate_matches_the_error ... ok
+test pointwise_jacobian_equals_per_column ... ok
+test pointwise_control_coupled_problem_differs ... ok
+test results_bytes_match_reference ... ok
+test planted_newton_converges ... ok
+test newton_refuses_options_out_of_range ... ok
+test results_bytes_control_one_ulp_differs ... ok
+test jacobian_matches_central_differences ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.47s
+
+
+running 17 tests
+test controls_orthonormality ... ok
+test extreme_scales_in_every_lane ... ok
+test p1_f64 ... ok
+test p1_dd ... ok
+test p1_qd ... ok
+test controls_wrong_inputs_f64 ... ok
+test p3_f64 ... ok
+test p3_dd ... ok
+test p2_f64 ... ok
+test p_and_its_inverse ... ok
+test p3_qd ... ok
+test p1_od ... ok
+test p2_dd ... ok
+test controls_wrong_inputs_od ... ok
+test controls_wrong_inputs_dd ... ok
+test p2_qd ... ok
+test controls_wrong_inputs_qd ... ok
+
+test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.90s
+
+
+running 13 tests
+test complex_ln_of_a_complex_panics - should panic ... ok
+test complex_real_embedding_is_exact ... ok
+test complex_sqrt_recip_div ... ok
+test complex_to_f64_of_a_complex_panics - should panic ... ok
+test p1c_f64 ... ok
+test real_embedding_f64 ... ok
+test real_embedding_dd ... ok
+test wrong_inputs_f64 ... ok
+test p1c_dd ... ok
+test wrong_inputs_dd ... ok
+test p1c_qd ... ok
+test real_embedding_qd ... ok
+test wrong_inputs_qd ... ok
+
+test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.30s
+
+
+running 4 tests
+test precisions_agree_on_the_residual ... ok
+test residual_bytes_match_reference ... ok
+test planted_converges_in_quad_and_octo ... ok
+test residual_bytes_control_one_ulp_differs ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 10.64s
+
+
+running 1 test
+test tangent_is_the_eigenvalue_direction ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+
+running 4 tests
+test block_states_panics_on_a_failed_preparation - should panic ... ok
+test failed_preparation_is_every_entry_points_error ... ok
+test try_block_states_refuses_a_malformed_z ... ok
+test try_prepare_gives_the_bits_of_prepare ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.92s
+
+
+running 14 tests
+test project_rows_refuses_bad_layouts ... ok
+test projected_jet_is_the_jacobian_product ... ok
+test projected_jet_control_unprojected_fails ... ok
+test projector_control_double_double_fails ... ok
+test projector_is_exact_in_octo ... ok
+test projected_bytes_match_reference ... ok
+test projected_rows_scale_after_the_projection ... ok
+test projected_bytes_control_one_ulp_differs ... ok
+test projected_jvp_is_the_jacobian_product ... ok
+test projected_rows_scale_control_wrong_factor_fails ... ok
+test projected_jvp_control_unprojected_fails ... ok
+test projected_jacobian_control_unprojected_fails ... ok
+test projected_jacobian_matches_central_differences ... ok
+test projected_newton_reaches_the_exact_rows ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 18.12s
+
+
+running 6 tests
+test extra_rows_control_renormalized_sum_fails_dd ... ok
+test extra_rows_read_parts_as_they_are_dd ... ok
+test extra_rows_read_parts_as_they_are_qd ... ok
+test extra_rows_control_renormalized_sum_fails_qd ... ok
+test extra_rows_read_parts_as_they_are_od ... ok
+test extra_rows_control_renormalized_sum_fails_od ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.47s
+
+
+running 5 tests
+test resampler_moves_resolved_fields_exactly ... ok
+test resampler_is_exact_on_grids_of_any_size ... ok
+test renode_does_not_depend_on_threads ... ok
+test planted_solution_resamples_to_more_points ... ok
+test planted_solution_moves_to_new_nodes ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+
+running 3 tests
+test row_scale_control_wrong_length_fails ... ok
+test row_scale_control_wrong_factor_fails ... ok
+test row_scale_scales_residual_jacobian_and_jet ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.24s
+
+
+running 8 tests
+test f64_lane_at_a_rate_panics - should panic ... ok
+test periodic_solve_is_planted_at_a_rate ... ok
+test periodic_solve_control_unrefined_fails ... ok
+test same_bits_control_zero_sign_differs ... ok
+test real_tangent_at_a_complex_rate_panics - should panic ... ok
+test solve_at_control_fewer_steps_differs ... ok
+test solve_at_is_solve_bitwise ... ok
+test periodic_solve_is_planted_in_every_lane ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+
+running 9 tests
+test slaved_residual_returns_the_factorization_error ... ok
+test slaved_bytes_match_reference ... ok
+test slaved_jacobian_control_nan_fails ... ok
+test slaved_series_is_its_closed_form ... ok
+test slaved_jacobian_matches_central_differences ... ok
+test slaved_bvp_converges_to_its_closed_form ... ok
+test slaved_bytes_control_one_ulp_differs ... ok
+test slaved_series_controls_fail ... ok
+test slaved_bvp_control_wrong_order_fails ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.94s
+
+
+running 1 test
+test spectrum_recovers_planted_coefficients ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 7 tests
+test split_bounds ... ok
+test split_refuses_a_pin_across_moved_nodes ... ok
+test split_control_ulp_and_wrong_piece_break_rows ... ok
+test split_is_the_same_on_tasks ... ok
+test split_does_not_depend_on_the_backend ... ok
+test split_has_the_same_root ... ok
+test split_keeps_the_residual_bitwise ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.82s
+
+
+running 3 tests
+test sub_blocks_check_their_input ... ok
+test sub_blocks_evaluate_only_what_they_meet ... ok
+test sub_blocks_are_the_whole_bitwise has been running for over 60 seconds
+test sub_blocks_are_the_whole_bitwise ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 101.41s
+
+
+running 1 test
+test factors_and_subspace_do_not_depend_on_threads ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+
+
+running 21 tests
+test planner_one_ulp_control_early_stop_fails ... ok
+test layout_offsets ... ok
+test planner_nan_control_finite_plans ... ok
+test planner_reaches_an_end_one_ulp_away ... ok
+test planner_rejects_infinite_end - should panic ... ok
+test planner_rejects_nan_coefficient - should panic ... ok
+test planner_reports_an_underflowing_tolerance - should panic ... ok
+test planner_underflow_control_normal_tolerance_plans ... ok
+test planner_bound_control_doubled_steps_fails ... ok
+test planner_bound_holds ... ok
+test planner_rejects_zero_tolerance - should panic ... ok
+test planned_segments_end_at_their_nodes ... ok
+test taylor_check_refuses_a_step_it_cannot_halve ... ok
+test plan_points_match_reference ... ok
+test rotor_carried_to_double_double ... ok
+test rotor_carried_control_wrong_coefficient_fails ... ok
+test plan_points_do_not_depend_on_threads ... ok
+test taylor_check_estimates_the_paths_error ... ok
+test stepping_bytes_match_reference ... ok
+test plan_points_control_tolerance_differs ... ok
+test stepping_bytes_control_one_ulp_differs ... ok
+
+test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+
+running 5 tests
+test order_guess_is_the_cost_model_optimum ... ok
+test refined_orders_control_wrong_range_fails ... ok
+test auto_order_holds_the_planner_bound ... ok
+test auto_order_bytes_match_reference ... ok
+test auto_order_is_the_least_cost ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.87s
+
+
+running 1 test
+test src/shooting.rs - shooting::Shooting<E,B>::plan_segments_auto (line 288) ... ignored
+
+test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

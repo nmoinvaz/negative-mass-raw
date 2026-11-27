@@ -1,0 +1,30 @@
+   Compiling crossbeam-utils v0.8.23
+   Compiling crossbeam-epoch v0.9.21
+   Compiling crossbeam-deque v0.8.8
+   Compiling rayon-core v1.13.0
+   Compiling either v1.19.0
+   Compiling rayon v1.12.0
+   Compiling multidouble v6.1.0
+   Compiling multisolver v0.3.0
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i188-libs/multishoot)
+error[E0502]: cannot borrow `*self` as immutable because it is also borrowed as mutable
+   --> src/plane.rs:605:67
+    |
+605 |                 orthonormalize_with(&mut self.y, n, k, &mut diag, self.bilinear());
+    |                 ------------------- -----------                   ^^^^ immutable borrow occurs here
+    |                 |                   |
+    |                 |                   mutable borrow occurs here
+    |                 mutable borrow later used by call
+
+error[E0502]: cannot borrow `*self` as immutable because it is also borrowed as mutable
+   --> src/plane.rs:614:63
+    |
+614 |             orthonormalize_with(&mut self.y, n, k, &mut diag, self.bilinear());
+    |             ------------------- -----------                   ^^^^ immutable borrow occurs here
+    |             |                   |
+    |             |                   mutable borrow occurs here
+    |             mutable borrow later used by call
+
+For more information about this error, try `rustc --explain E0502`.
+error: could not compile `multishoot` (lib) due to 2 previous errors
+warning: build failed, waiting for other jobs to finish...

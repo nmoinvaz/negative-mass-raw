@@ -1,0 +1,15 @@
+# name<TAB>regex (Python re, case-insensitive; applied to whitespace-normalized pypdf text)
+area_min	(minimum|minimal|extremum|extremal value|critical point)s? of (the )?(areal|area|spherical|circumferential)( radius| function)?
+area_min2	(areal|area|spherical) radius[^.]{0,60}(minimum|extremum|stationary)
+coincide	(horizon[^.]{0,80}coincid\w+ with[^.]{0,40}(throat|minimum|extremum))|((throat|minimum)[^.]{0,60}coincid\w+ with[^.]{0,40}horizon)
+hz_throat	(horizon at the throat|throat at the horizon|throat coincides|horizon coincides|horizon[^.]{0,30}located at the throat|horizon[^.]{0,30}at the minimum)
+c_m1	\bc ?= ?[−–-] ?1\b
+only_stable	(stable only|only stable|isolated stable|the only (parameter|case|member)[^.]{0,60}stable)
+aretakis	Aretakis
+kappa_growth	((grow|growth|exponential)[^.]{0,70}surface gravity)|(surface gravity[^.]{0,70}(grow|growth|exponential))
+dR0	(δ ?R ?= ?0|δ ?r ?= ?0|δ ?β ?= ?0|δr = 0)
+throat_mode	(throat radius|throat-radius)[^.]{0,40}(perturb|mode|variation)
+nonzero_dr	(δ ?r|δ ?R)[^.]{0,40}(horizon|throat)[^.]{0,40}(nonzero|≠ ?0|not vanish)
+bu_stab	black universe[^.]{0,200}(stable|stability|unstable|instab)
+exact_mode	((exact|analytic(al)?|closed[- ]form) (solution|expression)s?[^.]{0,80}(perturbation|growing mode|unstable mode|eigenfunction|instability))|((growing|unstable) mode[^.]{0,60}(exact|analytic(al)?|closed[- ]form))
+static_pert	(static perturbation|zero mode|ω ?= ?0 (mode|solution))

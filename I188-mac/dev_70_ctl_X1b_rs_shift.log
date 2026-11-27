@@ -1,0 +1,6 @@
+# 2026-11-27 13:11:50 cwd=/Users/nathan/Source/negative-mass-raw/I188-mac
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python /Users/nathan/Source/negative-mass-i188/phase2/nonradial/taylor_polar.py --complex --mutate=rs_shift --only=X1b --jsonl-dir=jsonl_ctl --ref-dir=/Users/nathan/Source/negative-mass-raw/I188-mac/ref --raw=/Users/nathan/Source/negative-mass-raw
+# taylor_polar.py --complex: start 2026-11-27 13:11:50, load average 4.85, one process, nice 10; lane dd; mutate = rs_shift
+CHECK X1b: FAIL  box b6 (l = 6, Re s in [0.03, 0.1], |Im s| <= 2.5, R_s 1293.1822), crate dd against winding2's D by the scipy path at rtol 1e-13 at 8 stored points: worst modulus ratio 5.4e-12, worst phase 2.5e+00 rad (bar 1e-09 each), 6 points over the bar. Reported without a bar: crate against the stored values (rtol 1e-8) modulus 8.8e-09, phase 2.5e+00; the stored values against scipy at 1e-13 modulus 8.8e-09, phase 3.1e-06; crate wall per D: median 1.85 s, max 3.99 s
+SUMMARY: 0 passed, 1 failed, 0 skipped of 1 checks; failed: X1b; mutate = rs_shift; 27 s
+CONTROL rs_shift: every targeted check failed, as it must

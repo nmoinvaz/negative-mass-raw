@@ -1,0 +1,7 @@
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i188-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 6.15s
+     Running tests/plane.rs (target/release/deps/plane-1e9d0549fc8631b6)
+
+thread 'controls::controls_f64' (106137887) panicked at src/plane.rs:370:9:
+orthonormalize: column 1 has norm 0e0 after its projections (dependent columns, or not finite)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

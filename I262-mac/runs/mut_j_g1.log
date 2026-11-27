@@ -1,0 +1,30 @@
+[pass] S1: Y = R^{pw} e^{W x} (E' = W E/A) inserted in #212's Y equation for general c: the residual divided by e^{Wx} is 2 (pi W + 2c) / (rho R (2c rho^2 atan rho - pi c rho^2 + 2c rho + 2c atan rho - pi c - pi)), zero exactly at W = -2c/pi = K  (residual at W = K: 0; at W = 2K, c = -1, rho = 1/2: -5.20878567183106305044956237052)
+    (S1: 1 s)
+[pass] S2: c = 0 (Ellis wormhole, K = 0, W = 0): Y_K = R is the variation of the throat radius, Y = d_b R - (rho R/sqrt2) d_b phi at b = 1 with phi = sqrt2 arctan(rho/b)  (Y = sqrt(rho**2 + 1))
+    (S2: 0 s)
+[FAIL] S3: first-order monodromy about (c, W) = (-1, kappa) from the residues at rho = 0 (series to order 8, exact in pi): J_aa = i pi (d kappa/dc)/kappa = -J_bb, J_ba = 0, J_ab = -i pi^2; the prediction J_aa = i pi kdot/kappa, J_ba = 0 follows from det M = 1 and the exponents 1 -+ w/2  (J = [[-I*pi, -I*pi**2], [I*pi**2*(16 - pi**2)/64, I*pi]]; kdot = -2/pi + pi/4, d rho_h/dc = -pi/4)
+[pass] S4: the ingoing line at W = K(c), predicted by J, is Y_ref = R e^{kappa x} itself: v_b/v_a = 2 pi i (Kdot - kappadot)/(J_ab kappa) equals g1(Y_ref) - g1(Y_nat) = 1/(2K) = pi/4 (an exact solution that J did not use)  (predicted pi/4, Y_ref pi/4)
+    (S3: 81 s)
+
+4 checks, 3 pass; failed: ['S3']; mutation j_g1; 82 s
+mutation j_g1: fired ['S3'], declared ['S3']: equal
+[pass] N0: the Y equation as coded here (P, Q; Y_xx = (A P + A') Y_x + A^2 (Q - W^2/A^2) Y + W^2 Y) equals #212's coef_x (stability.py) at 6 points of rho in [-3, 4]  (max relative difference 3.2e-15)
+    (N0: 0 s)
+[pass] N1: Y_ref = R e^{kappa x} against the Frobenius series rho^{1/2} sum g_k rho^k (g1 = 1/(4K) = pi/8, g_k, k >= 2, from the recursion, 90 terms, 60 digits) at rho = +-0.01, +-0.05, +-0.1  (max relative difference 5.88e-61 (bar 1e-30); g2 = 0.6479855198171985093 = 5/12 + 3 pi^2/128: -7.78e-62)
+    (N1: 0 s)
+[pass] N2: Y_ref against the numerical integration of the master equation at W = kappa (Taylor steps of 70 terms, 45 digits, from the series at rho = +-0.1) at rho = +-0.3, 1, 2, 5, 10, 20, 40: the exterior and the interior  (max relative difference 4.27e-42 (bar 1e-20))
+    (N2: 8 s)
+[pass] N3: formal series at rho = +infinity, Y = e^{+-kappa x} rho sum c_n rho^{-n}: the e^{+kappa x} series is that of R = rho sqrt(1 + rho^{-2}) (120 terms, difference below 1e-40); the e^{-kappa x} series diverges, |c_{n+1}/c_n|/n at n = 100 within 5% of 1/(2K) = pi/4  (max difference from R's series 1.86e-122; e^(-kappa x): |c_101/c_100|/100 = 0.797472 against pi/4 = 0.785398)
+    (N3: 1 s)
+[pass] N4: beta* (Y_inf = Y_nat + beta* Y_b decays at +infinity), two ways: (i) -Y_nat/Y_b at rho = 100 from Taylor integration of the master equation (Y_nat, Y_b started from their series at rho = 0.1; from Y and from Y'); (ii) beta* = pi/4 - 1/I0, I0 = int_0^inf 2K rho^2 e^{-2 kappa x}/(A R^2) d rho by quadrature of the closed form  (beta* = -0.199917082520870780864997730781; I0 = 1.01490360992840889212569369765; 1/I0 = 0.985315245918319090480658576601; relative difference 1.13e-41 (bar 1e-30); 32 s)
+    (N4: 32 s)
+[pass] N5: d(W/kappa)/dc at c = -1 derived by first-order monodromy, s = J_ab beta*/(2 pi i) = -(pi/2) beta*, against the fit of W/kappa(c) - 1 = s1 (c+1) + s2 (c+1)^2 to #212's rates (stability.py, R2) at c = -1 +- 1e-2, 1e-3, 1e-4, to 1e-3  (s = 0.314029018887336; fit s1 = 0.31403797 (relative difference 2.9e-05), s2 = 0.30408; third-order fit s1 = 0.31402903 (2.7e-08); R1 fit s1 = 0.31405838)
+[pass] N6: dW/dc at c = -1, 1/I0 - 2/pi, against the central difference of #212's W (R2) at c = -0.9999 and -1.0001, to 1e-4  (1/I0 - 2/pi = 0.348695473550738; central difference 0.3486954830; relative difference 2.7e-08)
+    (N5: 104 s)
+[pass] N7: PSLQ at 50 digits (tolerance 1e-33, max coefficient 1000) recovers the planted number 3/2 - 5 pi/3 + 2 pi^2 (relation 6 t - 9 + 10 pi - 12 pi^2 = 0) in the basis {1, pi, pi^2, pi^3, 1/pi, 1/pi^2}, and returns none for exp(1/3) + sqrt2 in both declared bases  (planted: [-6, 9, -10, 12, 0, 0, 0]; control: None, None)
+    (N7: 0 s)
+[pass] N8: planted: synthetic W/kappa - 1 = s1 e + s2 e^2 + s3 e^3 (s1 = 0.314029, s2 = 0.304, s3 = 0.27) with noise 1e-10 at the six c of N5, through the same fit: s1 recovered to 1e-3 (second and third order)  (second order 0.31403823 (2.9e-05), third order 0.31402920 (5.8e-07))
+    (N8: 0 s)
+
+9 checks, 9 pass; failed: []; mutation j_g1; 145 s
+mutation j_g1: fired [], declared ['S3']: DIFFERENT
