@@ -49,7 +49,7 @@ Every command's output goes to a log here, numbered when rerun; logs are never o
 
 ## Results (2026-11-27)
 
-Head `b6d7087` (23 commits on main 7b14116: the 4 of the PR rebased, 19 of this task). CI at the rebase `a12de84`: Build run
+Head `b6d7087` (24 commits on main 7b14116: the 4 of the PR rebased, 20 of this task). CI at the rebase `a12de84`: Build run
 45949911354 and Lint run 45949911352, every job green. CI at `02691af`: Build run 45952318413, Lint run 45952318357, every job
 green (Windows included). CI at `b6d7087` (docs only): Build run 45953693108, Lint run 45953693119.
 
