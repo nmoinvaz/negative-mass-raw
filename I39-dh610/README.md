@@ -47,7 +47,7 @@ external site.
 |---|---|---|
 | dev_01 | first `derive.py --quick`, n = 2, 3 only | 16 of 17 pass; D1 failed: my static Ricci R_ang had the coefficient n on the r r' nu' term, it is 1. stdout was not saved to a file (it is in the session) |
 | dev_02, dev_02b, dev_02c | after the fix: 19 of 19 pass; then A3, D5 using the mutable claims and the D3d check added: D3d failed (the second derivative of phi was not substituted), then 24 of 24 | `derive/dev_02*.log` |
-| dev_03 | six mutations, declared targets were guesses | four of six had silent or extra targets; `pm_sign`, `scalar_coef`, `ghost_sign` were silent on checks I had guessed (A1, D2, D4) because the equations those check never use the mutated coefficient; the guesses were wrong, the targets in `derive.py` come from dev_05 to dev_07 |
+| dev_03 | six mutations, declared targets were my guesses | four of six had silent targets: `pm_sign` (A1, D4), `scalar_coef` (D2, D4), `ghost_sign` (D2), `ellis_charge` (D3). The guesses were wrong, not the mutations: those checks never use the mutated coefficient. The targets in `derive.py` come from dev_05 to dev_07 |
 | dev_04 | the same after A3 and D5 were rewired to the mutable claims | D5 now fires on every mutation |
 | dev_05 | nine mutations plus the unmutated run | `ellis_profile` silent on D2a (D2a hard-coded the exponent); fixed in dev_06 |
 | dev_06 | `ellis_profile` | fires D2, D2a, D3, D3b, D3c |
