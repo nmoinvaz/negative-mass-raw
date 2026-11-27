@@ -206,3 +206,25 @@ statement that `Conserve` is not for branches that meet a double root (K-B stays
 
 Controls: the targets are declared after the development run that has `step_sum` (`dev_03_implicit`), from its table.
 `coeffs` is no target of any control (it is NOT MET without one).
+
+### A2 Control targets, declared after `dev_03_implicit` (the run that has `step_sum`) and before the next run
+
+`dev_03_implicit` ran every check once with each control (the table in its log: `control ... FIRED/SILENT`); from it the
+targets below are declared. They are asserted by `controls_f64`, `controls_dd`, `controls_qd` in `tests/implicit.rs`
+(a control must fail exactly its row and no other check). The checks of a row: `step_sum` K-A, `closed_form` K-A and R-D
+on `Project`, `crossings` K-B `Project`, `fold` F1 and F2 `Project`, `zero_pivot`. `coeffs` is no target (NOT MET without a
+control). The first table of `dev_01` used R-D `Conserve` among its cells, a recorded NOT MET cell, so its "FIRED" lines
+for the controls that change nothing there were not controls' effects; this table uses gated cells only.
+
+| control | fails (every lane unless stated) | silent on | what dev_03 showed |
+|---|---|---|---|
+| `SkipOrder(3)` | step_sum, closed_form, crossings, fold F1, fold F2 | zero_pivot | step_sum ratio 8.1e31 dd, 9.0e15 f64, 6.7e63 qd (bar 1e6) |
+| `RecipDD` | in quad-double: step_sum, closed_form, crossings | fold F1, F2, zero_pivot; in f64 and dd everything | step_sum ratio 2.5e33 qd, against 4.9e2 (dd) and 6.2e2 (f64) with it |
+| `NoPivotCheck` | zero_pivot (stop `NonFinite` in place of `ZeroPivot`) | the rest | |
+| `NoCrossing` | crossings (0 of 2 found) | the rest | |
+| `ExponentHalf` | fold F2 (estimate off by R / 2 at exponent 1) | fold F1 (exponent 1/2 is the mutated value), the rest | |
+| `NoPivotStop` | fold F1, fold F2 (walk ends `Tiny`, no estimate) | the rest | |
+| `wrong_start`, `switch_mid`, `WrongForm` (no hook) | closed_form K-A | | err 1.5, 0.94 and 1e4 against a bar of 1.2e-26 (dd) |
+
+A prediction of the README that `dev_03` did not confirm: none. A prediction that was too narrow: `SkipOrder(3)` also
+fails `crossings` and the folds (N drifts, so every check that depends on the path does).
