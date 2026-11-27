@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-i208/notes/wormhole_largeD/order5.py", line 504, in <module>
+    main()
+    ~~~~^^
+  File "/home/nathan/Source/negative-mass-i208/notes/wormhole_largeD/order5.py", line 497, in main
+    check_remainder(ev)
+    ~~~~~~~~~~~~~~~^^^^
+  File "/home/nathan/Source/negative-mass-i208/notes/wormhole_largeD/order5.py", line 456, in check_remainder
+    rem = mp.mpf(lst[D]) - (s - 4 * mp.ln2 + om1 / s + om2 / s**2 + om3 / s**3)
+                 ~~~^^^
+KeyError: 1000
