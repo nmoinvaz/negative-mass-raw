@@ -1,0 +1,28 @@
+settled_mass.py analyze {'raw': '/tmp/claude-1000/-home-nathan-Source-negative-mass-i41/6aeafbfc-d94d-45dc-8475-ad54ab6a4512/scratchpad/devraw'}: numba 0.68.1, numpy 2.5.4, python 3.14.10, rpi5-ubuntu, load average at start 1.53 1.35 1.04, mutation None, 2026-11-27 06:08:50
+
+== Planted exact solutions through the chain
+    P1 h = 0.02: status limit, columns 368, F to 5996, max |M - 0.3| 8.202e-05, max |x- - x_h| 3.298e-04
+    P1 h = 0.01: status limit, columns 736, F to 6061, max |M - 0.3| 2.091e-05, max |x- - x_h| 8.245e-05
+    P1 h = 0.005: status limit, columns 1472, F to 6093, max |M - 0.3| 5.145e-06, max |x- - x_h| 2.061e-05
+    P1 h = 0.0025: status limit, columns 2945, F to 6139, max |M - 0.3| 1.329e-06, max |x- - x_h| 5.153e-06
+[pass] PL1: exact Schwarzschild (M = 0.3) in the stretching gauge, through the chain: M recovered, second order, limit reached  (max |M - 0.3| at h = 0.005: 5.14e-06 (bar 1e-4); orders [1.972, 2.023, 1.953] in (1.75, 2.25); status ['limit', 'limit', 'limit', 'limit']; F reached [5996, 6061, 6093, 6139] of 6144)
+    P2 h = 0.02: columns 106 (levels [100, 4, 2]), max |r - r_exact| on r_+ = 0: 1.703e-04, max |x- - 2 a x+| 1.577e-04, min edge 26 cells
+    P2 h = 0.01: columns 212 (levels [200, 8, 4]), max |r - r_exact| on r_+ = 0: 4.266e-05, max |x- - 2 a x+| 3.948e-05, min edge 51 cells
+    P2 h = 0.005: columns 424 (levels [400, 16, 8]), max |r - r_exact| on r_+ = 0: 1.067e-05, max |x- - 2 a x+| 9.877e-06, min edge 101 cells
+    P2 h = 0.0025: columns 848 (levels [800, 32, 16]), max |r - r_exact| on r_+ = 0: 2.670e-06, max |x- - 2 a x+| 2.470e-06, min edge 201 cells
+[pass] PL2: exact Roberts ghost solution, moving contour r_+ = 0, two forced zoom levels: r on the contour, second order  (max error at h = 0.005: 1.07e-05 (bar 5e-5); orders [1.997, 1.999, 1.999] in (1.75, 2.25))
+[pass] PL3: level 0 of the chain equals dn.evolve bit for bit (nodes, dead flags) and finds the same first trapped cell  (h = 0.02, delta = 1e-06: nodes equal True, dead equal True, events (385, 385) and (385, 385))
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-i41/notes/wormhole_evolution/settled_mass.py", line 841, in <module>
+    main()
+    ~~~~^^
+  File "/home/nathan/Source/negative-mass-i41/notes/wormhole_evolution/settled_mass.py", line 831, in main
+    sys.exit(analyze_cmd(opts["raw"], an=not opts.get("noan")))
+             ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-i41/notes/wormhole_evolution/settled_mass.py", line 615, in analyze_cmd
+    r = an_grid_check(raw)
+  File "/home/nathan/Source/negative-mass-i41/notes/wormhole_evolution/settled_mass.py", line 571, in an_grid_check
+    rec, stop, exh = track(L, CRIT["n"], ev[1], ev[0] + 0.5, stop_F=Fstop, tol=CRIT["tol"], win=400)
+                                         ~~^^^
+TypeError: 'NoneType' object is not subscriptable
+rc 1
