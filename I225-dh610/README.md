@@ -194,3 +194,17 @@ $PY throat_locus.py mutate  --mutate=NAME                             the reduce
 
 The queue is `scripts/make_queue.py` (31 jobs, longest first), taken by four lanes `scripts/lane.sh` (one thread each, `nice -n 10`, `timeout 7200`), started as `systemd-run --user --unit=nm-i225-laneN`.
 Estimate after step 1 (revised from 6 to 9 h): the runs of record about 1.5 to 2 h wall on four lanes, the analysis and note about 1 h; about 4 to 5 h in all.
+
+## Results (appended after the runs of record; the declarations above are unchanged)
+
+Runs of record: 31 jobs from `runs/queue.txt` on four lanes (`scripts/lane.sh`, units `nm-i225-lane1` to `lane4`), 09:07 to 10:11 (2026-11-27), all exit 0, the longest 44 min (series D = 5, h = 0.00177, part 2 of 4), peak memory 274 MB,
+none near the 2 h stop (`runs/logs/job_*.time`, `lanes.log`). Driver `throat_locus.py` at 9a3079d (the code as declared; no code change after the first run of record). `runs/analysis.log` is
+`throat_locus.py analyze --raw=runs` (exit 1; = `notes/wormhole_evolution/throat_locus_output.txt`): **55 of 59 checks pass; CMP2 at D = 5 (h = 0.00707, 0.00354, 0.00177) and KX fail, reported as results, none moved.**
+
+- CMP2 (D = 5): the series' locus tau slope 0.7017 / 0.7022 / 0.7022 against the member's e-fold at #40's stall time (t = 6), r_th/W = 0.6127 / 0.6129 / 0.6130: +14.5 % (bar 2 %). CMP1 (the pair rate against that member): −1.9 % (inside 2 %); CMP3
+  (t = 7 to 13): −0.0051 to +0.0033; DR: +11.7 %.
+- KX: D = 5, A = 0.05 is class GROW, not FT, at both h (tau_s/tau_end = 9.126/7.590 = 1.2025 against the declared bound 1.2 of `expansion.classify`'s FT test; k = 3.9883 against 3.9875, 1/H linear to 2e-4). All the other members: FT, k within 1e-3 of the symmetric throat's.
+- The mutation runs of record: `runs/mut/` (20, `analyze --raw=runs --mutate=`) and `runs/mut_mini/` (15, the reduced suite): the declared set fires in every run; on the record CMP2 and KX fire beside it in every run because they fail without a mutation; the reduced suite
+  fires exactly the declared sets.
+- Discrepancies with the brief and with the repository's text: the brief's "dl/dt = +0.58, +0.25" (positions, coordinator confirmed); `threshold.md`'s "lifetime read by an observer off the throat … not separated" is now separated (the note proposes the wording); the brief's remark that G's end state may
+  carry a normal charge is not seen at D = 4 (<= 1e-5) and is below 1e-3 at D = 5 after t = 8.
