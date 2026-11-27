@@ -1,0 +1,4 @@
+# 2026-11-27 09:05:33 cwd=/Users/nathan/Source/negative-mass-i196/phase2/nonradial
+# cmd: bash -c /Users/nathan/Source/negative-mass/.venv/bin/python taylor_drift.py check --dir=/Users/nathan/Source/negative-mass-raw/I196-mac/dev_jsonl --crate-dir=/Users/nathan/Source/negative-mass-raw/I196-mac/dev_jsonl/crate --steps=/Users/nathan/Source/negative-mass-raw/I196-mac/crate_star_steps.jsonl --only=REF --mutate=ref_tol
+CHECK REF: FAIL  the crate's dd D against order 24 at tol 1e-22 (and quad-double where run): worst 1.66e-14 (bar 1e-20); (1000, base) dd vs o24 1.66e-14; (1000, phi) dd vs o24 1.53e-24; (2000, base) dd vs o24 9.22e-16; (2000, phi) dd vs o24 4.51e-24; (3000, base) dd vs o24 8.88e-18; (3000, phi) dd vs o24 3.97e-24
+SUMMARY: 0 passed, 1 failed, 0 skipped of 1  [mutation ref_tol]

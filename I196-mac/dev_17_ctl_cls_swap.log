@@ -1,0 +1,4 @@
+# 2026-11-27 09:01:41 cwd=/Users/nathan/Source/negative-mass-i196/phase2/nonradial
+# cmd: bash -c /Users/nathan/Source/negative-mass/.venv/bin/python taylor_drift.py check --dir=/Users/nathan/Source/negative-mass-raw/I196-mac/dev_jsonl --crate-dir=/Users/nathan/Source/negative-mass-raw/I196-mac/dev_jsonl/crate --steps=/Users/nathan/Source/negative-mass-raw/I196-mac/crate_star_steps.jsonl --only=CLS --synthetic --mutate=cls_swap
+CHECK CLS: FAIL  the classifiers on synthetic tables with known labels: rtol curve ('floor', 'truncation', 'mixed'), plant ('removes', 'none', 'partly'), planted system ('accounts', 'not', 'partly')
+SUMMARY: 0 passed, 1 failed, 0 skipped of 1  [mutation cls_swap]
