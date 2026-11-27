@@ -1,0 +1,4 @@
+# 2026-11-27 14:59:28 cwd=/Users/nathan/Source/negative-mass-i196/phase2/nonradial load 102.38 58.56 46.39
+# cmd: bash -c /Users/nathan/Source/negative-mass/.venv/bin/python taylor_drift.py check --dir=/Users/nathan/Source/negative-mass-raw/I196-mac/jsonl --steps=/Users/nathan/Source/negative-mass-raw/I196-mac/crate_star_steps.jsonl --jtable=/Users/nathan/Source/negative-mass-raw/I196-mac/crate_jtable_l5.jsonl --raw=/Users/nathan/Source/negative-mass-raw --only=RMX --mutate=rm_cut
+CHECK RMX: FAIL  PolarProblem's r_m on scipy's star and on the crate's star equal to the last bit: base: scipy's star np.float64(24.10980364018201), the crate's star np.float64(24.10980364018201), taylor_polar R_M 24.10980364018201; phi: scipy's star np.float64(34.20514015700785), the crate's star np.float64(30.821027351367572), taylor_polar R_M 34.20514015700785
+SUMMARY: 0 passed, 1 failed, 0 skipped of 1  [mutation rm_cut]
