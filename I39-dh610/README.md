@@ -68,8 +68,8 @@ No tolerance appears in `derive.py`: its checks are exact symbolic zeros.
 ## Step 2 criteria
 
 Written after the coordinator's ruling (6b02d78) and after the development runs `dev/dev_s2_01` to `dev_s2_17`, and **before the first
-run of record**. The code is `notes/wormhole_evolution/{dn.py,checks.py}` on `wip/i39-throat-evolution`; the numbers below are the
-`CRIT` and `MUTATIONS` tables of `checks.py` at the commit that carries this README's commit hash in its message. Nothing here is
+run of record**. The code is `notes/wormhole_evolution/{dn.py,checks.py}` on `wip/i39-throat-evolution` at a00d354 (committed before any run of record); the
+numbers below are the `CRIT` and `MUTATIONS` tables of `checks.py` at that commit. Nothing here is
 changed after a run of record has been seen. A criterion that is not met is reported as not met.
 
 ### What the ruling asked for, and where it is met
