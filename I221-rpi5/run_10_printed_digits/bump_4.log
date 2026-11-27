@@ -1,0 +1,36 @@
+printed_digits.py  mutate=bump:4  old-rev=4bced01
+  where            D  quantity             printed                    old @ digits     new @ digits     verdict
+  main.tex:132     4  W2a2                 1.39705243                 1.39705243       1.39705343       NEW DIFFERS
+  main.tex:132     4  rel. diff            $2.2$                      2.2              2.2              unchanged
+  main.tex:132     4  diff x s^2           $-12$                      -12              -12              unchanged
+  main.tex:133     5  W2a2                 2.98495893                 2.98495893       2.98495893       unchanged
+  main.tex:133     5  rel. diff            $0.28$                     0.28             0.28             unchanged
+  main.tex:133     5  diff x s^2           $-14$                      -14              -14              unchanged
+  main.tex:134     6  W2a2                 4.68662054                 4.68662054       4.68662054       unchanged
+  main.tex:134     6  rel. diff            $5.9\times10^{-2}$         0.059            0.059            unchanged
+  main.tex:134     6  diff x s^2           $-10$                      -10              -10              unchanged
+  main.tex:135     7  W2a2                 6.46258414                 6.46258414       6.46258414       unchanged
+  main.tex:135     7  rel. diff            $1.05\times10^{-2}$        0.0105           0.0105           unchanged
+  main.tex:135     7  diff x s^2           $-4.3$                     -4.3             -4.3             unchanged
+  main.tex:136     8  W2a2                 8.28975936                 8.28975936       8.28975936       unchanged
+  main.tex:136     8  rel. diff            $2.4\times10^{-3}$         0.0024           0.0024           unchanged
+  main.tex:136     8  diff x s^2           $2.0$                      2.0              2.0              unchanged
+  main.tex:137    10  W2a2                 12.04426501                12.04426501      12.04426501      unchanged
+  main.tex:137    10  rel. diff            $6.0\times10^{-3}$         0.0060           0.0060           unchanged
+  main.tex:137    10  diff x s^2           $14$                       14               14               unchanged
+  main.tex:280     4  1/(Wa)               0.846                      0.846            0.846            unchanged
+  main.tex:280     4  slope 1/(sqrt2 W a)  0.598                      0.598            0.598            unchanged
+  main.tex:282     5  1/(Wa)               0.579                      0.579            0.579            unchanged
+  main.tex:282     5  slope 1/(sqrt2 W a)  0.409                      0.409            0.409            unchanged
+  main.tex:283     6  1/(Wa)               0.462                      0.462            0.462            unchanged
+  main.tex:283     6  slope 1/(sqrt2 W a)  0.327                      0.327            0.327            unchanged
+  README.md:68     4  1/W                  0.846                      0.846            0.846            unchanged
+  README.md:69     5  1/W                  0.579                      0.579            0.579            unchanged
+  README.md:69     6  1/W                  0.462                      0.462            0.462            unchanged
+  README.md:76     5  1/W                  0.579                      0.579            0.579            unchanged
+  README.md:77     4  1/W                  0.846                      0.846            0.846            unchanged
+  README.md:110    4  [TS13] column        1.39705243                 1.39705243       1.39705343       NEW DIFFERS
+  README.md:111   10  [TS13] column        12.0442650                 12.0442650       12.0442650       unchanged
+
+31 cells, 29 unchanged; not unchanged: [('main.tex:132', 4, 'W2a2', 'NEW DIFFERS'), ('README.md:110', 4, '[TS13] column', 'NEW DIFFERS')]
+exit 1
