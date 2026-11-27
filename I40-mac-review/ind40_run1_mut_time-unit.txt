@@ -1,0 +1,10 @@
+  D=4 h=0.02: p*_h 4.753660628467e-05 (43 bisection runs); slope 0.598225 (22 pts; rel -2.93e-01); [1e-9,1e-5] 0.598219; collapse 0.598205, expansion 0.598244; in tau 0.598243; own side True; floor [(9.5, -1, -1, np.float64(14.4197)), (9.5, 1, 1, np.float64(15.9314)), (10.0, -1, -1, np.float64(15.1081)), (10.0, 1, 1, np.float64(16.6202))]; 3 s
+  D=4 h=0.01: p*_h 1.188471672776e-05 (43 bisection runs); slope 0.598240 (22 pts; rel -2.93e-01); [1e-9,1e-5] 0.598237; collapse 0.598222, expansion 0.598258; in tau 0.598244; own side True; floor [(9.5, -1, -1, np.float64(14.42)), (9.5, 1, 1, np.float64(15.9318)), (10.0, -1, -1, np.float64(15.1086)), (10.0, 1, 1, np.float64(16.621))]; 10 s
+  D=4 h=0.005: p*_h 2.971214585159e-06 (43 bisection runs); slope 0.598243 (22 pts; rel -2.93e-01); [1e-9,1e-5] 0.598241; collapse 0.598225, expansion 0.598261; in tau 0.598243; own side True; floor [(9.5, -1, -1, np.float64(14.4201)), (9.5, 1, 1, np.float64(15.9321)), (10.0, -1, -1, np.float64(15.1094)), (10.0, 1, 1, np.float64(16.6212))]; 43 s
+  D=4: p*_h 4.753661e-05, 1.188472e-05, 2.971215e-06; orders with p* = 0: 2.000, 2.000; Richardson 2.000
+[FAIL] K2: D=4: 0.598240, 0.598243 against 1/W 0.846045 (rel -2.93e-01, -2.93e-01; agreement -4.30e-06; own side True)
+[FAIL] K3: D=4 h=0.005: 0.598243, rel -2.93e-01
+[FAIL] K4: D=4: ind40 0.598243, #40 refit over [1e-9, 1e-4] 0.846040 (22 pts), rel -2.93e-01
+
+3 criteria, 0 pass; failed: ['K2', 'K3', 'K4']; mutation time-unit
+rc=1

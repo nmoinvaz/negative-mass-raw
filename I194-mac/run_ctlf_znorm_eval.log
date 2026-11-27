@@ -1,0 +1,12 @@
+--- Cs (0 s)
+  alpha_c=1.1: w 0.43125268!=0.42375461 (1499613.74, rel 1.7e-02); N 2.03734!=2.49156 (90844.73, rel 2.2e-01); M -0.95040!=-1.14552 (39023.09, rel 2.1e-01); max|2m/r| 0.1099 / 0.1239, rs 22.52 / 23.75
+  alpha_c=1.15: w 0.42283832!=0.41351968 (1863727.09, rel 2.2e-02); N 4.34345!=5.71516 (274341.76, rel 3.2e-01); M -1.93216!=-2.51160 (115888.22, rel 3.0e-01); max|2m/r| 0.1737 / 0.2058, rs 27.61 / 30.00
+  alpha_c=1.17: w 0.42226358!=0.41213347 (2026022.32, rel 2.4e-02); N 5.46004!=7.39178 (386348.41, rel 3.5e-01); M -2.40387!=-3.22008 (163242.24, rel 3.4e-01); max|2m/r| 0.2001 / 0.2417, rs 29.46 / 32.25
+  alpha_c=1.2: w 0.42299900!=0.41150609 (2298581.17, rel 2.7e-02); N 7.32669!=10.36829 (608320.84, rel 4.2e-01); M -3.19255!=-4.48362 (258213.06, rel 4.0e-01); max|2m/r| 0.2404 / 0.2995, rs 32.07 / 35.75
+  alpha_c=1.25: w 0.42690713!=0.41290477 (2800472.11, rel 3.3e-02); N 10.91740!=16.65122 (1146763.94, rel 5.3e-01); M -4.71783!=-7.18894 (494221.84, rel 5.2e-01); max|2m/r| 0.3096 / 0.4068, rs 36.13 / 41.25
+  alpha_c=1.3: w 0.43282712!=0.41589235 (3386953.07, rel 3.9e-02); N 15.06743!=24.93152 (1972818.27, rel 6.5e-01); M -6.50154!=-10.84540 (868772.39, rel 6.7e-01); max|2m/r| 0.3812 / 0.5314, rs 39.92 / 47.00
+CHECK Cs: FAIL  0 of 18 tokens (w, N, M of 6 stored rows) equal their stored print; largest relative difference 6.7e-01; 6 rows beside the arclength path (to alpha_c = 1.3165 in 9 chunks, 90 points, 3 refused steps), 0 rows by Newton stepping in alpha_c (0 solves, 0 refused); omega_min on the path 0.41113282 at alpha_c 1.21137 (path point, not the fold)
+--- Fs (0 s)
+  alpha_0=1.1: w 0.431253!=0.423755; thr 3.235e-01!=3.321e-1; root 3.5940e-02!=3.1827e-2 (8226.62); root 1.4917e-01!=1.3059e-1 (3716.06); 1 further root(s) ['0.2991698562']; vs stored double: -1.1e-01, -1.2e-01; dense grid: same roots
+CHECK Fs: FAIL  1 of 5 tokens of the phantom modes table (w, (1-w)^2, roots on [-0.2, (1-w)^2), 'none') equal their stored print or hold on the 4x denser grid
+0 passed, 2 failed, 0 skipped of 2 checks; mutation: None; 0 s

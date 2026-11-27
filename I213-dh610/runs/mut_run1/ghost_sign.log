@@ -1,0 +1,84 @@
+expansion.py analyze: scale mini, mutation ghost_sign, numba 0.68.1, numpy 2.5.4, 2026-11-27 02:37:24
+runs: D4 h=0.04000 0.05 (N=1000), D4 h=0.02000 0.05 (N=2000)
+[FAIL] BUILD: the runs of the suite complete  (member tuned h=0.04: RuntimeError('bracket [-0.01, 0.01] does not straddle the threshold (fates -1, -1)'); member tuned h=0.02: RuntimeError('bracket [-0.01, 0.01] does not straddle the threshold (fates -1, -1)'))
+[pass] ST: the streamed run reproduces dn.evolve (diagonal, edge masses, flux residual, constraints, cell classes) on two grids, one with excision  (diagonal 0.0e+00, edge mass 2.3e-13, flux residual 4.2e-14, C++ 0.0e+00, class counts 0; tol 1e-09)
+[FAIL] OB0: planted: the static Ellis wormhole has r = 1 on the diagonal (t <= t_c) and its minimum of r on every full-length slice at the diagonal  (max |r_diag - 1| 5.35e-01 (tol 0.001), largest slice offset 204 nodes (tol 1), t <= 4.0)
+    W1 r       errors [7.203e-02, 7.020e-02, 6.953e-02] orders [0.037, 0.014]
+    W1 f       errors [1.005e+01, 1.016e+01, 1.017e+01] orders [-0.014, -0.002]
+    W1 phi     errors [3.232e-03, 3.200e-03, 3.195e-03] orders [0.014, 0.003]
+    W1 H       errors [4.939e+01, 5.048e+01, 5.066e+01] orders [-0.032, -0.005]
+    W1 tau     errors [2.399e+00, 2.492e+00, 2.507e+00] orders [-0.054, -0.009]
+    W1 rho     errors [1.594e+02, 1.596e+02, 1.597e+02] orders [-0.002, -0.000]
+    W1 p_perp  errors [1.593e+02, 1.596e+02, 1.596e+02] orders [-0.002, -0.000]
+    W1 p_par   errors [1.594e+02, 1.596e+02, 1.597e+02] orders [-0.002, -0.000]
+    W1 |w_bar - 1| at the three h [3.771e-04, 4.159e-04, 4.228e-04]; the observer passes the bounce (H changes sign): True
+[FAIL] W1: planted homogeneous ghost (exact open FRW, D = 4): (r, f, phi), H(tau), tau, rho, p_perp, p_par converge at second order and w = p_bar/rho = +1  (orders in [1.75, 2.25], |w - 1| <= 1e-06)
+    PL de Sitter, H = W, rho = const, w = -1: class DS (expected DS), slope test met (expected met)
+    PL finite-time divergence, r = (tau_s - tau)^-2, rho = -4H^2, w = -1/3: class FT (expected FT), slope test not met (expected not met)
+    PL flat stiff fluid, a ~ tau^(1/3), w = +1: class STIFF (expected STIFF), slope test not met (expected not met)
+    PL Gaussian growth, r = exp(tau^2/2), H = tau, w = -1/3: class GROW (expected GROW), slope test not met (expected not met)
+    PL decelerating radiation, a ~ tau^(1/2), w = +1/3: class OTHER (expected OTHER), slope test not met (expected not met)
+[pass] PL: planted series with known answers through classify and slope_test: de Sitter, finite-time divergence, stiff, Gaussian growth, decelerating
+    D4 h=0.04000 0.05: mirror asymmetry 4.39e+00; slice offset 952 nodes; min r_ll on the diagonal +9.996e-01; |p_perp/rho + 1| 2.2e-16, |w_bar - (1-n)/(1+n)| 1.1e-16, |p_par/rho - 1| 5.6e-16, |T_+-/rho| 2.3e-15
+    D4 h=0.02000 0.05: mirror asymmetry 4.40e+00; slice offset 1904 nodes; min r_ll on the diagonal +9.999e-01; |p_perp/rho + 1| 2.2e-16, |w_bar - (1-n)/(1+n)| 1.1e-16, |p_par/rho - 1| 4.4e-16, |T_+-/rho| 2.6e-15
+[FAIL] OB1: the evolved fields are mirror symmetric at the diagonal (r, f, phi odd) through the whole run  (max asymmetry 4.40e+00, tol 1e-09)
+[FAIL] OB2: the diagonal is the minimum of r on every full-length slice t = const (node level) and a local minimum (r_ll > 0) through the whole run  (largest offset 1904 nodes (tol 1), smallest r_ll +9.996e-01)
+[pass] W2: on the symmetric diagonal p_perp = -rho, p_par = rho, T_+- = 0, so w_bar = (1-n)/(1+n) (identities of the mirror symmetry)  (largest deviation 2.58e-15, tol 1e-09; w_bar = -0.3333 at D = 4)
+/home/nathan/Source/negative-mass-i213/notes/wormhole_evolution/expansion.py:834: RuntimeWarning: invalid value encountered in log
+  ex[name] = float(np.polyfit(np.log(d[ok]), np.log(v[ix][ok]), 1)[0])
+  --- D4, h = 0.04000, member 0.05 (A = 5.000000e-02) ---
+       r/a        t       tau         H     H/W     s/W         rho  |rho|/H^2 p_par/rho p_perp/rho    w_bar  m/(r^{n+1}H^2/2)      e^-f
+    least-squares exponent of ln(r/a - 1) against tau over 1e-2 <= r/a - 1 and r/a <= r_max (the form of [SH02]'s fit; 1.1 a^-1 = 0.931 W, W = 1.1820 a^-1): 
+    last live diagonal cell: t = 1.33, tau = 2.0143, r/a = 0.52 (ln r/a = -0.663), H = -1.7294
+    final window (last e-fold of r, 24 pts, r/a = 1.0 to 0.5): H max/min 0.000, H end/start 153002.578, |rho| max/min 10.334, w_bar in [-0.3333, -0.3333]; 1/H linear in tau: k = inf, tau_s = inf (last point 2.0143), max residual -1.9e+01  -> class OTHER
+    tau_s (linear fit of 1/H over the last 0.5, 1, 2 e-folds of r): 1.22545 (k = -0.0001), 1.22545 (k = -0.0001), 1.22545 (k = -0.0001); last live cell tau = 2.01426, tau_s - tau = -0.7888
+    fitted exponents against (tau_s - tau) over the last e-fold, d ln(.)/d ln(tau_s - tau): r +0.0271, H +nan, |rho| +0.3418, |R| +0.3418, K -0.0705; r/a = (tau_s - tau)^-q with q = -0.0271 and k = -0.0001
+    K - (H^2 + 1/r^2) max 4.4e-16; R - 2 rho = 0 by the identity of the diagonal
+     tau_s-tau         t        r/a         H         rho   R = 2 rho          K  K (tau_s-tau)^2  |rho|(tau_s-tau)^2
+        0.2996      0.82       0.97   -0.1348  -5.044e-01  -1.009e+00  1.090e+00           0.0978              0.0453
+        0.0350      0.99       0.92   -0.2536  -3.604e-01  -7.208e-01  1.249e+00           0.0015              0.0004
+       -0.7888      1.33       0.52   -1.7294  -9.664e-02  -1.933e-01  6.759e+00           4.2054              0.0601   (last live cell)
+    slope test (#211): H/W at r/a = ; bar 10%: not met
+    anti-trapped region: no anti-trapped diagonal cell
+    gauge: max e^-f over live cells 17.2268, min e^-f 1.00e+00, ln r_th max 0.000; constraints: max |C++| 4.10e+00, relative to its terms 7.65e-01; max |C--| 4.10e+00, relative 7.65e-01
+    horizon contours at fixed x-: x- =    3.0: r_+ = 0 at x+ =      nan (r =      nan); r_- = 0 not inside the grid (x+ > X); x- =    4.0: r_+ = 0 at x+ =      nan (r =      nan); r_- = 0 not inside the grid (x+ > X); x- =    6.0: r_+ = 0 at x+ =      nan (r =      nan); r_- = 0 not inside the grid (x+ > X)
+      x- =   10.0: r_+ = 0 at x+ =      nan (r =      nan); r_- = 0 not inside the grid (x+ > X)
+      x- =   20.0: r_+ = 0 at x+ =      nan (r =      nan); r_- = 0 not inside the grid (x+ > X)
+    the contour r_- = 0 stays inside the grid up to x- = 2.020 (x+ = 0.6 there, r = 0.9); beyond it the whole row x+ <= X is anti-trapped to the right of the contour r_+ = 0
+        x- t at x+=X      M(x+=10)      M(x+=20)      M(x+=40)   M(x-=X, x+)       m_diag       m_edge        I_pos        I_neg
+    M at the start of the edge (x- = 0), x+ = X: +0.077493; the static wormhole's 1/(2 r^(n-1)) there is 0.017667, so the pulse's E0 = +0.059826
+  --- D4, h = 0.02000, member 0.05 (A = 5.000000e-02) ---
+       r/a        t       tau         H     H/W     s/W         rho  |rho|/H^2 p_par/rho p_perp/rho    w_bar  m/(r^{n+1}H^2/2)      e^-f
+    least-squares exponent of ln(r/a - 1) against tau over 1e-2 <= r/a - 1 and r/a <= r_max (the form of [SH02]'s fit; 1.1 a^-1 = 0.931 W, W = 1.1820 a^-1): 
+    last live diagonal cell: t = 1.34, tau = 2.0669, r/a = 0.47 (ln r/a = -0.765), H = -2.1228
+    final window (last e-fold of r, 48 pts, r/a = 1.0 to 0.5): H max/min 0.000, H end/start 1501378.747, |rho| max/min 11.630, w_bar in [-0.3333, -0.3333]; 1/H linear in tau: k = inf, tau_s = inf (last point 2.0669), max residual -4.1e+01  -> class OTHER
+    tau_s (linear fit of 1/H over the last 0.5, 1, 2 e-folds of r): 1.21619 (k = -0.0000), 1.21619 (k = -0.0000), 1.21619 (k = -0.0000); last live cell tau = 2.06690, tau_s - tau = -0.8507
+    fitted exponents against (tau_s - tau) over the last e-fold, d ln(.)/d ln(tau_s - tau): r +0.0186, H +nan, |rho| +0.2215, |R| +0.2215, K -0.0485; r/a = (tau_s - tau)^-q with q = -0.0186 and k = -0.0000
+    K - (H^2 + 1/r^2) max 4.4e-16; R - 2 rho = 0 by the identity of the diagonal
+     tau_s-tau         t        r/a         H         rho   R = 2 rho          K  K (tau_s-tau)^2  |rho|(tau_s-tau)^2
+        1.0024      0.21       1.00   -0.0024  -9.559e-01  -1.912e+00  1.000e+00           1.0050              0.9605
+        0.3106      0.81       0.97   -0.1274  -5.169e-01  -1.034e+00  1.082e+00           0.1044              0.0499
+        0.0970      0.95       0.93   -0.2165  -3.957e-01  -7.913e-01  1.193e+00           0.0112              0.0037
+       -0.8507      1.34       0.47   -2.1228  -8.596e-02  -1.719e-01  9.125e+00           6.6035              0.0622   (last live cell)
+    slope test (#211): H/W at r/a = ; bar 10%: not met
+    anti-trapped region: no anti-trapped diagonal cell
+    gauge: max e^-f over live cells 20.0364, min e^-f 1.00e+00, ln r_th max 0.000; constraints: max |C++| 9.36e+00, relative to its terms 8.53e-01; max |C--| 9.36e+00, relative 8.53e-01
+    horizon contours at fixed x-: x- =    3.0: r_+ = 0 at x+ =      nan (r =      nan); r_- = 0 not inside the grid (x+ > X); x- =    4.0: r_+ = 0 at x+ =      nan (r =      nan); r_- = 0 not inside the grid (x+ > X); x- =    6.0: r_+ = 0 at x+ =      nan (r =      nan); r_- = 0 not inside the grid (x+ > X)
+      x- =   10.0: r_+ = 0 at x+ =      nan (r =      nan); r_- = 0 not inside the grid (x+ > X)
+      x- =   20.0: r_+ = 0 at x+ =      nan (r =      nan); r_- = 0 not inside the grid (x+ > X)
+    the contour r_- = 0 stays inside the grid up to x- = 2.050 (x+ = 0.6 there, r = 0.8); beyond it the whole row x+ <= X is anti-trapped to the right of the contour r_+ = 0
+        x- t at x+=X      M(x+=10)      M(x+=20)      M(x+=40)   M(x-=X, x+)       m_diag       m_edge        I_pos        I_neg
+    M at the start of the edge (x- = 0), x+ = X: +0.022335; the static wormhole's 1/(2 r^(n-1)) there is 0.017667, so the pulse's E0 = +0.004668
+    MB1 report D4 0.05, edge x+ = X: residual max|M(j) - M(0) - int flux| 1.360e+01 (h = 0.04000, largest M change 1.371e+01), 1.353e+01 (h = 0.02000, largest M change 1.367e+01); ratio 1.01
+[FAIL] MB1: the change of the mass at each end equals the flux through it: M(j) - M(0) = int flux dx-, on the edge x+ = X and the columns X/2, X/4, and on the edge x- = X  (largest residual / largest mass change 1.00e+00, tol 0.001)
+[FAIL] MB2: the two ends have the same mass history (mirror symmetry of the masses): M(i, N) = M(N, i)  (largest |M_top - M_edge| / max|M| 5.40e+01, tol 1e-06)
+[pass] MB3: the mass on the diagonal equals the mass at the edge cell minus the flux integral along the null ray between them, at x- in the declared list  (largest residual / (|I_pos| + |I_neg|) 0.00e+00, tol 0.001)
+    RES D4 0.05: h 0.04000 vs 0.02000: class OTHER / OTHER; tau_s inf / inf, k inf / inf; H at fixed r/a (10, 25, 50) differs by []; k nan; tau_s nan; |d ln r_max| 1.5e-04
+[FAIL] RES: two resolutions agree: same class, H at fixed r/a within 1 %, k and tau_s within 1 %, e-folds within 1e-3  (bars {'H_rel': 0.01, 'k_rel': 0.01, 'ts_rel': 0.01, 'lnr': 0.001})
+    CT D4 ghost_neg (A = -0.05): h = 0.04000: collapse at t = 0.424, r = 0.9981, M = 0.4990, E0 = +0.00833; h = 0.02000: collapse at t = 0.382, r = 0.9987, M = 0.4993, E0 = -0.00740; |dt| 4.243e-02 (tol 2.263e-01)
+    CT D4 normal (A = 0.05): h = 0.04000: collapse at t = 0.424, r = 0.9981, M = 0.4990, E0 = +0.03207; h = 0.02000: collapse at t = 0.382, r = 0.9987, M = 0.4993, E0 = +0.01651; |dt| 4.243e-02 (tol 2.263e-01)
+[pass] CT: control: a positive-energy pulse (a normal field, same Gaussian, mirrored) and the S ghost pulse of the other sign collapse to a black hole, at the same time at two resolutions  (first trapped cell, event times within 4.0 sqrt2 h; the normal pulse has E0 > 0)
+
+5 of 13 checks pass; 8 fail: BUILD, OB0, W1, OB1, OB2, MB1, MB2, RES
+classes: D4 0.05 h=0.04000: OTHER; D4 0.05 h=0.02000: OTHER
+mutation ghost_sign: declared target ['BUILD', 'MB1', 'MB2', 'OB0', 'OB1', 'OB2', 'RES', 'W1']; fired ['BUILD', 'MB1', 'MB2', 'OB0', 'OB1', 'OB2', 'RES', 'W1']; targets all fired

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-raw/I40-mac-review/ind40.py", line 282, in <module>
+    lo, hi, blog = bisect(lambda p: run_member(n, h, X, p), -0.01, 0.01)
+                   ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-raw/I40-mac-review/ind40.py", line 75, in bisect
+    raise RuntimeError(f"bracket does not straddle: fate {r['fate']} at {p}, wanted {want}")
+RuntimeError: bracket does not straddle: fate -1 at 0.01, wanted 1
+rc=1

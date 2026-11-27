@@ -1,0 +1,37 @@
+# tests/implicit.rs: the fixed text replaced by the pre-fix text; the tests must fail
+--- fixed text
+test_real!(OD, "od", 154, 1e-126, 8, [
+--- pre-fix text
+test_real!(OD, "od", 154, 1e-126, 4, [
+---
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 4.01s
+     Running tests/implicit.rs (target/release/deps/implicit-4e0a7f4a04c6bea1)
+
+running 2 tests
+
+thread 'parts_see_a_lower_part' (103028286) panicked at tests/implicit.rs:1339:5:
+assertion `left != right` failed: the parts hashed do not see a change below the fourth
+  left: [0.3333333333333333, 1.850371707708594e-17, 1.0271626370065257e-33, 5.701898048196684e-50]
+ right: [0.3333333333333333, 1.850371707708594e-17, 1.0271626370065257e-33, 5.701898048196684e-50]
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test parts_see_a_lower_part ... FAILED
+lower part of an end state: base c542a935a4215b82 -> c542a935a4215b82, full 8ec6d6c76b964c53 -> 8ec6d6c76b964c53
+last part of a step-sum coefficient: base c542a935a4215b82 -> c542a935a4215b82, full 8ec6d6c76b964c53 -> e73f63b3fc875fb6
+
+thread 'digest_od_sees_the_lower_parts' (103028285) panicked at tests/implicit.rs:1357:5:
+assertion `left != right` failed: base does not see a lower part of an end state
+  left: 14214109421786717058
+ right: 14214109421786717058
+test digest_od_sees_the_lower_parts ... FAILED
+
+failures:
+
+failures:
+    digest_od_sees_the_lower_parts
+    parts_see_a_lower_part
+
+test result: FAILED. 0 passed; 2 failed; 0 ignored; 0 measured; 32 filtered out; finished in 27.66s
+
+error: test failed, to rerun pass `--test implicit`
+exit 101
