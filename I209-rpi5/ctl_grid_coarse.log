@@ -1,0 +1,45 @@
+# start 2026-11-26T22:32:25-08:00 cwd=/home/nathan/Source/negative-mass-i209/notes/wormhole_largeD cmd=/home/nathan/Source/negative-mass-venv314/bin/python -u exchange_review.py grid --mutate=grid_coarse
+exchange_review.py  mutate=grid_coarse  parts=['grid']  mpmath 1.3.0  sympy 1.14.0
+    k = 2: Omega_0 = -2.77258872223978123869282024049  slope -12.566370614359172954  (1 s)
+    k = 3: Omega_1 = 10.4233603787385319058134432717  slope -12.566370614359172954  (1 s)
+    k = 4: Omega_2 = 74.3693867279332866669787151565  slope -12.566370614359172954  (1 s)
+    k = 5: Omega_3 = -652.840107570058292513093370366  slope -12.566370614359172954  (2 s)
+  N=10 w=0.333333 V=24 dps=130 panels=72  5 s
+    Omega0 = -2.7725887222397812386928202404945438937776536617531842077031484757266102744659462660675996848541661856106442698
+    Omega1 = 10.423360378738531905813443271714039507335587023145270842389050269470993367069825583359010252320889072015060884
+    Omega2 = 74.369386727933286666978715156502321027829109408220875097059614210616209005448709649644974214960118452919450232
+    Omega3 = -652.84010757005829251309337036571146110425985580540405557585972286289850956802891463897016594928964860818197381
+FAIL    GR1: Omega_2 on the third grid 74.369386727933286666978715156502321027829109408221 against #26's A70 74.36938672793331759538467029584661726673414341502 (order4_output.txt, 48 printed digits): 15.4 digits (bar 40)
+FAIL    GR2: Omega_3 on the third grid -652.8401075700582925130933703657114611042598558054 against #208's B4 -652.84010757005612543523930379964736108046174754558 (order5_output.txt, 113 printed digits): 14.5 digits (bar 40)
+FAIL    GR3: planted: Omega_0, Omega_1 against -4 ln 2 and 2 pi^2/3 + 8 ln^2 2: 18.4 and 14.8 digits (bar 40)
+FAIL    GR4: slope of G_k in Omega_(k-2), k = 2..5, against -4 pi: 20.0, 20.0, 20.0, 20.0 digits (bar 40)
+  reported: Omega_2 against 80 zeta(3) - (8/3) pi^2 ln 2 - (32/3) ln^3 2: 15.4 digits; Omega_3 against #208's closed form: 14.5 digits
+  grid: 5 s
+
+0 passed, 4 failed of 4 checks; 5 s
+Command exited with non-zero status 1
+	Command being timed: "/home/nathan/Source/negative-mass-venv314/bin/python -u exchange_review.py grid --mutate=grid_coarse"
+	User time (seconds): 5.24
+	System time (seconds): 0.05
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:05.31
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 62572
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 13285
+	Voluntary context switches: 1
+	Involuntary context switches: 1789
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
+exit=1
+# end 2026-11-26T22:32:30-08:00

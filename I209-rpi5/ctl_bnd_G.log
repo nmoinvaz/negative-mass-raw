@@ -1,0 +1,47 @@
+# start 2026-11-26T22:27:34-08:00 cwd=/home/nathan/Source/negative-mass-i209/notes/wormhole_largeD cmd=/home/nathan/Source/negative-mass-venv314/bin/python -u exchange_review.py exch --mutate=bnd_G
+exchange_review.py  mutate=bnd_G  parts=['exch']  mpmath 1.3.0  sympy 1.14.0
+  E-grid: N = 36, w = 1/2, V = 16, dps = 80, panels = 32; chain 12 s; Omega_0..2 against closed forms 44.2, 43.8, 43.7 digits; Omega_3 = -652.8401075700561254352393037996473610805
+FAIL    P0: hierarchy on the E-grid against README's Y_1, L_1, Y_2, L_2 at the 576 of 1152 nodes with l <= V^2/4: worst |difference|/(1 + |value|) Y1 4.8e-81, L1 8.4e-42, Y2 3.6e-43, L2 54.0 (bar 1e-30; the closed L_2 needs Cl2 and K)
+PASS    E1_3: G_3 against E1's right side: at the root 0.347 against 0.347 (terms of size 118.0); Omega_1 + 1/2: -5.93602816979244605334056160019 against -5.93602816979244605334056160019: 43.0 digits (bar 30)
+PASS    E1_4: G_4 against E1's right side: at the root 2.69 against 2.69 (terms of size 1.38e+3); Omega_2 + 1/2: -3.59105896021431535331844808347 against -3.59105896021431535331844808347: 41.9 digits (bar 30)
+PASS    E1_5: G_5 against E1's right side: at the root -22.4 against -22.4 (terms of size 1.08e+4); Omega_3 + 1/2: -28.7128258540151456892772675406 against -28.7128258540151456892772675406: 42.7 digits (bar 30)
+PASS    E2_2: int L_2 dth = 29.3972561344540061400684153373 against 2 int h_2 ln cos/sin^2 dth = 29.3972561344540061400684153373: 45.0, 45.1, 45.2 digits at Omega_1 = solved, 0, 1/2 (bar 30)
+PASS    E2_3: int L_3 dth = -346.066749939545841419346938376 against 2 int h_3 ln cos/sin^2 dth = -346.066749939545841419346938376: 43.8, 43.3, 43.3 digits at Omega_2 = solved, 0, 1/2 (bar 30)
+PASS    E2_4: int L_4 dth = -2697.41732337829854344002902013 against 2 int h_4 ln cos/sin^2 dth = -2697.41732337829854344002902013: 43.7, 43.9, 43.9 digits at Omega_3 = solved, 0, 1/2 (bar 30)
+PASS    E3_3: int Y_2 [(ell - Omega0)/sin^2 + 1] dth = 24.3858857249793175422433295149 against 2 int (ell - Omega0) F_1 dth = 24.3858857249793175422433295149: 43.9 digits (bar 30)
+PASS    E3G_3: G_3 (Omega_1 + 1/2) = -5.93602816979244605334056160019 against the reduced form with no Y_2, no Y_3: -5.93602816979244605334056160019: 42.7 digits (bar 30); its four terms 60.20145, -16.869341, -0.49636519, -48.771771
+PASS    E3_4: int Y_3 [(ell - Omega0)/sin^2 + 1] dth = -59.3935152451008014173742937397 against 2 int (ell - Omega0) F_2 dth = -59.3935152451008014173742937397: 43.6 digits (bar 30)
+PASS    E3G_4: G_4 (Omega_2 + 1/2) = -3.59105896021431535331844808347 against the reduced form with no Y_3, no Y_4: -3.59105896021431535331844808347: 41.4 digits (bar 30); its four terms -465.16661, 434.09274, -91.304216, 118.78703
+PASS    E3_5: int Y_4 [(ell - Omega0)/sin^2 + 1] dth = -2123.64218861176576386953650135 against 2 int (ell - Omega0) F_3 dth = -2123.64218861176576386953650135: 44.9 digits (bar 30)
+PASS    E3G_5: G_5 (Omega_3 + 1/2) = -28.7128258540151456892772675406 against the reduced form with no Y_4, no Y_5: -28.7128258540151456892772675406: 41.1 digits (bar 30); its four terms -5514.1685, 1302.9832, -64.811975, 4247.2844
+FAIL    BND: boundary terms: throat end b/th^p at the first two nodes th = 0.000238, 0.00214 (constant to 1%, and = the leading coefficient -2 Omega_(k-2) th where known), pi/2 end at the last node x = pi/2 - th = 2.58e-56 (bar |b| < 1e-30, and b/(x l^q) bounded along the grid): Y_3 cot: /th^1 -20.8467, -20.8465; outer 2.2e-49, b/(x l^4) at l = 30, 60, 100: 0.0251, 0.0105, 0.00579; Y_4 cot: /th^1 -148.739, -148.739; outer 1.8e-46, b/(x l^5) at l = 30, 60, 100: 0.0532, 0.0278, 0.0168; Y_5 cot: /th^1 1305.68, 1305.67; outer 1.8e-44, b/(x l^6) at l = 30, 60, 100: 0.00355, 0.0072, 0.00553; ell C_2: /th^3 272.349, 37.6652; outer 3.2e-51, b/(x l^3) at l = 30, 60, 100: 2.18, 2.09, 2.05; ell C_3: /th^3 -776.025, -127.691; outer 8.1e-49, b/(x l^4) at l = 30, 60, 100: 1.65, 1.83, 1.9; ell C_4: /th^3 -5764.97, -737.287; outer -1.1e-46, b/(x l^5) at l = 30, 60, 100: -1.95, -1.46, -1.27; cot ell: /th^1 -0.5, -0.5; outer -3.3e-54, b/(x l^1) at l = 30, 60, 100: -0.5, -0.5, -0.5; Y_4 P: /th^1 -410.904, -410.905; outer -2.3e-44, b/(x l^6) at l = 30, 60, 100: -0.0217, -0.0126, -0.00795
+PASS    GROW: growth (reported, no bar): local exponents between l = 30.04 and 59.89: Y_1 1.0, Y_2 2.1, Y_3 2.74, Y_4 4.06, Y_5 7.02, L_1 1.07, L_2 1.94, L_3 3.16, L_4 3.58; at the last node l = 255.99: Y_1/l^1 = -1.0, Y_2/l^2 = -1.463, Y_3/l^3 = 0.5148, Y_4/l^4 = 1.645, Y_5/l^5 = 0.6338
+  exch: 49 s
+
+13 passed, 2 failed of 15 checks; 49 s
+Command exited with non-zero status 1
+	Command being timed: "/home/nathan/Source/negative-mass-venv314/bin/python -u exchange_review.py exch --mutate=bnd_G"
+	User time (seconds): 49.89
+	System time (seconds): 0.05
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:50.01
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 69156
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 14917
+	Voluntary context switches: 2
+	Involuntary context switches: 17097
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
+exit=1
+# end 2026-11-26T22:28:24-08:00

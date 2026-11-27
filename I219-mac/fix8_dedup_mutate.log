@@ -1,0 +1,41 @@
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 10.62s
+     Running tests/implicit.rs (target/release/deps/implicit-4e0a7f4a04c6bea1)
+
+running 6 tests
+[FIRED] control StaleSeries against stale: met without true, with: f64 Lib(StaleSeries): advance without form refused false, walk to 2 off by 0.00e0, refused after set_y false, after a stop false
+[FIRED] control RepeatCrossing against repeat_form: met without true, with: f64 Lib(RepeatCrossing): 2 crossings after two forms at the end of one step, the first at 0.00e0 from 0
+[FIRED] control NoEndCrossing against last_crossing: met without true, with: f64 Lib(NoEndCrossing): stop End after 1 steps, state off by 5.55e-17, 0 crossings, the first NaN from 0
+[FIRED] control NoDedup against dup_checkpoints: met without true, with: f64 Lib(NoDedup): stop Tiny at 1, 1 landings, 4 steps against 8 with the checkpoint once
+[FIRED] control PlainScale against underflow: met without true, with: f64 Lib(PlainScale): y''_2 = -0e0 for 2^-200 = 6.223015277861142e-61, relative error 1.00e0
+test controls::edge_controls_f64 ... ok
+[FIRED] control StaleSeries against stale: met without true, with: dd Lib(StaleSeries): advance without form refused false, walk to 2 off by 0.00e0, refused after set_y false, after a stop false
+[FIRED] control RepeatCrossing against repeat_form: met without true, with: dd Lib(RepeatCrossing): 2 crossings after two forms at the end of one step, the first at 0.00e0 from 0
+[FIRED] control NoEndCrossing against last_crossing: met without true, with: dd Lib(NoEndCrossing): stop End after 1 steps, state off by 3.08e-33, 0 crossings, the first NaN from 0
+[FIRED] control NoDedup against dup_checkpoints: met without true, with: dd Lib(NoDedup): stop Tiny at 1, 1 landings, 4 steps against 8 with the checkpoint once
+test controls::edge_controls_dd ... ok
+[PASS] dd None: advance without form refused true, walk to 2 off by 0.00e0, refused after set_y true, after a stop true
+[PASS] dd None: 1 crossings after two forms at the end of one step, the first at 0.00e0 from 0
+[PASS] dd None: stop End after 1 steps, state off by 3.08e-33, 1 crossings, the first 0.00e0 from 0
+[PASS] dd None: stop End at 2, 1 landings, 8 steps against 8 with the checkpoint once
+test edges_dd ... ok
+[PASS] f64 None: advance without form refused true, walk to 2 off by 0.00e0, refused after set_y true, after a stop true
+[PASS] f64 None: 1 crossings after two forms at the end of one step, the first at 0.00e0 from 0
+[PASS] f64 None: stop End after 1 steps, state off by 5.55e-17, 1 crossings, the first 0.00e0 from 0
+[PASS] f64 None: stop End at 2, 1 landings, 8 steps against 8 with the checkpoint once
+[PASS] f64 None: y''_2 = 6.223015277861142e-61 for 2^-200 = 6.223015277861142e-61, relative error 0.00e0
+test edges_f64 ... ok
+[PASS] qd None: advance without form refused true, walk to 2 off by 0.00e0, refused after set_y true, after a stop true
+[PASS] qd None: 1 crossings after two forms at the end of one step, the first at 0.00e0 from 0
+[PASS] qd None: stop End after 1 steps, state off by 9.50e-66, 1 crossings, the first 0.00e0 from 0
+[PASS] qd None: stop End at 2, 1 landings, 8 steps against 8 with the checkpoint once
+test edges_qd ... ok
+[FIRED] control StaleSeries against stale: met without true, with: qd Lib(StaleSeries): advance without form refused false, walk to 2 off by 0.00e0, refused after set_y false, after a stop false
+[FIRED] control RepeatCrossing against repeat_form: met without true, with: qd Lib(RepeatCrossing): 2 crossings after two forms at the end of one step, the first at 0.00e0 from 0
+[FIRED] control NoEndCrossing against last_crossing: met without true, with: qd Lib(NoEndCrossing): stop End after 1 steps, state off by 9.50e-66, 0 crossings, the first NaN from 0
+[FIRED] control NoDedup against dup_checkpoints: met without true, with: qd Lib(NoDedup): stop Tiny at 1, 1 landings, 4 steps against 8 with the checkpoint once
+test controls::edge_controls_qd ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 22 filtered out; finished in 0.15s
+
+exit 0

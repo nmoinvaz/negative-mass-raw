@@ -1,0 +1,36 @@
+# tests/implicit.rs: the fixed text replaced by the pre-fix text; the tests must fail
+--- fixed text
+worst = nanmax(worst, num / (T::EPS * den));
+--- pre-fix text
+worst = worst.max(num / (T::EPS * den));
+---
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+warning: function `nanmax` is never used
+   --> tests/implicit.rs:294:4
+    |
+294 | fn nanmax(a: f64, b: f64) -> f64 {
+    |    ^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `multishoot` (test "implicit") generated 1 warning
+    Finished `release` profile [optimized] target(s) in 5.34s
+     Running tests/implicit.rs (target/release/deps/implicit-4e0a7f4a04c6bea1)
+
+running 1 test
+[PASS] f64 B(KA) NanCoeff: 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 6.20e2 (bar 1e6)
+
+thread 'controls_without_hooks' (102716883) panicked at tests/implicit.rs:1237:9:
+control NanCoeff did not fire: f64 B(KA) NanCoeff: 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 6.20e2 (bar 1e6)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test controls_without_hooks ... FAILED
+
+failures:
+
+failures:
+    controls_without_hooks
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 26 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--test implicit`
+exit 101

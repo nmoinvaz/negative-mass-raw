@@ -1,0 +1,13 @@
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 9.78s
+     Running tests/implicit.rs (target/release/deps/implicit-4e0a7f4a04c6bea1)
+
+running 2 tests
+[FIRED] control PlainScale against underflow: met without true, with: f64 Lib(PlainScale): y''_2 = -0e0 for 2^-200 = 6.223015277861142e-61, relative error 1.00e0
+[PASS] f64 None: y''_2 = 6.223015277861142e-61 for 2^-200 = 6.223015277861142e-61, relative error 0.00e0
+test controls::edge_controls_f64 ... ok
+test edges_f64 ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 21 filtered out; finished in 0.00s
+
+exit 0

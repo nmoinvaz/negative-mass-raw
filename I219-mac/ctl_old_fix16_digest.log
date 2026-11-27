@@ -1,0 +1,29 @@
+# tests/implicit.rs: the fixed text replaced by the pre-fix text; the tests must fail
+--- fixed text
+                full.put_all(&p);
+--- pre-fix text
+                let _ = &p;
+---
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 4.86s
+     Running tests/implicit.rs (target/release/deps/implicit-4e0a7f4a04c6bea1)
+
+running 1 test
+flipped bit of a checkpoint: base 74a43c7032030f97 -> 74a43c7032030f97, full d6147b1de0aaf238 -> d6147b1de0aaf238
+
+thread 'digest_sees_a_checkpoint' (102810971) panicked at tests/implicit.rs:1237:5:
+assertion `left != right` failed: full does not see a checkpoint
+  left: 15426089991904358968
+ right: 15426089991904358968
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test digest_sees_a_checkpoint ... FAILED
+
+failures:
+
+failures:
+    digest_sees_a_checkpoint
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 30 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--test implicit`
+exit 101

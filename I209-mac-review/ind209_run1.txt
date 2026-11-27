@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-raw/I209-mac-review/ind209.py", line 50, in <module>
+    CT = [terms(Ae.coeff(eps, m)) for m in range(6)]            # c_m, m = 0 (= 1/2) .. 5
+          ~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-raw/I209-mac-review/ind209.py", line 41, in terms
+    p = sp.Poly(sp.expand(expr.subs(R, 1 / Rinv)), l, Rinv, *Om)
+                                           ^^^^
+NameError: name 'Rinv' is not defined
+rc 1

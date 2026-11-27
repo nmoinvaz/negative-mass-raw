@@ -1,0 +1,42 @@
+# start 2026-11-26T22:17:42-08:00 cwd=/home/nathan/Source/negative-mass-i209/notes/wormhole_largeD cmd=/home/nathan/Source/negative-mass-venv314/bin/python -u exchange_review.py sym --mutate=sym_S11
+exchange_review.py  mutate=sym_S11  parts=['sym']  mpmath 1.3.0  sympy 1.14.0
+PASS    S1: R - 1 = tan^2 and (R - 1)^(-3/2) dR/dth = 2/sin^2: residuals 0 (sympy)
+PASS    S2: 1 - 1/R = sin^2, ln R = -2 ln cos, d(ln R)/dth = 2 tan: residuals 0 (sympy)
+PASS    S3: c_1/sin^2 = (Omega0 - 3 ell)/sin^2 - 1 with c_1 = Omega0 + 3l/2 - 1 + 1/R, l = -2 ell: residual 0 (sympy)
+PASS    S4: P' = -[(ell - Omega0)/sin^2 + 1] and P dl/dth = 2 (ell - Omega0), P = cot (ell - Omega0): residuals 0 (sympy)
+PASS    S5: 4 ell/sin^2 (from E2) + 2 c_1/sin^2 (from h_k) = -2[(ell - Omega0)/sin^2 + 1] = 2 P': residual 0 (sympy)
+PASS    S6: d/dth(-cot ell - th) = ell/sin^2; boundary values 0 at 0 and -pi/2 at pi/2, so int ell/sin^2 = -pi/2 (sympy)
+PASS    S7: boundary limits cot ell at 0 = 0, cot ell at pi/2 = 0, ell th^-1 ...: ell * th at 0 (C = O(th)) = 0, x ln^6 x at 0 (Y_4 P, Y_4 = O(l^5), P ~ x (ln x - Omega0)) = 0, x ln^2 x at 0 (ell C_Cl, C ~ x(1 - ln x)) = 0; ell = -theta**4/12 - theta**2/2 + O(th^6) (sympy)
+PASS    S8: moments from B(a): int ell = -pi*log(2)/2, int ell^2 = pi*(12*log(2)**2 + pi**2)/24 (sympy)
+PASS    S9: C' = 2 ln(2 cos th); 2 (int ell^2 + ln2 int ell) = pi**3/12 = pi^3/12 (sympy)
+PASS    S10: int sin(2n)sin(2m) = (pi/4) delta_nm; tan [sin 2(n+1)th - sin 2(n-1)th] = 2 cos 2n th - cos 2(n+1)th - cos 2(n-1)th (residual 0), whose integral gives I_(n+1) = I_(n-1) for n >= 2 with I_1 = pi/2, I_2 = -pi/2, I_n = int tan sin(2n th) = (-1)^(n+1) pi/2 (sympy)
+FAIL    S11: sum_n (pi/2)/n^2 = pi**3/12 and sum_n (pi/4)/n^4 = pi**5/360 (sympy)
+  sym: 2 s
+
+10 passed, 1 failed of 11 checks; 2 s
+Command exited with non-zero status 1
+	Command being timed: "/home/nathan/Source/negative-mass-venv314/bin/python -u exchange_review.py sym --mutate=sym_S11"
+	User time (seconds): 2.18
+	System time (seconds): 0.06
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:02.25
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 68228
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 14951
+	Voluntary context switches: 1
+	Involuntary context switches: 385
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
+exit=1
+# end 2026-11-26T22:17:44-08:00

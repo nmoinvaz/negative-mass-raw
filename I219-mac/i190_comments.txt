@@ -1,0 +1,101 @@
+author:	nmoinvaz
+association:	owner
+edited:	false
+status:	none
+--
+started. Machine rpi5-ubuntu (Raspberry Pi 5, 4 cores, aarch64), 2 threads at nice 10. Worktree `~/Source/negative-mass-i190` (`wip/i190-implicit-taylor` at 9debda2); multishoot clone `~/Source/negative-mass-i190-libs/multishoot` (main 70fac93, branch `feat/implicit-taylor`). rustc/cargo 1.100.0, multishoot 4.2.0, multisolver 0.2.2, multidouble 5.1.0. Raw folder `I190-rpi5` (README with the facility's API, planted cases and bars per lane, controls, the crate-switch criteria and the #183 subset, written before any run) at d64c23b. ETA 8 to 12 h, revised after step 2.
+--
+author:	nmoinvaz
+association:	owner
+edited:	true
+status:	none
+--
+**Step 2 (facility and planted cases), development state.** multishoot `feat/implicit-taylor` (clone `~/Source/negative-mass-i190-libs/multishoot`, not yet pushed): module `implicit` (`Recursion`, `Walker`, `Branch::{Project,Conserve}`, A0 reported as `ZeroPivot`, `Pivot` with an estimate of the zero, and located `crossings`), generic over f64, double-, quad-double and the lane field `Fl<T,1>`; `step_from_norms` is PR #70's refactor of `step_size`, copied verbatim. Raw `I190-rpi5` at f5edeaf (README with the criteria written first, D1 findings, A1 rulings, A2 control targets).
+
+`tests/implicit.rs` on nine branches of three polynomial implicit ODEs (quadratic, cubic with three real roots, quartic with four) with closed forms, two folds (exponent 1/2 and 1, zero at x = 0) and a zero pivot, in each lane and both branch modes: **every gated cell met** (`Project` all; `Conserve` where \|A0\| stays away from 0). Worst gated error: 3.5e-14 f64, 4.1e-30 dd, 4.0e-62 qd (bars 1.1e-10, 1.2e-26, 1.5e-58); crossings located to 7.8e-14, 1.0e-29, 2.5e-62; the estimate of the zero of A0 at the folds within 4.1e-5 (f64), 7.7e-19 (dd) and 6.7e-51 (qd) of the distance to it (bar 1e-3; worst over both folds and both modes). Controls: 6 library controls and 3 without a hook, each fails exactly its declared checks in every lane (`controls_f64/dd/qd`); the wrong start root and the mid-path switch on K-A fail `closed_form` by 1.5 and 0.94.
+
+**NOT MET, as the coordinator ruled (recorded in the tests, not gated):** (1) `coeffs` as worded (relative error of every c_k): 4.9e-8 f64, 1.5e-11 dd, 1.5e-14 qd, growing about 3x per order (cancellation in N_k's convolution); the replacement `step_sum` (sum \|dc_k\| h^k <= 1e6 eps sum \|c_k\| h^k at each planned step) is met on 11 paths in each lane (worst ratio 2.9e4, 2.2e4, 1.5e4). (2) `Conserve` on K-B, R-B, R-D: 9 cells, plus their `crossings`: N = eps splits the double root, so the crossing becomes an avoided crossing and the walk ends `Tiny`; `Project` crosses. (3) f64 F1 `Conserve`: x_zero 5.7e-15 against 6.3e-16, N's drift moves the fold. Table: `summary_dev_04.md` in the raw folder. `cargo test --release --features mutate`: 20 passed, 5 s, nice 10, 2 threads, load 0.6.
+
+Next: fmt and clippy, #167's crate behind `implicit_lib` with the baseline runs (the 9debda2 binaries are built), then the PR. Revised ETA: about 6 h more (the three scripts cost about 2 h of machine time each way).
+
+--
+author:	nmoinvaz
+association:	owner
+edited:	true
+status:	none
+--
+**Step 3 (#167's crate on the facility) and the rebase onto multishoot main 70fea18.** Raw `I190-rpi5` at cfc5c34.
+
+**Answer.** With the feature on, #167's, #184's and #183's checks all pass (conical_global.py 17 checks and its controls, conical_loglog.py 20 of 20 and 17 of 17 controls, conical_offgrid.py on the `ctl` grid 16 of 16 and the controls n-drift and recip-dd), every eta\*, class and kind equal to the printed digits: 124 and 126 log lines with no gated difference, and in the 685 verdict records 537 eta\* values equal to 10 digits (largest relative difference 2.5e-15). The feature-off build (multishoot at the PR) is identical to the 9debda2 baseline on the `ctl` grid (0.0 difference, same step counts).
+
+| script (arm) | exit | checks | controls | wall s (2 threads, nice 10, load at start about 1) | max rss MB |
+|---|---|---|---|---|---|
+| conical_global.py base / on | 0 / 0 | 17 / 17 | all on target / all on target | 1814 / 1856 | 181 / 181 |
+| conical_loglog.py base / on | 0 / 0 | 20 / 20 | all on target / all on target | 1534 / 1201 | 98 / 98 |
+| conical_offgrid.py ctl base (incl. 355 s series pickle) / off / on | 0 / 0 / 0 | 16 / 16 / 16 | - | 680 / 317 / 162 | 99 / 72 / 72 |
+| conical_offgrid.py ctl n-drift, recip-dd base / on | 0 / 0 | - | both fired on target only | 1370 / 626 | 72 / 72 |
+
+**Failed and changed (kept in raw).** The first feature-on loglog run (`run_10`, multishoot ff24b6b) **failed `plant_scale`** (19 of 20): the double-double `conserve` walk it predicts to fail ended `TinyStep` at 1430 after 397 steps instead of `End` at 3000 after 132 (the baseline ends `End` at all 6 `--hscale` values tried, the library at 1 of 6). Cause: the Cauchy sums. `hp.rs` forms them in multidouble's dot accumulator (`field::cs`), the library summed plain products. Fix, not of the check: `Scalar::cauchy` (multishoot 015d38c) and `W<P>::cauchy` in the crate, which the library change alone did not reach (`run_23`, same failure to the digit). With it the dd `conserve` walk equals the baseline's bit for bit (relative error 10.994814044201656). README D2.
+
+**Library suite rerun at 015d38c (the coordinator's condition 1), `--features mutate`, f64, dd, qd (and an octo-double smoke).** 21 tests pass on the default (NEON) build and on `--features portable`, 50 s. Digests: dd 92ec461781147d77 (was a8977a5c50933054 before the accumulators), f64 b124d44e9758f1a1 (unchanged), qd 75902b0bf76ced2a (was a97a140ad786c8d8); equal on both backends. Planted values moved: 21 of 147 cells by more than a factor 3, none near a bar: worst gated closed_form error 4.1e-30 dd (was 4.1e-30), 3.4e-62 qd (was 4.0e-62), 3.5e-14 f64 (unchanged); step_sum worst ratio 7.1e3 dd (was 2.2e4), 1.8e4 qd (was 1.5e4) against 1e6; crossings worst 4.5e-30 dd, 2.8e-62 qd. `summary_run_20.md` and `summary_dev04_to_run20_changes.md`. The `coeffs` growth is unchanged in f64 and dd (4.9e-8, 2.0e-11) and a factor 5 smaller in qd (2.9e-15).
+
+**Rebase onto main 70fea18 (conditions 2 to 4).** `step_from_norms` on main is the same function as my copy, byte for byte (main's taylor.rs diff is identical to my commit's); the copy is dropped. Conflicts: `src/control.rs` (my `ImplicitControl` and #70's `PlaneControl`, both appended at the end) and `README.md` (my section and the plane stepper's, same place); both resolved by keeping both. I did not force-push: the rebased branch is `feat/implicit-taylor-r2` at eaf55a8 (the old `feat/implicit-taylor` stays, delete it after merge). The implicit module's digests after the rebase are unchanged (dd 92ec…, f64 b124…, qd 7590…) on both backends, 21 + 23 (plane) tests pass, fmt, clippy (mutate, portable+mutate, none) and docs clean; so the arms were not rerun, only the offgrid `ctl` check once more at the new head (16 of 16, same 537 eta\*). `+avx2,+fma` was not run. The crate pins multishoot by git rev eaf55a8 (`wip/i190-implicit-taylor` at 7749642).
+
+Next: the PR, then the note and the closing comment.
+
+--
+author:	nmoinvaz
+association:	owner
+edited:	false
+status:	none
+--
+**PR to multishoot:** https://github.com/nmoinvaz/multishoot/pull/73 (branch `feat/implicit-taylor-r2` at eaf55a8, on main 70fea18). Body: the module, the planted checks and their numbers, the controls, the three NOT MET results, backends and lints. Not merged, not released.
+--
+author:	nmoinvaz
+association:	owner
+edited:	false
+status:	none
+--
+**Answer.** multishoot has a module `implicit` for polynomial implicit second-order ODEs (order-by-order Taylor recursion through one division by dN/dy'', root branch carried by continuity, where dN/dy'' vanishes reported), in PR https://github.com/nmoinvaz/multishoot/pull/73, and #167's crate runs on it behind `implicit_lib`. The planted checks are met in f64, double- and quad-double except three recorded **NOT MET** results (the relative error of each Taylor coefficient, `Conserve` through a double root, one f64 fold estimate), and #167's, #184's and #183's checks pass with the same eta\*, classes and kinds to the printed digits. The one failure on the way (`plant_scale`, 19 of 20) came from plain Cauchy sums and was fixed in the library and the crate, not in the check.
+
+| acceptance criterion | verdict and number |
+|---|---|
+| planted first: a known solution on a regular branch, a branch that ends where dN/dy'' = 0, a cubic with three real roots | met: 9 branches of a quadratic, a cubic and a quartic, two folds (exponent 1/2 and 1, ending at x = 0), a zero pivot, in f64/dd/qd at orders 22/42/80, bar 1e6 eps (1.1e-10, 1.2e-26, 1.5e-58); worst error 3.5e-14, 4.1e-30, 3.4e-62; crossings located to 7.8e-14, 4.5e-30, 2.8e-62; fold estimate within 4.1e-5, 7.7e-19, 6.7e-51 of the distance (bar 1e-3); `step_sum` ratio at most 2.9e4 (bar 1e6); octo-double smoke 6.4e-127. **NOT MET, recorded:** `coeffs` (4.9e-8, 2.0e-11, 2.9e-15, growing ~3x per order), `Conserve` on K-B, R-B, R-D (9 cells, plus the crossings of K-B and R-B), f64 F1 `Conserve` fold (5.7e-15 against 6.3e-16) |
+| a control on the branch choice fails on a stated planted case | met: K-A started on K-B's root, switched to K-C's root at x = 0.6, and compared with K-B's closed form fail `closed_form` by 1.5, 0.94 and 1e4 (bar 1.2e-26 dd); the 6 library controls fail exactly their declared checks in each lane |
+| #167's crate switched behind a flag; #167's, #183's, #184's checks pass on and off | met: conical_global.py 17 checks and all controls on target; conical_loglog.py 20 of 20 and 17 of 17; conical_offgrid.py `ctl` 16 of 16, n-drift and recip-dd on target; 126, 124 and 68 lines with no gated difference, 537 eta\* equal to 10 digits (largest relative difference 2.5e-15), off equal to the baseline exactly; no absolute path in Cargo.toml (git rev eaf55a8) |
+| a PR to multishoot, posted on this issue | met: multishoot#73 (branch `feat/implicit-taylor-r2`, on main 70fea18); fmt, clippy (`mutate`, `portable,mutate`, none) and docs clean; digests equal on aarch64 NEON and `--features portable`; `+avx2,+fma` **not run** |
+
+**What ran** (2 threads, nice 10, load about 1; every run a systemd user unit `nm-i190-*`, exit 0 unless stated): library tests 21 pass in 51 s (default and portable, `run_20`, `run_21`, `run_36`, `run_37`); baseline (9debda2, multishoot 4.2.0) global 1814 s, loglog 1534 s, offgrid `ctl` 680 s (with the 355 s series pickle) and controls 1370 s; feature on 1856 s, 1201 s (exit 0), 162 s, 626 s; feature off 317 s. `arm_table.md` has the memory (at most 181 MB).
+
+**Failed, changed, disagrees.** (1) `run_10` and `run_23` (feature on, loglog) **failed `plant_scale`** (exit 1): the double-double conserve walk ended `TinyStep` at 1430 for `End` at 3000; cause the Cauchy sums (`hp.rs` uses multidouble's dot accumulator); `Scalar::cauchy` in the library and `W<P>::cauchy` in the crate, the check untouched; the library change alone did not reach the crate (same failure to the digit), kept as `run_23`. (2) The first development table counted NOT MET baseline cells as firing controls; A2 uses gated cells only. (3) Erratum E1: the fold estimate is exact for a power in exact arithmetic, not to eps. (4) The comparator was written after the first feature-on offgrid run had finished (the queue ran ahead), from the baseline's lines, with one rule added after the first comparison (the series pickle's message). (5) Two numbers in my posts were typed by hand and wrong; both comments were corrected by id. (6) `plane::Real` and `implicit::Scalar` overlap. Raw: negative-mass-raw `I190-rpi5` at 5f2ac0f. Note: `notes/warp/implicit_taylor_lib.md` and its output on `wip/i190-implicit-taylor` at 550800c.
+
+**Recommended tasks**
+1. *Unify `implicit::Scalar`/`Real` with `plane::Real` in multishoot.* What: one scalar trait for both modules. Why: two near-identical traits. Acceptance: both modules compile on it, `tests/implicit.rs` digests (dd 92ec461781147d77, f64 b124d44e9758f1a1, qd 75902b0bf76ced2a) and `tests/plane.rs` unchanged on default and portable; a control that perturbs one shared method fails both suites. Depends on #73 merged.
+2. *A `Branch::Auto` that falls back from `Conserve` to `Project` near a double root.* What: use `Conserve` while |A0| is above a threshold and `Project` for the step that approaches a zero of A0. Why: `Conserve` is cheaper and fails at K-B, R-B, R-D. Acceptance: those 9 cells and 6 crossings cells met in every lane, `Conserve`'s cost kept on the branches that do not meet one; a threshold that is too low fails K-B. Depends on #73.
+3. *Run the library suite on an x86 machine with `+avx2,+fma`.* What: `RUSTFLAGS="-C target-feature=+avx2,+fma" cargo test --release --features mutate --test implicit`. Why: not run here. Acceptance: the three digests equal the NEON ones; any difference reported. Depends on #73.
+4. *Delete `poly.rs`'s and `hp.rs`'s own recursion from #167's crate after multishoot releases the module.* What: make `implicit_lib` the only path and take multishoot from crates.io. Why: two implementations. Acceptance: the three scripts' checks and controls pass as above, a control on the removed path no longer needed. Depends on #73 released.
+--
+author:	nmoinvaz
+association:	owner
+edited:	false
+status:	none
+--
+Reviewed and merged: `wip/i190-implicit-taylor` at 550800c. Review folder `negative-mass-raw/I190-mac-review` at ddf8e6f; review section in `notes/warp/implicit_taylor_lib.md`.
+
+| check | result |
+|---|---|
+| scope | the crate (feature-gated), the note and its output only; `hp.rs` and `poly.rs` gain `cfg` gates and visibility |
+| library suite at eaf55a8 on the Mac (NEON), default and `portable` | all pass, digests equal to the Pi's |
+| crate with `implicit_lib` on the Mac | offgrid `ctl` 16/16 with all 537 η* equal to the baseline in 10 digits; loglog 20/20 with every control on target |
+| ind190: three planted implicit equations not in the PR's tests (a fold, a crossing, a cubic with three real roots), f64/dd/qd | 3 of 3; the mutations each fail exactly their target |
+
+Two things are not in the closing comment:
+- multishoot#73's CI is red, in `tests/slaved.rs` only; main at 70fea18 fails the same test.
+- The CI does not check the implicit digests on AVX2.
+
+Follow-ups:
+- #214: AVX2 digests.
+- #215: the trait and `Branch::Auto`.
+- #216: `implicit_lib` as the only path, after a release.
+
+--

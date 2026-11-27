@@ -1,0 +1,47 @@
+# start 2026-11-26T21:52:58-08:00 cwd=/home/nathan/Source/negative-mass-i209/notes/wormhole_largeD cmd=/home/nathan/Source/negative-mass-venv314/bin/python -u exchange_review.py exch --egrid=24,1/2,12,50
+exchange_review.py  mutate=None  parts=['exch']  mpmath 1.3.0  sympy 1.14.0
+  E-grid: N = 24, w = 1/2, V = 12, dps = 50, panels = 24; chain 5 s; Omega_0..2 against closed forms 27.6, 26.3, 24.5 digits; Omega_3 = -652.8401075700561254352384110480784417683
+FAIL    P0: hierarchy on the E-grid against README's Y_1, L_1, Y_2, L_2 at all 576 nodes: worst |difference|/(1 + |value|) Y1 3.8e-51, L1 1.0, Y2 0.019, L2 12.0 (bar 1e-30; the closed L_2 needs Cl2 and K)
+FAIL    E1_3: G_3 against E1's right side: at the root -1.05e-45 against 8.45e-26 (terms of size 117.0); Omega_1 + 1/2: -6.28318530717958647692528676655 against -6.28318530717958647692528668202: 25.9 digits (bar 30)
+FAIL    E1_4: G_4 against E1's right side: at the root 7.0e-45 against 3.69e-23 (terms of size 1.39e+3); Omega_2 + 1/2: -6.28318530717958647692528676655 against -6.28318530717958647692524986261: 23.2 digits (bar 30)
+FAIL    E1_5: G_5 against E1's right side: at the root 7.99e-45 against 1.89e-21 (terms of size 1.07e+4); Omega_3 + 1/2: -6.28318530717958647692528676655 against -6.28318530717958647692340022746: 21.5 digits (bar 30)
+FAIL    E2_2: int L_2 dth = 29.2666009690357900122383736892 against 2 int h_2 ln cos/sin^2 dth = 29.2666009690357900122383736891: 29.6, 29.7, 29.7 digits at Omega_1 = solved, 0, 1/2 (bar 30)
+FAIL    E2_3: int L_3 dth = -346.761806024998400912231892499 against 2 int h_3 ln cos/sin^2 dth = -346.761806024998400912231892495: 29.0, 28.5, 28.5 digits at Omega_2 = solved, 0, 1/2 (bar 30)
+FAIL    E2_4: int L_4 dth = -2683.45836508968259679085881091 against 2 int h_4 ln cos/sin^2 dth = -2683.45836508968259679085881094: 28.9, 29.2, 29.2 digits at Omega_3 = solved, 0, 1/2 (bar 30)
+FAIL    E3_3: int Y_2 [(ell - Omega0)/sin^2 + 1] dth = 24.5594642936728877540356918975 against 2 int (ell - Omega0) F_1 dth = 24.5594642936728877540356920082: 26.3 digits (bar 30)
+FAIL    E3G_3: G_3 (Omega_1 + 1/2) = -6.28318530717958647692528676655 against the reduced form with no Y_2, no Y_3: -6.28318530717958647692528690363: 25.7 digits (bar 30); its four terms 60.027243, -16.782238, -0.40926175, -49.118929
+FAIL    E3_4: int Y_3 [(ell - Omega0)/sin^2 + 1] dth = -59.2935378252118510174000554602 against 2 int (ell - Omega0) F_2 dth = -59.2935378252118510174000612995: 25.0 digits (bar 30)
+FAIL    E3G_4: G_4 (Omega_2 + 1/2) = -6.28318530717958647692528676655 against the reduced form with no Y_3, no Y_4: -6.28318530717958647692523816904: 23.1 digits (bar 30); its four terms -469.16858, 433.60155, -89.303234, 118.58708
+FAIL    E3_5: int Y_4 [(ell - Omega0)/sin^2 + 1] dth = -2125.55635776350351455510012687 against 2 int (ell - Omega0) F_3 dth = -2125.5563577635035145551026817: 23.9 digits (bar 30)
+FAIL    E3G_5: G_5 (Omega_3 + 1/2) = -6.28318530717958647692528676655 against the reduced form with no Y_4, no Y_5: -6.28318530717958647691829069372: 21.0 digits (bar 30); its four terms -5489.5031, 1292.1853, -60.078104, 4251.1127
+FAIL    BND: boundary terms: throat end b/th^p at the first two nodes th = 0.000535, 0.0048 (constant to 1%, and = the leading coefficient -2 Omega_(k-2) th where known), pi/2 end at the last node x = pi/2 - th = 5.41e-32 (bar |b| < 1e-30): Y_3 cot: /th^1 -20.8467, -20.8464, outer 8.5e-26; Y_4 cot: /th^1 -148.739, -148.74, outer 3.7e-23; Y_5 cot: /th^1 1305.68, 1305.67, outer 1.9e-21; ell C_2: /th^3 8.31777, 8.31779, outer 2.0e-27; ell C_3: /th^3 -46.6446, -46.6446, outer 2.8e-25; ell C_4: /th^3 -107.509, -107.511, outer -2.2e-23; cot ell: /th^1 -0.5, -0.499998, outer -3.9e-30; Y_4 P: /th^1 -412.391, -412.392, outer -2.6e-21
+PASS    GROW: growth at the last node (l = 143.99): Y_1/l^2 = -0.006945, Y_2/l^3 = -0.009958, Y_3/l^4 = 0.003648, Y_4/l^5 = 0.01108, Y_5/l^6 = 0.003935, L_1/l^1 = 0.02588, L_2/l^2 = 0.024, L_3/l^3 = 0.02366, L_4/l^4 = -0.01296
+  exch: 19 s
+
+1 passed, 14 failed of 15 checks; 19 s
+Command exited with non-zero status 1
+	Command being timed: "/home/nathan/Source/negative-mass-venv314/bin/python -u exchange_review.py exch --egrid=24,1/2,12,50"
+	User time (seconds): 19.25
+	System time (seconds): 0.06
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:19.35
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 62072
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 13191
+	Voluntary context switches: 1
+	Involuntary context switches: 6756
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
+exit=1
+# end 2026-11-26T21:53:17-08:00
