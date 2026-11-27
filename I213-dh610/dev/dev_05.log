@@ -1,0 +1,49 @@
+D=4 h=0.04 X=100.0 A=0.05
+M(x+, x-) at x- = const rows, as x+ grows (node values)
+  x-\x+        5.0       10.0       20.0       40.0       70.0      100.0
+    0.0  +1.260e-01  +5.898e-02  +2.365e-02  +5.704e-03  -2.048e-03  -5.181e-03
+    1.0  +1.589e-01  +6.797e-02  +2.635e-02  +6.849e-03  -1.109e-03  -4.128e-03
+    2.0  +2.194e-01  +8.591e-02  +3.429e-02  +1.302e-02  +6.182e-03  +4.929e-03
+    3.0  +6.589e-01  +4.376e-01  +3.344e-01  +2.845e-01  +2.575e-01  +2.409e-01
+    3.5  +1.155e+00  +1.035e+00  +9.065e-01  +8.458e-01  +8.225e-01  +8.147e-01
+    4.0  +1.896e+00  +2.332e+00  +2.229e+00  +2.150e+00  +2.113e+00  +2.097e+00
+    5.0  +4.418e+00  +1.158e+01  +1.297e+01  +1.310e+01  +1.308e+01  +1.305e+01
+    6.0  +6.978e+00  +3.649e+01  +4.799e+01  +5.019e+01  +5.053e+01  +5.058e+01
+    8.0  +1.016e+01  +1.477e+02  +2.839e+02  +3.235e+02  +3.316e+02  +3.335e+02
+   12.0  +1.225e+01  +4.801e+02  +2.021e+03  +2.955e+03  +3.200e+03  +3.260e+03
+contour r_- = 0 (x- of the sign change in column x+):
+  x+=   3.0: crossings (x-, r) [(np.float64(2.698), 1.12)]   r_- min along column -6.360e-01
+  x+=   4.0: crossings (x-, r) [(np.float64(3.055), 1.51)]   r_- min along column -6.595e-01
+  x+=   5.0: crossings (x-, r) [(np.float64(3.389), 2.04)]   r_- min along column -6.721e-01
+  x+=   6.0: crossings (x-, r) [(np.float64(3.631), 2.65)]   r_- min along column -6.791e-01
+  x+=   8.0: crossings (x-, r) [(np.float64(3.905), 3.97)]   r_- min along column -6.861e-01
+  x+=  10.0: crossings (x-, r) [(np.float64(4.076), 5.35)]   r_- min along column -6.893e-01
+  x+=  15.0: crossings (x-, r) [(np.float64(4.356), 8.88)]   r_- min along column -6.923e-01
+  x+=  20.0: crossings (x-, r) [(np.float64(4.547), 12.44)]   r_- min along column -6.933e-01
+  x+=  40.0: crossings (x-, r) [(np.float64(5.014), 26.79)]   r_- min along column -6.940e-01
+  x+=  70.0: crossings (x-, r) [(np.float64(5.42), 48.38)]   r_- min along column -6.940e-01
+  x+= 100.0: crossings (x-, r) [(np.float64(5.699), 69.95)]   r_- min along column -6.940e-01
+contour r_+ = 0 (x+ of the sign change in row x-):
+  x-=   2.0: crossings (x+, r) [(np.float64(2.016), 1.0)]
+  x-=   3.0: crossings (x+, r) [(np.float64(2.698), 1.12)]
+  x-=   3.5: crossings (x+, r) [(np.float64(2.891), 1.3)]
+  x-=   4.0: crossings (x+, r) [(np.float64(3.055), 1.51)]
+  x-=   5.0: crossings (x+, r) [(np.float64(3.389), 2.04)]
+  x-=   6.0: crossings (x+, r) [(np.float64(3.631), 2.65)]
+  x-=   8.0: crossings (x+, r) [(np.float64(3.905), 3.97)]
+  x-=  12.0: crossings (x+, r) [(np.float64(4.205), 6.75)]
+  x-=  20.0: crossings (x+, r) [(np.float64(4.547), 12.44)]
+  x-=  40.0: crossings (x+, r) [(np.float64(5.014), 26.79)]
+  x-=  70.0: crossings (x+, r) [(np.float64(5.42), 48.38)]
+  x-= 100.0: crossings (x+, r) [(np.float64(5.699), 69.95)]
+ray identity m(edge cell) - m(diag cell) = int -(r^n/n) e^f r_- T++ dx+ over the cells i = j..N-1, row j (x- = (j+.5)h)
+  x-=  3.0: m_diag +6.5965e-01, m_edge +2.9004e-01, diff -3.6961e-01, quadrature -3.6945e-01  (rel 4.3e-04); +part +7.555e-02 -part -4.404e-01
+  x-=  3.5: m_diag +9.0644e-01, m_edge +8.3709e-01, diff -6.9354e-02, quadrature -6.9289e-02  (rel 9.4e-04); +part +2.903e-01 -part -3.538e-01
+  x-=  4.0: m_diag +1.3579e+00, m_edge +2.1914e+00, diff +8.3352e-01, quadrature +8.3344e-01  (rel 9.7e-05); +part +1.077e+00 -part -2.291e-01
+  x-=  5.0: m_diag +4.5296e+00, m_edge +1.3476e+01, diff +8.9467e+00, quadrature +8.9458e+00  (rel 1.0e-04); +part +9.041e+00 -part -3.942e-02
+  x-=  6.0: m_diag +1.4562e+01, m_edge +5.1792e+01, diff +3.7230e+01, quadrature +3.7227e+01  (rel 6.6e-05); +part +3.738e+01 -part +0.000e+00
+  x-=  8.0: m_diag +8.7680e+01, m_edge +3.3858e+02, diff +2.5090e+02, quadrature +2.5089e+02  (rel 3.1e-05); +part +2.515e+02 -part +0.000e+00
+  x-= 12.0: m_diag +8.4131e+02, m_edge +3.2886e+03, diff +2.4473e+03, quadrature +2.4473e+03  (rel 1.1e-05); +part +2.451e+03 -part +0.000e+00
+  x-= 20.0: m_diag +1.0433e+04, m_edge +3.9233e+04, diff +2.8800e+04, quadrature +2.8800e+04  (rel 3.5e-06); +part +2.883e+04 -part +0.000e+00
+  x-= 40.0: m_diag +2.3210e+05, m_edge +7.0705e+05, diff +4.7495e+05, quadrature +4.7495e+05  (rel 8.8e-07); +part +4.753e+05 -part +0.000e+00
+  x-= 80.0: m_diag +4.3417e+06, m_edge +6.5300e+06, diff +2.1883e+06, quadrature +2.1883e+06  (rel 2.9e-07); +part +2.193e+06 -part +0.000e+00

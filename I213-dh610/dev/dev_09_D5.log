@@ -1,0 +1,24 @@
+/home/nathan/Source/negative-mass-raw/I213-dh610/dev/dev_09_asymptotics.py:45: RuntimeWarning: invalid value encountered in log
+  print(f"      r={r0:4d}: tau={R['tau'][j0]:.4f} H={R['H'][j0]:.4f} H/W={R['H'][j0]/W:.3f}  d ln(r-1)/dtau={np.gradient(np.log(R['r'] - 1), R['tau'])[j0]/W:.3f} W   |rho|/H^2 {abs(rho[j0])/R['H'][j0]**2:.3f}")
+D=5 h=0.0141 X=60.0 p*_h+1e-6 = 1.149883e-03: 11 s; last diag t=84.8 tau=13.2298 r=47.88 (e-folds ln r 3.869) H=2.190; 1/H linear fit over the last e-fold of r (2410 pts): k=3.9607 tau_s=15.0381 max|res|/mean=6.6e-04; |rho|/H^2=6.7527; m/(r^4H^2/2)=1.0001; min r_ll +1.658e-02; max e^-f 1.0058; min e^-f 3.61e-05; dead 0; w_bar -0.500000..-0.500000
+      r=   3: tau=11.3589 H=0.9733 H/W=0.563  d ln(r-1)/dtau=0.844 W   |rho|/H^2 7.844
+      r=   5: tau=11.8298 H=1.1946 H/W=0.691  d ln(r-1)/dtau=0.864 W   |rho|/H^2 7.090
+      r=  10: tau=12.3519 H=1.4660 H/W=0.849  d ln(r-1)/dtau=0.943 W   |rho|/H^2 6.826
+      r=  25: tau=12.9074 H=1.8592 H/W=1.076  d ln(r-1)/dtau=1.121 W   |rho|/H^2 6.761
+D=5 h=0.0141 X=60.0 A=0.05: 9 s; last diag t=84.8 tau=6.4510 r=52.61 (e-folds ln r 3.963) H=2.704; 1/H linear fit over the last e-fold of r (2613 pts): k=3.9702 tau_s=7.9190 max|res|/mean=4.9e-04; |rho|/H^2=6.7520; m/(r^4H^2/2)=1.0000; min r_ll +1.550e-02; max e^-f 1.0013; min e^-f 2.01e-05; dead 0; w_bar -0.500000..-0.500000
+      r=   3: tau=4.8682 H=1.1879 H/W=0.688  d ln(r-1)/dtau=1.031 W   |rho|/H^2 7.657
+      r=   5: tau=5.2562 H=1.4470 H/W=0.838  d ln(r-1)/dtau=1.047 W   |rho|/H^2 7.036
+      r=  10: tau=5.6886 H=1.7701 H/W=1.025  d ln(r-1)/dtau=1.138 W   |rho|/H^2 6.815
+      r=  25: tau=6.1486 H=2.2427 H/W=1.298  d ln(r-1)/dtau=1.352 W   |rho|/H^2 6.760
+      r=  50: tau=6.4322 H=2.6698 H/W=1.545  d ln(r-1)/dtau=1.577 W   |rho|/H^2 6.752
+D=5 h=0.00707 X=60.0 p*_h+1e-6 = 2.893919e-04: 29 s; last diag t=84.9 tau=13.2439 r=47.88 (e-folds ln r 3.869) H=2.186; 1/H linear fit over the last e-fold of r (4805 pts): k=3.9607 tau_s=15.0552 max|res|/mean=6.6e-04; |rho|/H^2=6.7527; m/(r^4H^2/2)=1.0001; min r_ll +1.658e-02; max e^-f 1.0014; min e^-f 3.62e-05; dead 0; w_bar -0.500000..-0.500000
+      r=   3: tau=11.3682 H=0.9706 H/W=0.562  d ln(r-1)/dtau=0.843 W   |rho|/H^2 7.851
+      r=   5: tau=11.8416 H=1.1926 H/W=0.690  d ln(r-1)/dtau=0.863 W   |rho|/H^2 7.091
+      r=  10: tau=12.3646 H=1.4636 H/W=0.847  d ln(r-1)/dtau=0.941 W   |rho|/H^2 6.826
+      r=  25: tau=12.9210 H=1.8561 H/W=1.074  d ln(r-1)/dtau=1.119 W   |rho|/H^2 6.761
+D=5 h=0.00707 X=60.0 A=0.05: 25 s; last diag t=84.9 tau=6.4432 r=52.62 (e-folds ln r 3.963) H=2.702; 1/H linear fit over the last e-fold of r (5212 pts): k=3.9702 tau_s=7.9121 max|res|/mean=4.9e-04; |rho|/H^2=6.7520; m/(r^4H^2/2)=1.0000; min r_ll +1.549e-02; max e^-f 1.0002; min e^-f 2.02e-05; dead 0; w_bar -0.500000..-0.500000
+      r=   3: tau=4.8599 H=1.1875 H/W=0.687  d ln(r-1)/dtau=1.030 W   |rho|/H^2 7.657
+      r=   5: tau=5.2468 H=1.4455 H/W=0.837  d ln(r-1)/dtau=1.046 W   |rho|/H^2 7.036
+      r=  10: tau=5.6795 H=1.7684 H/W=1.024  d ln(r-1)/dtau=1.137 W   |rho|/H^2 6.816
+      r=  25: tau=6.1404 H=2.2410 H/W=1.297  d ln(r-1)/dtau=1.351 W   |rho|/H^2 6.760
+      r=  50: tau=6.4242 H=2.6678 H/W=1.544  d ln(r-1)/dtau=1.576 W   |rho|/H^2 6.752
