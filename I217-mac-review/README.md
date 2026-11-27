@@ -50,3 +50,8 @@ The targets are predicted from the code, not yet computed.
 
 | file | what |
 |---|---|
+| `rerun.sh`, `rerun_check.log` | `check`: **10 of 10**, every line equal to the record's apart from timings |
+| `rerun_analyze.log`, `rerun_analyze_diff.txt` | `analyze`: every line of `evolve_output.txt`'s analyze section again (E11 and XC at c = −1.5 not met, as recorded) |
+| `rerun_job/`, `rerun_job_compare.txt` | the job c = −1.5, h = 0.005 again: A*ₕ = −1.7725670186337087e-07, equal to the runner's bit for bit; all 18 series points with \|A − A*\| ≥ 1e-7 have the same fate and the same T (difference 0). Same machine as the runner. The expectation is met |
+| `ind217_run1.txt` | run 1: **exit 0, 2 of 2.** K1: the brute-force Ricci tensor with V gives the printed r₊₋, f₊₋, φ₊₋ (sympy residual 0); `evolve.F_np` agrees to 1.1e-15 at 60 states. K2: the closed-form member satisfies the three evolution equations and both null constraints to 8.4e-31 at 30 points |
+| `ind217_run1_mut_*.txt` | `V-sign` fails exactly K1 and K2 (the f₊₋ residual stays 0, since the V terms cancel there, as the design note says); `code-Vp` fails exactly K1 |

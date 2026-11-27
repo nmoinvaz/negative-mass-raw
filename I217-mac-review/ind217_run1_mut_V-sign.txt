@@ -1,0 +1,6 @@
+  derivation done (0 s); residuals against the printed forms: ['-V(ph(u, v))*r(u, v)*exp(-f(u, v))', '0', '-exp(-f(u, v))*Derivative(V(ph(u, v)), ph(u, v))']
+[FAIL] K1: symbolic residuals ['nonzero', '0', 'nonzero']; evolve.F_np worst rel diff 2.7e+00 at 60 states
+[FAIL] K2: largest residual on the member 0.405 at 30 points (c = -0.3, -1.5, -1)
+
+2 criteria, 0 pass; failed: ['K1', 'K2']; mutation V-sign; 1 s
+rc=1
