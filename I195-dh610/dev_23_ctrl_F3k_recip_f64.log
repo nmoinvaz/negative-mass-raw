@@ -1,0 +1,26 @@
+w2_highprec.py  mutate=recip_f64  crate=/home/nathan/Source/negative-mass-i195/notes/wormhole_largeD/w2_crate/target/release/w2_crate
+
+FAIL    F3: no cell of M1 or M2 is admitted by the gate: the series model does not describe the data
+  fit cells of F3k, model M2 (gate: relative residual <= 2.97e-52; delta_data = 2.97e-54)
+  model  Dlo    K   n    Omega1                      Omega2                       rel. residual   admitted
+  M2     50    8   64  10.4233603787366115918672   74.3693868760796303795717    9.4e-15         False
+  M2     50    10  64  10.4233603787388241295499   74.3693867120530248026676    1.86e-17        False
+  M2     50    12  64  10.4233603787389290625816   74.3693866966278012205174    4.67e-18        False
+  M2     50    14  64  10.4233603787389416956513   74.3693866953918335532519    5.07e-18        False
+  M2     100   8   55  10.4233603787387933866959   74.3693867156782609367236    3.24e-17        False
+  M2     100   10  55  10.4233603787389240978072   74.3693866977525452742865    4.63e-18        False
+  M2     100   12  55  10.4233603787388568836483   74.369386717154886800278     4.7e-18         False
+  M2     100   14  55  10.4233603787362979199136   74.3693875966610138368503    2.51e-18        False
+  M2     200   8   47  10.4233603787388853857588   74.3693867043566508599505    4.34e-18        False
+  M2     200   10  47  10.4233603787388895570993   74.3693867076097364366033    4.78e-18        False
+  M2     200   12  47  10.4233603787360053091846   74.3693876846385001128254    2.38e-18        False
+  M2     200   14  47  10.4233603786869277244894   74.3694114199127255552359    1.12e-18        False
+  M2     500   8   36  10.4233603787388042371014   74.3693867258159051203595    4.24e-18        False
+  M2     500   10  36  10.4233603787290053752987   74.3693902795707631693082    1.44e-18        False
+  M2     500   12  36  10.423360378484931527949    74.3695228918775781986786    6.77e-19        False
+  M2     500   14  36  10.4233603824872606460436   74.3656047619880696328541    4.15e-19        False
+
+FAIL    F3k: no cell of M1 or M2 is admitted by the gate: the series model does not describe the data
+
+0 passed, 2 failed, 0 skipped () of 2 checks; 91 s
+control recip_f64: failed checks ['F3', 'F3k']; declared targets ['S1', 'S2', 'S3', 'S5s']; DOES NOT FIRE (or no targets declared yet)

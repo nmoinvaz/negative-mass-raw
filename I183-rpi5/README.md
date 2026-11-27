@@ -201,6 +201,12 @@ failed and stopped runs, and a rerun is numbered (`run_04`).
 
 ## Run of record
 
-Code at branch `wip/i183-conical-offgrid` commit 8b4c5e5; `offgrid` binary sha256 5b608b378a73 (first 12 hex); queue script
-`sys/run_record.sh` started 2026-11-26 after amendments A1 and A2 above. Logs `run_03a.log` ... `run_03e.log`, exit codes `run_03?.rc`,
-stage times `run_03_times.log`, per-control logs `ctl_run_03/`, the verdict records `dump_run_03a/`, `dump_run_03b/`.
+Queue script `sys/run_record.sh` (stages a to e, each under `timeout 3600`), started 2026-11-26 12:11 after amendments A1 and A2; code at
+branch `wip/i183-conical-offgrid` commit 8b4c5e5, `offgrid` binary sha256 5b608b378a73 (first 12 hex). Stage times (`run_03_times.log`): `run_03a` 876 s,
+`run_03b` 1001 s, `run_03c` 2285 s, `run_03d` 2307 s, `run_03e` 952 s, all exit 0. `run_04a` (`sys/run_04.sh`, 876 s, exit 0) is stage a again with the script at
+0da94f6, which adds printed summaries of the scan (floor points with p flat or rising, the kappa-curve ends by F_inf, the classes along each line) and
+changes no check; its verdict records are byte-identical to those of `run_03a` (`diff -rq dump_run_03a dump_run_04a`), and so are the lines `[PASS]`. Logs `run_03a.log` ... `run_03e.log`, `run_04a.log`, per-control logs
+`ctl_run_03/`, the verdict records `dump_run_03a/`, `dump_run_03b/`, `dump_run_04a/`. Result: 16 of 16 checks pass, 16 of 16 controls fire on their targets only,
+`THROUGH` 0. `notes/warp/conical_offgrid_output.txt` in the repository is `run_04a.log`, `run_03b.log`, `run_03c.log`, `run_03d.log`, `run_03e.log` in this order.
+Stopped or failed runs kept: `dev_07_qd_indep` (stopped, `.stopped`), `dev_08_indep_ctl` (stopped), `dev_09_perturb_failed_run1.log`. `dev_14_roots_0.2_3000.log` is the roots of
+the cubic along the walk at (F_inf, C) = (0.2, 3000) (`sys/roots.py`).

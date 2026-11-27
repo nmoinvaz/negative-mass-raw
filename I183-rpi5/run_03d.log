@@ -1,0 +1,9 @@
+conical_offgrid.py: grid full; controls run every check (on the ctl grid) and must fail their targets and no others
+
+== Controls: each mutation, with every check run, must make its target checks fail and no others ==
+[FIRED] --mutate=n-drift (the recursion leaves F''_3 = 0 (order 3 of N not imposed)): exit 1, failed ['plant_far', 'regress167', 'scan', 'spread', 'dd_qd', 'modes', 'closed_form', 'bisect', 'independent', 'recip_check', 'step_halving'], 1039 s
+[FIRED] --mutate=sym-break (the mirror point is (-F_inf, +C)): exit 1, failed ['symmetry'], 317 s
+[FIRED] --mutate=n4-coeff (the symbolic degree-4 part is compared with (eta^2+3) in place of (eta^2+2)): exit 1, failed ['n4_factor'], 317 s
+[FIRED] --mutate=cf-coeff (the closed form with 7/8 -> 3/4 in h): exit 1, failed ['closed_form'], 317 s
+[FIRED] --mutate=bisect-end (the bisection's upper end is compared with the wrong label): exit 1, failed ['bisect'], 317 s
+controls: all fired on target only
