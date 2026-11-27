@@ -151,7 +151,7 @@ Memory is reported (`/usr/bin/time -v`), not a stop condition.
 
 ## Stage 4: results (after the runs of record, the analysis in `runs/analysis_record2.log` = `notes/wormhole_evolution/throat_drift_output.txt`, driver at a44d066)
 
-Jobs (`runs/logs/job_*.{log,time,rc,lane}`, `runs/logs/lanes.log`): 19 declared jobs, all rc = 0 except `bs_D5_B0.2_hk2` (rc = 124, the 2 h timeout: 33 runs, bracket not finished; its points are
+Jobs (`runs/logs/job_*.{log,time,rc,lane}`, `runs/logs/lanes.log`): 18 declared jobs, all rc = 0 except `bs_D5_B0.2_hk2` (rc = 124, the 2 h timeout: 33 runs, bracket not finished; its points are
 `runs/bisect/D5_B0.2_h0.00176777/points.jsonl`; no waiver, coordinator's ruling Q1); the 4 post-hoc extras (`*_extra`, `runs/extra/`) rc = 0. Longest finished job 57 min (`bs_D5_B0.2_hk1`), the X = 160
 expansions 4 min and 31 min, peak memory 306 MB (`/usr/bin/time -v`), load average 12 to 23 of 20 (four lanes, nice 10).
 
