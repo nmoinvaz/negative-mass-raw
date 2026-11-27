@@ -55,3 +55,9 @@ setting is L = 40 at h = 0.02 and 0.01, with ω the root with Re ω > 0.
 
 | file | what |
 |---|---|
+| `rerun.sh`, `rerun/` | `polar_derive.py check`: 20 PASS, the same verdict lines as the runner's `derive_check.txt`. `polar.py planted`: 7 PASS, every verdict line equal to its first 120 characters. `count` ℓ = 2 at c = −0.3: no root, as the runner's. `mads` at c = 0.5: one mode, W = 1.709787002854765 against 1.7097870028547713. The expectation is met |
+| `ind218_run1.txt` | run 1: **exit 1, K1 not met** (A1). ℓ = 1 at L = 40 is off by 5.1e-6, and its Darboux partner by 1.0e-5: the review's domain. K2 passes: ℓ = 2 1.7376918464 − 0.3051377413i, 3.0e-7 from `polar.md`. K3 passes: the test scalar 1.5727083913 − 0.5297008824i, 0.90 from ℓ = 1 |
+| `ind218_run1_mut_*.txt` | `V-scale` fails K1, K2, K3; `no-scaling` fails K1, K2, K3 |
+| `ind218_run2.txt` | run 2 (A1, L = 160): **exit 0, K1b passes.** ℓ = 1 0.6813671876 − 0.6177534480i, 6.0e-10 from `polar.md`; its Darboux partner 0.6813671875 − 0.6177534480i, 1.2e-10 from it; h spread 2.3e-9. The two ℓ = 1 potentials are isospectral to 1e-10 |
+| `ind218_run2_mut_V-scale.txt` | a slip of the review: the two flags reached the script as one argument, so this ran unmutated at L = 40 (it repeats run 1). Kept |
+| `ind218_run3_mut_V-scale.txt` | `V-scale` with K1b: fails K1b, K2 and K3 |
