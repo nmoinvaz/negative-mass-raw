@@ -1,0 +1,66 @@
+# src/implicit.rs: the fixed text replaced by the pre-fix text; the tests must fail
+--- fixed text
+if x0 == 0.0 {
+--- pre-fix text
+if false {
+---
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 7.71s
+     Running tests/implicit.rs (target/release/deps/implicit-4e0a7f4a04c6bea1)
+
+running 3 tests
+[PASS] f64 None: advance without form refused true, walk to 2 off by 0.00e0, refused after set_y true, after a stop true
+[PASS] f64 None: 1 crossings after two forms at the end of one step, the first at 0.00e0 from 0
+[PASS] f64 None: stop End after 1 steps, state off by 5.55e-17, 1 crossings, the first 0.00e0 from 0
+[PASS] f64 None: stop End at 2, 1 landings, 8 steps against 8 with the checkpoint once
+[PASS] f64 None: first run Pivot with an estimate true, second run End with one false
+[PASS] f64 None: empty polynomial returns true, constant kept true, 1 + 2x + 3x^2 about 2 exact true
+[FAIL] f64 None: [0, 0, 2^1023] kept about 0 false and about -0 false
+[PASS] f64 None: stop End at 1 after 1 steps, 0 crossings (none expected)
+[PASS] f64 None: stop Pivot, estimate off by 0.00e0 of -2^550 with beta 1
+
+thread 'edges_f64' (103172079) panicked at tests/implicit.rs:900:5:
+1 cells not met:
+f64 None: [0, 0, 2^1023] kept about 0 false and about -0 false
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test edges_f64 ... FAILED
+[PASS] dd None: advance without form refused true, walk to 2 off by 0.00e0, refused after set_y true, after a stop true
+[PASS] dd None: 1 crossings after two forms at the end of one step, the first at 0.00e0 from 0
+[PASS] dd None: stop End after 1 steps, state off by 3.08e-33, 1 crossings, the first 0.00e0 from 0
+[PASS] dd None: stop End at 2, 1 landings, 8 steps against 8 with the checkpoint once
+[PASS] dd None: first run Pivot with an estimate true, second run End with one false
+[PASS] dd None: empty polynomial returns true, constant kept true, 1 + 2x + 3x^2 about 2 exact true
+[FAIL] dd None: [0, 0, 2^1023] kept about 0 false and about -0 false
+[PASS] dd None: stop End at 1 after 1 steps, 0 crossings (none expected)
+[PASS] dd None: stop Pivot, estimate off by 0.00e0 of -2^550 with beta 1
+
+thread 'edges_dd' (103172078) panicked at tests/implicit.rs:900:5:
+1 cells not met:
+dd None: [0, 0, 2^1023] kept about 0 false and about -0 false
+test edges_dd ... FAILED
+[PASS] qd None: advance without form refused true, walk to 2 off by 0.00e0, refused after set_y true, after a stop true
+[PASS] qd None: 1 crossings after two forms at the end of one step, the first at 0.00e0 from 0
+[PASS] qd None: stop End after 1 steps, state off by 9.50e-66, 1 crossings, the first 0.00e0 from 0
+[PASS] qd None: stop End at 2, 1 landings, 8 steps against 8 with the checkpoint once
+[PASS] qd None: first run Pivot with an estimate true, second run End with one false
+[PASS] qd None: empty polynomial returns true, constant kept true, 1 + 2x + 3x^2 about 2 exact true
+[FAIL] qd None: [0, 0, 2^1023] kept about 0 false and about -0 false
+[PASS] qd None: stop End at 1 after 1 steps, 0 crossings (none expected)
+[PASS] qd None: stop Pivot, estimate off by 0.00e0 of -2^550 with beta 1
+
+thread 'edges_qd' (103172080) panicked at tests/implicit.rs:900:5:
+1 cells not met:
+qd None: [0, 0, 2^1023] kept about 0 false and about -0 false
+test edges_qd ... FAILED
+
+failures:
+
+failures:
+    edges_dd
+    edges_f64
+    edges_qd
+
+test result: FAILED. 0 passed; 3 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.09s
+
+error: test failed, to rerun pass `--test implicit`
+exit 101

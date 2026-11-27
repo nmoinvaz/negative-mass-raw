@@ -1,0 +1,40 @@
+# tests/implicit.rs: the fixed text replaced by the pre-fix text; the tests must fail
+--- fixed text
+data.extend([x, l, h_hashed]);
+--- pre-fix text
+data.extend([x, l]);
+---
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+warning: unused variable: `h_hashed`
+   --> tests/implicit.rs:854:13
+    |
+854 |         let h_hashed = if flip_h && data.len() == 2 {
+    |             ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_h_hashed`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: `multishoot` (test "implicit") generated 1 warning (run `cargo fix --test "implicit" -p multishoot` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 4.00s
+     Running tests/implicit.rs (target/release/deps/implicit-4e0a7f4a04c6bea1)
+
+running 1 test
+lower part of an end state: base 10f1b89a823ad3c3 -> 241887fe7d314ae4, full 21d526b7c72a4319 -> adb6fb2495d4c1f6
+last part of a step-sum coefficient: base 10f1b89a823ad3c3 -> 10f1b89a823ad3c3, full 21d526b7c72a4319 -> 53f22449b3306204
+last bit of a step-sum step length: base 10f1b89a823ad3c3 -> 10f1b89a823ad3c3, full 21d526b7c72a4319 -> 21d526b7c72a4319
+
+thread 'digest_od_sees_the_lower_parts' (103176876) panicked at tests/implicit.rs:1379:5:
+assertion `left != right` failed: full does not see a planned step length
+  left: 2437897344053297945
+ right: 2437897344053297945
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test digest_od_sees_the_lower_parts ... FAILED
+
+failures:
+
+failures:
+    digest_od_sees_the_lower_parts
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 33 filtered out; finished in 39.94s
+
+error: test failed, to rerun pass `--test implicit`
+exit 101

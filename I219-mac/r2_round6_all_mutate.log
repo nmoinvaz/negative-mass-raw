@@ -1,0 +1,438 @@
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 4.73s
+     Running tests/implicit.rs (target/release/deps/implicit-4e0a7f4a04c6bea1)
+
+running 34 tests
+[PASS] f64 QA Project None: stop End, 12 steps, err 1.26e-16 (bar 1.1e-10), n_rel_max 1.41e-16
+[PASS] f64 QA Conserve None: stop End, 12 steps, err 1.26e-16 (bar 1.1e-10), n_rel_max 1.25e-16
+[PASS] dd QA Project None: stop End, 12 steps, err 1.40e-32 (bar 1.2e-26), n_rel_max 3.48e-33
+[PASS] f64 QB Project None: stop End, 15 steps, err 2.23e-15 (bar 1.1e-10), n_rel_max 5.58e-17
+[PASS] f64 QB Conserve None: stop End, 16 steps, err 3.50e-14 (bar 1.1e-10), n_rel_max 4.23e-14
+[PASS] dd QA Conserve None: stop End, 12 steps, err 4.93e-33 (bar 1.2e-26), n_rel_max 1.60e-32
+[PASS] f64 KA Project None: stop End, 14 steps, err 1.77e-16 (bar 1.1e-10), n_rel_max 7.05e-17
+[PASS] f64 KA Conserve None: stop End, 14 steps, err 5.32e-15 (bar 1.1e-10), n_rel_max 8.28e-16
+[PASS] f64 KB Project None: stop End, 17 steps, err 4.35e-15 (bar 1.1e-10), n_rel_max 5.72e-17
+[PASS] dd QB Project None: stop End, 16 steps, err 8.02e-32 (bar 1.2e-26), n_rel_max 6.20e-33
+[NOT MET] (recorded, not gated) f64 KB Conserve None: stop Tiny, 33 steps, err 7.39e-8 (bar 1.1e-10), n_rel_max 1.16e-15
+[PASS] f64 KC Project None: stop End, 17 steps, err 4.20e-16 (bar 1.1e-10), n_rel_max 7.90e-17
+[PASS] dd QB Conserve None: stop End, 16 steps, err 4.13e-30 (bar 1.2e-26), n_rel_max 5.08e-30
+[PASS] f64 KC Conserve None: stop End, 17 steps, err 3.78e-15 (bar 1.1e-10), n_rel_max 7.71e-16
+[PASS] f64 RA Project None: stop End, 14 steps, err 8.87e-16 (bar 1.1e-10), n_rel_max 8.92e-17
+[PASS] f64 RA Conserve None: stop End, 14 steps, err 3.90e-15 (bar 1.1e-10), n_rel_max 1.57e-15
+[PASS] f64 RB Project None: stop End, 15 steps, err 1.87e-15 (bar 1.1e-10), n_rel_max 8.14e-17
+[PASS] dd KA Project None: stop End, 16 steps, err 1.54e-31 (bar 1.2e-26), n_rel_max 4.57e-33
+[PASS] dd KA Conserve None: stop End, 16 steps, err 8.27e-31 (bar 1.2e-26), n_rel_max 8.62e-32
+[NOT MET] (recorded, not gated) f64 RB Conserve None: stop Tiny, 115 steps, err 1.00e0 (bar 1.1e-10), n_rel_max 1.00e0
+[PASS] f64 RC Project None: stop End, 17 steps, err 3.06e-16 (bar 1.1e-10), n_rel_max 7.42e-17
+[PASS] f64 RC Conserve None: stop End, 17 steps, err 2.52e-15 (bar 1.1e-10), n_rel_max 1.53e-15
+[PASS] f64 RD Project None: stop End, 23 steps, err 2.20e-15 (bar 1.1e-10), n_rel_max 1.06e-16
+[PASS] dd KB Project None: stop End, 19 steps, err 4.49e-31 (bar 1.2e-26), n_rel_max 4.21e-33
+[NOT MET] (recorded, not gated) f64 RD Conserve None: stop End, 92 steps, err 1.21e1 (bar 1.1e-10), n_rel_max 9.98e-1
+test closed_form_f64 ... ok
+[NOT MET] (recorded, not gated) dd KB Conserve None: stop Tiny, 33 steps, err 1.58e-18 (bar 1.2e-26), n_rel_max 1.14e-31
+[PASS] dd KC Project None: stop End, 18 steps, err 2.83e-32 (bar 1.2e-26), n_rel_max 6.92e-33
+[PASS] dd KC Conserve None: stop End, 18 steps, err 3.23e-31 (bar 1.2e-26), n_rel_max 6.83e-32
+[PASS] dd RA Project None: stop End, 14 steps, err 5.61e-32 (bar 1.2e-26), n_rel_max 1.12e-32
+[PASS] dd RA Conserve None: stop End, 15 steps, err 4.53e-31 (bar 1.2e-26), n_rel_max 1.49e-31
+[PASS] dd RB Project None: stop End, 19 steps, err 5.57e-31 (bar 1.2e-26), n_rel_max 7.26e-33
+[NOT MET] (recorded, not gated) dd RB Conserve None: stop Tiny, 32 steps, err 3.53e-18 (bar 1.2e-26), n_rel_max 5.50e-31
+[PASS] dd RC Project None: stop End, 18 steps, err 2.93e-32 (bar 1.2e-26), n_rel_max 9.31e-33
+[PASS] dd RC Conserve None: stop End, 18 steps, err 3.12e-31 (bar 1.2e-26), n_rel_max 1.44e-31
+[PASS] dd RD Project None: stop End, 27 steps, err 1.21e-31 (bar 1.2e-26), n_rel_max 1.16e-32
+[PASS] qd QA Project None: stop End, 12 steps, err 2.28e-65 (bar 1.5e-58), n_rel_max 3.84e-65
+[NOT MET] (recorded, not gated) dd RD Conserve None: stop Tiny, 49 steps, err 1.27e-19 (bar 1.2e-26), n_rel_max 1.67e-7
+test closed_form_dd ... ok
+[FAIL] f64 Q-A l = 1 Lib(SkipOrder(3)): worst sum|dc_k| / (eps sum|c_k|) 9.01e15 (bar 1e6)
+[FAIL] f64 Q-A l = 0.25 Lib(SkipOrder(3)): worst sum|dc_k| / (eps sum|c_k|) 2.08e14 (bar 1e6)
+[FAIL] dd Q-A l = 1 Lib(SkipOrder(3)): worst sum|dc_k| / (eps sum|c_k|) 8.11e31 (bar 1e6)
+[FAIL] dd Q-A l = 0.25 Lib(SkipOrder(3)): worst sum|dc_k| / (eps sum|c_k|) 1.88e30 (bar 1e6)
+[FAIL] qd Q-A l = 1 Lib(SkipOrder(3)): worst sum|dc_k| / (eps sum|c_k|) 6.65e63 (bar 1e6)
+[FAIL] qd Q-A l = 0.25 Lib(SkipOrder(3)): worst sum|dc_k| / (eps sum|c_k|) 1.54e62 (bar 1e6)
+test controls::coeffs_controls ... ok
+[PASS] qd QA Conserve None: stop End, 12 steps, err 1.62e-65 (bar 1.5e-58), n_rel_max 7.67e-65
+[FIRED] control SkipOrder(3) in dd: fails ["step_sum", "closed_form", "crossings", "fold F1", "fold F2"]
+[FIRED] control RecipDD in dd: fails []
+[PASS] qd QB Project None: stop End, 17 steps, err 1.84e-63 (bar 1.5e-58), n_rel_max 2.61e-65
+[FIRED] control NoPivotCheck in dd: fails ["zero_pivot"]
+[FIRED] control NoCrossing in dd: fails ["crossings"]
+[PASS] qd QB Conserve None: stop End, 16 steps, err 3.41e-62 (bar 1.5e-58), n_rel_max 4.17e-62
+[FIRED] control ExponentHalf in dd: fails ["fold F2"]
+[FIRED] control NoPivotStop in dd: fails ["fold F1", "fold F2"]
+test controls::controls_dd ... ok
+[FIRED] control SkipOrder(3) in f64: fails ["step_sum", "closed_form", "crossings", "fold F1", "fold F2"]
+[FIRED] control RecipDD in f64: fails []
+[FIRED] control NoPivotCheck in f64: fails ["zero_pivot"]
+[FIRED] control NoCrossing in f64: fails ["crossings"]
+[FIRED] control ExponentHalf in f64: fails ["fold F2"]
+[FIRED] control NoPivotStop in f64: fails ["fold F1", "fold F2"]
+test controls::controls_f64 ... ok
+[PASS] qd KA Project None: stop End, 16 steps, err 6.59e-64 (bar 1.5e-58), n_rel_max 4.75e-65
+[PASS] qd KA Conserve None: stop End, 16 steps, err 8.02e-63 (bar 1.5e-58), n_rel_max 8.60e-64
+[PASS] qd KB Project None: stop End, 19 steps, err 5.52e-64 (bar 1.5e-58), n_rel_max 3.58e-65
+[NOT MET] (recorded, not gated) qd KB Conserve None: stop Tiny, 26 steps, err 3.16e-50 (bar 1.5e-58), n_rel_max 1.36e-63
+[PASS] qd KC Project None: stop End, 18 steps, err 8.73e-65 (bar 1.5e-58), n_rel_max 5.03e-65
+[PASS] qd KC Conserve None: stop End, 18 steps, err 3.25e-63 (bar 1.5e-58), n_rel_max 7.75e-64
+[PASS] qd RA Project None: stop End, 16 steps, err 6.07e-64 (bar 1.5e-58), n_rel_max 4.93e-65
+[PASS] qd RA Conserve None: stop End, 16 steps, err 6.15e-63 (bar 1.5e-58), n_rel_max 1.45e-63
+[PASS] qd RB Project None: stop End, 20 steps, err 3.53e-63 (bar 1.5e-58), n_rel_max 3.63e-65
+[NOT MET] (recorded, not gated) qd RB Conserve None: stop Tiny, 26 steps, err 3.35e-50 (bar 1.5e-58), n_rel_max 3.85e-63
+[PASS] qd RC Project None: stop End, 18 steps, err 2.75e-64 (bar 1.5e-58), n_rel_max 4.19e-65
+[PASS] qd RC Conserve None: stop End, 19 steps, err 3.10e-63 (bar 1.5e-58), n_rel_max 1.34e-63
+[PASS] qd RD Project None: stop End, 31 steps, err 8.26e-64 (bar 1.5e-58), n_rel_max 5.51e-65
+[FIRED] control SkipOrder(3) in qd: fails ["step_sum", "closed_form", "crossings", "fold F1", "fold F2"]
+[NOT MET] (recorded, not gated) qd RD Conserve None: stop Tiny, 32 steps, err 3.62e-51 (bar 1.5e-58), n_rel_max 1.37e-38
+test closed_form_qd ... ok
+[FIRED] control StaleSeries against stale: met without true, with: dd Lib(StaleSeries): advance without form refused false, walk to 2 off by 0.00e0, refused after set_y false, after a stop false
+[FIRED] control RepeatCrossing against repeat_form: met without true, with: dd Lib(RepeatCrossing): 2 crossings after two forms at the end of one step, the first at 0.00e0 from 0
+[FIRED] control NoEndCrossing against last_crossing: met without true, with: dd Lib(NoEndCrossing): stop End after 1 steps, state off by 3.08e-33, 0 crossings, the first NaN from 0
+[FIRED] control RecordEnd against end_preview: met without true, with: dd Lib(RecordEnd): 1 crossings after run(1) (one expected), 1 after it resumed to 2 (one), 1 after a restart at 1 (none)
+[FIRED] control PlainRho against linear_pivot: met without true, with: dd Lib(PlainRho): stop Pivot, estimate off by NaN of -2^550 with beta NaN
+[FIRED] control ScaledQuad against quad_small_coeff: met without true, with: dd Lib(ScaledQuad): stop Pivot, estimate Some((-1.0715086071862673e301, 1.0)) (none expected)
+[FIRED] control NoFiniteZero against overflow_coordinate: met without true, with: dd Lib(NoFiniteZero): stop Pivot, estimate Some((NaN, 1.0)) (none expected)
+[FIRED] control DoubleFirst against rho_fallback_overflow: met without true, with: dd Lib(DoubleFirst): stop Pivot, estimate off by NaN of -2^1023 / 3 with beta NaN
+[FIRED] control ProductFirst against zero_numerator_overflow: met without true, with: dd Lib(ProductFirst): stop Pivot, estimate off by NaN of -4 with beta NaN
+[FIRED] control ProductFirst against zero_numerator_underflow: met without true, with: dd Lib(ProductFirst): stop Pivot, estimate 3.33e-1 from -1/3 with beta 0.3333333333333333
+[FIRED] control ProductX against coordinate_overflow: met without true, with: dd Lib(ProductX): stop Pivot, estimate off by NaN of -2^1023 with beta NaN
+[FIRED] control OpenBracket against located_far: met without true, with: dd Lib(OpenBracket): stop End, 1 crossings, located true, 4.60e4 from 1
+[FIRED] control ZeroMid against tangent_midpoint: met without true, with: dd Lib(ZeroMid): stop End, 1 crossings, located true, 1.00e0 from 3
+[FIRED] control ZeroMid against tangent_near_root: met without true, with: dd Lib(ZeroMid): stop End, 1 crossings, located true, 5.00e-1 from 2.5
+[FIRED] control SumMidpoint against midpoint_overflow: met without true, with: dd Lib(SumMidpoint): stop End, 1 crossings, located true, x = NaN for 2^1023 = 8.98846567431158e307
+[FIRED] control LastSign against two_samples: met without true, with: dd Lib(LastSign): steps taken true, 0 crossings (one expected), in step 0 (the second)
+[FIRED] control NoDedup against dup_checkpoints: met without true, with: dd Lib(NoDedup): stop Tiny at 1, 1 landings, 4 steps against 8 with the checkpoint once
+[FIRED] control KeepZero against zero_only_pivot: met without true, with: dd Lib(KeepZero): first run Pivot with an estimate true, second run End with one true
+
+thread 'controls::edge_controls_dd' (103684697) panicked at src/implicit.rs:266:22:
+index out of bounds: the len is 0 but the index is 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+[FIRED] control EmptyShift against shift_edges: met without true, with: dd Lib(EmptyShift): empty polynomial returns false, constant kept true, 1 + 2x + 3x^2 about 2 exact true
+[FIRED] control BackwardBracket against backward_crossing: met without true, with: dd Lib(BackwardBracket): stop End, 1 crossings, located true, 7.40e-17 from 1/3 (bar 1.2e-26)
+test controls::edge_controls_dd ... ok
+[FIRED] control StaleSeries against stale: met without true, with: f64 Lib(StaleSeries): advance without form refused false, walk to 2 off by 0.00e0, refused after set_y false, after a stop false
+[FIRED] control RepeatCrossing against repeat_form: met without true, with: f64 Lib(RepeatCrossing): 2 crossings after two forms at the end of one step, the first at 0.00e0 from 0
+[FIRED] control NoEndCrossing against last_crossing: met without true, with: f64 Lib(NoEndCrossing): stop End after 1 steps, state off by 5.55e-17, 0 crossings, the first NaN from 0
+[FIRED] control RecordEnd against end_preview: met without true, with: f64 Lib(RecordEnd): 1 crossings after run(1) (one expected), 1 after it resumed to 2 (one), 1 after a restart at 1 (none)
+[FIRED] control PlainRho against linear_pivot: met without true, with: f64 Lib(PlainRho): stop Pivot, estimate off by NaN of -2^550 with beta NaN
+[FIRED] control ScaledQuad against quad_small_coeff: met without true, with: f64 Lib(ScaledQuad): stop Pivot, estimate Some((-1.0715086071862673e301, 1.0)) (none expected)
+[FIRED] control NoFiniteZero against overflow_coordinate: met without true, with: f64 Lib(NoFiniteZero): stop Pivot, estimate Some((-inf, 1.0)) (none expected)
+[FIRED] control DoubleFirst against rho_fallback_overflow: met without true, with: f64 Lib(DoubleFirst): stop Pivot, estimate off by NaN of -2^1023 / 3 with beta NaN
+[FIRED] control ProductFirst against zero_numerator_overflow: met without true, with: f64 Lib(ProductFirst): stop Pivot, estimate off by NaN of -4 with beta NaN
+[FIRED] control ProductFirst against zero_numerator_underflow: met without true, with: f64 Lib(ProductFirst): stop Pivot, estimate 3.33e-1 from -1/3 with beta 0.3333333333333333
+[FIRED] control ProductX against coordinate_overflow: met without true, with: f64 Lib(ProductX): stop Pivot, estimate off by NaN of -2^1023 with beta NaN
+[FIRED] control OpenBracket against located_far: met without true, with: f64 Lib(OpenBracket): stop End, 1 crossings, located true, 4.60e4 from 1
+[FIRED] control ZeroMid against tangent_midpoint: met without true, with: f64 Lib(ZeroMid): stop End, 1 crossings, located true, 1.00e0 from 3
+[FIRED] control ZeroMid against tangent_near_root: met without true, with: f64 Lib(ZeroMid): stop End, 1 crossings, located true, 5.00e-1 from 2.5
+[FIRED] control SumMidpoint against midpoint_overflow: met without true, with: f64 Lib(SumMidpoint): stop End, 1 crossings, located true, x = inf for 2^1023 = 8.98846567431158e307
+[FIRED] control LastSign against two_samples: met without true, with: f64 Lib(LastSign): steps taken true, 0 crossings (one expected), in step 0 (the second)
+[FIRED] control NoDedup against dup_checkpoints: met without true, with: f64 Lib(NoDedup): stop Tiny at 1, 1 landings, 4 steps against 8 with the checkpoint once
+[FIRED] control KeepZero against zero_only_pivot: met without true, with: f64 Lib(KeepZero): first run Pivot with an estimate true, second run End with one true
+
+thread 'controls::edge_controls_f64' (103684698) panicked at src/implicit.rs:266:22:
+index out of bounds: the len is 0 but the index is 0
+[FIRED] control EmptyShift against shift_edges: met without true, with: f64 Lib(EmptyShift): empty polynomial returns false, constant kept true, 1 + 2x + 3x^2 about 2 exact true
+[FIRED] control PlainScale against underflow: met without true, with: f64 Lib(PlainScale): y''_2 = -0e0 for 2^-200 = 6.223015277861142e-61, relative error 1.00e0
+[FIRED] control PlainReciprocal against reciprocal: met without true, with: f64 Lib(PlainReciprocal): pivot 2^-1030, y''_1 = inf, worst difference from y'' = x's series NaN
+[FIRED] control PlainRho against rho_scale: met without true, with: f64 Lib(PlainRho): stop Pivot, estimate x = NaN, beta = NaN for x = 1, beta = 2
+[FIRED] control NoFiniteEnd against end_pole: met without true, with: f64 Lib(NoFiniteEnd): stop End at 1 after 1 steps, 1 crossings (none expected)
+test controls::edge_controls_f64 ... ok
+[FIRED] control StaleSeries against stale: met without true, with: qd Lib(StaleSeries): advance without form refused false, walk to 2 off by 0.00e0, refused after set_y false, after a stop false
+[FIRED] control RepeatCrossing against repeat_form: met without true, with: qd Lib(RepeatCrossing): 2 crossings after two forms at the end of one step, the first at 0.00e0 from 0
+[FIRED] control NoEndCrossing against last_crossing: met without true, with: qd Lib(NoEndCrossing): stop End after 1 steps, state off by 9.50e-66, 0 crossings, the first NaN from 0
+[FIRED] control RecordEnd against end_preview: met without true, with: qd Lib(RecordEnd): 1 crossings after run(1) (one expected), 1 after it resumed to 2 (one), 1 after a restart at 1 (none)
+[FIRED] control PlainRho against linear_pivot: met without true, with: qd Lib(PlainRho): stop Pivot, estimate off by NaN of -2^550 with beta NaN
+[FIRED] control ScaledQuad against quad_small_coeff: met without true, with: qd Lib(ScaledQuad): stop Pivot, estimate Some((-1.0715086071862673e301, 1.0)) (none expected)
+[FIRED] control NoFiniteZero against overflow_coordinate: met without true, with: qd Lib(NoFiniteZero): stop Pivot, estimate Some((NaN, 1.0)) (none expected)
+[FIRED] control DoubleFirst against rho_fallback_overflow: met without true, with: qd Lib(DoubleFirst): stop Pivot, estimate off by NaN of -2^1023 / 3 with beta NaN
+[FIRED] control ProductFirst against zero_numerator_overflow: met without true, with: qd Lib(ProductFirst): stop Pivot, estimate off by NaN of -4 with beta NaN
+[FIRED] control ProductFirst against zero_numerator_underflow: met without true, with: qd Lib(ProductFirst): stop Pivot, estimate 3.33e-1 from -1/3 with beta 0.3333333333333333
+[FIRED] control ProductX against coordinate_overflow: met without true, with: qd Lib(ProductX): stop Pivot, estimate off by NaN of -2^1023 with beta NaN
+[FIRED] control OpenBracket against located_far: met without true, with: qd Lib(OpenBracket): stop End, 1 crossings, located true, 4.60e4 from 1
+[FIRED] control ZeroMid against tangent_midpoint: met without true, with: qd Lib(ZeroMid): stop End, 1 crossings, located true, 1.00e0 from 3
+[FIRED] control ZeroMid against tangent_near_root: met without true, with: qd Lib(ZeroMid): stop End, 1 crossings, located true, 5.00e-1 from 2.5
+[FIRED] control SumMidpoint against midpoint_overflow: met without true, with: qd Lib(SumMidpoint): stop End, 1 crossings, located true, x = NaN for 2^1023 = 8.98846567431158e307
+[FIRED] control LastSign against two_samples: met without true, with: qd Lib(LastSign): steps taken true, 0 crossings (one expected), in step 0 (the second)
+[FIRED] control NoDedup against dup_checkpoints: met without true, with: qd Lib(NoDedup): stop Tiny at 1, 1 landings, 4 steps against 8 with the checkpoint once
+[FIRED] control KeepZero against zero_only_pivot: met without true, with: qd Lib(KeepZero): first run Pivot with an estimate true, second run End with one true
+
+thread 'controls::edge_controls_qd' (103684699) panicked at src/implicit.rs:266:22:
+index out of bounds: the len is 0 but the index is 0
+[FIRED] control EmptyShift against shift_edges: met without true, with: qd Lib(EmptyShift): empty polynomial returns false, constant kept true, 1 + 2x + 3x^2 about 2 exact true
+[FIRED] control BackwardBracket against backward_crossing: met without true, with: qd Lib(BackwardBracket): stop End, 1 crossings, located true, 7.40e-17 from 1/3 (bar 1.5e-58)
+test controls::edge_controls_qd ... ok
+[FAIL] f64 NanPos: stop End, 1 crossings, located true, NaN from 1/3 (bar 1.1e-10)
+[FAIL] dd NanPos: stop End, 1 crossings, located true, NaN from 1/3 (bar 1.2e-26)
+[FAIL] qd NanPos: stop End, 1 crossings, located true, NaN from 1/3 (bar 1.5e-58)
+[FAIL] f64 WrongStep: steps taken true, 1 crossings (one expected), in step 3 (the second)
+[FAIL] dd WrongStep: steps taken true, 1 crossings (one expected), in step 3 (the second)
+[FAIL] qd WrongStep: steps taken true, 1 crossings (one expected), in step 3 (the second)
+[FAIL] f64 NanCoeff: [0, 0, 2^1023] kept about 0 false and about -0 false
+[FAIL] dd NanCoeff: [0, 0, 2^1023] kept about 0 false and about -0 false
+[FAIL] qd NanCoeff: [0, 0, 2^1023] kept about 0 false and about -0 false
+[FAIL] f64 F1 planner FlipBit: 5 of 5 steps differ in bits
+[FAIL] dd F1 planner FlipBit: 5 of 5 steps differ in bits
+[FAIL] qd F1 planner FlipBit: 5 of 5 steps differ in bits
+[FAIL] f64 KA Project NanPos: 1 crossings found, 1 expected, worst position error NaN (bar 1.1e-10)
+[FAIL] f64 KA Project NanState: stop End, 14 steps, err NaN (bar 1.1e-10), n_rel_max 7.05e-17
+[FAIL] dd KA Project NanPos: 1 crossings found, 1 expected, worst position error NaN (bar 1.2e-26)
+[FAIL] dd KA Project NanState: stop End, 16 steps, err NaN (bar 1.2e-26), n_rel_max 4.57e-33
+[FIRED] control RecipDD in qd: fails ["step_sum", "closed_form", "crossings"]
+[FAIL] qd KA Project NanPos: 1 crossings found, 1 expected, worst position error NaN (bar 1.5e-58)
+[FAIL] qd KA Project NanState: stop End, 16 steps, err NaN (bar 1.5e-58), n_rel_max 4.75e-65
+[FAIL] f64 Q-A l = 1 BadCoeff: worst sum|dc_k| / (eps sum|c_k|) 1.00e7 (bar 1e6)
+[FAIL] f64 Q-A l = 0.25 BadCoeff: worst sum|dc_k| / (eps sum|c_k|) 1.00e7 (bar 1e6)
+[FAIL] dd Q-A l = 1 BadCoeff: worst sum|dc_k| / (eps sum|c_k|) 1.00e7 (bar 1e6)
+[FAIL] dd Q-A l = 0.25 BadCoeff: worst sum|dc_k| / (eps sum|c_k|) 1.00e7 (bar 1e6)
+[FAIL] qd Q-A l = 1 BadCoeff: worst sum|dc_k| / (eps sum|c_k|) 1.00e7 (bar 1e6)
+[FAIL] qd Q-A l = 0.25 BadCoeff: worst sum|dc_k| / (eps sum|c_k|) 1.00e7 (bar 1e6)
+[FAIL] f64 B(KA) Cut(0): stop StepLimit (wanted End), 0 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 0.00e0 (bar 1e6)
+[FAIL] f64 B(KA) Cut(3): stop StepLimit (wanted End), 3 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.07e0 (bar 1e6)
+[FAIL] f64 F1 Cut(0): stop StepLimit (wanted Pivot), 0 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 0.00e0 (bar 1e6)
+[FAIL] f64 F1 Cut(3): stop StepLimit (wanted Pivot), 3 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 4.31e-1 (bar 1e6)
+[FAIL] dd B(KA) Cut(0): stop StepLimit (wanted End), 0 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 0.00e0 (bar 1e6)
+[FAIL] dd B(KA) Cut(3): stop StepLimit (wanted End), 3 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.82e0 (bar 1e6)
+[FAIL] dd F1 Cut(0): stop StepLimit (wanted Pivot), 0 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 0.00e0 (bar 1e6)
+[FAIL] dd F1 Cut(3): stop StepLimit (wanted Pivot), 3 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 7.44e-2 (bar 1e6)
+[FAIL] f64 B(KA) NanCoeff: stop End (wanted End), 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) NaN (bar 1e6)
+[FAIL] f64 F1 NanCoeff: stop Pivot (wanted Pivot), 84 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) NaN (bar 1e6)
+[FAIL] dd B(KA) NanCoeff: stop End (wanted End), 15 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) NaN (bar 1e6)
+[FAIL] dd F1 NanCoeff: stop Pivot (wanted Pivot), 114 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) NaN (bar 1e6)
+[FAIL] dd KA Project WrongStart: stop End, 19 steps, err 1.47e0 (bar 1.2e-26), n_rel_max 4.21e-33
+[FAIL] dd KA Project SwitchMid: stop End, 18 steps, err 9.44e-1 (bar 1.2e-26), n_rel_max 5.68e-33
+[FAIL] dd KA Project WrongForm: stop End, 16 steps, err 1.01e4 (bar 1.2e-26), n_rel_max 4.57e-33
+[FAIL] dd KA Conserve WrongStart: stop Tiny, 33 steps, err 1.47e0 (bar 1.2e-26), n_rel_max 1.14e-31
+[FAIL] dd KA Conserve SwitchMid: stop End, 18 steps, err 9.44e-1 (bar 1.2e-26), n_rel_max 8.35e-32
+[FAIL] dd KA Conserve WrongForm: stop End, 16 steps, err 1.01e4 (bar 1.2e-26), n_rel_max 8.62e-32
+test controls_without_hooks ... ok
+[PASS] dd QB Project None: 1 crossings found, 1 expected, worst position error 1.01e-30 (bar 1.2e-26)
+[PASS] dd QB Conserve None: 1 crossings found, 1 expected, worst position error 6.22e-31 (bar 1.2e-26)
+[PASS] dd KA Project None: 1 crossings found, 1 expected, worst position error 4.25e-30 (bar 1.2e-26)
+[PASS] dd KA Conserve None: 1 crossings found, 1 expected, worst position error 4.45e-30 (bar 1.2e-26)
+[PASS] dd KB Project None: 2 crossings found, 2 expected, worst position error 1.09e-30 (bar 1.2e-26)
+[NOT MET] (recorded, not gated) dd KB Conserve None: 1 crossings found, 2 expected, worst position error 1.75e-30 (bar 1.2e-26)
+[PASS] dd KC Project None: 1 crossings found, 1 expected, worst position error 3.25e-30 (bar 1.2e-26)
+[PASS] dd KC Conserve None: 1 crossings found, 1 expected, worst position error 2.81e-30 (bar 1.2e-26)
+[PASS] dd RA Project None: 1 crossings found, 1 expected, worst position error 6.77e-32 (bar 1.2e-26)
+[PASS] dd RA Conserve None: 1 crossings found, 1 expected, worst position error 2.09e-31 (bar 1.2e-26)
+[PASS] dd RB Project None: 2 crossings found, 2 expected, worst position error 4.23e-30 (bar 1.2e-26)
+[NOT MET] (recorded, not gated) dd RB Conserve None: 1 crossings found, 2 expected, worst position error 6.56e-32 (bar 1.2e-26)
+[PASS] dd RC Project None: 1 crossings found, 1 expected, worst position error 2.14e-30 (bar 1.2e-26)
+[PASS] dd RC Conserve None: 1 crossings found, 1 expected, worst position error 4.33e-30 (bar 1.2e-26)
+test crossings_dd ... ok
+[PASS] f64 QB Project None: 1 crossings found, 1 expected, worst position error 2.89e-15 (bar 1.1e-10)
+[PASS] f64 QB Conserve None: 1 crossings found, 1 expected, worst position error 6.66e-15 (bar 1.1e-10)
+[PASS] f64 KA Project None: 1 crossings found, 1 expected, worst position error 3.77e-15 (bar 1.1e-10)
+[PASS] f64 KA Conserve None: 1 crossings found, 1 expected, worst position error 3.77e-15 (bar 1.1e-10)
+[PASS] f64 KB Project None: 2 crossings found, 2 expected, worst position error 1.13e-14 (bar 1.1e-10)
+[NOT MET] (recorded, not gated) f64 KB Conserve None: 1 crossings found, 2 expected, worst position error 1.25e-14 (bar 1.1e-10)
+[PASS] f64 KC Project None: 1 crossings found, 1 expected, worst position error 2.05e-14 (bar 1.1e-10)
+[PASS] f64 KC Conserve None: 1 crossings found, 1 expected, worst position error 1.67e-14 (bar 1.1e-10)
+[PASS] f64 RA Project None: 1 crossings found, 1 expected, worst position error 6.11e-15 (bar 1.1e-10)
+[PASS] f64 RA Conserve None: 1 crossings found, 1 expected, worst position error 8.88e-16 (bar 1.1e-10)
+[PASS] f64 RB Project None: 2 crossings found, 2 expected, worst position error 1.28e-15 (bar 1.1e-10)
+[NOT MET] (recorded, not gated) f64 RB Conserve None: 1 crossings found, 2 expected, worst position error 8.88e-15 (bar 1.1e-10)
+[PASS] f64 RC Project None: 1 crossings found, 1 expected, worst position error 7.84e-14 (bar 1.1e-10)
+[PASS] f64 RC Conserve None: 1 crossings found, 1 expected, worst position error 2.00e-14 (bar 1.1e-10)
+test crossings_f64 ... ok
+[PASS] qd QB Project None: 1 crossings found, 1 expected, worst position error 1.33e-62 (bar 1.5e-58)
+[PASS] qd QB Conserve None: 1 crossings found, 1 expected, worst position error 8.81e-64 (bar 1.5e-58)
+[PASS] qd KA Project None: 1 crossings found, 1 expected, worst position error 1.58e-62 (bar 1.5e-58)
+[PASS] qd KA Conserve None: 1 crossings found, 1 expected, worst position error 2.01e-62 (bar 1.5e-58)
+[PASS] qd KB Project None: 2 crossings found, 2 expected, worst position error 1.16e-62 (bar 1.5e-58)
+[NOT MET] (recorded, not gated) qd KB Conserve None: 1 crossings found, 2 expected, worst position error 7.94e-63 (bar 1.5e-58)
+[PASS] qd KC Project None: 1 crossings found, 1 expected, worst position error 1.80e-63 (bar 1.5e-58)
+[FIRED] control NoPivotCheck in qd: fails ["zero_pivot"]
+[PASS] qd KC Conserve None: 1 crossings found, 1 expected, worst position error 1.06e-62 (bar 1.5e-58)
+[PASS] qd RA Project None: 1 crossings found, 1 expected, worst position error 1.83e-62 (bar 1.5e-58)
+[PASS] qd RA Conserve None: 1 crossings found, 1 expected, worst position error 8.41e-63 (bar 1.5e-58)
+[PASS] qd RB Project None: 2 crossings found, 2 expected, worst position error 1.35e-62 (bar 1.5e-58)
+[NOT MET] (recorded, not gated) qd RB Conserve None: 1 crossings found, 2 expected, worst position error 2.69e-62 (bar 1.5e-58)
+[PASS] qd RC Project None: 1 crossings found, 1 expected, worst position error 2.33e-62 (bar 1.5e-58)
+[PASS] qd RC Conserve None: 1 crossings found, 1 expected, worst position error 2.82e-62 (bar 1.5e-58)
+test crossings_qd ... ok
+digest dd 92ec461781147d77
+digest-full dd 13ac06786e54ccb1
+test digest_dd ... ok
+digest f64 b124d44e9758f1a1
+digest-full f64 50775575530f4fa9
+test digest_f64 ... ok
+[FIRED] control NoCrossing in qd: fails ["crossings"]
+[FIRED] control ExponentHalf in qd: fails ["fold F2"]
+[FIRED] control NoPivotStop in qd: fails ["fold F1", "fold F2"]
+test controls::controls_qd ... ok
+digest od 10f1b89a823ad3c3
+digest-full od 1d9549c94134d037
+test digest_od ... ok
+test digest_pinned_fails_on_a_flip ... ok
+digest qd 75902b0bf76ced2a
+digest-full qd b37fa8d9cb20094f
+test digest_qd ... ok
+flipped bit of a checkpoint: base 74a43c7032030f97 -> 74a43c7032030f97, full 8dc37bcfbef8f752 -> 1276e8dc9a9b46eb
+test digest_sees_a_checkpoint ... ok
+[PASS] dd None: advance without form refused true, walk to 2 off by 0.00e0, refused after set_y true, after a stop true
+[PASS] dd None: 1 crossings after two forms at the end of one step, the first at 0.00e0 from 0
+[PASS] dd None: stop End after 1 steps, state off by 3.08e-33, 1 crossings, the first 0.00e0 from 0
+[PASS] dd None: stop End at 2, 1 landings, 8 steps against 8 with the checkpoint once
+[PASS] dd None: first run Pivot with an estimate true, second run End with one false
+[PASS] dd None: empty polynomial returns true, constant kept true, 1 + 2x + 3x^2 about 2 exact true
+[PASS] dd None: 1 crossings after run(1) (one expected), 1 after it resumed to 2 (one), 0 after a restart at 1 (none)
+[PASS] dd None: [0, 0, 2^1023] kept about 0 true and about -0 true
+[PASS] dd None: stop End at 1 after 1 steps, 0 crossings (none expected)
+[PASS] dd None: stop Pivot, estimate off by 0.00e0 of -2^550 with beta 1
+[PASS] dd None: stop Pivot, estimate None (none expected)
+[PASS] dd None: stop Pivot, estimate None (none expected)
+[PASS] dd None: stop End, 1 crossings, located true, 0.00e0 from 1
+[PASS] dd None: steps taken true, 1 crossings (one expected), in step 2 (the second)
+[PASS] dd None: stop End, 1 crossings, located true, x = 8.98846567431158e307 for 2^1023 = 8.98846567431158e307
+[PASS] dd None: stop End, 1 crossings, located true, 0.00e0 from 3
+[PASS] dd None: stop Pivot, estimate off by 0.00e0 of -2^1023 / 3 with beta 0.3333333333333333
+[PASS] dd None: stop Pivot, estimate off by 0.00e0 of -4 with beta 4
+[PASS] dd None: stop Pivot, estimate 0.00e0 from -1/3 with beta 0.3333333333333333
+[PASS] dd None: stop Pivot, estimate off by 0.00e0 of -2^1023 with beta 1
+[PASS] dd None: stop End, 1 crossings, located true, 0.00e0 from 2.5
+[PASS] dd None: stop End, 1 crossings, located true, 3.08e-33 from 1/3 (bar 1.2e-26)
+test edges_dd ... ok
+[PASS] f64 None: advance without form refused true, walk to 2 off by 0.00e0, refused after set_y true, after a stop true
+[PASS] f64 None: 1 crossings after two forms at the end of one step, the first at 0.00e0 from 0
+[PASS] f64 None: stop End after 1 steps, state off by 5.55e-17, 1 crossings, the first 0.00e0 from 0
+[PASS] f64 None: stop End at 2, 1 landings, 8 steps against 8 with the checkpoint once
+[PASS] f64 None: first run Pivot with an estimate true, second run End with one false
+[PASS] f64 None: empty polynomial returns true, constant kept true, 1 + 2x + 3x^2 about 2 exact true
+[PASS] f64 None: 1 crossings after run(1) (one expected), 1 after it resumed to 2 (one), 0 after a restart at 1 (none)
+[PASS] f64 None: [0, 0, 2^1023] kept about 0 true and about -0 true
+[PASS] f64 None: stop End at 1 after 1 steps, 0 crossings (none expected)
+[PASS] f64 None: stop Pivot, estimate off by 0.00e0 of -2^550 with beta 1
+[PASS] f64 None: stop Pivot, estimate None (none expected)
+[PASS] f64 None: stop Pivot, estimate None (none expected)
+[PASS] f64 None: stop End, 1 crossings, located true, 3.81e-6 from 1
+[PASS] f64 None: steps taken true, 1 crossings (one expected), in step 2 (the second)
+[PASS] f64 None: stop End, 1 crossings, located true, x = 8.98846567431158e307 for 2^1023 = 8.98846567431158e307
+[PASS] f64 None: stop End, 1 crossings, located true, 8.88e-16 from 3
+[PASS] f64 None: stop Pivot, estimate off by 0.00e0 of -2^1023 / 3 with beta 0.3333333333333333
+[PASS] f64 None: stop Pivot, estimate off by 0.00e0 of -4 with beta 4
+[PASS] f64 None: stop Pivot, estimate 0.00e0 from -1/3 with beta 0.3333333333333333
+[PASS] f64 None: stop Pivot, estimate off by 0.00e0 of -2^1023 with beta 1
+[PASS] f64 None: stop End, 1 crossings, located true, 2.66e-15 from 2.5
+[PASS] f64 None: stop End, 1 crossings, located true, 5.55e-17 from 1/3 (bar 1.1e-10)
+[PASS] f64 None: y''_2 = 6.223015277861142e-61 for 2^-200 = 6.223015277861142e-61, relative error 0.00e0
+[PASS] f64 None: pivot 2^-1030, y''_1 = 1e0, worst difference from y'' = x's series 0.00e0
+[PASS] f64 None: stop Pivot, estimate x = 1, beta = 2 for x = 1, beta = 2
+test edges_f64 ... ok
+[PASS] qd None: advance without form refused true, walk to 2 off by 0.00e0, refused after set_y true, after a stop true
+[PASS] qd None: 1 crossings after two forms at the end of one step, the first at 0.00e0 from 0
+[PASS] qd None: stop End after 1 steps, state off by 9.50e-66, 1 crossings, the first 0.00e0 from 0
+[PASS] qd None: stop End at 2, 1 landings, 8 steps against 8 with the checkpoint once
+[PASS] qd None: first run Pivot with an estimate true, second run End with one false
+[PASS] qd None: empty polynomial returns true, constant kept true, 1 + 2x + 3x^2 about 2 exact true
+[PASS] qd None: 1 crossings after run(1) (one expected), 1 after it resumed to 2 (one), 0 after a restart at 1 (none)
+[PASS] qd None: [0, 0, 2^1023] kept about 0 true and about -0 true
+[PASS] qd None: stop End at 1 after 1 steps, 0 crossings (none expected)
+[PASS] qd None: stop Pivot, estimate off by 0.00e0 of -2^550 with beta 1
+[PASS] qd None: stop Pivot, estimate None (none expected)
+[PASS] qd None: stop Pivot, estimate None (none expected)
+[PASS] qd None: stop End, 1 crossings, located true, 0.00e0 from 1
+[PASS] qd None: steps taken true, 1 crossings (one expected), in step 2 (the second)
+[PASS] qd None: stop End, 1 crossings, located true, x = 8.98846567431158e307 for 2^1023 = 8.98846567431158e307
+[PASS] qd None: stop End, 1 crossings, located true, 0.00e0 from 3
+[PASS] qd None: stop Pivot, estimate off by 0.00e0 of -2^1023 / 3 with beta 0.3333333333333333
+[PASS] qd None: stop Pivot, estimate off by 0.00e0 of -4 with beta 4
+[PASS] qd None: stop Pivot, estimate 0.00e0 from -1/3 with beta 0.3333333333333333
+[PASS] qd None: stop Pivot, estimate off by 0.00e0 of -2^1023 with beta 1
+[PASS] qd None: stop End, 1 crossings, located true, 0.00e0 from 2.5
+[PASS] qd None: stop End, 1 crossings, located true, 9.50e-66 from 1/3 (bar 1.5e-58)
+test edges_qd ... ok
+[PASS] dd F1 Project None: stop Pivot, 114 steps, x_last -5.716e-13, |x_zero| 1.43e-45, beta 0.5000
+[PASS] dd F1 Conserve None: stop Pivot, 114 steps, x_last -5.716e-13, |x_zero| 4.41e-31, beta 0.5000
+[PASS] dd F2 Project None: stop Pivot, 92 steps, x_last -1.318e-10, |x_zero| 1.23e-32, beta 1.0000
+[PASS] dd F2 Conserve None: stop Pivot, 92 steps, x_last -1.318e-10, |x_zero| 4.55e-31, beta 1.0000
+test fold_dd ... ok
+[PASS] f64 F1 Project None: stop Pivot, 84 steps, x_last -6.452e-13, |x_zero| 0.00e0, beta 0.5000
+[NOT MET] (recorded, not gated) f64 F1 Conserve None: stop Pivot, 84 steps, x_last -6.314e-13, |x_zero| 5.70e-15, beta 0.5000
+[PASS] f64 F2 Project None: stop Pivot, 68 steps, x_last -1.340e-10, |x_zero| 2.05e-16, beta 1.0000
+[PASS] f64 F2 Conserve None: stop Pivot, 68 steps, x_last -1.340e-10, |x_zero| 5.52e-15, beta 1.0000
+test fold_f64 ... ok
+[PASS] qd F1 Project None: stop Pivot, 141 steps, x_last -5.732e-13, |x_zero| 2.19e-77, beta 0.5000
+[PASS] qd F1 Conserve None: stop Pivot, 141 steps, x_last -5.732e-13, |x_zero| 3.86e-63, beta 0.5000
+[PASS] qd F2 Project None: stop Pivot, 113 steps, x_last -1.546e-10, |x_zero| 3.87e-65, beta 1.0000
+[PASS] qd F2 Conserve None: stop Pivot, 113 steps, x_last -1.546e-10, |x_zero| 3.85e-63, beta 1.0000
+test fold_qd ... ok
+[PASS] lanes QA None: Fl<DV,1> 0.00e0, Fl<Du,1> value 0.00e0 (bar 1.2e-30)
+[PASS] lanes KC None: Fl<DV,1> 0.00e0, Fl<Du,1> value 0.00e0 (bar 1.2e-30)
+test lanes ... ok
+[FAIL] lanes QA LanePerturb(V): Fl<DV,1> 5.22e1, Fl<Du,1> value 0.00e0 (bar 1.2e-30)
+[FAIL] lanes QA NanLane(V): Fl<DV,1> NaN, Fl<Du,1> value 0.00e0 (bar 1.2e-30)
+[FAIL] lanes QA LanePerturb(U): Fl<DV,1> 0.00e0, Fl<Du,1> value 5.22e1 (bar 1.2e-30)
+[FAIL] lanes QA NanLane(U): Fl<DV,1> 0.00e0, Fl<Du,1> value NaN (bar 1.2e-30)
+[FAIL] lanes KC LanePerturb(V): Fl<DV,1> 1.33e9, Fl<Du,1> value 0.00e0 (bar 1.2e-30)
+[FAIL] lanes KC NanLane(V): Fl<DV,1> NaN, Fl<Du,1> value 0.00e0 (bar 1.2e-30)
+[FAIL] lanes KC LanePerturb(U): Fl<DV,1> 0.00e0, Fl<Du,1> value 1.33e9 (bar 1.2e-30)
+[FAIL] lanes KC NanLane(U): Fl<DV,1> 0.00e0, Fl<Du,1> value NaN (bar 1.2e-30)
+test lanes_controls ... ok
+[PASS] dd Q-A l = 1 None: worst sum|dc_k| / (eps sum|c_k|) 1.15e1 (bar 1e6)
+[NOT MET] (recorded, not gated) dd Q-A l = 1: observation, worst relative error of c_k, k <= 42: 2.00e-11 (bar 1.2e-26)
+[PASS] dd Q-A l = 0.25 None: worst sum|dc_k| / (eps sum|c_k|) 1.61e-1 (bar 1e6)
+[NOT MET] (recorded, not gated) dd Q-A l = 0.25: observation, worst relative error of c_k, k <= 42: 2.00e-11 (bar 1.2e-26)
+[PASS] dd None: stop ZeroPivot at x = 1, state finite true
+[PASS] dd F1 planner None: 0 of 5 steps differ in bits
+[PASS] dd B(QA) None: stop End (wanted End), 11 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.23e0 (bar 1e6)
+[PASS] dd B(QB) None: stop End (wanted End), 16 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 4.80e2 (bar 1e6)
+[PASS] dd B(KA) None: stop End (wanted End), 15 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.11e3 (bar 1e6)
+[PASS] dd B(KB) None: stop End (wanted End), 22 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 8.77e2 (bar 1e6)
+[PASS] dd B(KC) None: stop End (wanted End), 13 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.01e3 (bar 1e6)
+[PASS] dd B(RA) None: stop End (wanted End), 15 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 5.49e2 (bar 1e6)
+[PASS] dd B(RB) None: stop End (wanted End), 21 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.28e3 (bar 1e6)
+[PASS] dd B(RC) None: stop End (wanted End), 13 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 7.10e3 (bar 1e6)
+[PASS] dd B(RD) None: stop End (wanted End), 28 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.72e3 (bar 1e6)
+[PASS] dd F1 None: stop Pivot (wanted Pivot), 114 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 6.27e-1 (bar 1e6)
+[PASS] dd F2 None: stop Pivot (wanted Pivot), 92 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 7.49e-1 (bar 1e6)
+test misc_dd ... ok
+[PASS] f64 Q-A l = 1 None: worst sum|dc_k| / (eps sum|c_k|) 1.21e1 (bar 1e6)
+[NOT MET] (recorded, not gated) f64 Q-A l = 1: observation, worst relative error of c_k, k <= 22: 4.86e-8 (bar 1.1e-10)
+[PASS] f64 Q-A l = 0.25 None: worst sum|dc_k| / (eps sum|c_k|) 3.16e-2 (bar 1e6)
+[NOT MET] (recorded, not gated) f64 Q-A l = 0.25: observation, worst relative error of c_k, k <= 22: 4.86e-8 (bar 1.1e-10)
+[PASS] f64 None: stop ZeroPivot at x = 1, state finite true
+[PASS] f64 F1 planner None: 0 of 5 steps differ in bits
+[PASS] f64 B(QA) None: stop End (wanted End), 11 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.25e0 (bar 1e6)
+[PASS] f64 B(QB) None: stop End (wanted End), 15 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.77e2 (bar 1e6)
+[PASS] f64 B(KA) None: stop End (wanted End), 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 6.20e2 (bar 1e6)
+[PASS] f64 B(KB) None: stop End (wanted End), 19 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 3.48e2 (bar 1e6)
+[PASS] f64 B(KC) None: stop End (wanted End), 12 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 4.32e2 (bar 1e6)
+[PASS] f64 B(RA) None: stop End (wanted End), 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.18e3 (bar 1e6)
+[PASS] f64 B(RB) None: stop End (wanted End), 22 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.11e3 (bar 1e6)
+[PASS] f64 B(RC) None: stop End (wanted End), 12 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 7.25e3 (bar 1e6)
+[PASS] f64 B(RD) None: stop End (wanted End), 20 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.93e4 (bar 1e6)
+[PASS] f64 F1 None: stop Pivot (wanted Pivot), 84 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 9.93e-1 (bar 1e6)
+[PASS] f64 F2 None: stop Pivot (wanted Pivot), 68 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.32e0 (bar 1e6)
+test misc_f64 ... ok
+[PASS] qd Q-A l = 1 None: worst sum|dc_k| / (eps sum|c_k|) 2.31e0 (bar 1e6)
+[NOT MET] (recorded, not gated) qd Q-A l = 1: observation, worst relative error of c_k, k <= 80: 2.94e-15 (bar 1.5e-58)
+[PASS] qd Q-A l = 0.25 None: worst sum|dc_k| / (eps sum|c_k|) 2.22e-1 (bar 1e6)
+[NOT MET] (recorded, not gated) qd Q-A l = 0.25: observation, worst relative error of c_k, k <= 80: 2.94e-15 (bar 1.5e-58)
+[PASS] qd None: stop ZeroPivot at x = 1, state finite true
+[PASS] qd F1 planner None: 0 of 5 steps differ in bits
+[PASS] qd B(QA) None: stop End (wanted End), 11 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 5.94e-1 (bar 1e6)
+[PASS] qd B(QB) None: stop End (wanted End), 17 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 6.89e2 (bar 1e6)
+[PASS] qd B(KA) None: stop End (wanted End), 16 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 6.21e3 (bar 1e6)
+[PASS] qd B(KB) None: stop End (wanted End), 22 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.20e4 (bar 1e6)
+[PASS] qd B(KC) None: stop End (wanted End), 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 4.66e3 (bar 1e6)
+[PASS] qd B(RA) None: stop End (wanted End), 16 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.43e3 (bar 1e6)
+[PASS] qd B(RB) None: stop End (wanted End), 25 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.81e4 (bar 1e6)
+[PASS] qd B(RC) None: stop End (wanted End), 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 9.55e2 (bar 1e6)
+[PASS] qd B(RD) None: stop End (wanted End), 31 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.33e3 (bar 1e6)
+[PASS] qd F1 None: stop Pivot (wanted Pivot), 141 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 3.88e-1 (bar 1e6)
+[PASS] qd F2 None: stop Pivot (wanted Pivot), 113 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.84e-1 (bar 1e6)
+test misc_qd ... ok
+[PASS] od KA Project None: stop End, 15 steps, err 1.90e-128 (bar 2.3e-122), n_rel_max 3.19e-131
+[PASS] od KA Conserve None: stop End, 16 steps, err 6.42e-127 (bar 2.3e-122), n_rel_max 8.37e-128
+[PASS] od KB Project None: stop End, 19 steps, err 7.24e-128 (bar 2.3e-122), n_rel_max 1.58e-131
+[PASS] od KB Project None: 2 crossings found, 2 expected, worst position error 1.87e-129 (bar 2.3e-122)
+[PASS] od B(KA) None: stop End (wanted End), 15 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.54e3 (bar 1e6)
+[PASS] od F1 Project None: stop Pivot, 162 steps, x_last -6.525e-13, |x_zero| 6.48e-144, beta 0.5000
+test octo_double ... ok
+test parts_see_a_lower_part ... ok
+lower part of an end state: base 10f1b89a823ad3c3 -> 241887fe7d314ae4, full 1d9549c94134d037 -> 7ea7d53025df1180
+last part of a step-sum coefficient: base 10f1b89a823ad3c3 -> 10f1b89a823ad3c3, full 1d9549c94134d037 -> 0c8c1621b1b48176
+last bit of a step-sum step length: base 10f1b89a823ad3c3 -> 10f1b89a823ad3c3, full 1d9549c94134d037 -> a94c63f1bdab44be
+test digest_od_sees_the_lower_parts ... ok
+
+test result: ok. 34 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 39.14s
+
+exit 0

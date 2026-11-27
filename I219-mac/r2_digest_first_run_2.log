@@ -1,0 +1,41 @@
+# round 2: digest tests after eight parts and step_sum, OD pins still the old ones (digest_od must fail and print the new values; f64, dd, qd must pass unchanged); second run, the first did not compile (format string)
+6cc2c94
+## feat/implicit-taylor-r2...origin/feat/implicit-taylor-r2 [ahead 2]
+ M tests/implicit.rs
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 3.60s
+     Running tests/implicit.rs (target/release/deps/implicit-4e0a7f4a04c6bea1)
+
+running 7 tests
+digest f64 b124d44e9758f1a1
+digest-full f64 50775575530f4fa9
+test digest_f64 ... ok
+digest dd 92ec461781147d77
+digest-full dd 13ac06786e54ccb1
+test digest_dd ... ok
+digest od 10f1b89a823ad3c3
+digest-full od 21d526b7c72a4319
+
+thread 'digest_od' (103018124) panicked at tests/implicit.rs:1263:5:
+od: digests 10f1b89a823ad3c3 21d526b7c72a4319, pinned c542a935a4215b82 801e3f57cd16e9b1
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test digest_od ... FAILED
+test digest_pinned_fails_on_a_flip ... ok
+digest qd 75902b0bf76ced2a
+digest-full qd b37fa8d9cb20094f
+test digest_qd ... ok
+flipped bit of a checkpoint: base 74a43c7032030f97 -> 74a43c7032030f97, full 8dc37bcfbef8f752 -> 1276e8dc9a9b46eb
+test digest_sees_a_checkpoint ... ok
+lower part of an end state: base 10f1b89a823ad3c3 -> 241887fe7d314ae4, full 21d526b7c72a4319 -> adb6fb2495d4c1f6
+last part of a step-sum coefficient: base 10f1b89a823ad3c3 -> 10f1b89a823ad3c3, full 21d526b7c72a4319 -> 9038386bcf863024
+test digest_od_sees_the_lower_parts ... ok
+
+failures:
+
+failures:
+    digest_od
+
+test result: FAILED. 6 passed; 1 failed; 0 ignored; 0 measured; 27 filtered out; finished in 27.79s
+
+error: test failed, to rerun pass `--test implicit`
+exit 101
