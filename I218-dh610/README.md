@@ -44,7 +44,7 @@ series of the Fuchsian system obtained with F = F̃/z (l = 2) and H2 = z H̃2 (l
 D2 pure-gauge perturbation satisfies the linearized equations (8 residuals 0); D3a–e RW reduction: traceless equation H2 = H0, tt = rr = trace-angular
 equations are one algebraic relation, constraint propagation, the four second-order equations vanish on the 4-system, matrix polynomial of degree 1 in W²;
 D4a the Ellis limit reproduces [ABCKY23] (44)–(46); D4b the printed (47) differs from the derived u′ by exactly K(ℓ+2)(ℓ−1)/2 (recorded, not corrected); D5a, b F decouples at c = 0
-and Z = R F obeys Z″ = (V + W²)Z with V = L/R² − 3/R⁴, the printed (52), (53); D6a–c the l = 1 system is consistent and the pure-gauge solution solves it;
+and Z = R F obeys Z″ = (V + W²)Z with V = L/R² − 3/R⁴, the printed (52), (53); D5c with (47) as printed F does not decouple (added, see Amendment 1); D6a–c the l = 1 system is consistent and the pure-gauge solution solves it;
 D6d at c = 0 the gauge-invariant scalar of l = 1 obeys χ″ + (2ρ/R²)χ′ − W²χ = 0, i.e. Z″ = (1/R⁴ + W²)Z; D6e 1/R⁴ = w² − w′, 2/R² − 3/R⁴ = w² + w′ with w = −ρ/R²
 (Darboux partners); D6f w is regular on the real line and w → 0 at both ends, so the map keeps the quasinormal-mode conditions; D7 the coefficient table in `polar.py` equals the
 derived matrices to 1e-12 at 6 random points.
@@ -77,7 +77,7 @@ control `l1_pot` (the test-scalar potential 2/R² + 1/R⁴ in place of the maste
 
 `polar_derive.py controls` (`dev/derive_controls_dev1.log` for the first eight, `dev/derive_controls_dev3.log` for the final list; checks in `dev/derive_check_dev3.log`, 19 PASS lines, no FAIL):
 `bg_V` fires D1 and D1b; `lin_sign` fires D2; `ang_L` was silent on its first target D2 (the pure-gauge identity does not depend on the angular eigenvalue) and is retargeted to D4a, where it
-fires; `alg_coef` fires D3c; `ellis_sign` fires D4a; `pot` fires D5b; `l1_gauge` fires D6c; `susy` (wrong sign of the superpotential) fires D6e; `susy_end` (w = −ρ/R, not → 0) fires D6f; `code` fires D7.
+fires; `alg_coef` fires D3c; `ellis_sign` fires D4a; `pot` fires D5b; `l1_gauge` fires D6c; `susy` (wrong sign of the superpotential) fires D6e; `susy_end` (w = −ρ/R, not → 0) fires D6f; `code` fires D7; `print47` (the derived row in place of the printed one, Amendment 1) fires D5c (`dev/derive_check_print47_dev4.log`; the unmutated check, `dev/derive_check_dev4.log`, has 20 PASS lines, no FAIL).
 
 `polar.py controls` (`dev/controls_dev2.log`). A "count" control must change the count of its member at R1; the others must make their target check FAIL.
 
@@ -111,3 +111,8 @@ published values (`literature/`: the TeX source and the PDF text of arXiv:2212.1
 - The Ellis polar spectrum is two-fold degenerate (two identical master equations), so the determinant has double roots there and a sign-change search is blind to them
   (development: D ∝ (W − W0)² at the bound state of L = −1). Hence the dip search and plant P4.
 - The independent eigenvalue code at θ = 0.9 and X = 40 differed from shooting by 5e-6 (the outgoing solution decays slowly along the contour); θ = 1.1, X = 60 agrees to 1e-9.
+
+## Amendments
+
+1. (2026-11-27, after the declaration, before the derivation's runs of record and after the counts of record had started) Check D5c and its control `print47` were added to `polar_derive.py`: the printed
+   (47) of [ABCKY23] does not decouple the scalar at c = 0, which D4b only implies. Development: D5c passes, `print47` fires it. The polar and M-AdS runs are unaffected (they do not import it).
