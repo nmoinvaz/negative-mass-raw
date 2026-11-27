@@ -1,0 +1,9 @@
+# --mutate=all: each mutation in a subprocess; targets must fire, any other check that fires is listed
+jump_sign     ON TARGET    fired: D3 D6 D6b E2 J1 P0a P3 X3   extra: -   [[K] = K_- - K_+ in israel_S (the sign of the jump of K flipped)]
+trace_term    ON TARGET    fired: D3 D6 D6b E2 J1 P0a P0b P3 X3   extra: -   [the -delta^i_j [K] term dropped from the Israel formula]
+tension_sign  ON TARGET    fired: E1 P0a P3 X3   extra: -   [p = +sigma instead of -sigma for the S-brane]
+orientation   ON TARGET    fired: D3 D5 E2 J2a P1 S0c X1 X2 X3   extra: -   [Schwarzschild normal n^r = +sqrt(F) (white-hole interior)]
+lapse         ON TARGET    fired: D3 D4 D5 D6b J2a J2c P0b P1 S0c S0d X1 X2 X3   extra: -   [Schwarzschild normal n^r = -F (square root forgotten)]
+printed_g     ON TARGET    fired: P1 P2   extra: -   [g in the printed (4), (5) read as -det(g_mu_nu) of the 4-metric, not as -f(r0)]
+ds_swap       ON TARGET    fired: D2 S0b   extra: -   [de Sitter slicing a = cosh(H tau)/H, b = sinh(H tau)/H (the two scale factors exchanged)]
+mutate=all rc=0

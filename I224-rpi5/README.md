@@ -87,10 +87,11 @@ real data is reported, never loosened.
 | E1 | isotropic shell: NEC, WEC for σ = +1, 0, −1 | violated, saturated, satisfied | – |
 | E2 | general shell: NEC form, [K^θ] = −κ p_x/2, no raising of ḃ/b | identities, sign | israel_S |
 | D2 | de Sitter K at b = r₀ from the closed form | equals H6 | – |
+| D2b | de Sitter in static form f₂ = 1 − H²r² (r > 1/H), K(+) by the code of J2a | G^μ_ν = −3H² δ and K equal to D2 | routine, J2a code |
 | D3 | shell stress Schwarzschild → de Sitter | equals H7; p_x < 0 | israel_S |
 | D3b | p_θ sign threshold | the two identities behind 17 − 12√2 | – |
 | D4 | no shell-free matching | products of H7 | – |
-| D5 | isotropic S-brane into de Sitter | equals H7 | – |
+| D5 | isotropic S-brane into de Sitter | equals H7; H r₀ < 2/√3 with the maximum at F = 1/3 (the derivative of 4F/(1+3F)² is 4(1−3F)/(1+3F)³) | – |
 | D6 | Hamiltonian constraint on the de Sitter side, and [ρ] = −S·K̄ | zero residual | israel_S, K |
 | D6b | post-brane density of the isotropic S-brane | κρ₊ = s(2K₋+3s), from the + side and from −S·K̄ | israel_S, K |
 
@@ -100,7 +101,7 @@ two computations of K(−) (a Kantowski–Sachs rewrite of the Schwarzschild int
 
 ## 5. Mutations and their declared targets
 
-Targets are the checks that must fire. They were computed in the development runs `dev/dev2_mut_*.txt` (section 7) before being
+Targets are the checks that must fire. They were computed in the development runs `dev/dev2_mut_*.txt` and, for `ds_orientation` and D2b, `dev/dev3_mut_*.txt` (section 7) before being
 declared here and in `MUTATIONS` of the script; `--mutate=all` reruns each and compares. A check that is silent under a mutation is
 not a failure of the mutation; the targets are what is required.
 
@@ -113,6 +114,7 @@ not a failure of the mutation; the targets are what is required.
 | `lapse` | Schwarzschild normal n^r = −F | J2c J2a S0c S0d P0b P1 X1 X2 X3 D3 D4 D5 D6b |
 | `printed_g` | g of (4), (5) read as −det g_μν | P1 P2 |
 | `ds_swap` | de Sitter a, b exchanged (a = cosh/H, b = sinh/H) | S0b D2 |
+| `ds_orientation` | de Sitter static form with n^r = −√(−f₂) | D2b |
 
 Predicted silences (seen in the development runs): `jump_sign` leaves P1, X1, X2, E1, D4, D5 silent (they do not go through the sign of the
 jump); `orientation` leaves D6 silent (the constraint is quadratic in K). The acceptance mutation of the issue is `jump_sign`.
@@ -136,9 +138,16 @@ Issue search (negative-mass, `gh search issues`, terms S-brane, limiting curvatu
 #212 (and this issue) match. #211: the reading that ranked these proposals. #212: its README is the model for recording a printed
 equation that disagrees with a derivation.
 
-## 7. Development runs (before this README was committed)
+## 7. Development runs (before this README was committed, and the third before its update)
 
 The script was run in development: `dev/dev_run1.txt` (26 checks, all pass, the script before X3 existed), `dev/dev_run2.txt` (27 checks),
 `dev/dev1_mut_*.txt` (mutations, before X3), `dev/dev2_mut_*.txt` (mutations, the script of dev run 2). They were produced by the
 script as it stood, uncommitted, in the worktree; the committed script differs from dev run 2 only by the removal of an unused
-helper and the MUTATIONS table now holding the declared targets. Not run: a thick-shell (regularized layer) integration of the Kantowski–Sachs equations.
+helper and the MUTATIONS table now holding the declared targets. Not run: a thick-shell (regularized layer) integration of the
+Kantowski–Sachs equations.
+
+Runs 1 and 2 of the committed script (27 checks, section 8) met every declared target. Before the run of record the script got three
+additions (the D5 extremum, the check D2b and the mutation `ds_orientation`, which the note's wording needs); `dev/dev3_run.txt` and
+`dev/dev3_mut_*.txt` are the development run of that script (28 checks pass; `ds_orientation` fires D2b alone, the other seven
+mutations fire what they fired before). The target of `ds_orientation` (D2b) is declared in section 5 in the commit that holds
+this paragraph, before the run of record, run 3.
