@@ -1,0 +1,37 @@
+Omega1 (computed) = 10.4233603788;  2 pi^2/3 + 8 ln^2 2 = 10.42336037874;  diff 6.1e-11
+PSLQ relation [Omega1, pi^2, ln^2 2, ln 2, 1]: [3, -2, -24, 0, 0]
+J = 17.4206887224287 (direct), 17.4206887224288 (u form);  8 pi ln 2 = 17.4206887224288
+
+  D    W^2 a^2 (data)      3-term formula   rel. diff    (data - 3 terms) s^2   source
+    4        1.3970524343       4.43909147   2.18e+00         -12.17       w2_crate qd (#195)
+    5        2.9849589304       3.83325137   2.84e-01         -13.57       w2_crate qd (#195)
+    6        4.6866205431       4.96463801   5.93e-02         -10.01       w2_crate qd (#195)
+    7        6.4625841414       6.53033133   1.05e-02          -4.34       w2_crate qd (#195)
+    8        8.2897593631       8.26974732   2.41e-03           2.00       w2_crate qd (#195)
+    9       10.1535530449      10.09602464   5.67e-03           8.28       w2_crate qd (#195)
+   10       12.0442650145      11.97193702   6.01e-03          14.18       w2_crate qd (#195)
+   11       13.9552091675      13.87887130   5.47e-03          19.54       w2_crate qd (#195)
+   20       31.5751101284      31.53398070   1.30e-03          47.55       w2_crate qd (#195)
+   30       51.4405260811      51.42043647   3.91e-04          58.58       w2_crate qd (#195)
+   50       91.3457759136      91.33829809   8.19e-05          66.07       w2_crate qd (#195)
+  100      191.2830177304     191.28113994   9.82e-06          70.67       w2_crate qd (#195)
+  200      391.2543343808     391.25386651   1.20e-06          72.63       w2_crate qd (#195)
+  500      991.2379721479     991.23789756   7.53e-08          73.70       w2_crate qd (#195)
+ 1000     1991.2326572613    1991.23263864   9.35e-09          74.04       w2_crate qd (#195)
+ 2000     3991.2300256843    3991.23002103   1.17e-09          74.21       w2_crate qd (#195)
+  (the r-integration's own uncertainty, logs_modes_r.txt, times s^2: 0.02 at D = 200, 0.6 at 500, 6 at 1000, 80 at 2000; so the last column means nothing beyond D = 1000)
+
+  D   1/W (e-folding, units of a)   predicted slope 1/(sqrt2 W)
+   4   0.8460                        0.5982
+   5   0.5788                        0.4093
+   6   0.4619                        0.3266
+ 100   0.0723                        0.0511
+
+  D   ST17 two-run slope  (+/- from the table's rounding: dE +/- 0.005, x +/- 0.005)   predicted
+   4   0.706 +/- 0.135                                                       0.598   (+0.8 sigma)
+   5   0.428 +/- 0.020                                                       0.409   (+0.9 sigma)
+   6   0.335 +/- 0.011                                                       0.327   (+0.7 sigma)
+
+  D = 4, Shinkai & Hayward 2002 small-amplitude runs: 0.60 (ghost pulses), 0.61 (normal pulses); predicted 0.598
+
+checks failed: 0

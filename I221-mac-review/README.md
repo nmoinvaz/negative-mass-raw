@@ -30,3 +30,5 @@ The review's own parse of `w2_output.txt` (the method of `I200-mac-review/ind200
 
 | file | what |
 |---|---|
+| `ind221_run1.txt`, `ind221_run1_mut_row4.txt` | run 1: **exit 0.** K1: all 16 rows equal the crate's qd values rounded to 12 decimals as strings, with the comma-free source and three columns. `row4` fails exactly K1 |
+| `rerun_*.log`, `rerun_ts13*.txt` | profiles.py writes growth.csv byte-identical (profiles.csv restored, as in #200's review). check_growth.py and paper_numbers.py print exactly the committed logs. ts13_digits.py exits 0, and so does its --selftest |
