@@ -1,0 +1,51 @@
+throat_drift.py bisect_stall {'D': '5', 'B': '0.04', 'hk': '0', 'out': '/home/nathan/Source/negative-mass-raw/I255-dh610/runs'}: numba 0.68.1, numpy 2.5.4, python 3.14.10, dh610-fedora, load average at start 15.76 18.90 20.58, mutation None, 2026-11-27 14:08:10
+  bisect run 1: A = 5.391843539988622e-04 fate -1 T 4.369999999999999 (cap 17.1, 1 s)
+  bisect run 2: A = 5.391843539988622e-03 fate 1 T 7.624999999999998 (cap 17.1, 3 s)
+  bisect run 3: A = 5.391843539988622e-04 fate -1 T 4.369999999999999 (cap 17.1, 3 s)
+  bisect run 4: A = 5.391843539988622e-03 fate 1 T 7.624999999999998 (cap 17.1, 4 s)
+  bisect run 5: A = 2.965513946993742e-03 fate 1 T 8.404999999999998 (cap 17.1, 6 s)
+  bisect run 6: A = 1.752349150496302e-03 fate -1 T 5.1549999999999985 (cap 17.5, 6 s)
+  bisect run 7: A = 2.358931548745022e-03 fate 1 T 9.104999999999999 (cap 17.9, 8 s)
+  bisect run 8: A = 2.055640349620662e-03 fate -1 T 6.439999999999999 (cap 18.3, 9 s)
+  bisect run 9: A = 2.207285949182842e-03 fate 1 T 9.594999999999999 (cap 18.7, 11 s)
+  bisect run 10: A = 2.131463149401752e-03 fate 1 T 10.234999999999998 (cap 19.1, 12 s)
+  bisect run 11: A = 2.093551749511207e-03 fate 1 T 12.614999999999997 (cap 19.5, 14 s)
+  bisect run 12: A = 2.074596049565934e-03 fate -1 T 6.889999999999999 (cap 19.9, 15 s)
+  bisect run 13: A = 2.084073899538571e-03 fate -1 T 7.204999999999999 (cap 20.3, 17 s)
+  bisect run 14: A = 2.088812824524889e-03 fate -1 T 7.6549999999999985 (cap 20.7, 18 s)
+  bisect run 15: A = 2.091182287018048e-03 fate -1 T 8.249999999999998 (cap 21.1, 20 s)
+  bisect run 16: A = 2.092367018264627e-03 fate -1 T 8.915 (cap 21.5, 22 s)
+  bisect run 17: A = 2.092959383887917e-03 fate 1 T 13.994999999999997 (cap 21.9, 24 s)
+  bisect run 18: A = 2.092663201076272e-03 fate -1 T 9.354999999999997 (cap 22.3, 26 s)
+  bisect run 19: A = 2.092811292482095e-03 fate -1 T 9.959999999999999 (cap 22.7, 28 s)
+  bisect run 20: A = 2.092885338185006e-03 fate -1 T 11.139999999999999 (cap 23.1, 31 s)
+  bisect run 21: A = 2.092922361036462e-03 fate 1 T 14.524999999999997 (cap 23.5, 33 s)
+  bisect run 22: A = 2.092903849610734e-03 fate 1 T 15.344999999999997 (cap 23.9, 36 s)
+  bisect run 23: A = 2.092894593897870e-03 fate -1 T 11.94 (cap 24.3, 39 s)
+  bisect run 24: A = 2.092899221754302e-03 fate 1 T 16.165 (cap 24.7, 42 s)
+  bisect run 25: A = 2.092896907826086e-03 fate -1 T 12.729999999999997 (cap 25.1, 45 s)
+  bisect run 26: A = 2.092898064790194e-03 fate 1 T 17.014999999999997 (cap 25.5, 48 s)
+  bisect run 27: A = 2.092897486308140e-03 fate -1 T 13.499999999999998 (cap 25.9, 51 s)
+  bisect run 28: A = 2.092897775549167e-03 fate 1 T 18.014999999999997 (cap 26.3, 55 s)
+  bisect run 29: A = 2.092897630928654e-03 fate -1 T 14.094999999999997 (cap 26.7, 58 s)
+  bisect run 30: A = 2.092897703238910e-03 fate -1 T 15.439999999999998 (cap 27.1, 62 s)
+  bisect run 31: A = 2.092897739394039e-03 fate 1 T 18.504999999999995 (cap 27.5, 66 s)
+  bisect run 32: A = 2.092897721316475e-03 fate 1 T 19.134999999999994 (cap 27.9, 70 s)
+  bisect run 33: A = 2.092897712277692e-03 fate 1 T 21.034999999999997 (cap 28.3, 75 s)
+  bisect run 34: A = 2.092897707758301e-03 fate -1 T 15.849999999999996 (cap 28.7, 78 s)
+  bisect run 35: A = 2.092897710017997e-03 fate -1 T 16.384999999999998 (cap 29.1, 82 s)
+  bisect run 36: A = 2.092897711147844e-03 fate -1 T 16.824999999999996 (cap 29.5, 86 s)
+  bisect run 37: A = 2.092897711712768e-03 fate -1 T 17.964999999999996 (cap 29.9, 90 s)
+bisect D=5 B=0.04 h=0.00707107: p* = 2.092897711995230e-03, bracket 5.65e-13, 37 runs, 90 s, stopped None, error None, bracket moves []
+sweep row 680 of 6800
+sweep row 1360 of 6800
+sweep row 2040 of 6800
+sweep row 2720 of 6800
+stall D=5 B=0.04 h=0.00707107 delta=1e-10 side=-1: 7 s, slices 3168, cross {'c:0.75': 3132, 'c:0.5': 3167}
+sweep row 680 of 6800
+sweep row 1360 of 6800
+sweep row 2040 of 6800
+sweep row 2720 of 6800
+sweep row 3400 of 6800
+stall D=5 B=0.04 h=0.00707107 delta=1e-10 side=1: 10 s, slices 3899, cross {'e:2.0': 3557, 'e:3.0': 3898}
+106.7 s
