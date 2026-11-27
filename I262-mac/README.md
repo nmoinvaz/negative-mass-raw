@@ -101,3 +101,18 @@ There is no reason to expect τ to be in either span: I₀ is an integral of the
 `cminus1_mode.py derive` (about 1 min), `check` (about 3 min), `table` (about 3 min), and the mutation runs above (15 mutations); one process each, nice 10, at most two at a time, logs
 in `runs/`. A single run not finished in 2 h of wall time is stopped and reported. Memory is only reported. The output of record, `notes/black_universe/cminus1_mode_output.txt`, is
 `derive`, `check`, `table`, `mutations` of these runs, in that order.
+
+## Runs of record (2026-11-27, after the criteria commit be43bc1c)
+
+Code `cminus1_mode.py` at 2f0eea2 (unchanged since the development mutation runs), `runs/run_all.sh` two workers, nice 10, one process each. Exit codes: `derive` 0, `check` 0,
+`table` 0; every mutation run 1 (its declared checks fail). No run was stopped; none was rerun.
+
+| run | result |
+|---|---|
+| `derive` (51 s) | 4 of 4 pass: S1 (residual ∝ πW + 2c, zero at W = K), S2, S3 (J exact), S4 (the ingoing line at W = K(c) is Y_ref) |
+| `check` (128 s) | 9 of 9 pass: N0 3.2e-15, N1 5.9e-61, N2 4.3e-42, N3 1.9e-122 and ratio/n 0.797, N4 1.1e-41, N5 2.9e-5 (second order) and 2.7e-8 (third), N6 2.7e-8, N7, N8 |
+| `table` | I₀ = 1.0149036099284089, β* = −0.19991708252087078, dW/dc = 0.34869547355073775, d(W/κ)/dc = 0.31402901888733605; fits R2 s₁ = 0.31403797 (second order), 0.31402903 (third); PSLQ: no relation for 1/I₀ or the slope in B1 or B2 |
+| `mut_<name>` (15) | fired sets equal the declared ones, 15 of 15 (`cminus1_mode.py mutations runs mut_`) |
+
+Criteria met: S1–S4, N0–N8 all pass; the mutations fire as declared; no bar changed. Not met: the slope and I₀ are not identified in closed form (PSLQ found none in the declared bases).
+The output of record is `notes/black_universe/cminus1_mode_output.txt` (commit 43d0d08), assembled from `runs/`.
