@@ -4,7 +4,7 @@ Machine: rpi5-ubuntu (Raspberry Pi 5, aarch64, 4 cores, 8 GB, shared with choptu
 `OMP_NUM_THREADS=1`, runner `negative-mass-rpi5-i212`.
 Issue: https://github.com/nmoinvaz/negative-mass/issues/212
 Worktree `~/Source/negative-mass-i212`, branch `wip/i212-black-universe` (base main 6256f53). Code
-`notes/black_universe/stability.py` (commits 2c22cdd, 629a1a4). Python `~/Source/negative-mass-venv314/bin/python` (3.14.10, numpy,
+`notes/black_universe/stability.py` (commits 2c22cdd, 629a1a4, a7643c1; see Amendments). Python `~/Source/negative-mass-venv314/bin/python` (3.14.10, numpy,
 scipy, sympy 1.14.0, mpmath).
 
 This README was written after the development runs listed in "Development history" and before the first run of record. Section
@@ -148,7 +148,8 @@ runs showed (`dev/controls_dev1.log`, `dev/ctl_*.log`).
 | S4 | linearization in sympy: tt and ρρ after the master equation, δR = 0 gauge, (41), gauge map, all 0 |
 | S5 | family coefficients against the generic master equation, 30 digits, ≤ 1e-25 |
 | S6 | spectral count and values (Sec. 4) |
-| S7 | c → −1: V̂ tends in x to the Pöschl–Teller well with ℓ(ℓ+1) = 2, whose ground state sech(κx) has W = κ = A'(ρ_h)/2; sympy, and the member c = −1.0001 against the well, ≤ 3e-3 |
+| S7, S7b | c → −1⁻: V̂ tends in x to the Pöschl–Teller well with ℓ(ℓ+1) = 2, whose ground state sech(κx) has W = κ = A'(ρ_h)/2; sympy, and the member c = −1.0001 against the well, ≤ 3e-3 |
+| S7c, S7d | c → −1⁺ (added at a7643c1): V̂ → (A₁²/2)/sinh²(A₁x/2), u = 1/sinh(κx) with a pole at the throat solves the equation at W = κ; sympy, and the member c = −0.9999, −6 ≤ A₁x ≤ 3, ≤ 3e-3 |
 | S8 | V̂ against (40), (41), 30 digits, ≤ 1e-25 |
 | P1 | planted Ellis (Sec. 5) |
 | R | R1 against R2 (Sec. 6) |
@@ -202,4 +203,10 @@ stability.py controls                       > controls.log
 
 ## Amendments
 
-(none)
+- Member runs (`results/member_*`), `planted.log`, `spectral.log`, `report.txt` and `check_run1.log`, `controls_run1.log` ran at code 629a1a4.
+- S7c and S7d were added to `stability.py` (a7643c1) after those runs, because the c → −1⁺ side has an exact closed form as well (the
+  hyperbolic well). `check` and `controls` were rerun at a7643c1 (`check.log`, `controls.log`); the first runs are kept. The counting, planted,
+  spectral and report code is unchanged between 629a1a4 and a7643c1 (`git diff 629a1a4 a7643c1`: 35 added lines of checks, a new
+  `rate_graph.py`).
+- S7d's sample range was cut to −6 ≤ A₁x ≤ 3 after a first evaluation over [−6, 6] gave 0.10: beyond A₁x = 4 the O(ρ) corrections to
+  the scaling limit exceed 0.3 % (10 % at 6). The tolerance 3e-3 was declared with S7d and not changed.
