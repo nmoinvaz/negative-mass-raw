@@ -5,8 +5,8 @@ Machine: the coordinator's Mac (Apple M5, macOS, shared), negative-mass-mac-i217
 it a critical solution?"). Python `~/Source/negative-mass/.venv/bin/python` (numpy 2.5.4, scipy 1.18.1, sympy 1.14.0, mpmath 1.3.0, numba 0.68.1), nice 10,
 one thread (`NUMBA_NUM_THREADS=1`, `VECLIB_MAXIMUM_THREADS=1`).
 
-Status: **design stage.** Nothing here is a run of record, and no criterion has been declared. The criteria are written here in step 2, after the
-coordinator approves the design (`notes/black_universe/evolution_design.md`).
+Status: **design stage, after the coordinator's rulings; diagnosis of rulings 4 and 5 done and reported, waiting for a ruling on its result.** Nothing here is a run of record, and no criterion
+has been declared. The criteria are written here in step 2 (`notes/black_universe/evolution_design.md`, Sec. 12).
 
 ## dev/
 
@@ -30,6 +30,12 @@ Every log is kept, including failed and superseded ones. Reruns carry a new numb
 | `dev_52_pulseE.log` | c = -1.5, pulse on the + ray: the expansion boundary and the sign change of Y | two boundaries, 2.5e-4 apart at h = 0.02 |
 | `dev_53_profile.log` | profile of Y from the truncation seed, c = -1, -1.01, -1.5 | c = -1 equals c = -1.01 to 5 % |
 | `dev_54_derive_record.log` | `evolve_derive.py`, the output committed in the repository | 6 of 6 |
-| `run_dev_mode.sh`, `run_dev_mode2.sh`, `run_dev_mode3.sh`, `run_dev_misc.sh` | the launch scripts of the batches | |
+| `dev_60_tuned_m15_h01.log` | the mode family at the tuned amplitude (|Y| = 3e-3 departure), local rate of Y on the diagonal; the script stopped at its sixth amplitude (log of a non-positive |Y|), after five were printed | rate 0.489, 0.492, 0.467 (= W), then a stall at |Y| = 1.5e-3 and growth at 2.7 |
+| `dev_61` to `dev_68` | departure thresholds 2e-5 (extraction 2e-4), 2e-6, 2e-7 at h = 0.01, c = -1.5, -1, -0.3 | c = -1.5: A* -7.04e-7 and a floor 100 times lower; below 2e-6 the data transient decides (`dev_64`, `dev_68`) |
+| `dev_70` to `dev_75` | horizon-regular gauge (`evolve_dev_reg.py`): tortoise and Kruskal x- with separate steps, c = -1.01, -1.5, -1 | the growth at c = -1 is the same in both gauges (0.6334, 0.6357) |
+| `dev_76_constr.log` | constraint violation of the growing solution, c = -1, -1.01, -1.5, -0.3 | stays at truncation level |
+| `dev_77_resp_*`, `dev_78_resp2_*` | response of Y to a compact pulse, odd part in +-Ap; Ap = 1e-3 (nonlinear by t = 12) and 1e-5, 1e-6 | linear in Ap; c = -1 and -1.01 grow then saturate at 7.7e3 Ap |
+| `dev_80` to `dev_88` | linear-level mode family (departure 2e-5, extraction 2e-4) at h = 0.02, 0.01, 0.005, c = -0.3, -1.5, -1 | A* second order; slopes 1/W (1/kappa) to 6.5e-5, 9.9e-4, 7.7e-4 at h = 0.005 |
+| `run_dev_mode.sh`, `run_dev_mode2.sh`, `run_dev_mode3.sh`, `run_dev_misc.sh`, `run_dev_lin.sh`, `run_dev_lin2.sh` | the launch scripts of the batches | |
 
 Each `dev_NN_*.err` holds `/usr/bin/time -l` output (and a traceback for the failed one).
