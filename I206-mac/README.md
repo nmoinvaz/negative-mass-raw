@@ -192,8 +192,8 @@ in double-double at m = 300: 4 of 4).
 | 4. noise-only 300 of 300 `Unresolved` | met | 300 of 300; smallest bar of s over \|s\| 0.383, 0.465, 0.619 (f64, dd, qd). `run_01`, `run_05` |
 | 5. entire 9 of 9 `Unresolved` | met | 9 of 9, bars 1.57 to 2.22 \|s\|. `run_01`, `run_05` |
 | 6. weak singularities never confidently wrong | **NOT MET** | 1 of 2700: W3, f64, m = 100, seed 14: `Real`, ratio, first order 6, degree 1, s = 0.874 for 1 (error 0.126, bar 0.027); also wrong on #191's grid (`dev_02`, `run_05`). 2699 `Unresolved` |
-| 7. fingerprint across backends | met here | 0x0f1c7236bd56966f default and `--features portable` (`run_01`, `run_02`); CI jobs: see the pull request |
-| 8. fmt, clippy (both builds), docs | met here | `run_08_*` exit 0; CI: see the pull request |
+| 7. fingerprint across backends | met here | 0x0f1c7236bd56966f default and `--features portable` (`run_01`, `run_02`); the PR's CI at 21b9829: Ubuntu x86_64 SSE2, AVX2 and portable, Ubuntu ARM64 NEON, macOS ARM64 NEON and Windows MSVC all pass the same assertion |
+| 8. fmt, clippy (both builds), docs | met here | `run_08_*` exit 0; CI at 21b9829: all 16 checks pass (Rustfmt, Clippy SSE2, NEON, portable, Docs, MSRV, six test jobs, Coverage, codecov); CodeRabbit (one full review requested, after its rate limit, none by usage credit): no actionable comments |
 
 The controls fired on their declared targets in `run_01` and `run_02` (`controls_fire`, `late_window_controls_fire`, `bitwise_across_backends`). The sweep of `run_07` is identical to `dev_10` (all 180 rows).
 Not run: `+avx2,+fma` (this Mac is aarch64; the AVX2 job of the pull request is its check).
