@@ -132,7 +132,7 @@ and the propagation law); D1, L1, L2 and the mutations share the evolution. An e
 ## Runs of record
 
 106 jobs (`jobs_wave1.txt`: 98 jobs with the three declared h, started 2026-11-27 11:05; `jobs_wave2.txt`: the 8 extension-h jobs, started 11:15), three workers at nice 10 with one thread each, wall 59 min (to 12:05), 8022 CPU s, longest job
-1320 s (`sqm_D6_k3`); every job exit 0 (`done/*.rc`), none stopped by the 2 h limit; rss 140 to 150 MB per worker, 6 GB available throughout; no process of another project was touched. The extension p*ₕ are `pstar_ext/` (D = 5: 4.5051120e-06,
+1320 s (`sqm_D6_k3`); every job exit 0 (`done/*.rc`), none stopped by the 2 h limit; rss 140 to 150 MB per worker at the one reading (11:15), 6 GB available; no process of another project was touched. The extension p*ₕ are `pstar_ext/` (D = 5: 4.5051120e-06,
 bracket 1.8e-10; D = 6: 1.7344915e-05, bracket 1.7e-10); `pstar_table.json` holds #40's three p*ₕ, the bracket amplitudes lo, hi and these. The script's `run` code is the commit 2179de2 of the code repository; its analysis part was changed afterwards
 only to count the comparisons each check evaluated (a check with none found fails) and to print section P; the runs were not repeated.
 
