@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-raw/I194-mac-review/ind194.py", line 292, in <module>
+    P = brentq(lambda P: ground(P, eps, TOLS[-1])["omega"] - target, *found, xtol=1e-17, rtol=4e-16)
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/scipy/optimize/_zeros_py.py", line 856, in brentq
+    raise ValueError(f"rtol too small ({rtol:g} < {_rtol:g})")
+ValueError: rtol too small (4e-16 < 8.88178e-16)
+rc=1

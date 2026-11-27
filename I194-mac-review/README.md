@@ -64,6 +64,17 @@ The targets are predicted from the code, not yet computed. A mutation that misse
 - K0's ε = −1 point moves from α_c = 2.0, a strong-field row, to the weak-field ε = −1 family at ω = 0.95. It is found
   as for ε = +1, by walking out in P from the crossing.
 
+**A2, 2026-11-27, after run 2.**
+- **K1 is not met as worded.** ind194 puts dM/dω = 0 at 0.9258444604861 (ε = +1) and 0.9289084358526 (ε = −1). These are
+  +4.7e-9 and +4.8e-9 from the crate, while the two tolerances agree to 1.2e-11 and 6.2e-12.
+- The suspect is ind194's own fit window. Nine stars over ±4 % in P, quartic, span ±4e-3 in ω. The fifth-order part of
+  M over that window can move the root by up to about 1e-7 in ω (estimate), far more than the tolerance spread.
+- **K1b** is added: the same procedure with nine stars over ±0.5 % in P (±5e-4 in ω), the same bars (1e-9 to the crate,
+  1e-10 between the tolerances), and the per-star (P, ω, M, N) written to `ind194_run3_stars.jsonl`. K1 stays NOT MET.
+  If K1b moves ind194's root to the crate's, the window was the cause.
+- **K0 crashed** in run 2 on the review's own bug: `brentq` refuses rtol = 4e-16 (its floor is 8.9e-16). rtol becomes
+  1e-15. No K0 value was printed.
+
 ## Runs (filled in as they are done)
 
 | file | what |
