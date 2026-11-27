@@ -197,6 +197,12 @@ Development runs are in `dev/` (R1 unless stated; never part of the record). New
   1 (the detail strings of the controls were corrected, nothing else changed); `lowW_range` first returned the glitch of D9, then 0 roots; `rmax_low` removes the
   root of S at m = 1 (low stage), as predicted.
 
+- **D11, the low stage on B (record runs).** After the 126th job (all main-stage runs and the S low-stage R2 runs done), the low-stage R2 runs of B1 at q = 0, 0.1,
+  0.2 ran 16 min each without finishing; the units `nm-i223-w1..3` were stopped by hand at 03:38 (below the 1 h condition, cause then found; their `.log` files are empty
+  and are kept as `results/B1_q0*_R2_low.log`, the status line is in `results/status.txt`). Cause: at W = 1e-5 the right start is at r0 = 2e6 and the closed form of A
+  for B loses accuracy there (B ~ 1/x² from O(p/x) terms: the absolute noise 1e-16 x in A reaches 1e-11 at x = 1e5), so the integrator's step collapses (status −1) at
+  x ≈ 1e5 at rtol 1e-12. The main stage reaches r0 = 4.5e4 where the noise is 2e-12, below its tolerances (P2 agrees with #212 to 3e-10).
+
 ## Amendments
 
 All written before the runs of record they govern.
@@ -261,3 +267,10 @@ and is the mutated quantity in `sturm_sign`.
 
 **A6. Runs of record.** Main stage R1 and R2 and low stage R1 and R2 for the 55 members (S 16, B1 12, B2 12, B3 11, P2 4; B1 q = 0, B2 q = 0, B3 q = 0 are the P2 members
 c = −3, −1, −0.3), three worker units at a time, logs and JSON in `results/`. `bounce.py` at the commit named in the closing comment; no edit to it while the runs go.
+
+**A7. A and A′ of B at large x in the low stage (after D11).** For the B family in the low stage (`Bg(..., stage="low")`), A and A′ are evaluated for x ≥ 30 from the
+series of B in y = 1/x (`B(x) = (1+q²+px)/(1+x²) + πq²x/(1+x²) − (p+πq²)t − 2q²xt/(1+x²) + q²t²`, t = arctan y, 40 terms, coefficients by
+convolution; A = (1 + y⁻²)B, so A = Σ c_n yⁿ without cancellation). Against mpmath at 60 digits: |ΔA| ≤ 1.1e-16 and |ΔA′|/|A′| ≤ 3e-16 at x from 30 to 2e6, at 5 members.
+`check` S2 includes it (declared |ΔA| ≤ 1e-14, |ΔA′| ≤ 1e-12 |A′|; control `ser_coef`). The main stage and the S family are unchanged: the main-stage runs of record, the S low-stage R2
+runs and the first 126 jobs are from `bounce.py` at 9b3db56; the B low-stage runs (and every later `check`, `planted`, `controls`, `spectral`, `report`) from f6d1802, which
+differs from 9b3db56 only in this flag and its check. The remaining low-stage jobs are in `jobs_low.txt` (the queue pointer of the first run is `results/qpos_run1`).
