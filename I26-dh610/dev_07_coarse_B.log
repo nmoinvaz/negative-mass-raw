@@ -1,0 +1,38 @@
+order4.py  mutate=coarse_B  parts=['sym', 'closed', 'evals', 'remainder']  mpmath 1.3.0  sympy 1.14.0
+PASS    E0: h_k (k = 0 .. 4) and dY_k/dl (k = 1 .. 4) from the epsilon-expansion of the master equation against the table: residuals 0 (1.8 s)
+PASS    S1: Y_1, Y_2, Y_3 closed forms: dY_k/dl - F_(k-1) = ['0', '0', '0']
+PASS    S2: L_0, L_1, L_2 closed forms: (R-1)L_k' - L_k/2 - h_k = ['0', '0', '0']
+PASS    S3: L_3 = -2 h_3 + 2 u B, B' = h_3,u/u: (R-1)L_3' - L_3/2 - h_3 = 0
+PASS    N1: K and T closed forms against quadrature at th = 0.3, 0.8, 1.2, 1.5: worst 43.7 digits
+PASS    N2: Y_3 closed form against the integral of F_2 at the same points: worst 44.9 digits
+FAIL    N3: L_2 closed form against -2 h_2(1) + u C_2 by quadrature, 0 guard digits: worst 25.8 digits
+PASS    N3g: L_2 closed form against -2 h_2(1) + u C_2 by quadrature, 30 guard digits: worst 40.1 digits
+PASS    N4a: (E2) at k - 1 = 2: int L_2 dth = 29.2666009690357900122383740034 against 2 int h_2 ln cos/sin^2 = 29.2666009690357900122383740034: 44.5 digits (117 s)
+  A50:  41 s
+    Omega0 = -2.77258872223978123766892848583270627230200053744102101648272
+    Omega1 = 10.4233603787385171432264808771974205307202232175835584458771
+    Omega2 = 74.3693867279333175953846702958466172667341434150203368770111
+    slopes G2, G3, G4 = -12.566370614359172954 -12.566370614359172954 -12.566370614359172954
+  A70:  92 s
+    Omega0 = -2.77258872223978123766892848583270627230200053744102101648272
+    Omega1 = 10.4233603787385171432264808771974205307202232175835584458771
+    Omega2 = 74.3693867279333175953846702958466172667341434150203368770111
+    slopes G2, G3, G4 = -12.566370614359172954 -12.566370614359172954 -12.566370614359172954
+  B1: N=10 w=0.5 V=18 panels=36 1 s
+    Omega0 = -2.77258872223979000590650107135712370144412077100156459519467
+    Omega1 = 10.4233603787398130340781307833013469066325698392979745912615
+    Omega2 = 74.3693867279329495843983956349620631631407031241910911332863
+    slopes G2, G3, G4 = -12.566370614359163413 -12.566370614359163413 -12.566370614359163413
+  B2: N=10 w=0.4 V=20 panels=50 2 s
+    Omega0 = -2.77258872223978123717304240643097155975138458717677117542347
+    Omega1 = 10.4233603787386251605401175751749720204727191434455246491437
+    Omega2 = 74.3693867279331824086230601821666106380517982933089904096462
+    slopes G2, G3, G4 = -12.566370614359172906 -12.566370614359172906 -12.566370614359172906
+FAIL    P1: planted: digits of Omega0 and Omega1 against -4 ln 2 and 2 pi^2/3 + 8 ln^2 2: A50 80.0/80.0, A70 80.0/80.0, B1 14.5/12.9, B2 18.7/14.0
+FAIL    P2: slope of G_k (k = 2, 3, 4) against -4 pi, digits: A50 80.0/79.9/78.9, A70 80.0/80.0/80.0, B1 15.1/15.1/15.1, B2 17.4/17.4/17.4
+PASS    M1: Omega2 of A50 against A70: 77.6 digits (bar 20); |diff| = 1.71e-76
+FAIL    M2: Omega2 of B1 against B2: 14.5 digits (bar 20); |diff| = 2.33e-13
+FAIL    M3: Omega2 of A70 against B2: 14.7 digits (bar 20); |diff| = 1.35e-13
+  reported: digits of Omega2 between the other pairs: A50-B1 14.3, A50-B2 14.7, A70-B1 14.3, A70-B2 14.7
+PASS    X1: Omega2 (A70) = 74.36938672793331759538467029584661726673414341502; against #195's fit 74.3693867279333175953847: 2.97e-23 (bar 5e-23); against its 38-digit median: 2.66e-37 (its range 3.2e-40)
+FAIL    X2: digits of Omega2 against 80 zeta(3) - (8/3) pi^2 ln 2 - (32/3) ln^3 2 = 74.36938672793331759538467029584661726673414341502: A70 80.0, A50 77.6, B1 14.3, B2 14.7
