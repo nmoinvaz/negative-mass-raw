@@ -1,0 +1,16 @@
+[FAIL] D1: the Kruskal-chart member (r = R(rho), phi = sqrt2 arctan rho, e^{-F} = G/kappa, rho_V = -U G, rho_U = -V G, G = A/(2 kappa Pi)) solves the three evolution equations and both constraints, residual identically zero (sympy, symbolic kappa): c = -1, -3/2, -3/10  (9 of 15 residuals nonzero)
+    (D1: 18 s)
+[pass] D2: on the future horizon U = 0 of the c = -1 member (rho = 0) the linearized constraint C_VV is a_VV = 0: dr_h = c1 + c2 V; and g = rho R/sqrt2 = 0 there, so Y_h = dr_h (sympy)
+[pass] D4: the linearized constraints propagate: d_U C_VV = -(r_U/r) C_VV and d_V C_UU = -(r_V/r) C_UU on solutions of the evolution equations, for any background solving the field equations (generic jets, sympy, zero residual): the first-order jet at a point is not restricted  (residuals 0, 0 at 4 random rational points each (exact))
+    (D2: 0 s)
+[pass] D3a: Y = dr - (rho R/sqrt2) dphi is invariant under every linear diffeomorphism: L_xi r = xi^mu d_mu(rho) R', L_xi phi = xi^mu d_mu(rho) Phi', and R' - (rho R/sqrt2) Phi' = 0 identically (sympy)  (R' - g Phi' = 0)
+[pass] D3b: r_U on the future horizon is -R'(rho_h) G(rho_h) V: zero at c = -1 (R'(0) = 0, the horizon is the area minimum, so no residual gauge shifts dr_h) and nonzero at c = -1.5 (R'(rho_h) = 0.3216), where dr_h = c2 V is the horizon-position gauge
+    (D3: 0 s)
+[pass] D6: formal series of the Y equation at the bifurcation surface (c = -1, M = 0, degree <= 7): with the 13 coefficients y_mn, m = 1 or n = 1, as free parameters every other coefficient is determined and the system is consistent; y_00 and every y_0n, y_m0 (n, m != 1) vanish, so Y|_(U=0) = y_10 V and Y|_(V=0) = y_01 U exactly (sympy)  (32 equations, 23 determined unknowns, 13 forced to zero)
+    (D6: 15 s)
+[pass] D7: c = -1, W = kappa: the Frobenius series of Y with exponent 1/2 has no logarithm (every order solvable, the order-1 equation consistent), so Y_ref = rho^{1/2}(1 + g2 rho^2 + ...) and Y_ref e^{-kappa x}, e^{kappa x} = rho^{1/2}(1 + O(rho)), is analytic in rho and in Pi = -VU (sympy, orders <= 5)  (g2 = pi**2/128 + 5/12)
+    (D7: 2 s)
+[pass] D8: the Y equation at c = -1, W = kappa has no singular point on rho in [-200, 0) or (0, 200] (A < 0 for rho < 0, A > 0 for rho > 0, R >= 1): the solution with Y ~ rho^{1/2} integrates from rho = +-0.05 to +-40 with finite values (the interior is reached by the same analytic function)  (A<0 on rho<0 and A>0 on rho>0: True; integration status 0, 0; max |Y| 6.34e+12 (static), 56.6 (interior))
+    (D8: 0 s)
+
+8 checks, 7 pass; failed: ['D1']; mutation d_emF; 36 s
