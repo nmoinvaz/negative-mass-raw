@@ -93,7 +93,7 @@ papers print was read here.
   bearing on the same claim (formation by collapse, a baby universe or a bounce): MSOF23, CK21, BCHM25. Their reading is in the
   table. The first citer queries (`refersto:arxiv:` with an abstract field) ignored the filter and returned unrelated records;
   they are not used and were not kept.
-- Seven further citers of SV19 and BF06 are listed in `notes/literature.md` by title only, and not read.
+- Four further citers of SV19 are listed in `notes/literature.md` by title only, and not read.
 - `verify_refs.py` was extended with MSOF23, CK21 and BCHM25 and an `ONLY=` filter after its first run; `verify_table.txt`
   holds both runs. The arXiv API returned HTTP 429 or a timeout for 14 of the 22 arXiv ids over the two runs; `arxiv_meta.txt`
   (from arXiv's own abstract pages) is the arXiv-side record.
