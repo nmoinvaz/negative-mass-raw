@@ -1,0 +1,80 @@
+# 2026-11-27 11:54:50 cwd=/Users/nathan/Source/negative-mass-raw/I192-mac
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python proto_table.py --controls --steps-json proto_steps.json
+PA f64 last=2 nb=20: steps   221  len min 4.926e-05 max 7.889e-01  C1 maxE 4.553e-15 (bar 1.000e-12) PASS at (208, 2, 20.53291302059267, 1.348876355833346)  C2 len/(0.3w) max 1.000000e+00 min-uncut 1.000000e+00 viol 0  [1s]
+   control wide            : steps     5  C1 maxE 8.333e+88 (fires)  C2 len/(0.3w) max 1.2178e+05 viol 0  (C2 fires)
+   control fraction_one    : steps    71  C1 maxE 1.851e-10 (fires)  C2 len/(0.3w) max 3.3333e+00 viol 0  (C2 fires)
+   control loose_tail      : steps    81  C1 maxE 6.783e-06 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control ignore_valid_to : steps   219  C1 maxE 4.553e-15 (SILENT)  C2 len/(0.3w) max 1.0000e+00 viol 4  (C2 fires)
+   control no_shift        : steps   221  C1 maxE 9.169e-02 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control shift_f64       : steps   221  C1 maxE 4.553e-15 (SILENT)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+PA dd  last=2 nb=30: steps   315  len min 3.434e-05 max 5.399e-01  C1 maxE 1.898e-27 (bar 1.000e-24) PASS at (310, 2, 24.23149981349806, 0.5401662314954728)  C2 len/(0.3w) max 1.000000e+00 min-uncut 1.000000e+00 viol 0  [2s]
+   control wide            : steps     5  C1 maxE 8.333e+88 (fires)  C2 len/(0.3w) max 1.7469e+05 viol 0  (C2 fires)
+   control fraction_one    : steps   100  C1 maxE 1.555e-20 (fires)  C2 len/(0.3w) max 3.3333e+00 viol 0  (C2 fires)
+   control loose_tail      : steps    62  C1 maxE 1.059e-05 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control ignore_valid_to : steps   313  C1 maxE 1.898e-27 (SILENT)  C2 len/(0.3w) max 1.0000e+00 viol 4  (C2 fires)
+   control no_shift        : steps   315  C1 maxE 6.530e-02 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control shift_f64       : steps   315  C1 maxE 1.898e-27 (SILENT)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+PA qd  last=2 nb=60: steps   344  len min 3.162e-05 max 4.868e-01  C1 maxE 1.436e-57 (bar 1.000e-54) PASS at (341, 2, 24.772383146681765, 0.42754779114345487)  C2 len/(0.3w) max 1.000000e+00 min-uncut 1.000000e+00 viol 0  [6s]
+   control wide            : steps     5  C1 maxE 4.167e+88 (fires)  C2 len/(0.3w) max 1.8971e+05 viol 0  (C2 fires)
+   control fraction_one    : steps   107  C1 maxE 9.643e-44 (fires)  C2 len/(0.3w) max 3.3333e+00 viol 0  (C2 fires)
+   control loose_tail      : steps    51  C1 maxE 4.668e-05 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control ignore_valid_to : steps   341  C1 maxE 1.436e-57 (SILENT)  C2 len/(0.3w) max 1.0000e+00 viol 4  (C2 fires)
+   control no_shift        : steps   344  C1 maxE 6.036e-02 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control shift_f64       : steps   344  C1 maxE 1.436e-57 (SILENT)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+PB f64 last=2 nb=20: steps    14  len min 1.129e-01 max 2.262e+00  C1 maxE 1.466e-14 (bar 1.000e-12) PASS at (11, 0, 18.606343103391264, 2.789045419888886)  C2 len/(0.3w) max 1.000000e+00 min-uncut 1.000000e+00 viol 0  [0s]
+   control wide            : steps     2  C1 maxE 2.609e-06 (fires)  C2 len/(0.3w) max 6.6311e+00 viol 0  (C2 fires)
+   control fraction_one    : steps     4  C1 maxE 5.136e-10 (fires)  C2 len/(0.3w) max 3.3333e+00 viol 0  (C2 fires)
+   control loose_tail      : steps     5  C1 maxE 1.968e-04 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control ignore_valid_to : steps    13  C1 maxE 1.260e+02 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 1  (C2 fires)
+   control no_shift        : steps    14  C1 maxE 3.839e+02 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control shift_f64       : steps    14  C1 maxE 1.466e-14 (SILENT)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+PB dd  last=2 nb=30: steps    23  len min 6.482e-02 max 1.239e+00  C1 maxE 3.794e-27 (bar 1.000e-24) PASS at (21, 0, 19.93518118055918, 1.314917299318003)  C2 len/(0.3w) max 1.000000e+00 min-uncut 1.000000e+00 viol 0  [0s]
+   control wide            : steps     2  C1 maxE 6.414e-09 (fires)  C2 len/(0.3w) max 1.2103e+01 viol 0  (C2 fires)
+   control fraction_one    : steps     7  C1 maxE 2.823e-20 (fires)  C2 len/(0.3w) max 3.3333e+00 viol 0  (C2 fires)
+   control loose_tail      : steps     4  C1 maxE 3.287e-04 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control ignore_valid_to : steps    22  C1 maxE 9.464e+00 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 1  (C2 fires)
+   control no_shift        : steps    23  C1 maxE 1.152e+02 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control shift_f64       : steps    23  C1 maxE 3.794e-27 (SILENT)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+PB qd  last=2 nb=60: steps    29  len min 2.529e-01 max 1.016e+00  C1 maxE 1.991e-57 (bar 1.000e-54) PASS at (27, 0, 19.590607374039088, 0.9975368297935715)  C2 len/(0.3w) max 1.000000e+00 min-uncut 1.000000e+00 viol 0  [0s]
+   control wide            : steps     2  C1 maxE 2.689e-14 (fires)  C2 len/(0.3w) max 1.5840e+01 viol 0  (C2 fires)
+   control fraction_one    : steps     9  C1 maxE 1.276e-43 (fires)  C2 len/(0.3w) max 3.3333e+00 viol 0  (C2 fires)
+   control loose_tail      : steps     4  C1 maxE 7.251e-04 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control ignore_valid_to : steps    29  C1 maxE 2.655e+01 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 1  (C2 fires)
+   control no_shift        : steps    29  C1 maxE 6.730e+01 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control shift_f64       : steps    29  C1 maxE 1.991e-57 (SILENT)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+PC f64 last=2 nb=20: steps   106  len min 1.144e-02 max 1.030e-01  C1 maxE 4.642e-14 (bar 1.000e-12) PASS at (96, 0, 13.286991007023355, 0.18345087954826114)  C2 len/(0.3w) max 1.000000e+00 min-uncut 1.000000e+00 viol 0  [0s]
+   control wide            : steps     1  C1 maxE 1.000e+00 (fires)  C2 len/(0.3w) max 3.8850e+01 viol 0  (C2 fires)
+   control fraction_one    : steps    32  C1 maxE 1.991e-09 (fires)  C2 len/(0.3w) max 3.3333e+00 viol 0  (C2 fires)
+   control loose_tail      : steps    37  C1 maxE 4.861e-05 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control no_shift        : steps   106  C1 maxE 1.596e-01 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control shift_f64       : steps   106  C1 maxE 4.642e-14 (SILENT)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+PC dd  last=2 nb=30: steps   157  len min 7.684e-03 max 7.679e-02  C1 maxE 2.553e-26 (bar 1.000e-24) PASS at (135, 0, 12.943538915702549, 0.08971774766706112)  C2 len/(0.3w) max 1.000000e+00 min-uncut 1.000000e+00 viol 0  [0s]
+   control wide            : steps     1  C1 maxE 1.000e+00 (fires)  C2 len/(0.3w) max 5.3050e+01 viol 0  (C2 fires)
+   control fraction_one    : steps    47  C1 maxE 1.992e-19 (fires)  C2 len/(0.3w) max 3.3333e+00 viol 0  (C2 fires)
+   control loose_tail      : steps    29  C1 maxE 2.443e-05 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control no_shift        : steps   157  C1 maxE 9.712e-02 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control shift_f64       : steps   157  C1 maxE 2.553e-26 (SILENT)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+PC qd  last=2 nb=60: steps   178  len min 6.777e-03 max 6.661e-02  C1 maxE 2.798e-56 (bar 1.000e-54) PASS at (14, 0, 10.802792653853698, 0.10333866028960297)  C2 len/(0.3w) max 1.000000e+00 min-uncut 1.000000e+00 viol 0  [1s]
+   control wide            : steps     1  C1 maxE 2.426e+00 (fires)  C2 len/(0.3w) max 6.0055e+01 viol 0  (C2 fires)
+   control fraction_one    : steps    54  C1 maxE 1.603e-42 (fires)  C2 len/(0.3w) max 3.3333e+00 viol 0  (C2 fires)
+   control loose_tail      : steps    24  C1 maxE 1.225e-04 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control no_shift        : steps   178  C1 maxE 8.061e-02 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control shift_f64       : steps   178  C1 maxE 2.798e-56 (SILENT)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+PD f64 last=2 nb=20: steps    37  len min 5.058e-02 max 1.058e-01  C1 maxE 3.395e-16 (bar 1.000e-12) PASS at (34, 0, 2.8436086631197774, 0.24314060807478635)  C2 len/(0.3w) max 1.000000e+00 min-uncut 1.000000e+00 viol 0  [0s]
+   control wide            : steps     1  C1 maxE 3.735e-01 (fires)  C2 len/(0.3w) max 4.8507e+01 viol 0  (C2 fires)
+   control fraction_one    : steps    12  C1 maxE 3.712e-12 (fires)  C2 len/(0.3w) max 3.3333e+00 viol 0  (C2 fires)
+   control loose_tail      : steps    11  C1 maxE 5.220e-07 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control no_shift        : steps    37  C1 maxE 8.473e-01 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control shift_f64       : steps    37  C1 maxE 4.045e-16 (SILENT)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+PD dd  last=2 nb=30: steps    31  len min 8.848e-03 max 1.289e-01  C1 maxE 6.072e-29 (bar 1.000e-24) PASS at (29, 0, 2.991152041102005, 0.30079898086600315)  C2 len/(0.3w) max 1.000000e+00 min-uncut 1.000000e+00 viol 0  [0s]
+   control wide            : steps     1  C1 maxE 7.789e-05 (fires)  C2 len/(0.3w) max 3.9923e+01 viol 0  (C2 fires)
+   control fraction_one    : steps    10  C1 maxE 1.002e-22 (fires)  C2 len/(0.3w) max 3.3333e+00 viol 0  (C2 fires)
+   control loose_tail      : steps     4  C1 maxE 5.836e-07 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control no_shift        : steps    31  C1 maxE 1.105e+00 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control shift_f64       : steps    31  C1 maxE 6.072e-29 (SILENT)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+PD qd  last=2 nb=60: steps     1  len min 3.000e+00 max 3.000e+00  C1 maxE 1.866e-89 (bar 1.000e-54) PASS at (0, 0, 1.5, 1.75)  C2 len/(0.3w) max 1.000000e+00 min-uncut inf viol 0  [0s]
+   control wide            : steps     1  C1 maxE 1.866e-89 (SILENT)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control fraction_one    : steps     1  C1 maxE 1.532e-89 (SILENT)  C2 len/(0.3w) max 3.3333e+00 viol 0  (C2 fires)
+   control loose_tail      : steps     1  C1 maxE 1.866e-89 (SILENT)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control no_shift        : steps     1  C1 maxE 5.266e+09 (fires)  C2 len/(0.3w) max 1.0000e+00 viol 0  
+   control shift_f64       : steps     1  C1 maxE 1.866e-89 (SILENT)  C2 len/(0.3w) max 1.0000e+00 viol 0  

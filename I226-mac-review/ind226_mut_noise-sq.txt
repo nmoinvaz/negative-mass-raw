@@ -1,0 +1,7 @@
+  D = 5, h = 0.00176777, a = 256: rms dC 2.7250e-06, model 4.4239e-06, ratio 0.6160, 240000 nodes (0.3 s)
+  D = 6, h = 0.00125, a = 256: rms dC 1.0047e-05, model 1.7575e-05, ratio 0.5717, 480251 nodes (0.5 s)
+  D = 6, h = 0.00125, a = 1024: rms dC 4.0194e-05, model 7.0299e-05, ratio 0.5718, 480251 nodes (0.5 s)
+[FAIL] K1: rms dC / model at a = 256: D = 5 0.6160, D = 6 0.5717; band [0.7, 1.4]
+
+1 criteria, 0 pass; failed: ['K1']; mutation noise-sq; 6 s
+rc=1

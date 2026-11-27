@@ -1,0 +1,10 @@
+# 2026-11-27 12:32:01 cwd=/Users/nathan/Source/negative-mass-raw/I192-mac
+# cmd: bash -c cd /Users/nathan/Source/negative-mass-i192-libs/multishoot && git log --oneline -1 &&  cargo fmt --check && echo fmt-ok && cargo clippy -j 2 --all-targets --features mutate -- -D warnings && echo clippy-mutate-ok && cargo clippy -j 2 --all-targets --features portable,mutate -- -D warnings && echo clippy-portable-mutate-ok && cargo clippy -j 2 --all-targets -- -D warnings && echo clippy-default-ok && RUSTDOCFLAGS='-D warnings' cargo doc --no-deps -j 2 --features portable,mutate && echo doc-ok && cargo test --release -j 2 --no-run --features mutate 2>&1 | tail -2
+3a64b91 table: test the tables on planted functions with their controls
+fmt-ok
+clippy-mutate-ok
+clippy-portable-mutate-ok
+clippy-default-ok
+doc-ok
+  Executable tests/taylor.rs (target/release/deps/taylor-1e0be6bcb4aa4ad4)
+  Executable tests/taylor_order.rs (target/release/deps/taylor_order-5d8056d0d77aa1c5)

@@ -1,0 +1,11 @@
+# 2026-11-27 12:11:34 cwd=/Users/nathan/Source/negative-mass-raw/I192-mac
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python -u proto_table.py --cases PA,PB,PC --steps-json proto_steps_a.json
+PA f64 last=2 nb=20: steps   221  len min 4.926e-05 max 7.889e-01  C1 maxE 4.553e-15 (bar 1.000e-12) PASS at (208, 2, 20.53291302059267, 1.348876355833346)  C2 len/(0.3w) max 1.000000e+00 min-uncut 1.000000e+00 viol 0  [1s]
+PA dd  last=2 nb=30: steps   315  len min 3.434e-05 max 5.399e-01  C1 maxE 1.898e-27 (bar 1.000e-24) PASS at (310, 2, 24.23149981349806, 0.5401662314954728)  C2 len/(0.3w) max 1.000000e+00 min-uncut 1.000000e+00 viol 0  [2s]
+PA qd  last=2 nb=60: steps   344  len min 3.162e-05 max 4.868e-01  C1 maxE 1.436e-57 (bar 1.000e-54) PASS at (341, 2, 24.772383146681765, 0.42754779114345487)  C2 len/(0.3w) max 1.000000e+00 min-uncut 1.000000e+00 viol 0  [6s]
+PB f64 last=2 nb=20: steps    14  len min 1.129e-01 max 2.262e+00  C1 maxE 1.466e-14 (bar 1.000e-12) PASS at (11, 0, 18.606343103391264, 2.789045419888886)  C2 len/(0.3w) max 1.000000e+00 min-uncut 1.000000e+00 viol 0  [0s]
+PB dd  last=2 nb=30: steps    23  len min 6.482e-02 max 1.239e+00  C1 maxE 3.794e-27 (bar 1.000e-24) PASS at (21, 0, 19.93518118055918, 1.314917299318003)  C2 len/(0.3w) max 1.000000e+00 min-uncut 1.000000e+00 viol 0  [0s]
+PB qd  last=2 nb=60: steps    29  len min 2.529e-01 max 1.016e+00  C1 maxE 1.991e-57 (bar 1.000e-54) PASS at (27, 0, 19.590607374039088, 0.9975368297935715)  C2 len/(0.3w) max 1.000000e+00 min-uncut 1.000000e+00 viol 0  [0s]
+PC f64 last=2 nb=20: steps   106  len min 1.144e-02 max 1.030e-01  C1 maxE 4.642e-14 (bar 1.000e-12) PASS at (96, 0, 13.286991007023355, 0.18345087954826114)  C2 len/(0.3w) max 1.000000e+00 min-uncut 1.000000e+00 viol 0  [0s]
+PC dd  last=2 nb=30: steps   157  len min 7.684e-03 max 7.679e-02  C1 maxE 2.553e-26 (bar 1.000e-24) PASS at (135, 0, 12.943538915702549, 0.08971774766706112)  C2 len/(0.3w) max 1.000000e+00 min-uncut 1.000000e+00 viol 0  [1s]
+PC qd  last=2 nb=60: steps   178  len min 6.777e-03 max 6.661e-02  C1 maxE 2.798e-56 (bar 1.000e-54) PASS at (14, 0, 10.802792653853698, 0.10333866028960297)  C2 len/(0.3w) max 1.000000e+00 min-uncut 1.000000e+00 viol 0  [1s]

@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-raw/I192-mac/proto_table.py", line 563, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nathan/Source/negative-mass-raw/I192-mac/proto_table.py", line 540, in main
+    run_case("PE", lanes, a.controls, out, lasts=[2, 3])
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-raw/I192-mac/proto_table.py", line 348, in run_case
+    err, where = c1(case, t)
+                 ~~^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-raw/I192-mac/proto_table.py", line 300, in c1
+    err = abs(p - f.val(x)) / sc if sc != 0 else abs(p - f.val(x))
+                  ~~~~~^^^
+  File "/Users/nathan/Source/negative-mass-raw/I192-mac/proto_table.py", line 128, in <lambda>
+    F_CUBE = Fn("1/(1-x^3)", c_cube, lambda x: 1 / (1 - x ** 3))
+                                               ~~^~~~~~~~~~~~~~
+decimal.DivisionByZero: [<class 'decimal.DivisionByZero'>]

@@ -89,4 +89,66 @@ the lane). In the test, a wrong input and no hook: `ref_scale` (the reference fu
 
 ## Amendments
 
-(none yet)
+**A1 (2026-11-27, after dev_01 to dev_14; stage 1 only, no library code yet).** The bars C1 to C5 are unchanged. Additions and findings:
+
+- **Two cases added** (before any library run): **PP**, a polynomial `1 + 2x + 3x^2 - x^4` on [0.1, 3] (one step: its tail is zero, so the width is the search
+  cap; the start 0.1 is not dyadic, so a shift by the f64 difference of x0 and the start is not the exact difference where x0 > 2 start), and **PS**, `1/(1 + 1e5 x)` on
+  [0, 1] in qd (nb 60: c_58 = 1e290 and h^58 underflows in plain f64, so the rule must scale by powers of two). Controls added with them: `Unscaled` (the
+  plain f64 test) with PS.
+- **`ShiftF64` is a no-op on PA, PB, PC, PD, PF** (dev_04, dev_05: E equals the clean E to every printed digit in all three lanes): x0 and the step start are f64 numbers
+  within a factor 2 of each other, so their f64 difference is exact (Sterbenz), and from 0 it is exact. A control that cannot change what its target reads is not a
+  control; it is declared for **PP in dd and qd only** (E 4.6e-16 against bars 1e-24 and 1e-54), silent in f64 by design.
+- **The OD smoke case is PC, not PA** (nb 100 at x0 = 1e-3 puts c_99 at 1e305, at the edge of f64's range).
+- **Controls' computed effects** are in `design.md`, from `dev_04` (PA, PB, PC, PD, controls), `dev_05` (PD, PE, PF, PG, PP), `dev_09` to `dev_12` (PH), `dev_13` (PS).
+- Observed margins of the clean runs, for the record (the bars were not moved): max E / bar = 1/220 (PA f64), 1/530 (PA dd), 1/700 (PA qd), 1/21 (PC f64),
+  1/39 (PC dd), 1/36 (PC qd); the tightest of all is PC, the conjugate pair.
+- **Run bookkeeping.** `dev_06_proto_ph_killed.log.txt`: the first PH run (f64, dd, qd and the control `wide`) was stopped by its PID after 10 min with no output (stdout
+  buffered; with the control `wide` the planner's steps collapse and the plane does not finish), the run keeps no result; PH then got a 3000-plane-step cap (counted as a
+  failure) and `-u`. `dev_11_proto_ph_controls_qd` holds the qd *baseline* only (its name is wrong; the controls are `dev_12_proto_ph_controls_qd2`). `dev_12_*` has two
+  runs started together that took the same number.
+- **PH, the consumer's reach** (`dev_07`, `dev_08`, `dev_09`, `dev_11`): at fraction 0.3 PH passes in f64, dd and qd, and the plane's steps reach past the table's width
+  w in dd (6 of 90 steps, up to 1.03 w) and qd (22 of 95, up to 1.13 w). At dd, fraction 0.5 passes (25 steps past, up to 1.25 w), 0.7 and 1.0 **fail** the log-volume
+  bar (1.0e-26 and 1.0e-23 against 1.2e-27). Reported, not tuned.
+- **C6 (optional, proposed after D1; not yet part of any run).** An independent estimate of the radius: `multisolver::locate` on a step's series in dd, the ratio
+  width / |s| of every step of PA's `1/x` and PC with a resolved singularity within [0.09, 0.17] (D1's resolved sets lie in [0.104, 0.160] at nb 30, tail 1e-25, last 2).
+
+**A2 (2026-11-27, stage 2). Library `feat/taylor-tables` at 03e5727 (module) and 3a64b91 (tests); pull request https://github.com/nmoinvaz/multishoot/pull/79.**
+
+- **The coordinator's ruling on the design** (approved, with): API and rule as in design.md sections 1 and 2, with the monotonicity derivation in the module doc stated
+  as proved only for what it shows (`d ln(t_k / S) / d ln h = k - k_bar`); Option L (`JetSource::limit`) **not in this PR** (filed by the coordinator as its own task);
+  **`last` default 4**, PE asserts that `last` 2 fails and 3 and 4 pass, the step lists recomputed by `proto_table.py` for `last` 4 before the first library run; **C6 dropped**;
+  controls confirmed; design section 9 items 1 and 2 belong to stage 3 and item 6 is stale (dropped).
+- **Recomputed at `last` 4 before the first library run** (`proto_table.py` default now 4; the `last` 2 script is kept as `proto_table_last2.py.txt`): the cases and controls
+  `dev_14` (step lists in `proto_steps_last4.json`), PS and PH in qd `dev_15`, the PH and PS tables' step lists `dev_16` (`proto_steps_last4_ph_ps.json`), PH f64 and dd `dev_17`.
+  `gen_steps_in.py` wrote the library's `tests/table_steps.in` from them (C3). **One declared target changed with `last`**: `FractionOne` on PD no longer fires C1 (f64 5.8e-15
+  against 1e-12, dd 4.3e-26 against 1e-24; at `last` 2 it did), it fires C2 only; every other target is as declared. At `last` 4 every clean C1 maximum is smaller, the tightest
+  being PC (4.8e-15 / 1e-12 in f64, 5.5e-28 / 1e-24 in dd).
+- **First library run (`dev_18`): C1, C2 and C3 pass in every cell (f64, dd, qd; PC in od), and the PH and C5 checks did not.**
+  - **PH was ill-posed** (my error in the design). The plane P[:, :2] of `y' = (M/x) y`, M = P diag(1, -2, 3, -1) P^-1, has the exponents (1, -2) among (3, -1), so it is not the
+    dominant plane and rounding in the lane grows against it as x^5 over 1e-3 to 40: plane error 5.5e-1 (f64), 6.4e-9 (dd), 7.3e-41 (qd), the lane's eps times 1e23. The 90-digit
+    prototype hid it. The same run with the closed-form jets and **no table** gives the same 5.4772e-1 (f64): the table was not the cause. **The problem was changed, the bars were not**:
+    M = P diag(-1, -2, -3, -4) P^-1 (every mode has an infinite series, the plane is the dominant one), ln_vol = (1/2) ln 5 - 3 ln(40 / 1e-3). The prototype's PH was rerun
+    with it (`dev_19` f64 and dd with the fraction sweep and controls, `dev_20` qd; the old script is `proto_table_ph_exp1_2_3_1.py.txt`). **design.md section 4's table is superseded** by:
+
+    | lane | table steps | plane steps | (shift + step) / w max | plane steps past w | fraction 0.3 |
+    |---|---|---|---|---|---|
+    | f64 | 125 | 86 | 0.970 | 0 | pass |
+    | dd | 158 | 90 | 1.072 | 12 | pass |
+    | qd | 193 | 95 | 1.168 | 30 | pass |
+
+    and the dd fraction sweep (0.2, 0.3, 0.5 pass, with 0, 12, 30 steps past w; **0.7 fails** the log-volume bar, 1.15e-26 against 3.8e-27, 33 past, up to 1.52 w; **1.0 fails**,
+    2.2e-23, up to 1.73 w); f64 passes at every fraction up to 1 (1.2e-11 against 3.4e-11). The PH controls at the prototype: `FractionOne` dd 2.2e-23, qd 5.2e-47 (bar 3.8e-27 and
+    4.7e-59), `LooseTail` dd 1.2e-22, qd 1.5e-37, both silent in f64 (1.2e-11, 5.3e-14 against 3.4e-11).
+  - **C5 is not met as worded in dd and qd** (`Err(Stall)` within 1e-9 of 5 from below). The coefficient of order nb - 1 of `1/(x-5)` is `d^-nb`, and every part of a multidouble shares
+    f64's range, so it leaves it at d = f64::MAX^(-1/nb): `NotFinite` at 5 - x = 5.27e-11 in dd (the overflow distance 5.31e-11) and **7.13e-6 in qd** (7.29e-6), which is also
+    outside the 1e-9 of the criterion. f64 meets it (Stall at 4.99999999999999112). The prototype, in decimal arithmetic, had no overflow. I did not change C5 or the library to meet it:
+    the approved API has `NotFinite` for a coefficient that is infinite. The behavior is recorded in its own test (`pole_on_the_path_wide_lanes_recorded`: `NotFinite`, order nb - 1,
+    below the pole within ten times `f64::MAX^(-1/nb)`; this is a recorded result, not the criterion) and in the module's limits.
+- **Second library run (`dev_21`)**: all 15 tests pass, PH 5.4e-16, 5.9e-32, 2.6e-64 (plane) and 3.6e-15, 3.0e-30, 2.5e-62 (ln_vol) against 1.1e-12, 1.2e-28, 1.5e-60 and 3.4e-11, 3.8e-27, 4.7e-59.
+- **Controls** (`dev_22`, with `mutate`): every cell as declared (the `declared` function of `tests/table.rs`); 21 tests pass. `ShiftF64` fires on PP in dd and qd only (4.6e-16 against 1e-24
+  and 1e-54). `Unscaled` on PS gives E = NaN (the plain test steps to xb and the reference is evaluated past nothing: inf - inf), the prototype's 1.0; both fail the bar.
+- **Cross-backend** (`dev_23`): the default build's digests, embedded in the test, hold with `--features portable,mutate`.
+- **Runs of record** (module at 03e5727, tests at 3a64b91, aarch64 NEON on this Mac; `+avx2,+fma` not run): `run_01` default (15 passed), `run_02` mutate (21), `run_03` portable,mutate (21),
+  `run_04` portable (15), `run_05` fmt, clippy (mutate, portable+mutate, default), doc with warnings denied, all clean; the 28 digest lines of `run_01` and `run_04` are identical (`cmp`).
+- **Run bookkeeping.** `dev_17` and the earlier `dev_16` ran together with others and `dev_12` has two runs (A1); `dev_13` holds PS at `last` 2. A sed edit of `proto_table.py` replaced
+  its `last` default; both older scripts are kept as `.py.txt`. A pkill by name was refused by the auto-mode classifier once, correctly (stop by PID only); the process had already ended.

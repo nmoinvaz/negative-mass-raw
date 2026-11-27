@@ -129,6 +129,36 @@ and the propagation law); D1, L1, L2 and the mutations share the evolution. An e
 | a single cell | the number of nodes near the maximum (L1), planted spike as the control | runs of record |
 | the corner | the location of the maximum (L2), planted corner spike as the control | runs of record |
 
-## Files (filled in at the runs of record)
+## Runs of record
 
-`jobs.txt` (queue), `launch_I226.sh`, `pstar_table.json`, `runs/` (json per job, npz of the slices), `done/`, `queue.log`, `dev/`.
+106 jobs (`jobs_wave1.txt`: 98 jobs with the three declared h, started 2026-11-27 11:05; `jobs_wave2.txt`: the 8 extension-h jobs, started 11:15), three workers at nice 10 with one thread each, wall 59 min (to 12:05), 8022 CPU s, longest job
+1320 s (`sqm_D6_k3`); every job exit 0 (`done/*.rc`), none stopped by the 2 h limit; rss 140 to 150 MB per worker at the one reading (11:15), 6 GB available; no process of another project was touched. The extension p*ₕ are `pstar_ext/` (D = 5: 4.5051120e-06,
+bracket 1.8e-10; D = 6: 1.7344915e-05, bracket 1.7e-10); `pstar_table.json` holds #40's three p*ₕ, the bracket amplitudes lo, hi and these. The script's `run` code is the commit 2179de2 of the code repository; its analysis part was changed afterwards
+only to count the comparisons each check evaluated (a check with none found fails) and to print section P; the runs were not repeated.
+
+`make_output.sh` writes `notes/wormhole_evolution/constraint_plateau_output.txt` from `runs/` (controls, analyze, every mutation).
+
+| id | verdict | numbers |
+|---|---|---|
+| K0 to K3 | pass | difference 0.0 (K0), 0.0 (K1), 0.0 (K2), binary128 against float64 −1.2e-05 (K3) |
+| R1 | pass | D = 5: 4.015, 3.937 (extension 3.100); D = 6: 4.204, 3.758 (extension 1.337) |
+| R2 S −, S + | measurement, band not met at D = 6 and D = 5 S + | D = 5: 3.962, 3.364 (S −: on the edge, met), 3.973, 3.314; D = 6: 4.073, 1.932; 4.081, 2.270; extension halving 0.589, 0.822 (D = 5), 0.386, 0.315 (D = 6) |
+| R3 bracket lo, hi | measurement, band not met | D = 5: 3.893, 1.892; 3.900, 1.829; D = 6: 3.547, 1.066; 3.701, 1.017 |
+| C1 binary128 | pass | 4.0 to 4.2 at every declared halving in every set; extension halving 4.000, 4.003 |
+| C2 added noise | pass | finest declared h, a = 256: ×57 (D = 5), ×113 (D = 6); coarsest, a = 16: ×1.005, ×1.001 |
+| D1 ray data | pass | ×1.076, ×1.030 (D = 5), ×0.866, ×0.979 (D = 6) |
+| L1 single cell | pass | at least 36 nodes within a factor 2 of the maximum |
+| L2 corner | pass | min(x⁺, x⁻) of the maximum ≥ 2.72 |
+| M1 noise model | pass | observed/model 0.71 to 1.14 (natural), 0.93 to 1.14 (a = 16), 0.91 to 1.14 (a = 256), 48 values each |
+
+Mutations (`constraint_plateau_output.txt`), each fired exactly its declared check: `cons_sign` K0 (difference 9.0), `diag_S` K1 (4.0e+02), `rk4_step` K2 (2.7e-09), `quad_h` K3 (−2.0e-02), `static_noise256` R1 (finest halving 0.662, 0.293), `quad_as_double`
+C1 (finest-halving float64 ratios 1.93, 2.27, 1.07 at D = 6), `noise_inert` C2 (×1.000), `ray_pert` D1 (×15.8, ×27.5), `spike` L1 (2 nodes), `corner` L2 (x⁺ = 0.002, 0.001), `model_exp` M1 (ratios up to 4.5). The effects equal the declared ones; the one
+declaration the runs corrected is `quad_as_double` at D = 5, where the finest halving of S − (3.364) is on the band's edge and the mutation fires through the others.
+
+`supplement/` (exploratory, written after the runs of record, not a declared check): `r_roundoff.py` and its logs. Roundoff error of r on the static diagonal t = 3.5: 1.4e-11 (D = 6, h = 0.00125), 4.2e-12 (D = 5, h = 0.00177), against the difference
+from the exact static r(l) of 4.1e-4 and 6.4e-5; in family S at p* − 1e-8, t = 7, D = 6: 2.5e-08.
+
+## Files
+
+`README.md` (this), `jobs_wave1.txt`, `jobs_wave2.txt`, `launch_I226.sh` (queue worker, `launch_I226.sh LIST`), `make_output.sh`, `pstar_table.json`, `pstar_ext/` (the extension bisections and their points), `runs/` (one json per job, npz of the slices),
+`logs/` (job logs), `done/` (exit codes), `queue.log`, `dev/` (development scripts, logs and data; the scripts are as run, with scratchpad paths), `supplement/`.

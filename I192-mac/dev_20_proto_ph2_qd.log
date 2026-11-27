@@ -1,0 +1,15 @@
+# 2026-11-27 12:27:32 cwd=/Users/nathan/Source/negative-mass-raw/I192-mac
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python -u proto_table.py --cases  --ph --ph-fractions 0.3 --ph-controls --ph-ctls fraction_one,loose_tail --lanes qd
+  .. PH qd plane step 25 x = 0.0368761 h = 4.955e-03 reach/w 1.1311
+  .. PH qd plane step 50 x = 1.35985 h = 1.827e-01 reach/w 0.9611
+  .. PH qd plane step 75 x = 20.6506 h = 1.000e+00 reach/w 0.4337
+PH qd  fraction=0.3 ctl=None: kt 80 nb 92 tail 1.505e-64 table steps 193 plane steps 95  plane err 1.624e-89 (bar 1.505e-60) PASS  ln_vol err 2.379e-62 (bar 4.662e-59) PASS  max (shift+step)/w 1.1676e+00, plane steps past w: 30
+  .. PH qd plane step 25 x = 0.0321423 h = 4.319e-03 reach/w 1.0821
+  .. PH qd plane step 50 x = 1.02027 h = 1.371e-01 reach/w 1.0847
+  .. PH qd plane step 75 x = 18.0295 h = 1.000e+00 reach/w 0.6727
+PH qd  fraction=0.3 ctl=fraction_one: kt 80 nb 92 tail 1.505e-64 table steps 62 plane steps 97  plane err 3.157e-90 (bar 1.505e-60) PASS  ln_vol err 5.170e-47 (bar 4.662e-59) FAIL  max (shift+step)/w 1.7109e+00, plane steps past w: 61
+  .. PH qd plane step 25 x = 0.0248851 h = 2.496e-03 reach/w 0.4560
+  .. PH qd plane step 50 x = 0.637241 h = 8.268e-02 reach/w 0.2989
+  .. PH qd plane step 75 x = 13.3701 h = 1.000e+00 reach/w 0.2093
+  .. PH qd plane step 100 x = 38.3701 h = 1.000e+00 reach/w 0.1255
+PH qd  fraction=0.3 ctl=loose_tail: kt 80 nb 92 tail 1.505e-64 table steps 45 plane steps 102  plane err 4.587e-90 (bar 1.505e-60) PASS  ln_vol err 1.523e-37 (bar 4.662e-59) FAIL  max (shift+step)/w 4.5599e-01, plane steps past w: 0
