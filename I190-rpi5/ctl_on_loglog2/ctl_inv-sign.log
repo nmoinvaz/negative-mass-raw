@@ -1,0 +1,5 @@
+[FAIL] invariants: T = 1/p - t: T' = -(q + p^2)/p^2 (False); g = G + ln p: g' = (q + p^2)/p (True); both vanish at q = -p^2 (True); p = 1/(t + T), G = ln(t + T) + g solves G' = p, p' = -p^2 (True)
+  (0 s)
+
+checks: 0 passed, 1 failed ['invariants']. 0 s
+control inv-sign: target checks ['invariants'], fired ['invariants']
