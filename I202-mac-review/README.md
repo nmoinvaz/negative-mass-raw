@@ -31,3 +31,6 @@ D = 4 … 11 by its own regex, then compares them with the runner's transcriptio
 
 | file | what |
 |---|---|
+| `ts13_src/table_lines_680-705.tex` | Table I's lines 680–705 from arXiv:1309.2058's e-print (`NdimWH_130910rev2.tex`, the latest arXiv version, read as data) |
+| `ind202_run1.txt`, `ind202_run1_mut_digit.txt` | run 1: **exit 0, 2 of 2.** K1: the eleven entries read from the TeX (D = 4 … 11, 20, 50, 100), with D = 4 … 11 equal to `PRINTED` character for character. K2: every one of growth.csv's D = 4 … 11 rows is the printed |ω²| rounded half-even to 12 decimals. `digit` fails exactly K1 and K2 |
+| `rerun_ts13_digits.txt` | `ts13_digits.py` on the Mac: exit 0, with the table body equal to `ts13_digits_output.txt`. The committed file also carries a command header and a `--selftest` section, which this rerun did not run |
