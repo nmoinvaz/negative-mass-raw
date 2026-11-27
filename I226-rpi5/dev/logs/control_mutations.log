@@ -1,0 +1,28 @@
+--- mutate=cons_sign
+[FAIL] K0: streamed prefix maxima of |C_++|, |C_--| equal dn.constraints' (static, family S, family G; numba kernel)  (largest difference 9.0e+00)
+[pass] K1: the float64 anti-diagonal sweep reproduces the numba row sweep: time-bin maxima, their nodes and two diagonals, bit for bit  (largest slice difference 0.0e+00)
+[pass] K2: ellis_rays_x (float64, own RK4 step = the grid's) reproduces dn.ellis_rays bit for bit (static, S, G)  (largest difference 0.0e+00)
+[pass] K3: binary128 and float64 sweeps give the same slab maximum where truncation dominates (D = 6, h = 0.005, static, t <= 4)  (float64 3.079668e+00, binary128 3.079668e+00, ratio - 1 = 2.0e-09, tolerance 2e-3)
+mutation cons_sign: expected to fire ['K0']; fired ['K0']
+exit 0
+--- mutate=diag_S
+[pass] K0: streamed prefix maxima of |C_++|, |C_--| equal dn.constraints' (static, family S, family G; numba kernel)  (largest difference 0.0e+00)
+[FAIL] K1: the float64 anti-diagonal sweep reproduces the numba row sweep: time-bin maxima, their nodes and two diagonals, bit for bit  (largest slice difference 4.0e+02)
+[pass] K2: ellis_rays_x (float64, own RK4 step = the grid's) reproduces dn.ellis_rays bit for bit (static, S, G)  (largest difference 0.0e+00)
+[pass] K3: binary128 and float64 sweeps give the same slab maximum where truncation dominates (D = 6, h = 0.005, static, t <= 4)  (float64 1.515213e+05, binary128 1.515213e+05, ratio - 1 = -5.8e-15, tolerance 2e-3)
+mutation diag_S: expected to fire ['K1']; fired ['K1']
+exit 0
+--- mutate=rk4_step
+[pass] K0: streamed prefix maxima of |C_++|, |C_--| equal dn.constraints' (static, family S, family G; numba kernel)  (largest difference 0.0e+00)
+[pass] K1: the float64 anti-diagonal sweep reproduces the numba row sweep: time-bin maxima, their nodes and two diagonals, bit for bit  (largest slice difference 0.0e+00)
+[FAIL] K2: ellis_rays_x (float64, own RK4 step = the grid's) reproduces dn.ellis_rays bit for bit (static, S, G)  (largest difference 2.7e-09)
+[pass] K3: binary128 and float64 sweeps give the same slab maximum where truncation dominates (D = 6, h = 0.005, static, t <= 4)  (float64 7.840542e-05, binary128 7.840449e-05, ratio - 1 = -1.2e-05, tolerance 2e-3)
+mutation rk4_step: expected to fire ['K2']; fired ['K2']
+exit 0
+--- mutate=quad_h
+[pass] K0: streamed prefix maxima of |C_++|, |C_--| equal dn.constraints' (static, family S, family G; numba kernel)  (largest difference 0.0e+00)
+[pass] K1: the float64 anti-diagonal sweep reproduces the numba row sweep: time-bin maxima, their nodes and two diagonals, bit for bit  (largest slice difference 0.0e+00)
+[pass] K2: ellis_rays_x (float64, own RK4 step = the grid's) reproduces dn.ellis_rays bit for bit (static, S, G)  (largest difference 0.0e+00)
+[FAIL] K3: binary128 and float64 sweeps give the same slab maximum where truncation dominates (D = 6, h = 0.005, static, t <= 4)  (float64 7.840542e-05, binary128 7.685961e-05, ratio - 1 = -2.0e-02, tolerance 2e-3)
+mutation quad_h: expected to fire ['K3']; fired ['K3']
+exit 0
