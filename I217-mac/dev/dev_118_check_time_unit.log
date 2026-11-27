@@ -1,0 +1,22 @@
+[pass] E0: new kernel with the potential flag off and on at c = 0 (V = 0) equals dn.evolve: three grids (static, collapse with excision, expansion), numba and numpy  (max |dG| 0.0e+00; dead masks equal True)
+    (E0: 0.7 s)
+[pass] E1: the kernel's right-hand side equals the equations with V (V and V' of [BF06] written out and differentiated in sympy) at 40 random states, c = -0.3, -1.5, -1, 0  (max relative difference 7.2e-16, tolerance 1e-13)
+    (E1: 0.1 s)
+[pass] E2: numba and numpy kernels agree with V on, three members (c = -0.3, -1.5, -1; one-sided pulse A = 0.02, h = 0.04, N = 250), same dead masks  (max |dG| 0.0e+00, tolerance 1e-12, dead masks equal True)
+    (E2: 0.2 s)
+[pass] E3: the c = 0 member with a one-sided pulse, on the rays, equals dn.ellis_rays (N = 1000, h = 0.02)  (r 1.7e-09 (tolerance 2e-9, #39's I1), phi 5.5e-13 (1e-12), f 0e+00 (0))
+    (E3: 0.0 s)
+[pass] E4: static members c = 0, -0.3, -1.5, -1 stay static to the truncation error for t <= 8 (X = 10, h = 0.04, 0.02, 0.01): second order  (orders within [1.75, 2.25]; c = 0.0: errors 1.61e-01, 3.74e-02, 9.23e-03, orders 2.11, 2.02; c = -0.3: errors 2.13e-02, 5.44e-03, 1.37e-03, orders 1.97, 1.99; c = -1.5: errors 2.04e-03, 5.15e-04, 1.29e-04, orders 1.99, 1.99; c = -1.0: errors 7.56e-03, 1.91e-03, 4.81e-04, orders 1.98, 1.99)
+    (E4: 0.6 s)
+[pass] E5: the growth rate of Y on the diagonal, from the truncation seed of the untuned member over |Y| in [0.0001, 0.001], equals #212's W at c = -0.3 and -1.5, and the error falls from h = 0.01 to 0.005  (tolerance 1.5%; c = -0.3, h = 0.01: 0.9606 against W = 0.97008 (-9.8e-03, 170 rows); c = -0.3, h = 0.005: 0.9668 against W = 0.97008 (-3.4e-03, 337 rows); c = -1.5, h = 0.01: 0.4918 against W = 0.49417 (-4.9e-03, 331 rows); c = -1.5, h = 0.005: 0.4938 against W = 0.49417 (-7.9e-04, 660 rows))
+    (E5: 3.7 s)
+[pass] E6: the 1D master equation in the time domain (no double-null code; shares only #212's V-hat) reproduces #212's W, and decays at c = -1  (rate of ln|u(x = 0)| over t = 45 to 60, tolerance 1e-4: -2.0: 0.39845 (+8e-07); -1.5: 0.49417 (+1e-06); -1.1: 0.60319 (+2e-06); -1.01: 0.63315 (+2e-06); -1.001: 0.63627 (+1e-06); -1: -0.0370 (must be < 0))
+    (E6: 0.9 s)
+[pass] E7: the shape of the code's growing Y(l) (untuned member, h = 0.005, the slice where the diagonal |Y| first reaches 0.001, normalized at l = 1) equals #212's Y(rho(l)) (ingoing from the horizon, matched to the decaying solution; through the throat's arc at c = -0.3)  (max difference over l in [-6, 6] relative to the maximum, bar 0.01: c = -1.5: 4.8e-03; c = -1.01: 2.7e-03; c = -1.1: 2.6e-03; c = -0.3: 5.3e-03)
+    (E7: 7.8 s)
+[FAIL] PL: planted series (slope 1/W, sigma 0.01 plus the row quantization) through the same bisect, series, fit_set: A* recovered, 1/W inside the fit spread in >= 90 % of 40 seeds  (W = 0.97008: 1/W inside the spread in 0 of 40, A* recovered in 40 of 40, primary error mean +4.1e-01; 1/(sqrt2 W) rejected in 0 of 40; W = 0.49417: 1/W inside the spread in 0 of 40, A* recovered in 40 of 40, primary error mean +4.1e-01; 1/(sqrt2 W) rejected in 0 of 40)
+[FAIL] PX: a planted series with the time unit scaled by sqrt2 (slope 1/(sqrt2 W)) is rejected by the comparison with 1/W in every seed
+    (PL: 0.1 s)
+
+10 checks, 8 pass, 2 fail: ['PL', 'PX']; mutation time_unit
+mutation time_unit: fired ['PL', 'PX'], declared []: DIFFERENT

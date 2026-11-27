@@ -1,0 +1,7 @@
+SILENT  --mutate=cplx_conj (target P4 planted): exit 0; 
+fires   --mutate=cplx_V (target P4 planted): exit 1; FAIL  P4 planted complex bound state R1: W = 0.3900000000 +0.2600000000i, reference 0.3000000000 +0.2000000000i, relative difference 3.000e-01 (declared <= 1e-0
+SILENT  --mutate=cplx_ned (target C1 complex): exit 1; FAIL  C1 S_m0.3: no complex eigenvalue with Re lambda > 1e-3 in the S-B spectral problem
+fires   --mutate=lowW_V (target P3 planted): exit 1; FAIL  P3 planted weak bound state R1: roots 1 (declared 1), W = 5.9999999995e-05, reference 3.0000000000e-05, relative difference 1.000e+00 (declared <= 0.001);
+fires   --mutate=lowW_range (target P3 planted): exit 1; FAIL  P3 planted weak bound state R1: roots 0 (declared 1), W = nan, reference 3.0000000000e-05, relative difference nan (declared <= 0.001); range [0.0001, 0.0
+fires   --mutate=rmax_low (target low R1 v R2): exit 0; S_m1 low stage: n_roots 0 against 1; max |dW|/W = 0.000e+00 (declared <= 0.0001)
+exit status 1

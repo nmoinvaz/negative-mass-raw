@@ -1,0 +1,211 @@
+   Compiling crossbeam-utils v0.8.23
+   Compiling crossbeam-epoch v0.9.21
+   Compiling crossbeam-deque v0.8.8
+   Compiling rayon-core v1.13.0
+   Compiling either v1.19.0
+   Compiling rayon v1.12.0
+   Compiling multidouble v5.1.0
+   Compiling multisolver v0.2.2
+   Compiling multishoot v4.2.0
+   Compiling taylor_radial v0.1.0 (/Users/nathan/Source/negative-mass-r194/phase2/radial/taylor_radial)
+warning: unused import: `Shooting`
+  --> src/cont.rs:10:40
+   |
+10 | use multishoot::{Double, Family, Plan, Shooting};
+   |                                        ^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `crate::num::Num`
+   --> src/bvp.rs:181:5
+    |
+181 | use crate::num::Num;
+    |     ^^^^^^^^^^^^^^^
+
+warning: value assigned to `x` is never read
+  --> src/roots.rs:22:10
+   |
+22 |     let (mut x, mut fx) = (a, fa);
+   |          ^^^^^
+   |
+   = help: maybe it is overwritten before being read?
+   = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `fx` is never read
+  --> src/roots.rs:22:17
+   |
+22 |     let (mut x, mut fx) = (a, fa);
+   |                 ^^^^^^
+   |
+   = help: maybe it is overwritten before being read?
+
+warning: variable does not need to be mutable
+   --> src/main.rs:361:13
+    |
+361 |         let mut variant = |name: &str, order: usize, tol: f64, scale: f64, p: &family::Prepared| {
+    |             ----^^^^^^^
+    |             |
+    |             help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `x_node` is never read
+   --> src/bvp.rs:212:9
+    |
+207 | pub struct StarSol {
+    |            ------- field in this struct
+...
+212 |     pub x_node: usize,
+    |         ^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: fields `rs` and `eps` are never read
+   --> src/bvp.rs:515:9
+    |
+513 | pub struct Profile {
+    |            ------- fields in this struct
+514 |     pub steps: Vec<crate::table::StarStep<DD>>,
+515 |     pub rs: f64,
+    |         ^^
+...
+518 |     pub eps: f64,
+    |         ^^^
+
+warning: methods `alpha_c`, `k`, `omega`, `pc`, `zc`, and `mass` are never used
+   --> src/bvp.rs:637:12
+    |
+636 | impl StarSolZ {
+    | ------------- methods in this implementation
+637 |     pub fn alpha_c(&self) -> DD {
+    |            ^^^^^^^
+...
+640 |     pub fn k(&self) -> DD {
+    |            ^
+...
+643 |     pub fn omega(&self) -> DD {
+    |            ^^^^^
+...
+647 |     pub fn pc(&self) -> DD {
+    |            ^^
+...
+650 |     pub fn zc(&self) -> DD {
+    |            ^^
+...
+654 |     pub fn mass(&self) -> DD {
+    |            ^^^^
+
+warning: field `eps` is never read
+  --> src/family.rs:12:9
+   |
+11 | pub struct Prepared {
+   |            -------- field in this struct
+12 |     pub eps: f64,
+   |         ^^^
+
+warning: function `matmul` is never used
+  --> src/linalg.rs:70:8
+   |
+70 | pub fn matmul<T: Num, const N: usize>(a: &[[T; N]; N], b: &[[T; N]; N]) -> [[T; N]; N] {
+   |        ^^^^^^
+
+warning: field `s` is never read
+   --> src/planted.rs:100:9
+    |
+ 99 | pub struct Planted<T: Num> {
+    |            ------- field in this struct
+100 |     pub s: T,
+    |         ^
+
+warning: fields `bracket` and `last_step` are never read
+  --> src/roots.rs:11:9
+   |
+ 6 | pub struct Root<T: Num> {
+   |            ---- fields in this struct
+...
+11 |     pub bracket: f64,
+   |         ^^^^^^^
+12 |     pub last_step: f64,
+   |         ^^^^^^^^^
+
+warning: method `eval` is never used
+  --> src/ser.rs:46:12
+   |
+14 | impl<T: Num> Ser<T> {
+   | ------------------- method in this implementation
+...
+46 |     pub fn eval(&self, t: T) -> T {
+   |            ^^^^
+
+warning: function `div` is never used
+   --> src/ser.rs:145:8
+    |
+145 | pub fn div<T: Num>(a: &Ser<T>, b: &Ser<T>) -> Ser<T> {
+    |        ^^^
+
+warning: fields `x0`, `x1`, and `coef` are never read
+  --> src/star_ref.rs:28:9
+   |
+27 | pub struct StarStep<T: Num> {
+   |            -------- fields in this struct
+28 |     pub x0: f64,
+   |         ^^
+29 |     pub x1: f64,
+   |         ^^
+30 |     pub coef: Coef<T>,
+   |         ^^^^
+   |
+   = note: `StarStep` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+warning: field `steps` is never read
+  --> src/star_ref.rs:34:9
+   |
+33 | pub struct Run<T: Num> {
+   |            --- field in this struct
+34 |     pub steps: Vec<StarStep<T>>,
+   |         ^^^^^
+
+warning: struct `Star` is never constructed
+   --> src/star_ref.rs:220:12
+    |
+220 | pub struct Star<T: Num> {
+    |            ^^^^
+
+warning: function `build_star` is never used
+   --> src/star_ref.rs:331:8
+    |
+331 | pub fn build_star<T: Num>(pc: T, zc: T, p: &StarPars<T>, cfg: &SolveCfg, r_end: f64) -> Star<T> {
+    |        ^^^^^^^^^^
+
+warning: methods `state` and `bg` are never used
+   --> src/star_ref.rs:338:12
+    |
+336 | impl<T: Num> Star<T> {
+    | -------------------- methods in this implementation
+337 |     /// (P, u, m, Z) at r by Horner on the step holding r
+338 |     pub fn state(&self, r: f64) -> [T; 4] {
+    |            ^^^^^
+...
+356 |     pub fn bg(&self, r: f64) -> [T; 4] {
+    |            ^^
+
+warning: `taylor_radial` (bin "taylor_radial") generated 19 warnings (run `cargo fix --bin "taylor_radial" -p taylor_radial` to apply 2 suggestions)
+    Finished `release` profile [optimized] target(s) in 17.06s
+     1573.04 real      1858.39 user         8.05 sys
+           671186944  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             1552285  page reclaims
+               13757  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                  16  signals received
+                2781  voluntary context switches
+              436799  involuntary context switches
+        194296101054  instructions retired
+         38034782865  cycles elapsed
+            79430352  peak memory footprint
