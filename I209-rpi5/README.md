@@ -124,3 +124,21 @@ leaves ∫C² silent because the orthogonality of sin 2nθ does not see the sign
   development runs of the parts (the first `dev_sym` attempt ran in the foreground and was stopped by hand; its note is
   `dev_sym_00_note.txt`). `dev_grid_02.log`: the third grid through the script.
 - `units.txt`: the systemd units.
+
+## Runs of record
+
+Code: `notes/wormhole_largeD/exchange_review.py` at negative-mass `886f764` (unchanged by the runs below; the note was edited
+after them). All runs on rpi5-ubuntu, one process each, `nice -n 10`, as systemd units (`units.txt`).
+
+| log | what | exit | wall | peak RSS |
+|---|---|---|---|---|
+| `run_01_sym_exact_clausen_exch_grid.log` | `sym exact clausen exch grid`: 39 of 39 pass | 0 | 203 s | 100.6 MB |
+| `ctl_<name>.log` (27) | each control, `--mutate=NAME` | 1 each (a control fails its targets by design) | 2 s to 2.4 min | |
+| `run_02_all_ctlsum.log` | the same parts and `ctlsum` over `ctl_*`: 66 of 66 pass, 27 of 27 controls on target; writes `exchange_review_output.txt` | 0 | 199 s | 100.8 MB |
+
+No stop condition fired. Memory was reported only. The third grid took 98 s (inside `run_01`), well under the 1 h limit.
+
+The comparison with `omega2.md` and `omega3.md` was made after `exchange_review.md` (with the derivations) and its output were
+committed and pushed (negative-mass `a2e647e`, raw `1589421`). Its result is §8 of the note: no difference in a sign, constant or
+result; differences in route and in what is stated.
+
