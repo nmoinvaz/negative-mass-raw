@@ -70,8 +70,8 @@ A digit count is −log₁₀ of a relative difference between two evaluations. 
 | E3G_3, E3G_4, E3G_5 | G_k from the hierarchy against the reduced form with no Y_{k−1} and no Y_k | 30 digits |
 | BND | boundary terms at the first two and the last node: Y_k cot θ, ℓC_m, cot θ ℓ, Y₄P | throat end: b/θᵖ constant to 1 % and equal to the predicted leading coefficient where there is one; outer end: \|b\| < 1e-30 and b/(x lᵠ) bounded |
 | GROW | growth of Y_k, L_k against powers of l at the last node | reported, no bar |
-| GR1 | Ω₂ on the third grid against #26's A70 (`order4_output.txt`, 48 printed digits) | 40 digits |
-| GR2 | Ω₃ on the third grid against #208's B4 (`order5_output.txt`, 113 printed digits) | 40 digits |
+| GR1 | Ω₂ on the third grid against #26's A70 (`order4_output.txt`, 47 printed decimals) | 40 digits |
+| GR2 | Ω₃ on the third grid against #208's B4 (`order5_output.txt`, 107 printed decimals) | 40 digits |
 | GR3 | Ω₀, Ω₁ on the third grid against −4 ln 2 and 2π²/3 + 8 ln² 2 | 40 digits |
 | GR4 | slope of G_k in Ω_{k−2}, k = 2 … 5, against −4π | 40 digits |
 
@@ -127,14 +127,16 @@ leaves ∫C² silent because the orthogonality of sin 2nθ does not see the sign
 
 ## Runs of record
 
-Code: `notes/wormhole_largeD/exchange_review.py` at negative-mass `886f764` (unchanged by the runs below; the note was edited
-after them). All runs on rpi5-ubuntu, one process each, `nice -n 10`, as systemd units (`units.txt`).
+Code: `notes/wormhole_largeD/exchange_review.py` at negative-mass `886f764` for `run_01`, `ctl_*` and `run_02`; at `023019f` for
+`run_03`, which differs only in two printed texts (A70 and B4 print 47 and 107 decimals, not "48 digits" and "113 digits"; the
+first texts were miscounts of the strings). The verdict lines of `run_02` and `run_03` are identical. All runs on rpi5-ubuntu, one process each, `nice -n 10`, as systemd units (`units.txt`).
 
 | log | what | exit | wall | peak RSS |
 |---|---|---|---|---|
 | `run_01_sym_exact_clausen_exch_grid.log` | `sym exact clausen exch grid`: 39 of 39 pass | 0 | 203 s | 100.6 MB |
 | `ctl_<name>.log` (27) | each control, `--mutate=NAME` | 1 each (a control fails its targets by design) | 2 s to 2.4 min | |
-| `run_02_all_ctlsum.log` | the same parts and `ctlsum` over `ctl_*`: 66 of 66 pass, 27 of 27 controls on target; writes `exchange_review_output.txt` | 0 | 199 s | 100.8 MB |
+| `run_02_all_ctlsum.log` | the same parts and `ctlsum` over `ctl_*`: 66 of 66 pass, 27 of 27 controls on target | 0 | 199 s | 100.8 MB |
+| `run_03_all_ctlsum.log` | `run_02` again at `023019f`; writes `exchange_review_output.txt` | 0 | 201 s | 100.9 MB |
 
 No stop condition fired. Memory was reported only. The third grid took 98 s (inside `run_01`), well under the 1 h limit.
 
