@@ -1,0 +1,42 @@
+settled_mass.py analyze {'raw': '/home/nathan/Source/negative-mass-raw/I41-rpi5', 'mutate': 'theta_coef'}: numba 0.68.1, numpy 2.5.4, python 3.14.10, rpi5-ubuntu, load average at start 3.22 3.13 2.80, mutation theta_coef, 2026-11-27 07:12:23
+
+== Planted exact solutions through the chain
+    P1 h = 0.02: status level 0: no horizon at the first column, columns 0, F to 0, max |M - 0.3| inf, max |x- - x_h| inf
+    P1 h = 0.01: status level 0: no horizon at the first column, columns 0, F to 0, max |M - 0.3| inf, max |x- - x_h| inf
+    P1 h = 0.005: status level 0: no horizon at the first column, columns 0, F to 0, max |M - 0.3| inf, max |x- - x_h| inf
+    P1 h = 0.0025: status level 0: no horizon at the first column, columns 0, F to 0, max |M - 0.3| inf, max |x- - x_h| inf
+[FAIL] PL1: exact Schwarzschild (M = 0.3) in the stretching gauge, through the chain: M recovered, second order, limit reached  (max |M - 0.3| at h = 0.005: inf (bar 1e-4); orders [nan, nan, nan] in (1.75, 2.25); status ['level 0: no horizon at the first column', 'level 0: no horizon at the first column', 'level 0: no horizon at the first column', 'level 0: no horizon at the first column']; F reached [0, 0, 0, 0] of 1.57286e+06)
+    P2 h = 0.02: columns 74 (levels [74, 0, 0]), max |r - r_exact| on r_+ = 0: 1.818e+00, max |x- - 2 a x+| 1.855e+00, min edge 12 cells
+    P2 h = 0.01: columns 154 (levels [154, 0, 0]), max |r - r_exact| on r_+ = 0: 1.929e+00, max |x- - 2 a x+| 1.947e+00, min edge 24 cells
+    P2 h = 0.005: columns 321 (levels [321, 0, 0]), max |r - r_exact| on r_+ = 0: 2.107e+00, max |x- - 2 a x+| 2.042e+00, min edge 47 cells
+    P2 h = 0.0025: columns 0 (levels []), max |r - r_exact| on r_+ = 0: inf, max |x- - 2 a x+| inf, min edge nan cells
+[FAIL] PL2: exact Roberts ghost solution, moving contour r_+ = 0, two forced zoom levels: r on the contour, second order  (max error at h = 0.005: 2.11e+00 (bar 5e-5); orders [-0.086, -0.127, inf] in (1.75, 2.25))
+[FAIL] PL3: level 0 against dn.evolve  (failed: RuntimeError('fates at p*_h -/+ delta: -1, -1 (wanted -1, +1)'))
+[FAIL] AN: chain against a zoom-free uniform anisotropic grid (h, h/32): horizon M and x- where e^{-f} < 40  (h = 0.02, delta = 1e-06: events None / None, max |dM| inf (bar 3e-4), max |dx-| inf, 0 columns, AN series to F = 0)
+
+== p*_h on this machine against #40's (dh610-fedora)
+    h = 0.02: p*_h = 4.7527725360001875e-05, hi - lo = 6.10e-15, minus #40's +9.16e-15, 18 runs, 14 s
+    h = 0.01: p*_h = 1.1884163318125821e-05, hi - lo = 6.10e-15, minus #40's -4.58e-14, 18 runs, 48 s
+    h = 0.005: p*_h = 2.9711800304035538e-06, hi - lo = 6.10e-15, minus #40's -3.05e-15, 18 runs, 140 s
+    h = 0.0025: p*_h = 7.4280396930694569e-07, hi - lo = 9.54e-15, minus #40's +nan, 23 runs, 627 s
+[pass] RC1: p*_h bisected to hi - lo <= 1e-14 and, where #40 has it, within 1e-11 of #40's
+    run h = 0.02, delta = 1e-06 failed: RuntimeError('fates at p*_h -/+ delta: -1, -1 (wanted -1, +1)')
+    run h = 0.01, delta = 1e-06 failed: RuntimeError('fates at p*_h -/+ delta: -1, -1 (wanted -1, +1)')
+    run h = 0.005, delta = 1e-06 failed: RuntimeError('fates at p*_h -/+ delta: -1, -1 (wanted -1, +1)')
+    run h = 0.0025, delta = 1e-06 failed: RuntimeError('fates at p*_h -/+ delta: -1, -1 (wanted -1, +1)')
+    run h = 0.02, delta = 1e-08 failed: RuntimeError('fates at p*_h -/+ delta: -1, -1 (wanted -1, +1)')
+    run h = 0.01, delta = 1e-08 failed: RuntimeError('fates at p*_h -/+ delta: -1, -1 (wanted -1, +1)')
+    run h = 0.005, delta = 1e-08 failed: RuntimeError('fates at p*_h -/+ delta: -1, -1 (wanted -1, +1)')
+    run h = 0.0025, delta = 1e-08 failed: RuntimeError('fates at p*_h -/+ delta: -1, -1 (wanted -1, +1)')
+[FAIL] RC2: fates, first trapped cell and its time  (a run failed)
+[FAIL] RC3: formation value  (a run failed)
+[FAIL] RC4: first law  (a run failed)
+[FAIL] RC5: limit  (a run failed)
+[FAIL] RC6: convergence  (a run failed)
+[FAIL] RC6b: convergence, finer triple  (a run failed)
+[FAIL] RC8: settled  (a run failed)
+[FAIL] RC7: delta independence  (a run failed)
+
+13 checks, 12 failed; 7 s
+mutation theta_coef: fired ['AN', 'PL1', 'PL2', 'PL3', 'RC2', 'RC3', 'RC4', 'RC5', 'RC6', 'RC6b', 'RC7', 'RC8'], declared ['AN', 'PL1', 'PL2', 'PL3', 'RC2', 'RC3', 'RC4', 'RC5', 'RC6', 'RC6b', 'RC7', 'RC8']: MATCH
+rc 0

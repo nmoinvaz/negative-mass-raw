@@ -17,7 +17,7 @@ Fmax = F1 * 2 ** K
 out = sm.chain(2, eps, h, d.Sp[:, :Np + 1], d.Sm, 0.0, 0.0, nm0, None, None, F1, Fmax, Nc, tol=1e-2, log=lambda *a: None)
 s = out["ser"]
 tag = f"{fam}_h{h:g}_d{delta:g}_F{F1:g}_K{K}_N{Nc}"
-np.savez(f"real_{tag}.npz", **s)
+np.savez(f"/tmp/claude-1000/dev_real_{tag}.npz", **s)
 print(tag, "status", out["status"], "event", out["event"], "secs %.1f" % out["secs"], "cols", len(s["r"]))
 # level-by-level: M at start, end, min, max
 for k in range(K + 1):
