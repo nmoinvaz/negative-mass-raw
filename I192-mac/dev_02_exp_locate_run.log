@@ -1,0 +1,16 @@
+# 2026-11-27 11:52:08 cwd=/Users/nathan/Source/negative-mass-raw/I192-mac
+# cmd: /private/tmp/claude-501/-Users-nathan-Source-negative-mass-i192/5e4ef417-662c-4ecb-bc63-09bc137e5d87/scratchpad/exp_locate_target/release/exp_locate
+# D1: tail width (nb 30, tail 1e-25, search cap 100 radii or 100) and locate (default Opts), f64
+set                             W(last 2)  W(last 2)/R  W(last 4)/R  locate: kind |s| bar alpha alpha_bar  [model first degree]  time/call  | truth
+S1 1/(1-u)                     1.28611e-1       0.1286       0.1097  Real |s|=1.000000e0 bar=1.78e-15 re=1.000000e0 im=0.000000e0 alpha=-1.0000 abar=2.95e-14 [Ratio 9 1] t_locate=123.5us t_width=5.6us | s=1 alpha=-1
+S2 1/(1-u)^2                   1.14468e-1       0.1145       0.0970  Real |s|=1.000000e0 bar=1.78e-15 re=1.000000e0 im=0.000000e0 alpha=-2.0000 abar=6.79e-14 [Ratio 9 1] t_locate=110.3us t_width=4.9us | s=1 alpha=-2
+S3 1/(1-u)^3                   1.04240e-1       0.1042       0.0879  Real |s|=1.000000e0 bar=1.78e-15 re=1.000000e0 im=0.000000e0 alpha=-3.0000 abar=4.44e-14 [Ratio 6 1] t_locate=119.2us t_width=5.6us | s=1 alpha=-3
+S4 (1-u)^(1/2)                 1.60448e-1       0.1604       0.1387  Real |s|=1.000000e0 bar=1.78e-15 re=1.000000e0 im=0.000000e0 alpha=0.5000 abar=2.71e-14 [Ratio 9 1] t_locate=107.3us t_width=5.6us | s=1 alpha=0.5
+S5 pair at angle 0.6           1.26390e-1       0.1264       0.1108  Pair |s|=1.000000e0 bar=6.75e-15 re=8.253356e-1 im=5.646425e-1 alpha=-1.0000 abar=2.54e-13 [ThreeTerm 6 2] t_locate=125.7us t_width=5.6us | s=e^(0.6i) alpha=-1
+S6 pair at angle 0.05          1.16039e-1       0.1160       0.0982  Pair |s|=1.000000e0 bar=1.60e-10 re=9.987503e-1 im=4.997917e-2 alpha=-1.0000 abar=7.54e-9 [ThreeTerm 6 2] t_locate=110.9us t_width=4.7us | s=e^(0.05i) alpha=-1
+S7 e^u                          1.52698e0            -            -  Unresolved |s|=1.146704e17 bar=2.52e17 re=-1.146704e17 im=0.000000e0 alpha=114670392448881920.0000 abar=2.52e17 [Ratio 9 3] t_locate=112.2us t_width=5.6us | entire
+S7b e^(10u)                    1.52698e-1            -            -  Unresolved |s|=1.744237e16 bar=3.57e16 re=-1.744237e16 im=0.000000e0 alpha=174423663547918720.0000 abar=3.57e17 [Ratio 15 1] t_locate=103.6us t_width=5.6us | entire
+S8 1/(1-u^3)                    1.00000e2     100.0000       0.1186  Unresolved |s|=9.768586e5 bar=1.61e6 re=9.768586e5 im=0.000000e0 alpha=24.2476 abar=2.02e1 [ThreeTerm 20 2] t_locate=79.5us t_width=0.0us | s=1 (and e^(+-2 pi i/3)) alpha=-1
+S9 1/(1-u^2)                   1.28056e-1       0.1281       0.1093  Real |s|=1.000000e0 bar=1.54e-11 re=-1.000000e0 im=0.000000e0 alpha=-1.0000 abar=2.24e-9 [ThreeTerm 6 8] t_locate=80.0us t_width=5.6us | s=+-1 alpha=-1
+S10 1/(1-u) + 1/(1+u/1.2)      1.31281e-1       0.1313       0.1123  Real |s|=1.000000e0 bar=1.78e-15 re=1.000000e0 im=0.000000e0 alpha=-1.0000 abar=8.35e-14 [ThreeTerm 6 2] t_locate=118.2us t_width=4.7us | s=1 alpha=-1, then s=-1.2
+S11 1/x^2 about x0=1e-3        1.14468e-4       0.1145       0.0970  Real |s|=1.000000e-3 bar=3.04e-18 re=-1.000000e-3 im=0.000000e0 alpha=-2.0000 abar=1.02e-13 [Ratio 6 1] t_locate=107.8us t_width=5.6us | s=-1e-3 alpha=-2
