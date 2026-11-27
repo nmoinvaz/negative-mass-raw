@@ -17,6 +17,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument("--mutate", default=None, choices=["theta-coef", "wrong-W"])
 ap.add_argument("--wt", default="/Users/nathan/Source/negative-mass-r39/notes/wormhole_evolution")
 ap.add_argument("--only", default="K1,K2")
+ap.add_argument("--k2b", action="store_true", help="A1: the finer pair, reported as K2b")
 OPT = ap.parse_args()
 MUT = OPT.mutate
 sys.path.insert(0, OPT.wt)
@@ -116,7 +117,7 @@ if "K2" in OPT.only:
     n, W = 4, math.sqrt(4.68662054311946479)
     Wref = W * (1.02 if MUT == "wrong-W" else 1.0)
     out = []
-    for h in (0.01 / math.sqrt(3), 0.005 / math.sqrt(3)):
+    for h in ((0.005 / math.sqrt(3), 0.0025 / math.sqrt(3)) if OPT.k2b else (0.01 / math.sqrt(3), 0.005 / math.sqrt(3))):
         lo, hi, k = checks.bisect_A(n, h, 12.0, -0.01, 0.01, 1e-10)
         sl = [checks.fit_growth(checks.fate_run(n, h, A, 12.0), W, (1e-3, 1e-2)) for A in (lo, hi)]
         Wfit = 0.5 * (sl[0][0] + sl[1][0])
@@ -125,7 +126,7 @@ if "K2" in OPT.only:
               f"W_fit {Wfit:.6f} vs W {W:.6f} ({time.time() - t0:.0f} s)", flush=True)
     ok_bar = all(abs(o[1] / Wref - 1) <= 0.01 for o in out)
     ok_ag = abs(out[0][1] / out[1][1] - 1) <= 0.005
-    check("K2", ok_bar and ok_ag, f"W_fit {out[0][1]:.6f}, {out[1][1]:.6f} against {Wref:.6f}: rel {out[0][1] / Wref - 1:+.2e}, "
+    check("K2b" if OPT.k2b else "K2", ok_bar and ok_ag, f"W_fit {out[0][1]:.6f}, {out[1][1]:.6f} against {Wref:.6f}: rel {out[0][1] / Wref - 1:+.2e}, "
           f"{out[1][1] / Wref - 1:+.2e}; agreement {out[0][1] / out[1][1] - 1:+.2e}; A*_h ratio {out[0][2] / out[1][2]:.3f}")
 
 bad = [nm for nm, ok in RESULTS if not ok]

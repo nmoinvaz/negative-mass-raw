@@ -44,6 +44,14 @@ The targets are predicted from the code, not yet computed. A mutation that misse
 | `theta-coef` | `dn.MUT = "theta_coef"` (the code's own mutation of the sphere term) before K1's numerical comparison | K1 |
 | `wrong-W` | K2 compares with 1.02 W | K2 |
 
+## Amendments
+
+**A1, 2026-11-27, after run 1.** K2 failed as worded. At h = 0.01/√3 the fit is meaningless (slopes 0.007 and 0.049,
+W_fit 0.028); at h = 0.005/√3 it gives 2.1604. The coarse h was the review's choice, scaled from D = 5, and is too
+coarse for D = 6. K2 stays NOT MET. **K2b** applies the same bars (1% to W, 0.5% between the two h) to the pair
+h = 0.005/√3 and 0.0025/√3, with X = 12 and the same window, bracket and tolerance. The mutation `wrong-W` is rerun on
+K2b.
+
 ## Runs (filled in as they are done)
 
 | file | what |
