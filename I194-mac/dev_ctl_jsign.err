@@ -1,0 +1,39 @@
+
+thread 'main' (102881550) panicked at src/star_ref.rs:286:5:
+no bracket of the central amplitude for zc = DD { hi: 1.02, lo: 0.0 }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 945, in main
+    table[name]()
+    ~~~~~~~~~~~^^
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 939, in <lambda>
+    "X1": lambda: (check_X1(1, "p"), check_X1(-1, "m")),
+                                     ~~~~~~~~^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 641, in check_X1
+    w0, (xp, fp, fl) = secant_root(d0, x0, x0 + mp.mpf("1e-6"), mp.mpf("1e-30"))
+                       ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 565, in secant_root
+    f1 = f(x1)
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 638, in d0
+    lines = rust("row", omega=mp.nstr(w, 40), eps=eps, s2list="0", dump=1)
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 104, in rust
+    raise RuntimeError(f"{' '.join(args)} exited {p.returncode}")
+RuntimeError: /Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial/target/release/taylor_radial row omega=0.9766076649896883482786488191982262691086 eps=-1 s2list=0 dump=1 mutate=jsign exited 101
+      603.44 real       595.80 user         1.98 sys
+           152666112  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              642956  page reclaims
+                 284  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                 441  voluntary context switches
+              127459  involuntary context switches
+          1582572820  instructions retired
+           774503520  cycles elapsed
+            22872640  peak memory footprint

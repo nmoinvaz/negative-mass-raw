@@ -1,0 +1,22 @@
+
+thread 'main' (102582254) panicked at src/table.rs:230:44:
+range end index 56 out of range for slice of length 30
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+        3.47 real         3.52 user         0.01 sys
+           145670144  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                9268  page reclaims
+                  15  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                 400  involuntary context switches
+         37815829994  instructions retired
+         15230826366  cycles elapsed
+           143933920  peak memory footprint

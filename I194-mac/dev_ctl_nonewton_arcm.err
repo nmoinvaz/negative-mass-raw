@@ -1,0 +1,33 @@
+
+thread '<unnamed>' (103335331) panicked at /Users/nathan/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/multishoot-4.2.0/src/taylor.rs:388:9:
+plan_path: step 0e0 at x = 26.105513347916236
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 964, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 933, in main
+    lines = run_stage(stage)
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 702, in run_stage
+    lines = rust(st["cmd"], timeout=3600, tag=f"{TAG or name}{'_' + MUTATE if MUTATE else ''}", **kw)
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 104, in rust
+    raise RuntimeError(f"{' '.join(args)} exited {p.returncode}")
+RuntimeError: /Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial/target/release/taylor_radial arc eps=-1 omega=0.66 omega_to=0.45 dw=0.003 alphas=1.1,1.15,1.17,1.2,1.25,1.3 verbose=1 alpha_stop=1.3 chunk=10 ds=0.05 ds_max=5 modes=1.1 mutate=nonewton exited 101
+        7.57 real        11.80 user         0.03 sys
+            48332800  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                6073  page reclaims
+                  10  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  53  voluntary context switches
+                4721  involuntary context switches
+           359556068  instructions retired
+           134690726  cycles elapsed
+            17629736  peak memory footprint

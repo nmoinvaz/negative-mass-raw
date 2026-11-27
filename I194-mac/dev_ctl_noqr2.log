@@ -1,0 +1,17 @@
+--- P1 (0 s)
+  > {"cmd":"planted","lane":"f64","rm":3,"rfar":45.48529157249598,"order":30,"tol":1.1102230246251565e-14,"grid":60,"nroots":3,"nexact":3,"wall":0.704}
+  > {"cmd":"planted_root","i":0,"s":"-1.3800000000000003e0","exact":"-1.3799999999999999e0","rel":3.218037752536686e-16,"block":0,"n":1,"evals":15,"d_at_root":1.9276347929491297e73}
+  > {"cmd":"planted_root","i":1,"s":"1.1000000000001159e-1","exact":"1.1000000000000000e-1","rel":1.053450256320461e-13,"block":1,"n":1,"evals":21,"d_at_root":-9.368556046566255e53}
+  > {"cmd":"planted_root","i":2,"s":"1.8200000006817116e0","exact":"1.8200000000000001e0","rel":3.745668000429749e-10,"block":0,"n":3,"evals":19,"d_at_root":0e0}
+CHECK P1: FAIL  f64: 3 of 3 roots, worst rel 3.75e-10 (limit 1e-10), 0.7 s, R = 45, orientation of the start plane constant on the grid: True
+--- P2 (1 s)
+  > {"cmd":"pd","s":"-0.9","d":"-2.1705424752747600e82"}
+  > {"cmd":"pd","s":"-0.3125","d":"-1.6180460176561681e74"}
+  > {"cmd":"pd","s":"0.0625","d":"-5.4073187569777681e67"}
+  > {"cmd":"pd","s":"0.75","d":"1.6443128888461076e57"}
+  > {"cmd":"pd","s":"1.5","d":"5.5601116466775723e40"}
+CHECK P2: FAIL  planted D at 5 non-eigenvalue s against mpmath (Legendre solutions, one orthonormalization): f64: worst relative 5.08e+82 (limit 1e-09)
+--- A (1 s)
+  > {"cmd":"star","eps":1,"omega":"7.5000000000000000000000000000000e-01","k":"6.6143782776614764762540393840982e-01","pc":"3.8889305058644268419518884298290e-04","zc":"1.0195923369905991556555455171192e+00","alpha_c":"9.9034546825185691369460225726986e-01","M":"1.4625957896898308691944455802826e-02","N":"1.5928395970735554397304716614793e-02","r_cut":69.250,"r_far":1200.1,"table_steps":1227,"linear_defect":1.444932136612021e-31,"nodes":16,"fnorm":3.666970614113297e-31,"t_star":2.58,"t_table":1.81}
+CHECK A: FAIL  did not run: /Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial/target/release/taylor_radial row omega=0.75 eps=1 lane=dd mutate=noqr exited 101
+0 passed, 3 failed, 0 skipped of 3 checks; mutation: noqr; 413 s

@@ -1,0 +1,12 @@
+--- Cs (0 s)
+  alpha_c=1.1: w 0.43125268=0.43125268 (0.48, rel 5.5e-09); N 2.03734=2.03734 (0.66, rel 1.6e-06); M -0.95040=-0.95040 (0.35, rel 1.8e-06); max|2m/r| 0.1099 / 0.1099, rs 22.52 / 22.75
+  alpha_c=1.15: w 0.42283832=0.42283832 (0.38, rel 4.5e-09); N 4.34345=4.34345 (0.58, rel 6.6e-07); M -1.93216=-1.93216 (0.30, rel 7.7e-07); max|2m/r| 0.1737 / 0.1736, rs 27.61 / 27.75
+  alpha_c=1.17: w 0.42226358=0.42226358 (0.64, rel 7.6e-09); N 5.46004=5.46004 (0.52, rel 4.8e-07); M -2.40387=-2.40387 (0.62, rel 1.3e-06); max|2m/r| 0.2001 / 0.2000, rs 29.46 / 29.50
+  alpha_c=1.2: w 0.42299900=0.42299900 (0.12, rel 1.4e-09); N 7.32669=7.32669 (0.71, rel 4.9e-07); M -3.19255=-3.19255 (0.55, rel 8.7e-07); max|2m/r| 0.2404 / 0.2403, rs 32.07 / 32.25
+  alpha_c=1.25: w 0.42690713=0.42690713 (0.74, rel 8.7e-09); N 10.91740=10.91740 (0.88, rel 4.0e-07); M -4.71783=-4.71783 (0.97, rel 1.0e-06); max|2m/r| 0.3096 / 0.3095, rs 36.13 / 36.25
+  alpha_c=1.3: w 0.43282712=0.43282712 (0.22, rel 2.5e-09); N 15.06743=15.06743 (0.03, rel 1.1e-08); M -6.50154=-6.50154 (0.01, rel 9.8e-09); max|2m/r| 0.3812 / 0.3812, rs 39.92 / 40.00
+CHECK Cs: PASS  18 of 18 tokens (w, N, M of 6 stored rows) equal their stored print; largest relative difference 1.8e-06; 6 rows beside the arclength path (to alpha_c = 1.3361 in 7 chunks, 70 points, 1 refused steps), 0 rows by Newton stepping in alpha_c (0 solves, 0 refused); omega_min on the path 0.42226152 at alpha_c 1.17311 (path point, not the fold)
+--- Fs (0 s)
+  alpha_0=1.1: w 0.431253=0.431253; thr 3.235e-01=3.235e-1; root 3.5940e-02!=3.5939e-2 (1.00); root 1.4917e-01=1.4917e-1 (0.51); vs stored double: -2.0e-06, -3.2e-07; dense grid: same roots
+CHECK Fs: FAIL  4 of 5 tokens of the phantom modes table (w, (1-w)^2, roots on [-0.2, (1-w)^2), 'none') equal their stored print or hold on the 4x denser grid
+1 passed, 1 failed, 0 skipped of 2 checks; mutation: None; 0 s
