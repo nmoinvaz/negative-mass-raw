@@ -6,6 +6,7 @@
 Shared with the crate: the field equations of phase2/boson_star.py's docstring and the stored tables (starting guesses only).
 """
 import argparse
+import json
 import math
 import os
 import sys
@@ -18,7 +19,7 @@ from scipy.optimize import brentq
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--mutate", default=None, choices=["eps-law", "lam", "alpha-norm"])
-ap.add_argument("--only", default="K0,K1")   # A1: K2, K3 not computed
+ap.add_argument("--only", default="K0,K1")   # A1: K2, K3 not computed; A2: K1b
 ap.add_argument("--tols", default="1e-10,1e-11")   # A1
 ap.add_argument("--scan", action="store_true", help="development: alpha_c along the phantom family against P = phi_c^2")
 OPT = ap.parse_args()
@@ -154,27 +155,32 @@ CRATE_WM = {1: 0.9258444557595977280332, -1: 0.928908431058166525237}
 P0 = {1: 2.0504432387354122617e-04, -1: 2.0728052897904927504e-04}
 
 
-def crossing(eps, rtol):
-    Ps = [P0[eps] * (1 + 0.01 * (j - 4)) for j in range(9)]
+def crossing(eps, rtol, step=0.01):
+    Ps = [P0[eps] * (1 + step * (j - 4)) for j in range(9)]
     sts = [ground(P, eps, rtol) for P in Ps]
-    x = np.array([(st["P"] - P0[eps]) / P0[eps] for st in sts])
+    x = np.array([(st["P"] - P0[eps]) / (P0[eps] * step) for st in sts])     # A2: scaled to the grid step, x in [-4, 4]
     M = np.array([st["M"] for st in sts])
     w = np.array([st["omega"] for st in sts])
     cM = np.polynomial.polynomial.polyfit(x, M, 4)
     cw = np.polynomial.polynomial.polyfit(x, w, 4)
     d = np.polynomial.polynomial.polyder(cM)
-    roots = [z.real for z in np.roots(d[::-1]) if abs(z.imag) < 1e-12 and -0.05 < z.real < 0.05]
+    roots = [z.real for z in np.roots(d[::-1]) if abs(z.imag) < 1e-9 and -4.0 < z.real < 4.0]
     xs = min(roots, key=abs)
+    if step != 0.01:
+        with open("ind194_run3_stars.jsonl", "a") as fh:
+            for st in sts:
+                fh.write(json.dumps(dict(eps=eps, rtol=rtol, step=step, **{k: st[k] for k in ("P", "omega", "M", "N", "alpha_c")})) + "\n")
     return float(np.polynomial.polynomial.polyval(xs, cw)), sts
 
 
-if "K1" in ONLY:
+for KN, STEP in (("K1", 0.01), ("K1b", 0.00125)):
+  if KN in ONLY:
     t0 = time.time()
     ok, notes = True, []
     for eps in (1, -1):
         ws = []
         for rt in TOLS:
-            wM, sts = crossing(eps, rt)
+            wM, sts = crossing(eps, rt, STEP)
             ws.append(wM)
             print(f"  eps={eps:+d} rtol={rt:g}: dM/dw = 0 at w = {wM:.15f}; stars w {sts[0]['omega']:.8f} .. {sts[-1]['omega']:.8f}, "
                   f"M {sts[4]['M']:.12e}, N {sts[4]['N']:.12e}, alpha_c {sts[4]['alpha_c']:.10f} ({time.time() - t0:.0f} s)", flush=True)
@@ -183,7 +189,7 @@ if "K1" in ONLY:
         notes.append(f"eps={eps:+d}: {ws[-1]:.13f} against the crate's {CRATE_WM[eps]:.13f} (diff {ws[-1] - CRATE_WM[eps]:+.1e}; "
                      f"tolerances differ by {ws[0] - ws[1]:+.1e}; RESULTS.md's stored dM/dw = 0 is "
                      f"{'0.92584446' if eps == 1 else '0.92890838'})")
-    check("K1", ok, "; ".join(notes))
+    check(KN, ok, f"window +-{4 * STEP:.3%} in P; " + "; ".join(notes))
 
 # ----------------------------------------------------------------------------------------------------------------------
 # K0: the first law dM = eps w dN, 5-point central differences in P
@@ -289,7 +295,7 @@ if "K0" in ONLY:
                     Pb, wb = Pn, wn
                 if found:
                     break
-            P = brentq(lambda P: ground(P, eps, TOLS[-1])["omega"] - target, *found, xtol=1e-17, rtol=4e-16)
+            P = brentq(lambda P: ground(P, eps, TOLS[-1])["omega"] - target, *found, xtol=1e-17, rtol=1e-15)   # A2
         ratio, want, mid = first_law(eps, P, TOLS[-1])
         okp = abs(ratio / want - 1) <= 1e-7
         ok &= okp

@@ -1,0 +1,43 @@
+== c = 0.0, corner rho_c = 0.0, X = 10
+   h = 0.04: max error (r, f, phi) for t <= 2, 4, 8: 1.794e-04 1.394e-03 1.612e-01   0.05 s
+   h = 0.02: max error (r, f, phi) for t <= 2, 4, 8: 4.550e-05 3.487e-04 3.741e-02   0.03 s
+           ratio to the previous h: 3.94 4.00 4.31
+   h = 0.01: max error (r, f, phi) for t <= 2, 4, 8: 1.138e-05 8.786e-05 9.235e-03   0.11 s
+           ratio to the previous h: 4.00 3.97 4.05
+== c = -0.3, corner rho_c = 0.0, X = 10
+   h = 0.04: max error (r, f, phi) for t <= 2, 4, 8: 6.762e-05 5.171e-04 2.131e-02   0.01 s
+   h = 0.02: max error (r, f, phi) for t <= 2, 4, 8: 1.718e-05 1.291e-04 5.442e-03   0.03 s
+           ratio to the previous h: 3.94 4.01 3.92
+   h = 0.01: max error (r, f, phi) for t <= 2, 4, 8: 4.294e-06 3.249e-05 1.372e-03   0.10 s
+           ratio to the previous h: 4.00 3.97 3.97
+== c = -1.5, corner rho_c = 1.0, X = 10
+   h = 0.04: max error (r, f, phi) for t <= 2, 4, 8: 2.994e-05 1.703e-04 2.041e-03   0.01 s
+   h = 0.02: max error (r, f, phi) for t <= 2, 4, 8: 7.605e-06 4.257e-05 5.148e-04   0.03 s
+           ratio to the previous h: 3.94 4.00 3.96
+   h = 0.01: max error (r, f, phi) for t <= 2, 4, 8: 1.901e-06 1.070e-05 1.293e-04   0.10 s
+           ratio to the previous h: 4.00 3.98 3.98
+== c = -1.0, corner rho_c = 1.0, X = 10
+   h = 0.04: max error (r, f, phi) for t <= 2, 4, 8: 5.239e-05 3.794e-04 7.558e-03   0.01 s
+   h = 0.02: max error (r, f, phi) for t <= 2, 4, 8: 1.333e-05 9.484e-05 1.915e-03   0.03 s
+           ratio to the previous h: 3.93 4.00 3.95
+   h = 0.01: max error (r, f, phi) for t <= 2, 4, 8: 3.332e-06 2.385e-05 4.814e-04   0.11 s
+           ratio to the previous h: 4.00 3.98 3.98
+        1.08 real         1.02 user         0.04 sys
+           234356736  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               17757  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                  52  involuntary context switches
+         17249874051  instructions retired
+          4071945350  cycles elapsed
+           176603880  peak memory footprint
+rc=0

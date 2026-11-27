@@ -1,0 +1,8 @@
+  eps=+1 rtol=1e-10: dM/dw = 0 at w = 0.925844460473634; stars w 0.92966445 .. 0.92190404, M 8.064402240558e-03, N 7.809640799308e-03, alpha_c 0.9950861800 (163 s)
+  eps=+1 rtol=1e-11: dM/dw = 0 at w = 0.925844460486131; stars w 0.92966445 .. 0.92190404, M 8.064402240748e-03, N 7.809640799499e-03, alpha_c 0.9950861800 (859 s)
+  eps=-1 rtol=1e-10: dM/dw = 0 at w = 0.928908435846367; stars w 0.93276304 .. 0.92492888, M -8.207364855250e-03, N 7.936420859928e-03, alpha_c 1.0049719486 (992 s)
+  eps=-1 rtol=1e-11: dM/dw = 0 at w = 0.928908435852575; stars w 0.93276304 .. 0.92492888, M -8.207364854422e-03, N 7.936420859026e-03, alpha_c 1.0049719486 (1585 s)
+[FAIL] K1: eps=+1: 0.9258444604861 against the crate's 0.9258444557596 (diff +4.7e-09; tolerances differ by -1.2e-11; RESULTS.md's stored dM/dw = 0 is 0.92584446); eps=-1: 0.9289084358526 against the crate's 0.9289084310582 (diff +4.8e-09; tolerances differ by -6.2e-12; RESULTS.md's stored dM/dw = 0 is 0.92890838)
+
+1 criteria, 0 pass; failed: ['K1']; mutation None
+rc=1
