@@ -73,7 +73,21 @@ evolution mutations run at D = 4 only, with `--only=K2,K3,K4 --D=4`.
 
 ## Amendments
 
+**A1, 2026-11-27, after the rerun.** `rerun.sh` passed h for the two D = 5 jobs as 0.00707107 and 0.00353553, rounded
+to 6 figures, where the runner passed 0.0070710678118654745 and 0.0035355339059327372 (its `job.log`). Their p*_h then
+differ from the runner's by +1.8e-10 and −1.6e-10, which is p*_h ∝ h² at the rounded h (+6.2e-7 and −2.2e-6 relative).
+The error is the review's, and those logs are kept as `rerun_1/D5_*`. `rerun_2_d5.sh` reruns the two jobs with the
+runner's strings. A first attempt passed repr(0.01/√2), one ulp from the runner's double, and was stopped and kept as
+`rerun_2_stopped_1ulp/`.
+
 ## Runs (filled in as they are done)
 
 | file | what |
 |---|---|
+| `rerun.sh`, `rerun_1/` | the 13 jobs, all rc 0, 1 to 4 min each |
+| `rerun_analyze_record.log` | the analysis of record over the runner's 26 jobs: **100 of 111, the same 11 failures**, every line equal to `threshold_output.txt` except one printed relative difference (1.52e-12 against 1.51e-12, a difference of two equal slopes) and the timing |
+| `compare_rerun.py`, `rerun_compare.txt` | rerun 1 against the runner: the 11 D = 4 and D = 6 jobs meet the expectation (p*_h within 7.3e-14 at D = 4 and 2.9e-12 at D = 6; every point with e ≤ 9 has the runner's fate and cell). The two D = 5 jobs do not (A1) |
+| `rerun_2_d5.sh`, `rerun_2/`, `rerun_2_compare.txt` | rerun 2 of the D = 5 jobs: p*_h within 1.1e-12 and 1.1e-13, every point with e ≤ 9 equal. **The expectation is met by all 13 jobs.** Points with e ≥ 9.5 to 10 differ between the machines in 10 of the 13 jobs |
+| `rerun_analyze_rerun.log` | the analysis of rerun 1 (`--only=4S,4O,4G,5S,6S`): the D = 4 verdicts equal the runner's. Slopes move by up to 1.4e-4 (D = 4 S, h = 0.005: 0.846642 against 0.846522), from the points below 1e-10 that differ between machines. The D = 5 jobs are reported missing, because their rounded h does not match the declared h (A1) |
+| `ind40_run1.txt`, `ind40_run1_points/` | run 1: **exit 0, 5 of 5.** K0: p₀ to 2.0e-15, s₀ to 8.8e-14. K1: the 26 printed slopes reproduced to 5.0e-7. K2: slope against 1/W at the three h: D = 4 −3.3e-5, −6.9e-6, −2.6e-6; D = 5 −4.9e-4, −1.35e-4, −2.5e-5; D = 6 −6.3e-3, −1.56e-3, −4.7e-4, falling by about 4 per halving at D = 5 and 6. K3: D = 4 −2.6e-6, D = 5 −2.5e-5. K4: against #40's points over the same window: +3.7e-6, +4.3e-6, −1.4e-4. #40's own D = 6 S points at h = 0.00125 give 0.461770 (−3.3e-4) over [1e-9, 1e-4], against 0.459628 (−5.0e-3) over its primary [1e-11, 1e-3]. p*_h has order 2.000, 2.001, 2.007 and lies within 2e-4 relative of #40's. The slope in τ agrees with the slope in t to 1e-5 |
+| `ind40_run1_mut_*.txt` | `oracle-slope` fails exactly K0, `fit-pstar` exactly K1, `time-unit` exactly K2, K3, K4 (slope 0.598243 = 1/(√2W) to 4e-6). **`sphere-coef` does not fire cleanly**: with n in place of n − 1 the bracket [−0.01, 0.01] no longer straddles (p = 0.01 collapses), and ind40 stops with an exception before any criterion is evaluated, as #40's six JOB mutations do |
