@@ -1,0 +1,30 @@
+threshold.py analyze {'raw': '/home/nathan/Source/negative-mass-raw/I40-dh610/runs/mut/bisect_loose'}: numba 0.68.1, numpy 2.5.4, python 3.14.10, dh610-fedora, load average at start 19.68 18.96 17.86, mutation bisect_loose, 2026-11-27 01:32:54
+analyze: /home/nathan/Source/negative-mass-raw/I40-dh610/runs/mut/bisect_loose: 3 jobs; mutation bisect_loose
+[FAIL] BR[D=4 S h=0.02]: the bisection ended with hi - lo <= 1e-14 and no run static through X  (hi - lo = 5.96e-10, stopped None, )
+[FAIL] FM[D=4 S h=0.02]: every series point with |p - p*_h| >= 1e-11 lands on its own side of p*_h (fate monotone) and ends in an event  (3 of 34 points off; below that, 2 of 4 points off the side (roundoff floor, not fitted))
+    SL D=4 S h = 0.02: p*_h = 4.752784967422e-05; primary slope 0.806627 +- 0.014308 (OLS SE), n = 31, rms 0.3947; collapse 0.861587, expansion 0.775981; spread [0.671613, 0.891854]; 1/W = 0.846045, rel dev -4.66e-02
+[pass] SL[D=4 S h=0.02]: 1/W lies inside the spread of the fitted slopes (windows x {joint, collapse, expansion})  (primary 0.806627, spread [0.671613, 0.891854], 1/W 0.846045)
+[FAIL] BR[D=4 S h=0.01]: the bisection ended with hi - lo <= 1e-14 and no run static through X  (hi - lo = 5.96e-10, stopped None, )
+[FAIL] FM[D=4 S h=0.01]: every series point with |p - p*_h| >= 1e-11 lands on its own side of p*_h (fate monotone) and ends in an event  (3 of 34 points off; below that, 2 of 4 points off the side (roundoff floor, not fitted))
+    SL D=4 S h = 0.01: p*_h = 1.188427209854e-05; primary slope 0.808299 +- 0.013371 (OLS SE), n = 31, rms 0.3688; collapse 0.858806, expansion 0.780136; spread [0.681939, 0.884971]; 1/W = 0.846045, rel dev -4.46e-02
+[pass] SL[D=4 S h=0.01]: 1/W lies inside the spread of the fitted slopes (windows x {joint, collapse, expansion})  (primary 0.808299, spread [0.681939, 0.884971], 1/W 0.846045)
+[FAIL] BR[D=4 S h=0.005]: the bisection ended with hi - lo <= 1e-14 and no run static through X  (hi - lo = 5.96e-10, stopped None, )
+[FAIL] FM[D=4 S h=0.005]: every series point with |p - p*_h| >= 1e-11 lands on its own side of p*_h (fate monotone) and ends in an event  (3 of 34 points off; below that, 2 of 4 points off the side (roundoff floor, not fitted))
+    SL D=4 S h = 0.005: p*_h = 2.970993518829e-06; primary slope 0.800828 +- 0.017087 (OLS SE), n = 31, rms 0.4713; collapse 0.762463, expansion 0.869632; spread [0.642230, 0.926281]; 1/W = 0.846045, rel dev -5.34e-02
+[pass] SL[D=4 S h=0.005]: 1/W lies inside the spread of the fitted slopes (windows x {joint, collapse, expansion})  (primary 0.800828, spread [0.642230, 0.926281], 1/W 0.846045)
+    PS D=4 S: p*_h = 4.7527849674e-05, 1.1884272099e-05, 2.9709935188e-06; Richardson order 2.000; with p* = 0: orders 2.000, 2.000; Richardson p* = -1.1593572580e-09
+[pass] PS[D=4 S]: p*_h converges at second order (order in [1.75, 2.25])  (p*_h = 4.7527849674e-05, 1.1884272099e-05, 2.9709935188e-06; Richardson order 2.000; with p* = 0: orders 2.000, 2.000; Richardson p* = -1.1593572580e-09)
+[FAIL] RA[D=4 S]: primary slopes at the two finest h run agree within 0.5%  (0.808299, 0.800828; rel diff 9.33e-03)
+    ED D=4 S h = 0.01: event tol0.1: slope 0.782183 +- 0.026860 (n = 14), primary spread [0.681939, 0.884971]
+    ED D=4 S h = 0.01: event rexp3: slope 0.781822 +- 0.026929 (n = 14), primary spread [0.681939, 0.884971]
+[pass] ED[D=4 S]: the slope does not depend on the event definition: each alternative lies inside the primary spread
+
+Null constraints along the two runs that bracket p*_h (lo = last collapse, hi = last expansion), over the nodes of the event cell's past,
+max |C| and max |C| / max(sum of the absolute values of its terms); change with h against the change of p*_h and of the primary slope
+
+Formation values at the first trapped cell and the stall, p* -/+ 1e-8 (not settled masses; #41's question stays open)
+D family h    side fate     T       event cell offset (cells, l)   r_cell   M_cell   M_hor=r^(D-3)/2 | stall: t     r      l     span  dl/dt
+
+5 of 12 checks pass; 7 fail: BR[D=4 S h=0.02], FM[D=4 S h=0.02], BR[D=4 S h=0.01], FM[D=4 S h=0.01], BR[D=4 S h=0.005], FM[D=4 S h=0.005], RA[D=4 S]
+mutation bisect_loose: expected to fire ['BR', 'FM', 'RA']; fired ['BR', 'FM', 'RA']; targets all fired
+0.0 s

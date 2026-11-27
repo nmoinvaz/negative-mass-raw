@@ -166,3 +166,51 @@ with rexp 0.5) is not declared: its slope is the same as the primary's by design
 S and O at D = 4, 5: slope within about 1e-3 relative of 1/W (dev: +7e-4, +5.6e-4 at D = 4; -3e-4 to -9e-4 at D = 5, h = 0.00707). D = 6: slopes below 1/W by about 1e-3 to 3e-3 at h = 0.0025
 (dev: collapse -3e-3, expansion +1e-3 in [1e-11, 1e-4]) and more at h = 0.005. p*_h of S: order 2.000. O: p*_h within a factor of a few of S's. G: slopes above 1/W by about +6 % (D = 4), +50 % (D = 5), more at D = 6, with
 event cells off the diagonal; no tuning of B.
+
+## Runs of record (appended after the runs; the text above is unchanged)
+
+Started 2026-11-26 23:23 (four lanes `nm-i40-lane1` to `lane4`, systemd user units, `nice -n 10`, one thread each, `timeout 7200` per job), last of the 26 jobs ended 2026-11-27 01:09.
+Code `threshold.py` at 13a1301, `dn.py` and `checks.py` at 3a233b6 (unchanged); the note and `threshold_output.txt` are at 2e97643 on `wip/i40-ellis-threshold`.
+The queue was `scripts/queue_as_written.txt`. Every job exited 0; none reached the 2 h limit (longest 52:47). Memory is reported only: peak 10.03 GB (D = 5 G h = 0.00177).
+Load average at job start 16 to 22 of 20 (shared with choptuik-large-d). G6 (`runs/g6`): rc 0, 12:34.17.
+
+| job | rc | start | wall | cpu s | peak GB | load at start | lane | status |
+|---|---|---|---|---|---|---|---|---|
+| D4_G_h0.005 | rc=0 | 23:57:33 | 9:40.34 | 545 | 2.21 | 22.92 | lane4 | done |
+| D4_G_h0.01 | rc=0 | 00:12:22 | 3:08.01 | 185 | 0.73 | 18.24 | lane4 | done |
+| D4_G_h0.02 | rc=0 | 00:15:52 | 0:46.36 | 44 | 0.38 | 17.42 | lane1 | done |
+| D4_O_h0.005 | rc=0 | 23:57:20 | 8:13.59 | 461 | 1.69 | 22.90 | lane3 | done |
+| D4_O_h0.01 | rc=0 | 00:10:53 | 2:40.85 | 156 | 0.63 | 15.84 | lane1 | done |
+| D4_O_h0.02 | rc=0 | 00:15:30 | 0:41.01 | 40 | 0.35 | 17.60 | lane4 | done |
+| D4_S_h0.005 | rc=0 | 23:50:40 | 10:29.61 | 561 | 1.69 | 16.25 | lane1 | done |
+| D4_S_h0.01 | rc=0 | 00:09:48 | 2:34.33 | 151 | 0.65 | 17.14 | lane4 | done |
+| D4_S_h0.02 | rc=0 | 00:15:23 | 0:29.07 | 28 | 0.35 | 17.99 | lane1 | done |
+| D5_G_h0.00176777 | rc=0 | 23:23:14 | 51:25.01 | 2860 | 10.03 | 18.39 | lane2 | done |
+| D5_G_h0.00353553 | rc=0 | 23:35:47 | 14:52.55 | 852 | 2.65 | 20.27 | lane1 | done |
+| D5_G_h0.00707107 | rc=0 | 00:07:13 | 2:35.01 | 152 | 0.86 | 18.22 | lane4 | done |
+| D5_O_h0.00176777 | rc=0 | 23:23:16 | 34:16.15 | 1880 | 5.16 | 18.39 | lane4 | done |
+| D5_O_h0.00353553 | rc=0 | 00:05:34 | 10:25.96 | 613 | 1.46 | 20.98 | lane3 | done |
+| D5_O_h0.00707107 | rc=0 | 00:14:39 | 2:15.41 | 132 | 0.59 | 17.19 | lane2 | done |
+| D5_S_h0.00176777 | rc=0 | 23:23:15 | 34:04.84 | 1880 | 5.16 | 18.39 | lane3 | done |
+| D5_S_h0.00353553 | rc=0 | 00:01:10 | 9:43.17 | 561 | 1.43 | 20.50 | lane1 | done |
+| D5_S_h0.00707107 | rc=0 | 00:13:34 | 1:48.85 | 107 | 0.60 | 19.21 | lane1 | done |
+| D6_G_h0.0025 | rc=0 | 00:16:38 | 52:46.62 | 2914 | 8.19 | 17.50 | lane1 | done |
+| D6_G_h0.005 | rc=0 | 00:46:59 | 9:43.07 | 537 | 2.21 | 13.55 | lane2 | done |
+| D6_O_h0.00125 | rc=0 | 00:16:12 | 49:54.79 | 2750 | 7.09 | 17.57 | lane4 | done |
+| D6_O_h0.0025 | rc=0 | 00:32:33 | 14:25.99 | 817 | 1.91 | 22.84 | lane2 | done |
+| D6_O_h0.005 | rc=0 | 01:00:19 | 3:45.18 | 200 | 0.72 | 23.34 | lane2 | done |
+| D6_S_h0.00125 | rc=0 | 00:16:00 | 47:21.62 | 2605 | 7.09 | 17.05 | lane3 | done |
+| D6_S_h0.0025 | rc=0 | 00:16:55 | 15:38.72 | 864 | 1.92 | 16.79 | lane2 | done |
+| D6_S_h0.005 | rc=0 | 00:56:43 | 3:36.50 | 191 | 0.71 | 22.99 | lane2 | done |
+
+Total CPU of the 26 jobs 6.1 h (the estimate above said about 8 CPU-h; the wall time was about 1 h 46 min against 2.5 h).
+
+- Analysis of record: `threshold_output.txt` (copy `runs/analyze_record.log`, `.time`, `.err`): **100 of 111 checks pass; 11 fail**: SL for G at every D and h run (D = 4: 3, D = 5: 3, D = 6: 2); ED for G at D = 4;
+  BR for D = 5 G h = 0.00707107 (X = 22 too short, bisection ended at 2.9e-12 with "static through X"; dev_12 at X = 30 reached 5.7e-15); SL for S at D = 6, h = 0.005 (the coarse member).
+  Nothing was changed after seeing them.
+- Mutation runs: `runs/mut/<name>/` (D = 4, S, three h; `scripts/mut.sh`, `scripts/mut_all.sh`, units `nm-i40-mut1`, `nm-i40-mut2-g6`) and their analyses `runs/mut/analysis_*.log` (`scripts/analyze_mut.sh`):
+  every mutation fires exactly its declared set (time_unit in two analyses: PL, PX, SL on the stored runs; G6 in the mutated growth control).
+- Disagreements with the briefs and texts, all reported in `notes/wormhole_evolution/threshold.md`: O is not a generic family (the brief said it was); the brief's 1e-10 bisection tolerance is above the
+  roundoff floor (1e-11 in |p - p*_h|); the constraint maximum stops falling at the finest h at D = 5 and 6 while p*_h and the slope keep converging; #39's `check_C` does not scale by the terms as the coordinator's
+  message said; D = 6 slopes of S and O sit 0.3 to 0.5 % below 1/W at h <= 0.0025 and do not tighten between the two finest h.
+- Rerun of a failed job: none. Logs of the development runs that failed or were silent are kept (`dev_14/*_run1_unregistered`, `dev_14/ed_event_run2_silent`).
