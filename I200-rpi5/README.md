@@ -109,4 +109,31 @@ Quote its values or numbers derived from them (listed in growth_update.md):
 
 ## Runs
 
-(filled in as they are made)
+All exit 0 unless stated; one process at a time, `nice -n 10`, rpi5. `run_mutations.sh OUTDIR` runs `check_growth.py` with no mutation
+and with each of the 55 mutations (56 runs; a mutation exits 1 by design). `compare_targets.py SUMMARY declared_targets.json` compares
+each run's failed checks with the declared ones.
+
+| log | what | result |
+|---|---|---|
+| `dev_01_profiles_baseline_613e866.log` + `dev_01_growth_baseline_rpi5.csv`, `dev_01_profiles_baseline_rpi5.csv` | unmodified `profiles.py` | 60 s; rows differ from the committed ones by 1e-12 to 2.7e-8, profiles by up to 1.8e-9 relative |
+| `dev_02_profiles_growth_only.log` | new `profiles.py --growth-only` | growth.csv, TS13 rows byte-identical to 613e866 |
+| `dev_03_check_growth_unmutated.log` | first run of the checker | G1 to G6, R0 to R2 pass |
+| `dev_04_summary.log`, `dev_04_mutations/` | 56 development runs | every mutation fires; targets read from it |
+| `dev_05_profile_sensitivity.log` (`profile_sensitivity.py`) | profiles with modes_r's against the crate's W^2 | max relative change 9.5e-10 (D = 20), 1.7e-9 (100), 7.7e-9 (1000); 59 s |
+| `dev_06_fit_1overD.log` (`fit_1overD.py`) | README's 1/D fit, old and new rows | −4.772593 (old, cubic, D >= 50), −4.772588 (new, cubic), −4.772589 (new, quartic) |
+| `run_01_profiles_full.log`, `run_01_growth.csv`, `run_01_profiles_rpi5.csv` | full `profiles.py` | 36 s; growth.csv equals the growth-only run; profiles.csv not committed |
+| `run_02_check_growth.log`, `run_03_summary.log`, `run_03_compare_targets.log`, `run_03_mutations/` | checker and 56 runs, first code | exit 0; 56 of 56 on target |
+| `run_04_paper_numbers.log` (+ `logs_paper_numbers_613e866.txt`) | `paper_numbers.py` on the new csv | exit 0, checks failed: 0; only the D >= 20 rows changed |
+| `run_05_fig6_reader.log` | `make_figures.fig6_wormhole` on the new csv, output to a scratch folder | runs |
+| `run_06_check_growth.log`, `run_07_*` | checker with the reported TS13 block, 56 runs | exit 0; 56 of 56 on target |
+| `run_08_check_growth.log`, `run_09_*` | final checker (label-agnostic table parser), 56 runs | exit 0; 56 of 56 on target; output identical to run_06 |
+
+`growth_613e866.csv`, `profiles_613e866.csv` are the files at the base commit. Code of record: `wip/i200-growth-csv` at 799b22a (checker
+and profiles.py at a0b616a). The note is `notes/wormhole_largeD/growth_update.md`.
+
+## Not met, or reported
+
+- **Acceptance 1 for the 8 TS13 rows**: they equal TS13's printed values, not the crate's (by 9.5e-12 to 6.2e-10). Kept by the task; #202.
+- **The task's source string** `w2_crate qd, #195` was replaced at the coordinator's request (above).
+- **No criterion failed.** No mutation was silent. No criterion or tolerance was changed after a run; G6 was added to the criteria
+  before the first run of the checker.
