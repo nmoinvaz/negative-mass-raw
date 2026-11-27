@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-raw/I200-mac-review/ind200.py", line 36, in <module>
+    v = mp.mpf(crate[D]) + (mp.mpf("1e-12") if (O.mutate == "row" and D == 500) else 0)
+               ~~~~~^^^
+KeyError: 20
+rc 1
