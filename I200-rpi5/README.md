@@ -6,12 +6,18 @@ with the pure-Python backend, sympy 1.14.0). Issue: https://github.com/nmoinvaz/
 started by the coordinator over hc. One process at a time, `nice -n 10`; every stdout is logged here; reruns are numbered, no log is
 overwritten.
 
+## Ruling: the source string
+
+The task's string was `w2_crate qd, #195`. Its comma makes `w2_highprec.py`'s `read_csv` (`line.strip().split(",")`, line 137) raise
+`ValueError: too many values to unpack` (tested on a one-row copy; `csv.DictReader` reads it). **At the coordinator's request** (hc, after
+I reported this) the string is `w2_crate qd (#195)`, so that #195's file stays untouched. The criteria below use it.
+
 ## What is done
 
 1. `profiles.py` writes `growth.csv`. Rows D = 4 … 11 stay as they are (TS13's 15-digit values of profiles.py's `TS13` dict at 12
    decimals, source `TS13 Table I`; #202 decides their digits). Rows D = 20, 30, 50, 100, 200, 500, 1000, 2000 take the crate's
    quad-double value from the table "growth.csv against the crate (qd)" of `notes/wormhole_largeD/w2_output.txt`, rounded to 12
-   decimals (half to even on the printed decimal digits), source `w2_crate qd, #195`. No float enters the D >= 20 rows.
+   decimals (half to even on the printed decimal digits), source `w2_crate qd (#195)`. No float enters the D >= 20 rows.
 2. `check_growth.py` (new, beside it) reads `growth.csv` and `w2_output.txt` with its own parser and rounding (exact rational
    arithmetic, not profiles.py's `Decimal`), and checks the rows and the remainder columns below.
 3. `paper_numbers.py` is rerun unchanged on the new csv; `logs_paper_numbers.txt` is the new output (the old one is in 613e866).
@@ -24,7 +30,7 @@ Rows (the csv written by profiles.py; the crate column is w2_output.txt):
   1000, 2000, once each, in this order.
 - **G2** (the issue's acceptance) For each D >= 20, the W2a2 field equals the crate's qd value rounded to 12 decimals, as a string of
   exactly 12 decimals. Met only if 8 of 8.
-- **G3** The source field is `w2_crate qd, #195` for D >= 20 and `TS13 Table I` for D <= 11.
+- **G3** The source field is `w2_crate qd (#195)` for D >= 20 and `TS13 Table I` for D <= 11.
 - **G4** For each D <= 11, the W2a2 field equals profiles.py's `TS13[D]` rounded to 12 decimals (string of exactly 12 decimals).
   8 of 8. The checker takes `TS13` from the source text of profiles.py (ast), not from an import.
 - **G5** The table's value at D = 50 equals the 64-value list's value at D = 50 rounded to the table's number of decimals (two
