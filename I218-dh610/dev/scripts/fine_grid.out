@@ -1,0 +1,6 @@
+kind 3 smallest |D| on grid (300s): [(np.float64(0.76), np.float64(-0.4), 0.498), (np.float64(0.84), np.float64(-0.45), 0.515), (np.float64(0.8), np.float64(-0.4), 0.533), (np.float64(0.68), np.float64(-0.35), 0.544)]
+   root from (0.76, -0.40): omega = 1311175269683612.00000000 -690067430183636.00000000i success=True
+   root from (0.84, -0.45): omega = 0.76709291 -0.41094310i success=False
+kind 1 smallest |D| on grid (225s): [(np.float64(0.4), np.float64(-0.25), 0.535), (np.float64(0.92), np.float64(-0.5), 0.554), (np.float64(0.84), np.float64(-0.45), 0.558), (np.float64(0.4), np.float64(-0.3), 0.567)]
+   root from (0.40, -0.25): omega = -0.00000004 +0.00000002i success=False
+Terminated                 OMP_NUM_THREADS=1 timeout 1500 nice -n 10 ~/Source/negative-mass-venv314/bin/python fine_grid.py $k

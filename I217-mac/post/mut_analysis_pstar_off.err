@@ -1,0 +1,29 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i217/notes/black_universe/evolve.py", line 1232, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nathan/Source/negative-mass-i217/notes/black_universe/evolve.py", line 1218, in main
+    analyze(kw["raw"])
+    ~~~~~~~^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i217/notes/black_universe/evolve.py", line 1027, in analyze
+    o = [math.log2(a[i] / a[i + 1]) for i in range(len(a) - 1)]
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^
+ValueError: expected a positive input, got -0.9671733135283933
+        0.27 real         0.23 user         0.03 sys
+           119259136  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               10446  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                  19  involuntary context switches
+          3006754518  instructions retired
+           992823107  cycles elapsed
+            78381752  peak memory footprint

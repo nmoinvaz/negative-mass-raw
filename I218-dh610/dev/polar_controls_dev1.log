@@ -1,0 +1,7 @@
+fires   --mutate=L_sign (target ('l2', -0.3)): exit 0; l2 c = -0.3: n = 23 against 0 unmutated
+fires   --mutate=hz_out (target ('l2', -1.5)): exit 0; l2 c = -1.5: n = 3 against 0 unmutated
+fires   --mutate=rmax (target ('l1', -0.3)): exit 0; l1 c = -0.3: n = 6 against 0 unmutated
+SILENT  --mutate=g1_wrong (target ('l1', -1.5)): exit 0; l1 c = -1.5: n = 0 against 0 unmutated
+fires   --mutate=scan_range (target ('mads', 0.5)): exit 0; mads c = 0.5: n = 0 against 1 unmutated
+SILENT  --mutate=ads_bc (target ('mads', 0.5)): exit 0; mads c = 0.5: n = 1 against 1 unmutated
+[stopped by me after the qnm_L step; superseded by the controls run with the revised list]

@@ -1,0 +1,1319 @@
+                                         Polar modes and isospectrality of Ellis–Bronnikov wormholes
+                                         Bahareh Azad∗1 , Jose Luis Blázquez-Salcedo†2 , Xiao Yan Chew‡3,4 , Jutta Kunz§1 ,
+                                                                     and Dong-han Yeom¶3,4
+                                             1
+                                               Institute of Physics, University of Oldenburg, D-26111 Oldenburg, Germany
+                                             2
+                                               Departamento de Fı́sica Teórica and IPARCOS, Facultad de Ciencias Fı́sicas,
+                                                               Universidad Complutense de Madrid, Spain
+
+
+
+
+arXiv:2212.12601v1 [gr-qc] 23 Dec 2022
+                                             3
+                                               Department of Physics Education, Pusan National University, Busan 46241,
+                                                                            Republic of Korea
+                                             4
+                                               Research Center for Dielectric and Advanced Matter Physics, Pusan National
+                                                                    University, Busan 46241, Republic of Korea
+
+                                                                                     December 27, 2022
+
+
+                                                                                            Abstract
+                                                     We consider polar perturbations of static Ellis–Bronnikov wormholes and derive the coupled
+                                                 set of perturbation equations for the gravitational and the scalar field. For massless wormholes
+                                                 the perturbations decouple, and we obtain two identical master equations for the scalar and
+                                                 gravitational modes, which moreover agree with the master equation for the axial modes.
+                                                 Consequently there is isospectrality with threefold degenerate modes. For a finite mass of
+                                                 the background wormhole solutions, the equations are coupled. We then obtain two distinct
+                                                 branches of polar quasinormal modes for a given multipole number l, associated with the
+                                                 presence of the two types of fields. We calculate the quasi-normal mode frequencies and decay
+                                                 rates for the branches with l = 2, 3 and 4. For a given l the real frequencies of the two branches
+                                                 get the closer, the higher the multipole number gets.
+
+
+
+                                         1       Introduction
+                                         The Einstein-Rosen bridge is obtained by solving the vacuum Einstein equations of the general
+                                         theory of relativity for the static spherically symmetric case [1]. It represents a non-traversable
+                                             ∗
+                                               bahareh.azad@uni-oldenburg.de
+                                             †
+                                               jlblaz01@ucm.es
+                                             ‡
+                                               xychew998@gmail.com
+                                             §
+                                               jutta.kunz@uni-oldenburg.de
+                                             ¶
+                                               innocent.yeom@gmail.com
+
+                                                                                                 1
+wormhole, encumbered by event horizons. Decades later, when considering the Einstein equations
+in the presence of a scalar field, Ellis [2, 3] and Bronnikov [4] were able to obtain traversable
+wormhole solutions, provided they employed a non-standard scalar field, i.e., a phantom field. The
+necessity of the presence of a phantom field or, more generally, some form of exotic matter violating
+the energy conditions in classical general relativity was nicely discussed by Morris and Thorne [5],
+who also contemplated the use of wormholes for rapid interstellar travel, see also [6, 7].
+    In contrast to classical general relativity, however, alternative theories of gravity do not nec-
+essarily require the presence of exotic matter. Here the energy conditions can be violated by the
+gravitational degrees of freedom alone, as it happens, for instance, in Einstein-scalar-Gauss-Bonnet
+theories [8, 9, 10]. On the other hand, also quantum degrees of freedom like Dirac particles al-
+low for the violation of the energy conditions and thus the emergence of traversable wormholes
+[11, 12, 13, 14]. Recently traversable wormholes have also been constructed in Einstein-3-Form
+theory since the 3-form field can violate the energy conditions as well [15, 16].
+    Clearly, besides the pure theoretical interest the various possible ways of detecting a wormhole
+are of even more interest. Considering that wormholes might exist, one of the possibilities to detect
+them would be optically. For instance, one may look for the gravitational lensing effects created
+by a wormhole [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], one may search for their shadows
+[26, 29, 30, 31, 32, 33, 16], seek their accretion disks and radiation associated with quasi-periodic
+oscillations [34, 35, 36, 37, 38, 39, 40], etc.
+    Another interesting possibility for detecting wormholes could arise via studies of scattering
+some scalar field. Recently analytic expressions for the transmission and reflection amplitudes
+of the corresponding effective potential and the absorption cross section of wormholes have been
+calculated and it has been shown that for both a massless and a massive field, an observer at
+infinity can easily differentiate between a wormhole and a Schwarzschild black hole by examining
+the scattering data for the scalar field [41].
+    Currently, gravitational wave astronomy [42, 43, 44] is giving us a new potential approach to
+observe wormholes through their damping modes called quasi-normal modes (see e.g. [45, 46,
+47]). Quasi-normal modes are characteristic modes of a freely oscillating space-time. When a
+compact object like a black hole, a neutron star or a wormhole oscillates the system is open, and
+the gravitational waves loses energy and decays in time, so this type of modes is called quasi-normal
+modes.
+    Quasi-normal modes of wormholes have been considered before in a variety of contexts [48, 49,
+50, 51, 52, 53, 54, 55, 56, 57, 58, 59]. A particularly interesting aspect here is presented by the
+inverse problem, which can allow to find the shape of the wormhole by its quasi-normal modes
+[54, 52]. This is different from the case of black holes where a family of effective potentials produces
+the same quasi-normal mode spectrum [60].
+    A particular example where the quasi-normal modes have allowed to reconstruct the metric
+near the throat are the symmetric Ellis-Bronnikov wormholes [54]. The quasi-normal modes of
+the general family of Ellis-Bronnikov wormholes have been investigated only partially up to now
+[48, 49, 55]. A systematic analysis of the scalar, axial, and radial perturbations was given in [55].
+
+
+                                                   2
+    Here we calculate the quasi-normal modes for the polar perturbations for the multipole numbers
+l = 2, 3 and 4. The presence of the scalar field always leads to two such families of modes, as the
+mass of the background wormholes is varied, whereas in the massless case the eigenvalues of the
+modes coincide. Indeed, for massless wormholes we obtain two identical master equations for the
+scalar and metric perturbations. Moreover, the previously obtained master equation for the axial
+modes [55] is also identical to these master equations.
+    The paper is organized as follows. In Section 2 we present the theoretical setting, comprising
+the action, the equations of motion and the family of static spherically symmetric Ellis-Bronnikov
+wormhole solutions. These serve as the background solutions for the perturbations discussed in
+Section 3, where a brief reminder of the formalism is given, before the equations for the different
+multipoles, l = 0, l = 1, and l ≥ 2 are obtained. Additionally it is shown, that the spectrum
+possesses a threefold degeneracy for the massless wormholes, since in this case all (scalar, polar
+metric and axial metric) perturbations satisfy the same master equation. Starting with a description
+of the applied methods, we then present our results for the polar quasi-normal modes in Section 4,
+and we conclude in Section 5.
+
+
+2    Theoretical Setting
+We consider the Einstein-Hilbert action
+                                    1         √ 
+                                        Z                       
+                             S=           d4 x −g R + 2∇µ φ∇µ φ                                  (1)
+                                  16πG
+with a massless minimally coupled phantom field φ. By varying the action we obtain the coupled
+set of equations of motion
+
+                                           Rµν = −2 ∂µ φ ∂ν φ,                                   (2)
+                                     ∇µ ∇µ φ = 0.                                                (3)
+
+The family of static spherically symmetric Ellis-Bronnikov wormholes is then given by
+                                               
+                        (b)        Qh     −1    r       πi
+                φ = φ (r) =            tan            − ,                                        (4)
+                                   r0           r0      2
+                2       (b)  µ   ν       f 2       1 h
+                                                        2   2      2
+                                                                      2  2     2
+                                                                                  i
+              ds = gµν dx dx = −e dt + f dr + r + r0 dθ + sin θdϕ ,                              (5)
+                                                 e
+with                                                    
+                                           Ch       −1  r     πi
+                                      f=       tan         −     ,                               (6)
+                                           r0           r0    2
+and Q, r0 , and C are constants discussed below. The superscript (b) indicates, that these are the
+background solutions to be employed in the perturbation expansions.
+   Asymptotically, for r → +∞ the metric function f tends to zero, f → 0, and the metric
+approaches Minkowski spacetime. On the other hand, for r → −∞, a coordinate transformation is
+needed to approach Minkowski spacetime,
+                                                      Cπ                Cπ
+                                    − Cπ
+                              t̄ = e 2r0 t ,   r̄ = e 2r0 r ,   r̄0 = e 2r0 r0 .                 (7)
+
+                                                     3
+Thus the spacetime has two asymptotically flat regions, which are connected by a throat where the
+circumferential radius R(r),
+                                    R2 (r) = e−f (r 2 + r02 ) ,                               (8)
+assumes its minimal value.
+    The global charges of the solutions can be read off from the asymptotic expansion of the phantom
+field and the metric. The charge of the phantom field is given by the constant Q. The mass of the
+wormhole solution as extracted in the asymptotically flat region r → +∞ is given by
+
+                                              C = 2M .                                           (9)
+
+    Besides determining the mass, the constant C represents also a measure of the symmetry of
+the wormhole. When C = 0, the wormhole is massless and symmetric with respect to reflections
+of r → −r at the throat r = 0. However, when C 6= 0, the wormhole possesses mass, and it is
+asymmetric, its throat being located either in the region r < 0 or r > 0. There is also a symmetry
+relation between solutions with a positive value of C and those with a negative value, which reads
+                                                       πC
+                                  f (r, C) = f (−r, −C) − ,
+                                                       r0
+                                                       πQ
+                                φ(r, C) = −φ(−r, −C) −     .                                   (10)
+                                                       r0
+This relation relates the part of the spectrum of quasi-normal modes with C < 0 with the C > 0
+part.
+
+
+3     Perturbation Theory
+3.1     Formalism
+We decompose the metric and the phantom field as follows
+
+                                                 (b)
+                                          gµν = gµν  + hµν ,                                   (11)
+
+                                            φ = φ(b) + ψ .                                     (12)
+where the superscript (b) stands for the background, and the perturbations are assumed to be small.
+The variation of the Einstein equations with the phantom field source term is
+
+                                      δRµν = −2δ(∂µ φ ∂ν φ) ,                                  (13)
+
+where
+                        2δRµν = ∇ρ ∇µ hρν + ∇ρ ∇ν hρµ − ∇ν ∇µ h − hµν ,                       (14)
+and
+                              δ(∂µ φ ∂ν φ) = ∂µ ψ ∂ν φ(b) + ∂µ φ(b) ∂ν ψ .                     (15)
+
+
+                                                   4
+ The variation of the scalar field equation leads to
+                                        1
+                              δφ = ψ + ∇λ h ∂ λ φ(b) − ∇µ hµν ∂ν φ(b) = 0
+                                                                       
+                                                                                                           (16)
+                                        2
+      Employing the Regge-Wheeler gauge [61] the polar perturbations of the metric are given by
+
+hpol
+ µν (t, r, θ, φ) =                                                                                           (17)
+                         ef (r) H0l (r)
+                                                                                                             
+                                           H1l (r)                  0                        0
+                                         −f (r)
+                        H1l (r)        e       H2l (r)             0                        0
+X Z                                                                                                         
+       −iωt
+    dωe     Pl (cos θ)                                                                                      ,
+                                                                                                             
+                                                         −f (r)   2   2
+l
+                               0              0        e       (r + r0 )Kl (r)              0               
+                                                                                 −f (r) 2    2      2
+                                0              0                    0           e      (r + r0 ) sin θKl (r)
+
+ which contains no m dependence because of the spherical symmetry of the background solutions.
+ Likewise, we employ a spherical harmonic decomposition (m = 0) of the perturbation ψ of the
+ scalar field, yielding
+                                       XZ
+                             ψ(t, r) =      dωe−iωt ul (r) Pl (cos θ) .                   (18)
+                                               l
+
+ For given values of l and ω the Laplacian of the phantom field perturbation then becomes
+                                                                                 
+               ul (r) 2    f (r)       2r                2         l(l + 1)
+       ψ =           ω +e                  ∂r ul (r) + ∂r ul (r) − 2       ul (r)    e−iωt Pl (cos θ) .   (19)
+               ef (r)              r 2 + a2                        r + r02
+
+    In the following the index l of the perturbation functions of the metric and the scalar field with
+ be omitted to simplify the notation. With the scalar spherical harmonics defined for l ≥ 0, the
+ vector spherical harmonics for l ≥ 1, and the tensor spherical harmonics for l ≥ 2, the monopole
+ (l = 0) case and the dipole (l = 1) case will be treated in separate subsections, following the
+ quadrupole (l = 2) case, which will include also the higher multipoles (l > 2).
+
+
+ 3.2      l≥2
+ We first consider the set of equations to be solved in order to obtain l ≥ 2 polar quasi-normal
+ modes, since these represent the main objective of the present investigations. In the derivation of
+ the equations we need to distinguish between the two cases C 6= 0 and C = 0 which are treated
+ consecutively in the following two subsubsections.
+
+ 3.2.1     C 6= 0
+
+ From the Einstein field equations we obtain seven nontrivial equations, associated with the pertur-
+ bations of the Ricci tensor δRtt , δRtr , δRtθ (δRtϕ ), δRrr , δRrθ (δRrϕ ), δRθθ and δRϕϕ . We extract
+ K ′′ from δRθθ and replace it in δRϕϕ . We then find the equality
+
+                                                   H2 = H0 .                                               (20)
+
+
+
+
+                                                        5
+Next we eliminate H2 in the remaining six equations and obtain
+
+                       e2f ′′ e2f (C + 2r) ′         l(l + 1)e2f      ω2
+                                                                        
+        δRtt    =   −     H −                  H +                  +      H0 ,
+                        2 0     2 (r 2 + r02 ) 0     2(r 2 + r02 )    2
+                                                                           !
+                                                      Ce2f
+                                               
+                     2f      ′   C − 4r                                 2
+                + iωe     −H1 +     2     2
+                                              H1 +     2    2
+                                                               K + ω K e−iωt Pl (cos θ) = 0 ,
+                                                                   ′
+                                                                                                                          (21)
+                                2(r + r0 )         2(r + r0 )
+
+                                                                                                   !
+                                                                                l(l + 1)e2f
+                                                                        
+                                    C − 2r         C −r
+       δRtr =           − iω              2
+                                              H0 + 2      K − K′              +               H1       e−iωt Pl (cos θ)
+                                      2
+                                   2(r + r0 )     r + r02                       2(r 2 + r02 )
+                = 2iω e−iωt u(r) Pl (cos θ) ∂r φ(b) ,                                                                     (22)
+                                                                             !
+                         1                                 C
+               δRtθ =      iω(H0 + K) + e2f                        H1 + H1′          e−iωt ∂θ Pl (cos θ) = 0 ,            (23)
+                         2                             r 2 + r02
+
+                                                                              
+                             1        l(l + 1)             C + 2r ′
+               δRrr    =                        − ω 2e2f
+                                                      H0 + 2        H + H0    ′′
+                             2        r 2 + r02            r + r02 0
+                                                                                !
+                                     C                     C   − 4r
+                       + iωef                 H1 + H1′ +                K ′ − K ′′ e−iωt Pl (cos θ)
+                                2(r 2 + r02 )             2(r 2 + r02 )
+                       = −4 e−iωt ∂r u(r) Pl (cos θ) ∂r φ(b) ,                                                            (24)
+
+                                                                                   !
+                               1    C
+                      δRrθ   =           H0 + H0′ + ωe−f H1 − K ′                      e−iωt ∂θ Pl (cos θ)
+                               2 r + r02
+                                  2
+
+
+                             = −2 e−iωt u(r) ∂θ Pl (cos θ) ∂r φ(b) ,                                                      (25)
+
+and
+
+                      C − 2r ′ iω                          1
+                             H0 + (C − 2r)e−f H1 +            (l − 1)(l + 2) − ω 2(r 2 + r02 )e−2f K
+                                                                                                  
+      δRθθ =          H0 −
+                        2          2                       2
+                                              !
+              1               1
+            +   (C − 4r)K ′ − (r 2 + r02 )K ′′ e−iwt Pl (cos θ) = 0 .                                (26)
+              2               2
+
+The equations (22), (23) and (25) are of first order. We now solve the equation of δRtr for K ′ (r),
+the equation of δRtθ for H1′ (r), and the equation of δRrθ for H0′ (r) after inserting K ′ (r) here. This
+leads to
+                                                                                            !
+                   1          C − 2r       l(l + 1) f
+                                                                         q
+          K′ = 2       2
+                          −           H0 +         e H1 + (C − r)K + C 2 + 4r02 u(r) ,               (27)
+                 r + r0           2           2ω
+
+                                                                              C
+                                       H1′ = −iωe−f (H0 + K) −                       H1 ,                                 (28)
+                                                                         r 2 + r02
+
+
+
+                                                               6
+and
+                                                                                                             !
+        1        2r − 3C      i        l(l + 1) f
+                                                                                             q
+H0′ = 2                  H0 +                  e − 2ω(r 2 + r02 )e−f       H1 + (C − r)K −       C 2 + 4r02 u(r) .
+     r + r02        2         2            ω
+                                                                                                              (29)
+Now we extract K ′′ (r) from δRθθ and H0′′ (r) from δRtt and insert these together with the first
+derivatives of the metric functions in δRrr . This leads to the algebraic relation
+                                                                                                         !
+               q             2u′            u  (C  −  4r)         2 (l −  1) (l + 2)   3C  (C −   2r)
+                 C 2 + 4r02              −                 2   +                       −               2   H0
+                               r 2 + r02      (r 2 + r02 )               r 2 + r02        (r 2 + r02 )
+                                                                !
+                   2ω (C − 2r) −f            l (l + 1) C f
+           + i                      e +                     2 e    H1
+                     r 2 + r02              ω (r 2 + r02 )
+                                                                    !
+                                 (l −  1)(l +   2)     C(C     − r)
+           + 2 2ω 2 e−2f −                          + 2                 K = 0.                                (30)
+                                     r 2 + r02         (r + r02 )2
+
+    When solving this algebraic relation for u′ , we are left with four first order equations for the four
+variables. By taking the first and second derivative of the algebraic relation we obtain the three
+metric perturbation functions H0 , H1 , and K in terms of u and its derivatives. If we would set
+u(r) = 0 (i.e., turn off the scalar perturbation) the metric perturbations would also vanish. This
+means that the metric perturbations are coupled with the phantom field perturbation, and we can
+not decouple the phantom field from metric perturbations, in general. We next need to study the
+behavior of the perturbation functions at both radial infinities. We therefore make series expansions
+for the functions assuming asymptotic flatness. Employing the tortoise coordinate r ∗
+                                                   dr ∗
+                                                        = e−f                                                (31)
+                                                   dr
+the expansion for r → +∞ becomes
+                             u
+                                1  u2 u3            
+             u(r) = eiωr
+                           ∗
+                                  + 2 + 3 + ... ,                                                            (32)
+                               r   r      r
+                                       (3iCω  − (l+2)(l−1))              
+            H0 (r) = eiωr iωK0 r +
+                           ∗
+                                                                  K0 + ... ,                                 (33)
+                                                    2
+                       iωr ∗
+                                          (3iCω − (l+2)(l−1))               
+            H1 (r) = e         − iωK0 r −                           K0 + ... ,                               (34)
+                                                       2
+                                  ω 2 (C 2 + 4r02 ) + 6iCω − l4 − 2l3 + l2 + 2l           
+            K(r) = eiωr K0 −
+                           ∗
+                                                                                 K 0 + ...   ,               (35)
+                                                         8ω 2 r 2
+where u1 = A+           +
+            s and K0 = Ag are free amplitudes that fix the rest of the parameters of the expansion
+                           q                     
+                       1              2
+                                                                   
+               u2   =         C 2 + 4r0 K0 − 2u1 Cω + 2il(l + 1)u1 ,                                         (36)
+                      4ω
+                       1  2 2
+                            ω (C − 4r02) − 2iωC(2l2 + 2l − 1) − l4 − 2l3 + l2 + 2l u1
+                                                                                  
+               u3   =    2
+                      8ω q
+                                                     
+                    + iωC C 2 + 4r02 (l + 2)(l − 1)K0 .                                                      (37)
+
+
+                                                        7
+On the other hand, for r → −∞ the expansion becomes
+                         ū    ū2 ū3         
+                      ∗      1
+     ū(r) = e−iωr             + 2 + 3 + ... ,                                                             (38)
+                           r    r     r
+                                              3iCωeCπ/r0 + (l + 2)(l − 1)          
+   H̄0 (r) = e−iωr − iωreCπ/r0 K̄0 −
+                      ∗
+                                                                           K̄0 + ... ,                     (39)
+                                                           2
+                 −iωr ∗
+                        
+                                  Cπ/r0        3iCωeCπ/r0 + (l + 2)(l − 1)          
+   H̄1 (r) = e            − iωre        K̄0 −                              K̄0 + ... ,                     (40)
+                                                           2
+                      ∗
+                               ω 2(C 2 + 4r02 ) − 6iCωe−Cπ/r0 − (l4 + 2l3 − l2 − 2l)e−2Cπ/r0           
+    K̄(r) = e−iωr K̄0 −                                                                       K̄ 0 +  ..  ,(41)
+                                                            8ω 2 r 2
+where again ū1 = A−                   −
+                     s and K̄0 = Ag are free amplitudes and
+                  q                           
+             1                                                           
+    ū2 =                C + 4r0 K̄0 − 2ū1 Cω − 2il(l + 1)e−Cπ/r0 ū1 ,
+                            2     2
+                                                                                                           (42)
+            4ω
+              1  2 2
+                     ω (C − 4r02 ) + 2iωe−Cπ/r0 C(2l2 + 2l − 1) − (l4 + 2l3 − l2 − 2l)e−2Cπ/r0 ū1
+                                                                                                    
+    ū3 =       2
+            8ω               q                           
+                 −Cπ/r0
+          + iωe          C C 2 + 4r02(l + 2)(l − 1)K̄0 .                                                   (43)
+
+3.2.2      C=0
+
+In the massless case the first order equations reduce to
+                 1                                                                    
+ K′ =                        il (l  + 1) H   1 −   2ω   (rK     −  rH  0  −    2r 0 u)   ,                                                (44)
+          2ω (r 2 + r02 )
+                 1         
+                                       2    2       2
+                                                                                                                        
+ H0′ =
+                                                                        
+                                −2iω      r    +  r 0   +   il (l  +  1)   H   1 −   2ω  (rK    −    rH   0  + 2r  0 u)    ,              (45)
+          2ω (r 2 + r02 )
+ H1′ = −iω (H0 + K) ,                                                                                                                     (46)
+             1                                                                                                                2r
+  u′ = −             2ω 2 r 2 + r02 + (l + 2)(l − 1) K + (l + 2) (l − 1) H0 − 2iωrH1 − 2
+                                                                 
+                                                                                                                                      u . (47)
+            4r0                                                                                                              r0 + r 2
+The asymptotic expansions shown in the previous section remain valid when we substitute C = 0.
+    Calculating u′′ by taking the derivative of (47) leads to a decoupled equation for the scalar
+perturbation,
+                 2r                  1        
+                                                  4 2             2 2        2
+                                                                                           2            2 2       2
+                                                                                                                           2
+     u′′ = − 2         u ′
+                           −                    r  ω    +     2r   ω   −   l    −  l +  4  r    +      r  ω   −  l    − l   r u.          (48)
+             r0 + r 2           (r02 + r 2 )2 0                  0                           0
+
+A non-trivial solution to this equation can be written in closed form:
+                              C1 r                 1                 r02 ω 2 1 2 2              2
+                                                                                                                r2 
+             u(r) = 2                   HeunC        0,    , −2,   −          ,      r ω   −   l    −   l +  5   ,− 2
+                            r0 + r 2                     2               4 4 0                                        r0
+                                C2                         1              2 2
+                                                                         r0 ω 1 2 2                  2
+                                                                                                                   r2 
+                      + 2               HeunC        0,  −    , −2,   −          ,     r  ω   −    l   −   l +  5    ,− 2 ,               (49)
+                            r0 + r 2                        2               4 4 0                                        r0
+where HeunC is the Heun Confluent function, C1 and C2 are constants.
+    The equations for the space-time perturbations can be cast into a single second order differential
+equation for H1 ,
+                ′′    8iωr0 ru′ + 16iωr0 r 2 u/(r 2 + r02 ) − 2rω 2 (r 2 + r02 ) H1′
+             H1 =
+                                   (l2 + l − 2 − (r 2 + r02 ) ω 2) (r 2 + r02 )
+                                                                                                                             
+                     2       2 2 4            2         2           2      2                  2        4       3      2
+                   (r + r0 ) ω + [6r + 2r0 − 2 (r + r0 ) l (l + 1)] ω + l + 2l − l − 2l H1
+             +                                                                                                                            (50)
+                                               (l2 + l − 2 − (r 2 + r02 ) ω 2 ) (r 2 + r02 )
+
+                                                                      8
+    The previous perturbation equations can be written in terms of a single master equation, that
+coincides with the master equation of the axial perturbations. First note that, if we parametrize
+the scalar perturbation in terms of the master variable Z(r) such as
+                                                 1
+                                          u= p          Z(r),                                         (51)
+                                              r 2 + r02
+
+then equation (48) can be written as a Schrödinger-like master equation
+
+                                    d2 Z(r)     2
+                                                          
+                                            + ω   − V (r)   Z(r) = 0,                                 (52)
+                                      dr 2
+with effective potential,
+                                               l (l + 1)         3r02
+                                     V (r) =              −                                           (53)
+                                                r 2 + r02   (r 2 + r02 )2
+Note that, for C = 0 the tortoise coordinate (31) r ∗ is the same as r. This potential is the same as
+the one found in [55] for the axial perturbations with C = 0.
+    It is also possible to cast the space-time perturbation equation (50) into the same master equa-
+tion. However the transformation is more involved. We define
+
+                                         H1 (r) = A(r)Ẑ(r),                                          (54)
+                                           u(r) = B(r)Ẑ(r),                                          (55)
+
+where Ẑ(r) is the new master variable and A(r) and B(r) are
+                            √
+               (r 2 + r02 ) 3−3/2       h
+    A(r) = 2                                                                                            (56)
+           l + l − 2 − ω 2 (r 2 + r02 )
+                                             √             √                      √
+        3
+               
+                     2 2       r02 ω 2β 5 3            5      149 √ √          5    149 5             
+    D1 r HeunG − r0 ω β, −              +         + 3, +           + 3, 3 + −          , , 0, βω 2r 2
+                                   2       √2          4    √4                 4   √4   2
+                               2 2
+                               r ω β          3 3 1            149     √    √   1    149 1              i
+    +D2 HeunG − r02 ω 2 β, − 0          −       + ,− +              + 3, 3 − −          , − , 0, βω 2r 2 ,
+                                   2         2     2 4         4                4    4     2
+             iω(r02 + r 2 )     i(r02 + r 2 )(l2 + l − 2 − ω 2(r02 + r 2 )) ′
+    B(r) = −                A−                                             A ,                          (57)
+                 4r0                              4r0 rω
+
+where β −1 = l2 + l − 1 − r02 ω 2 and HeunG is the Heun General function, D1 and D2 are two arbitrary
+constants.
+   Then it is possible to show that equation (50) simplifies into equation (52) for Ẑ(r) and with
+the same axial perturbations potential. As we will explicitly calculate later, this means that the
+spectrum of polar quasinormal modes of the C = 0 wormholes is exactly the same as the axial
+spectrum.
+
+
+3.3    l=1
+For l = 1 three of the Einstein’s equations are identically zero,
+
+                                       δRtϕ = δRrϕ = δRθϕ = 0 .                                       (58)
+
+                                                      9
+From the non-trivial equations we obtain the following three first order differential equations,
+
+                               1  ief             C − 2r
+                                                                                    q            
+                   ′
+               K       =     2      2
+                                             H1 −           H2 + (C − r) K +         C 2 + 4r02 u ,   (59)
+                            r0 + r       ω            2
+                                  C
+               H1′ =        − 2         H1 − iωe−f (H2 + K) ,                                         (60)
+                              r + r02
+                               C−r                              ef        
+               H0′ =        − 2         H  0 − i  ωe −f
+                                                         −                  H1
+                              r + r02                       ω (r 2 + r02 )
+                                                                p
+                                  C               C −r              C 2 + 4r02
+                       −                   H 2 +           K −                 u,                     (61)
+                            2 (r 2 + r02 )       r 2 + r02         r 2 + r02
+
+and the following algebraic equation,
+
+             C 2 − 3Cr − 2r02                              w(C − 2r)e−f              c2 + 4r02
+                                                                            
+                                        i      C
+           −                    H 0 +                    +                     H 1 −             H2
+                2(r 2 + r02 )           2 ω(r 2 + r02 )2     (r 2 + r02 )            4(r 2 + r02
+                                             p
+                                                C 2 + 4r02
+                                                                               
+                 2 −f     C(C   −  r)                         4r − C            ′
+           +  ω e +                       K+                               u + u = 0.                 (62)
+                         2(r 2 + r02 )2         r 2 + r02    2(r 2 + r02 )
+
+This set of equations still has a gauge freedom that we can use to simplify the system further. Let
+us discuss here two possibilities.
+   Imposing the gauge H1 = 0, we obtain from δRtθ
+
+                                                    K = −H2 .                                         (63)
+
+Then it is possible to simplify the remaining perturbation equations and obtain the following system
+of first order differential equations
+                                                p
+                       ′       (4r − 3C)H2 + 2 C 2 + 4r02 u
+                     H2 =                                      ,                                 (64)
+                                        2(r 2 + r02 )
+                                  1                    2r − 3C
+                                                                      q            
+                     H0′ = 2           (r −  C) H  0  +         H 2 −  C 2 + 4r 2 u ,
+                                                                               0                 (65)
+                               r + r02                     2
+
+and
+                                    C 2 − 3Cr − 2r02
+                           u′ =                p          H0
+                                2 (r 2 + r02 ) C 2 + 4r02
+                                       1       
+                                                  2 −f      r02     3C 2 − 2Cr 
+                              + p               ω e + 2           +                H2
+                                   C 2 + 4r02             r + r02   4 (r 2 + r02 )
+                                  C − 4r
+                              +                u.                                                     (66)
+                                2 (r 2 + r02 )
+
+We are then left with three first order equations to calculate the quasi-normal modes.
+   Alternatively, we may consider the variation of the phantom field (16)), which leads to the
+second order equation for the function u
+          p
+            C 2 + 4r02
+                                                                           
+                                                           2 −2f      2            2r
+      ′′                 ′         −f       ′      ′
+                                                                                        u′ .
+                                                     
+     u =      2    2
+                       H0 + 2iωe H1 + H2 − 2K − ω e              + 2      2
+                                                                              u− 2    2
+                                                                                             (67)
+          4(r + r0 )                                                r + r0      r + r0
+
+                                                         10
+This equation is compatible with (59-62). We may now choose the gauge
+
+                                   H0′ + 2iωe−f H1 + H2′ − 2K ′ = 0 ,                            (68)
+
+to simplify the equation, yielding
+                                                             
+                                           2 −2f       2                  2r
+                              ′′
+                            u =− ω e               + 2            u−               u′ .          (69)
+                                                    r + r02            r 2 + r02
+
+This is the equation for l = 1 scalar field perturbations in the background of the Ellis wormhole as
+shown in [55], from which we can calculate the scalar quasinormal modes.
+
+
+3.4    l=0
+In this case the function H1 does not contribute in the Einstein equations. Thus for simplicity we
+put H1 = 0. We now again consider the variation of the phantom field (16)), yielding for u the
+equation                  p
+                            C 2 + 4r02                                      2r
+                      ′′
+                    u =            2
+                                       (H0′ + H2′ − 2K ′ ) − ω 2 e−2f u − 2      u′ .         (70)
+                             2
+                          4(r + r0 )                                     r + r02
+We now fix the gauge as follows
+
+                                            H0 = 2K − H2 .                                       (71)
+
+The scalar field equation decouples from space-time perturbations
+                                                                  2r
+                                      u′′ = −ω 2 e−2f u −               u′ .                     (72)
+                                                              r 2 + r02
+
+Non-trivial solutions to this equation result in the spectrum of l = 0 scalar quasinormal modes.
+The space-time perturbations can be cast into a second order differential equation for K,
+                                                                            p
+          ′′         (2Cr + 4r02 )K ′          2CK           2 −2f        4u C 2 + 4r02
+        K = − 2                       +                    −ω e K + 2                      . (73)
+                   (r + r02 )(C − 2r) (r 2 + r02 )(C − 2r)              (r + r02 )(C − 2r)
+
+The unstable modes are found for solutions with u = 0. With help of the function Z,
+
+                                       (C − 2r) 2rC arctan( rr )
+                                     K=p           e 0       0   Z,                              (74)
+                                         r 2 + r02
+
+and the tortoise coordinate r ∗ (equation (31)) we rewrite the equation into a Schrödinger-like equa-
+tion,
+                                     d2 Z
+                                           + ω 2 − Vr (r) Z = 0 .
+                                                         
+                                         ∗
+                                                                                                  (75)
+                                      dr
+with the effective potential Vr (r)
+
+             e2f              
+                                 4     3      2   2   2       2   2         2    2    2
+                                                                                         
+ Vr =                           C − 8rC + 12(r − r0 )C − 16r(r − r0 )C − 16r0 (3r + 2r0 ) . (76)
+      4(C − 2r)2 (r 2 + r02 )
+
+
+
+                                                      11
+                                           2                                                               C=0
+                                                                                                          C=0.1
+                                                                                                         C=0.25
+                                                                                                          C=0.5
+                                                                                                           C=1
+
+                             2
+
+
+                              Vr (r-C/2)   1
+
+
+
+
+                                           0
+                                                  -4            -2        0             2             4            6
+                                                                                   r
+
+
+Figure 1: Effective potential Vr (r) · (r − C/2)2 versus radial coordinate r for C = 0, 0.1, 0.25, 0.5
+and 1 (r0 = 1).
+
+   The above expression corrects the misprints in the corresponding effective potential in [55]. Since
+the effective potential has a singularity at C = 2r, we study its behaviour near this singularity
+                                                                                                                                         
+                                             C                                               C                                        C
+                             2C
+                                    tan−1 ( 2r )− π2                          2C
+                                                                                    tan−1 ( 2r )− π2                   2C
+                                                                                                                             tan−1 ( 2r )− π2
+                   C    2e   r0                    0                  8Ce     r0    0       4e       0                 r0
+         Vr (r →     )=                                          +                       −                                                       + ... .   (77)
+                   2                           C 2                            2       C
+                                                                       (C + 4r0 ) r − 2        C + 4r02
+                                                                                                2
+                                                
+                                           r− 2
+For r → +∞ the effective potential becomes
+                                                                                            2
+                                                          C   − 7C4 + 3r02
+                                            Vr (r → +∞) = 3 −              + ... ,                                                                          (78)
+                                                         r         r4
+and for r → −∞
+                                                                                                    − 2πC
+                                                       − 2πC              − 2πC         2       e      r0
+                                                                                                            (12C 2 −48r02 )
+                                                       e  r 0    C        e  r     0   C +                    16
+                     Vr (r → −∞) =                                    −                                                         + ... .                     (79)
+                                                           r3                                       r4
+ We exhibit the effective potential Vr (r), multiplied by the factor (r −C/2)2 to cancel the singularity,
+in figure 1 for C = 0, 0.1, 0.25, 0.5 and 1 (r0 = 1). We note, that this figure corrects the
+corresponding figure in [55]. The calculations of the perturbation equations and the quasi-normal
+modes were, however, not affected by the misprints.
+
+
+4     Results
+We now study the spectrum of polar quasi-normal modes. Since these characteristic modes of
+oscillation are damped, the modes are complex,
+
+                                                                     ω = ωR + iωI ,                                                                         (80)
+
+with frequency ωR and decay rate ωI (and sign convention ωI < 0 for stable modes). In the following
+we first discuss the method used to calculate the quasi-normal modes and present the numerical
+results for l ≥ 2. Subsequently we briefly recall the method and results for l = 1 and l = 0.
+
+                                                                              12
+4.1     l≥2
+4.1.1   Method
+
+For the numerical calculation of the quasinormal modes with l ≥ 2, we rewrite the system of
+equations 27) - (30). This system can be simplified into a second order ordinary differential equation
+(ODE) for u, coupled with two first order ODEs for the functions H1 and K (the other perturbation
+functions are then given algebraically in terms of these three functions). Schematically this set may
+be expressed as
+                                            d ~      ~ = 0,
+                                              Z + MZ                                              (81)
+                                           dr
+where Z~ denotes the column vector with components u, u′ , H1 and K. The matrix M contains the
+coupling among the perturbation functions and the background functions.
+    To obtain the quasi-normal modes we need to solve the coupled set of equations (81) subject to
+the corresponding set of physically motivated boundary conditions, i.e., we have to impose that we
+do not have any incoming waves from infinity. Therefore the modes are purely outgoing at infinity,
+r ∗ → ±∞ (see (32)-(35) and (38)-(41)), with components Zi
+                                       (
+                                           eiωr ,
+                                               ∗
+                                                    r → +∞ ,
+                                  Zi ∼     −iωr ∗
+                                                                                              (82)
+                                          e       , r → −∞ .
+
+   For the numerical integration we divide space at some value rc into two regions. In the region
+r > rc , perturbation function Zi (r) possess the asymptotic behaviour for r → +∞ [60]
+
+                                              Zi+ (r) = eiωr ZiP (r) ,
+                                                             ∗
+                                   r > rc ,                                                      (83)
+
+while in the region r < rc their asymptotic behaviour for r → −∞ is given by
+
+                                              Zi− (r) = e−iωr ZiN (r) .
+                                                             ∗
+                                  r < rc ,                                                       (84)
+
+Based on the corresponding expansions for r → ±∞, we then generate independent solutions (with
+                                                                                             N
+different values for the scalar and gravitational amplitudes A±        ±
+                                                              s and Ag ) for the functions Zi (r)
+and ZiP (r) for some chosen value of ω. Then we match these functions at r = rc and calculate the
+derivatives of the functions. We obtain the quasi-normal mode, when a linear combination of the
+two independent solutions in one region smoothly matches a linear combination of the solutions of
+the other region (see subsection 4.1.3 for further details).
+    In order to integrate numerically the equations subject to the corresponding boundary condi-
+tions, we use the package Colsys [62], a collocation method for systems of ordinary differential
+equations with error estimation and adaptive mesh selection.
+
+4.1.2   Spectrum
+
+For l ≥ 2 we have two families of modes [63]. For black holes they can be labeled as gravitational-led
+modes, that are dominated by the gravitational perturbations, i.e., their dominant amplitude is A±  g,
+                                                  ±
+and scalar-led modes with dominant amplitude As . Here such a clear distinction seems not possible.
+
+                                                   13
+          4                                                                 0
+                                      l=2, branch 1
+                                      l=2, branch 2
+
+          3
+
+
+  ωR r0
+                                                                          −0.5
+                                                                  ωI r0
+          2
+
+
+
+          1                                                                                              l=2, branch 1
+                                                                           −1
+                                                                                                         l=2, branch 2
+          −0.3   −0.2   −0.1    0     0.1        0.2   0.3                   −0.3   −0.2   −0.1    0      0.1       0.2   0.3
+                               M/r0                                                               M/r0
+
+
+
+Figure 2: Polar l = 2 quasi-normal modes: dimensionless frequency ωR r0 (left) and dimensionless
+decay rate ωI r0 (right) vs dimensionless mass M/r0 (r0 = 1).
+
+          8                                                                 0
+                                      l=3, branch 1
+                                      l=3, branch 2
+
+
+          6                                                               −0.5
+
+  ωR r0                                                           ωI r0
+          4
+                                                                           −1
+
+
+                                                                                                         l=3, branch 1
+          2                                                                                              l=3, branch 2
+                                                                          −1.5
+          −0.3   −0.2   −0.1    0     0.1        0.2   0.3                   −0.3   −0.2   −0.1    0      0.1       0.2   0.3
+                               M/r0                                                               M/r0
+
+
+
+Figure 3: Polar l = 3 quasi-normal modes: dimensionless frequency ωR r0 (left) and dimensionless
+decay rate ωI r0 (right) vs dimensionless mass M/r0 (r0 = 1).
+
+Therefore we refer to the two families of modes for a given l as branch 1 and branch 2, where we
+currently focus on the fundamental branches. However, we might obtain such a classification if we
+were to consider larger wormhole masses, since in this limit the wormhole modes are expected to
+approach those of the Schwarzschild black hole [55].
+   We exhibit the two fundamental branches of polar quadrupole (l = 2) modes in figure 2. Here
+the left figure shows the scaled frequency ωR r0 versus the scaled mass M/r0 , while the right figure
+shows the scaled decay time ωI r0 versus the scaled mass. We note, that the two branches cross
+precisely at M = 0, since the eigenvalue ω degenerates in the massless case. Away from the crossing,
+the frequencies and decay times are quite distinct for the two branches. A selection of values for
+these quasi-normal modes is also reported in Table 1.
+   We exhibit the polar l = 3 and l = 4 modes in figure 3 and 4, respectively. Again we notice
+the crossing of the two branches in the massless case. Away from the crossings the frequencies ωR
+of both branches are getting closer for l = 3 and even closer for l = 4 than for the quadrupole.
+The decay rates show a smoother behavior for the higher l as compared to the quadrupole. Table
+1 shows again a selection of values for these quasi-normal modes.
+
+
+                                                             14
+                        M/r0     Branch                 l=2                             l=3                 l=4
+                                                ωR          ωI                ωR             ωI       ωR       ωI
+                                    1          1.10       -0.157             1.76          -0.199    2.39    -0.223
+                         0.2
+                                    2         0.738       -0.275             1.70          -0.330    2.35    -0.320
+                                    1          1.22       -0.177             1.98          -0.230    2.69    -0.258
+                        0.15
+                                    2         0.955       -0.303             1.91          -0.348    2.66    -0.346
+                                    1          1.37       -0.205             2.24          -0.271    3.06    -0.305
+                         0.1
+                                    2          1.19       -0.292             2.18          -0.364    3.03    -0.375
+                                    1          1.54       -0.245             2.56          -0.329    3.51    -0.367
+                        0.05
+                                    2          1.44       -0.290             2.52          -0.382    3.50    -0.408
+                           0       1&2         1.74       -0.305             2.95          -0.410    4.08    -0.449
+                                    1          1.97       -0.398             3.45          -0.524    4.78    -0.559
+                        -0.05
+                                    2          2.10       -0.336             3.50          -0.451    4.81    -0.502
+                                    1          2.23       -0.547             4.08          -0.681    5.68    -0.703
+                         -0.1
+                                    2          2.56       -0.384             4.20          -0.509    5.73    -0.571
+                                    1          2.45       -0.779             4.90          -0.894    6.82    -0.888
+                        -0.15
+                                    2          3.14       -0.453             5.07          -0.588    6.90    -0.663
+                                    1          2.59       -0.965             5.97           -1.16    8.27     -1.12
+                         -0.2
+                                    2          3.87       -0.550             6.19          -0.696    8.39    -0.784
+
+Table 1: Polar l = 2, 3 and 4 quasi-normal modes: dimensionless frequency ωR r0 and dimensionless
+decay rate ωI r0 vs dimensionless mass M/r0 (r0 = 1).
+
+
+
+
+          11                                                                       0
+                                       l=4, branch 1
+                                       l=4, branch 2
+
+
+          8                                                                      −0.5
+
+  ωR r0                                                                  ωI r0
+
+          5                                                                       −1
+
+
+                                                                                                                      l=4, branch 1
+                                                                                                                      l=4, branch 2
+          2                                                                      −1.5
+          −0.3   −0.2   −0.1     0     0.1        0.2         0.3                   −0.3      −0.2   −0.1      0       0.1       0.2   0.3
+                                M/r0                                                                          M/r0
+
+
+
+Figure 4: Polar l = 4 quasi-normal modes: dimensionless frequency ωR r0 (left) and dimensionless
+decay rate ωI r0 (right) vs dimensionless mass M/r0 (r0 = 1).
+
+
+
+
+                                                                    15
+          11                                                                                0
+                                                    l=2, branch 1
+                                                    l=2, branch 2
+                                                    l=3, branch 1
+                                                    l=3, branch 2
+              8                                     l=4, branch 1                         −0.5
+                                                    l=4, branch 2
+
+  ωR r0                                                                           ωI r0
+              5
+                                                                                           −1                                     l=2, branch 1
+                                                                                                                                  l=2, branch 2
+                                                                                                                                  l=3, branch 1
+              2                                                                                                                   l=3, branch 2
+                                                                                                                                  l=4, branch 1
+                                                                                          −1.5                                    l=4, branch 2
+              −0.3   −0.2         −0.1        0     0.1          0.2   0.3                   −0.3   −0.2     −0.1        0            0.1        0.2   0.3
+                                             M/r0                                                                       M/r0
+
+
+
+Figure 5: Comparison of polar l = 2, 3 and 4 quasi-normal modes: dimensionless frequency ωR r0
+(left) and dimensionless decay rate ωI r0 (right) vs dimensionless mass M/r0 (r0 = 1).
+
+                                                                                          −0.2
+                            l=2, branch 1               l=3, axial
+                            l=2, branch 2           l=4, branch 1
+                                l=2, axial          l=4, branch 2
+                            l=3, branch 1               l=4, axial
+                            l=3, branch 2
+          5
+                                                                                          −0.4
+  ωR r0                                                                           ωI r0                                               l=2, branch 1
+                                                                                                                                      l=2, branch 2
+                                                                                                                                          l=2, axial
+                                                                                                                                      l=3, branch 1
+                                                                                                                                      l=3, branch 2
+                                                                                          −0.6                                            l=3, axial
+          2                                                                                                                           l=4, branch 1
+                                                                                                                                      l=4, branch 2
+                                                                                                                                          l=4, axial
+          −0.1          −0.05                 0           0.05         0.1                   −0.1    −0.05          0          0.05            0.1     0.15
+                                             M/r0                                                                       M/r0
+
+
+
+Figure 6: Comparison of axial and polar l = 2, 3 and 4 quasi-normal modes: dimensionless frequency
+ωR r0 (left) and dimensionless decay rate ωI r0 (right) vs dimensionless mass M/r0 (r0 = 1).
+
+    We have collected the branches for l = 2, 3 and 4 in figure 5 to allow for a better comparison
+of the different l. The left figure shows that the frequencies rise monotonically with increasing l.
+From the right figure we note the overall trend on an increase of the decay rates with increasing l.
+However, here the branches of the different l intertwine. For large positive masses, the decay rate
+of the branches 1 increases with l and is smaller than decay rate of the branches 2, where the l = 4
+decay rate is smaller than the l = 3 decay rate. For large negative masses, the decay rate of the
+branches 2 increases with l and is smaller than decay rate of the branches 1, where again the l = 4
+decay rate is smaller than the l = 3 decay rate. We note, that the decay rates of the branches 1 are
+very close for l = 3 and l = 4.
+    Comparison with the l ≥ 2 axial modes [55] shows that the wormhole solutions do not possess
+isospectrality of their modes, as long as they possess a finite mass. Only in the massless case the
+spectrum degenerates and all three fundamental branches for a given l possess the same eigenvalue.
+This is demonstrated in figure 6 for l = 2, 3 and 4.
+
+
+
+
+                                                                             16
+4.1.3    Isospectrality for C = 0
+
+We now briefly comment on the mode degeneracy for the massless wormholes from our numerical
+point of view. For l > 1, we look for a linear combination of two independent solutions on the left
+side, Zi− (I) and Zi− (II), that smoothly matches a linear combination of two independent solutions
+on the right side, Zi+ (I) and Zi+ (II). Written explicitly, this implies that, at r = rc
+
+                                                   det M̄ = 0                                                (85)
+
+where
+                                    u− (I) u− (II) u+ (I) u+ (II)
+                                                                     
+                                   u′− (I) u′− (II) u′+ (I) u′+ (II) 
+                             M̄ =  −                                                                        (86)
+                                                                     
+                                   H1 (I) H1− (II) H1+ (I) H1+ (II) 
+                                                                      
+
+                                    K − (I) K − (II) K + (I) K + (II) r=r
+                                                                                   c
+
+When C 6= 0, this determinant becomes zero for two different values of ω, one of them belonging
+to branch 1 and the other one belonging to branch 2 1 . At each of these zeroes of the determinant,
+there is a single linear combination of the perturbation functions that results in a smooth solution
+across all of the space-time (for each value of ω, the Kernel of matrix M̄ has dimension one). As we
+have seen in the previous subsection, as we decrease the value of C, the two branches of modes get
+closer and closer. What happens is that, in the limit when C vanishes, the determinant possesses
+a single double-zero at one particular value of ω. In this case it is possible to find, for this value
+of the eigenfrequency, two distinct linear combinations of the perturbation functions that result
+in two independent smooth solutions of the perturbation equation (the Kernel of matrix M̄ has
+dimension two). In other words, the massless wormhole possesses a doubly-degenerate fundamental
+polar mode, as predicted in Section 3 in terms of the master equations.
+    In figure 7 we demonstrate the degeneracy of the polar modes in the massless case (C = 0)
+for the first overtone (n = 1) of l = 2. For comparison the figure also shows the corresponding
+fundamental (n = 0) modes.
+
+
+4.2     l = 1 and l = 0
+To obtain the damped quasinormal modes for the l = 1 and l = 0 perturbations, we solve equations
+(69) and (72) respectively. These equations can be cast into a second order Schrödinger-like equation,
+as discussed in Section 3
+                                     d2 Z
+                                           + ω 2 − Vs (r) Z = 0 ,
+                                                         
+                                         ∗
+                                                                                                   (87)
+                                      dr
+where Vs is the scalar perturbation potential for l = 0, 1 (see [55]). Assuming again, that the modes
+are purely outgoing at infinity r ∗ → ±∞
+                                                      ∗
+                                           Z ≃ e±iωr , r ∗ → ±∞ ,                                            (88)
+   1
+    Of course the determinant has more than two zeroes, corresponding to excited modes, with larger imaginary part
+of ω. We here focus only on the fundamental modes.
+
+
+
+                                                          17
+           4.5                                                                    0
+                                         l=2, n=0, branch1
+            4                            l=2, n=0, branch2
+                                         l=2, n=1, branch1                      −0.5
+           3.5                           l=2, n=1, branch2
+
+            3                                                                    −1
+    ωRr0   2.5                                                           ωIr0
+            2                                                                   −1.5
+
+           1.5                                                                                                 l=2, n=0, branch1
+                                                                                 −2                            l=2, n=0, branch2
+            1                                                                                                  l=2, n=1, branch1
+                                                                                                               l=2, n=1, branch2
+           0.5                                                                  −2.5
+             −0.3   −0.2   −0.1    0          0.1       0.2   0.3                  −0.3   −0.2   −0.1    0          0.1       0.2   0.3
+                                  M/r0                                                                  M/r0
+
+
+
+Figure 7: Fundamental (n = 0) polar l = 2 quasi-normal modes and their first overtone (n = 1):
+dimensionless frequency ωR r0 (left) and dimensionless decay rate ωI r0 (right) vs dimensionless mass
+M/r0 (r0 = 1).
+
+we then solve the second order equation subject to these boundary conditions. The quasi-normal
+modes are obtained when the condition
+                                               1 dZ −        1 dZ +
+                                                           −              =0                                                         (89)
+                                              Z − dr ∗ r=rc Z + dr ∗ r=rc
+
+is satisfied.
+    The polar l = 0 and l = 1 quasi-normal modes correspond to the scalar branches obtained
+previously [55]. Clearly, we obtain only one branch of fundamental modes for each of these values.
+The frequencies of these modes increase with l, although their decay rates don’t change much. For
+large masses the corresponding Schwarzschild scalar modes are approached.
+    For l = 0 there is in addition an unstable mode [64, 65, 66, 67, 55]. In this case, the unstable
+mode can be obtained solving equation (75). This unstable radial mode decreases in strength with
+increasing wormhole mass. Thus the wormhole gets more stable as its mass increases, however, the
+wormhole always retains a radial instability as long as its mass is finite.
+
+
+5          Conclusions
+Here we have considered the polar modes of Ellis-Bronnikov wormholes. We have obtained the
+sets of perturbation equations for general multipole number l. For l ≥ 2 we have then solved
+numerically the corresponding system of equations subject to purely outgoing boundary conditions
+at both radial infinities. For l = 1 and l = 0 we have shown, that analogous to the case of the axial
+modes single master equations result.
+    The massless wormholes are special, however. Here isospectrality with a threefold degeneracy
+arises, since the set of polar equations can be reduced to the same master equation for both types
+of polar modes, which moreover agrees with the master equation for the axial modes, obtained
+previously [55].
+
+
+                                                                    18
+    For finite wormhole masses the spectrum of polar quasi-normal modes possesses two distinct
+branches for a given multipole number l. For large wormhole masses these may possibly be associated
+with the scalar and the gravitational modes of a Schwarzschild black hole. The modes exhibit an
+overall increase of the frequencies with the multipole number l. Similarly, the decay rates show an
+overall increase with l. For a given l, the two branches of polar modes also differ from the branch
+of axial modes, except for the degenerate massless case.
+    Since we now have access to the complete spectrum of quasi-normal modes of the static spher-
+ically symmetric Ellis-Bronnikov wormholes, we may next consider the inclusion of rotation. This
+will be done perturbatively for small angular momenta analogous to [68]. Of particular interest will,
+however, be the influence of rotation on the unstable radial mode of the Ellis-Bronnikov wormholes.
+Could rotation have a stabilizing influence in four spacetime dimensions analogous to what has been
+observed before in five spacetime dimensions [69]?
+
+
+Acknowledgements
+BA, JK and JLBS would like to gratefully acknowledge support by DAAD, the DFG Research Train-
+ing Group 1620 Models of Gravity, DFG project Ku612/18-1, FCT project PTDC/FIS-AST/3041/2020
+and MICINN project PID2021-125617NB-I00 “QuasiMode”. JLBS gratefully acknowledges support
+from Santander-UCM project PR44/21-29910. XYC and DY are supported by the National Re-
+search Foundation of Korea (Grant No.: 2021R1C1C1008622, 2021R1A4A5031460). We thank Fech
+Scen Khoo, Luis Manuel González-Romero and Francisco Navarro-Lérida for discussions.
+
+
+References
+ [1] A. Einstein and N. Rosen, “The Particle Problem in the General Theory of Relativity,” Phys.
+     Rev. 48, 73 (1935)
+
+ [2] H. G. Ellis, J. Math. Phys. 14, 104 (1973)
+
+ [3] H. G. Ellis, Gen. Rel. Grav. 10, 105 (1979).
+
+ [4] K. A. Bronnikov, Acta Phys. Polon. B 4, 251 (1973).
+
+ [5] M. S. Morris and K. S. Thorne, “Wormholes in space-time and their use for interstellar travel:
+     A tool for teaching general relativity,” Am. J. Phys. 56, 395-412 (1988)
+
+ [6] M. Visser, “Lorentzian wormholes: From Einstein to Hawking,” Woodbury, USA: AIP (1995).
+
+ [7] M. Alcubierre and F. S. N. Lobo, Fundam. Theor. Phys. 189 (2017)
+
+ [8] P. Kanti, B. Kleihaus and J. Kunz, Phys. Rev. Lett. 107, 271101 (2011)
+
+ [9] P. Kanti, B. Kleihaus and J. Kunz, Phys. Rev. D 85, 044007 (2012).
+
+
+                                                  19
+[10] G. Antoniou, A. Bakopoulos, P. Kanti, B. Kleihaus and J. Kunz, Phys. Rev. D 101, no.2,
+     024033 (2020)
+
+[11] J. L. Blázquez-Salcedo, C. Knoll and E. Radu, Phys. Rev. Lett. 126, 101102 (2021)
+
+[12] J. L. Blázquez-Salcedo, C. Knoll and E. Radu, Eur. Phys. J. C 82, 533 (2022)
+
+[13] J. L. Blázquez-Salcedo and C. Knoll, Eur. Phys. J. C 80, no.2, 174 (2020)
+
+[14] R. A. Konoplya and A. Zhidenko, Phys. Rev. Lett. 128, 091104 (2022)
+
+[15] B. J. Barros and F. S. N. Lobo, Phys. Rev. D 98, 044012 (2018)
+
+[16] M. Bouhmadi-López, C. Y. Chen, X. Y. Chew, Y. C. Ong and D. h. Yeom, JCAP 10 (2021),
+     059
+
+[17] J. G. Cramer, R. L. Forward, M. S. Morris, M. Visser, G. Benford and G. A. Landis, Phys.
+     Rev. D 51, 3117 (1995)
+
+[18] M. Safonova, D. F. Torres and G. E. Romero, Phys. Rev. D 65, 023001 (2002)
+
+[19] V. Perlick, Phys. Rev. D 69, 064017 (2004)
+
+[20] K. K. Nandi, Y. Z. Zhang and A. V. Zakharov, Phys. Rev. D 74, 024020 (2006)
+
+[21] F. Abe, Astrophys. J. 725, 787 (2010)
+
+[22] Y. Toki, T. Kitamura, H. Asada and F. Abe, Astrophys. J. 740, 121 (2011)
+
+[23] K. Nakajima and H. Asada, Phys. Rev. D 85, 107501 (2012)
+
+[24] N. Tsukamoto, T. Harada and K. Yajima, Phys. Rev. D 86, 104062 (2012)
+
+[25] P. K. F. Kuhfittig, Eur. Phys. J. C 74, 2818 (2014)
+
+[26] C. Bambi, Phys. Rev. D 87, 107501 (2013)
+
+[27] R. Takahashi and H. Asada, Astrophys. J. 768, L16 (2013)
+
+[28] N. Tsukamoto and T. Harada, Phys. Rev. D 95, 024030 (2017)
+
+[29] P. G. Nedkova, V. K. Tinchev and S. S. Yazadjiev, Phys. Rev. D 88, 124019 (2013)
+
+[30] T. Ohgami and N. Sakai, Phys. Rev. D 91, 124020 (2015)
+
+[31] R. Shaikh, Phys. Rev. D 98, 024044 (2018)
+
+[32] G. Gyulchev, P. Nedkova, V. Tinchev and S. Yazadjiev, Eur. Phys. J. C 78 , 544 (2018).
+
+[33] M. Guerrero, G. J. Olmo, D. Rubiera-Garcia and D. Gómez Sáez-Chillón, Phys. Rev. D 105,
+     no.8, 084057 (2022)
+
+                                                  20
+[34] T. Harko, Z. Kovacs and F. S. N. Lobo, Phys. Rev. D 78, 084005 (2008)
+
+[35] T. Harko, Z. Kovacs and F. S. N. Lobo, Phys. Rev. D 79, 064001 (2009)
+
+[36] C. Bambi, Phys. Rev. D 87, 084039 (2013)
+
+[37] M. Zhou, A. Cardenas-Avendano, C. Bambi, B. Kleihaus and J. Kunz, Phys. Rev. D 94, 024036
+     (2016)
+
+[38] F. Lamy, E. Gourgoulhon, T. Paumard and F. H. Vincent, Class. Quant. Grav. 35, 115009
+     (2018)
+
+[39] E. Deligianni, J. Kunz, P. Nedkova, S. Yazadjiev and R. Zheleva, Phys. Rev. D 104, 024048
+     (2021)
+
+[40] E. Deligianni, B. Kleihaus, J. Kunz, P. Nedkova and S. Yazadjiev, Phys. Rev. D 104, 064043
+     (2021)
+
+[41] B. Azad, F. Loran and A. Mostafazadeh, “Transmission of low-energy scalar waves through a
+     traversable wormhole,” Eur. Phys. J. C 80, no.12, 1097 (2020)
+
+[42] B. P. Abbott et al. [LIGO Scientific and Virgo], Phys. Rev. Lett. 116, no.6, 061102 (2016).
+     doi:10.1103/PhysRevLett.116.061102.
+
+[43] B. P. Abbott et al. [LIGO Scientific and Virgo], Phys. Rev. Lett. 119 , no.16, 161101 (2017)
+     doi:10.1103/PhysRevLett.119.161101.
+
+[44] B. P. Abbott et al. Astrophys. J. Lett. 848, no.2, L12 (2017).
+
+[45] K. D. Kokkotas and B. G. Schmidt, Living Rev. Rel. 2, 2 (1999)
+
+[46] E. Berti, V. Cardoso and A. O. Starinets, Class. Quant. Grav. 26, 163001 (2009)
+
+[47] R. A. Konoplya and A. Zhidenko, Rev. Mod. Phys. 83, 793 (2011)
+
+[48] R. A. Konoplya and C. Molina, Phys. Rev. D 71, 124009 (2005)
+
+[49] S. W. Kim, Prog. Theor. Phys. Suppl. 172, 21 (2008)
+
+[50] R. A. Konoplya and A. Zhidenko, Phys. Rev. D 81, 124036 (2010)
+
+[51] R. A. Konoplya and A. Zhidenko, JCAP 1612, 043 (2016)
+
+[52] S. H. Völkel and K. D. Kokkotas, Class. Quant. Grav. 35, 105018 (2018)
+
+[53] S. Aneesh, S. Bose and S. Kar, Phys. Rev. D 97, 124004 (2018)
+
+[54] R. A. Konoplya, Phys. Lett. B 784, 43 (2018)
+
+[55] J. L. Blázquez-Salcedo, X. Y. Chew and J. Kunz, Phys. Rev. D 98, 044035 (2018)
+
+                                                21
+[56] R. A. Konoplya, A. F. Zinhailo and Z. Stuchlı́k, Phys. Rev. D 99, 124042 (2019)
+
+[57] M. S. Churilova, R. A. Konoplya and A. Zhidenko, Phys. Lett. B 802, 135207 (2020)
+
+[58] K. Jusufi, Gen. Rel. Grav. 53, 87 (2021)
+
+[59] P. A. González, E. Papantonopoulos, Á. Rincón and Y. Vásquez, Phys. Rev. D 106, 024050
+     (2022)
+
+[60] S. Chandrasekhar, The Mathematical Theory of Black Holes, (Clarendon Press, Oxford, 1998)
+
+[61] T. Regge and J. A. Wheeler, “Stability of a Schwarzschild singularity,” Phys. Rev. 108, 1063
+     (1957)
+
+[62] U. Ascher, J. Christiansen and R. D. Russell, Math. Comput. 33, 659 (1979)
+
+[63] J. L. Blázquez-Salcedo, C. F. B. Macedo, V. Cardoso, V. Ferrari, L. Gualtieri, F. S. Khoo,
+     J. Kunz and P. Pani, Phys. Rev. D 94, 104024 (2016)
+
+[64] H. a. Shinkai and S. A. Hayward, Phys. Rev. D 66, 044005 (2002)
+
+[65] J. A. Gonzalez, F. S. Guzman and O. Sarbach, Class. Quant. Grav. 26, 015010 (2009)
+
+[66] J. A. Gonzalez, F. S. Guzman and O. Sarbach, Class. Quant. Grav. 26, 015011 (2009)
+
+[67] F. Cremona, F. Pirotta and L. Pizzocchero, Gen. Rel. Grav. 51, 19 (2019)
+
+[68] J. L. Blázquez-Salcedo and F. S. Khoo, [arXiv:2212.00054 [gr-qc]].
+
+[69] V. Dzhunushaliev, V. Folomeev, B. Kleihaus, J. Kunz and E. Radu, Phys. Rev. D 88, 124028
+     (2013)
+
+
+
+
+                                                22
+
