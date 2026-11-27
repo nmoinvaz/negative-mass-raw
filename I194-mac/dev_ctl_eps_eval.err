@@ -1,0 +1,29 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 948, in main
+    table[name]()
+    ~~~~~~~~~~~^^
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 943, in <lambda>
+    "C": lambda: check_C(arc_log), "F": lambda: check_F(arc_log), "Cs": lambda: check_C(arc_log, alpha_max=1.30), "Fs": lambda: check_F(arc_log, alpha_max=1.10), "Z": lambda: check_Z(arc_log), "FOLD": check_fold,
+                                                                                ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i194/phase2/radial/taylor_radial.py", line 755, in check_C
+    tr = [l for l in lines if l["cmd"] == "arc_track"][0]
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+        0.03 real         0.02 user         0.00 sys
+            28835840  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                2050  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  11  voluntary context switches
+                  11  involuntary context switches
+           347120490  instructions retired
+           119269501  cycles elapsed
+            17859064  peak memory footprint

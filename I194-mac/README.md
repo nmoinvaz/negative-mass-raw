@@ -214,4 +214,68 @@ The one arclength run of the whole family (run_03, checks C, F, Z) was stopped a
   Against the stored table: 48 of 57 tokens equal; 9 differ by 1.0 to 1.5 half-units of the last printed digit (relative at most 5.0e-8; the stored rows are
   boundary-value solutions at 1e-8): ω at 2.3, 2.8, 3.9; N at 2.1, 2.4, 2.8, 3.5, 3.9; M at 2.4. Not equal as worded; reported, not loosened.
 
-Controls' targets and effects: Amendment A3, after the control development runs.
+**A2, the coordinator's ruling S1 on the stall (2026-11-26, after dev_11).**
+
+- The stall is accepted as A2's rule requires. Rows α_c = 4.0, 4.015 and 4.017906 (3 of the 35 stored rows) and the mode scans at 4.0 and 4.015 are
+  **NOT COMPUTED**: Newton in α_c with halving stalled at α_c = 3.9935489 (k = 0.1038, ω = 0.99460) with a scaled residual of 2e-6 to 8e-6 at every step
+  down to 1e-7, and the stored family has no turning point in α_c there. No other method is tried. The stage `stepC` therefore lists 3.5 and 3.9 only.
+- Why this region can wait: RESULTS.md §7 says that the old solver stops near ω → 1 because of the boundary condition, not the star, and the star continues
+  through ω = 1. `phantom_follow.py`'s outer radius grew as k fell (R = 1919 at k = 0.0109). The three end rows test the far boundary, not the physics.
+  The coordinator files the endpoint as a follow-up; no run is spent on it here.
+- The hypothesis about the floor, **untested**: the layout's outer radius r_t against the decay length 1/k = 9.6 at the stall, or the tail condition's
+  accuracy at that radius. The layout is `bvp.rs: nodes_from_profile`: r_x is the first integer radius where P < 1e-9 P_c, r_cut = r_x + ln(P(r_x)/1e-44)/(2k),
+  r_t = r_cut + 40/k; outward segments at most 2.5/k, tail segments at most 10/k. The tail condition at r_t is u = −k − 1/r_t (the Yukawa decay of
+  φ ∝ e^{−kr}/r, without the O(1/r²) and gravitational corrections), m = m_R free, Z = 1/(1 − 2m_R/r_t), and k′ = 0. At k = 0.1038: 1/k = 9.6, outward segments
+  at most 24, r_t − r_cut = 385.
+- The two items the coordinator accepted, recorded here: (1) the `par = true` check passed (dev_06, dev_07, all 7 lines identical); (2) the fix of the extra
+  `converged` condition of `step_family` back to A2's text (dev_09, dev_10).
+- The 9 of 57 tokens of rows 2.1 to 3.9 that differ by 1.0 to 1.5 half-units of the last digit are reported with the criterion's own wording
+  ("each equal to the stored token"): **NOT MET** for those tokens, with each token's crate and stored value in `taylor_radial.md`. The stored rows are
+  boundary-value solutions at tolerance 1e-8 (RESULTS.md §7). The criterion is not reworded.
+
+### A3 (2026-11-26, after run_07_stepC; the coordinator's ruling by hc; before any run it names)
+
+1. **F at α₀ = 3.5 and 3.9 is NOT COMPUTED, under A1.8's gate as declared.** A1.8: stars are solved by Newton to 1e-28 (scaled rows). run_07_stepC's rows
+   at 3.5 and 3.9 reached 1.02e-28 and 7.6e-27 (A2's row bar of 1e-24 governs the rows, not the scans' input); `family::prepare` refused them, as it refuses any star
+   whose Newton flag is false (`mroots_error` in `run_07_stepC.jsonl`). The gate is not loosened. F at 4.0 and 4.015: NOT COMPUTED (A2, S1).
+2. **A supplementary run, outside A1.8's gate.** Stage `stepS`: the scans at α₀ = 3.5 and 3.9 on the stars as Newton converged them. Its output lines carry
+   `"ungated":true` and, beside each σ² root (or "none"), the star's scaled residual. Its numbers enter **no verdict**: C, F and Z are evaluated without it, and F
+   at 3.5 and 3.9 stays NOT COMPUTED. It is labeled "supplementary, outside A1.8's gate" here and in the note.
+3. **S3 and E2 are built and run** (declared above): S3 is dd against qd for the central data and M of one star; E2 is the lane spread of ω₀ (X1) and σ₀² (Z), for
+   D in dd and D in qd on the same dd star. Their settings are written in an addendum after their development runs. The qd lane of the star beyond S3's one
+   star, and so ω_N and ω_M in qd, are not built.
+4. **The independent multishoot eigenvalue solver** (σ² the global, README "What is built"): **NOT DONE**; a recommended task. Criterion Z's third error bar is therefore not available.
+
+### A4 (2026-11-27, after the control development runs `dev_ctl_*`, before the control runs of record `run_ctl_*`)
+
+The targets and effects of the controls, from the development runs. "Fires" is a failing verdict of the named check under `--mutate=NAME`; "silent" is a
+passing verdict, which is a result. `Cs` and `Fs` are `C1` and `F` restricted to α_c ≤ 1.30 and α₀ = 1.10 (stored tokens: 18 and 4), evaluated on the
+stage `arcm` (the arclength continuation to α_c = 1.30 with one scan at 1.10) run under the mutation; the unmutated `arcm` passes both (`dev_ctl_base_*`).
+
+| control | fires on | silent on | note |
+|---|---|---|---|
+| `jsign` | A, X1, Fs | G1, Cs | the entry is flipped in the table, not in `jeval`'s series: G1 does not see it |
+| `jomega` | A, X1, Fs | Cs | |
+| `jmu` | X1 | | |
+| `eps` | S1, S5, Cs, Fs | S4 | with ε = +1 the arclength path stays on the canonical branch (α_c 0.99817 after 54 chunks) and never reaches 1.10: the stage run was stopped by me at 24.5 min |
+| `noqr` | P1, P2, A in the f64 lane | | the dd and qd lanes never finish (`dev_ctl_noqr`, stopped at the 1800 s cap); the control runs with `--p-lanes=f64` |
+| `lowsum` | P1, P2 in the f64 lane | G2, A | the same `--p-lanes=f64` (`dev_ctl_lowsum` was stopped by me) |
+| `shortR` | P1 in the qd lane | Cs, Fs | silent on the scan at α₀ = 1.10; Z at 2.0 and 3.0 was not run under it |
+| `start` | | A, X1 | silent (X1b of ε = −1 fails unmutated too): the wrong leading term of χ at r_s = 1e-8 acts at order r_s³ |
+| `plant_sign` | P1, P2 | | |
+| `fit_deg` | P3, X1a | X1b ε = +1 | |
+| `tailk` | | S1, S4, S5, Cs, Fs | silent by construction (A1.6) |
+| `znorm` | S1, S5, Cs, Fs | S4 | |
+| `nonewton` | Cs, Fs | S4, S5 | |
+| `arcfold` | Cs, Fs | | the tangent flipped at the first point does not cross the fold |
+| `arbstart` | A | | 374.6 half-units at the worst token |
+| `start_term` | | S1, S2, A | silent |
+| `shift_off` | G2, A | | |
+| `wide_table` | G2, A | | |
+| `recip_dd` | P1 in the qd lane | | qd worst relative 1.14e-33 against 1e-50 |
+
+The runs of record `run_ctl_*` run each control on the checks above (the silent ones too), with `--p-lanes=f64` for `noqr` and `lowsum`, `--p-lanes=qd` for `shortR` and
+`recip_dd`, and a 600 s cap on the stage runs of the family controls (the unmutated `arcm` takes about 170 s). A control run that reaches its cap is reported
+as stopped, with what it printed. Also added: the supplementary run of A3 (`run_11_stepS`), the reruns `run_09_arc` and `run_10_stepB` (the qd variant of σ₀²),
+and the options `--p-lanes`, `--stage`, `--tag`, `--supp-log` of the driver.
+
