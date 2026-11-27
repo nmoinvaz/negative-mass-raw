@@ -89,4 +89,25 @@ the lane). In the test, a wrong input and no hook: `ref_scale` (the reference fu
 
 ## Amendments
 
-(none yet)
+**A1 (2026-11-27, after dev_01 to dev_14; stage 1 only, no library code yet).** The bars C1 to C5 are unchanged. Additions and findings:
+
+- **Two cases added** (before any library run): **PP**, a polynomial `1 + 2x + 3x^2 - x^4` on [0.1, 3] (one step: its tail is zero, so the width is the search
+  cap; the start 0.1 is not dyadic, so a shift by the f64 difference of x0 and the start is not the exact difference where x0 > 2 start), and **PS**, `1/(1 + 1e5 x)` on
+  [0, 1] in qd (nb 60: c_58 = 1e290 and h^58 underflows in plain f64, so the rule must scale by powers of two). Controls added with them: `Unscaled` (the
+  plain f64 test) with PS.
+- **`ShiftF64` is a no-op on PA, PB, PC, PD, PF** (dev_04, dev_05: E equals the clean E to every printed digit in all three lanes): x0 and the step start are f64 numbers
+  within a factor 2 of each other, so their f64 difference is exact (Sterbenz), and from 0 it is exact. A control that cannot change what its target reads is not a
+  control; it is declared for **PP in dd and qd only** (E 4.6e-16 against bars 1e-24 and 1e-54), silent in f64 by design.
+- **The OD smoke case is PC, not PA** (nb 100 at x0 = 1e-3 puts c_99 at 1e305, at the edge of f64's range).
+- **Controls' computed effects** are in `design.md`, from `dev_04` (PA, PB, PC, PD, controls), `dev_05` (PD, PE, PF, PG, PP), `dev_09` to `dev_12` (PH), `dev_13` (PS).
+- Observed margins of the clean runs, for the record (the bars were not moved): max E / bar = 1/220 (PA f64), 1/530 (PA dd), 1/700 (PA qd), 1/21 (PC f64),
+  1/39 (PC dd), 1/36 (PC qd); the tightest of all is PC, the conjugate pair.
+- **Run bookkeeping.** `dev_06_proto_ph_killed.log.txt`: the first PH run (f64, dd, qd and the control `wide`) was stopped by its PID after 10 min with no output (stdout
+  buffered; with the control `wide` the planner's steps collapse and the plane does not finish), the run keeps no result; PH then got a 3000-plane-step cap (counted as a
+  failure) and `-u`. `dev_11_proto_ph_controls_qd` holds the qd *baseline* only (its name is wrong; the controls are `dev_12_proto_ph_controls_qd2`). `dev_12_*` has two
+  runs started together that took the same number.
+- **PH, the consumer's reach** (`dev_07`, `dev_08`, `dev_09`, `dev_11`): at fraction 0.3 PH passes in f64, dd and qd, and the plane's steps reach past the table's width
+  w in dd (6 of 90 steps, up to 1.03 w) and qd (22 of 95, up to 1.13 w). At dd, fraction 0.5 passes (25 steps past, up to 1.25 w), 0.7 and 1.0 **fail** the log-volume
+  bar (1.0e-26 and 1.0e-23 against 1.2e-27). Reported, not tuned.
+- **C6 (optional, proposed after D1; not yet part of any run).** An independent estimate of the radius: `multisolver::locate` on a step's series in dd, the ratio
+  width / |s| of every step of PA's `1/x` and PC with a resolved singularity within [0.09, 0.17] (D1's resolved sets lie in [0.104, 0.160] at nb 30, tail 1e-25, last 2).
