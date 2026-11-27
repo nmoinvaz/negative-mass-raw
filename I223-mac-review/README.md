@@ -45,3 +45,6 @@ The targets are predicted from the code, not yet computed. A mutation that misse
 
 | file | what |
 |---|---|
+| `rerun.sh`, `rerun/`, `rerun_compare.txt` | `check`: 55 of 55, every verdict line equal to the runner's `check_run2.log`. `planted`, `planted_complex` and `complex`: the same verdicts and every printed W to its 10 digits; the 16-digit W² of P1 and the P4 secant iteration count differ in the last digits. `count` S_m1 and B1_q0.5 at R2: roots equal to 1e-14 relative (0.17745354591232, and 0.00665847359858, 0.28601203056527). The expectation is met |
+| `ind223_run1.txt` | run 1: **exit 0, 1 of 1.** K1: the finite-difference W at h = 0.05 against the runner's: S m = 0.75 0.220010 (+1.1e-6), S m = 1 0.177454 (−7.1e-7), S m = 5 0.038121 (−5.9e-7), B1 q = 0 0.282776 (+3.1e-6), B1 q = 0.5 0.006660 (+2.5e-4) and 0.286013 (+4.6e-6); h = 0.1 agrees within 7.5e-4. No other eigenvalue with W ≥ 1e-3 at any of the five |
+| `ind223_run1_mut_*.txt` | `vhat-scale` fails exactly K1 (V̂ × 1.05 shifts W by 3.4e-2 and adds a mode of W ≈ 0.004 to 0.006 at three members, a sign that the weak modes are sensitive to V̂); `no-tortoise` fails exactly K1 (no eigenvalue below 0) |

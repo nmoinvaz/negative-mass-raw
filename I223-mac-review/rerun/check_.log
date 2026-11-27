@@ -1,0 +1,60 @@
+PASS  S1 background (sympy, closed form): SV R'' + eps phi'^2 R/2: residual 0
+PASS  S1 background (sympy, closed form): SV A'' - [(A (R^2)'' - 2)/R^2 - R Lam_R]: residual 0
+PASS  S1 background (sympy, closed form): SV V + Lam + (R/2) Lam_R + (A' R^2)'/(2 R^2): residual 0
+PASS  S1 background (sympy, closed form): SV V_phi - eps (A phi'' + 2 A phi' R'/R + A' phi'): residual 0
+PASS  S1 background (sympy, closed form): BBS R'' + eps phi'^2 R/2: residual 0
+PASS  S1 background (sympy, closed form): BBS A'' - [(A (R^2)'' - 2)/R^2 - R Lam_R]: residual 0
+PASS  S1 background (sympy, closed form): BBS V + Lam + (R/2) Lam_R + (A' R^2)'/(2 R^2): residual 0
+PASS  S1 background (sympy, closed form): BBS V_phi - eps (A phi'' + 2 A phi' R'/R + A' phi'): residual 0
+PASS  S1 background (sympy, closed form): BBS printed (8) 2 (A r^2 phi')' - eps r^2 dV/dphi: residual 0
+PASS  S1 background (sympy, closed form): BBS printed (9) (A' r^2)' + 2 r^2 V - 2 q^2/r^2: residual 0
+PASS  S1 background (sympy, closed form): BBS printed (10) r''/r + eps phi'^2: residual 0
+PASS  S1 background (sympy, closed form): BBS printed (11) A (r^2)'' - r^2 A'' - 2 + 4 q^2/r^2: residual 0
+PASS  S1 background (sympy, closed form): BBS printed (12) -1 + A' r r' + A r'^2 - r^2 (eps A phi'^2 - V) + q^2/r^2: residual 0
+PASS  S1 background (sympy, closed form): BBS printed (15) B' - 2 (p - x + 2 q^2 atan x)/(1+x^2)^2: residual 0
+PASS  S1 [BW22] printed source against the Einstein tensor (sympy, Q = 0): component t (0): residual 0
+PASS  S1 [BW22] printed source against the Einstein tensor (sympy, Q = 0): component x (1): residual 0
+PASS  S1 [BW22] printed source against the Einstein tensor (sympy, Q = 0): component th (2): residual 0
+PASS  S1 [BW22] printed source against the Einstein tensor (sympy, Q = 0): component th (3): residual 0
+PASS  S1 [BBS12] printed (20) for V against (9) (mpmath 30 digits, 3 members, 4 points): max abs difference 3.155e-30 (declared <= 1e-25)
+PASS  S2 float64 background (A, A', A/z series, large x; low-stage series of B) against mpmath 40 digits, 7 members: max scaled difference 3.666e-13 (declared <= 1e-11)
+PASS  S3 horizons: S A'(x_h) = 2 m x_h/R_h^3; B2 A(0) = 0, A'(0) = 2p (mpmath 40 digits): max abs difference 9.184e-41 (declared <= 1e-30)
+      elapsed 3 s
+PASS  S4 NED source, Bianchi and NED equation (sympy): F = F_mn F^mn - 2 q^2/r^4: residual 0
+PASS  S4 NED source, Bianchi and NED equation (sympy): T^t_t + L/2: residual 0
+PASS  S4 NED source, Bianchi and NED equation (sympy): T^x_x + L/2: residual 0
+PASS  S4 NED source, Bianchi and NED equation (sympy): T^th_th - (F L_F - L/2): residual 0
+PASS  S4 NED source, Bianchi and NED equation (sympy): S_t - (Lam + r Lam'/2): residual 0
+PASS  S4 NED source, Bianchi and NED equation (sympy): S_th - Lam: residual 0
+PASS  S4 NED source, Bianchi and NED equation (sympy): dF = 0: (t,th,ph) component is f_t sin th: residual 0
+PASS  S4 NED source, Bianchi and NED equation (sympy): dF = 0: (x,th,ph) component is f_x sin th: residual 0
+PASS  S4 NED source, Bianchi and NED equation (sympy): NED equation, nu = 0: residual 0
+PASS  S4 NED source, Bianchi and NED equation (sympy): NED equation, nu = 1: residual 0
+PASS  S4 NED source, Bianchi and NED equation (sympy): NED equation, nu = 2: residual 0
+PASS  S4 NED source, Bianchi and NED equation (sympy): NED equation, nu = 3: residual 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0, Lambda(R)): background (0, 0): 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0, Lambda(R)): background (0, 1): 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0, Lambda(R)): background (1, 1): 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0, Lambda(R)): background (2, 2): 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0, Lambda(R)): background S: 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0, Lambda(R)): G1 t-rho equation solved for delta lambda: 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0, Lambda(R)): G1 (0, 0) residual after the master equation: 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0, Lambda(R)): G1 (1, 1) residual after the master equation: 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0, Lambda(R)): BK t-rho equation solved for delta lambda: 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0, Lambda(R)): BK (0, 0) residual after the master equation: 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0, Lambda(R)): BK (1, 1) residual after the master equation: 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0, Lambda(R)): (41) with V -> V + Lambda: A*Ut - rhs, eps = -1: 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0, Lambda(R)):   ... eps = +1: 0
+PASS  S4 linearized equations (sympy, generic A, R, phi0, Lambda(R)): gauge map F = -phi0' Y/R' residual: 0
+      elapsed 15 s
+      NED extension of [BKZ12] (41): A*Ut - (41 as printed) = -Lam(rho)*R(rho)**2*Derivative(P0(rho), rho)**2/Derivative(R(rho), rho)**2   (eps = -1)
+PASS  S5 family coefficients vs generic derived equation (mpmath 30 digits, sv m = 3/10): max abs difference 1.972e-31 (declared <= 1e-25)
+PASS  S5 family coefficients vs generic derived equation (mpmath 30 digits, sv m = 7/10): max abs difference 3.944e-31 (declared <= 1e-25)
+PASS  S5 family coefficients vs generic derived equation (mpmath 30 digits, bbs m = 7/10, q = 2/5): max abs difference 7.889e-31 (declared <= 1e-25)
+PASS  S5 family coefficients vs generic derived equation (mpmath 30 digits, bbs m = 1/20, q = 1/10): max abs difference 2.465e-31 (declared <= 1e-25)
+PASS  S8 Vhat of u = Y/x against A Ut + R_x*x*/R of the delta R = 0 gauge (mpmath 30 digits, sv m = 3/10): max abs difference 3.944e-31 (declared <= 1e-25)
+PASS  S8 Vhat of u = Y/x against A Ut + R_x*x*/R of the delta R = 0 gauge (mpmath 30 digits, sv m = 13/10): max abs difference 7.889e-31 (declared <= 1e-25)
+PASS  S8 Vhat of u = Y/x against A Ut + R_x*x*/R of the delta R = 0 gauge (mpmath 30 digits, bbs m = 7/10, q = 2/5): max abs difference 7.573e-29 (declared <= 1e-25)
+PASS  S8 Vhat of u = Y/x against A Ut + R_x*x*/R of the delta R = 0 gauge (mpmath 30 digits, bbs m = 1/20, q = 1/10): max abs difference 5.867e-30 (declared <= 1e-25)
+      elapsed 16 s
+rc=0
