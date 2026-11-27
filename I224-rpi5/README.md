@@ -151,3 +151,29 @@ additions (the D5 extremum, the check D2b and the mutation `ds_orientation`, whi
 `dev/dev3_mut_*.txt` are the development run of that script (28 checks pass; `ds_orientation` fires D2b alone, the other seven
 mutations fire what they fired before). The target of `ds_orientation` (D2b) is declared in section 5 in the commit that holds
 this paragraph, before the run of record, run 3.
+
+## 8. Runs
+
+All runs: `~/Source/negative-mass-venv314/bin/python`, python 3.14.10, sympy 1.14.0, one process, `nice -n 10`, `OMP_NUM_THREADS=1`, from
+`notes/` of the worktree; load average below 1 at each start. Each run writes stdout to `runN.log` and stderr to `runN.err` (empty in
+every run); a mutated run exits 1 when it fires (and 0 if it were silent, which would be a failed control).
+
+| run | script | checks | exit | mutations (each its own log) | files |
+|---|---|---|---|---|---|
+| 1 | worktree, uncommitted: 27 checks, no tables, no D2b | 27, 0 failed | 0 | 7 of 7 on target, no extra check fired | `run1.log`, `run1_mut_*.log`, `run1_mut_summary.txt`, `run1_mutate_all.txt` |
+| 2 | as run 1 plus the thresholds table and the KS Einstein tensor in the output | 27, 0 failed | 0 | 7 of 7 on target | `run2*` |
+| 3, **of record** | code commit 42a76a3 (`wip/i224-junction`): adds D2b, the D5 extremum, `ds_orientation` (declared in section 5 before this run) | 28, 0 failed, 3.3 s | 0 | 8 of 8 on target, no extra check fired | `run3.log` (= `notes/baby_universes_junction_output.txt`), `run3_mut_*.log`, `run3_mut_summary.txt`, `run3_mutate_all.txt` |
+
+Run 3, `--mutate=all`: every mutation fires exactly its declared targets (section 5) and nothing else; exit 0 (all on target).
+
+## 9. Results against the criteria
+
+| criterion (issue #224) | verdict |
+|---|---|
+| [BHR21] (4)–(5) reproduced or the discrepancy reported with the derived forms | reproduced with √g := √(−f(r₀)) = √(r_s/r₀ − 1) (the text's "determinant" has dimension length², P2); the right-hand side is S/2 for the action (1) at κ = 1, the printed S is 2× (P3). Reported, not corrected. |
+| sign of the tension that gives expansion, by hand and symbolically | positive for the S² radius at every r₀ < r_s (σ > 2√F/(κ r₀)) and for the volume where r₀ < 3 r_s/4; not for ȧ/a (s_a < 0). X1–X3. |
+| NEC sign of the shell, by hand and symbolically | σ > 0: NEC and WEC violated; σ = 0 saturated; σ < 0 satisfied. A shell with p_x ≥ 0 cannot re-expand the S² radius. E1, E2 |
+| a mutation that flips the sign of the jump of K fails the check | `jump_sign` fires J1 P0a P3 X3 E2 D3 D6 D6b |
+| [FMM90] | text not reachable (section 6, `reading/fmm90_attempts.txt`); the matching is derived from the geometry alone (D2–D6b) |
+
+Disagreements with the repository's text: none with `baby_universes.md` or `literature.md`; two with the paper as printed (the symbol g, the factor 2 in (4)–(5)).
