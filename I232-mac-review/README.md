@@ -38,6 +38,14 @@ Y'' = (2/ρ − A′/A) Y′ + (1/R⁴ − A′/(AρR²) − 2/(AR²) + W²/A²)
 
 ## Amendments
 
+**A1, 2026-11-27, after run 1.**
+- **K3 is not met as worded.** The roots at c = −1.01 and −0.99 are −0.499999999997 and −0.500000000003: 3e-12 from −1/2
+  against the bar 1e-12. The cause is the review's numerics, not the equation. p₀ and q₀ were evaluated at a distance
+  1e-14 from ρ_h ≈ ±0.0078, and the 2/ρ term then contributes about 1e-14/0.0078 ≈ 1e-12.
+- **K3b** repeats K3 at a distance of 1e-20 with 40 digits, against the same bar. K3 stays NOT MET.
+- The mutation `drop-2rho` stopped with an exception (complex roots could not be sorted) before any criterion was
+  evaluated: a non-clean fire, kept. `wrong-kappa` fired its targets K1 and K2; K3 failed there as it fails unmutated.
+
 ## Runs (filled in as they are done)
 
 | file | what |

@@ -48,20 +48,22 @@ ok2 = lim.is_finite and lim != 0
 check("K2", ok2, f"x = {sp.simplify(x)}; e^(kappa x)/rho^(1/2) -> {lim} as rho -> 0 (finite and nonzero means rho^(1/2) e^(kappa t) = C e^(kappa v)(1 + O(rho)))")
 
 # K3: c = -1.01 and -0.99, rho_h != 0
-mp.mp.dps = 30
+K3B = "--k3b" in sys.argv                                   # A1: distance 1e-20 at 40 digits
+mp.mp.dps = 40 if K3B else 30
+OFF = "1e-20" if K3B else "1e-14"
 out, ok3 = [], True
 for cv in (sp.Rational(-101, 100), sp.Rational(-99, 100)):
     Af = sp.lambdify(rho, A.subs(c, cv), "mpmath")
     rh = mp.findroot(Af, -0.01 if cv > -1 else 0.01)
-    rhs = sp.Float(rh, 30)
-    A1c = sp.diff(A.subs(c, cv), rho).subs(rho, rhs).evalf(30)
+    rhs = sp.Float(rh, mp.mp.dps)
+    A1c = sp.diff(A.subs(c, cv), rho).subs(rho, rhs).evalf(mp.mp.dps)
     Pc, Qc = P.subs(c, cv), Q.subs(c, cv)
-    p0n = sp.N(((rho - rhs) * Pc).subs(rho, rhs + sp.Float("1e-14", 30)), 25)
-    q0n = sp.N(((rho - rhs)**2 * Qc).subs({W: A1c / 2, rho: rhs + sp.Float("1e-14", 30)}), 25)
-    rts = sp.Poly(s * (s - 1) - p0n * s - q0n, s).nroots(n=20)
+    p0n = sp.N(((rho - rhs) * Pc).subs(rho, rhs + sp.Float(OFF, mp.mp.dps)), 35)
+    q0n = sp.N(((rho - rhs)**2 * Qc).subs({W: A1c / 2, rho: rhs + sp.Float(OFF, mp.mp.dps)}), 35)
+    rts = sp.Poly(s * (s - 1) - p0n * s - q0n, s).nroots(n=30)
     rts = sorted(float(sp.re(r)) for r in rts)
     ok3 &= abs(rts[0] + 0.5) <= 1e-12 and abs(rts[1] - 0.5) <= 1e-12
     out.append(f"c = {cv}: rho_h {float(rh):.6g}, roots at W = kappa {rts[0]:.12f}, {rts[1]:.12f}")
-check("K3", ok3, "; ".join(out))
+check("K3b" if K3B else "K3", ok3, "; ".join(out))
 print(f"\n{len(RES)} criteria, {sum(RES)} pass; mutation {MUT}")
 sys.exit(0 if all(RES) else 1)
