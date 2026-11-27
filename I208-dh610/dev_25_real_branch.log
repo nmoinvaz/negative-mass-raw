@@ -1,0 +1,16 @@
+target: member 32.7762000685795683207676872782
+  PSLQ at 110 digits (the two grids share 330.0), tolerance 1e-98
+PASS    Q1: P1 = {Omega3, pi^4, pi^2 ln^2 2, ln^4 2, zeta(3) ln 2, Li4(1/2)}, n = 6, H = 1000000000, d = 110: planted relation (den 3, seed 208001) recovered: True (0 s); perturbed basis on the planted target finds nothing; budget n log10(2H + 1) + 1 = 56.8
+    REAL P1: not found at H = 1000000000 (0 s)
+PASS    Q2: P2 = {Omega3, pi^4, pi^2 ln^2 2, ln^4 2, zeta(3) ln 2, Li4(1/2), zeta(3), pi^2 ln 2, ln^3 2, pi^2, ln^2 2, ln 2, 1}, n = 13, H = 1000000, d = 110: planted relation (den 21, seed 208002) recovered: True (1 s); perturbed basis on the planted target finds nothing; budget n log10(2H + 1) + 1 = 82.9
+    REAL P2: FOUND (counts) relation [45, -13, 7, 5, -90, -11, -135, 0, 0, 0, 0, 0, 0], residual 3.19e-108 (bar 1.0e-98), budget with H = 1000000: 82.9 < 110: True; Omega3 coefficient 45; perturbed basis (constant pi^4 + sqrt(2)/1000) finds nothing
+PASS    Q3: P3 = {Omega3, pi^4, pi^2 ln^2 2, ln^4 2, zeta(3) ln 2, Li4(1/2), pi zeta(3), pi^3 ln 2, pi ln^3 2, pi^2 G, beta(4), G ln^2 2, pi G ln 2}, n = 13, H = 1000000, d = 110: planted relation (den 11, seed 208003) recovered: True (1 s); perturbed basis on the planted target finds nothing; budget n log10(2H + 1) + 1 = 82.9
+    REAL P3: not found at H = 1000000 (2 s)
+target: non-member 0.330064355720499643360315080477
+  PSLQ at 110 digits (the two grids share 330.0), tolerance 1e-98
+PASS    Q1: P1 = {Omega3, pi^4, pi^2 ln^2 2, ln^4 2, zeta(3) ln 2, Li4(1/2)}, n = 6, H = 1000000000, d = 110: planted relation (den 3, seed 208001) recovered: True (0 s); perturbed basis on the planted target finds nothing; budget n log10(2H + 1) + 1 = 56.8
+    REAL P1: not found at H = 1000000000 (0 s)
+PASS    Q2: P2 = {Omega3, pi^4, pi^2 ln^2 2, ln^4 2, zeta(3) ln 2, Li4(1/2), zeta(3), pi^2 ln 2, ln^3 2, pi^2, ln^2 2, ln 2, 1}, n = 13, H = 1000000, d = 110: planted relation (den 21, seed 208002) recovered: True (1 s); perturbed basis on the planted target finds nothing; budget n log10(2H + 1) + 1 = 82.9
+    REAL P2: not found at H = 1000000 (2 s)
+PASS    Q3: P3 = {Omega3, pi^4, pi^2 ln^2 2, ln^4 2, zeta(3) ln 2, Li4(1/2), pi zeta(3), pi^3 ln 2, pi ln^3 2, pi^2 G, beta(4), G ln^2 2, pi G ln 2}, n = 13, H = 1000000, d = 110: planted relation (den 11, seed 208003) recovered: True (1 s); perturbed basis on the planted target finds nothing; budget n log10(2H + 1) + 1 = 82.9
+    REAL P3: not found at H = 1000000 (2 s)
