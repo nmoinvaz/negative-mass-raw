@@ -68,3 +68,6 @@ The targets below are predicted from the code, not yet computed. A mutation that
 
 | file | what |
 |---|---|
+| `rerun_run_0*.*` | the five reruns: **every line equals dh610's except the timings**, with the same exit codes (1, 1, 0, 0, 0 for runs 01 to 05). N3 (25.8 digits) and N4b (22.0) fail as written, as on dh610. The coordinator's expectation, written above, is met |
+| `ind26.py`, `ind26_run1.txt` | run 1: **exit 0, 3 of 3.** K1: the ℓ-system's ε-expansion gives `order4.py`'s h_k and dY_k/dl for k = 0 … 4, sympy residual 0. K2: 304 Taylor steps to V = 17, 9 to 18 s per order. Ω₀ − (−4 ln 2) = 7.2e-45, Ω₁ − (2π²/3 + 8 ln²2) = 1.6e-44, Ω₂ − (80ζ(3) − (8/3)π² ln 2 − (32/3) ln³2) = 4.1e-40, and the same against A70. K3: the slopes are −4π to 1.3e-47 at k = 2, 3, 4. G₃(Ω₁ = 0) = 130.98380956625540135485702452 matches the derived form to 3.4e-45, and G₄(Ω₂ = 0) = 934.5532759858143274892985 to 5.5e-42. The Clausen integral is π³/12 to the working precision (difference 0 at 60 digits) |
+| `ind26_run1_mut_*.txt` | `k1-B` fails exactly K1, K2 and K3 (K1's residuals are the missing F L_{k−1} terms). `short-V` fails exactly K2 and K3 (Ω₂ off by 8.6e-11). `clausen` fails exactly K3 (2.6e-35) |
