@@ -60,7 +60,7 @@ for cv in (sp.Rational(-101, 100), sp.Rational(-99, 100)):
     q0n = sp.N(((rho - rhs)**2 * Qc).subs({W: A1c / 2, rho: rhs + sp.Float("1e-14", 30)}), 25)
     rts = sp.Poly(s * (s - 1) - p0n * s - q0n, s).nroots(n=20)
     rts = sorted(float(sp.re(r)) for r in rts)
-    ok3 &= abs(rts[0] + 0.5) <= 1e-9 and abs(rts[1] - 0.5) <= 1e-9
+    ok3 &= abs(rts[0] + 0.5) <= 1e-12 and abs(rts[1] - 0.5) <= 1e-12
     out.append(f"c = {cv}: rho_h {float(rh):.6g}, roots at W = kappa {rts[0]:.12f}, {rts[1]:.12f}")
 check("K3", ok3, "; ".join(out))
 print(f"\n{len(RES)} criteria, {sum(RES)} pass; mutation {MUT}")
