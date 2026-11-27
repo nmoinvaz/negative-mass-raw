@@ -1,0 +1,805 @@
+Wormholes in higher dimensional space-time:
+Exact solutions and their linear stability analysis
+Takashi Torii1, ∗ and Hisa-aki Shinkai2, 3, †
+1
+
+arXiv:1309.2058v1 [gr-qc] 9 Sep 2013
+
+2
+
+Department of General Education, Osaka Institute of Technology, Asahi-ku, Osaka 535-8585, Japan
+Department of Information Systems, Osaka Institute of Technology, Kitayama, Hirakata, Osaka 573-0196, Japan
+3
+Computational Astrophysics Laboratory, Institute of Physical & Chemical Research (RIKEN),
+Hirosawa, Wako, Saitama, 351-0198 Japan
+(Dated: August 28, 2018)
+We derive the simplest traversable wormhole solutions in n-dimensional general relativity, assuming static and spherically symmetric spacetime with a ghost scalar field. This is the generalization of
+the Ellis solution (or the so-called Morris-Thorne’s traversable wormhole) into a higher-dimension.
+We also study their stability using linear perturbation analysis. We obtain the master equation
+for the perturbed gauge-invariant variable and search their eigenvalues. Our analysis shows that
+all higher-dimensional wormholes have an unstable mode against the perturbations with which the
+throat radius is changed. The instability is consistent with the earlier numerical analysis in fourdimensional solution.
+PACS numbers: 04.20.-q, 04.40.-b, 04.50.-h
+
+I.
+
+INTRODUCTION
+
+Wormholes are popular tools in science fiction as a
+way for rapid interstellar travel, time machines and warp
+drives. However, wormholes are also a scientific topic,
+just after the birth of general relativity.
+Historically, a “tunnel structure” in the Schwarzschild
+solution was first pointed out by Flamm in 1916[1]. Einstein and Rosen [2] proposed a “bridge structure” between black holes in order to obtain a regular solution
+without a singularity. The name “wormhole” was coined
+by John A. Wheeler in 1957, and its fantastic applications
+are popularized after the influential study of traversable
+wormholes by Morris and Thorne [3].
+Morris and Thorne considered “traversable conditions”
+for human travel through wormholes responding to Carl
+Sagan’s idea for his novel (Contact), and concluded that
+such a wormhole solution is available if we allow “exotic
+matter” (negative-energy matter).
+The introduction of exotic matter sounds to be unusual
+for the first time, but such matter appears in quantum
+field theory and in alternative gravitational theories such
+as scalar-tensor theories. The Morris-Thorne solution
+is constructed with a massless Klein-Gordon field whose
+gravitational coupling takes the opposite sign to normal,
+which appears in Ellis’s earlier work [4], who called it a
+drainhole, and also in more general framework of scalartensor theories by Bronnikov in the same year[5]. (See a
+review e.g. by Visser [6] for earlier works; See also e.g.
+Lobo [7] for recent works).
+Since the difference of light bending behavior between
+the Ellis wormhole and Schwarzschild black hole were
+reported by Abe[8], the microlensing images with worm-
+
+holes are also getting attention from the observational
+point of view [9, 10].
+One of our main motivations in this paper is the dynamical features of wormholes. A wormhole is supposed
+to connect two spacetimes as a two-way interface, while
+a black hole is an one-way interface. From this analogy,
+Hayward [11] proposed a unified understanding of black
+holes and traversable wormholes, i.e. a wormhole throat
+can be interpreted as a degenerate horizon. This idea
+predicts that a wormhole changes to a black hole in its
+dynamical evolutions in the classical process.
+This is numerically shown by one of the authors [12].
+Using a dual-null formulation for space-time integration,
+they observed that the wormhole is unstable against
+Gaussian pulses in either an exotic or normal massless
+Klein-Gordon field. The wormhole throat suffers a bifurcation of the horizon and either explodes to form an
+inflationary universe or collapses to a black hole, whether
+the total input energy is negative or positive, respectively.
+These basic behaviors were repeatedly confirmed by
+other groups [13, 14], together with linear perturbation
+analysis [15] 1 . The wormhole solutions with a conformal
+scalar field were reported[5, 17], and their instabilities
+are shown also using linear perturbation analysis [18].
+There are also discussions on the wormhole solutions in
+alternative/modified gravity (e.g. [19, 20]). Wormhole
+thermodynamics is also proposed based on these properties [21].
+We, therefore, understand that four-dimensional Ellis
+wormhole is unstable. If this feature can also be seen in
+higher-dimensional spacetime, it should be generic inde-
+
+1
+∗ Electronic address: torii@ge.oit.ac.jp
+† Electronic address: shinkai@is.oit.ac.jp
+
+Armendariz-Picon[16] reported that the Ellis wormhole is stable using perturbation analysis. However, Gonzalez et al [15]
+reported that his conclusion is within the limited class of perturbations and the Ellis wormhole is unstable
+
+2
+pendent of the dimension. The higher-dimensional theories such as string/M theories are applied for various
+unsolved problems in gravitational phenomena and cosmology, and we gain new insights into them. The wormholes in higher dimensional general relativity lead to the
+study in such fundamental theories.
+Wormhole study in higher-dimensional spacetime is
+not a new topic. We can find the articles from 1980s
+[22, 23], and the recent studies include higher-curvature
+terms (see e.g. [24] and [25] and references therein). Most
+of the research concerns the solutions and their energy
+conditions mainly, but to our knowledge there is no general discussion on the stability analysis of the solutions.
+In this article, we construct Ellis solutions in higherdimensional general relativity, and study their stability
+using the linear perturbation technique. The full numerical studies will be shown in our follow up paper.
+This paper is organized as follows. In Section II, we derive our higher-dimensional wormhole solutions. In Section III, we show the linear perturbation analysis. The
+conclusion and discussion are shown in Section IV.
+II.
+
+WORMHOLE SOLUTIONS
+
+We start from the n-dimensional Einstein-KleinGordon system
+
+
+Z
+1
+1
+n √
+2
+S = d x −g
+R − ǫ(∇φ) − V (φ) , (2.1)
+2κ2n
+2
+
+R
+
+Gµν = κ2n Tµν ,
+
+(2.2)
+
+where
+Tµν = ǫ(∂µ φ)(∂ν φ) − gµν
+
+h1
+2
+
+i
+ǫ(∇φ)2 + V (φ) , (2.3)
+
+and the Klein-Gordon equation
+φ = −ǫ
+
+dV
+.
+dφ
+
+(2.4)
+
+We consider the space-time with the metric
+ds2 = −f (t, r)e−2δ(t,r) dt2 + f (t, r)−1 dr2
++R(t, r)2 hij dxi dxj ,
+
+(2.5)
+
+where hij dxi dxj represents the line element of a unit (n−
+2)-dimensional constant curvature space with curvature
+k = ±1, 0 and volume Σk .
+In order to construct a static wormhole solution, we
+restrict the metric function as f = f (r), R = R(r), φ =
+φ(r), and δ = 0. The (t, t), (r, r), and (t, r) components
+of the Einstein equations, then, become
+
+
+
+h1
+i
+(n − 2)(n − 3)kf
+f ′ R′
+(n − 3)R′2
+n − 2 2 2R′′
+2
+′2
++
+=
+κ
+f
+f
++
++
+ǫf
+φ
++
+V
+(φ)
+,
+−
+n
+2
+R
+fR
+R2
+2R2
+2
+
+(2.6)
+
+
+
+i
+n − 2 R′ f ′
+(n − 2)(n − 3)k
+κ2n h 1
+(n − 3)R′
+′2
+−
+=
++
+ǫf
+φ
+−
+V
+(φ)
+,
+2 R f
+R
+2f R2
+f 2
+
+(2.7)
+
+ ′′
+2
+h
+i
+f ′′
+(n − 3)(n − 4)k
+f ′ R′
+n − 4 R′
+R
+2 1
+′2
+−
+=
+κ
++ (n − 3)f
++
++
+ǫf
+φ
++
+V
+(φ)
+,
+n
+2
+R
+fR
+2 R2
+2R2
+2
+
+(2.8)
+
+respectively, and the Klein-Gordon equation becomes
+1
+
+where κ2n is a n-dimensional gravitational constant. The
+scalar field φ can be called as normal (or ghost) field if
+ǫ = 1 (−1).
+This action derives the Einstein equation
+
+Rn−2 f φ′
+n−2
+
+′
+
+= −ǫ
+
+dV
+.
+dφ
+
+(n − 2)R′ h f ′
+(n − 3)R′ i (n − 2)(n − 3)k
+−
++
+R
+f
+R
+f R2
+κ2 C 2
+= − 2 n2(n−2) (2.11)
+f R
+
+(2.9)
+
+Hereafter, we assume that the scalar field is ghost
+(ǫ = −1) and massless (V (φ) = 0). The Klein-Gordon
+equation (2.9) is integrated as
+C
+,
+φ′ =
+f Rn−2
+
+tions (2.6)–(2.8) are reduced to
+
+(2.10)
+
+where C is an integration constant. The Einstein equa-
+
+and
+κ2 C 2
+(n − 2)R′′
+= 2 n2(n−2) .
+R
+f R
+
+(2.12)
+
+We assume the throat of the wormhole is at r = 0,
+and a is the radius of the throat, i.e., R(0) = a. By the
+
+3
+
+FIG. 1: The n-dimensional wormhole solutions; (a) The circumference radius R and (b) the scalar field φ are plotted as a
+function of the radial coordinate r. The cases of n = 4–10 are shown.
+
+regularity conditions at the throat,
+R(0) = a > 0, and f (0) = f0 > 0,
+
+(2.13)
+
+where f0 is a constant. Here we can assume a = 1 and
+f0 = 1 without loss of generality [26], but we keep a in
+the equations in this section for later convenience. We
+also assume the reflection symmetry with respect to the
+throat:
+R′ (0) = 0, and f ′ (0) = 0.
+
+(2.15)
+
+For the case k = 0, the constant C vanishes and the
+solution becomes trivial. For the case k = −1, Eq. (2.15)
+is not satisfied and there is no wormhole solution. Below
+we assume k = 1.
+The solution of Eqs. (2.10)–(2.12) is obtained as
+f ≡ 1,
+r
+
+(2.16)
+
+ a 2(n−3)
+1−
+,
+(2.17)
+R
+p
+Z
+(n − 2)(n − 3) n−3
+1
+φ =
+a
+dr. (2.18)
+κn
+R(r)n−2
+
+R′ =
+
+The Eq. (2.17) is integrated to give
+√
+
+πΓ[1 − m]
+1
+r(R) = −mBz − m,
+−
+,
+2
+Γ[m(n − 4)]
+
+Bz (p, q) :=
+
+(2.19)
+
+Z z
+0
+
+tp−1 (1 − t)q−1 dt
+
+(2.20)
+
+which can be expressed by the hypergeometric function
+F (α, β, γ; z) as
+
+(2.14)
+
+There is a shift symmetry of the scalar field φ and we
+impose φ(0) = 0. By substituting these conditions into
+Eq. (2.11), the integration constant C is determined as
+κ2n C 2 = (n − 2)(n − 3)ka2(n−3) .
+
+where m = 1/2(n − 3) and z = Rm . Bz (p, q) is the
+incomplete beta function defined by
+
+Bz (p, q) =
+
+zp
+F (p, 1 − q, p + 1; z).
+p
+
+(2.21)
+
+Although Eq. (2.19) is implicit with respect to R, it is
+rewritten in the explicit form by using the inverse incomplete beta function. For n = 4, this solution reduces to
+Ellis’s wormhole solution.
+f ≡ 1,
+
+R=
+
+p
+r 2 + a2 ,
+
+φ=
+
+√
+r
+2 tan−1 .
+a
+
+(2.22)
+
+At the throat, we find
+n−3
+R (a) =
+, and φ′ (a) =
+a
+′′
+
+p
+(n − 2)(n − 3)
+. (2.23)
+κn a
+
+These indicate that the throat of the wormhole has larger
+curvature and the scalar field φ becomes steeper as n
+goes higher. At the spacial infinity, the scalar field φ(r)
+becomes constant and the function R(r) is proportional
+to r. We plotted these behaviors in Figure 1. For n → ∞,
+the functions have the limiting solution, R = r + a and
+φ = π/2 (r > 0).
+
+4
+III.
+
+spacetime, the metric is written as Eq. (2.5) generally.
+We write the perturbed functions as
+
+STABILITY ANALYSIS
+
+In this section, we investigate the linear stability of
+the higher-dimensional wormhole solution obtained in
+the previous section. In the non-linear analysis in fourdimensional spacetime, it is shown that the instability
+occurs by resolution of the degeneracy of a double trapping horizon by perturbing the throat radius [12]. Hence
+we follow the analysis in Ref. [15], where the throat radius is not fixed.
+We focus on the “spherical” modes, where the (n − 2)dimensional constant curvature space is not perturbed
+[27]. In the time-dependent and spherically symmetric
+
+f (t, r) = f0 (r) + εf1 (r)eiωt ,
+δ(t, r) = δ0 (r) + εδ1 (r)eiωt ,
+R(t, r) = R0 (r) + εR1 (r)eiωt ,
+φ(t, r) = φ0 (r) + εφ1 (r)eiωt .
+
+(3.1)
+(3.2)
+(3.3)
+(3.4)
+
+ε is an infinitesimal parameter. The variables with subscript 0 denote the static solution obtained in the previous section. This ansatz contains one gauge mode.
+
+The first-order equations of the Einstein equations become
+r
+(n − 3)R0′ ′
+R′
+(n − 3)
+n−3 1
+R1′′ +
+R1 + 0 f1′ +
+f1 −
+φ′ = 0,
+R0
+2
+2R0
+n − 2 R0n−3 1
+r
+n−3 1
+R0′ ′ (n − 3)
+(n − 3)R0′ ′
+n−3
+′ ′
+φ′ + R1 ω 2 = 0,
+R1 + 2n−4 R1 +
+f1 − R0 δ1 +
+f1 +
+R0
+2
+2R0
+n − 2 R0n−3 1
+R0
+r
+n−3 1
+′
+′
+2R1 − R0 f1 − 2
+φ1 = 0,
+n − 2 R0n−3
+for the (t, t), (r, r), and (t, r) components, respectively. Here we assume a = 1. From Eq. (3.7), f1 is
+r
+1
+n−3
+2
+φ1 − ′ R1′ .
+f1 = 2
+n−3
+′
+n − 2 R0 R0
+R0
+By substituting Eq. (3.8) into Eqs. (3.5) and (3.6), we find
+r
+n−3
+n−3 1
+R1′′ − 2n−4 R1 + R0′ δ1′ − 2
+φ′ = ω 2 R1 .
+n − 2 R0n−3 1
+R0
+
+(3.5)
+(3.6)
+(3.7)
+
+(3.8)
+
+(3.9)
+
+With Eq. (3.8), the Klein-Gordon equation turns out to be
+p
+
+2 (n − 2)3 ′′
+2(n − 3)2
+(n − 2) + (n − 4)R0−2n+6 ′
+φ
+−
+φ1 −
+R1
+φ′′1 +
+1
+′
+2n−4
+′2
+R0 R0
+R0
+R0
+R0n−2 R0′
+p
+p
+p
+
+
+(n − 2)3 (n − 2) + (n − 4)R0−2n+6 ′
+(n − 2) (n − 2)3 R0′
+(n − 2)3 ′
+R1 −
+δ1 = −ω 2 φ1 .
++
+R1 −
+n−1 ′2
+n
+R
+R0 R0
+R0n−2
+0
+
+By introducing the new variable,
+
+n−2 
+φ′
+ψ1 = R0 2 φ1 − 0′ R1 ,
+R0
+
+(3.11)
+
+we find Eqs. (3.9) and (3.10) give the single master equation,
+− ψ1′′ + V (r)ψ1 = ω 2 ψ1 ,
+
+(3.12)
+
+with the potential,
+
+
+(n − 4)R0′2
+2(n − 3)2
+n−2 n−3
++
++
+.
+V (r) =
+2(n−2)
+2(n−2) ′ 2
+2
+2R02
+R0
+R0
+R0
+(3.13)
+
+(3.10)
+
+The variable ψ1 is gauge invariant under the spherically
+symmetric ansatz. However, R0′ is zero at the throat, and
+the potential V diverges there. Hence we regularize the
+master equation (3.12)[28].
+It is easily checked that the master equation (3.12) has
+a 0-mode solution
+1
+(3.14)
+ψ̄1 = n−4 .
+2
+R0 R0′
+With the 0-mode solution, we define differential operators
+D+ =
+
+d
+ψ̄ ′
+− 1
+dr
+ψ̄1
+
+and D− = −
+
+ψ̄ ′
+d
+− 1.
+dr ψ̄1
+
+(3.15)
+
+5
+
+FIG. 2: The potential function W (r) is plotted. W (r) is
+finite everywhere, and negative around the throat.
+
+Then the master equation, (3.12), can be written as
+D− D+ ψ1 = ω 2 φ1 .
+
+(3.16)
+
+Operating D+ from the left and defining the new variable
+Ψ1 = D+ ψ1 , we find the regularized master equation
+− Ψ′′1 + W (r)Ψ1 = ω 2 Ψ1 ,
+
+(3.17)
+
+i
+1 h 3(n − 2)2
+−
+(n
+−
+4)(n
+−
+6)
+.
+4R02 R2(n−3)
+
+(3.18)
+
+where
+W (r) = −
+
+0
+
+Figure 2 shows the configurations of the potential function W (r). Now the potential function is regular everywhere. For n = 4, W (r) has the minimum at the throat
+and is negative definite. For n ≥ 5, W (r) has the minimum at the throat, while it increases apart from the
+throat and becomes positive for large r.
+We search the eigenfunctions Ψ1 (r) of Eq. (3.17), and
+find them in any dimension n. There exists one negative eigenvalue for ω 2 , which are listed in Table I. The
+existence of the eigenfunction with negative ω 2 implies
+that the solution is unstable. We find large negative ω 2
+for higher n, which indicates the time-scale of instability
+becomes shorter. This feature corresponds to the depth
+of the potential W . The associated eigenfunctions Ψ1 (r)
+are shown in Figure 3.
+IV.
+
+CONCLUSIONS AND DISCUSSIONS
+
+We derived the simplest wormhole solutions in higherdimensional general relativity. The spacetime is assumed
+to be static and spherically symmetric, has ghost scalar
+field, and has reflection symmetry at the throat. The
+four-dimensional version is known as the Ellis (MorrisThorne) solution. At the throat, both the ingoing and
+outgoing expansions vanish, which means that the throat
+consists of a degenerate horizon.
+
+FIG. 3: The eigenfunction Ψ1 [Eq. (3.17)] is plotted as a
+function of radial coordinate r.
+
+TABLE I: The negative eigenvalues ω 2 .
+n
+ω2
+4
+−1.39705243371511
+5
+−2.98495893027790
+6
+−4.68662054299460
+7
+−6.46258414126318
+8
+−8.28975936306259
+9
+−10.1535530451867
+10
+−12.0442650147438
+11
+−13.9552091676647
+20
+−31.5751101285105
+50
+−91.3457759137153
+100 − 191.283017729717
+
+The obtained solutions are expressed with the incomplete beta function. We expect that the solution can be
+expressed more simple functional form if we use another
+coordinate system. Or such an expression might have
+appeared in the literature, but we have not noticed it.
+However, we believe the successive stability analysis is
+new to us.
+From the stability analysis using the linear perturbation technique, we showed that the solutions have one
+negative mode, which concludes that all wormholes are
+linearly unstable. The time scale of instability becomes
+shorter as n becomes large.
+By extrapolating the knowledge of four-dimensional
+Ellis’s wormhole, we expect that these higherdimensional wormholes also change to a black hole or
+an expanding throat. This is actually true. In our succeeding papers, we will report the numerical evolutions
+of higher-dimensional wormholes, in which we show the
+above predictions are realized. Both linearly perturbed
+solutions and solutions with nonlinear pulse input suffer
+the bifurcations of horizons and turn to either black hole
+or expanding throat. In order to obtain a robust wormhole solution for such a disturbance, we may have to work
+in modified gravity theories, as was recently reported in
+dilaton-Gauss-Bonnet gravity[25].
+
+6
+The instability of wormholes requires additional maintenance techniques in science fiction. Not only so, but
+this indicates that such a simple wormhole construction
+cannot be available as an astrophysical object with the
+present setting.
+
+ful discussions. We also thank the anonymous referee for
+pointing out earlier references. This work was supported
+in part by the Grant-in-Aid for Scientific Research Fund
+of the JSPS (C) No. 22540293, and (C) No. 25400277.
+Numerical computations were carried out on SR16000 at
+YITP in Kyoto University, and on the RIKEN Integrated
+Cluster of Clusters (RICC).
+
+Acknowledgements
+
+T.T. thanks Ken Kamano, Hideki Maeda, Umpei
+Miyamoto, Masaaki Morita and Makoto Narita for use-
+
+[1] L. Flamm, Physik Z. 17, 448 (1916).
+[2] A. Einstein and N. Rosen, Phys. Rev. 48, 73 (1935).
+[3] M. S. Morris & K. S. Thorne, Am. J. Phys. 56, 395
+(1988).
+[4] H. G. Ellis, J. Math. Phys. 14, 395 (1973).
+[5] K. A. Bronnikov. Acta Phys. Polon. B4, 251 (1973).
+[6] M. Visser, Lorentzian Wormholes (AIP Press, 1995).
+[7] F. S. N. Lobo, in Classical and Quantum Gravity Research Progress (Nova Sci. Pub., 2008). [arXiv:0710.4474]
+[8] F. Abe, Astrophys. J. 725, 787 (2010) .
+[9] Y. Toki, T. Kitamura, H. Asada, & F. Abe, Astrophys.
+J. 740, 121 (2011) .
+[10] C-M. Yoo, T. Harada, & N. Tsukamoto. Phys. Rev. D
+87, 084045 (2013).
+[11] S A Hayward, Int. J. Mod. Phys. D 8, 373 (1999).
+[12] H. Shinkai & S.A. Hayward, Phys. Rev. D 66, 044005
+(2002).
+[13] A. Doroshkevich, J. Hansen, I. Novikov, A. Shatskiy, Int.
+J. Mod. Phys. D 18, 1665 (2009).
+[14] J. A. Gonzalez, F. S. Guzman & O. Sarbach, Class.
+Quant. Grav. 26, 015011 (2009).
+[15] J. A. Gonzalez, F. S. Guzman & O. Sarbach, Class.
+Quant. Grav. 26, 015010 (2009).
+[16] C. Armendariz-Picon, Phys. Rev. D 65, 104010 (2002).
+
+[17] C. Barceló and M. Visser, Class. Quant. Grav. 17, 3843
+(2000).
+[18] K.A. Bronnikov, S.V. Grinyok, Grav. Cosmol. 10, 237
+(2004). [gr-qc/0411063]
+[19] K.A. Bronnikov, R.A. Konoplya, A. Zhidenko, Phys.
+Rev. D 86, 024028 (2012).
+[20] I. Novikov, A. Shatskiy, JETP 141, 801 (2012)
+[arXiv:1201.4112]
+[21] S. A. Hayward, Phys. Rev. D 79, 124001 (2009).
+[22] A. Chodos and S. Detweiler, Gen. Rel. Grav. 14, 879
+(1982).
+[23] G. Clément, Gen. Rel. Grav. 16, 131 (1984).
+[24] H. Maeda & M. Nozawa, Phys. Rev. D 78, 024005 (2008).
+[25] P. Kanti, B. Kleihaus & J. Kunz, Phys. Rev. Lett. 107,
+271101 (2011); Phys. Rev. D 85, 044007 (2012).
+[26] Introducing the new variables t̃ = t/a, r̃ = r/a, R̃ = R/a,
+we can scale out the throat radius a.
+[27] In the higher-dimensional spacetime, the constant curvature spaces with k = 1 are not only the spherically
+symmetric but there are other spaces such as the one
+with Bohm metric. However, here we will call the modes
+“spherical”.
+[28] See discussions in Ref. [15] for details.
+
+
