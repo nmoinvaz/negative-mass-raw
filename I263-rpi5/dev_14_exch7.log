@@ -1,0 +1,17 @@
+order7.py  mutate=None  parts=['exch7']  mpmath 1.3.0  sympy 1.14.0
+  E-grid N = 40, w = 1/2, V = 18, dps 100, 36 panels; its Omega0 .. Omega4 meet the closed forms to 48.7, 48.2, 48.2, 48.9, 48.3 digits
+PASS    E1_7: G_7 against E1's right side (relative to the largest of its three terms): 50.1 digits at Omega5 = root, 51.6 digits at Omega5 = 0, 51.6 digits at Omega5 = 1/2 (bar 30)
+PASS    E2_6: int L_6 = 2 int h_6 ell/sin^2: 48.9 digits at Omega5 = root, 49.0 digits at Omega5 = 0, 49.0 digits at Omega5 = 1/2 (bar 30)
+PASS    E2_5: int L_5 = 2 int h_5 ell/sin^2: 48.1 digits at Omega5 = root, 48.1 digits at Omega5 = 0, 48.1 digits at Omega5 = 1/2 (bar 30)
+PASS    E2_4: int L_4 = 2 int h_4 ell/sin^2: 48.1 digits at Omega5 = root, 48.1 digits at Omega5 = 0, 48.1 digits at Omega5 = 1/2 (bar 30)
+PASS    E3_7: int Y_6 [(ell - Omega0)/sin^2 + 1] = 2 int (ell - Omega0) F_5: 50.4 digits at Omega5 = root, 50.4 digits at Omega5 = 0, 50.4 digits at Omega5 = 1/2 (bar 30)
+PASS    E123_7: G_7 against E1 + E2 (m = 6) + E3 (m = 6): 8 int H_6 ell/S + 2 int (F_6 - L_6) + 2 int (S'_7 - Omega6)/S - 4 int (ell - Omega0) F_5 (relative to its largest term): 48.6 digits at Omega5 = root, 48.8 digits at Omega5 = 0, 48.8 digits at Omega5 = 1/2 (bar 30)
+PASS    E4_7: int Y_5 w5 = -2 int (g + 16 u C) F_4 (the order-6 step E4 at one level higher): 49.6 digits at Omega5 = root, 49.6 digits at Omega5 = 0, 49.6 digits at Omega5 = 1/2 (bar 30)
+PASS    E2Wa: 12 int L_4 ell^2 = 8 int ell^3 h_4/S (E2 with a weight): 49.0 digits at Omega5 = root, 49.0 digits at Omega5 = 0, 49.0 digits at Omega5 = 1/2 (bar 30)
+PASS    E2Wb: int L_4 g4 = -2 int P h_4/S, g4 = 12 ell^2 - 2 g - 32 u C, P' = g4 tan th, P(0) = 0: 49.0 digits at Omega5 = root, 49.0 digits at Omega5 = 0, 49.0 digits at Omega5 = 1/2 (bar 30)
+PASS    E5_7: int Y_4 w4' = -2 int W u F_3, W' = w4', W(pi/2) = 0: 44.0 digits at Omega5 = root, 44.0 digits at Omega5 = 0, 44.0 digits at Omega5 = 1/2 (bar 30)
+PASS    G7R: G_7 against the reduced form (E1, E2, E3, E4, E2W, E5: Y_0 .. Y_3, L_0 .. L_3 only; relative to its largest term): 44.2 digits at Omega5 = root, 44.2 digits at Omega5 = 0, 44.2 digits at Omega5 = 1/2 (bar 30)
+PASS    LC2: the nodes' int ell^2 dth against J_2 = pi (12 ln^2 2 + pi^2)/24: 50.2 digits at Omega5 = root, 50.2 digits at Omega5 = 0, 50.2 digits at Omega5 = 1/2 (bar 30)
+    G_7 at Omega5 = 0 and 1/2: 513467.6254564465194, 513461.34227113933981 (48 s)
+
+12 passed, 0 failed of 12 checks; 48 s
