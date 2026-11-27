@@ -1,0 +1,7 @@
+# 2026-11-27 12:21:09 cwd=/Users/nathan/Source/negative-mass-raw/I192-mac
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python -u proto_table.py --cases PS --lanes f64,dd,qd --export-ph-tables --steps-json proto_steps_last4_ph_ps.json
+PS qd ctl=None: steps 374 first step [0.0, 3.1320849140271405e-07] width 1.044e-06  C1 maxE 1.151e-59 (bar 1.000e-54) PASS
+PS qd ctl=unscaled: steps 1 first step [0.0, 1.0] width 3.333e+00  C1 maxE 1.000e+00 (bar 1.000e-54) FAIL
+PH f64 table: kt 22 nb 34 steps 125
+PH dd table: kt 42 nb 54 steps 158
+PH qd table: kt 80 nb 92 steps 193
