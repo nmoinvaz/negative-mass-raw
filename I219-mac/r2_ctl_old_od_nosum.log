@@ -1,0 +1,30 @@
+# tests/implicit.rs: the fixed text replaced by the pre-fix text; the tests must fail
+--- fixed text
+digests::<OD>(&cells, &[1], &[Pth::B(Br::KA)], poke)
+--- pre-fix text
+digests::<OD>(&cells, &[1], &[], poke)
+---
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 3.76s
+     Running tests/implicit.rs (target/release/deps/implicit-4e0a7f4a04c6bea1)
+
+running 1 test
+lower part of an end state: base 10f1b89a823ad3c3 -> 241887fe7d314ae4, full da4edfa4366bb8fd -> 1f4509ab08fcc7ea
+last part of a step-sum coefficient: base 10f1b89a823ad3c3 -> 10f1b89a823ad3c3, full da4edfa4366bb8fd -> da4edfa4366bb8fd
+
+thread 'digest_od_sees_the_lower_parts' (103030684) panicked at tests/implicit.rs:1360:5:
+assertion `left != right` failed: full does not see a step sum
+  left: 15730756444832381181
+ right: 15730756444832381181
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test digest_od_sees_the_lower_parts ... FAILED
+
+failures:
+
+failures:
+    digest_od_sees_the_lower_parts
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 33 filtered out; finished in 18.76s
+
+error: test failed, to rerun pass `--test implicit`
+exit 101

@@ -1,0 +1,18 @@
+# round 2: digest tests after eight parts and step_sum, OD pins still the old ones (digest_od must fail and print the new values; f64, dd, qd must pass unchanged)
+6cc2c94
+## feat/implicit-taylor-r2...origin/feat/implicit-taylor-r2 [ahead 2]
+ M tests/implicit.rs
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i190-libs/multishoot)
+error: invalid format string: expected `}`, found `?`
+    --> tests/implicit.rs:1345:82
+     |
+1345 |     assert!(all[7] != 0.0 && all[8] == 0.0, "an od is not its eight parts: {all:e?}");
+     |                                                                                  ^
+     |                                                                                  |
+     |                                                                                  expected `:` before `?` to format with `Debug` in format string
+     |                                                                                  help: add a colon before the format specifier: `:?`
+     |
+     = note: to print `{`, you can escape it using `{{`
+
+error: could not compile `multishoot` (test "implicit") due to 1 previous error
+exit 101

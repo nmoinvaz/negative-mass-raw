@@ -1,0 +1,50 @@
+$ cargo test --release --features mutate --test implicit controls_without_hooks -- --nocapture  (run as: nice -n 10 cargo test -j 2 ...)
+e3fdc90
+    Finished `release` profile [optimized] target(s) in 0.00s
+     Running tests/implicit.rs (target/release/deps/implicit-4e0a7f4a04c6bea1)
+
+running 1 test
+[FAIL] f64 WrongStep: steps taken true, 1 crossings (one expected), in step 3 (the second)
+[FAIL] dd WrongStep: steps taken true, 1 crossings (one expected), in step 3 (the second)
+[FAIL] qd WrongStep: steps taken true, 1 crossings (one expected), in step 3 (the second)
+[FAIL] f64 NanCoeff: [0, 0, 2^1023] kept about 0 false and about -0 false
+[FAIL] dd NanCoeff: [0, 0, 2^1023] kept about 0 false and about -0 false
+[FAIL] qd NanCoeff: [0, 0, 2^1023] kept about 0 false and about -0 false
+[FAIL] f64 F1 planner FlipBit: 5 of 5 steps differ in bits
+[FAIL] dd F1 planner FlipBit: 5 of 5 steps differ in bits
+[FAIL] qd F1 planner FlipBit: 5 of 5 steps differ in bits
+[FAIL] f64 KA Project NanPos: 1 crossings found, 1 expected, worst position error NaN (bar 1.1e-10)
+[FAIL] f64 KA Project NanState: stop End, 14 steps, err NaN (bar 1.1e-10), n_rel_max 7.05e-17
+[FAIL] dd KA Project NanPos: 1 crossings found, 1 expected, worst position error NaN (bar 1.2e-26)
+[FAIL] dd KA Project NanState: stop End, 16 steps, err NaN (bar 1.2e-26), n_rel_max 4.57e-33
+[FAIL] qd KA Project NanPos: 1 crossings found, 1 expected, worst position error NaN (bar 1.5e-58)
+[FAIL] qd KA Project NanState: stop End, 16 steps, err NaN (bar 1.5e-58), n_rel_max 4.75e-65
+[FAIL] f64 Q-A l = 1 BadCoeff: worst sum|dc_k| / (eps sum|c_k|) 1.00e7 (bar 1e6)
+[FAIL] f64 Q-A l = 0.25 BadCoeff: worst sum|dc_k| / (eps sum|c_k|) 1.00e7 (bar 1e6)
+[FAIL] dd Q-A l = 1 BadCoeff: worst sum|dc_k| / (eps sum|c_k|) 1.00e7 (bar 1e6)
+[FAIL] dd Q-A l = 0.25 BadCoeff: worst sum|dc_k| / (eps sum|c_k|) 1.00e7 (bar 1e6)
+[FAIL] qd Q-A l = 1 BadCoeff: worst sum|dc_k| / (eps sum|c_k|) 1.00e7 (bar 1e6)
+[FAIL] qd Q-A l = 0.25 BadCoeff: worst sum|dc_k| / (eps sum|c_k|) 1.00e7 (bar 1e6)
+[FAIL] f64 B(KA) Cut(0): stop StepLimit (wanted End), 0 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 0.00e0 (bar 1e6)
+[FAIL] f64 B(KA) Cut(3): stop StepLimit (wanted End), 3 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 2.07e0 (bar 1e6)
+[FAIL] f64 F1 Cut(0): stop StepLimit (wanted Pivot), 0 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 0.00e0 (bar 1e6)
+[FAIL] f64 F1 Cut(3): stop StepLimit (wanted Pivot), 3 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 4.31e-1 (bar 1e6)
+[FAIL] dd B(KA) Cut(0): stop StepLimit (wanted End), 0 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 0.00e0 (bar 1e6)
+[FAIL] dd B(KA) Cut(3): stop StepLimit (wanted End), 3 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 1.82e0 (bar 1e6)
+[FAIL] dd F1 Cut(0): stop StepLimit (wanted Pivot), 0 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 0.00e0 (bar 1e6)
+[FAIL] dd F1 Cut(3): stop StepLimit (wanted Pivot), 3 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) 7.44e-2 (bar 1e6)
+[FAIL] f64 B(KA) NanCoeff: stop End (wanted End), 14 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) NaN (bar 1e6)
+[FAIL] f64 F1 NanCoeff: stop Pivot (wanted Pivot), 84 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) NaN (bar 1e6)
+[FAIL] dd B(KA) NanCoeff: stop End (wanted End), 15 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) NaN (bar 1e6)
+[FAIL] dd F1 NanCoeff: stop Pivot (wanted Pivot), 114 steps, worst sum|dc_k| h^k / (eps sum|c_k| h^k) NaN (bar 1e6)
+[FAIL] dd KA Project WrongStart: stop End, 19 steps, err 1.47e0 (bar 1.2e-26), n_rel_max 4.21e-33
+[FAIL] dd KA Project SwitchMid: stop End, 18 steps, err 9.44e-1 (bar 1.2e-26), n_rel_max 5.68e-33
+[FAIL] dd KA Project WrongForm: stop End, 16 steps, err 1.01e4 (bar 1.2e-26), n_rel_max 4.57e-33
+[FAIL] dd KA Conserve WrongStart: stop Tiny, 33 steps, err 1.47e0 (bar 1.2e-26), n_rel_max 1.14e-31
+[FAIL] dd KA Conserve SwitchMid: stop End, 18 steps, err 9.44e-1 (bar 1.2e-26), n_rel_max 8.35e-32
+[FAIL] dd KA Conserve WrongForm: stop End, 16 steps, err 1.01e4 (bar 1.2e-26), n_rel_max 8.62e-32
+test controls_without_hooks ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 33 filtered out; finished in 0.14s
+
+exit 0
