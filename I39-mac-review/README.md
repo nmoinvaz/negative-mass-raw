@@ -56,3 +56,7 @@ K2b.
 
 | file | what |
 |---|---|
+| `rerun.sh`, `rerun_derive.log`, `rerun_checks_numba.log`, `rerun_checks_numpy.log` | derive: 25 of 25 pass. checks with the numba kernel: 11 of 11 pass (I1, K, P1, P2, P3, C1, C2, G1 at D = 4 and 5, F1, S). checks with the numpy kernel and numba absent: 10 of 11 pass and K is skipped. These are the verdicts of #39's runs of record |
+| `ind39_run1.log` | run 1: **exit 1, K1 passes, K2 fails.** K1: the coordinator's brute-force Ricci tensor gives `dn.py`'s r_uv, f_uv and φ_uv for n = 2 and 3 (sympy residual 0), and `dn.F_np` agrees with them to 2.8e-16 at 40 random states. The constraint comes out as r_uu + f_u r_u = −(r/n)Σε φ_u². K2: at h = 0.01/√3 the fit is meaningless (W_fit 0.028); at 0.005/√3 it gives 2.160443. K2 stays NOT MET as worded; A1 adds K2b |
+| `ind39_run2_k2b.txt` | run 2 (A1): **K2b passes.** W_fit = 2.160443 at h = 0.005/√3 and 2.162520 at 0.0025/√3, against W = 2.164860 (−2.0e-3 and −1.1e-3). The two agree to 9.6e-4, and the A*_h ratio is 4.005, the h² seed |
+| `ind39_run2_mut_*.txt` | `wrong-W` fails exactly K2b (−2.2e-2 against 1.02 W). `theta-coef` fails exactly K1 (`dn.F_np` off by up to 1.0 relative) |
