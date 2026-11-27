@@ -198,8 +198,9 @@ Development runs are in `dev/` (R1 unless stated; never part of the record). New
   root of S at m = 1 (low stage), as predicted.
 
 - **D11, the low stage on B (record runs).** After the 126th job (all main-stage runs and the S low-stage R2 runs done), the low-stage R2 runs of B1 at q = 0, 0.1,
-  0.2 ran 16 min each without finishing; the units `nm-i223-w1..3` were stopped by hand at 03:38 (below the 1 h condition, cause then found; their `.log` files are empty
-  and are kept as `results/B1_q0*_R2_low.log`, the status line is in `results/status.txt`). Cause: at W = 1e-5 the right start is at r0 = 2e6 and the closed form of A
+  0.2 ran 16 min each without finishing; the units `nm-i223-w1..3` were stopped by hand at 03:38 (below the 1 h condition, cause then found; their `.log` files held at most
+  `/usr/bin/time` statistics and were overwritten by the reruns of the same jobs, which use the same file names (a slip of the queue script, which does not number reruns; the stop
+  is recorded in `results/status.txt`). Cause: at W = 1e-5 the right start is at r0 = 2e6 and the closed form of A
   for B loses accuracy there (B ~ 1/x² from O(p/x) terms: the absolute noise 1e-16 x in A reaches 1e-11 at x = 1e5), so the integrator's step collapses (status −1) at
   x ≈ 1e5 at rtol 1e-12. The main stage reaches r0 = 4.5e4 where the noise is 2e-12, below its tolerances (P2 agrees with #212 to 3e-10).
 
