@@ -1,0 +1,17 @@
+   Compiling multidouble v6.1.0
+   Compiling multisolver v0.3.0
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i188-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 48.09s
+     Running tests/plane.rs (target/release/deps/plane-854243ce4dc7b62a)
+
+thread 'controls::controls_f64' (106145388) panicked at src/plane.rs:370:9:
+orthonormalize: column 1 has norm 0e0 after its projections (dependent columns, or not finite)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+     Running tests/plane_complex.rs (target/release/deps/plane_complex-20422e230794f955)
+
+thread 'complex_ln_of_a_complex_panics' (106147607) panicked at src/plane.rs:262:9:
+Complex::ln is defined for a positive real number only (the diagonal of R)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'complex_to_f64_of_a_complex_panics' (106147610) panicked at src/plane.rs:228:9:
+Complex::to_f64 of a number with a nonzero imaginary part: use re_f64 or mag

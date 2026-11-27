@@ -1,0 +1,6 @@
+# 2026-11-27 12:16:53 cwd=/Users/nathan/Source/negative-mass-raw/I188-mac
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python /Users/nathan/Source/negative-mass-i188/phase2/nonradial/taylor_polar.py --complex --mutate=cx_recip_general --raw=/Users/nathan/Source/negative-mass-raw --only=R2
+# taylor_polar.py --complex: start 2026-11-27 12:16:53, load average 5.62, one process, nice 10; lane dd; mutate = cx_recip_general
+CHECK R2: FAIL  complex lane at real s against the real lane, 19 cases (the d list of R1 against `dc`, and P1c with f = 0 on cx = 0 and 1): 18 differ: f64 l=2 g=0.001, f64 l=2 g=1, f64 l=2 g=40, dd l=2 g=0.001, dd l=2 g=1, dd l=2 g=40
+SUMMARY: 0 passed, 1 failed, 0 skipped of 1 checks; failed: R2; mutate = cx_recip_general; 162 s
+CONTROL cx_recip_general: every targeted check failed, as it must

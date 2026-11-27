@@ -1,0 +1,10 @@
+   Compiling multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i188-libs/multishoot)
+    Finished `release` profile [optimized] target(s) in 17.85s
+     Running tests/plane_complex.rs (target/release/deps/plane_complex-569247fd3fde034e)
+
+thread 'complex_ln_of_a_complex_panics' (106134394) panicked at src/plane.rs:262:9:
+Complex::ln is defined for a positive real number only (the diagonal of R)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'complex_to_f64_of_a_complex_panics' (106134397) panicked at src/plane.rs:228:9:
+Complex::to_f64 of a number with a nonzero imaginary part: use re_f64 or mag

@@ -1,0 +1,6 @@
+# 2026-11-27 13:04:56 cwd=/Users/nathan/Source/negative-mass-raw/I188-mac
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python /Users/nathan/Source/negative-mass-i188/phase2/nonradial/taylor_polar.py --complex --mutate=lowsum --raw=/Users/nathan/Source/negative-mass-raw
+# taylor_polar.py --complex: start 2026-11-27 13:04:56, load average 4.14, one process, nice 10; lane dd; mutate = lowsum
+CHECK L1C: FAIL  crate D at 3 points of b1: qd against dd worst modulus ratio 1.1e-06, phase 3.8e-03 (bar 1e-20); f64 against dd (reported) 2.2e-02, 1.5e+00; wall per D dd 0.95 s, qd 82.3 s
+SUMMARY: 0 passed, 1 failed, 0 skipped of 1 checks; failed: L1C; mutate = lowsum; 266 s
+CONTROL lowsum: every targeted check failed, as it must

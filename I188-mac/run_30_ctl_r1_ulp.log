@@ -1,0 +1,6 @@
+# 2026-11-27 13:31:52 cwd=/Users/nathan/Source/negative-mass-i188/phase2/nonradial load=6.63 6.64 6.23
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python -u taylor_polar.py --complex --raw=/Users/nathan/Source/negative-mass-raw --ref-dir=/Users/nathan/Source/negative-mass-raw/I188-mac/ref --jsonl-dir=/Users/nathan/Source/negative-mass-raw/I188-mac/jsonl_rec --mutate=r1_ulp
+# taylor_polar.py --complex: start 2026-11-27 13:31:53, load average 6.63, one process, nice 10; lane dd; mutate = r1_ulp
+CHECK R1: FAIL  real lanes, every field except times as strings (d at l = 2, 6, gamma = 0.001, 1, 40 in f64, dd, qd; planted const and linear; star): old_default against new_default: 65 records, 1 differ (first: d); old_libplane against new_libplane: 65 records, 1 differ (first: d)
+SUMMARY: 0 passed, 1 failed, 0 skipped of 1 checks; failed: R1; mutate = r1_ulp; 334 s
+CONTROL r1_ulp: every targeted check failed, as it must

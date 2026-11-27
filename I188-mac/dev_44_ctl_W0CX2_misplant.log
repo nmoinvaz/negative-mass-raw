@@ -1,0 +1,7 @@
+# 2026-11-27 12:32:54 cwd=/Users/nathan/Source/negative-mass-raw/I188-mac
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python /Users/nathan/Source/negative-mass-i188/phase2/nonradial/taylor_polar.py --complex --mutate=misplant --only=W0,CX2 --jsonl-dir=jsonl --raw=/Users/nathan/Source/negative-mass-raw
+# taylor_polar.py --complex: start 2026-11-27 12:32:54, load average 7.95, one process, nice 10; lane dd; mutate = misplant
+CHECK W0: FAIL  winding2's counter ported, on the stored values alone: b1: winding +0.0000 (stored +0.0000), max step 0.39 (stored 0.39), plant difference +0.0000 (expected 2, step 0.40, stored 0.4), asked 133 of 147 stored points, 0 missing; b2: winding +0.0000 (stored +0.0000), max step 0.39 (stored 0.39), plant difference -0.0000 (expected 2, step 2.64, stored 0.4), asked 341 of 195 stored points, 172 missing
+CHECK CX2: FAIL  winding2's counter with the crate as the evaluator: b1 (dd): winding -0.0000 (stored +0.0000), max step 0.39 rad, min|D| 6.70e-04, plant difference +0.0000 (expected 2, step 0.40); 133 points asked, 0 not in the stored cache, 14 stored points not asked; 0 evaluated now, 0 s; b2 (dd): winding +0.0000 (stored +0.0000), max step 0.39 rad, min|D| 1.95e-05, plant difference -0.0000 (expected 2, step 0.39); 173 points asked, 4 not in the stored cache, 26 stored points not asked; 4 evaluated now, 2 s
+SUMMARY: 0 passed, 2 failed, 0 skipped of 2 checks; failed: W0, CX2; mutate = misplant; 19 s
+CONTROL misplant: every targeted check failed, as it must

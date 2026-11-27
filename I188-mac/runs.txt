@@ -1,0 +1,41 @@
+# base|title of each run of record, in the order of the output file
+run_00_env|the environment of the runs of record: code commit, toolchains, binaries
+run_01_scipy_ref_b1_rtol1e-13|winding2's D by the scipy path at rtol 1e-13 at the 147 stored points of the box l = 2, Re s in [0.1, 2], |Im s| <= 2.5 (the reference of X1)
+run_02_scipy_ref_b1_rtol1e-08_tc|the same at rtol 1e-8 (the stored rtol) at the 8 timing points (TC)
+run_03_scipy_ref_b6_rtol1e-13_tc|the scipy path at rtol 1e-13 at 8 points of the l = 6 box Re s in [0.03, 0.1] (the reference of X1b)
+run_04_scipy_ref_b6_rtol1e-08_tc|the same at rtol 1e-8 (TC)
+run_05_R1_real_lanes_old_new|R1: the real lanes of main 0d1d376 against this branch, default and lib_plane
+run_06_R2_complex_at_real_s|R2: the complex lane at Im s = 0 against the real lane
+run_07_P1C_planted_complex_plane|P1C: the planted complex plane, f64, dd, qd
+run_08_W0_counter_port_stored|W0: winding2's counter ported, on the stored values alone, with the thresholds' margins
+run_09_CX2_counts_crate_evaluator|CX2: the counter with the crate (dd) as the evaluator, two boxes with the planted pair
+run_10_XRc_counts_two_Rs|XRc: the count of the box at two outer radii (rsmult 40 and 80)
+run_11_default_mode_186_checks|the default mode (#186's checks) with this branch's default binary
+run_12_L1C_lanes|L1C: qd against dd at three points
+run_13_CXZ_planted_determinant|CXZ: the planted determinant with zeros
+run_14_X1_box_b1_vs_scipy|X1: the crate (dd, then f64) against the scipy path at rtol 1e-13, 147 points
+run_15_X1b_box_b6_vs_scipy|X1b: the l = 6 box at R_s = 1293, 8 points
+run_16_XR_Rs_independence|XR: the stripped D at four start radii (declared as a check; not met)
+run_17_TC_time_per_D|TC: time per D, scipy against the crate
+run_18_tc_big_Rs|the crate's time per D as R_s grows to 8000 (for the note on #116; not a check)
+run_30_ctl_r1_ulp|control r1_ulp (must exit 1)
+run_31_ctl_cx_recip_general|control cx_recip_general (must exit 1)
+run_32_ctl_bilinear|control bilinear (must exit 1)
+run_33_ctl_redot|control redot (must exit 1)
+run_34_ctl_f_scaled|control f_scaled (must exit 1)
+run_35_ctl_cx_mul_sign|control cx_mul_sign (must exit 1)
+run_36_ctl_strip_off|control strip_off (must exit 1)
+run_37_ctl_conj_s|control conj_s (must exit 1)
+run_38_ctl_rs_shift|control rs_shift (must exit 1)
+run_39_ctl_strip_sign|control strip_sign (must exit 1)
+run_40_ctl_lowsum|control lowsum (must exit 1)
+run_50_ctl_jsign|control jsign (must exit 1)
+run_51_ctl_moncrief|control moncrief (must exit 1)
+run_52_ctl_swapcols|control swapcols (must exit 1)
+run_53_ctl_mext0|control mext0 (must exit 1)
+run_54_ctl_star_eps|control star_eps (must exit 1)
+run_55_ctl_shift_off|control shift_off (must exit 1)
+run_56_ctl_reverse|control reverse (must exit 1)
+run_57_ctl_wrongdouble|control wrongdouble (must exit 1)
+run_58_ctl_misplant|control misplant (must exit 1)
+run_59_ctl_onesided|control onesided (must exit 1)

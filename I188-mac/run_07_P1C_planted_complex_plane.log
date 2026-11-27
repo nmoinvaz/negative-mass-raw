@@ -1,0 +1,5 @@
+# 2026-11-27 13:19:25 cwd=/Users/nathan/Source/negative-mass-i188/phase2/nonradial load=6.23 5.84 5.56
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python -u taylor_polar.py --complex --raw=/Users/nathan/Source/negative-mass-raw --ref-dir=/Users/nathan/Source/negative-mass-raw/I188-mac/ref --jsonl-dir=/Users/nathan/Source/negative-mass-raw/I188-mac/jsonl_rec --only=P1C
+# taylor_polar.py --complex: start 2026-11-27 13:19:26, load average 6.23, one process, nice 10; lane dd; mutate = None
+CHECK P1C: PASS  J = P diag(24 + 7i, 8 - 3i, -8 + 5i, -24 - 11i) P^-1, plane P[:, :2], x = 12; exact Lambda = ln_vol + ln det(Q0^T Q) = (384.804718956 + 48.0j) at 140 digits; f64: plane 1.08e-14 (bar 1.11e-12), Lambda 5.50e-13 (re 5.50e-13, im 2.23e-13; bar 4.31e-10), orthonormality 2.04e-16 (bar 1.11e-14), 78 steps; dd: plane 6.77e-32 (bar 1.23e-28), Lambda 6.21e-31 (re 9.86e-32, im 6.21e-31; bar 4.78e-26), orthonormality 8.69e-33 (bar 1.23e-30), 277 steps; qd: plane 1.35e-64 (bar 1.50e-60), Lambda 2.46e-61 (re 2.46e-61, im 4.73e-63; bar 5.83e-58), orthonormality 1.06e-64 (bar 1.50e-62), 3486 steps
+SUMMARY: 1 passed, 0 failed, 0 skipped of 1 checks; mutate = None; 1 s
