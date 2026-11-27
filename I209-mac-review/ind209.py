@@ -36,6 +36,9 @@ B = (half + 2 * eps) * F + 1 / (2 * R)
 
 Ae = sp.expand(sp.series(A * sp.exp(-eps * l), eps, 0, 6).removeO())
 Bm = sp.expand(B - half - eps * F)
+Rinv = sp.symbols("Rinv")
+
+
 def terms(expr):
     """expr polynomial in l, 1/R and Omega_i (degree <= 1 in them): [(coef, a, b, i or None)] for coef l^a Rinv^b (Omega_i)"""
     p = sp.Poly(sp.expand(expr.subs(R, 1 / Rinv)), l, Rinv, *Om)

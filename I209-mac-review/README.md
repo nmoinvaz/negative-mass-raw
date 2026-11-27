@@ -54,6 +54,11 @@ The targets are predicted from the code, not yet computed. A mutation that misse
 | `e3-Om0` | E3 with Ω₀ → 0 | K3 |
 | `k4-off` | K4 run without the Ω₀ shift, so E2 holds | K4 |
 
+## Amendments
+
+**A1, 2026-11-27, after run 1.** Run 1 crashed at its start (NameError: `Rinv`): the copy from ind208 left out that
+symbol's definition. The line is restored, and nothing else changes. Run 2 is the first run that computes anything.
+
 ## Runs (filled in as they are done)
 
 | file | what |
