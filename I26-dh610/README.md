@@ -145,12 +145,13 @@ stopped and reported with what finished. Memory is reported only. Units are reco
 
 | run | what | unit | wall | exit |
 |---|---|---|---|---|
-| `run_01_sym_closed_reduce` | `order4.py sym closed reduce` | `nm-i26-01` | started 18:00 | |
-| `run_02_n4b` | `order4.py n4b` | `nm-i26-02` | started 18:00 | |
-| `run_03_n4bg` | `order4.py n4bg` | `nm-i26-03` | started 18:00 | |
-| `run_04_evals_remainder` | `order4.py evals remainder --w2raw=inputs_w2_growthD.txt` | `nm-i26-04` | started 18:00 | |
+| `run_01_sym_closed_reduce` | `order4.py sym closed reduce` | `nm-i26-01` | 2:07.23, peak 67 MiB | 1 |
+| `run_02_n4b` | `order4.py n4b` | `nm-i26-02` | 19:39.50, peak 56 MiB | 1 |
+| `run_03_n4bg` | `order4.py n4bg` | `nm-i26-03` | 4:14.76, peak 57 MiB | 0 |
+| `run_04_evals_remainder` | `order4.py evals remainder --w2raw=inputs_w2_growthD.txt` | `nm-i26-04` | 2:01.98, peak 71 MiB | 0 |
+| `run_05_lc2` | `order4.py lc2` (after A4) | `nm-i26-05` | 0:40.50, peak 57 MiB | 0 |
 
-Code of the four runs: worktree commit 0ab15d6 (`run_00_code.txt`), `order4.py` sha256 d2455d5e04e4dc3e…. The earlier units were `nm-i26-dev02`, `-dev03`
+Code of the first four runs: worktree commit 0ab15d6 (`run_00_code.txt`), `order4.py` sha256 d2455d5e04e4dc3e…; `run_05`: commit 4f08fd3, sha256 e0a9d1e96de4154f…. The earlier units were `nm-i26-dev02`, `-dev03`
 (stopped), `-dev_04_evals`, `-dev_05_symclosed`, `-chainA` … `-chainG3`, `-dev16`.
 
 ## Amendments
@@ -260,3 +261,18 @@ records (sha256 d2455d5e04e4dc3e…, same as the file committed on the branch at
 
 **Status words for the closed forms of Y₃ and L₃.** *checked symbolically* (S1, S4) and *numerical evidence* (N2, N5); Y₃ needs Cl₂, Cl₃, L₃ needs in
 addition Lc2. Y₄ is not given in closed form (G₄ needs only L₃ through E1, E2).
+
+### A4 (2026-11-26, after run_01 to run_04, before run_05): the log-cosine integral in polylogarithms
+
+`run_01` to `run_04` finished (exit 1, 1, 0, 0; `run_02` N4b 22.0 digits NOT MET as written, `run_03` N4bg 27.5 digits met, `run_01` N3 25.8 NOT MET as written). While the nested
+quadratures ran, the function left open in S4, Lc2(θ) = ∫₀^θ ln² cos φ dφ, was written with polylogarithms (`dev_18_lc2_probe.py`, from ln cos φ = ln(1 + t) − ln 2 − ½ ln t,
+t = e^{2iφ}, dφ = dt/(2it), and the standard antiderivatives of ln²(1 + t)/t, ln(1 + t)/t, ln(1 + t) ln t/t):
+
+    Lc2(θ) = (1/2i)[F(e^{2iθ}) − F(1)],   F(t) = ln t ln²(1 + t) − (2/3)ln³(1 + t) − 2 ln(1 + t)Li₂(1/(1 + t)) − 2Li₃(1/(1 + t))
+                                              + ln²2 ln t + (ln t)³/12 + 2 ln 2 Li₂(−t) + ln t Li₂(−t) − Li₃(−t) + (ln 2/2)ln² t.
+
+**Added criterion N6** (part `lc2`, not part of `run_01`): this Lc2 against its quadrature at θ = 0.3, 0.9, 1.4 (30 digits), and L₃ closed (S4's B with this Lc2) against −2h₃(1) + uC₃
+by quadrature at the same points (30 digits, 30 guard digits in the integrand, quadrature at working precision 45). **Added control** `wrong_Lc2` (the sign of Li₃(−t) in F): fires N6
+(`dev_18_lc2_wrong_Lc2`: −3.6 and 0.3 digits). An earlier scratch version of N6 ran its quadrature at 75 digits and failed at 2.4 digits: tanh-sinh nodes at θ ~ 1e-70 with integrand
+cancellation ε/θ; the same cancellation as N3, N4b. Fixed by guarding the integrand only (as N3g, N4bg). `order4.py` after this amendment differs from `dev_16_order4_final.py` (the code of
+`run_01` to `run_04`) by 47 added lines and 3 changed lines (the usage line, the mutation list, the default parts); `cmp` against `dev_18_order4_wip2.py`: identical.
