@@ -279,3 +279,24 @@ The runs of record `run_ctl_*` run each control on the checks above (the silent 
 as stopped, with what it printed. Also added: the supplementary run of A3 (`run_11_stepS`), the reruns `run_09_arc` and `run_10_stepB` (the qd variant of σ₀²),
 and the options `--p-lanes`, `--stage`, `--tag`, `--supp-log` of the driver.
 
+## Runs of record and development runs (written at the end)
+
+Every run has `NAME.log`, `.err` (`/usr/bin/time -l` at its end), `.rc`, `.pid`, `.load` (load averages at start and end), and `.note` or `.stop` where one explains it.
+The stage runs also have `NAME.jsonl`. Code: `wip/i194-radial-crate` of nmoinvaz/negative-mass, commit 557cc68 for the last runs of record.
+
+| run | what | rc | wall s |
+|---|---|---|---|
+| run_03_CFZ | the one arclength run to 4.017906, stopped at 2 h 29 min, nothing finished (`.stop`) | 143 | 8966 |
+| run_04_arc | stage `arc` (arclength to alpha_c = 2.0, scans at 1.10, 1.20, 1.50, 2.00) | 0 | 286 |
+| run_05_stepA | stage `stepA` (rows 2.1 to 4.017906 by Newton stepping): stalled at alpha_c 3.9935489 | 1 | 1189 |
+| run_06_stepB | stage `stepB` (scans at 2.5, 3.0, variants at 3.0) | 0 | 229 |
+| run_07_stepC | stage `stepC` (rows 3.5, 3.9; the scans refused by A1.8's gate: `mroots_error`) | 0 | 669 |
+| run_08_quick | P1 to X1 first time (G1 at 4 points instead of 12: superseded) | 1 | 575 |
+| run_09_arc, run_10_stepB | the stages again with the qd lane variant of sigma_0^2 (E2) | 0, 0 | 522, 284 |
+| run_11_stepS | A3 supplementary scans at 3.5 and 3.9, outside the gate | 0 | 779 |
+| run_12_final | the whole driver, first time (report text superseded) | 1 | 1681 |
+| run_13_final | the whole driver with the stage logs of record: `taylor_radial_output.txt` | 1 | 1470 |
+| run_ctl_*, run_ctlf_* | the 19 controls (A4); `run_ctlf_eps_arcm` stopped at its 600 s cap | | |
+| dev_01 to dev_17 | development runs (dev_04, dev_08, dev_16: failed or not runs, with their `.note`) | | |
+
+The exit code of the driver is 1 when any check fails; run_13_final has 17 passed, 4 failed (X1b of eps = -1, C1, C2, F), 1 skipped (the A3 supplement).

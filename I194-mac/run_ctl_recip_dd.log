@@ -1,0 +1,7 @@
+--- P1 (0 s)
+  > {"cmd":"planted","lane":"qd","rm":3,"rfar":168.46903033498435,"order":56,"tol":1.504632769052528e-62,"grid":60,"nroots":3,"nexact":3,"wall":27.640}
+  > {"cmd":"planted_root","i":0,"s":"-1.380000000000000000000000000000000149038e+00","exact":"-1.380000000000000000000000000000000000000e+00","rel":1.0799854601216316e-34,"block":0,"n":1,"evals":24,"d_at_root":2.8234836210206745e-62}
+  > {"cmd":"planted_root","i":1,"s":"1.099999999999999999999999999999998747526e-01","exact":"1.100000000000000000000000000000000000000e-01","rel":1.1386125447599158e-33,"block":1,"n":1,"evals":26,"d_at_root":1.4751688849201018e-63}
+  > {"cmd":"planted_root","i":2,"s":"1.819999999999999999999999999999999895430e+00","exact":"1.820000000000000000000000000000000000000e+00","rel":5.745613634545235e-35,"block":0,"n":3,"evals":13,"d_at_root":-7.671165188494666e-66}
+CHECK P1: FAIL  qd: 3 of 3 roots, worst rel 1.14e-33 (limit 1e-50), 27.6 s, R = 168, orientation of the start plane constant on the grid: True
+0 passed, 1 failed, 0 skipped of 1 checks; mutation: recip_dd; 28 s
