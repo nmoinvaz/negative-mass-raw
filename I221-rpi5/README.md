@@ -150,6 +150,52 @@ nothing (those D are printed nowhere in these two files). The relative-differenc
 not predicted to fire for a 1e-6 shift (largest shift of any such cell: 1e-6 · s² = 2e-4 at D = 10, against units of 0.1 or 1).
 Declared targets come from the development run, as for `check_growth.py`.
 
+## Amendment A3: extension from the coordinator, `ts13_digits.py` retargeted (written before any change to it)
+
+hc, 2026-11-27: `ts13_digits.py` joins the file list, because main must not carry a check that fails at baseline (C1 failed 0 of 8 on
+the new csv, `run_05_ts13_digits.log`). The issue stays open; `running` is back. Ruled by the coordinator: `make_figures.py` and every
+paper or README text go to #210; `stability.py` and `order4.py` stay as they are (they read `w2_output.txt`, not growth.csv).
+
+Criteria, coded as worded here:
+- **C1** (retargeted) TS13's printed values (`PRINTED`), converted, rounded half-even to 12 decimals, equal the old growth.csv's rows
+  D = 4 … 11, and TS13 prints more than 12 decimals there. The old rows are a constant `OLD_ROWS` in the script, typed from
+  `git show 4bced01:notes/wormhole_largeD/growth.csv` lines 2 to 9 (byte-identical at 613e866) and cited there; C1 does not read the
+  current csv. 8 of 8.
+- **C2** (new) the current growth.csv's rows D = 4 … 11 equal the crate's qd value (w2_output.txt, the script's own `read_crate`)
+  rounded to 12 decimals, as check_growth.py's G2 does for them, with this script's own parser and `Decimal` rounding. 8 of 8.
+- All other checks (T1, T2, T3, R1, K1, P1, O1, W1, W2) unchanged. The reported blocks change: the last one compares the old rows
+  (`OLD_ROWS`) and the current rows with the crate.
+- `OLD_ROWS` against the git file is verified once in a raw script (`verify_old_rows.py`); C1 itself would fire on a typo
+  (mutation `old_rows`).
+
+Mutations: the 15 of #202 keep their names; `csv` is retargeted (C2), and two are new: `old_rows` (`OLD_ROWS` D = 6, 12th decimal + 1)
+and `crate_lowD` (the crate's D = 6 value, 12th decimal + 1, 9e-12 relative 2e-12, under K1's bar).
+
+**Predictions** (before the development run; targets are declared from it as amendment A3b, before the run of record). Changes
+from #202's declared sets (`ts13_digits_output.txt` as committed) are marked:
+
+| mutation | predicted failing checks |
+|---|---|
+| none | none |
+| `digit_last` | T2, T3 |
+| `digit_8` | T2, T3, R1, C1 |
+| `digit_12` | T2, T3, C1 |
+| `digit_6` | T2, T3, C1, K1 |
+| `drop_zero` | T1, T3 |
+| `sign`, `sqrt` | C1, K1 |
+| `csv` | **C2** (was C1) |
+| `profiles` | T2 |
+| `crate`, `crate_7` | K1, O1 and O1 |
+| `onemode` | O1 |
+| `wformula` | W1 |
+| `upot` | W1, W2 |
+| `halfunit` | P1 |
+| `old_rows` (new) | C1 |
+| `crate_lowD` (new) | C2 |
+
+So the only prediction that differs from #202's declared sets is `csv`; the five that the retarget experiment of `run_06` showed losing
+C1 keep it, because C1 again reads TS13's printed value. (That experiment retargeted C1 to the crate; this retarget does not.)
+
 ## Runs
 
 All exit 0 unless stated; one process at a time, `nice -n 10`, rpi5. `run_mutations.sh OUTDIR` runs `check_growth.py` with no mutation and
