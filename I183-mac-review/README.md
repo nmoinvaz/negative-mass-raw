@@ -51,3 +51,9 @@ f64 cannot follow the C mode from larger L (dF·L⁴ at η = 20, #183's O14 ruli
 
 | file | what |
 |---|---|
+| `ind183_run1.txt` | run 1: exit 1, **K1 fails at (0.2, −30) by a defect of the coordinator's check**. scipy stopped on the terminal event \|F′\| = 1e8 at η = 11.70092677, against the crate's F->0 at 11.70094779 (difference 2.1e-5, inside the bar 1.2e-3). The classification tested \|F′\| > 1e8, which an event root at exactly 1e8 misses, so the point read "other". The other three points agree: (0.05, 100) FLOOR, (8, 300) F->0 at 3.4e-5, (0.01, 3) FLOOR. K2 passes (\|N\|/Σ ≤ 9.5e-13). K1 stays failed as run 1 reports it |
+
+## Amendments
+
+**A1, 2026-11-27, after run 1.** The F->0 test reads \|F′\| ≥ 1e8, so a stop on the event counts. No bar, point or
+tolerance changes. Run 2 is the run with the fix, and the mutations are run with it.
