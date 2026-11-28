@@ -106,6 +106,64 @@ development record, MAIN6, MAINa6, EPSr6 fail by construction).
 
 (`RA6` flips from fail to pass under the three mutations that change the slopes because it fails by 5.1e-3 against 5e-3 in the development record, whose two h are 0.005 and 0.0025.)
 
-## Part 2: runs of record
+## Part 2: runs of record (2026-11-28, dh610-fedora)
 
-(to be filled: units, wall times, exit codes)
+Script commits on `wip/i324-departure-lifetime`: 134cfe3 (criteria and mutations declared in Part 1), adb40b6 (note, outputs, figure). The pairs of record were run after Part 1 was pushed (raw 79cfa8b1).
+
+- Pairs of record, `runs/pairs`: A and X are the stored pairs (read-only); B at 1e-12 for D = 4 (h = 0.02, 0.01, 0.005), D = 5 (h = 0.00707, 0.00354, 0.00177), D = 6 (h = 0.0025, 0.00125);
+  tcap 28, 26, 30. The analysis uses the two finest h of each D. The longest run took 6.2 min wall (D = 6, h = 0.00125, one side per unit); none was near the 2 h stop. 4 units at most at a time.
+- Planted evolutions, `runs/plx`: family S in the drifting coordinates of #225, v = 0.1, 0.5, h = 0.02, 0.01, p*ₕ bisected to 1e-13 on the locus's fate, then the pair at 1e-9.
+- **Added after the pairs of record, reported and not gated** (a diagnosis of the two failures CAL6 and RA6): B2, a second new pair at 2e-12 (another roundoff realization), at D = 5 (h = 0.00354, 0.00177) and D = 6 (h = 0.0025,
+  0.00125); the contamination κ of the new pair's mean radius; the lists of τ_dep; #225's level lifetimes in the same windows and their offset to τ_dep; the A-to-X shift. The gates were not changed.
+- Analyses: `runs/analysis/analyze_record1` to `5` (28 checks, 23 pass, 5 fail: CAL6, RA6, MAIN6, MAINa6, EPSr6, rc 1; the same verdict on every check in all five; `analyze_record5` is the output of record, copied to
+  `notes/wormhole_evolution/departure_lifetime_output.txt`). Mutations on the record: `runs/mut/mutate_record1` to `3` (`mutate_record3` is `departure_lifetime_mutate_output.txt`). Development: `dev/pilot_run2` (the pilot,
+  rerun as a unit; its first run was in the foreground and is not kept), `dev/analyze_dev1` to `3`, `dev/mut/mutate_dev1`, `2`.
+- Results are in `notes/wormhole_evolution/departure_lifetime.md`: MAIN6 (REL, the issue's definition) +3.4 … +5.6 % and MAINa6 (ABS) −1.1 … +2.2 % against the 2 % bar; D4 0.84924 against 0.8495; EPSr6 6.25 %;
+  CAL6 |c − 1| = 0.527 against 0.5; RA6 1.3e-2 (window e = 9–11 only).
+- The first launch of the planted evolutions (PLX, v = 0.1, 0.5) failed at once with no output (relative log directory in `run_unit.sh`); the launcher was fixed and the units rerun under the same names.
+
+### Units
+
+| unit `nm-i324-<name>` (log dir/name) | rc | wall | max RSS |
+|---|---|---|---|
+| `dev/analyze_dev3` | 0 | 0:01.09 | 112 MB |
+| `dev/mut/mutate_dev1` | 0 | 0:04.18 | 112 MB |
+| `dev/mut/mutate_dev2` | 0 | 0:05.72 | 112 MB |
+| `dev/pairs/D4_h0.01_d1e-12` | 0 | 0:09.68 | 192 MB |
+| `dev/pairs/D4_h0.02_d1e-12` | 0 | 0:04.71 | 188 MB |
+| `dev/pairs/D5_h0.00354_d1e-12` | 0 | 0:59.71 | 202 MB |
+| `dev/pairs/D5_h0.00707_d1e-11` | 0 | 0:18.06 | 193 MB |
+| `dev/pairs/D5_h0.00707_d1e-12` | 0 | 0:16.82 | 194 MB |
+| `dev/pairs/D6_h0.0025_d1e-12_s-1` | 0 | 1:21.66 | 204 MB |
+| `dev/pairs/D6_h0.0025_d1e-12_s1` | 0 | 1:22.76 | 206 MB |
+| `dev/pairs/D6_h0.005_d1e-09` | 0 | 0:39.94 | 196 MB |
+| `dev/pairs/D6_h0.005_d1e-11` | 0 | 0:40.54 | 197 MB |
+| `dev/pairs/D6_h0.005_d1e-12` | 0 | 0:40.59 | 200 MB |
+| `dev/pilot_run2` | 0 | 0:00.64 | 110 MB |
+| `dev/plx/plx_h0.01_v0.1` | 0 | 4:41.53 | 192 MB |
+| `dev/plx/plx_h0.01_v0.5` | 0 | 4:11.64 | 194 MB |
+| `dev/plx/plx_v0.1` | 0 | 1:20.09 | 204 MB |
+| `dev/plx/plx_v0.5` | 0 | 1:19.43 | 207 MB |
+| `runs/analysis/analyze_record1` | 0 | 0:01.51 | 120 MB |
+| `runs/analysis/analyze_record2` | 0 | 0:01.08 | 123 MB |
+| `runs/analysis/analyze_record3` | 1 | 0:01.05 | 124 MB |
+| `runs/analysis/analyze_record4` | 1 | 0:01.06 | 124 MB |
+| `runs/analysis/analyze_record5` | 1 | 0:01.12 | 124 MB |
+| `runs/mut/mutate_record1` | 0 | 0:07.12 | 120 MB |
+| `runs/mut/mutate_record2` | 0 | 0:06.85 | 125 MB |
+| `runs/mut/mutate_record3` | 0 | 0:07.80 | 125 MB |
+| `runs/pairs/D4_d1e-12_h0.02_0.01_0.005_D5_h0.00707` | 0 | 1:26.06 | 198 MB |
+| `runs/pairs/D5_d2e-12_h0.00354_h0.00177` | 0 | 2:54.80 | 218 MB |
+| `runs/pairs/D5_h0.00177_d1e-12` | 0 | 3:16.81 | 219 MB |
+| `runs/pairs/D5_h0.00354_d1e-12` | 0 | 1:23.72 | 203 MB |
+| `runs/pairs/D6_h0.00125_d1e-12_s-1` | 0 | 6:11.95 | 223 MB |
+| `runs/pairs/D6_h0.00125_d1e-12_s1` | 0 | 6:05.92 | 227 MB |
+| `runs/pairs/D6_h0.00125_d2e-12_s-1` | 0 | 3:15.77 | 222 MB |
+| `runs/pairs/D6_h0.00125_d2e-12_s1` | 0 | 3:10.81 | 227 MB |
+| `runs/pairs/D6_h0.0025_d1e-12` | 0 | 3:08.03 | 213 MB |
+| `runs/pairs/D6_h0.0025_d2e-12` | 0 | 1:37.25 | 210 MB |
+| `runs/plx/plx_h0.01_v0.1` | 0 | 4:42.72 | 192 MB |
+| `runs/plx/plx_h0.01_v0.5` | 0 | 4:07.81 | 194 MB |
+| `runs/plx/plx_h0.02_v0.1_then_v0.5` | 0 | 2:38.46 | 191 MB |
+
+(`dev/` rows are development runs, `runs/` rows are runs of record; `D6_h0.00125_d1e-12_s-1` and `_s1` are the two sides of one pair; the planted chain `plx_h0.02_v0.1_then_v0.5` is one unit.)

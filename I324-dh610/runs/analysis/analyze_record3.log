@@ -1,0 +1,141 @@
+departure_lifetime.py analyze: pairs ~/Source/negative-mass-raw/I324-dh610/runs/pairs, planted ~/Source/negative-mass-raw/I324-dh610/runs/plx
+[pass] CTL: the reader in #228's rule (pair at 1e-9 alone, absolute eps, the mask of rising ln|odd|) reproduces every number of #228's PH lines at eps = 0.1, both h  (98 numbers at the printed digits)
+    PLR rdot = 0.09, r0 = 1.2: splice c = u_A/u_B = 0.76900 (planted (1 + -0.0003)/(1 + 0.3) = 0.76900), spread 5.7e-05, splice at t = 13.82
+    PLR rdot = 0, r0 = 1.2: splice c = u_A/u_B = 0.76900 (planted (1 + -0.0003)/(1 + 0.3) = 0.76900), spread 5.6e-05, splice at t = 9.59
+[pass] PLR: planted pairs (drifting radius rdot = 0.09 and constant, roundoff shifts -3e-4 and +30%, nonlinearity 7 rho^2) through the splice and the reader: REL window slopes against the exact ones, ABS window slopes against the mean of r_th/W (the planted rate recovered)  (worst REL 2.3e-03, worst ABS 1.6e-03, bar 0.005; windows evaluated >= 5 at each eps)
+[pass] PLX: planted drifting throat of #225 (family S, v = (0.1, 0.5), D = 4, h in [0.02, 0.01]): the e-fold 1/W is recovered in tau in every window to 0.005  (h = 0.02, v = 0.1: 4 windows, tau slope x W - 1 in [-0.0001, +0.0002] (read in t: +0.005 to +0.005); h = 0.02, v = 0.5: 4 windows, tau slope x W - 1 in [-0.0003, -0.0000] (read in t: +0.154 to +0.155); h = 0.01, v = 0.1: 4 windows, tau slope x W - 1 in [-0.0000, +0.0002] (read in t: +0.005 to +0.005); h = 0.01, v = 0.5: 4 windows, tau slope x W - 1 in [-0.0001, +0.0001] (read in t: +0.155 to +0.155))
+[pass] LBL: every pair's label delta is half the amplitude difference in its files, and its centre is p*_h  (17 pairs)
+[pass] PST: the pairs A and B of every record are centred on #40's p*_h, bit for bit
+[pass] CAL4: D = 4: u_A/u_B over the calibration window is constant to 0.002 (p1 to p99) and within 0.5 of 1 (the roundoff shift n/delta_B)  (h = 0.01: c = 0.99554, spread 4.9e-05 (max-min 5.7e-05); h = 0.005: c = 1.04249, spread 7.7e-05 (max-min 9.9e-05))
+[pass] CAL5: D = 5: u_A/u_B over the calibration window is constant to 0.002 (p1 to p99) and within 0.5 of 1 (the roundoff shift n/delta_B)  (h = 0.00353553: c = 0.89502, spread 3.7e-04 (max-min 4.0e-04); h = 0.00176777: c = 1.07964, spread 6.2e-04 (max-min 7.6e-04))
+[FAIL] CAL6: D = 6: u_A/u_B over the calibration window is constant to 0.002 (p1 to p99) and within 0.5 of 1 (the roundoff shift n/delta_B)  (h = 0.0025: c = 1.44242, spread 1.0e-03 (max-min 1.1e-03); h = 0.00125: c = 0.47291, spread 1.1e-03 (max-min 1.2e-03))
+  D = 4, h = 0.01: pairs at 1e-09 (ends t = 20.53), 1e-12 (ends t = 26.73), 1e-10 (stored, ends t = 22.55); r_th(tau) = 1.0095 at t = 8
+     linear window of the pair at 1e-09 (A): |odd|/r_th reaches 0.01 at t = 17.63, 0.04 at t = 18.83 (tau 18.40), 1e-5 at t = 11.61
+     linear window of the pair at 1e-12 (B): |odd|/r_th reaches 0.01 at t = 23.65, 0.04 at t = 24.87 (tau 24.29), 1e-5 at t = 17.62
+     linear window of the pair at 1e-10 (X): |odd|/r_th reaches 0.01 at t = 19.64, 0.04 at t = 20.84 (tau 20.36), 1e-5 at t = 13.62
+     splice: u_A/u_B = 0.99554 (spread 4.9e-05 over 702 slices, t = 11.61 to 16.57), spliced at t = 13.61
+     eps 0.03 REL (eps r_th): e 3-5 0.8496 (-0.0044); e 4-6 0.8482 (-0.0022); e 5-7 0.8475 (-0.0015); e 6-8 0.8478 (-0.0011); e 7-9 0.8488 (-0.0008); e 8-10 0.8503 (-0.0007); e 9-11 0.8521 (-0.0005)
+     eps 0.03 ABS (eps)    : e 3-5 0.8517 (-0.0020); e 4-6 0.8491 (-0.0011); e 5-7 0.8477 (-0.0012); e 6-8 0.8476 (-0.0013); e 7-9 0.8484 (-0.0014); e 8-10 0.8496 (-0.0014); e 9-11 0.8513 (-0.0014)
+     eps 0.1 REL (eps r_th): e 3-5 0.8489 (-0.0028); e 4-6 0.8477 (-0.0017); e 5-7 0.8476 (-0.0013); e 6-8 0.8483 (-0.0009); e 7-9 0.8495 (-0.0007); e 8-10 0.8512 (-0.0006); e 9-11 0.8531 (-0.0005)
+     eps 0.1 ABS (eps)    : e 3-5 0.8503 (-0.0012); e 4-6 0.8482 (-0.0011); e 5-7 0.8476 (-0.0013); e 6-8 0.8479 (-0.0014); e 7-9 0.8490 (-0.0014); e 8-10 0.8504 (-0.0014); e 9-11 0.8522 (-0.0014)
+     eps 0.3 REL (eps r_th): e 3-5 0.8482 (-0.0022); e 4-6 0.8475 (-0.0015); e 5-7 0.8478 (-0.0011); e 6-8 0.8488 (-0.0008); e 7-9 0.8503 (-0.0007); e 8-10 0.8521 (-0.0005); e 9-11 0.8539 (-0.0006)
+     eps 0.3 ABS (eps)    : e 3-5 0.8491 (-0.0011); e 4-6 0.8477 (-0.0012); e 5-7 0.8476 (-0.0013); e 6-8 0.8484 (-0.0014); e 7-9 0.8496 (-0.0014); e 8-10 0.8513 (-0.0014); e 9-11 0.8531 (-0.0015)
+     eps 0.1 REL against the model r_th/(W - rdot): -0.0012, -0.0011, -0.0013, -0.0014, -0.0014, -0.0014, -0.0014
+     eps 0.1 ABS against the model r_th/W (mean of the grid): -0.0012, -0.0011, -0.0013, -0.0014, -0.0014, -0.0014, -0.0014
+     #225's lifetime at the level (collapse r_min = 0.5), the same windows: e 3: 0.8465, e 4: 0.8472, e 5: 0.8481, e 6: 0.8494, e 7: 0.8511, e 8: 0.8530, e 9: 0.8548
+     #225's lifetime at the level (expansion r_min = 2), the same windows: e 3: 0.8489, e 4: 0.8473, e 5: 0.8474, e 6: 0.8483, e 7: 0.8496, e 8: 0.8513, e 9: 0.8528
+     rdot at the departures (eps 0.1, REL) e = 3, 5, 7, 9, 11: -0.0037, -0.0006, 0.0005, 0.0010, 0.0012
+     nonlinearity of the larger pair beyond the window (reported): rho = 0.010: 2.07 rho^2, rho = 0.020: 2.06 rho^2, rho = 0.040: 2.05 rho^2
+  D = 4, h = 0.005: pairs at 1e-09 (ends t = 20.53), 1e-12 (ends t = 26.78); r_th(tau) = 1.0095 at t = 8
+     linear window of the pair at 1e-09 (A): |odd|/r_th reaches 0.01 at t = 17.62, 0.04 at t = 18.83 (tau 18.39), 1e-5 at t = 11.61
+     linear window of the pair at 1e-12 (B): |odd|/r_th reaches 0.01 at t = 23.69, 0.04 at t = 24.91 (tau 24.33), 1e-5 at t = 17.66
+     splice: u_A/u_B = 1.04249 (spread 7.7e-05 over 1405 slices, t = 11.61 to 16.57), spliced at t = 13.61
+     eps 0.03 REL (eps r_th): e 3-5 0.8496 (-0.0044); e 4-6 0.8482 (-0.0022); e 5-7 0.8475 (-0.0015); e 6-8 0.8478 (-0.0011); e 7-9 0.8488 (-0.0008); e 8-10 0.8503 (-0.0007); e 9-11 0.8521 (-0.0005)
+     eps 0.03 ABS (eps)    : e 3-5 0.8517 (-0.0020); e 4-6 0.8491 (-0.0011); e 5-7 0.8477 (-0.0012); e 6-8 0.8476 (-0.0013); e 7-9 0.8484 (-0.0014); e 8-10 0.8496 (-0.0014); e 9-11 0.8513 (-0.0014)
+     eps 0.1 REL (eps r_th): e 3-5 0.8489 (-0.0028); e 4-6 0.8477 (-0.0017); e 5-7 0.8476 (-0.0013); e 6-8 0.8483 (-0.0010); e 7-9 0.8495 (-0.0007); e 8-10 0.8512 (-0.0006); e 9-11 0.8531 (-0.0004)
+     eps 0.1 ABS (eps)    : e 3-5 0.8503 (-0.0012); e 4-6 0.8482 (-0.0011); e 5-7 0.8476 (-0.0013); e 6-8 0.8479 (-0.0014); e 7-9 0.8490 (-0.0014); e 8-10 0.8504 (-0.0014); e 9-11 0.8523 (-0.0014)
+     eps 0.3 REL (eps r_th): e 3-5 0.8482 (-0.0022); e 4-6 0.8475 (-0.0015); e 5-7 0.8478 (-0.0011); e 6-8 0.8488 (-0.0008); e 7-9 0.8503 (-0.0007); e 8-10 0.8521 (-0.0005); e 9-11 0.8540 (-0.0005)
+     eps 0.3 ABS (eps)    : e 3-5 0.8491 (-0.0011); e 4-6 0.8477 (-0.0012); e 5-7 0.8476 (-0.0013); e 6-8 0.8484 (-0.0014); e 7-9 0.8496 (-0.0014); e 8-10 0.8513 (-0.0014); e 9-11 0.8532 (-0.0014)
+     eps 0.1 REL against the model r_th/(W - rdot): -0.0012, -0.0011, -0.0013, -0.0014, -0.0014, -0.0014, -0.0014
+     eps 0.1 ABS against the model r_th/W (mean of the grid): -0.0012, -0.0011, -0.0013, -0.0014, -0.0014, -0.0014, -0.0014
+     #225's lifetime at the level (collapse r_min = 0.5), the same windows: e 3: 0.8465, e 4: 0.8472, e 5: 0.8481, e 6: 0.8494, e 7: 0.8511, e 8: 0.8529, e 9: 0.8527
+     #225's lifetime at the level (expansion r_min = 2), the same windows: e 3: 0.8489, e 4: 0.8473, e 5: 0.8474, e 6: 0.8483, e 7: 0.8496, e 8: 0.8514, e 9: 0.8540
+     rdot at the departures (eps 0.1, REL) e = 3, 5, 7, 9, 11: -0.0037, -0.0006, 0.0005, 0.0010, 0.0013
+     nonlinearity of the larger pair beyond the window (reported): rho = 0.010: 2.04 rho^2, rho = 0.020: 2.06 rho^2, rho = 0.040: 2.06 rho^2
+  D = 5, h = 0.00353553: pairs at 1e-09 (ends t = 16.50), 1e-12 (ends t = 22.22), 1e-10 (stored, ends t = 18.34); r_th(tau) = 1.0880 at t = 8
+     linear window of the pair at 1e-09 (A): |odd|/r_th reaches 0.01 at t = 14.08, 0.04 at t = 15.12 (tau 14.55), 1e-5 at t = 9.17
+     linear window of the pair at 1e-12 (B): |odd|/r_th reaches 0.01 at t = 19.43, 0.04 at t = 20.59 (tau 19.82), 1e-5 at t = 14.00
+     linear window of the pair at 1e-10 (X): |odd|/r_th reaches 0.01 at t = 15.83, 0.04 at t = 16.91 (tau 16.27), 1e-5 at t = 10.76
+     splice: u_A/u_B = 0.89502 (spread 3.7e-04 over 1609 slices, t = 9.17 to 13.19), spliced at t = 10.76
+     eps 0.03 REL (eps r_th): e 3-5 0.6172 (-0.0042); e 4-6 0.6382 (+0.0060); e 5-7 0.6591 (+0.0091); e 6-8 0.6819 (+0.0110); e 7-9 0.7063 (+0.0125); e 8-10 0.7318 (+0.0137); e 9-11 0.7583 (+0.0147)
+     eps 0.03 ABS (eps)    : e 3-5 0.6113 (-0.0131); e 4-6 0.6302 (-0.0056); e 5-7 0.6493 (-0.0043); e 6-8 0.6707 (-0.0034); e 7-9 0.6940 (-0.0024); e 8-10 0.7186 (-0.0014); e 9-11 0.7441 (-0.0004)
+     eps 0.1 REL (eps r_th): e 3-5 0.6284 (+0.0026); e 4-6 0.6489 (+0.0080); e 5-7 0.6708 (+0.0102); e 6-8 0.6945 (+0.0118); e 7-9 0.7195 (+0.0132); e 8-10 0.7455 (+0.0142); e 9-11 0.7727 (+0.0154)
+     eps 0.1 ABS (eps)    : e 3-5 0.6214 (-0.0078); e 4-6 0.6399 (-0.0047); e 5-7 0.6602 (-0.0038); e 6-8 0.6827 (-0.0028); e 7-9 0.7067 (-0.0018); e 8-10 0.7318 (-0.0009); e 9-11 0.7580 (+0.0002)
+     eps 0.3 REL (eps r_th): e 3-5 0.6382 (+0.0060); e 4-6 0.6591 (+0.0091); e 5-7 0.6819 (+0.0110); e 6-8 0.7063 (+0.0125); e 7-9 0.7318 (+0.0137); e 8-10 0.7583 (+0.0147); e 9-11 0.7863 (+0.0162)
+     eps 0.3 ABS (eps)    : e 3-5 0.6302 (-0.0056); e 4-6 0.6493 (-0.0043); e 5-7 0.6707 (-0.0034); e 6-8 0.6940 (-0.0024); e 7-9 0.7186 (-0.0014); e 8-10 0.7441 (-0.0004); e 9-11 0.7710 (+0.0008)
+     eps 0.1 REL against the model r_th/(W - rdot): -0.0077, -0.0047, -0.0038, -0.0028, -0.0018, -0.0008, +0.0003
+     eps 0.1 ABS against the model r_th/W (mean of the grid): -0.0078, -0.0047, -0.0038, -0.0028, -0.0018, -0.0009, +0.0002
+     B2 (delta 2e-12): c = 1.01063 (spread 1.0e-04); mean-radius contamination kappa = (r_B - r_A)/odd_B: B +0.501, B2 +0.278
+     B2 against B, REL window slopes: e 3: +0.0000, e 4: +0.0000, e 5: -0.0000, e 6: -0.0000, e 7: -0.0000, e 8: -0.0000, e 9: -0.0003; B2's own +0.0026, +0.0080, +0.0102, +0.0118, +0.0132, +0.0142, +0.0152
+     B2 against B, ABS window slopes: e 3: +0.0000, e 4: +0.0000, e 5: -0.0000, e 6: -0.0000, e 7: -0.0000, e 8: -0.0000, e 9: -0.0001; B2's own -0.0078, -0.0047, -0.0038, -0.0028, -0.0018, -0.0009, +0.0001
+     #225's lifetime at the level (collapse r_min = 0.5), the same windows: e 3: 0.6440, e 4: 0.6668, e 5: 0.6903, e 6: 0.7151, e 7: 0.7407, e 8: 0.7672, e 9: 0.7945
+     #225's lifetime at the level (expansion r_min = 2), the same windows: e 3: 0.6279, e 4: 0.6450, e 5: 0.6650, e 6: 0.6863, e 7: 0.7085, e 8: 0.7308, e 9: 0.7539
+     rdot at the departures (eps 0.1, REL) e = 3, 5, 7, 9, 11: 0.0122, 0.0221, 0.0251, 0.0255, 0.0265
+     nonlinearity of the larger pair beyond the window (reported): rho = 0.010: 4.48 rho^2, rho = 0.020: 4.39 rho^2, rho = 0.040: 4.34 rho^2
+  D = 5, h = 0.00176777: pairs at 1e-09 (ends t = 16.50), 1e-12 (ends t = 22.14), 1e-10 (stored, ends t = 18.34); r_th(tau) = 1.0881 at t = 8
+     linear window of the pair at 1e-09 (A): |odd|/r_th reaches 0.01 at t = 14.09, 0.04 at t = 15.13 (tau 14.55), 1e-5 at t = 9.17
+     linear window of the pair at 1e-12 (B): |odd|/r_th reaches 0.01 at t = 19.57, 0.04 at t = 20.71 (tau 19.95), 1e-5 at t = 14.14
+     linear window of the pair at 1e-10 (X): |odd|/r_th reaches 0.01 at t = 15.83, 0.04 at t = 16.91 (tau 16.27), 1e-5 at t = 10.76
+     splice: u_A/u_B = 1.07964 (spread 6.2e-04 over 3218 slices, t = 9.17 to 13.19), spliced at t = 10.76
+     eps 0.03 REL (eps r_th): e 3-5 0.6173 (-0.0041); e 4-6 0.6383 (+0.0060); e 5-7 0.6592 (+0.0091); e 6-8 0.6820 (+0.0110); e 7-9 0.7064 (+0.0125); e 8-10 0.7319 (+0.0137); e 9-11 0.7579 (+0.0143)
+     eps 0.03 ABS (eps)    : e 3-5 0.6114 (-0.0131); e 4-6 0.6303 (-0.0056); e 5-7 0.6493 (-0.0043); e 6-8 0.6708 (-0.0034); e 7-9 0.6941 (-0.0024); e 8-10 0.7187 (-0.0014); e 9-11 0.7441 (-0.0005)
+     eps 0.1 REL (eps r_th): e 3-5 0.6285 (+0.0026); e 4-6 0.6490 (+0.0080); e 5-7 0.6709 (+0.0102); e 6-8 0.6946 (+0.0118); e 7-9 0.7196 (+0.0132); e 8-10 0.7455 (+0.0141); e 9-11 0.7713 (+0.0142)
+     eps 0.1 ABS (eps)    : e 3-5 0.6215 (-0.0078); e 4-6 0.6399 (-0.0047); e 5-7 0.6603 (-0.0038); e 6-8 0.6828 (-0.0029); e 7-9 0.7068 (-0.0018); e 8-10 0.7319 (-0.0009); e 9-11 0.7573 (-0.0003)
+     eps 0.3 REL (eps r_th): e 3-5 0.6383 (+0.0060); e 4-6 0.6592 (+0.0091); e 5-7 0.6820 (+0.0110); e 6-8 0.7064 (+0.0125); e 7-9 0.7319 (+0.0137); e 8-10 0.7579 (+0.0143); e 9-11 0.7820 (+0.0126)
+     eps 0.3 ABS (eps)    : e 3-5 0.6303 (-0.0056); e 4-6 0.6493 (-0.0043); e 5-7 0.6708 (-0.0034); e 6-8 0.6941 (-0.0024); e 7-9 0.7187 (-0.0014); e 8-10 0.7441 (-0.0005); e 9-11 0.7689 (-0.0005)
+     eps 0.1 REL against the model r_th/(W - rdot): -0.0077, -0.0047, -0.0038, -0.0028, -0.0018, -0.0008, -0.0002
+     eps 0.1 ABS against the model r_th/W (mean of the grid): -0.0078, -0.0047, -0.0038, -0.0029, -0.0018, -0.0009, -0.0003
+     B2 (delta 2e-12): c = 0.94421 (spread 1.6e-04); mean-radius contamination kappa = (r_B - r_A)/odd_B: B +0.329, B2 -0.047
+     B2 against B, REL window slopes: e 3: +0.0000, e 4: -0.0000, e 5: +0.0000, e 6: +0.0000, e 7: -0.0000, e 8: -0.0003, e 9: -0.0031; B2's own +0.0026, +0.0080, +0.0102, +0.0118, +0.0131, +0.0139, +0.0122
+     B2 against B, ABS window slopes: e 3: +0.0000, e 4: +0.0000, e 5: +0.0000, e 6: +0.0000, e 7: -0.0000, e 8: -0.0001, e 9: -0.0015; B2's own -0.0078, -0.0047, -0.0038, -0.0028, -0.0018, -0.0010, -0.0010
+     #225's lifetime at the level (collapse r_min = 0.5), the same windows: e 3: 0.6440, e 4: 0.6669, e 5: 0.6904, e 6: 0.7152, e 7: 0.7409, e 8: 0.7663, e 9: 0.7885
+     #225's lifetime at the level (expansion r_min = 2), the same windows: e 3: 0.6279, e 4: 0.6450, e 5: 0.6650, e 6: 0.6864, e 7: 0.7087, e 8: 0.7313, e 9: 0.7586
+     rdot at the departures (eps 0.1, REL) e = 3, 5, 7, 9, 11: 0.0122, 0.0221, 0.0251, 0.0255, 0.0216
+     nonlinearity of the larger pair beyond the window (reported): rho = 0.010: 4.08 rho^2, rho = 0.020: 4.26 rho^2, rho = 0.040: 4.29 rho^2
+  D = 6, h = 0.0025: pairs at 1e-09 (ends t = 17.93), 1e-12 (ends t = 25.89), 1e-10 (stored, ends t = 20.43); r_th(tau) = 1.3493 at t = 8
+     linear window of the pair at 1e-09 (A): |odd|/r_th reaches 0.01 at t = 14.94, 0.04 at t = 16.30 (tau 15.04), 1e-5 at t = 8.94
+     linear window of the pair at 1e-12 (B): |odd|/r_th reaches 0.01 at t = 22.72, 0.04 at t = 24.28 (tau 22.63), 1e-5 at t = 15.30
+     linear window of the pair at 1e-10 (X): |odd|/r_th reaches 0.01 at t = 17.25, 0.04 at t = 18.70 (tau 17.31), 1e-5 at t = 10.78
+     splice: u_A/u_B = 1.44242 (spread 1.0e-03 over 2744 slices, t = 8.94 to 13.79), spliced at t = 10.77
+     eps 0.03 REL (eps r_th): e 3-5 0.5778 (+0.0193); e 4-6 0.6533 (+0.0438); e 5-7 0.7286 (+0.0528); e 6-8 0.8027 (+0.0560); e 7-9 0.8741 (+0.0556); e 8-10 0.9424 (+0.0533); e 9-11 1.0074 (+0.0498)
+     eps 0.03 ABS (eps)    : e 3-5 0.5486 (-0.0241); e 4-6 0.6164 (-0.0022); e 5-7 0.6864 (+0.0084); e 6-8 0.7574 (+0.0153); e 7-9 0.8270 (+0.0190); e 8-10 0.8943 (+0.0205); e 9-11 0.9592 (+0.0206)
+     eps 0.1 REL (eps r_th): e 3-5 0.6165 (+0.0335); e 4-6 0.6927 (+0.0496); e 5-7 0.7676 (+0.0550); e 6-8 0.8404 (+0.0561); e 7-9 0.9101 (+0.0545); e 8-10 0.9769 (+0.0517); e 9-11 1.0389 (+0.0469)
+     eps 0.1 ABS (eps)    : e 3-5 0.5834 (-0.0114); e 4-6 0.6527 (+0.0041); e 5-7 0.7236 (+0.0125); e 6-8 0.7941 (+0.0176); e 7-9 0.8625 (+0.0200); e 8-10 0.9286 (+0.0207); e 9-11 0.9918 (+0.0201)
+     eps 0.3 REL (eps r_th): e 3-5 0.6533 (+0.0438); e 4-6 0.7286 (+0.0528); e 5-7 0.8027 (+0.0560); e 6-8 0.8741 (+0.0556); e 7-9 0.9424 (+0.0533); e 8-10 1.0074 (+0.0498); e 9-11 1.0628 (+0.0414)
+     eps 0.3 ABS (eps)    : e 3-5 0.6164 (-0.0022); e 4-6 0.6864 (+0.0084); e 5-7 0.7574 (+0.0153); e 6-8 0.8270 (+0.0190); e 7-9 0.8943 (+0.0205); e 8-10 0.9592 (+0.0206); e 9-11 1.0200 (+0.0189)
+     eps 0.1 REL against the model r_th/(W - rdot): -0.0097, +0.0058, +0.0143, +0.0190, +0.0210, +0.0213, +0.0200
+     eps 0.1 ABS against the model r_th/W (mean of the grid): -0.0114, +0.0041, +0.0125, +0.0176, +0.0200, +0.0207, +0.0201
+     B2 (delta 2e-12): c = 0.96994 (spread 3.0e-04); mean-radius contamination kappa = (r_B - r_A)/odd_B: B -0.041, B2 +0.192
+     B2 against B, REL window slopes: e 3: +0.0000, e 4: +0.0000, e 5: -0.0000, e 6: -0.0000, e 7: +0.0000, e 8: +0.0004, e 9: +0.0032; B2's own +0.0335, +0.0496, +0.0550, +0.0561, +0.0546, +0.0519, +0.0491
+     B2 against B, ABS window slopes: e 3: +0.0000, e 4: +0.0000, e 5: -0.0000, e 6: -0.0000, e 7: +0.0000, e 8: +0.0001, e 9: +0.0012; B2's own -0.0114, +0.0041, +0.0125, +0.0176, +0.0200, +0.0208, +0.0208
+     rdot at the departures (eps 0.1, REL) e = 3, 5, 7, 9, 11: 0.0836, 0.0914, 0.0761, 0.0625, 0.0457
+     nonlinearity of the larger pair beyond the window (reported): rho = 0.010: 7.74 rho^2, rho = 0.020: 7.52 rho^2, rho = 0.040: 7.43 rho^2
+  D = 6, h = 0.00125: pairs at 1e-09 (ends t = 17.94), 1e-12 (ends t = 25.87), 1e-10 (stored, ends t = 20.42); r_th(tau) = 1.3501 at t = 8
+     linear window of the pair at 1e-09 (A): |odd|/r_th reaches 0.01 at t = 14.95, 0.04 at t = 16.31 (tau 15.05), 1e-5 at t = 8.94
+     linear window of the pair at 1e-12 (B): |odd|/r_th reaches 0.01 at t = 21.51, 0.04 at t = 23.21 (tau 21.54), 1e-5 at t = 14.23
+     linear window of the pair at 1e-10 (X): |odd|/r_th reaches 0.01 at t = 17.26, 0.04 at t = 18.71 (tau 17.32), 1e-5 at t = 10.78
+     splice: u_A/u_B = 0.47291 (spread 1.1e-03 over 5494 slices, t = 8.94 to 13.80), spliced at t = 10.78
+     eps 0.03 REL (eps r_th): e 3-5 0.5786 (+0.0197); e 4-6 0.6540 (+0.0439); e 5-7 0.7293 (+0.0529); e 6-8 0.8034 (+0.0560); e 7-9 0.8748 (+0.0556); e 8-10 0.9435 (+0.0536); e 9-11 1.0119 (+0.0524)
+     eps 0.03 ABS (eps)    : e 3-5 0.5493 (-0.0238); e 4-6 0.6171 (-0.0021); e 5-7 0.6870 (+0.0085); e 6-8 0.7581 (+0.0153); e 7-9 0.8277 (+0.0190); e 8-10 0.8952 (+0.0206); e 9-11 0.9612 (+0.0214)
+     eps 0.1 REL (eps r_th): e 3-5 0.6172 (+0.0337); e 4-6 0.6934 (+0.0497); e 5-7 0.7684 (+0.0550); e 6-8 0.8412 (+0.0561); e 7-9 0.9110 (+0.0546); e 8-10 0.9788 (+0.0525); e 9-11 1.0522 (+0.0554)
+     eps 0.1 ABS (eps)    : e 3-5 0.5840 (-0.0112); e 4-6 0.6534 (+0.0041); e 5-7 0.7243 (+0.0125); e 6-8 0.7948 (+0.0176); e 7-9 0.8633 (+0.0200); e 8-10 0.9297 (+0.0210); e 9-11 0.9966 (+0.0224)
+     eps 0.3 REL (eps r_th): e 3-5 0.6540 (+0.0439); e 4-6 0.7293 (+0.0529); e 5-7 0.8034 (+0.0560); e 6-8 0.8748 (+0.0556); e 7-9 0.9435 (+0.0536); e 8-10 1.0119 (+0.0524); e 9-11 n/a
+     eps 0.3 ABS (eps)    : e 3-5 0.6171 (-0.0021); e 4-6 0.6870 (+0.0085); e 5-7 0.7581 (+0.0153); e 6-8 0.8277 (+0.0190); e 7-9 0.8952 (+0.0206); e 8-10 0.9612 (+0.0214); e 9-11 1.0323 (+0.0254)
+     eps 0.1 REL against the model r_th/(W - rdot): -0.0095, +0.0059, +0.0143, +0.0190, +0.0211, +0.0218, +0.0248
+     eps 0.1 ABS against the model r_th/W (mean of the grid): -0.0112, +0.0041, +0.0125, +0.0176, +0.0200, +0.0210, +0.0224
+     B2 (delta 2e-12): c = 0.98696 (spread 6.1e-04); mean-radius contamination kappa = (r_B - r_A)/odd_B: B +1.165, B2 +0.769
+     B2 against B, REL window slopes: e 3: +0.0000, e 4: +0.0000, e 5: -0.0000, e 6: -0.0000, e 7: -0.0001, e 8: -0.0008, e 9: -0.0082; B2's own +0.0337, +0.0497, +0.0550, +0.0560, +0.0546, +0.0520, +0.0495
+     B2 against B, ABS window slopes: e 3: +0.0000, e 4: +0.0000, e 5: -0.0000, e 6: -0.0000, e 7: -0.0000, e 8: -0.0003, e 9: -0.0027; B2's own -0.0112, +0.0041, +0.0125, +0.0176, +0.0200, +0.0208, +0.0209
+     rdot at the departures (eps 0.1, REL) e = 3, 5, 7, 9, 11: 0.0837, 0.0913, 0.0760, 0.0628, 0.0730
+     nonlinearity of the larger pair beyond the window (reported): rho = 0.010: 8.79 rho^2, rho = 0.020: 8.07 rho^2, rho = 0.040: 7.72 rho^2
+[pass] XPAIR4: D = 4: the 1e-10 pair alone gives the spliced tau_dep(e) on its common readings to 0.02 (>= 8 readings)  (h = 0.01: 14 readings, max |tau difference| 0.0020)
+[pass] XPAIR5: D = 5: the 1e-10 pair alone gives the spliced tau_dep(e) on its common readings to 0.02 (>= 8 readings)  (h = 0.00353553: 14 readings, max |tau difference| 0.0039; h = 0.00176777: 14 readings, max |tau difference| 0.0055)
+[pass] XPAIR6: D = 6: the 1e-10 pair alone gives the spliced tau_dep(e) on its common readings to 0.02 (>= 8 readings)  (h = 0.0025: 14 readings, max |tau difference| 0.0080; h = 0.00125: 14 readings, max |tau difference| 0.0137)
+[pass] IDN: the window slope equals the mean of 1/(d ln(u/r_th)/d tau) at the departures (1/(lambda - rdot/r_th); ABS: 1/lambda), computed from the series' derivative  (84 windows, worst 9.0e-04, bar 0.002)
+[pass] RA4: D = 4: window slopes at the two finest h agree to 0.005 (eps = 0.1, REL and ABS)  (h = 0.01, 0.005: 14 windows, worst 2.7e-05; reported: windows ending at e <= 10 3.7e-06, the window e = 9 to 11 2.7e-05)
+[pass] RA5: D = 5: window slopes at the two finest h agree to 0.005 (eps = 0.1, REL and ABS)  (h = 0.00353553, 0.00176777: 14 windows, worst 1.8e-03; reported: windows ending at e <= 10 1.5e-04, the window e = 9 to 11 1.8e-03)
+[FAIL] RA6: D = 6: window slopes at the two finest h agree to 0.005 (eps = 0.1, REL and ABS)  (h = 0.0025, 0.00125: 14 windows, worst 1.3e-02; reported: windows ending at e <= 10 2.0e-03, the window e = 9 to 11 1.3e-02)
+[pass] MAIN4: D = 4: REL: dtau_dep/dln(1/delta) in each window of two decades equals r_th(tau_dep)/W (window mean) to 0.02 (eps = 0.1, h = 0.005)  (7 windows: -0.0028, -0.0017, -0.0013, -0.0010, -0.0007, -0.0006, -0.0004)
+[pass] MAIN5: D = 5: REL: dtau_dep/dln(1/delta) in each window of two decades equals r_th(tau_dep)/W (window mean) to 0.02 (eps = 0.1, h = 0.00176777)  (7 windows: +0.0026, +0.0080, +0.0102, +0.0118, +0.0132, +0.0141, +0.0142)
+[FAIL] MAIN6: D = 6: REL: dtau_dep/dln(1/delta) in each window of two decades equals r_th(tau_dep)/W (window mean) to 0.02 (eps = 0.1, h = 0.00125)  (7 windows: +0.0337, +0.0497, +0.0550, +0.0561, +0.0546, +0.0525, +0.0554)
+[pass] MAINa4: D = 4: ABS: dtau_dep/dln(1/delta) in each window of two decades equals r_th(tau_dep)/W (window mean) to 0.02 (eps = 0.1, h = 0.005)  (7 windows: -0.0012, -0.0011, -0.0013, -0.0014, -0.0014, -0.0014, -0.0014)
+[pass] MAINa5: D = 5: ABS: dtau_dep/dln(1/delta) in each window of two decades equals r_th(tau_dep)/W (window mean) to 0.02 (eps = 0.1, h = 0.00176777)  (7 windows: -0.0078, -0.0047, -0.0038, -0.0029, -0.0018, -0.0009, -0.0003)
+[FAIL] MAINa6: D = 6: ABS: dtau_dep/dln(1/delta) in each window of two decades equals r_th(tau_dep)/W (window mean) to 0.02 (eps = 0.1, h = 0.00125)  (7 windows: -0.0112, +0.0041, +0.0125, +0.0176, +0.0200, +0.0210, +0.0224)
+[pass] D4: D = 4: the OLS slope of tau_dep over e = 3 to 11 reproduces #225's 0.8495 to 0.005  (h = 0.005: REL 0.84924 (-0.0003), ABS 0.84910; 1/W = 0.84605, mean r_th/W 0.85116)
+[pass] EPSn4: D = 4: eps = 0.03, 0.1, 0.3 agree on the slope in units of r_th(tau_dep)/W in each window to 0.02 (REL, h = 0.005)  (7 windows, worst 0.0015)
+[pass] EPSn5: D = 5: eps = 0.03, 0.1, 0.3 agree on the slope in units of r_th(tau_dep)/W in each window to 0.02 (REL, h = 0.00176777)  (7 windows, worst 0.0067)
+[pass] EPSn6: D = 6: eps = 0.03, 0.1, 0.3 agree on the slope in units of r_th(tau_dep)/W in each window to 0.02 (REL, h = 0.00125)  (6 windows, worst 0.0135)
+[pass] EPSr4: D = 4: eps = 0.03, 0.1, 0.3 agree on the raw slope in each window to 0.02 (REL, h = 0.005)  (7 windows, worst 0.0012)
+[pass] EPSr5: D = 5: eps = 0.03, 0.1, 0.3 agree on the raw slope in each window to 0.02 (REL, h = 0.00176777)  (7 windows, worst 0.0184)
+[FAIL] EPSr6: D = 6: eps = 0.03, 0.1, 0.3 agree on the raw slope in each window to 0.02 (REL, h = 0.00125)  (6 windows, worst 0.0625)
+28 checks, 23 pass, 5 fail: CAL6, RA6, MAIN6, MAINa6, EPSr6
