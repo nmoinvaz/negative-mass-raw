@@ -1,0 +1,6 @@
+run_20_clippy_off|$RAW/sys/clippy.sh run_20_clippy_off $CR clippy_off 
+run_21_clippy_on|$RAW/sys/clippy.sh run_21_clippy_on $CR clippy_on --features=locate_lib
+run_22_clippy_early|$RAW/sys/clippy.sh run_22_clippy_early $CR clippy_early --features=locate_mut_early
+run_23_clippy_late|$RAW/sys/clippy.sh run_23_clippy_late $CR clippy_late --features=locate_mut_late
+run_24_clippy_ungated|$RAW/sys/clippy.sh run_24_clippy_ungated $CR clippy_ungated --features=locate_ungated
+run_25_test_on|$RAW/sys/test.sh run_25_test_on $CR test --features=locate_lib

@@ -1,0 +1,25 @@
+lines 68 against 68; differing lines: 8; (i) zero-token 5; (iii) fitted exponent 1; (ii) other 2
+(i) zero-token line 5:
+  base [PASS] plant_167: #167's planted cases through the same crate: matching (|C- - a|, |e|, |C+ - b|, nodes) linear: <err>, <err>, <err>, <err>, cubic: <err>, <err>, <err>, <err> (bars <err>, <err>); blowup: 8 walks, worst error <err>, worst bar <err> (1e-8), kinds right: True
+  run  [PASS] plant_167: #167's planted cases through the same crate: matching (|C- - a|, |e|, |C+ - b|, nodes) linear: <err>, <err>, <err>, <err>, cubic: <err>, <err>, <err>, <err> (bars <err>, <err>); blowup: 8 walks, worst error <err>, worst bar 0.0e+00 (1e-8), kinds right: True
+(i) zero-token line 7:
+  base [PASS] plant_far: planted equations started at x0 = 1e6 and walked inward by hp_walk with the locator: F'' = 2F^3 (pl6) and F F'' + F'^2 = 0 (pl7), x* = 0.7321, error and bar <= 1e-8; (1 + x^2) F'' + 4 x F' + 2 (F - 7/10) = 0 (pl4), exact alpha + (a + b x)/(1 + x^2): pl6 dd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 dd: x* error <err>, bar <err>, <n> steps from 1e6; pl4 dd: worst relative error of F, F', F'' at 1e3, 10, 1 <err> (bar <err>); pl6 qd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 qd: x* error <err>, bar <err>, <n> steps from 1e6; pl4 qd: worst relative error of F, F', F'' at 1e3, 10, 1 <err> (bar <err>)
+  run  [PASS] plant_far: planted equations started at x0 = 1e6 and walked inward by hp_walk with the locator: F'' = 2F^3 (pl6) and F F'' + F'^2 = 0 (pl7), x* = 0.7321, error and bar <= 1e-8; (1 + x^2) F'' + 4 x F' + 2 (F - 7/10) = 0 (pl4), exact alpha + (a + b x)/(1 + x^2): pl6 dd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 dd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl4 dd: worst relative error of F, F', F'' at 1e3, 10, 1 <err> (bar <err>); pl6 qd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 qd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl4 qd: worst relative error of F, F', F'' at 1e3, 10, 1 <err> (bar <err>)
+(i) zero-token line 45:
+  base [PASS] spread: the same point from the next start radius 4 L (residual <= <err> there too): 31 of 31 points have a second start; class and kind equal, eta* within 1e-8 max(1, eta*), FLOOR p0 within a relative 1e-9; worst eta* difference 0.0e+00; mismatches 0 []
+  run  [PASS] spread: the same point from the next start radius 4 L (residual <= <err> there too): 31 of 31 points have a second start; class and kind equal, eta* within 1e-8 max(1, eta*), FLOOR p0 within a relative 1e-9; worst eta* difference <err>; mismatches 0 []
+(i) zero-token line 47:
+  base [PASS] dd_qd: quad-double (kt 60, tol <err>) against double-double on 31 points (start radius >= 204800 and the 30 smallest and 30 largest eta*): class and kind equal, eta* within <err> max(1, eta*), FLOOR p0 within a relative <err>; worst relative eta* difference 0.0e+00; mismatches 0 []
+  run  [PASS] dd_qd: quad-double (kt 60, tol <err>) against double-double on 31 points (start radius >= 204800 and the 30 smallest and 30 largest eta*): class and kind equal, eta* within <err> max(1, eta*), FLOOR p0 within a relative <err>; worst relative eta* difference <err>; mismatches 0 []
+(i) zero-token line 49:
+  base [PASS] modes: `project` (Newton on F'' at each step) against `conserve` (N constant) over 31 points: class and kind equal, eta* within <err> max(1, eta*), FLOOR p0 within <err>; worst relative eta* difference 0.0e+00; mismatches 0 []
+  run  [PASS] modes: `project` (Newton on F'' at each step) against `conserve` (N constant) over 31 points: class and kind equal, eta* within <err> max(1, eta*), FLOOR p0 within <err>; worst relative eta* difference <err>; mismatches 0 []
+(iii) fitted exponent line 42:
+  base   F->0 points: 21, eta* from 1.282 to 1e+04; measured exponent against 2/(eta*^2 + 4): worst relative difference 2.9e-03
+  run    F->0 points: 21, eta* from 1.282 to 1e+04; measured exponent against 2/(eta*^2 + 4): worst relative difference <err>
+(ii) other line 9:
+  base [PASS] regress167: #167's 187 grid points through `offgrid` (hp walker, series tables of 8 parts) and through #167's `conical_global scan --rstop=1e-8` (both run here): class and kind equal and eta* within 1e-8 at 172 singular points (worst difference <err>); mismatches []
+  run  [FAIL] regress167: #167's 187 grid points through `offgrid` (hp walker, series tables of 8 parts) and through #167's `conical_global scan --rstop=1e-8` (both run here): class and kind equal and eta* within 1e-8 at 170 singular points (worst difference <err>); mismatches [((2.0, 3000.0), 'S:F->0', 'NONFINITE'), ((-2.0, -3000.0), 'S:F->0', 'NONFINITE')]
+(ii) other line 67:
+  base checks: 16 passed, 0 failed []. <t> s
+  run  checks: 15 passed, 1 failed ['regress167']. <t> s

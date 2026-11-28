@@ -75,7 +75,7 @@ A failed check is a result, not repaired by changing the check. Nothing is loose
 
 # Part 2: declared after the development runs, before any analysis of record
 
-Written 2026-11-28 02:00 (dh610 clock). At that time the job of record had finished (rc 0, 6854 s), the locus series, stall pair and B = 0.1 pair at h = 0.0025 were done, and the series at h = 0.00125 and the other
+Written 2026-11-28 about 01:40 (dh610 clock; pushed in the commit "README part 2"). At that time the job of record had finished (rc 0, 6854 s), the locus series, stall pair and B = 0.1 pair at h = 0.0025 were done, and the series at h = 0.00125 and the other
 pairs were running; none of those was analysed. The development runs are `dev/` (h = 0.005 only, plus the two-h base `dev/combo01` made from them and the runs at h = 0.0025 for the RA mutations):
 `dev/series`, `dev/stall` (locus series and stall pair), `dev/bisect` (B = 0.02, 0.04, 0.07, 0.2), `dev/stall_drift` (pairs at δ = 1e-10, and 1e-12 at B = 0.1), `dev/analysis/analyze_dev1.log` (the first analysis),
 `dev/tail_h0.005` and `dev/tail_control_h0.005` (the tail control), `dev/analyze40_orig` (#40's analysis on #40's raw), `dev/mut/`, `dev/mut_*` (mutations).
@@ -126,12 +126,33 @@ Failures expected from the development runs and kept as results: FA and ED (item
 | `odd_scale6` | the pair's odd part × 10 | NO6 |
 | `ra_scale6` | the finer h's expansion-side slope × 1.01 | LRAx |
 | `tau_unit` (#255's) | τ in units of √2 t | PL3_6 |
-| `rth_diag` (#255's) | the diagonal's radius instead of the locus's | JOB6, NO6, PL2_6 |
+| `rth_diag` (#255's) | the diagonal's radius instead of the locus's | JOB6, NO6, PL2_6 as computed in development (superseded: PL2_6 only, see Part 3) |
 | `pstar_off` (#225's) | p*ₕ shifted by 1e-9 in the fits | CMP2, CTL |
 | `locus_diag` (#225's) | the diagonal's radius in the member table | CMP2, CMP3 |
 | `drop_bracket` (#225's) | the bracket ends not read | JOB |
 | `ra_scale` (#225's) | the finer h's slope × 1.01 | RA |
 | `odd_off`, `ed_t` (#255's, #225's) | not declared: `odd_off` changes no check at D = 6; `ed_t` acts on ED, which fails anyway | (none; ED) |
 
-At the end, each declared mutation is run again on the stored record (`runs/mut/`), baseline and mutated, and the changed verdicts are compared with this table. #40's `threshold.py analyze` is run with its own
-mutations on the merged record for the D = 6 G rows only in so far as `--mutate=time_unit` and `--mutate=pstar_off` are repeated (their declared targets are #40's: PL, PX, SL, G6 and FM, PL, PX, RA, SL).
+At the end, each declared mutation is run again on the stored record (`runs/mut/mutate_*.log`, baseline and mutated analysis, `scripts/final_mut.sh`) and the changed verdicts are compared with this table.
+
+Correction written 2026-11-28 03:25: the last sentence of the first draft of this part said that #40's own mutations (`time_unit`, `pstar_off`, `bisect_loose`, `pstar_h1`) would be repeated through the wrapped analysis
+of the merged record. They were run (`runs/mut/threshold_*.log`) and are not interpretable there: the record already fails SL, BR, ED, so `fired` is not a change of verdict, and #40's declared targets come from dedicated
+runs at D = 4 (G6 needs a mutated growth control, `bisect_loose` acts in the job's bisection). They are kept as logs and not claimed. What stands for the wrapper is the line-for-line identity of its output with
+`threshold_output.txt` outside the D = 6 G rows, the tally and the timing (`dev/analysis/threshold_analyze_prelim.log`, `runs/analysis/threshold_analyze_record1.log`).
+
+# Part 3: results (2026-11-28 04:10)
+
+Everything is in `notes/wormhole_evolution/g_d6.md` of branch `wip/i228-g-d6-third` (the numbers come from `runs/analysis/g_d6_analyze_record2.log` and `runs/analysis/threshold_analyze_record1.log`). Short form:
+
+- Job `runs/D6_G_h0.00125` (rc 0, 6854 s): bisection 44 runs, hi − lo 5.68e-15, `lo`/`hi` bit for bit #246's; p*ₕ order 2.005; diagonal slopes 0.990046, 0.994756, 0.996251. Tail `runs/tail_D6_G_h0.00125` (rc 0, 903 s, 32.1 GB peak).
+- Locus: FA, ED fail at D = 6 (collapse side has no r_min = 0.5 event for e ≥ 4.5; both sides cross 2 at τ = 15.75); RA 7.06e-4, LRAx 1.29e-3; CMP3 met (−0.8 … +1.5 %), CMP1 not met (−3.1 %).
+- Drift: local ṙ(8, 10, 12) at B = 0.1 is 0.0938, 0.0872, 0.0790; #255's fit converges for B ≤ 0.07 only; exponents in the note.
+- Analyses of record: `runs/analysis/g_d6_analyze_record1.log` (before the post hoc report `PHB` was added) and `record2.log` (the same checks, with `PHB`); record 2 is quoted.
+
+## What went wrong, in order
+
+1. `lane.sh`'s WAIT is per lane: two pair runs (`runs/pair_B0.07_d1e-10_hk1`, `…_hk2`, rc 1) were taken by another lane before their bisections existed. Reruns: `…_hk1_run2`, `…_hk2_run2` with `scripts/waitrun.sh`. The failed logs stay.
+2. `runs/bisect_B0.2_hk1` hit its 2 h limit (rc 124, 36 runs, bracket 7.0e-12); its p* is read from the points (`runs/bisect/D6_B0.2_h0.0025/pstar_stopped.json`, `g_d6.py stopped-pstar`) for the pair `runs/pair_B0.2_d1e-10_hk1`.
+3. The development effect of `rth_diag` (JOB6, NO6, PL2_6) was an artifact of the data growing between baseline and mutated analysis; on the frozen record only PL2_6 changes.
+4. Part 2's time (02:00) was written at about 01:40 (corrected in place).
+5. `runs/mut/threshold_*.log` (#40's mutations through the wrapped analysis of the merged record) are not interpretable and not claimed.

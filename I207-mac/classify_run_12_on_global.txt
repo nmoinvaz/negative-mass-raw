@@ -1,0 +1,152 @@
+lines 126 against 122; differing lines: 50; (i) zero-token 0; (iii) fitted exponent 0; (ii) other 50
+note: line counts differ: 126 against 122 (lines are aligned by difflib before they are paired)
+(ii) other line 13:
+  base [PASS] plant_blowup: locator on F'' = 2 F^3 and F F'' + F'^2 = 0, x* = 0.7321, two starts each way, error and bar <= 1e-8 and the kind: cube dir -1 d 0.9: err <err>, bar 0.0, kind F->inf | cube dir -1 d 0.35: err <err>, bar 0.0, kind F->inf | cube dir +1 d 0.9: err <err>, bar 0.0, kind F->inf | cube dir +1 d 0.35: err <err>, bar 0.0, kind F->inf | sqrt dir -1 d 0.9: err <err>, bar <err>, kind F->0 | sqrt dir -1 d 0.35: err <err>, bar <err>, kind F->0 | sqrt dir +1 d 0.9: err <err>, bar <err>, kind F->0 | sqrt dir +1 d 0.35: err <err>, bar <err>, kind F->0
+  run  [PASS] plant_blowup: locator on F'' = 2 F^3 and F F'' + F'^2 = 0, x* = 0.7321, two starts each way, error and bar <= 1e-8 and the kind: cube dir -1 d 0.9: err <err>, bar 0.0, kind F->inf | cube dir -1 d 0.35: err <err>, bar 0.0, kind F->inf | cube dir +1 d 0.9: err <err>, bar 0.0, kind F->inf | cube dir +1 d 0.35: err <err>, bar 0.0, kind F->inf | sqrt dir -1 d 0.9: err <err>, bar 0.0, kind F->0 | sqrt dir -1 d 0.35: err <err>, bar 0.0, kind F->0 | sqrt dir +1 d 0.9: err <err>, bar 0.0, kind F->0 | sqrt dir +1 d 0.35: err <err>, bar 0.0, kind F->0
+(ii) other line 18:
+  base [NOTE] scan_first_pass: the first pass (stop R <= 1e-6) and the pass of record (R <= 1e-8) differ at 7 of 187 points:
+  run  (deleted)
+(ii) other line 19:
+  base    F_inf=1 C=1000: first pass S:other at 6.570597535e-05; record S:F->0 at 4.578491656e-05
+  run  (deleted)
+(ii) other line 20:
+  base    F_inf=1.5 C=1000: first pass S:a3->0 at 1.070170749; record S:F->0 at 0.5442949715
+  run  (deleted)
+(ii) other line 21:
+  base    F_inf=2 C=1000: first pass S:a3->0 at 1.671812516; record S:F->0 at 1.162043429
+  run  (deleted)
+(ii) other line 18:
+  base (inserted)
+  run  [NOTE] scan_first_pass: the first pass (stop R <= 1e-6) and the pass of record (R <= 1e-8) differ at 5 of 187 points:
+(ii) other line 18:
+  base (inserted)
+  run     F_inf=1 C=1000: first pass S:other at 6.570596489e-05; record S:F->0 at 4.578491649e-05
+(ii) other line 18:
+  base (inserted)
+  run     F_inf=2 C=3000: first pass S:a3->0 at 1.708539646; record NONFINITE at -
+(ii) other line 23:
+  base    F_inf=4 C=3000: first pass S:a3->0 at 3.817202632; record S:F->0 at 3.490621782
+  run  (deleted)
+(ii) other line 24:
+  base    F_inf=-1 C=-1000: first pass S:other at 6.570597535e-05; record S:F->0 at 4.578491656e-05
+  run  (deleted)
+(ii) other line 25:
+  base    F_inf=-2 C=-1000: first pass S:a3->0 at 1.671812516; record S:F->0 at 1.162043429
+  run  (deleted)
+(ii) other line 23:
+  base (inserted)
+  run     F_inf=-1 C=-1000: first pass S:other at 6.570596489e-05; record S:F->0 at 4.578491649e-05
+(ii) other line 23:
+  base (inserted)
+  run     F_inf=-2 C=-3000: first pass S:a3->0 at 1.708539646; record NONFINITE at -
+(ii) other line 30:
+  base    F_inf=1: -3000:F->0@54.51616 -1000:F->0@31.248412 -300:F->0@16.776084 -100:F->0@9.2824579 -30:F->0@4.6536681 -10:F->0@2.5354082 -3:F->0@1.6513691 -1:F->0@1.4022832 0:F->0@1.2819333 1:F->0@1.1657455 3:F->0@0.95031997 10:F->0@0.44912149 30:F->0@0.11019401 100:F->0@0.011819595 300:F->0@0.00095480662 1000:F->0@4.5784917e-05 3000:other@<err>
+  run     F_inf=1: -3000:F->0@54.51616 -1000:F->0@31.248412 -300:F->0@16.776084 -100:F->0@9.2824579 -30:F->0@4.6536681 -10:F->0@2.5354082 -3:F->0@1.6513691 -1:F->0@1.4022832 0:F->0@1.2819333 1:F->0@1.1657455 3:F->0@0.95031997 10:F->0@0.44912149 30:F->0@0.11019401 100:F->0@0.011819595 300:F->0@0.00095480662 1000:F->0@4.5784916e-05 3000:other@<err>
+(ii) other line 32:
+  base    F_inf=2: -3000:F->0@38.251377 -1000:F->0@21.666298 -300:F->0@11.254572 -100:F->0@5.8324027 -30:F->0@2.782799 -10:F->0@1.8401093 -3:F->0@1.5679471 -1:F->0@1.4989602 0:F->0@1.4660203 1:F->0@1.4341246 3:F->0@1.3734658 10:F->0@1.1929986 30:F->0@0.89085066 100:F->0@0.78768652 300:F->0@1.0510625 1000:F->0@1.1620434 3000:a3->0@1.7085396
+  run     F_inf=2: -3000:F->0@38.251377 -1000:F->0@21.666298 -300:F->0@11.254572 -100:F->0@5.8324027 -30:F->0@2.782799 -10:F->0@1.8401093 -3:F->0@1.5679471 -1:F->0@1.4989602 0:F->0@1.4660203 1:F->0@1.4341246 3:F->0@1.3734658 10:F->0@1.1929986 30:F->0@0.89085066 100:F->0@0.78768652 300:F->0@1.0510625 1000:F->0@1.1620434 3000:NONFINITE
+(ii) other line 36:
+  base    F_inf=-1: -3000:other@<err> -1000:F->0@4.5784917e-05 -300:F->0@0.00095480662 -100:F->0@0.011819595 -30:F->0@0.11019401 -10:F->0@0.44912149 -3:F->0@0.95031997 -1:F->0@1.1657455 0:F->0@1.2819333 1:F->0@1.4022832 3:F->0@1.6513691 10:F->0@2.5354082 30:F->0@4.6536681 100:F->0@9.2824579 300:F->0@16.776084 1000:F->0@31.248412 3000:F->0@54.51616
+  run     F_inf=-1: -3000:other@<err> -1000:F->0@4.5784916e-05 -300:F->0@0.00095480662 -100:F->0@0.011819595 -30:F->0@0.11019401 -10:F->0@0.44912149 -3:F->0@0.95031997 -1:F->0@1.1657455 0:F->0@1.2819333 1:F->0@1.4022832 3:F->0@1.6513691 10:F->0@2.5354082 30:F->0@4.6536681 100:F->0@9.2824579 300:F->0@16.776084 1000:F->0@31.248412 3000:F->0@54.51616
+(ii) other line 37:
+  base    F_inf=-2: -3000:a3->0@1.7085396 -1000:F->0@1.1620434 -300:F->0@1.0510625 -100:F->0@0.78768652 -30:F->0@0.89085066 -10:F->0@1.1929986 -3:F->0@1.3734658 -1:F->0@1.4341246 0:F->0@1.4660203 1:F->0@1.4989602 3:F->0@1.5679471 10:F->0@1.8401093 30:F->0@2.782799 100:F->0@5.8324027 300:F->0@11.254572 1000:F->0@21.666298 3000:F->0@38.251377
+  run     F_inf=-2: -3000:NONFINITE -1000:F->0@1.1620434 -300:F->0@1.0510625 -100:F->0@0.78768652 -30:F->0@0.89085066 -10:F->0@1.1929986 -3:F->0@1.3734658 -1:F->0@1.4341246 0:F->0@1.4660203 1:F->0@1.4989602 3:F->0@1.5679471 10:F->0@1.8401093 30:F->0@2.782799 100:F->0@5.8324027 300:F->0@11.254572 1000:F->0@21.666298 3000:F->0@38.251377
+(ii) other line 55:
+  base    F_inf=0.75 C=300 other at eta* = <err>: field 2, gamma -0.0001, alpha 0.9999, F = 0.12647, F' = 1.3771e+05, F'' = -1.5182e+11, |F^2 - eta^2 - 1| = 9.8e-01
+  run  (deleted)
+(ii) other line 56:
+  base    F_inf=1 C=3000 other at eta* = <err>: field 2, gamma -0.0001, alpha 0.9999, F = 0.24812, F' = 1.1159e+05, F'' = -5.0488e+10, |F^2 - eta^2 - 1| = 9.4e-01
+  run  (deleted)
+(ii) other line 57:
+  base    F_inf=1.5 C=3000 a3->0 at eta* = 1.100062531: field 2, gamma 0.9877, alpha 1.9877, F = 1.4867, F' = 0.36997, F'' = -5607.2, |F^2 - eta^2 - 1| = <err>
+  run  (deleted)
+(ii) other line 58:
+  base    F_inf=2 C=3000 a3->0 at eta* = 1.708539646: field 2, gamma 0.9614, alpha 1.9614, F = 1.9797, F' = 0.43157, F'' = -4547.9, |F^2 - eta^2 - 1| = <err>
+  run  (deleted)
+(ii) other line 59:
+  base    F_inf=-1 C=-3000 other at eta* = <err>: field 2, gamma -0.0001, alpha 0.9999, F = -0.24812, F' = -1.1159e+05, F'' = 5.0488e+10, |F^2 - eta^2 - 1| = 9.4e-01
+  run  (deleted)
+(ii) other line 60:
+  base    F_inf=-2 C=-3000 a3->0 at eta* = 1.708539646: field 2, gamma 0.9614, alpha 1.9614, F = -1.9797, F' = -0.43157, F'' = 4547.9, |F^2 - eta^2 - 1| = <err>
+  run  (deleted)
+(ii) other line 55:
+  base (inserted)
+  run     F_inf=0.75 C=300 other at eta* = <err>: field 0, gamma 2.0000, alpha 1.0000, F = 0.12647, F' = 1.3771e+05, F'' = -1.5182e+11, |F^2 - eta^2 - 1| = 9.8e-01
+(ii) other line 55:
+  base (inserted)
+  run     F_inf=1 C=3000 other at eta* = <err>: field 1, gamma 0.9998, alpha 0.9998, F = 0.24812, F' = 1.1159e+05, F'' = -5.0488e+10, |F^2 - eta^2 - 1| = 9.4e-01
+(ii) other line 55:
+  base (inserted)
+  run     F_inf=1.5 C=3000 a3->0 at eta* = 1.100062531: field 0, gamma 2.9832, alpha 1.9832, F = 1.4867, F' = 0.36997, F'' = -5607.2, |F^2 - eta^2 - 1| = <err>
+(ii) other line 55:
+  base (inserted)
+  run     F_inf=-1 C=-3000 other at eta* = <err>: field 1, gamma 0.9998, alpha 0.9998, F = -0.24812, F' = -1.1159e+05, F'' = 5.0488e+10, |F^2 - eta^2 - 1| = 9.4e-01
+(ii) other line 62:
+  base    (1, 0): eta* = 1.28193326312 (bar <err>), alpha 0.35417 / 0.35440
+  run     (1, 0): eta* = 1.28193326312 (bar 0.0e+00), alpha 0.35440 / 0.35440
+(ii) other line 63:
+  base    (0.25, 0): eta* = 1.28669063292 (bar <err>), alpha 0.35341 / 0.35363
+  run     (0.25, 0): eta* = 1.28669063292 (bar 0.0e+00), alpha 0.35363 / 0.35363
+(ii) other line 64:
+  base    (2, 0): eta* = 1.46602025873 (bar <err>), alpha 0.32507 / 0.32524
+  run     (2, 0): eta* = 1.46602025873 (bar 0.0e+00), alpha 0.32524 / 0.32524
+(ii) other line 65:
+  base    (4, 0): eta* = 3.03548392532 (bar 0.0e+00), alpha 0.15134 / 0.15135
+  run     (4, 0): eta* = 3.03548392532 (bar 0.0e+00), alpha 0.15135 / 0.15135
+(ii) other line 66:
+  base    (1, 100): eta* = 0.0118195947859 (bar <err>), alpha 0.50056 / 0.49998
+  run     (1, 100): eta* = 0.0118195947858 (bar 0.0e+00), alpha 0.49998 / 0.49998
+(ii) other line 67:
+  base    (0.5, 30): eta* = 0.00112458593426 (bar <err>), alpha 0.50057 / 0.50000
+  run     (0.5, 30): eta* = 0.00112458593418 (bar 0.0e+00), alpha 0.50000 / 0.50000
+(ii) other line 68:
+  base [PASS] scan: 187 points, classes {'S:F->0': 166, 'FLOOR:log': 15, 'S:other': 3, 'S:a3->0': 3}; every SINGULAR of record has an error bar <= 1e-8 (max <err>): True; FLOOR points 15 (three states each in the log); THROUGH 0, GLOBAL 0; F->0 points: 166, measured exponent against 2/(eta*^2 + 4): worst relative difference 1.2e-03
+  run  [FAIL] scan: 187 points, classes {'S:F->0': 166, 'FLOOR:log': 15, 'S:other': 3, 'S:a3->0': 1, 'NONFINITE': 2}; every SINGULAR of record has an error bar <= 1e-8 (max <err>): True; FLOOR points 15 (three states each in the log); THROUGH 0, GLOBAL 0; F->0 points: 166, measured exponent against 2/(eta*^2 + 4): worst relative difference <err>
+(ii) other line 76:
+  base    F_inf=0.25 C in (10, 30) S:F->0 -> FLOOR:log: C_c = 15.9106638123, ends S:F->0 (eta* 2.56659e-05) | S:other (eta* 4.88605e-05), 44 halvings
+  run     F_inf=0.25 C in (10, 30) S:F->0 -> FLOOR:log: C_c = 17.0976420282, ends S:F->0 (eta* 1.38182e-05) | NONFINITE (eta* None), 44 halvings
+(ii) other line 77:
+  base    F_inf=0.5 C in (30, 100) S:F->0 -> FLOOR:log: C_c = 57.7151412366, ends S:F->0 (eta* 2.42772e-05) | S:other (eta* 4.30474e-05), 44 halvings
+  run     F_inf=0.5 C in (30, 100) S:F->0 -> FLOOR:log: C_c = 62.7574838873, ends S:F->0 (eta* 1.33303e-05) | NONFINITE (eta* None), 44 halvings
+(ii) other line 78:
+  base    F_inf=0.75 C in (100, 300) S:F->0 -> S:other: C_c = 171.783975772, ends S:F->0 (eta* 2.63264e-05) | S:other (eta* 4.26243e-05), 44 halvings
+  run     F_inf=0.75 C in (100, 300) S:F->0 -> S:other: C_c = 189.755654049, ends S:F->0 (eta* 1.47289e-05) | NONFINITE (eta* None), 44 halvings
+(ii) other line 80:
+  base    F_inf=1 C in (1000, 3000) S:F->0 -> S:other: C_c = 1141.42920124, ends S:F->0 (eta* 3.24665e-05) | S:other (eta* 4.65814e-05), 44 halvings
+  run     F_inf=1 C in (1000, 3000) S:F->0 -> S:other: C_c = 1412.9789376, ends S:F->0 (eta* 1.85935e-05) | NONFINITE (eta* None), 44 halvings
+(ii) other line 81:
+  base    F_inf=1.5 C in (1000, 3000) S:F->0 -> S:a3->0: C_c = 1373.53708872, ends S:F->0 (eta* 0.555628) | S:a3->0 (eta* 1.08195), 44 halvings
+  run     F_inf=1.5 C in (1000, 3000) S:F->0 -> S:a3->0: C_c = 1660.17232716, ends S:F->0 (eta* 0.561038) | NONFINITE (eta* None), 44 halvings
+(ii) other line 82:
+  base    F_inf=2 C in (1000, 3000) S:F->0 -> S:a3->0: C_c = 1724.10824429, ends S:F->0 (eta* 1.18598) | S:a3->0 (eta* 1.69415), 44 halvings
+  run     F_inf=2 C in (1000, 3000) S:F->0 -> NONFINITE: C_c = 2091.67075346, ends S:F->0 (eta* 1.1922) | NONFINITE (eta* None), 44 halvings
+(ii) other line 83:
+  base    F_inf=-0.5 C in (-100, -30) FLOOR:log -> S:F->0: C_c = -92.7704308133, ends FLOOR:log (eta* None) | S:other (eta* <err>), 43 halvings
+  run     F_inf=-0.5 C in (-100, -30) FLOOR:log -> S:F->0: C_c = -92.7704310017, ends FLOOR:log (eta* None) | S:other (eta* <err>), 43 halvings
+(ii) other line 84:
+  base    F_inf=-1 C in (-3000, -1000) S:other -> S:F->0: C_c = -1141.42920124, ends S:other (eta* 4.65814e-05) | S:F->0 (eta* 3.24665e-05), 44 halvings
+  run     F_inf=-1 C in (-3000, -1000) S:other -> S:F->0: C_c = -2421.88589176, ends S:other (eta* <err>) | NONFINITE (eta* None), 43 halvings
+(ii) other line 85:
+  base    F_inf=-2 C in (-3000, -1000) S:a3->0 -> S:F->0: C_c = -1724.10824429, ends S:a3->0 (eta* 1.69415) | S:F->0 (eta* 1.18598), 44 halvings
+  run     F_inf=-2 C in (-3000, -1000) NONFINITE -> S:F->0: C_c = -2091.67075346, ends NONFINITE (eta* None) | S:F->0 (eta* 1.1922), 44 halvings
+(ii) other line 97:
+  base    f = 1.5: -100:a3->0@0.00329307 -10:a3->0@0.032864 -1:a3->0@0.293769 -0.1:a3->0@0.91243 -0.01:a3->0@1.09476 0.01:kappa@1.14147 0.1:kappa@1.34202 1:LOGLOG 10:LOGLOG 100:LOGLOG
+  run     f = 1.5: -100:a3->0@0.00329307 -10:a3->0@0.032864 -1:a3->0@0.293769 -0.1:a3->0@0.91243 -0.01:a3->0@1.09476 0.01:a3->0@1.14147 0.1:a3->0@1.34202 1:LOGLOG 10:LOGLOG 100:LOGLOG
+(ii) other line 98:
+  base    f = 2: -100:other@0.00623444 -10:a3->0@0.0621343 -1:a3->0@0.527635 -0.1:a3->0@1.45137 -0.01:a3->0@1.70091 0.01:kappa@1.76325 0.1:kappa@2.02284 1:LOGLOG 10:LOGLOG 100:LOGLOG
+  run     f = 2: -100:other@0.00623444 -10:a3->0@0.0621343 -1:a3->0@0.527635 -0.1:a3->0@1.45137 -0.01:a3->0@1.70091 0.01:a3->0@1.76325 0.1:a3->0@2.02284 1:LOGLOG 10:LOGLOG 100:LOGLOG
+(ii) other line 99:
+  base    f = 3: -100:other@0.0117913 -10:a3->0@0.117272 -1:a3->0@0.939391 -0.1:a3->0@2.39486 -0.01:a3->0@2.78143 0.01:kappa@2.87496 0.1:kappa@3.23764 1:LOGLOG 10:LOGLOG 100:LOGLOG
+  run     f = 3: -100:other@0.0117913 -10:a3->0@0.117272 -1:a3->0@0.939391 -0.1:a3->0@2.39486 -0.01:a3->0@2.78143 0.01:a3->0@2.87496 0.1:a3->0@3.23764 1:LOGLOG 10:LOGLOG 100:LOGLOG
+(ii) other line 100:
+  base    f = 5: -100:fold@0.0225973 -10:fold@0.214592 -1:a3->0@1.6654 -0.1:a3->0@4.11542 -0.01:a3->0@4.81925 0.01:kappa@4.97511 0.1:fold@4.33035 1:LOGLOG 10:LOGLOG 100:LOGLOG
+  run     f = 5: -100:fold@0.0225973 -10:fold@0.214592 -1:a3->0@1.6654 -0.1:a3->0@4.11542 -0.01:a3->0@4.81925 0.01:a3->0@4.97511 0.1:fold@4.33035 1:LOGLOG 10:LOGLOG 100:LOGLOG
+(ii) other line 102:
+  base    f = -2: -100:LOGLOG -10:LOGLOG -1:LOGLOG -0.1:kappa@2.02284 -0.01:kappa@1.76325 0.01:a3->0@1.70091 0.1:a3->0@1.45137 1:a3->0@0.527635 10:a3->0@0.0621343 100:other@0.00623444
+  run     f = -2: -100:LOGLOG -10:LOGLOG -1:LOGLOG -0.1:a3->0@2.02284 -0.01:a3->0@1.76325 0.01:a3->0@1.70091 0.1:a3->0@1.45137 1:a3->0@0.527635 10:a3->0@0.0621343 100:other@0.00623444
+(ii) other line 103:
+  base [PASS] forward: 100 solutions through eta = 0 (F(0), F'(0), F''(0) = -F'^2/F; max |N(0)| <err>), 200 walks to +-200: {'SINGULAR:F->0': 50, 'SINGULAR:fold': 56, 'SINGULAR:a3->0': 40, 'LOGLOG': 30, 'NONFINITE:kappa': 18, 'SINGULAR:other': 6}; walks that end in none of SINGULAR (bar <= 1e-8), LOGLOG (|q/p^2 + sgn p| <= 0.2), FAMILY (fit residual <= <err>, F'' to 1e-6), or the kappa locus with overflow: 0 []; mirror pairs (f, f1) minus against (f, -f1) plus differing: 0 []; solutions with FAMILY on both sides: 0; LOGLOG plus walks: 15, q/p^2 in [-1.0445, 1.0170]
+  run  [PASS] forward: 100 solutions through eta = 0 (F(0), F'(0), F''(0) = -F'^2/F; max |N(0)| <err>), 200 walks to +-200: {'SINGULAR:F->0': 50, 'SINGULAR:fold': 56, 'SINGULAR:a3->0': 58, 'LOGLOG': 30, 'SINGULAR:other': 6}; walks that end in none of SINGULAR (bar <= 1e-8), LOGLOG (|q/p^2 + sgn p| <= 0.2), FAMILY (fit residual <= <err>, F'' to 1e-6), or the kappa locus with overflow: 0 []; mirror pairs (f, f1) minus against (f, -f1) plus differing: 0 []; solutions with FAMILY on both sides: 0; LOGLOG plus walks: 15, q/p^2 in [-1.0445, 1.0170]
+(ii) other line 109:
+  base checks: 17 passed, 0 failed []. <t> s
+  run  checks: 16 passed, 1 failed ['scan']. <t> s

@@ -1,0 +1,11 @@
+[package]
+name = "bench"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+multisolver = "=0.3.0"
+multidouble = "=6.1.0"
+
+[profile.release]
+opt-level = 3

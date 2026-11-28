@@ -1,0 +1,66 @@
+settled_mass_eps.py analyze {'part': 'dev', 'mutate': 'rdot_nolapse', 'baseline': '/Users/nathan/Source/negative-mass-raw/I296-mac/dev/analyze_dev.3.log'}: numba 0.68.1, numpy 2.5.4, python 3.14.7, Nathans-MacBook-Air-M5-3.local, part dev, mutation rdot_nolapse, 2026-11-28 01:27:58
+== Part dev: 19 points read at eps = 0.001 and 10 at 0.01, h = 0.005; fit sets T1 6 -> 3, T2 8 -> 1
+    development partition: T1 fits ('B0.025', 'B0.1', 'B0.125', 'e7', 'e10', 'e12') and holds out ('B0.05', 'e9', 'e11'); T2 fits ('B0.025', 'B0.05', 'B0.1', 'B0.125', 'e7', 'e9', 'e11', 'e12') and holds out ('e10',); the test points ('W1', 'W2', 'W3', 'C1', 'C2', 'C3', 'N1', 'N2', 'N3') are read at eps = 1e-3 only
+[pass] CFG: M_0 = 0.223086 equals B = 0's plateau (h = 0.005) to 1e-6 and 0.223095 at h = 0.01; P4's constants equal the frozen refit of #295; the sets are #267's nine (four B, five delta), #283's six and #295's three; the (B, xc, w) stored in each run equal the declared one; bar 6e-5  (|M_0 - B = 0 plateau| 1.8e-07; B = 0 plateau 0.2230862; specs differing [])
+[pass] RUNS: every point reads without error at both eps, with finite (t_dep, gamma_1, r_th, rdot_th, M)
+
+== Planted cases
+[pass] PDEP2: planted growing pair (odd part q0 e^{lambda t}, known crossing time of 1e-2) through departure_time  (|t_dep - exact| 5.8e-06 (bar 2e-05))
+    PTD2 gamma_1 0.012 r_th 0.997 v -1.0e-03 h 0.01: t_dep 15.6093 (15.6093), gamma_1 0.011873 (0.011873), r_th 0.995517 (0.995513), rdot_th +2.387e-05 (+2.732e-05)
+    PTD2 gamma_1 0.012 r_th 0.997 v -1.0e-03 h 0.005: t_dep 15.6093 (15.6093), gamma_1 0.011873 (0.011873), r_th 0.995517 (0.995513), rdot_th +2.393e-05 (+2.732e-05)
+    PTD2 gamma_1 0.048 r_th 0.999 v +2.0e-04 h 0.01: t_dep 15.6093 (15.6093), gamma_1 0.047873 (0.047873), r_th 1.000529 (1.000523), rdot_th +1.057e-03 (+1.095e-03)
+    PTD2 gamma_1 0.048 r_th 0.999 v +2.0e-04 h 0.005: t_dep 15.6093 (15.6093), gamma_1 0.047873 (0.047873), r_th 1.000529 (1.000523), rdot_th +1.057e-03 (+1.095e-03)
+    PTD2 gamma_1 0.075 r_th 1.008 v +2.0e-03 h 0.01: t_dep 15.6093 (15.6093), gamma_1 0.074873 (0.074873), r_th 1.014046 (1.014037), rdot_th +2.608e-03 (+2.696e-03)
+    PTD2 gamma_1 0.075 r_th 1.008 v +2.0e-03 h 0.005: t_dep 15.6093 (15.6093), gamma_1 0.074873 (0.074873), r_th 1.014046 (1.014037), rdot_th +2.608e-03 (+2.696e-03)
+    PTD2 gamma_1 0.012 r_th 1.001 v +1.0e-03 h 0.01: t_dep 15.6093 (15.6093), gamma_1 0.011873 (0.011873), r_th 1.004537 (1.004529), rdot_th +1.746e-03 (+1.806e-03)
+    PTD2 gamma_1 0.012 r_th 1.001 v +1.0e-03 h 0.005: t_dep 15.6093 (15.6093), gamma_1 0.011873 (0.011873), r_th 1.004537 (1.004529), rdot_th +1.747e-03 (+1.806e-03)
+[FAIL] PTD2: planted pairs (odd part Q0 delta e^{lambda t}, trajectories of the measured size, rows every 0.5 in t from the exact static member) through member_at and speed_at at eps = 1e-2: departure time, gamma_1, r_th and rdot_th at departure  (max error t_dep 6.6e-06 (bar 2e-05), gamma_1 4.4e-10 (1e-05), r_th 9.0e-06 (5e-05), rdot_th 8.8e-05 (1e-05))
+[pass] PFIT2: planted data that follow the form exactly (M = r_th (M_0 + a g + b g^2 + c rdot) on the real eps = 1e-2 (gamma_1, r_th, rdot_th)) pass the T1 and T2 code at 1e-12; with a x 1.05, or c x 0.8, in the test points it fires (bar 6e-5)  (max |M - predicted|: own 2.8e-17; a x 1.05 5.5e-04; c x 0.8 1.3e-04 (bar 6e-05))
+
+== The members at departure at eps = 0.001 and 0.01 (h = 0.005; #266's reading on the pair's mean profile; rdot_th = #267's speed there)
+    point   t_dep(1e-3) t_dep(1e-2)  shift | gamma_1(1e-3) gamma_1(1e-2)  d    | r_th(1e-3)  r_th(1e-2)   d         | rdot(1e-3)  rdot(1e-2)  d          | M
+    B0         13.287    15.234   1.948 | -0.000000 -0.000000 +3.7e-09 | 0.999999 0.999859 -1.4e-04 | -3.261e-06 -3.240e-04 -3.2e-04 | 0.223086
+    B0.025     13.303    15.252   1.949 | +0.002936 +0.002934 -1.6e-06 | 0.999446 0.999152 -2.9e-04 | -9.675e-05 -3.909e-04 -2.9e-04 | 0.223563
+    B0.05      13.355    15.311   1.955 | +0.011844 +0.011836 -7.4e-06 | 0.998356 0.997748 -6.1e-04 | -3.007e-04 -5.151e-04 -2.1e-04 | 0.225235
+    B0.1       13.615    15.618   2.003 | +0.048316 +0.048165 -1.5e-04 | 1.002878 1.003340 +4.6e-04 | +6.347e-05 +1.858e-04 +1.2e-04 | 0.235548
+    B0.125     13.864    15.929   2.065 | +0.075449 +0.074880 -5.7e-04 | 1.015883 1.019660 +3.8e-03 | +1.527e-03 +1.896e-03 +3.7e-04 | 0.247100
+    e7         11.610    13.615   2.004 | +0.048511 +0.048321 -1.9e-04 | 1.003370 1.002742 -6.3e-04 | -6.143e-04 -2.468e-04 +3.7e-04 | 0.235198
+    e9         15.618    17.623   2.004 | +0.048159 +0.048019 -1.4e-04 | 1.003477 1.004650 +1.2e-03 | +4.966e-04 +4.742e-04 -2.2e-05 | 0.235991
+    e10        17.624    19.630   2.007 | +0.048013 +0.047876 -1.4e-04 | 1.004787 1.006441 +1.7e-03 | +7.853e-04 +6.685e-04 -1.2e-04 | 0.236497
+    e11        19.628    21.639   2.010 | +0.047870 +0.047734 -1.4e-04 | 1.006583 1.008588 +2.0e-03 | +9.864e-04 +8.232e-04 -1.6e-04 | 0.237051
+    e12        21.613    23.626   2.013 | +0.047732 +0.047611 -1.2e-04 | 1.008642 1.010441 +1.8e-03 | +1.070e-03 +3.514e-04 -7.2e-04 | 0.237622
+[pass] MEM: the departure at eps = 1e-2 comes 1.9 to 2.2 later than at 1e-3 at every point (the mode grows by ln 10 / lambda = 1.95 to 2.1: the stored linear growth), and every member is finite  (shift 1.948 to 2.065)
+
+== The printed members of #266 and #267 at h = 0.005 (training points only), to the half unit of their last printed digit
+[pass] E2B: the members at eps = 1e-3 and 1e-2 of B = 0, 0.025, 0.05, 0.1, 0.125 (#266's output) and of delta = 1e-7, 1e-9 .. 1e-12 (#267's output) equal the printed t_dep, r_th and gamma_1 to the half unit of the last digit  (60 numbers compared; differing: [])
+
+== At eps = 0.001: the earlier notes' numbers (P3 as #267's rounded constants, P4 frozen, the refits) reproduced
+[FAIL] E3S: at eps = 1e-3 the six points' plateau M and M - P3 (P3 = #267's (0.2300, 0.2724, 0.7835), M_0 = 0.223086) equal #283's printed values to 1e-6  (max difference 3.0e-05; W1 +1.09e-05 (+1.41e-05), W2 +3.04e-05 (+4.72e-05), W3 +9.05e-05 (+7.11e-05), C1 -5.53e-06 (-3.81e-06), C2 -1.90e-05 (-1.36e-05), C3 +7.30e-06 (-2.24e-05))
+[FAIL] E3F: at eps = 1e-3 the refit over the fifteen points (a, b, c) equals #295's frozen (0.2296318924, 0.2834170383, 0.7657657062) and its printed recomputation to 1e-6  (15 points; refit +0.2294025380, +0.2885336825, +0.7857904123; max |refit - frozen| 2.0e-02, vs printed 2.0e-02)
+[FAIL] E3N: at eps = 1e-3 the three new members' plateau M and M - P4 (frozen refit, M_0 = 0.223086) equal #295's printed values to 1e-6  (max difference 2.8e-05; N1 -2.68e-06 (-4.77e-07), N2 -1.09e-05 (-2.15e-06), N3 +2.96e-05 (+1.21e-06))
+[FAIL] E3P: at eps = 1e-3 the refit over the nine points (a, b, c) equals #267's printed (0.2300, 0.2724, 0.7835) to the half unit of its last digit, and its nine leave-one-out errors (predicted - measured in y, in the printed order) equal #267's to 1e-6  (refit +0.22953, +0.28211, +0.80287; max leave-one-out difference 4.6e-05)
+
+== The tests at eps = 0.01 (h = 0.005, M_0 = 0.223086, plain least squares, no intercept, no weights; M - predicted, bar 0.0003)
+    T1: fit over 6 points ('B0.025', 'B0.1', 'B0.125', 'e7', 'e10', 'e12'); test ('B0.05', 'e9', 'e11')
+        eps = 1e-2: (a, b, c) = +0.243944, -0.025492, +0.585775; M - predicted: B0.05 +7.54e-05, e9 -1.21e-04, e11 -1.23e-04; in-sample max 3.2e-04, leave-one-out max 3.9e-03
+        eps = 1e-3: (a, b, c) = +0.230037, +0.273838, +0.809334; M - predicted: B0.05 +5.22e-07, e9 -2.81e-05, e11 -2.29e-05; in-sample max 3.1e-05, leave-one-out max 7.2e-05   (the same refit at #266's definition, unrounded)
+[pass] T1: (development partition) T1: fit 6 training points at eps = 1e-2, predict ('B0.05', 'e9', 'e11') within 6e-5  (max |M - predicted| 1.23e-04 (bar 0.0003); B0.05 +7.54e-05, e9 -1.21e-04, e11 -1.23e-04)
+    T2: fit over 8 points ('B0.025', 'B0.05', 'B0.1', 'B0.125', 'e7', 'e9', 'e11', 'e12'); test ('e10',)
+        eps = 1e-2: (a, b, c) = +0.241010, +0.038335, +0.506710; M - predicted: e10 -6.85e-05; in-sample max 3.4e-04, leave-one-out max 7.3e-04
+        eps = 1e-3: (a, b, c) = +0.229765, +0.278121, +0.806422; M - predicted: e10 -2.26e-05; in-sample max 3.7e-05, leave-one-out max 6.5e-05   (the same refit at #266's definition, unrounded)
+[pass] T2: (development partition) T2: fit 8 training points at eps = 1e-2, predict ('e10',) within 6e-5  (max |M - predicted| 6.85e-05 (bar 0.0003); e10 -6.85e-05)
+
+== Post hoc, declared before the test points were read at eps = 1e-2 (gate nothing): the same tests with M_0 read at the same eps, with a free intercept, and at h = 0.01
+[pass] T1-V2: POST HOC, gates nothing: T1 with M_0 = B = 0's plateau / B = 0's r_th at eps = 1e-2 (0.223118) instead of 0.223086: M - predicted within 6e-5  ((a, b, c) = +0.2433, -0.0269, +0.6014; B0.05 +6.02e-05, e9 -1.23e-04, e11 -1.31e-04)
+[pass] T1-V3: POST HOC, gates nothing: T1 with the symmetric member's r_th - 1 (-1.4e-04) and rdot_th (-3.2e-04) at eps = 1e-2 subtracted from every member's (M_0 = 0.223086): M - predicted within 6e-5  ((a, b, c) = +0.2380, -0.0312, +0.7066; B0.05 -5.17e-05, e9 -1.41e-04, e11 -1.87e-04)
+[pass] T1-V1: POST HOC, gates nothing: T1 with a free intercept (four parameters; M_0 = 0.223086 + intercept): M - predicted within 6e-5  ((a, b, c, intercept) = +0.2386, -0.0363, +0.7062, +0.0002; B0.05 -4.22e-05, e9 -1.41e-04, e11 -1.88e-04)
+[pass] T1-h: POST HOC, gates nothing: T1 at h = 0.01 (M_0 = 0.223095, refit at h = 0.01 over the same points, eps = 1e-2): M - predicted within 6e-5  ((a, b, c) = +0.2349, +0.1277, +0.4938; B0.05 +1.20e-04, e9 +7.17e-06, e11 +4.27e-05)
+[pass] T2-V2: POST HOC, gates nothing: T2 with M_0 = B = 0's plateau / B = 0's r_th at eps = 1e-2 (0.223118) instead of 0.223086: M - predicted within 6e-5  ((a, b, c) = +0.2401, +0.0393, +0.5237; e10 -7.23e-05)
+[pass] T2-V3: POST HOC, gates nothing: T2 with the symmetric member's r_th - 1 (-1.4e-04) and rdot_th (-3.2e-04) at eps = 1e-2 subtracted from every member's (M_0 = 0.223086): M - predicted within 6e-5  ((a, b, c) = +0.2343, +0.0548, +0.6182; e10 -9.14e-05)
+[pass] T2-V1: POST HOC, gates nothing: T2 with a free intercept (four parameters; M_0 = 0.223086 + intercept): M - predicted within 6e-5  ((a, b, c, intercept) = +0.2355, +0.0443, +0.6150, +0.0002; e10 -9.28e-05)
+[pass] T2-h: POST HOC, gates nothing: T2 at h = 0.01 (M_0 = 0.223095, refit at h = 0.01 over the same points, eps = 1e-2): M - predicted within 6e-5  ((a, b, c) = +0.2358, +0.1189, +0.4712; e10 +1.74e-05)
+
+== Post hoc blocks that read the test points at eps != 1e-3 are skipped in the development partition
+
+21 checks (8 post hoc, gating nothing), 5 gating checks failed, 0 post hoc checks failed; 7 s
+mutation rdot_nolapse: fired ['E3F', 'E3N', 'E3P', 'E3S', 'PTD2']; failing without a mutation (--baseline) []; newly fired ['E3F', 'E3N', 'E3P', 'E3S', 'PTD2'], declared ['E3F', 'E3N', 'E3P', 'E3S', 'PTD2']: MATCH

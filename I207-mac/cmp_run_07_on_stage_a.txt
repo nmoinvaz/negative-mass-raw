@@ -1,0 +1,169 @@
+log lines compared: 349; gated differences: 340
+line counts differ: 349 against 359
+line 5:
+  base [PASS] plant_167: #167's planted cases through the same crate: matching (|C- - a|, |e|, |C+ - b|, nodes) linear: <err>, <err>, <err>, <err>, cubic: <err>, <err>, <err>, <err> (bars <err>, <err>); blowup: 8 walks, worst error <err>, worst bar <err> (1e-8), kinds right: True
+  on   [PASS] plant_167: #167's planted cases through the same crate: matching (|C- - a|, |e|, |C+ - b|, nodes) linear: <err>, <err>, <err>, <err>, cubic: <err>, <err>, <err>, <err> (bars <err>, <err>); blowup: 8 walks, worst error <err>, worst bar 0.0e+00 (1e-8), kinds right: True
+line 7:
+  base [PASS] plant_far: planted equations started at x0 = 1e6 and walked inward by hp_walk with the locator: F'' = 2F^3 (pl6) and F F'' + F'^2 = 0 (pl7), x* = 0.7321, error and bar <= 1e-8; (1 + x^2) F'' + 4 x F' + 2 (F - 7/10) = 0 (pl4), exact alpha + (a + b x)/(1 + x^2): pl6 dd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 dd: x* error <err>, bar <err>, <n> steps from 1e6; pl4 dd: worst relative error of F, F', F'' at 1e3, 10, 1 <err> (bar <err>); pl6 qd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 qd: x* error <err>, bar <err>, <n> steps from 1e6; pl4 qd: worst relative error
+  on   [PASS] plant_far: planted equations started at x0 = 1e6 and walked inward by hp_walk with the locator: F'' = 2F^3 (pl6) and F F'' + F'^2 = 0 (pl7), x* = 0.7321, error and bar <= 1e-8; (1 + x^2) F'' + 4 x F' + 2 (F - 7/10) = 0 (pl4), exact alpha + (a + b x)/(1 + x^2): pl6 dd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 dd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl4 dd: worst relative error of F, F', F'' at 1e3, 10, 1 <err> (bar <err>); pl6 qd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 qd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl4 qd: worst relati
+line 9:
+  base [PASS] regress167: #167's 187 grid points through `offgrid` (hp walker, series tables of 8 parts) and through #167's `conical_global scan --rstop=1e-8` (both run here): class and kind equal and eta* within 1e-8 at 172 singular points (worst difference <err>); mismatches []
+  on   [FAIL] regress167: #167's 187 grid points through `offgrid` (hp walker, series tables of 8 parts) and through #167's `conical_global scan --rstop=1e-8` (both run here): class and kind equal and eta* within 1e-8 at 170 singular points (worst difference <err>); mismatches [((2.0, 3000.0), 'S:F->0', 'NONFINITE'), ((-2.0, -3000.0), 'S:F->0', 'NONFINITE')]
+line 11:
+  base [NOTE] scan_first_pass: the first pass (stop at R <= 1e-8 max(1, x)) and the pass of record (R <= <err> max(1, x)) differ at 44 of 818 points:
+  on   [NOTE] scan_first_pass: the first pass (stop at R <= 1e-8 max(1, x)) and the pass of record (R <= <err> max(1, x)) differ at 46 of 818 points:
+line 12:
+  base    F_inf=3 C=10000: first pass S:a3->0 at 2.814324127; record S:F->0 at 2.408310586
+  on      F_inf=2 C=10000: first pass S:a3->0 at 1.723881779; record TINYSTEP at -
+line 13:
+  base    F_inf=4 C=10000: first pass S:a3->0 at 3.851819411; record S:F->0 at 3.527557745
+  on      F_inf=3 C=10000: first pass S:a3->0 at 2.814324127; record S:F->0 at 2.408310586
+line 14:
+  base    F_inf=0.15 C=10: first pass S:other at <err>; record S:F->0 at <err>
+  on      F_inf=4 C=10000: first pass S:a3->0 at 3.851819411; record S:F->0 at 3.527557745
+line 15:
+  base    F_inf=0.07 C=3: first pass S:fold at 4.785330889e-05; record S:F->0 at 2.420504793e-05
+  on      F_inf=4 C=30000: first pass S:a3->0 at 3.864651293; record TINYSTEP at -
+line 16:
+  base    F_inf=0.02 C=1: first pass S:other at <err>; record S:F->0 at <err>
+  on      F_inf=-2 C=-10000: first pass S:a3->0 at 1.723881779; record TINYSTEP at -
+line 17:
+  base    F_inf=5 C=10000: first pass S:a3->0 at 4.870239573; record S:F->0 at 4.60350778
+  on      F_inf=0.15 C=10: first pass S:other at <err>; record S:F->0 at <err>
+line 18:
+  base    F_inf=6 C=10000: first pass S:a3->0 at 5.879711063; record S:F->0 at 5.654148443
+  on      F_inf=0.02 C=1: first pass S:other at <err>; record S:F->0 at <err>
+line 19:
+  base    F_inf=6 C=30000: first pass S:a3->0 at 5.900932871; record S:F->0 at 5.676108256
+  on      F_inf=5 C=10000: first pass S:a3->0 at 4.870239573; record S:F->0 at 4.60350778
+line 20:
+  base    F_inf=8 C=30000: first pass S:a3->0 at 7.914782233; record S:F->0 at 7.74378012
+  on      F_inf=5 C=30000: first pass S:a3->0 at 4.887360434; record S:F->0 at 4.621440417
+line 21:
+  base    F_inf=12 C=30000: first pass S:a3->0 at 11.9227013; record S:F->0 at 11.80758764
+  on      F_inf=6 C=30000: first pass S:a3->0 at 5.900932871; record S:F->0 at 5.676108256
+line 22:
+  base    F_inf=16 C=30000: first pass S:a3->0 at 15.92525529; record S:F->0 at 15.83865707
+  on      F_inf=8 C=30000: first pass S:a3->0 at 7.914782233; record S:F->0 at 7.74378012
+line 23:
+  base    F_inf=16 C=100000: first pass S:a3->0 at 15.9477322; record S:F->0 at 15.86125434
+  on      F_inf=8 C=100000: first pass S:a3->0 at 7.928774963; record TINYSTEP at -
+line 24:
+  base    F_inf=24 C=30000: first pass S:a3->0 at 23.93471435; record S:F->0 at 23.87689777
+  on      F_inf=12 C=100000: first pass S:a3->0 at 11.94329521; record S:F->0 at 11.82837564
+line 25:
+  base    F_inf=24 C=100000: first pass S:a3->0 at 23.95080847; record S:F->0 at 23.89303019
+  on      F_inf=16 C=100000: first pass S:a3->0 at 15.9477322; record S:F->0 at 15.86125434
+line 26:
+  base    F_inf=32 C=3000: first pass S:a3->0 at 31.94134069; record S:F->0 at 31.89796534
+  on      F_inf=24 C=100000: first pass S:a3->0 at 23.95080847; record S:F->0 at 23.89303019
+line 27:
+  base    F_inf=32 C=10000: first pass S:a3->0 at 31.94284122; record S:F->0 at 31.89946777
+  on      F_inf=24 C=300000: first pass S:a3->0 at 23.96419759; record S:F->0 at 23.90645139
+line 28:
+  base    F_inf=32 C=30000: first pass S:a3->0 at 31.94652425; record S:F->0 at 31.90315561
+  on      F_inf=32 C=100000: first pass S:a3->0 at 31.95508087; record S:F->0 at 31.91172367
+line 29:
+  base    F_inf=32 C=100000: first pass S:a3->0 at 31.95508087; record S:F->0 at 31.91172367
+  on      F_inf=32 C=300000: first pass S:a3->0 at 31.96582553; record S:F->0 at 31.92248282
+line 30:
+  base    F_inf=32 C=300000: first pass S:a3->0 at 31.96582553; record S:F->0 at 31.92248282
+  on      F_inf=64 C=-300000: first pass S:a3->0 at 63.96842451; record S:F->0 at 63.94674087
+line 31:
+  base    F_inf=64 C=-300000: first pass S:a3->0 at 63.96842451; record S:F->0 at 63.94674087
+  on      F_inf=64 C=-100000: first pass S:a3->0 at 63.97143334; record S:F->0 at 63.9497507
+line 32:
+  base    F_inf=64 C=-100000: first pass S:a3->0 at 63.97143334; record S:F->0 at 63.9497507
+  on      F_inf=64 C=-30000: first pass S:a3->0 at 63.97228733; record S:F->0 at 63.95060498
+line 33:
+  base    F_inf=64 C=-30000: first pass S:a3->0 at 63.97228733; record S:F->0 at 63.95060498
+  on      F_inf=64 C=-10000: first pass S:a3->0 at 63.97251641; record S:F->0 at 63.95083414
+line 34:
+  base    F_inf=64 C=-10000: first pass S:a3->0 at 63.97251641; record S:F->0 at 63.95083414
+  on      F_inf=64 C=-3000: first pass S:a3->0 at 63.97259514; record S:F->0 at 63.95091289
+line 35:
+  base    F_inf=64 C=-3000: first pass S:a3->0 at 63.97259514; record S:F->0 at 63.95091289
+  on      F_inf=64 C=-1000: first pass S:a3->0 at 63.97261749; record S:F->0 at 63.95093525
+line 36:
+  base    F_inf=64 C=-1000: first pass S:a3->0 at 63.97261749; record S:F->0 at 63.95093525
+  on      F_inf=64 C=-300: first pass S:a3->0 at 63.9726253; record S:F->0 at 63.95094307
+line 37:
+  base    F_inf=64 C=-300: first pass S:a3->0 at 63.9726253; record S:F->0 at 63.95094307
+  on      F_inf=64 C=-100: first pass S:a3->0 at 63.97262753; record S:F->0 at 63.9509453
+line 38:
+  base    F_inf=64 C=-100: first pass S:a3->0 at 63.97262753; record S:F->0 at 63.9509453
+  on      F_inf=64 C=-30: first pass S:a3->0 at 63.97262831; record S:F->0 at 63.95094608
+line 39:
+  base    F_inf=64 C=-30: first pass S:a3->0 at 63.97262831; record S:F->0 at 63.95094608
+  on      F_inf=64 C=-10: first pass S:a3->0 at 63.97262854; record S:F->0 at 63.9509463
+line 40:
+  base    F_inf=64 C=-10: first pass S:a3->0 at 63.97262854; record S:F->0 at 63.9509463
+  on      F_inf=64 C=-3: first pass S:a3->0 at 63.97262861; record S:F->0 at 63.95094638
+line 41:
+  base    F_inf=64 C=-3: first pass S:a3->0 at 63.97262861; record S:F->0 at 63.95094638
+  on      F_inf=64 C=-1: first pass S:a3->0 at 63.97262864; record S:F->0 at 63.9509464
+line 42:
+  base    F_inf=64 C=-1: first pass S:a3->0 at 63.97262864; record S:F->0 at 63.9509464
+  on      F_inf=64 C=0: first pass S:a3->0 at 63.97262865; record S:F->0 at 63.95094641
+line 43:
+  base    F_inf=64 C=0: first pass S:a3->0 at 63.97262865; record S:F->0 at 63.95094641
+  on      F_inf=64 C=1: first pass S:a3->0 at 63.97262866; record S:F->0 at 63.95094642
+line 44:
+  base    F_inf=64 C=1: first pass S:a3->0 at 63.97262866; record S:F->0 at 63.95094642
+  on      F_inf=64 C=3: first pass S:a3->0 at 63.97262868; record S:F->0 at 63.95094645
+line 45:
+  base    F_inf=64 C=3: first pass S:a3->0 at 63.97262868; record S:F->0 at 63.95094645
+  on      F_inf=64 C=10: first pass S:a3->0 at 63.97262876; record S:F->0 at 63.95094652
+line 46:
+  base    F_inf=64 C=10: first pass S:a3->0 at 63.97262876; record S:F->0 at 63.95094652
+  on      F_inf=64 C=30: first pass S:a3->0 at 63.97262898; record S:F->0 at 63.95094675
+listed, not gated: 205 error-sized numbers on aligned lines, 190 differ as printed; 2 lines whose step counts differ
+  relative differences of the differing ones: max 1.00e+00, median 9.86e-01; 0 differ by more than a factor 2 (rel > 1), 190 by more than 10%
+  line 246: 3.9996e-10 -> 3.9541e-06      F_inf=0.01 C=1e+06 (log): F = 0.00999999; p = 3.9995e-10, 3.9996e-10, 3.9996e-10; p0 C/
+  line 246: 3.9996e-10 -> 3.9490e-06      F_inf=0.01 C=1e+06 (log): F = 0.00999999; p = 3.9995e-10, 3.9996e-10, 3.9996e-10; p0 C/
+  line 246: 3.9995e-10 -> 3.9439e-06      F_inf=0.01 C=1e+06 (log): F = 0.00999999; p = 3.9995e-10, 3.9996e-10, 3.9996e-10; p0 C/
+  line 280: 3.9995e-11 -> 3.9379e-07      F_inf=0.001 C=100000 (log): F = 0.000999999; p = 3.9994e-11, 3.9994e-11, 3.9995e-11; p0
+  line 280: 3.9994e-11 -> 3.9373e-07      F_inf=0.001 C=100000 (log): F = 0.000999999; p = 3.9994e-11, 3.9994e-11, 3.9995e-11; p0
+dump file offgrid_c529a136fa.jsonl paired with offgrid_4c1584ba1f.jsonl (first lines equal up to the absolute path)
+dump: 239 files, 5212 records, 20386 string fields, 4003 eta* values compared; files missing in the run: 2; eta* differing in the 10 printed digits: 52, largest relative difference of any eta* 4.94e-01; records whose step count differs (listed, not gated): 261
+conical_global_a153d385ff.jsonl record 48 xstar: base 1.1573780970654617e-06 on 1.1573781048261941e-06
+conical_global_a153d385ff.jsonl record 65 xstar: base 0.0009548066174825603 on 0.0009548066174084515
+conical_global_a153d385ff.jsonl record 66 xstar: base 4.578491656216713e-05 on 4.578491648732298e-05
+conical_global_a153d385ff.jsonl record 67 xstar: base 3.6494474608504045e-06 on 3.649447453587833e-06
+conical_global_a153d385ff.jsonl record 101 class: base SINGULAR on NONFINITE
+conical_global_a153d385ff.jsonl record 101 kind: base a3->0 on 
+conical_global_a153d385ff.jsonl record 153 xstar: base 3.6494474608504045e-06 on 3.649447453587833e-06
+conical_global_a153d385ff.jsonl record 154 xstar: base 4.578491656216713e-05 on 4.578491648732298e-05
+conical_global_a153d385ff.jsonl record 155 xstar: base 0.0009548066174825603 on 0.0009548066174084515
+conical_global_a153d385ff.jsonl record 170 class: base SINGULAR on NONFINITE
+conical_global_a153d385ff.jsonl record 170 kind: base a3->0 on 
+offgrid_0208b30c9a.jsonl record 27 kind: base a3->0 on F->0
+offgrid_0208b30c9a.jsonl record 27 xstar: base 15.925255287995132 on 15.838657072425843
+offgrid_025170aa5b.jsonl record 16 kind: base a3->0 on F->0
+offgrid_025170aa5b.jsonl record 16 xstar: base 1.7085396460352056 on 1.2014264075106749
+offgrid_0279119a93.jsonl record 14 xstar: base 2.248199218664605e-06 on 2.2481992217031415e-06
+offgrid_05afc82456.jsonl record 9 class: base SINGULAR on TINYSTEP
+offgrid_05afc82456.jsonl record 9 kind: base a3->0 on 
+offgrid_05afc82456.jsonl record 9 tiny_kind: base  on stalled
+offgrid_081a46e127.jsonl record 10 class: base SINGULAR on TINYSTEP
+offgrid_081a46e127.jsonl record 10 kind: base a3->0 on 
+offgrid_081a46e127.jsonl record 10 tiny_kind: base  on stalled
+offgrid_089ca22fca.jsonl record 28 kind: base a3->0 on F->0
+offgrid_089ca22fca.jsonl record 28 xstar: base 11.94329521159453 on 11.828375635408252
+offgrid_0a020c8e3b.jsonl record 29 kind: base a3->0 on F->0
+offgrid_0a020c8e3b.jsonl record 29 xstar: base 23.96419759302467 on 23.90645139482445
+offgrid_24a6b54f2a.jsonl record 30 kind: base a3->0 on F->0
+offgrid_24a6b54f2a.jsonl record 30 xstar: base 63.9793955680057 on 63.95771561796049
+offgrid_267f459e31.jsonl record 8 class: base SINGULAR on TINYSTEP
+offgrid_267f459e31.jsonl record 8 kind: base a3->0 on 
+offgrid_267f459e31.jsonl record 8 tiny_kind: base  on stalled
+offgrid_274a2f9f83.jsonl record 26 kind: base a3->0 on F->0
+offgrid_274a2f9f83.jsonl record 26 xstar: base 5.879711062825615 on 5.654148443377775
+offgrid_2b371f6006.jsonl record 15 xstar: base 0.00011362668209081582 on 0.00011362668201683904
+offgrid_2b47889f06.jsonl record 27 kind: base a3->0 on F->0
+offgrid_2b47889f06.jsonl record 27 xstar: base 4.887360434025165 on 4.6214404173726855
+offgrid_2f8a0e8a95.jsonl record 28 kind: base a3->0 on F->0
+offgrid_2f8a0e8a95.jsonl record 28 xstar: base 11.94329521159453 on 11.828375635408252
+offgrid_3930594854.jsonl record 20 xstar: base 127.98721615122192 on 127.98721614936176
+offgrid_3ba478fd34.jsonl record 27 kind: base a3->0 on F->0
+RESULT: gated differences found
