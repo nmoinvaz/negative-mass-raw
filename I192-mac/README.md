@@ -250,7 +250,7 @@ multishoot main **75d1e1e** (commit 7630375; `git diff 60d21ab 75d1e1e -- src/ta
 all rc 0, built while one of the two runs was stopped with SIGSTOP and resumed (the build is the only time a third process would have run; `dev_36` and `dev_37` only). **Every lib_table result before this note (`run_37` and `run_38` on `new_libtable`, 60d21ab) is superseded by a rerun on the 75d1e1e binary**
 (the step lists are expected to be the same: the module is the same file); the lib_table runs `run_44` to `run_47` of the queue use the 75d1e1e binaries (swapped into the lib_table tree before `run_44` started; the md5 in each log's first lines says which).
 
-**A11 (2026-11-27 20:20, results on the 75d1e1e binaries and the logs compared so far).**
+**A11 (2026-11-27 20:10, results on the 75d1e1e binaries and the logs compared so far).**
 - **JT2 met on the 75d1e1e library** (`run_48`, `s3_steps.py` on `new_default` and `new_libtable_main`): 464 steps against 464 for l = 2 .. 6 over [5e-4, 34.7], 389 against 389 for l = 2 over [1.5e-3, 24.6]; every x0 and x1 bitwise equal (4448 of 4448), every coefficient string of every step equal, head records equal. Control `run_49` (`mutate=lib_last4`):
   532 steps against 464 (l = 2 .. 6) and 451 against 389, 0 or 1 breakpoint of 928 equal, exit 1: `last` 4 costs 14.7 % more steps (15.9 % for the second range) at the same tail.
 - **JT3, default mode**: `run_44` (lib_table) 22 passed, 0 failed, 1 skipped (TS), 2982 s; compared with `run_40` (the repin-only build) by `s3_compare.py`: **1463 tokens, 0 mismatches**. **`--rows`**: `run_45` 12 passed, 2 failed (CAP5c, CAP5s, as in #187), 2798 s; against `run_41`: 1451 tokens, 2 mismatches, both the load average printed
