@@ -20,3 +20,21 @@ Criteria, written before the first run:
   (inside or outside), and each new point's distance to the nearest fitted point.
 
 Mutations: `no-speed` (c = 0 in the prediction: K2), `drop-routes` (the fit without #283's six: K1).
+
+## Results
+
+| check | verdict | reading (`run_01.log`) |
+|---|---|---|
+| K1 | met | own fit (0.229631, 0.283430, 0.765761) against the frozen (0.2296319, 0.2834170, 0.7657657): differences 7.5e-7, 1.3e-5, 5.0e-6 |
+| K2 | met | frozen coefficients, own readings: M − predicted −4.84e-7, −2.14e-6, +1.21e-6 (N1–N3); 7.5e-9 from the note's |
+| K3 | met | own refit: max 2.14e-6 |
+| K4 | reported | all three new points lie inside the fitted points' bounding box in (γ₁, r_th, ṙ_th), at 0.07, 0.18 and 0.36 of its scale from the nearest fitted point: an interpolation test, as the note says |
+
+Mutations: `no-speed` fails K2 and K3. `drop-routes` fails nothing, and K1's bars were too loose to see it: the nine-point fit
+(0.2300, 0.2724, 0.7835) differs from the frozen one by 3.6e-4, 1.1e-2, 1.8e-2, inside (2e-3, 2e-2, 2e-2). That fit also predicts the
+three new members within 2.2e-5.
+
+## Rerun of the runner's code
+
+From a detached worktree at f9e5998: the N3 point at h = 0.005 (`job`, `member`, rc 0) gives a chain, locus, member rows and t_dep
+bitwise equal to the runner's; `analyze` (rc 0: 26 checks, none failed) equals `settled_mass_route3_output.txt` apart from the header.

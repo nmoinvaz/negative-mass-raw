@@ -1,0 +1,13 @@
+  9 fitted points; own (a, b, c) = (0.229987, 0.272379, 0.783466); frozen (0.2296318924, 0.2834170383, 0.7657657062)
+[PASS] K1: own fit against the frozen: differences 3.5e-04, 1.1e-02, 1.8e-02 (bars 2e-3, 2e-2, 2e-2)
+  N1: gamma_1 0.011993, r_th 0.997459, rdot -4.3482e-04, M 0.224974; M - frozen -4.84e-07 (note -4.77e-07); M - own +4.53e-06
+  N2: gamma_1 0.047988, r_th 0.998724, rdot -4.1769e-04, M 0.234137; M - frozen -2.14e-06 (note -2.15e-06); M - own +1.36e-05
+  N3: gamma_1 0.075017, r_th 1.008541, rdot +8.6495e-04, M 0.244642; M - frozen +1.21e-06 (note +1.21e-06); M - own +2.16e-05
+[PASS] K2: frozen refit with own readings: max |M - predicted| 2.14e-06 (bar 6e-5); max difference from the note's 7.5e-09 (bar 5e-6)
+[PASS] K3: own refit: max |M - predicted| 2.16e-05 (bar 6e-5)
+  N1: inside the fitted points' bounding box False; nearest fitted point at 0.078 (box-scaled units)
+  N2: inside the fitted points' bounding box True; nearest fitted point at 0.282 (box-scaled units)
+  N3: inside the fitted points' bounding box True; nearest fitted point at 0.390 (box-scaled units)
+[PASS] K4: reported above (not gated)
+
+4 criteria, 4 pass; failed: []; mutation drop-routes
