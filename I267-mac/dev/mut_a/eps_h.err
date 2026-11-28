@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i267/notes/wormhole_evolution/settled_mass_member.py", line 829, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nathan/Source/negative-mass-i267/notes/wormhole_evolution/settled_mass_member.py", line 823, in main
+    sys.exit(analyze_cmd(opts["raw"]))
+             ~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i267/notes/wormhole_evolution/settled_mass_member.py", line 691, in analyze_cmd
+    c2, ab2 = fit_relation(R, key="mem2")
+              ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i267/notes/wormhole_evolution/settled_mass_member.py", line 252, in fit_relation
+    ab = np.linalg.lstsq(np.stack([g1, g1 ** 2], 1), M / rth - c0, rcond=None)[0]
+         ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/numpy/linalg/_linalg.py", line 2556, in lstsq
+    x, resids, rank, s = _umath_linalg.lstsq(a, b, rcond,
+                         ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+                                             signature=signature)
+                                             ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/numpy/linalg/_linalg.py", line 156, in _raise_linalgerror_lstsq
+    raise LinAlgError("SVD did not converge in Linear Least Squares")
+numpy.linalg.LinAlgError: SVD did not converge in Linear Least Squares

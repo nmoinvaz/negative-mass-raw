@@ -1,0 +1,22 @@
+settled_mass_d56.py analyze {'raw': '/home/nathan/Source/negative-mass-raw/I246-dh610/dev/d10', 'cases': '5S', 'skip': 'pl41', 'mutate': 'pfx_cut'}: numba 0.68.1, numpy 2.5.4, python 3.14.10, dh610-fedora, load average at start 0.74 1.62 3.73, mutation pfx_cut, 2026-11-27 19:56:18
+
+== Declared chain (#41's constants), the exact planted solution, and the planted cases
+[pass] CFG: the chain constants of this driver equal the declared (#41's) and #40's rectangles X of S and G at D = 5, 6 equal the declared  (F1 1.5, K 28, W1 2.4, dxp 14.0, dm 3.0; X {('S', 3): 18.0, ('S', 4): 15.0, ('G', 3): 22.0, ('G', 4): 28.0})
+[pass] FLX: general-n first-law integrand on planted series: ghost only (r^n/n) e^f r_-, normal only the opposite sign, equal fluxes 0 (n = 3, 4)  (errors 0.0e+00, 0.0e+00, 0.0e+00, 0.0e+00, 0.0e+00, 0.0e+00)
+[pass] PT0: the planted exact Tangherlini (closed form, n = 3, 4) equals dn.kruskal_exact's r and f at 400 points (r in [0.4, 5.9]); on the horizon of the stretching gauge r = lam and e^{-f} = e^{kp (x+ - xs)}  (max |r|, |f| difference 1.4e-13; horizon 0.0e+00 (bar 1e-09))
+    PT1 D = 5, S-like (lam 0.54, kp 2.7) h = 0.0141421: status limit, columns 731, F to 3.926e+08, max |M - 0.14580| 2.109e-04, max |x- - x_h| 3.03e-04
+    PT1 D = 5, S-like (lam 0.54, kp 2.7) h = 0.00707107: status limit, columns 1462, F to 3.979e+08, max |M - 0.14580| 5.326e-05, max |x- - x_h| 8.77e-05
+    PT1 D = 5, S-like (lam 0.54, kp 2.7) h = 0.00353553: status limit, columns 2924, F to 4.001e+08, max |M - 0.14580| 1.266e-05, max |x- - x_h| 1.93e-05
+    PT1 D = 5, S-like (lam 0.54, kp 2.7) h = 0.00176777: status limit, columns 5848, F to 4.012e+08, max |M - 0.14580| 3.190e-06, max |x- - x_h| 4.74e-06
+[pass] PT1-5S: exact Tangherlini D = 5 (S-like, lam 0.54, kp 2.7) through the chain: M recovered, second order, limit reached  (max |M - M_exact| at h = 0.00176777: 3.19e-06 (bar 4.4e-05); errors ['2.11e-04', '5.33e-05', '1.27e-05', '3.19e-06']; orders [1.986, 2.073, 1.988] in (1.75, 2.25); status ['limit', 'limit', 'limit', 'limit']; F reached [392597923, 397859776, 400121716, 401163294])
+[pass] CONV: the conversion E = (D - 2) V_{D-2} M (kappa^2 = 1, unit-ball volumes) gives the static throat (M = 1/2) E = pi, 2 pi, pi^2 = [ST17]'s E_f/a_0 = 3.14, 6.28, 9.87 to their digits, D = 4, 5, 6  (D = 4: 3.1416 against 3.14; D = 5: 6.2832 against 6.28; D = 6: 9.8696 against 9.87)
+[pass] A4P: [ST17]'s printed A_4 = pi^2/Omega^4 gives E_throat = 2 pi^2 = 19.74 at n = 6, twice the table's 9.87 (a discrepancy inside the paper)  (E_throat from the printed A_4: 19.7392; table 9.87; ratio 1.9999)
+[pass] CMPT: the comparison on planted offsets: half the bar is 'equal', three times the bar is 'differs' (the comparison can fail)  (planted bar 8.00e-05)
+[pass] L0ID-5S: D = 5, family S: level 0 of the chain equals dn.evolve bit for bit (nodes, dead flags) and finds the same first trapped cell  (h = 0.00707107, delta = 1e-6: nodes equal True, dead equal True, events (796, 796) and (796, 796))
+
+== Runs to a smaller limit against the run to K = 28
+    M_end at the limits K = 20, 24, 28: D = 5, S: K = 20: 0.145768, K = 24: 0.145758, K = 28: 0.145764
+    M_end at the limits K = 20, 24, 28: D = 5, G: K = 20: 0.263532, K = 24: 0.263529, K = 28: 0.263517
+    M_end at the limits K = 20, 24, 28: D = 6, S: K = 20: 0.105828, K = 24: 0.105841, K = 28: 0.105833
+    M_end at the limits K = 20, 24, 28: D = 6, G: K = 20: 0.851207, K = 24: 0.851209, K = 28: 0.851204
+[FAIL] PFX: a run to a smaller limit (K = 20, 24) equals the K = 28 series cut at its limit bit for bit (M, x+, x-, r, e^-f), D = 5, 6, S and G, h = 0.00707 / 0.005, delta = 1e-8  (D = 5 S K = 20: 862 columns, bit-identical to the K = 28 series cut at F < 1.573e+06: False; D = 5 S K = 24: 1010 columns, bit-identical to the K = 28 series cut at F < 2.517e+07: False; D = 5 G K = 20: 1152 columns, bit-identical to the K = 28 series cut at F < 1.573e+06: False; D = 5 G K = 24: 1357 columns, bit-identical to the K = 28 series cut at F < 2.517e+07: False; D = 6 S K = 20: 917 columns, bit-identical to the K = 28 series cut at F < 1.573e+06: False; D = 6 S K = 24: 1072 columns, bit-identical to the K = 28 series cut at F < 2.517e+07: False; D = 6 G K = 20: 1710 columns, bit-identical to the K = 28 series cut at F < 1.573e+06: False; D = 6 G K = 24: 2028 columns, bit-identical to the K = 28 series cut at F < 2.517e+07: False)

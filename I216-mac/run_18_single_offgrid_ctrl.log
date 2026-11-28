@@ -1,0 +1,9 @@
+# run_18_single_offgrid_ctrl: 2026-11-28T02:54:23Z machine Nathans-MacBook-Air-M5-3 load  13.60 16.37 18.74  threads 2 nice 10 (RAYON_NUM_THREADS=2)
+# command: mkdir -p /Users/nathan/Source/negative-mass-raw/I216-mac/ctl_single_offgrid && cd /Users/nathan/Source/negative-mass-i216 && /Users/nathan/Source/negative-mass-raw/I216-mac/sys/arm.sh single run_18_single_offgrid_ctrl && /Users/nathan/Source/negative-mass/.venv/bin/python notes/warp/conical_offgrid.py --grid=ctl --controls-only --controls=n-drift,recip-dd --nobuild --logdir=/Users/nathan/Source/negative-mass-raw/I216-mac/ctl_single_offgrid
+conical_offgrid.py: grid ctl; controls run every check (on the ctl grid) and must fail their targets and no others
+
+== Controls: each mutation, with every check run, must make its target checks fail and no others ==
+[FIRED] --mutate=n-drift (the recursion leaves F''_3 = 0 (order 3 of N not imposed)): exit 1, failed ['plant_far', 'regress167', 'scan', 'spread', 'dd_qd', 'modes', 'closed_form', 'bisect', 'independent', 'recip_check', 'step_halving'], 347 s
+[FIRED] --mutate=recip-dd (the lane constants (1/k, shifted coefficients of N, 1/(dN/dF'')) rounded to double-double): exit 1, failed ['plant_far', 'recip_check'], 160 s
+controls: all fired on target only
+# run_18_single_offgrid_ctrl finished 2026-11-28T03:02:50Z exit 0 load  26.17 17.94 17.83 
