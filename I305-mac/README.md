@@ -68,3 +68,27 @@ If no candidate counts, I stop and report to the coordinator instead of relaxing
 2. Stage 2 (route, criteria, planted cases, mutations with their computed effects) is written after the development set and before the runs of record; the runs of record take the development set's brackets and are expected to equal it bit for bit.
 3. Stop condition: a single run not finished in 2 h of wall time is stopped and reported. A check that fails on the runs of record is reported as not met; nothing in the criteria is changed after the first run of record.
 4. Post hoc blocks (refits with the new points, the second roundoff realization, #283's description of P3's residual) are written into the driver before the analysis of the development set, so the runs of record do not force a rerun of the mutations (#295's mistake).
+
+## Stage 1b: the development scan and the selection (h = 0.02; `dev/logs/tune_*`, `dev/devselect.1.log`; the rule of stage 1 applied unchanged)
+
+Nine new candidates tuned (`scripts/dev_scan.sh 0` and `1`, two lanes, 3 to 7 runs each, 11 to 15 s per run, all exit 0, started 00:40 and finished 00:48 on 2026-11-28). (2.0, 0.35) and (2.0, 0.25) have no stall at any target (rejected by (a)).
+Leverage at γ₁ = 0.012, 0.048, 0.075 (S = their sum), ṙ_th and D (smallest distance from B, W, C, N; guard only) of every candidate that has members at all three targets:
+
+| (x_c, w) | source | B at the three γ₁ | ṙ_th (×1e-4) | leverage | S | D | counts |
+|---|---|---|---|---|---|---|---|
+| (4.0, 1.5) | new | 0.09112, 0.1695, 0.2044 | −11.3, −27.3, −24.4 | 0.272, 1.977, 3.061 | **5.310** | 6.38 | yes |
+| (5.0, 1.0) | new | 0.05128, 0.09842, 0.1202 | −8.8, −20.3, −15.6 | 0.173, 1.189, 1.854 | 3.216 | 4.48 | yes |
+| (4.5, 1.0) | new | 0.05628, 0.108, 0.1319 | −7.5, −15.5, −8.4 | 0.134, 0.774, 1.131 | 2.039 | 3.14 | yes |
+| (5.0, 0.7) | new | 0.0394, 0.0768, 0.09431 | −6.2, −11.8, −4.1 | 0.103, 0.521, 0.773 | 1.397 | 2.33 | yes |
+| (4.0, 1.0) | new | 0.06225, 0.1196, 0.1463 | −6.5, −11.8, −2.6 | 0.109, 0.518, 0.714 | 1.341 | 2.17 | yes |
+| (4.5, 0.7) | stored | 0.04333, 0.08449, 0.1045 | −5.4, −8.5, +1.9 | 0.086, 0.342, 0.514 | 0.942 | 1.56 | yes |
+| (3.5, 1.0) | stored | 0.06962, 0.1342, 0.1646 | −5.7, −8.8, +2.0 | 0.092, 0.358, 0.490 | 0.941 | 1.06 | yes |
+| (2.5, 0.25) | new | 0.0407, 0.08452, 0.1105 | −2.3, +3.3, +19.8 | 0.051, 0.117, 0.497 | 0.665 | 0.91 | yes |
+| (2.5, 0.35) | stored | 0.04845, 0.1002, 0.1301 | −2.4, +2.9, +18.8 | 0.052, 0.114, 0.452 | 0.618 | 0.60 | yes |
+| (3.0, 0.25) | new | 0.03498, 0.06964, 0.08746 | −2.6, +2.1, +17.9 | 0.053, 0.112, 0.426 | 0.591 | 1.26 | no, (d): max L 0.426 < 0.43 |
+| (4.0, 0.7), (4.0, 0.35), (3.5, 0.35) | stored | | | max L 0.367, 0.344, 0.358 | | | no, (c) and (d) |
+
+**Selected: (x_c, w) = (4.0, 1.5), S = 5.310**, B = 0.09112, 0.1695, 0.2044 (γ₁ at h = 0.02: 0.011999, 0.047546, 0.074911; r_th 0.99370, 0.98380, 0.98397; ṙ_th −1.131e-3, −2.734e-3, −2.441e-3).
+**What this means, written before the development set:** the rule picked the most extreme candidate scanned. Its leverage at γ₁ = 0.075 is 7.8 times the fitted maximum and its ṙ_th at γ₁ = 0.048 and 0.075 is about four times the fitted
+minimum (−6.65e-4), so this is an extrapolation of the frozen fit far beyond the edge of its data, not a step outside it. A miss of the bar 6e-5 is expected here and is not a ground to move the bar. The issue's own example (2.5, 0.35) counts (S 0.618, max L 0.452) and
+was not selected. A graded test of how the error grows with leverage (the routes (4.0, 1.0), (4.5, 1.0), (4.0, 1.5) have leverage up to 0.71, 1.13, 3.06 at h = 0.02) is a recommended task, not part of this issue.
