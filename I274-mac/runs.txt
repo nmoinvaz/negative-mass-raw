@@ -1,0 +1,9 @@
+# the runs of record in order (recount_i274.py at 63fe72b for run_02 to run_07; the collector was edited afterwards, see README)
+run_01_stars        --stars                                   stars.json (pc, zc from the crate, r_m from the scipy path, four stars)
+run_02_laneA        --boxes=<lane_A.txt>                      18 boxes, exit 0, 483 s
+run_03_laneB        --boxes=<lane_B.txt>                      17 boxes, exit 0, 506 s
+run_04_ctl_counter  --mutate=reverse,wrongdouble,misplant,onesided   35 boxes, exit 0 (onesided not fired on s2_l2), 145 s
+run_05_ctl_eval     --mutate=jsign,star_eps,rs_shift,strip_off,kmin_shift   35 boxes, exit 1 (fired on every box), 735 s
+run_06_extra_s1_l5  --boxes=s1_l5                             the extra box (#115), exit 0, 53 s
+run_07_dd_crosscheck --lane=dd --sub=dd --boxes=rep_l4,s1_l3,s1_l6   dd lane on the three thinnest margins, exit 0, 1860 s
+collect (collect.rc) --collect --extra > i274_recount_output.txt     exit 1 (the onesided row)

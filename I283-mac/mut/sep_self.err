@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i283/notes/wormhole_evolution/settled_mass_route.py", line 752, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nathan/Source/negative-mass-i283/notes/wormhole_evolution/settled_mass_route.py", line 746, in main
+    sys.exit(analyze_cmd(opts["raw"], opts.get("rn")))
+             ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i283/notes/wormhole_evolution/settled_mass_route.py", line 610, in analyze_cmd
+    print(f"    {nm:6s}  {e['SS']['plat1'] - predict('P2', g1, rth, rd, H_FIN):+.2e}   {rth * c3 * rd:+.2e}                  {rth * ((a3 - a2) * g1 + (b3 - b2) * g1 ** 2):+.2e}          {r3:+.2e}   {drt:+.2e}                  {r3 / drt:+.2e}")
+                                                                                                                                                                                                                                   ~~~^~~~~
+ZeroDivisionError: division by zero

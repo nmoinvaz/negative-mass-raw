@@ -1,0 +1,6 @@
+order8.py  mutate=ln2_struct  parts=['sym', 'struct', 'cache']  mpmath 1.3.0  sympy 1.14.0
+PASS    CACHE: cached chain against the uncached chain on (N 24, w 1/2, V 12, 60 digits): Omega0 .. Omega6 equal to 60.0, 60.0, 60.0, 60.0, 60.0, 60.0, 60.0 digits, worst relative difference 0.0 (bar 1e-55); times 3 s and 9 s
+PASS    E0: h_k (k = 0 .. 8) and dY_k/dl (k = 1 .. 8) from the epsilon-expansion of the master equation against the table: residuals 0 (1.8 s)
+FAIL    LN2: F = exp(4 ln 2 eps)(1 + Omega0 eps + ... + Omega5 eps^6) from the closed forms: f0 = 1, f1 = 0, and d f_n / d ln 2 = 0 for n = 2 .. 6, sympy residuals ['z3', '8*q*z3', '24*q**2*z3']; f2 = 2*p2/3, f3 = 80*z3, f4 = 22*p2**2/45 + q*z3 - 384*z3, f5 = -2432*p2**2/45 - 160*p2*z3 + 4*q**2*z3 + 3072*z3 - 10432*z5, f6 = -38812*p2**3/315 + 39424*p2**2/45 - 256*p2*z3/3 + 8*q**3*z3 + 3200*z3**2 - 36864*z3 + 74240*z5 (0.0 s)
+
+2 passed, 1 failed of 3 checks; 14 s

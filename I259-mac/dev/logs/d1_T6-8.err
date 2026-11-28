@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i259/notes/black_universe/static_c1.py", line 823, in <module>
+  File "/Users/nathan/Source/negative-mass-i259/notes/black_universe/static_c1.py", line 780, in run_checks
+    def run_checks():
+            ^^^^^
+  File "/Users/nathan/Source/negative-mass-i259/notes/black_universe/static_c1.py", line 727, in check_T8
+    ok, "; ".join(det))
+       ^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i259/notes/black_universe/static_c1.py", line 379, in mode_run
+  File "/Users/nathan/Source/negative-mass-i259/notes/black_universe/static_c1.py", line 361, in mode_arrays
+    _MODE["m"] = StaticMode()
+    ^^^^^^
+  File "/Users/nathan/Source/negative-mass-i259/notes/black_universe/static_c1.py", line 355, in mode
+  File "/Users/nathan/Source/negative-mass-i259/notes/black_universe/static_c1.py", line 241, in __init__
+    d[k] = rhs / (A1 * (k - 1))
+          ~~~~~^~~~~~~~~~~~~~~~
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/scipy/optimize/_zeros_py.py", line 858, in brentq
+    r = _zeros._brentq(f, a, b, xtol, rtol, maxiter, args, full_output, disp)
+ValueError: f(a) and f(b) must have different signs

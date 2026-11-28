@@ -1,0 +1,94 @@
+throat_tail.py analyze {'raw': '/Users/nathan/Source/negative-mass-raw/I291-mac', 'mutate': 'drift_add'}: numba 0.68.1, numpy 2.5.4, python 3.14.7, Nathans-MacBook-Air-M5-3.local, mutation drift_add, 2026-11-27 23:52:31
+records: h = 0.02: members [0, 1, 2, 3, 4, 5, 6, 7], h = 0.01: members [0, 1, 2, 3, 4, 5, 6, 7], h = 0.005: members [0, 1, 2, 3, 4, 5, 6, 7]
+[pass] BR-h0.02: every bisection ends with hi - lo <= 1e-14, no stop, the replayed bracket equals the stored one, lo collapses and hi expands  (8 of 8 members, max gap 9.1e-15, bad [])
+[pass] EVT-h0.02: the pair p*_h -/+ 1e-12 collapses on the - side and expands on the + side, inside the triangle, in every member  (bad [])
+[pass] RATE-h0.02: the pair's odd part grows at the unstable mode's rate on t in (10.0, 16.0): 1.1 to 1.25, in every member  ([1.181, 1.181, 1.181, 1.181, 1.181, 1.181, 1.181, 1.181])
+[pass] BR-h0.01: every bisection ends with hi - lo <= 1e-14, no stop, the replayed bracket equals the stored one, lo collapses and hi expands  (8 of 8 members, max gap 9.1e-15, bad [])
+[pass] EVT-h0.01: the pair p*_h -/+ 1e-12 collapses on the - side and expands on the + side, inside the triangle, in every member  (bad [])
+[pass] RATE-h0.01: the pair's odd part grows at the unstable mode's rate on t in (10.0, 16.0): 1.1 to 1.25, in every member  ([1.181, 1.181, 1.181, 1.181, 1.181, 1.181, 1.181, 1.181])
+[pass] BR-h0.005: every bisection ends with hi - lo <= 1e-14, no stop, the replayed bracket equals the stored one, lo collapses and hi expands  (8 of 8 members, max gap 9.1e-15, bad [])
+[pass] EVT-h0.005: the pair p*_h -/+ 1e-12 collapses on the - side and expands on the + side, inside the triangle, in every member  (bad [])
+[pass] RATE-h0.005: the pair's odd part grows at the unstable mode's rate on t in (10.0, 16.0): 1.1 to 1.25, in every member  ([1.181, 1.181, 1.181, 1.181, 1.181, 1.181, 1.181, 1.181])
+  h = 0.01: window end 19.85 (a member's odd part reaches 3e-04 at 20.07; the mean's standard error reaches 2% at 19.85; last sample 25.00); K = 8; offset spread of the pairs' means 1.74e-14
+  h = 0.005: window end 18.95 (a member's odd part reaches 3e-04 at 20.06; the mean's standard error reaches 2% at 18.95; last sample 25.00); K = 8; offset spread of the pairs' means 4.49e-14
+[pass] WIN: the common window [15, T_end] is at least 2 long, so the slope tests are informative  (T_end = 18.95)
+[FAIL] DR-h0.01: the speed keeps one sign and |v| falls on [12, T_end] (no drift dominates before the window)  (v = +2.291e-05 at 12, +7.424e-05 at 18.95)
+[FAIL] DR-h0.005: the speed keeps one sign and |v| falls on [12, T_end] (no drift dominates before the window)  (v = +2.297e-05 at 12, +7.232e-05 at 18.95)
+[SKIP] S1-h0.01: slope within 20 % of -2.9: not informative  (window too short or drift present)
+[SKIP] S2-h0.01: rate x t grows less than half as fast as an exponential's: not informative  (window too short or drift present)
+[SKIP] S1-h0.005: slope within 20 % of -2.9: not informative  (window too short or drift present)
+[SKIP] S2-h0.005: rate x t grows less than half as fast as an exponential's: not informative  (window too short or drift present)
+[SKIP] S3: the two h agree on the slope: not informative
+[pass] ORD-p: p*_h converges at second order over h = 0.02, 0.01, 0.005 (observed order in (1.8, 2.2))  (p*_h = [6.5839623e-04, 5.8719937e-04, 5.6939539e-04], order 2.00)
+[pass] ORD-v10: the speed at t = 10 converges at second order over the three h  (v = [-1.44380e-05, -1.41827e-05, -1.41169e-05], order 1.96)
+[pass] ORD-v12: the speed at t = 12 converges at second order over the three h  (v = [2.26440e-05, 2.29072e-05, 2.29743e-05], order 1.97)
+
+--- local exponent -d ln|v| / d ln tau (central difference over +-0.5 in t) of the mean series, and the standard error of its v ---
+t      h=0.02: p  h=0.01: p  h=0.005: p   v (h = 0.005) | SE/|v| of the mean (K) at h = 0.01, 0.005 | primary p (h = 0.005)
+  8.0   3.941    3.959    3.963    -7.7603e-05 | 1.8e-08, 4.6e-08 (8, 8) |  3.963
+ 10.0  21.683   22.477   22.692    -1.4117e-05 | 1.0e-06, 2.6e-06 (8, 8) | 22.692
+ 12.0  -7.890   -7.785   -7.758    +2.2974e-05 | 6.8e-06, 1.7e-05 (8, 8) | -7.758
+ 14.0  -2.778   -2.764   -2.757    +4.5345e-05 | 3.6e-05, 9.3e-05 (8, 8) | -2.753
+ 15.0  -2.040   -2.033   -2.024    +5.3296e-05 | 1.0e-04, 2.6e-04 (8, 8) | -2.011
+ 16.0  -1.575   -1.588   -1.567    +5.9753e-05 | 2.9e-04, 7.5e-04 (8, 8) | -1.526
+ 17.0  -1.238   -1.309   -1.247    +6.5028e-05 | 8.8e-04, 2.2e-03 (8, 8) | -1.112
+ 18.0  -0.915   -1.172   -0.975    +6.9289e-05 | 2.7e-03, 6.9e-03 (8, 8) | -0.523
+ 19.0  -0.415   -1.267   -0.622    +7.2439e-05 | 8.2e-03, 2.1e-02 (8, 8) |  0.982
+ 20.0   1.061   -1.851    0.281    +7.3586e-05 | 2.5e-02, 6.9e-02 (8, 8) |  7.335
+
+--- rate x t on [15, T_end] itself (quadratic fit at the window's start, middle, end), mean series (report, gates nothing) ---
+
+--- the member along the stall (the primary pair's mean profile, #225's fit on each stored slice): t, r_th - 1, gamma_1, rms of the fit of M(r) ---
+  h = 0.01: t = 6.00: +6.404e-04, 0.00122, 1.1e-04 | t = 8.00: +1.987e-04, 0.00150, 2.9e-04 | t = 10.00: -8.801e-05, 0.00188, 5.7e-06 | t = 12.00: -2.756e-04, 0.00188, 5.7e-07 | t = 14.00: -4.055e-04, 0.00188, 6.7e-07 | t = 16.00: -4.993e-04, 0.00187, 1.2e-06 | t = 18.00: -5.694e-04, 0.00187, 1.0e-06
+  h = 0.005: t = 6.00: +6.413e-04, 0.00122, 1.1e-04 | t = 8.00: +1.980e-04, 0.00150, 2.9e-04 | t = 10.00: -8.796e-05, 0.00188, 5.4e-06 | t = 12.00: -2.754e-04, 0.00188, 3.6e-07 | t = 14.00: -4.052e-04, 0.00188, 2.5e-07 | t = 16.00: -4.989e-04, 0.00188, 3.3e-07 | t = 18.00: -5.702e-04, 0.00187, 4.1e-07
+
+--- linear response of #272 (rate x t at t = 15, 20, 25): 2.74, 2.89, 2.97; the rate of #255's fit kappa = 0.244 gives rate x t = 3.66 at t = 15 ---
+
+--- sensitivity of the slope (mean series, h = 0.005 | 0.01), regressor ln tau | ln t; windows beyond T_end are marked * (contaminated) ---
+  [12, 16.00]   -3.091 | -3.090     -3.100 | -3.099
+  [12, 17.00]   -2.720 | -2.720     -2.732 | -2.731
+  [12, 18.95]   -2.203 | -2.203     -2.239 | -2.239
+  [13, 16.00]   -2.447 | -2.446     -2.455 | -2.455
+  [13, 17.00]   -2.170 | -2.170     -2.183 | -2.182
+  [13, 18.95]   -1.772 | -1.772     -1.819 | -1.819
+  [14, 16.00]   -2.048 | -2.048     -2.058 | -2.057
+  [14, 17.00]   -1.825 | -1.825     -1.840 | -1.840
+  [14, 18.95]   -1.493 | -1.493     -1.557 | -1.557
+  [15, 16.00]   -1.769 | -1.769     -1.782 | -1.782
+  [15, 17.00]   -1.580 | -1.580     -1.602 | -1.602
+  [15, 18.95]   -1.289 | -1.289     -1.379 | -1.378
+
+--- error bars of the slope over the common window (kinds kept apart) ---
+  h = 0.01: roundoff realization, the K = 8 single pairs: [-1.337, -1.409, -1.317, -1.393, -1.445, -1.437, -1.440, -1.246], mean -1.378, std 0.072 (the mean series: -1.379; the primary pair: -1.337)
+  h = 0.005: roundoff realization, the K = 8 single pairs: [-1.089, -1.363, -0.973, -1.366, -1.365, -1.564, -1.212, -1.357], mean -1.286, std 0.186 (the mean series: -1.289; the primary pair: -1.089)
+  truncation: |p(0.01) - p(0.005)| of the mean series = 0.089
+  fit choices: the spread over the windows and regressors in the table above
+
+--- tail plus drift fit v = -A tau^-p + b over t in [t_start, T_end] (post hoc, mean series): the drift #255's B^3.16 scaling predicts is 6e-3 of B = 0.1's +1.26e-3, i.e. +8e-6 ---
+  h = 0.01, [8, 18.95]: A = 9.900e-03, p = 1.900 +- 0.006, b = +1.110e-04 +- 2.6e-07, rms 3.7e-07; without b: p = 10.652, rms 4.5e-05
+  h = 0.01, [10, 18.95]: A = 1.127e-02, p = 1.964 +- 0.005, b = +1.086e-04 +- 1.6e-07, rms 1.2e-07; without b: p = 12.454, rms 4.9e-05
+  h = 0.01, [12, 18.95]: A = 9.570e-03, p = 1.889 +- 0.012, b = +1.107e-04 +- 3.6e-07, rms 1.2e-07; without b: p = 13.869, rms 5.6e-05
+  h = 0.005, [8, 18.95]: A = 1.075e-02, p = 1.945 +- 0.007, b = +1.086e-04 +- 3.1e-07, rms 4.7e-07; without b: p = 10.663, rms 4.5e-05
+  h = 0.005, [10, 18.95]: A = 1.424e-02, p = 2.081 +- 0.005, b = +1.042e-04 +- 1.5e-07, rms 1.3e-07; without b: p = 12.402, rms 4.9e-05
+  h = 0.005, [12, 18.95]: A = 1.845e-02, p = 2.197 +- 0.010, b = +1.016e-04 +- 2.2e-07, rms 9.6e-08; without b: p = 13.703, rms 5.5e-05
+
+--- offsets of the K pairs' means from the ensemble mean, (v_k - v_mean) / (lambda odd_k / delta), in units of 1e-14, at t = 12, 14, 16, 18 (report) ---
+  h = 0.02: members ['+0.32', '+0.82', '+0.26', '+0.12', '-0.81', '+0.15', '+0.79', '-1.62'] at t = 12; spread over t of one member 0.001; std over members 0.82
+  h = 0.01: members ['-1.01', '+0.74', '-1.50', '+0.35', '+1.66', '+1.45', '+1.51', '-3.19'] at t = 12; spread over t of one member 0.003; std over members 1.74
+  h = 0.005: members ['-4.75', '+1.79', '-7.29', '+1.81', '+1.85', '+7.05', '-1.83', '+1.60'] at t = 12; spread over t of one member 0.011; std over members 4.49
+
+--- delta dependence (report): member 0's pairs at e = 10, 11 against e = 12, (v_e - v_12) / (lambda odd_12 / delta_12), 1e-14, at t = 10, 12, 14, 16 ---
+  h = 0.02: e = 11: -3.01, -3.01, -3.02, -3.08 | e = 10: -1.40, -1.45, -2.02, -8.08
+  h = 0.01: e = 11: -6.26, -6.27, -6.28, -6.34 | e = 10: -2.99, -3.07, -3.64, -9.72
+  h = 0.005: e = 11: +1.62, +1.63, +1.63, +1.57 | e = 10: +0.64, +0.59, +0.02, -6.15
+
+planted cases: offset spread of the pairs' means, pooled over the two h: 3.41e-14
+[pass] PL1: planted t^-3 speed, the measured noise and offsets (3.41e-14 per pair, K = 8, 200 draws): the slope over [15, T_end] is recovered to 0.25 in at least 90%  (recovered 98%; p median 3.000 (5 to 95 %: 2.881 to 3.139); T_end median 18.45 (5 %: 18.15); informative 100%)
+[pass] PL2: planted t^-2.3 speed, the measured noise and offsets (3.41e-14 per pair, K = 8, 200 draws): the slope over [15, T_end] is recovered to 0.25 in at least 90%  (recovered 100%; p median 2.300 (5 to 95 %: 2.151 to 2.429); T_end median 18.55 (5 %: 18.25); informative 100%)
+[pass] PL5: planted t^-3 speed, the measured noise and offsets (1.02e-13 per pair, K = 8, 200 draws): the slope over [15, T_end] is recovered to 0.25 in at least 90%  (recovered 93%; p median 3.004 (5 to 95 %: 2.782 to 3.196); T_end median 17.60 (5 %: 17.30); informative 100%)
+  (report) rate x t spread on [15, T_end] itself, planted: t^-3 median 0.080 (95 %: 0.224), exponential median 0.184, exponential's own 0.198: does not separate them: the window is too short for the noise, so the shape test uses the shape window
+[pass] PL3: planted t^-3: the shape test (rate x t spread on the shape window) passes in at least the declared fraction (a power law is not called an exponential)  (passes 100%; shape spread median 0.002 against the exponential's 0.462)
+[pass] PL4: planted exponential of rate 0.244 with the same noise: the shape test and the slope test both fail (a negative control that must fire) in at least 90%  (shape test fails 100%, slope test fails 100%; slope median 4.032; shape spread median 0.467 against 0.462; informative 100%)
+
+25 checks (6 post hoc, gating nothing), 2 gating checks failed, 0 post hoc checks failed; 53 s
+mutation drift_add: fired ['DR-h0.005', 'DR-h0.01'], declared ['DR-h0.005', 'DR-h0.01']: MATCH

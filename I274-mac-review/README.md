@@ -1,0 +1,55 @@
+# I274-mac-review: the coordinator's review of #274 (the polar winding boxes recounted with the crate)
+
+Coordinator's Mac, nice 10. Issue: https://github.com/nmoinvaz/negative-mass/issues/274. Under review: branch
+`wip/i274-crate-recount` at 6f91397, raw `I274-mac` at 0d49255d.
+
+## ind274.py: the crate's |D| against the stored scipy caches, point by point
+
+Written by the coordinator; imports nothing from the repository. For each of the 35 record files `I274-mac/jsonl_rec/*.jsonl`
+(the crate's evaluations, f64) it finds, among the winding2 caches of `I126-rpi5/cache` and `I117-rpi5/cache` with the same
+l, the one holding all its points, by its own search. It then compares |D| of the crate (`d_f64`) with |D| of the cache at
+every point. The phase strip is a pure phase, so the modulus needs none of the counter's or the driver's code.
+
+Shared with the runner's code: the crate's output files and the stored caches. Not shared: the box-to-cache mapping, the
+point matching, the comparison.
+
+Criteria, written before the first run:
+- K1: each of the 35 files has all its points in exactly one cache of its l (matched to 1e-12 in s), and no point is outside it.
+- K2: | |D_crate| / |D_cache| − 1 | ≤ 1e-6 at every point of every box (the caches were made at rtol 1e-8; #188 measured
+  6e-10 at l = 2).
+
+Mutations: `scale` (crate modulus × (1 + 1e-5): K2), `extra` (a point at s + 1e-3 added to each file: K1).
+
+## Amendment A1 (after run 1, before any check passed)
+
+Run 1 (`run_01.log`) failed K1 and K2 for two reasons of this script, not of the runner's data:
+- The record files `jsonl_rec/*.jsonl` also hold the crate evaluations of the counter controls (`misplant`, `onesided`, ...),
+  which ask points the stored counter does not. For s1_l6 the file has 477 points against the cache's 445, and
+  `results/record/s1_l6.json` records 445 asked of 445 stored. So "no point outside the cache" cannot hold.
+- The search by l alone is ambiguous: boxes with the same region and l but another star or rsmult share their s points
+  (c075_l2 matched the ω = 0.7603 cache, t1_r40 and t1_r80 matched two).
+
+Amended, before run 2:
+- The cache of each box is named from that box's parameters in `results/record/<box>.json` (eps, ω, l, region, y0, rsmult,
+  zfac), by this script's own construction, in the folder of the box's issue (I126-rpi5, I117-rpi5, I115-rpi5).
+- K1': for each of the 36 record files (35 boxes and #115's extra), every cache key is among the crate's evaluations, and the
+  record's asked count equals the cache's size.
+- K2 unchanged, on the cache's keys.
+- Mutation `extra` replaced by `drop` (one stored point removed from each file: K1').
+
+## Results
+
+| check | verdict | reading |
+|---|---|---|
+| K1 (run 1, as first worded) | not met, by this script's assumption (A1) | `run_01.log` |
+| K1' | met | 36 of 36 files: every stored point evaluated; the record's asked count equals the cache's size (`run_02.log`) |
+| K2 | met | worst \| \|D_crate\|/\|D_cache\| − 1 \| = 6.2e-8 over 6811 points (s3_l3); t2_r80 (zfac 2) 3.2e-8 |
+
+Mutations: `scale` fails K2; `drop` fails K1'.
+
+## Rerun of the runner's driver
+
+From a detached worktree at 6f91397 (`rerun.sh`): the crate builds (`rr_build.rc` 0), `--stars` exit 0, the boxes s1_l6 (the
+thinnest margin, 5.15e-5 rad) and s2_l2 (the box where `onesided` does not fire) exit 0. Their 445 and 245 crate evaluations
+are bitwise equal to the runner's, and their verdicts and margins equal the records; only wall times differ. The collector
+(`--collect --extra`, exit 1 as stored, on the `onesided` row) prints `i274_recount_output.txt` byte for byte.
