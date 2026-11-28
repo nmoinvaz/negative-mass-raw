@@ -1,0 +1,14 @@
+ellis_spectrum.py  code b1d1c84  mutate=wrong_p  crate=../wormhole_largeD/w2_crate/target/release/w2_crate
+
+== planted cases (same code paths, known answers)
+PASS    PT1: Poeschl-Teller V0 = 2.5, alpha = 1, W = -i omega, first three overtones, worst |W - exact| = 7.93e-14 (bar 1e-8); n=0 even 1.96e-14; n=1 odd 7.93e-14; n=2 even 5.73e-14
+PASS    PT2: argument-principle windings, same scan routine; (-1.0, 0.0, 1.0, 2.0) even: 1.000 (want 1); (-2.0, -1.0, 1.0, 2.0) odd: 1.000 (want 1); (-3.0, -2.0, 1.0, 2.0) even: 1.000 (want 1); (-2.0, -1.0, 1.0, 2.0) even: -0.000 (want 0); (-1.0, 0.0, 1.0, 2.0) odd: 0.000 (want 0); (-1.0, 0.0, 2.0, 3.0) even: -0.000 (want 0)
+PASS    PT3: second eigen-solver (Chebyshev on a complex-scaled contour) on Poeschl-Teller: worst relative error of W^2 = 2.38e-07 (bar 1e-6); n=0 1.6e-07; n=1 8.0e-08; n=2 2.4e-07
+FAIL    W1-D5: unstable W^2 at D = 5 from the shooting solver 2.65453902877044 against #195's crate (qd) 2.98495893035176: relative 1.11e-01 (bar 1e-8)
+FAIL    W2-D5: second eigen-solver (ECS, theta = -0.7, N = 481) 2.49622481-7.5e-05i: relative 1.64e-01 (bar 1e-4)
+FAIL    W3-D5: finite-difference operator of the time-domain code: relative error 1.63e-01 (h = 0.02), 1.64e-01 (0.01), ratio 1.00 (second order: 4)
+FAIL    W1-D4: unstable W^2 at D = 4 from the shooting solver 1.22639595804696 against #195's crate (qd) 1.39705243433351: relative 1.22e-01 (bar 1e-8)
+FAIL    W2-D4: second eigen-solver (ECS, theta = -0.7, N = 481) 1.18737956-3.8e-05i: relative 1.50e-01 (bar 1e-4)
+FAIL    W3-D4: finite-difference operator of the time-domain code: relative error 1.50e-01 (h = 0.02), 1.50e-01 (0.01), ratio 1.00 (second order: 4)
+
+9 checks, 3 pass, 6 fail: W1-D5, W2-D5, W3-D5, W1-D4, W2-D4, W3-D4

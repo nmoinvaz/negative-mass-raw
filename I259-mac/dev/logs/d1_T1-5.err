@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i259/notes/black_universe/static_c1.py", line 823, in <module>
+    sys.exit(run_checks())
+             ~~~~~~~~~~^^
+  File "/Users/nathan/Source/negative-mass-i259/notes/black_universe/static_c1.py", line 780, in run_checks
+    fnc()
+    ~~~^^
+  File "/Users/nathan/Source/negative-mass-i259/notes/black_universe/static_c1.py", line 619, in check_T4
+    m = mode()
+  File "/Users/nathan/Source/negative-mass-i259/notes/black_universe/static_c1.py", line 355, in mode
+    _MODE["m"] = StaticMode()
+                 ~~~~~~~~~~^^
+  File "/Users/nathan/Source/negative-mass-i259/notes/black_universe/static_c1.py", line 241, in __init__
+    self.r1 = brentq(lambda r1: np.polynomial.polynomial.polyval(r1 * P0, rho) - chart_rho, 1e-3, 1e3, xtol=1e-15, rtol=1e-15)
+              ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/scipy/optimize/_zeros_py.py", line 858, in brentq
+    r = _zeros._brentq(f, a, b, xtol, rtol, maxiter, args, full_output, disp)
+ValueError: f(a) and f(b) must have different signs

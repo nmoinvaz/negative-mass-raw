@@ -144,3 +144,13 @@ Order: `jobs_pstar.txt` (h = 0.02, 0.01, 0.005: the three bisections, then P266)
 - The planted cases test the extraction, the departure time, the prediction test and the drift fit, not the evolution; the chain's planted truths stay #41's.
 
 ## Changes made after this README
+
+None. (The criteria, bars and mutation sets above are as committed at d534bf03, before any run of record.)
+
+## Results of record (after the runs)
+
+- Runs: `jobs_pstar.txt` (3 bisections, rc 0, p*ₕ equal to #266's bit for bit) and `jobs_rec.txt` (30 jobs, rc 0), 20:13 to 20:19, two lanes; logs in `runs/G_B0.1/h<h>/{logs,e<e>/logs}` and `logs/`.
+- `analyze_record.log` (`python3 settled_mass_member.py analyze --raw=<this folder>`, code 09d549f): 48 checks, 29 gating, 19 post hoc; **two gating checks fail, HST (δ = 1e-12 only) and PRED**, and four post hoc (RC6-ph, FITQ-ph, HST-ph, PRED-ph): the same verdicts as the development set.
+- `mut/`: 28 mutated analyses of the records, **28 of 28 fire exactly their declared set** (MATCH); `logs/mut_lane*.log` truncate the summary line at 300 characters, the MATCH is in each `mut/<name>.log`.
+- `settled_mass_member.svg` (`plot_settled_mass_member.py`, vendored `data_graphs.py` equal to the graph-data skill's): M(δ) with the prediction, the residual, and r_th(t) along the stall.
+- Note, output and code: `notes/wormhole_evolution/settled_mass_member.{md,py}`, `settled_mass_member_output.txt` on branch `wip/i267-mass-vs-member`.

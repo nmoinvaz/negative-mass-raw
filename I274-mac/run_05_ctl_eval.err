@@ -1,0 +1,25 @@
+
+thread '<unnamed>' (108530474) panicked at src/star.rs:176:9:
+star: more than 200000 Taylor steps by r = 6.342461193243663e0 (the shot has left the decaying solution)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'main' (108530473) panicked at src/main.rs:388:14:
+called `Result::unwrap()` on an `Err` value: Any { .. }
+      734.78 real       731.78 user         2.04 sys
+           429244416  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              642762  page reclaims
+                 256  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                2931  voluntary context switches
+               42247  involuntary context switches
+          7680533685  instructions retired
+          2415634514  cycles elapsed
+            24379944  peak memory footprint

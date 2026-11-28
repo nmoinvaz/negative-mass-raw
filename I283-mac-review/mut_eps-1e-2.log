@@ -1,0 +1,14 @@
+  P2: M0 0.223086, (a, b) = (0.21696, 0.53493); P3: (0.23, 0.2724, 0.7835)
+  pt   t_dep    gamma_1   r_th      rdot        M         M-P2       M-P3       SEP r_th
+  W1   15.300  0.012021  0.994024  -6.5683e-04  0.224367  -5.534e-05  +3.381e-04  -3.75e-03
+  W2   15.554  0.047924  0.988479  -3.1096e-04  0.231740  -2.677e-04  -4.862e-05  -1.48e-02
+  W3   15.810  0.074594  0.995570  +1.2322e-03  0.240794  -3.794e-04  -8.547e-04  -2.39e-02
+  C1   15.322  0.011964  0.998882  -5.7162e-04  0.225489  -1.695e-05  +3.121e-04  +1.11e-03
+  C2   15.643  0.047799  1.006215  -4.6297e-05  0.235995  -1.416e-04  -1.288e-04  +2.93e-03
+  C3   15.951  0.074203  1.022170  +1.5631e-03  0.247278  -2.203e-04  -9.837e-04  +2.92e-03
+[FAIL] K1: against the note: t_dep 2.1e+00, gamma_1 6.3e-04, r_th 2.8e-03, M 4.7e-07 (bars 1e-3, 1e-5, 1e-6, 2e-6)
+[FAIL] K2: M - P2 within 3.8e-04 of the note's (bar 3e-6); smallest |M - P2| 1.69e-05 (> 6e-5: P2 fails at all six)
+[FAIL] K3: rdot_th within 7.3e-04 (bar 3e-6); M - P3 within 9.6e-04 (bar 5e-6). W3 with this estimator: M - P3 = -8.547e-04 (exceeds 6e-5)
+[FAIL] K4: SEP sign and size within 15 % at 4 of 6
+
+4 criteria, 0 pass; failed: ['K1', 'K2', 'K3', 'K4']; mutation eps-1e-2

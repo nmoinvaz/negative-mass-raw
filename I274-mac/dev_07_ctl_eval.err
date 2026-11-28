@@ -1,0 +1,7 @@
+
+thread '<unnamed>' (108439925) panicked at src/star.rs:176:9:
+star: more than 200000 Taylor steps by r = 6.342461193243663e0 (the shot has left the decaying solution)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'main' (108439924) panicked at src/main.rs:388:14:
+called `Result::unwrap()` on an `Err` value: Any { .. }

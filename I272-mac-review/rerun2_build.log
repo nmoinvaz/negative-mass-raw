@@ -1,0 +1,48 @@
+   Compiling crossbeam-utils v0.8.23
+   Compiling crossbeam-epoch v0.9.21
+   Compiling crossbeam-deque v0.8.8
+   Compiling rayon-core v1.13.0
+   Compiling either v1.19.0
+   Compiling rayon v1.12.0
+   Compiling multidouble v5.1.0 (https://github.com/nmoinvaz/multidouble?rev=ba0ad101ce7661f45153bc557dcb093d4dd41893#ba0ad101)
+   Compiling multisolver v0.2.2
+   Compiling multishoot v4.2.0
+   Compiling w2_crate v0.1.0 (/Users/nathan/Source/negative-mass-r272/notes/wormhole_largeD/w2_crate)
+warning: constant `PI_STR` is never used
+ --> src/num.rs:9:11
+  |
+9 | pub const PI_STR: &str = "3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067982148...
+  |           ^^^^^^
+  |
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: multiple associated items are never used
+  --> src/num.rs:14:11
+   |
+11 | pub trait Num:
+   |           --- associated items in this trait
+...
+14 |     const NAME: &'static str;
+   |           ^^^^
+15 |     /// unit roundoff of the lane
+16 |     const EPS: f64;
+   |           ^^^
+...
+20 |     fn from_dd(x: DD) -> Self;
+   |        ^^^^^^^
+21 |     fn to_dd(self) -> DD;
+   |        ^^^^^
+...
+25 |     fn sqrt(self) -> Self;
+   |        ^^^^
+26 |     fn exp(self) -> Self;
+27 |     fn ln(self) -> Self;
+   |        ^^
+28 |     /// decimal string at the lane's precision
+29 |     fn parse(s: &str) -> Self;
+   |        ^^^^^
+30 |     fn pi() -> Self {
+   |        ^^
+
+warning: `w2_crate` (bin "w2_crate") generated 2 warnings
+    Finished `release` profile [optimized] target(s) in 24.60s

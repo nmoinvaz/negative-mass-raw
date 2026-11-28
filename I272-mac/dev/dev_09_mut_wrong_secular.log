@@ -1,0 +1,13 @@
+ellis_spectrum.py  code b1d1c84  mutate=wrong_secular  crate=../wormhole_largeD/w2_crate/target/release/w2_crate
+
+== zero modes, secular solutions, generalized kernel
+PASS    Z1-n2: n = 2 (D = 4): with L = Y'/r0' + g(l), N = L - nY/r0 + c(t), E2 gives Y_tt = D Y - 2(n-1) g/r0 (difference 0); E1tt, E1ll at g = 0: 0, 0
+FAIL    Z2-n2 t Y1: residuals of (E1tt, E1tl, E1ll, E2, S) = 0, -2*sqrt(1 - 1/R**2)/R, 0, -2*t, 0
+PASS    Z1-n3: n = 3 (D = 5): with L = Y'/r0' + g(l), N = L - nY/r0 + c(t), E2 gives Y_tt = D Y - 2(n-1) g/r0 (difference 0); E1tt, E1ll at g = 0: 0, 0
+FAIL    Z2-n3 t Y1: residuals of (E1tt, E1tl, E1ll, E2, S) = 0, -3*sqrt(1 - 1/R**4)/R, 0, -4*t, 0
+PASS    Z3-n3: generalized zero mode D Z = Y1 (even, Z(0) = 0), unbounded as l^3 (ln l at D = 5): Z/l^3 at l = 1e2, 1e3, 1e4: 2.0146, 3.1331, 4.2793; per e-fold over the last decade 0.4978 (predicted 1/2: Z ~ (1/2) l^3 ln l)
+PASS    Z3-n2: generalized zero mode D Z = Y1 (even, Z(0) = 0), unbounded as l^3 (ln l at D = 5): Z/l^3 at l = 1e2, 1e3, 1e4: 0.4991, 0.5000, 0.5000 (predicted 1/2: Z ~ l^3/(6 - 2n))
+PASS    Z4-n2: d ln|Delta| / d ln W at W = 0.01 ... 0.08: [1.031 1.057 1.102] (band [0.90, 1.20]): simple pole of the resolvent at W = 0 at D = 4
+PASS    Z4-n3: d ln|Delta| / d ln W at W = 0.01 ... 0.08: [1.767 1.73  1.687] (band [1.55, 2.10]): double pole with a logarithm at D = 5
+
+8 checks, 6 pass, 2 fail: Z2-n2 t Y1, Z2-n3 t Y1
