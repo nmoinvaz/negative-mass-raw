@@ -171,3 +171,10 @@ only for B = 0.2). No bar is moved. Because ρ at B ≤ 0.02 is read at h = 0.00
 - **Post hoc**: pairs at δ = 1e-11 and **h = 0.00125** at B = 0.01, 0.014, 0.03, 0.04 (p*ₕ from the bisections at h = 0.00125, #228's for B = 0.04): ρ at both h, the Richardson ρ, and the exponents of ṙ(8) and ṙ(10) of the δ = 1e-11 pairs (`EXP11` lines).
   They answer whether the rise of ṙ between t = 8 and 10 is a feature of the linear problem or of the h² part. Nothing gates on them; LIN3's verdict stays as declared (h = 0.0025).
 - **Extra of part 2a**: B = 0.02 at h = 0.00125 (bisection to 1e-12, then the pairs δ = 1e-10 and 1e-11), so that 0.014 → 0.02 → 0.03 have resolution parts. Same criteria (BIS, JOB6, WIN8, JOB6d, DLT as declared in 2b, h = 0.00125).
+
+# Part 2d: a third resolution at small B, post hoc (2026-11-28 06:30, dh610 clock; gates nothing; the first draft said 06:41, an estimate)
+
+The post hoc pairs of part 2c (`runs/analysis/progress2`): ρ at h = 0.00125 is 0.058, 0.099, 0.132, 0.149 at B = 0.01, 0.014, 0.03, 0.04 (Richardson 0.054, 0.101, 0.131, 0.148; at h = 0.0025 0.078 …); ṙ(8) rises by +1.0e-4 from h = 0.0025 to 0.00125 at each
+of these B. LIN4's verdict (Richardson exponent 2.105) assumes that ṙ(8) converges at second order in h, which two h cannot test. To test it: **bisection and pairs (δ = 1e-10 and 1e-11) at h = 0.005 (hk = 0) for B = 0.01, 0.014, 0.03**
+(each about 5 min), then the observed order of ṙ(8) and ṙ(10) over h = 0.005, 0.0025, 0.00125 (`PHORD` lines of `drift_b6.py`), and the exponent of ṙ(8) between 0.01 and 0.014 re-done with the observed order. Post hoc; nothing gates; LIN4's verdict
+stays as declared (second order assumed).
