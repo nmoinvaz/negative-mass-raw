@@ -141,3 +141,13 @@ A mutation's "newly fired" excludes the three checks that fail on the baseline (
 PD2, P1G and P1A fail on the baseline, so no mutation can newly fire them; that PD2's test can fire is shown by PL1's flags (1.15 outside, 1.05 inside) and by PD2 failing at X3, and that P1G's can pass by P1B (the same code, magnitude) passing.
 
 **Runs of record.** After this stage is committed: `scripts/run_pairs.sh <RAW>` into `runs/` (two at a time), then `analyze --raw=<RAW>` (the log `record/analyze_record.1.log`), the 16 mutations on it (`record/mut/`), the comparison of `runs/` with `dev/runs_dev/runs` (bit for bit), the figure and the note.
+
+## Stage 3: the runs of record and their verdicts
+
+- The seven pairs of record: `runs/<member>/h0.005/e9/member/` (`scripts/run_pairs.sh <RAW>`, exit 0 for all, 25 s each); each equals the development pair in `dev/runs_dev/runs/` bit for bit (locus arrays and member.json apart from `secs`).
+- Script at negative-mass commit 19e5d18 (branch wip/i318-second-order). `record/analyze_record.1.log` is the output of record: **18 checks, 14 gating, 4 non-gating; two gating checks fail, PD2 (X3, r_th as the reader reads it, ρ_r = 0.891) and P1G (S = -172.6e-6 against +374e-6)**; P1A (non-gating) fails.
+  Correction to stage 2: the development baseline had 18 checks, not 29 (`dev/analyze_dev.4.log`, `.5.log`).
+- The 16 mutations on the record (`record/mut/`, `scripts/run_muts.sh`): 16 of 16 MATCH their declared sets, exit 0 (`record/mut/summary.1.txt`). `dev/mut_run1_stopped/` is a development sweep stopped when the script changed (kept, not used).
+- Figure: `record/graph.2.log` (`.1` a first drawing with labels that overlapped). Note: `notes/wormhole_evolution/settled_mass_second.md`.
+- Results (the note has the tables): ρ_ṙ 1.002 to 1.009 at the seven members; ρ_r on the locus's grid 0.975 to 1.029, the reader's 0.891 to 0.965; X's own part changes V3's residuals by +1.1e-6, +2.5e-7, +2.1e-6; the ratios that would close #317's miss (1.19, 1.41, 1.44) are not met.
+  Part 1: PA1 -24.7e-6, PA2s -172.6e-6, PA2b -370.0e-6 against +374e-6; post hoc (crossing times) +387e-6, +427e-6.
