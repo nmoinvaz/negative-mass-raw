@@ -22,5 +22,10 @@ difference, for r_th and ṙ_th. Run from this folder: `python3 ind318.py [--mut
 
 ## Mutations (each must fire the named check)
 
-- `no-b0`: B = 0's difference replaced by its value at ε = 1e-2 alone (the 1e-3 reading not subtracted) → K1 or K2.
+- `swap`: ρ_r divided by B = 0's ṙ_th difference instead of its r_th difference → K2.
 - `same-eps`: both pairs read at ε = 1e-2 → K0.
+
+## Amendment A0 (2026-11-28, before the first run)
+
+The declared `no-b0` cannot fire: B = 0's reading at ε = 1e-3 is about 1 % of its reading at 1e-2, below K1's and K2's 0.02. It is
+replaced by `swap` before any run of `ind318.py`.
