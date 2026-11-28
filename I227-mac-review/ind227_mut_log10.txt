@@ -1,0 +1,12 @@
+  E: p*_h = 0.00004752772527642307526365, hi - lo = 5.29e-25; 70 of 70 on their side
+  F: p*_h = 0.00004752772534110645445828, hi - lo = 5.29e-25; 70 of 70 on their side
+[PASS] K1: E: 70 of 70, F: 70 of 70
+  E: slope over [1e-20, 1e-12] 1.947941 (n = 34); output LL1 0.845980 (n = 34)
+  F: slope over [1e-20, 1e-12] 1.947941 (n = 34); output LL1 0.845980 (n = 34)
+[FAIL] K2: E: 1.947941 against 0.845980, F: 1.947941 against 0.845980 (bar 1e-6)
+  E: float64 - binary128 mean 8.17111e-14, rms 8.20392e-14, max 1.07945e-13, K = 16; output +8.17e-14, 8.20e-14, 1.08e-13, K = 16 ok
+  F: float64 - binary128 mean 1.70277e-14, rms 1.85386e-14, max 4.32612e-14, K = 16; output +1.70e-14, 1.85e-14, 4.33e-14, K = 16 ok
+[PASS] K3: float64 offsets equal the output's A2 lines to half a unit of the printed digit
+
+3 criteria, 2 pass; failed: ['K2']; mutation log10
+exit 1
