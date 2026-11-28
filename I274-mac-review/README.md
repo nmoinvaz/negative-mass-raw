@@ -36,3 +36,20 @@ Amended, before run 2:
   record's asked count equals the cache's size.
 - K2 unchanged, on the cache's keys.
 - Mutation `extra` replaced by `drop` (one stored point removed from each file: K1').
+
+## Results
+
+| check | verdict | reading |
+|---|---|---|
+| K1 (run 1, as first worded) | not met, by this script's assumption (A1) | `run_01.log` |
+| K1' | met | 36 of 36 files: every stored point evaluated; the record's asked count equals the cache's size (`run_02.log`) |
+| K2 | met | worst \| \|D_crate\|/\|D_cache\| − 1 \| = 6.2e-8 over 6811 points (s3_l3); t2_r80 (zfac 2) 3.2e-8 |
+
+Mutations: `scale` fails K2; `drop` fails K1'.
+
+## Rerun of the runner's driver
+
+From a detached worktree at 6f91397 (`rerun.sh`): the crate builds (`rr_build.rc` 0), `--stars` exit 0, the boxes s1_l6 (the
+thinnest margin, 5.15e-5 rad) and s2_l2 (the box where `onesided` does not fire) exit 0. Their 445 and 245 crate evaluations
+are bitwise equal to the runner's, and their verdicts and margins equal the records; only wall times differ. The collector
+(`--collect --extra`, exit 1 as stored, on the `onesided` row) prints `i274_recount_output.txt` byte for byte.
