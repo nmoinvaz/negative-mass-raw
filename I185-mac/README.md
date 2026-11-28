@@ -2,7 +2,7 @@
 
 Machine: the coordinator's Mac (Apple M5, macOS, shared, loaded), at most 2 processes, `nice -n 10`.
 Issue: https://github.com/nmoinvaz/negative-mass/issues/185 (depends on #167; related #207, #203).
-Code: negative-mass branch `wip/i185-conical-eta0`, worktree `~/Source/negative-mass-i185`, `notes/warp/conical_eta0.py` at cecf0b8. It imports
+Code: negative-mass branch `wip/i185-conical-eta0`, worktree `~/Source/negative-mass-i185`, `notes/warp/conical_eta0.py` at cecf0b8 (run_01) and ac67513 (run_02, A1). It imports
 `det_classify` unchanged and calls #167's crate binary (`conical_global walk`, `scan`) unchanged, built with `cargo build --release -j 2` from the worktree
 (multishoot 5.0.0, multisolver 0.3.0, multidouble 6.1.0 as in `conical_global/Cargo.toml` at origin/main); the series cache is copied from `~/Source/negative-mass-i216`.
 Python: `~/Source/negative-mass/.venv/bin/python` (sympy 1.14, mpmath 1.3, numpy, scipy).
@@ -91,8 +91,15 @@ A check that raises counts as a failure. A failed check is a result.
 
 ## Run of record
 
-`scripts/run_record.sh` runs `conical_eta0.py` (nine checks, then the eight controls, each on its target checks only) detached with nohup; logs `record/run_01.{log,err,rc}`, the controls' logs in
-`record/`. A run not finished in 2 h wall time is stopped by its PID and reported. Nothing stops a process on its memory use.
+`scripts/run_record.sh WT RAW N` runs `conical_eta0.py` (nine checks, then the eight controls, each on its target checks only) detached with nohup; logs `record/run_0N.{log,err,rc}`, the controls' logs in
+`record/run_0N_controls/`. A run not finished in 2 h wall time is stopped by its PID and reported. Nothing stops a process on its memory use.
+
+## Amendment A1 (before run_02)
+
+`record/run_01` (cecf0b8): 9 of 9 checks pass, 8 of 8 controls fire on their targets only, exit 0; kept as it is (controls' logs moved to `record/run_01_controls/`, not overwritten).
+After reading its output I added one printed quantity to `kappa_cross` (script ac67513): at leading order y = F' - eta/(2F) is linear through kappa = 0 (y = y_inf (1 - |kappa|/kappa_z) from the exact
+solution of the scaled equation), so F'' at the crossing is -c eta/sqrt(kappa_z); the check prints it and its ratio to the integrated F'' as information. No criterion, threshold or mutation changed. `record/run_02`
+is the run of record (same command, `scripts/run_record.sh WT RAW 2`).
 
 ## What I expect (a prior, not a criterion)
 

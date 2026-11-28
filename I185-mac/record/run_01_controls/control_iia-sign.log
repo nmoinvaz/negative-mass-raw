@@ -1,0 +1,7 @@
+[FAIL] iia_exists: orbits of branch II with Q > 0 started at t = -13.8 (F, P) = (0.5, 1e-3), (0.25, 1e-4), (0.75, 1e-3), walked to t = -4e5: f_inf -0.04741: P T^2 kappa/4 = -5.7364, slope of P^(-1/2) over sqrt(kappa)/2 = nan, c from F over 2 (1 - f^2)/f = -1643963678296266836436410351910606888916032017187691845918732248487795065079287061988500160295097239339008.0000; f_inf -0.00495: P T^2 kappa/4 = -0.9996, slope of P^(-1/2) over sqrt(kappa)/2 = nan, c from F over 2 (1 - f^2)/f = -9933477963192037043212011109630521834877275530424986821204696204842522660457004740622461104553984.0000; f_inf -0.20103: P T^2 kappa/4 = -61.1783, slope of P^(-1/2) over sqrt(kappa)/2 = nan, c from F over 2 (1 - f^2)/f = 271558708262488410744868349717321176365781024656999859591067192992871467875755007865897666226887511622287360.0000; worst deviation from the dominant balance P = 4/(kappa T^2), F - f = c/T is 271558708262488410744868349717321176365781024656999859591067192992871467875755007865897666226887511622287360.0000 (F - f ~ 2 (1 - f^2)/(f |ln eta|): F' ~ 1/(eta ln^2 eta), not C^1)
+    (iia_exists: 0.0 s)
+0 of 1 checks pass in 0 s; failed: ['iia_exists']
+/Users/nathan/Source/negative-mass-i185/notes/warp/conical_eta0.py:489: RuntimeWarning: invalid value encountered in sqrt
+  slr = sl / (np.sqrt(kap) / 2)
+/Users/nathan/Source/negative-mass-i185/notes/warp/conical_eta0.py:488: RuntimeWarning: invalid value encountered in scalar power
+  sl = (sol.sol(tb_)[1] ** -0.5 - sol.sol(ta)[1] ** -0.5) / (ta - tb_)
