@@ -22,3 +22,16 @@ X1–X3, Y1–Y3. Run from this folder: `python3 ind323.py OUTPUT [--mutate=no-s
 
 - `no-sub`: V3's subtraction dropped → K1.
 - `one-eps`: every ε read at 1e-3 → K1.
+
+## Run 1 (2026-11-28)
+
+`ind323_run1.txt`: a parse error before any check (my regular expression read the note's markdown table, not the output's row
+format). Fixed in the parser only; no criterion changed. Run 2 is the first run of the checks.
+
+## Result (run 2)
+
+3 of 3 pass; `no-sub` and `one-eps` fire. Reported, not gated: over the fourteen (no e12) X2 and X3 fall steadily with ε,
++1.77e-4, +1.31e-4, +9.67e-5, +7.35e-5 and +1.44e-4, +1.22e-4, +9.99e-5, +7.78e-5 at 1e-3, 2e-3, 5e-3, 1e-2, while over the
+fifteen they are flat (+2.14e-4 … +1.03e-4 and +1.99e-4 … +1.68e-4). #323's "X's miss does not follow ε" holds for its fit set,
+which includes e12 (the pair at the roundoff floor whose mean carries a first-order mode, #318). X2 and X3 stay beyond 6e-5 at
+every ε under both sets.
