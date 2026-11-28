@@ -1,0 +1,5 @@
+[FAIL] independent: own mpmath integration (25 digits, odefun tol 1e-15, no Rust, no multishoot; shares N and the series with the crate) against the crate's inward state, |dF|, |dF'| <= 1e-9: (1,0) at 4: |dF| 0.0015, |dF'| 0.0013 (118 s); (2,0.5) at 4: |dF| 0.0024, |dF'| 0.0019 (123 s); (0.5,-30) at 10: |dF| 8.2e-5, |dF'| 5.2e-5 (118 s)
+  (359 s)
+
+checks: 0 passed, 1 failed ['independent']. 359 s
+control indep-eq: target checks ['independent'], fired ['independent']
