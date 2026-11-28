@@ -15,3 +15,19 @@ Criteria, written before the first run:
 - K3: at ε = 1e-3 the same code gives #283's P3 residual at W3 (+7.11e-5) and #295's largest (2.15e-6) to 2e-6.
 
 Mutations: `eps-1e-3` (both tests at ε = 1e-3: K1 and K2's sizes change), `no-speed` (c = 0 in the fits: K1, K2).
+
+## Results
+
+| check | verdict | reading (`run_01.log`) |
+|---|---|---|
+| K1 | met | at ε = 1e-2 the nine-point fit (0.2403, 0.0517, 0.4779) predicts #283's six with residuals +4.8e-5, −1.28e-4, −2.0e-5, +4.7e-5, −1.29e-4, −3.2e-5: largest 1.293e-4 |
+| K2 | met | the fifteen-point fit (0.2405, 0.0343, 0.5105) predicts #295's three with +6.7e-5, −9.30e-5, +1.2e-5: largest 9.30e-5 |
+| K3 | met | at ε = 1e-3: #283's W3 +7.108e-5, #295's largest 2.14e-6 |
+
+Mutations: `eps-1e-3` fails K1 and K2; `no-speed` fails all three. The note's subtraction of the second-order mode part (its
+declared variant) was not rechecked here.
+
+## Rerun of the runner's analysis
+
+From a detached worktree at the branch head: `settled_mass_eps.py analyze --part=record` (exit 1, as stored) equals
+`settled_mass_eps_output.txt` apart from the header.
