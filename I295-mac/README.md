@@ -188,3 +188,20 @@ P4 can fail on these data: it newly fires under `coef_a`, `coef_c`, `no_rscale`,
 (two lanes, nice 10, `NUMBA_NUM_THREADS=1`, `scripts/run_one.sh`: pstar, chain, member; logs never overwritten, reruns numbered);
 `python settled_mass_route3.py analyze --raw=RAW [--rn=RAW/runs_rn]`; `scripts/run_muts.sh RAW RAW/mut LANE 2 RAW/analyze_record.log`. Stop condition: a single run not finished in 2 h of wall time is stopped and reported (development: 22 to 82 s).
 A check that fails on the runs of record is reported as not met. Nothing above is changed after the first run of record.
+
+## Changes made after the criteria (stage 2 stands as committed, 6bdd3c69; nothing in the bars, the points, the frozen constants or the declared mutation sets was changed after the first run of record)
+
+1. A post hoc block was added to `settled_mass_route3.py` after the first analysis of record (`analyze_record.1.log`): #283's description of P3's residual (M − P3 = K (r_th − family B's), K = −3.365e-3 from its six points)
+   evaluated on the new members. It gates nothing. The mutation run on the records that was in progress was stopped (my two lane scripts and their two child processes, by PID) and set aside in `mut_aborted_1/`; the analysis of record was rerun
+   (`analyze_record.log`, final; `analyze_record.1.log` is the first, identical but for the block) and all 30 mutations were run again (`mut/`). The code is negative-mass `f058afd`.
+2. `settled_mass_route3_graph.py` and the figure (`settled_mass_route3.svg`) were added; they read the raw folder and gate nothing.
+
+## Results (the runs of record)
+
+- 6 jobs (`jobs_rec.txt`, `rec_lane0.log`, `rec_lane1.log`), all exit 0, 22 to 73 s each, `runs/`; the W3 reproduction (`jobs_rep.txt`, `rep_lane0.log`, `runs_rep/`, exit 0, 83 s); the second realization (`jobs_rn.txt`, `rn_lane0.log`, `runs_rn/`, 3 jobs exit 0, 63 to 75 s).
+  The runs of record equal the development set (`dev/set_a`) bit for bit in every printed number (`diff` of `dev/ana_dev2.log` and `analyze_record.1.log`: the second-realization block only).
+- The analysis of record: `analyze_record.log` (= the repository's `settled_mass_route3_output.txt`), exit 0: **26 checks (1 post hoc), 0 gating checks fail**. P4: M − P4 = −4.8e-07, −2.2e-06, +1.2e-06 (N1, N2, N3; bar 6e-5). SEPW, SEPC, SEPB, HST, REP3 (bit for bit), FRZ, TGT, RH, RC4, RC5, RC8, BR, STL, EVT, FITQ, CFG, FAM0, RUNS and
+  the six planted cases pass.
+- The 30 mutations on the runs of record: `mut/<name>.log` (+ `.err`, `.rc`; `mut_lane*.log` the progress), `--baseline=analyze_record.log` (no check fails): **30 of 30 MATCH their declared sets**.
+- The second realization (`--rn`): p*ₕ differs by at most 4.3e-15, M by +1.8e-07, +1.6e-06, −1.0e-06, M − P4 becomes −3.0e-07, −5.9e-07, +2.0e-07.
+- Figure: `settled_mass_route3.svg`, drawn by `notes/wormhole_evolution/settled_mass_route3_graph.py` of the repository from this folder.
