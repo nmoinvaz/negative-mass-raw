@@ -66,3 +66,25 @@ CHECK CAP5a: PASS  l = 5, gamma = 6000: D (dd) base -8.93608292806e-13, tol -8.9
 CHECK CAP5b: PASS  l = 5, gamma = 6000: E1 = |D(tol 1e-12)/D(base) - 1| = 1.43e-14 (bar 2.1e-04); error bars, printed not gated: E2 (order 24, tol 1e-22 against order 30, 1.2e-30) = 1.42e-24, E3 (f64 lane against dd) = 3.58e-09; crate time per variant (dd, load 19.1, one thread): base 86.0 s, tol 21.6 s, phi 119.5 s, r90 80.0 s, r0 83.5 s
 CHECK CAP5c: FAIL  l = 5, gamma = 6000: E4 = crate D against #114's scipy D (its rtol 1e-12 evaluation finished; I114-win partial file), per variant: base 5.4e-09, tol 3.1e-09, phi 4.7e-08, r90 8.0e-10, r0 4.2e-09 (bar 1e-08 each); scipy's rtol 1e-12 value -8.936082956e-13 against its base -8.936082977e-13
 CHECK CAP5s: FAIL  l = 5, gamma = 6000, the crate's star shot from rs = 1e-3 with scipy's leading-order boundary condition: crate D against #114's scipy D, per variant: base 5.4e-09, tol 3.1e-09, phi 4.7e-08, r90 8.0e-10, r0 4.2e-09 (bar 1e-08 each); printed, not gated: the change of the crate's D from rs = 1e-8 to rs = 1e-3: base 0.0e+00, tol 0.0e+00, phi 0.0e+00, r90 0.0e+00, r0 0.0e+00
+# l = 6: rows from the crate (lane dd, one process, nice 10, load 17.8); setup per l: star 0.0 s, J table 8.9 s
+base (rtol1e-10, phi_cut1e-9, R60)    : r_m=24.11
+rtol 1e-12 [crate: Taylor tol 1e-12]  : r_m=24.11
+phi_cut 1e-12 (larger r_m)            : r_m=34.21
+background R=90                       : r_m=24.11
+r0 = 3e-3                             : r_m=24.11
+
+gamma=   0.001: D_base=-1.542425e-01  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.3e-04  D(r_m~34)=-1.020e-01  q_int=+2.905585e-01 q_ext=-2.490044e-01  (1s)
+gamma=    0.03: D_base=-1.539528e-01  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.3e-04  D(r_m~34)=-1.011e-01  q_int=+2.919994e-01 q_ext=-2.509636e-01  (1s)
+gamma=     0.3: D_base=-1.357544e-01  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.7e-04  D(r_m~34)=-7.480e-02  q_int=+4.131567e-01 q_ext=-3.944958e-01  (1s)
+gamma=       1: D_base=-5.782698e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.0e-04  D(r_m~34)=-2.936e-02  q_int=+1.037030e+00 q_ext=-1.034215e+00  (0s)
+gamma=       3: D_base=-7.051657e-03  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-3.518e-03  q_int=+3.012203e+00 q_ext=-3.011872e+00  (1s)
+gamma=      10: D_base=-2.645347e-04  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-1.315e-04  q_int=+1.000363e+01 q_ext=-1.000360e+01  (1s)
+gamma=      40: D_base=-4.297179e-06  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-2.135e-06  q_int=+4.000091e+01 q_ext=-4.000090e+01  (3s)
+gamma=     137: D_base=-1.072159e-07  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-5.326e-08  q_int=+1.370003e+02 q_ext=-1.370003e+02  (9s)
+gamma=     300: D_base=-1.021258e-08  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-5.073e-09  q_int=+3.000001e+02 q_ext=-3.000001e+02  (19s)
+gamma=   1e+03: D_base=-2.757516e-10  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-1.370e-10  q_int=+1.000000e+03 q_ext=-1.000000e+03  (68s)
+gamma= 1.2e+04: D_base=-1.595791e-13  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-7.927e-14  q_int=+1.200000e+04 q_ext=-1.200000e+04  (962s)  [#114's capped row; the rtol 1e-12 column is the crate's Taylor tol 1e-12]
+CHECK RA6: PASS  l = 6: 87 of 87 tokens of 11 stored rows and the 5 header lines equal as strings; closest rounding boundary of any D/q token: 5.18e-09 relative at (gamma, token) = (137.0, 'D'); crate against scipy's full-precision values (I4-win/I114-win partial files), worst relative per column: base 1.9e-08@12000, rtol 1e-12 2.6e-10@1000, phi_cut 1e-12 5.1e-08@12000, background R=90 5.2e-08@12000, r0 = 3e-3 7.9e-08@12000, q_int 3.8e-08@12000, q_ext 7.2e-12@1000
+CHECK CAP6a: PASS  l = 6, gamma = 12000: D (dd) base -1.59579128004e-13, tol -1.59579128004e-13, phi -7.92691720653e-14, r90 -1.59597214579e-13, r0 -1.59563291452e-13; all five D < 0: True
+CHECK CAP6b: PASS  l = 6, gamma = 12000: E1 = |D(tol 1e-12)/D(base) - 1| = 1.75e-15 (bar 2.1e-04); error bars, printed not gated: E2 (order 24, tol 1e-22 against order 30, 1.2e-30) = 8.81e-25, E3 (f64 lane against dd) = 9.60e-09; crate time per variant (dd, load 23.2, one thread): base 292.0 s, tol 38.7 s, phi 245.1 s, r90 196.0 s, r0 190.7 s
+SUMMARY: 12 passed, 2 failed, 0 skipped of 14 checks; failed: CAP5c, CAP5s; mutate = None; 2670 s

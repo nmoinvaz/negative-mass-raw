@@ -1,0 +1,90 @@
+# 2026-11-27 19:22:09 cwd=/Users/nathan/Source/negative-mass-raw/I192-mac host=Nathans-MacBook-Air-M5-3 load=17.65 21.62 20.60
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python /private/tmp/claude-501/-Users-nathan-Source-negative-mass-i192/49af8a24-a787-474c-b774-7b29bee02e53/scratchpad/trees/libtable/phase2/nonradial/taylor_polar.py --rows --raw=/Users/nathan/Source/negative-mass-raw --jsonl-dir=/Users/nathan/Source/negative-mass-raw/I192-mac/s3_jsonl/libtable_rows
+# binary release/taylor_polar: 40360e5d8d8ea1cf64ea7975b731f34d
+# binary complex/release/taylor_polar: 86c38f8082db23c537ce3354fdc95902
+# taylor_polar.py --rows: start 2026-11-27 19:22:09, load average 17.65, one process, nice 10; mutate = None
+CHECK QP: PASS  planted q_int: dyadic planes with Y[2:] c0 in span S, exact q_int from sympy's rational null space and Fractions, l = 3, r_m = 24.125, M = 1/64: relative error well f64 6.6e-15 (bar 1e-12); well dd 3.6e-31 (bar 1e-28); well qd 2.1e-63 (bar 1e-60); near f64 3.2e-10 (bar 1e-05); near dd 1.8e-26 (bar 1e-20); near qd 1.8e-58 (bar 1e-50)
+CHECK RP: PASS  planted r_m, phi = 0.02 exp(-0.65 r) through the crate's grid rule against numpy's linspace and argmax: (cut 1e-09, R 60, start 0.001) crate i = 8621 r_m = 25.864862143107157, numpy i = 8621 r_m = 25.864862143107157: equal; (cut 1e-12, R 60, start 0.001) crate i = 12163 r_m = 36.491216360818036, numpy i = 12163 r_m = 36.491216360818036: equal; (cut 1e-09, R 90, start 0.001) crate i = 5747 r_m = 25.863505775288765, numpy i = 5747 r_m = 25.863505775288765: equal; (cut 1e-09, R 60, start 0.003) crate i = 8621 r_m = 25.866, numpy i = 8621 r_m = 25.866: equal
+CHECK RM: PASS  r_m of the five variants, the crate's own star against PolarProblem(...).rm on scipy's stars: base: scipy 24.109803640182012, crate 24.109803640182012 (equal; ln(phi/cut) at r_m -1.0e-03, one grid point before 1.1e-03); tol: scipy 24.109803640182012, crate 24.109803640182012 (equal; ln(phi/cut) at r_m -1.0e-03, one grid point before 1.1e-03); phi: scipy 34.205140157007847, crate 34.205140157007847 (equal; ln(phi/cut) at r_m -1.7e-03, one grid point before 3.5e-04); r90: scipy 24.108437521876095, crate 24.108437521876095 (equal; ln(phi/cut) at r_m -7.8e-05, one grid point before 3.0e-03); r0: scipy 24.111000000000001, crate 24.111000000000001 (equal; ln(phi/cut) at r_m -1.8e-03, one grid point before 2.2e-04)
+# l = 2: rows from the crate (lane dd, one process, nice 10, load 49.5); setup per l: star 0.0 s, J table 10.2 s
+base (rtol1e-10, phi_cut1e-9, R60)    : r_m=24.11
+rtol 1e-12 [crate: Taylor tol 1e-12]  : r_m=24.11
+phi_cut 1e-12 (larger r_m)            : r_m=34.21
+background R=90                       : r_m=24.11
+r0 = 3e-3                             : r_m=24.11
+
+gamma=   0.001: D_base=-5.285431e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.1e-04  D(r_m~34)=-3.682e-02  q_int=+1.246227e-01 q_ext=-8.304551e-02  (1s)
+gamma=    0.03: D_base=-4.725315e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.3e-04  D(r_m~34)=-3.002e-02  q_int=+1.276885e-01 q_ext=-8.960148e-02  (1s)
+gamma=     0.3: D_base=-1.675353e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-8.452e-03  q_int=+3.194236e-01 q_ext=-3.149493e-01  (1s)
+gamma=       1: D_base=-6.002203e-03  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-2.990e-03  q_int=+1.005387e+00 q_ext=-1.004959e+00  (0s)
+gamma=       3: D_base=-7.099033e-04  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-3.529e-04  q_int=+3.001748e+00 q_ext=-3.001701e+00  (1s)
+gamma=      10: D_base=-2.645574e-05  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-1.315e-05  q_int=+1.000052e+01 q_ext=-1.000052e+01  (1s)
+gamma=      40: D_base=-4.293922e-07  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-2.133e-07  q_int=+4.000013e+01 q_ext=-4.000013e+01  (3s)
+gamma=     137: D_base=-1.071289e-08  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-5.323e-09  q_int=+1.370000e+02 q_ext=-1.370000e+02  (14s)
+gamma=     300: D_base=-1.020425e-09  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-5.070e-10  q_int=+3.000000e+02 q_ext=-3.000000e+02  (34s)  [no stored row]
+CHECK RA2: PASS  l = 2: 66 of 66 tokens of 8 stored rows and the 5 header lines equal as strings (1 extra row, not compared); closest rounding boundary of any D/q token: 8.25e-10 relative at (gamma, token) = (0.001, 'q_ext')
+CHECK RX: PASS  l = 2, gamma = 300 (no stored row): crate D_base -1.0204252e-09 against #186's fresh scipy D -1.0204252e-09 (I186-mac/scipy_timing.jsonl), 8-digit tokens equal as strings
+# l = 4: rows from the crate (lane dd, one process, nice 10, load 17.4); setup per l: star 0.0 s, J table 14.4 s
+base (rtol1e-10, phi_cut1e-9, R60)    : r_m=24.11
+rtol 1e-12 [crate: Taylor tol 1e-12]  : r_m=24.11
+phi_cut 1e-12 (larger r_m)            : r_m=34.21
+background R=90                       : r_m=24.11
+r0 = 3e-3                             : r_m=24.11
+
+gamma=   0.001: D_base=-9.992981e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.2e-04  D(r_m~34)=-6.802e-02  q_int=+2.075665e-01 q_ext=-1.660097e-01  (1s)
+gamma=    0.03: D_base=-9.873926e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.2e-04  D(r_m~34)=-6.604e-02  q_int=+2.095278e-01 q_ext=-1.690605e-01  (1s)
+gamma=     0.3: D_base=-6.862112e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.9e-04  D(r_m~34)=-3.612e-02  q_int=+3.594457e-01 q_ext=-3.477130e-01  (1s)
+gamma=       1: D_base=-2.663217e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-1.337e-02  q_int=+1.017819e+00 q_ext=-1.016428e+00  (1s)
+gamma=       3: D_base=-3.187563e-03  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-1.587e-03  q_int=+3.005818e+00 q_ext=-3.005660e+00  (1s)
+gamma=      10: D_base=-1.190933e-04  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-5.917e-05  q_int=+1.000173e+01 q_ext=-1.000172e+01  (1s)
+gamma=      40: D_base=-1.933586e-06  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-9.605e-07  q_int=+4.000043e+01 q_ext=-4.000043e+01  (4s)
+gamma=     137: D_base=-4.824198e-08  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-2.396e-08  q_int=+1.370001e+02 q_ext=-1.370001e+02  (14s)
+gamma=     300: D_base=-4.595154e-09  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-2.283e-09  q_int=+3.000001e+02 q_ext=-3.000001e+02  (27s)
+gamma=   1e+03: D_base=-1.240745e-10  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-6.163e-11  q_int=+1.000000e+03 q_ext=-1.000000e+03  (96s)
+gamma=   3e+03: D_base=-4.595367e-12  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-2.283e-12  q_int=+3.000000e+03 q_ext=-3.000000e+03  (323s)
+CHECK RA4: PASS  l = 4: 87 of 87 tokens of 11 stored rows and the 5 header lines equal as strings; closest rounding boundary of any D/q token: 6.20e-09 relative at (gamma, token) = (3.0, 'q_ext'); crate against scipy's full-precision values (I4-win/I114-win partial files), worst relative per column: base 2.1e-09@1000, rtol 1e-12 2.6e-09@3000, phi_cut 1e-12 4.8e-08@3000, background R=90 2.1e-09@3000, r0 = 3e-3 1.4e-08@3000, q_int 4.1e-09@1000, q_ext 3.2e-12@300
+# l = 5: rows from the crate (lane dd, one process, nice 10, load 13.0); setup per l: star 0.0 s, J table 14.6 s
+base (rtol1e-10, phi_cut1e-9, R60)    : r_m=24.11
+rtol 1e-12 [crate: Taylor tol 1e-12]  : r_m=24.11
+phi_cut 1e-12 (larger r_m)            : r_m=34.21
+background R=90                       : r_m=24.11
+r0 = 3e-3                             : r_m=24.11
+
+gamma=   0.001: D_base=-1.260632e-01  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.3e-04  D(r_m~34)=-8.459e-02  q_int=+2.490611e-01 q_ext=-2.075060e-01  (1s)
+gamma=    0.03: D_base=-1.254361e-01  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.3e-04  D(r_m~34)=-8.332e-02  q_int=+2.507224e-01 q_ext=-2.098937e-01  (1s)
+gamma=     0.3: D_base=-1.008582e-01  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.8e-04  D(r_m~34)=-5.434e-02  q_int=+3.849571e-01 q_ext=-3.696096e-01  (1s)
+gamma=       1: D_base=-4.099485e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-2.068e-02  q_int=+1.026600e+00 q_ext=-1.024549e+00  (1s)
+gamma=       3: D_base=-4.948444e-03  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-2.466e-03  q_int=+3.008722e+00 q_ext=-3.008485e+00  (1s)
+gamma=      10: D_base=-1.852232e-04  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-9.204e-05  q_int=+1.000259e+01 q_ext=-1.000257e+01  (2s)
+gamma=      40: D_base=-3.007967e-06  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-1.494e-06  q_int=+4.000065e+01 q_ext=-4.000065e+01  (4s)
+gamma=     137: D_base=-7.504837e-08  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-3.728e-08  q_int=+1.370002e+02 q_ext=-1.370002e+02  (15s)
+gamma=     300: D_base=-7.148531e-09  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-3.551e-09  q_int=+3.000001e+02 q_ext=-3.000001e+02  (32s)
+gamma=   1e+03: D_base=-1.930186e-10  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-9.588e-11  q_int=+1.000000e+03 q_ext=-1.000000e+03  (103s)
+gamma=   6e+03: D_base=-8.936083e-13  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-4.439e-13  q_int=+6.000000e+03 q_ext=-6.000000e+03  (558s)  [#114's capped row; the rtol 1e-12 column is the crate's Taylor tol 1e-12]
+CHECK RA5: PASS  l = 5: 87 of 87 tokens of 11 stored rows and the 5 header lines equal as strings; closest rounding boundary of any D/q token: 1.46e-09 relative at (gamma, token) = (0.001, 'q_int'); crate against scipy's full-precision values (I4-win/I114-win partial files), worst relative per column: base 5.4e-09@6000, rtol 1e-12 3.1e-09@6000, phi_cut 1e-12 4.7e-08@6000, background R=90 8.0e-10@6000, r0 = 3e-3 4.2e-09@6000, q_int 1.1e-08@6000, q_ext 1.5e-12@137
+CHECK CAP5a: PASS  l = 5, gamma = 6000: D (dd) base -8.93608292806e-13, tol -8.93608292806e-13, phi -4.43895159701e-13, r90 -8.93709571709e-13, r0 -8.93519613293e-13; all five D < 0: True
+CHECK CAP5b: PASS  l = 5, gamma = 6000: E1 = |D(tol 1e-12)/D(base) - 1| = 1.43e-14 (bar 2.1e-04); error bars, printed not gated: E2 (order 24, tol 1e-22 against order 30, 1.2e-30) = 1.32e-24, E3 (f64 lane against dd) = 1.53e-09; crate time per variant (dd, load 10.2, one thread): base 125.3 s, tol 32.3 s, phi 179.6 s, r90 120.3 s, r0 100.1 s
+CHECK CAP5c: FAIL  l = 5, gamma = 6000: E4 = crate D against #114's scipy D (its rtol 1e-12 evaluation finished; I114-win partial file), per variant: base 5.4e-09, tol 3.1e-09, phi 4.7e-08, r90 8.0e-10, r0 4.2e-09 (bar 1e-08 each); scipy's rtol 1e-12 value -8.936082956e-13 against its base -8.936082977e-13
+CHECK CAP5s: FAIL  l = 5, gamma = 6000, the crate's star shot from rs = 1e-3 with scipy's leading-order boundary condition: crate D against #114's scipy D, per variant: base 5.4e-09, tol 3.1e-09, phi 4.7e-08, r90 8.0e-10, r0 4.2e-09 (bar 1e-08 each); printed, not gated: the change of the crate's D from rs = 1e-8 to rs = 1e-3: base 0.0e+00, tol 0.0e+00, phi 0.0e+00, r90 0.0e+00, r0 0.0e+00
+# l = 6: rows from the crate (lane dd, one process, nice 10, load 8.0); setup per l: star 0.0 s, J table 9.9 s
+base (rtol1e-10, phi_cut1e-9, R60)    : r_m=24.11
+rtol 1e-12 [crate: Taylor tol 1e-12]  : r_m=24.11
+phi_cut 1e-12 (larger r_m)            : r_m=34.21
+background R=90                       : r_m=24.11
+r0 = 3e-3                             : r_m=24.11
+
+gamma=   0.001: D_base=-1.542425e-01  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.3e-04  D(r_m~34)=-1.020e-01  q_int=+2.905585e-01 q_ext=-2.490044e-01  (1s)
+gamma=    0.03: D_base=-1.539528e-01  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.3e-04  D(r_m~34)=-1.011e-01  q_int=+2.919994e-01 q_ext=-2.509636e-01  (1s)
+gamma=     0.3: D_base=-1.357544e-01  signs=[np.float64(-1.0)]  rel.spread (same r_m)=1.7e-04  D(r_m~34)=-7.480e-02  q_int=+4.131567e-01 q_ext=-3.944958e-01  (1s)
+gamma=       1: D_base=-5.782698e-02  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.0e-04  D(r_m~34)=-2.936e-02  q_int=+1.037030e+00 q_ext=-1.034215e+00  (1s)
+gamma=       3: D_base=-7.051657e-03  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-3.518e-03  q_int=+3.012203e+00 q_ext=-3.011872e+00  (1s)
+gamma=      10: D_base=-2.645347e-04  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-1.315e-04  q_int=+1.000363e+01 q_ext=-1.000360e+01  (1s)
+gamma=      40: D_base=-4.297179e-06  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-2.135e-06  q_int=+4.000091e+01 q_ext=-4.000090e+01  (4s)
+gamma=     137: D_base=-1.072159e-07  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-5.326e-08  q_int=+1.370003e+02 q_ext=-1.370003e+02  (12s)
+gamma=     300: D_base=-1.021258e-08  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-5.073e-09  q_int=+3.000001e+02 q_ext=-3.000001e+02  (24s)
+gamma=   1e+03: D_base=-2.757516e-10  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-1.370e-10  q_int=+1.000000e+03 q_ext=-1.000000e+03  (82s)
+gamma= 1.2e+04: D_base=-1.595791e-13  signs=[np.float64(-1.0)]  rel.spread (same r_m)=2.1e-04  D(r_m~34)=-7.927e-14  q_int=+1.200000e+04 q_ext=-1.200000e+04  (641s)  [#114's capped row; the rtol 1e-12 column is the crate's Taylor tol 1e-12]
+CHECK RA6: PASS  l = 6: 87 of 87 tokens of 11 stored rows and the 5 header lines equal as strings; closest rounding boundary of any D/q token: 5.18e-09 relative at (gamma, token) = (137.0, 'D'); crate against scipy's full-precision values (I4-win/I114-win partial files), worst relative per column: base 1.9e-08@12000, rtol 1e-12 2.6e-10@1000, phi_cut 1e-12 5.1e-08@12000, background R=90 5.2e-08@12000, r0 = 3e-3 7.9e-08@12000, q_int 3.8e-08@12000, q_ext 7.2e-12@1000
+CHECK CAP6a: PASS  l = 6, gamma = 12000: D (dd) base -1.59579128004e-13, tol -1.59579128004e-13, phi -7.92691720653e-14, r90 -1.59597214579e-13, r0 -1.59563291452e-13; all five D < 0: True
+CHECK CAP6b: PASS  l = 6, gamma = 12000: E1 = |D(tol 1e-12)/D(base) - 1| = 1.75e-15 (bar 2.1e-04); error bars, printed not gated: E2 (order 24, tol 1e-22 against order 30, 1.2e-30) = 2.44e-26, E3 (f64 lane against dd) = 6.90e-09; crate time per variant (dd, load 7.4, one thread): base 203.4 s, tol 41.0 s, phi 155.4 s, r90 109.0 s, r0 131.7 s
+SUMMARY: 12 passed, 2 failed, 0 skipped of 14 checks; failed: CAP5c, CAP5s; mutate = None; 2798 s
