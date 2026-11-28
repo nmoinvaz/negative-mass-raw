@@ -61,16 +61,25 @@ Bars from the issue are marked I. Bars of this runner's own checks were set from
 | T8 | exact mode through the Kruskal solver: error/scale at h = 0.00125 and last ratio; c1 of the fit, δr(S), the functional c1 = δr − V0 c2 (V0 = 0.5, 1), Θ_gen(s), δM of the cuts, |c2| | ≤ 1e-3 (d1 gave 5e-4; the error grows with V and is largest at V = 3, U = 0.05) and 4.0 ± 0.3; ≤ 1e-6 relative; |c2| ≤ 1e-6 c1 | I (3) |
 | T9 | #232's solver: c1 functional at p0 = 0.5, 1, 2, 4, 6 against the horizon fit (A0, A1R, A1L); |c1| for L, R | ≤ 1e-6 relative to |c1|; ≤ 1e-9 | I (2) |
 | T10 | first law along the exact family at finite L (mpmath, 40 digits): dM/dL = κ_ξ (dA/dL)/(8π), A = 4π L R(ρ_h)², κ_ξ = √L A'(ρ_h)/2, L = 0.5 … 4 | ratio = 1 to 1e-12 | I (3) |
+| T11 | c1 from one point: #232's corner (p, σ) = (0, 0) is (V, U) = (1, −1), on V + U = 0, so c1 = −Θ_gen(s = 1) = −(a δr + μ δr') with δr = a0 and δr' = a1R/b − a1L tanh(bσ*)/b (closed form) against the horizon fit of #232's solver (h = 0.005, 0.0025 Richardson), classes A0, A1R, A1L; L, R | ≤ 1e-6 relative; closed form 0 to 1e-12 and fit to 1e-9 for L, R | I (2) |
 
 Printed, not criteria: the slice functional of the Kruskal solver at V0 = 0.5, 1 for A0, A1R, A1L (T6 line). Its error is V0 Δc2, and for A1R, where c2/c1 = 20, d3 gave 1.2e-6 relative to c1;
 it was added as a criterion in a first draft of T6 and removed before the runs of record because the issue asks for the functional on #232's solutions (T9), not on #248's.
 
 The issue's "Θ = 0 to 1e-12" for a class with c1 = 0 is T5 (compact datum, ODE path) and T7 (evolved L, G, R, which d3 gave at 2e-13, 3e-13, 3e-13 after Richardson; #248's c1 of G, −4.8e-12, is a horizon-fit value).
 
+## Addendum before run 2: T11, and why `run1/` is not the run of record
+
+Run 1 (`run1/`, code commit 5d0a28b) was started after the criteria above. Its `derive` (4 of 4), `check` (10 of 10) and `table` completed, and 4 of the 16 mutation runs (`s_q`, `s_pot`, `th_noF`, `th_nophi`); it was stopped there. While reading the table
+of run 1 I found that #232's corner (p, σ) = (0, 0) lies on the slice V + U = 0 (V = e^0 = 1, U = −Q(0) = −1, s = 1), so for the corner-constant classes c1 is Θ_gen at one point, in closed form: c1(A0) = (R A'/(2κ))|_{ρ=1} a0 =
+√2 (1 − π/4) a0 and c1(A1L) = −c1(A1R) = a/κ (the "observed" ±(π/2) a of the first draft of the note). That is the single-point functional the issue asks for, and T11 tests it. It was declared here, with its two mutations `cor_noa0`,
+`cor_dU`, and run in a clean development run `d6_clean` (11 of 11 pass) before run 2. No bar of T1–T10 changed. Run 2 (`runs/`) is the run of record; the lines of `check.log` for T1–T10 in the two runs are compared in `runs/INFO.txt`.
+Run 1's mutation stream C also failed to start (a relative path in `run_mut.sh`; no logs written), which is why `run_mut.sh` is now called with absolute paths.
+
 ## Mutations
 
-`static_c1.py check|derive --mutate=NAME`. Each is a change of the code under test. The declared fired sets and the effects were computed in the development runs `d4` (all 16) and `d5` (`dm_noT`, `s_q`, `s_pot`
-again, after the fixes named below), logs `dev/logs/d4_mut_*.log`, `d5_mut_*.log`, before the runs of record. In the runs of record the fired sets must equal these (`static_c1.py mutations`).
+`static_c1.py check|derive --mutate=NAME`. Each is a change of the code under test. The declared fired sets and the effects were computed in the development runs `d4` (16 mutations), `d5` (`dm_noT`, `s_q`, `s_pot`
+again, after the fixes named below) and `d6` (`cor_noa0`, `cor_dU`, `th_asign` after T11 was added), logs `dev/logs/d4_mut_*.log`, `d5_mut_*.log`, `d6_mut_*.log`, before the runs of record. In the runs of record the fired sets must equal these (`static_c1.py mutations`).
 
 | name | change | target | declared fired set | effect in the development run |
 |---|---|---|---|---|
@@ -78,7 +87,7 @@ again, after the fixes named below), logs `dev/logs/d4_mut_*.log`, `d5_mut_*.log
 | s_pot | V + 1/R² in S1 and S4; K = −2c/π + c² in S3 | S1, S3, S4 | S1 S3 S4 | residuals ≠ 0, d(V/c)/dc ≠ 0 |
 | th_noF | drop μ s r_Π δF from Θ_gen | T3 | T3 T4 T6 T7 T8 | T3 9.8e-1 and 9.7e-1 of the largest term; T4 Θ 4.7e1; T6 Θ 1.2, 2.7, 4.7e-1; T7 Θ 6.6e-6, 1.6e-4; T8 Θ 2.6 |
 | th_nophi | drop c δφ | T3 | T3 T4 T5 T6 T7 T8 | T3 6.1e-1, 2.9e-1; T4 8.5e-1; T5 \|Θ\| 3.1e-4 (the compact datum, where δF = 0); T6 2.8e-1 …; T7 9.7e-5 … |
-| th_asign | a → −a in Θ_gen | T3 | T3 T4 T5 T6 T7 T8 | T3 6.0e-1, 1.5; T4 2.0; T5 2.5e-4; T6 3.9, 8.6, 2.7 |
+| th_asign | a → −a in Θ_gen | T3 | T3 T4 T5 T6 T7 T8 T11 | T3 6.0e-1, 1.5; T4 2.0; T5 2.5e-4; T6 3.9, 8.6, 2.7; T11 A0 2.0 |
 | dm_noT | drop the −ρ δr_x term of δm (ρ-form) and the (δF, δr′) group of the s-form | T2, T4 | T2 T4 T5 T6 T8 | T2 δm 4.1; T4 δm 4.9e-1, cuts 1.0; T5 δm(1e8) −3.3e-12 against κ c₁ = 1.0e-4; T6 δM 1.0 |
 | kappa_off | κ → 1.01 κ in κ c₁ | T4 | T4 T5 T6 | T4 1.0e-2, cuts 9.9e-3; T5 1.0e-2; T6 δM 9.9e-3 |
 | jump_off | no jump of δr′ at the cut | T4, T6 | T4 T6 T8 | T4 cuts 2.3e1; T6 δM 1.5, 3.0; T8 δM 3.1 |
@@ -90,6 +99,8 @@ again, after the fixes named below), logs `dev/logs/d4_mut_*.log`, `d5_mut_*.log
 | fn_c1_aT | c₂ = tangential half | T9 | T8 T9 | T9 1.8e-5 … 0.38; T8 functional 3.9 |
 | fn_c1_sign | c₁ = δr + V₀ c₂ | T9 | T9 | T9 9.9 … 1.4e3 |
 | law_norm | κ_ξ without √L | T10 | T10 | ratios 1.414, 1.054, 1.000, 0.816, 0.707, 0.500 |
+| cor_noa0 | drop the a δr term at the corner | T11 | T11 | A0: closed form 0 against the fit 3.03e-4 (relative 1.0) |
+| cor_dU | δr' = δr_V + δr_U at the corner | T11 | T11 | A1L: closed form −1.57e-3 against +1.57e-3 (relative 2.0) |
 
 Known blind spots, kept: `fn_c1_noV` and `fn_c1_sign` do not fire T8 because c₂ = 0 for the exact mode, so the V₀ term of the functional is not tested there (T9 tests it, where c₂ ≠ 0). `th_noF` does not fire T5
 (δF = 0 on the compact datum) and `jump_off` does not fire T5 (no sources at the cut).

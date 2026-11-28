@@ -1,0 +1,23 @@
+  case            k0          k1          k2          Richardson   order
+  D5 G 1e-6    0.2346528   0.2349142   0.2349776   0.2349987    2.04
+  D5 G 1e-8    0.2635075   0.2638433   0.2639237   0.2639505    2.06
+  D5 S 1e-6    0.1457688   0.1458413   0.1458602   0.1458666    1.94
+  D5 S 1e-8    0.1457497   0.1458382   0.1458588   0.1458657    2.10
+  D6 G 1e-6    0.5598685   0.5660106   0.5674475   0.5679265    2.10
+  D6 G 1e-8    0.8511840   0.8601328   0.8621797   0.8628620    2.13
+  D6 S 1e-6    0.1062150   0.1075046   0.1078164   0.1079203    2.05
+  D6 S 1e-8    0.1058288   0.1074111   0.1077921   0.1079191    2.05
+[PASS] K1: finest-h plateaus against the note's six: worst 8.9e-07 (bar 2e-6)
+[PASS] K2: Richardson against the note's four: worst 8.8e-07 (bar 5e-6); S orders 2.10, 2.05
+[PASS] K3: E/E_throat = 0.2917 (D = 5), 0.2158 (D = 6); the note: 0.2917, 0.2158
+  prefix D5_S_k0_d1e-8_K20: 862 of 1158 cells, bit-identical True
+  prefix D5_S_k0_d1e-8_K24: 1010 of 1158 cells, bit-identical True
+  prefix D5_G_k0_d1e-8_K20: 1152 of 1563 cells, bit-identical True
+  prefix D5_G_k0_d1e-8_K24: 1357 of 1563 cells, bit-identical True
+  prefix D6_S_k0_d1e-8_K20: 917 of 1227 cells, bit-identical True
+  prefix D6_S_k0_d1e-8_K24: 1072 of 1227 cells, bit-identical True
+  prefix D6_G_k0_d1e-8_K20: 1710 of 2347 cells, bit-identical True
+  prefix D6_G_k0_d1e-8_K24: 2028 of 2347 cells, bit-identical True
+[PASS] K4: 8 of 8 prefix series bit-identical
+
+4 criteria, 4 pass; failed: []; mutation last-half

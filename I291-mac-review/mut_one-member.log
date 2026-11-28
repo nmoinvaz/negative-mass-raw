@@ -1,0 +1,7 @@
+  h = 0.01: t up to 25.87; window [15, 18.15] (64 samples); slope -2.3566; rate x t at 10, 13, 16 = 2.129, 2.225, 2.325; v(15) -4.672e-05
+  h = 0.005: t up to 25.84; window [15, 18.15] (64 samples); slope -2.0827; rate x t at 10, 13, 16 = 2.131, 2.226, 2.246; v(15) -4.672e-05
+[FAIL] K1: slope against the note's -2.413, -2.304: worst 0.221 (bar 0.05)
+[FAIL] K2: rate x t worst 0.074 from 2.11, 2.23, 2.32 (bar 0.05); spread over the mean 8.8% (bar 23.1 %)
+[PASS] K3: S1 with this estimator: h = 0.01: -2.357 met, h = 0.005: -2.083 not met (reported, not gated)
+
+3 criteria, 1 pass; failed: ['K1', 'K2']; mutation one-member

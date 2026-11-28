@@ -56,9 +56,9 @@ for lab, D, fam, s, h, n in curves:
         legend.append((f"D = {D}", dg.SERIES[slots[D]]))
 dg.legend(svg, px + pw - 4, py + ph - 14, legend + [("dashed: G", dg.INK_SOFT)])
 bot = py + ph + 70
-top2 = dg.caption(svg, 16, bot, "Settled E/E_throat against D", "plateau mean over the last 1.0 of x+, finest h; the bars are the finest-pair h difference (G at delta = 1e-8, 1e-6 shown separately)")
+top2 = dg.caption(svg, 16, bot, "Settled E/E_throat against D", "plateau mean over the last 1.0 of x+, finest h (finest-pair h difference of M: 2e-5, 8e-5, 4e-4, 2e-3 for D = 5 S, 5 G, 6 S, 6 G)")
 px2, py2, pw2, ph2 = 76, top2, 640, 220
-xm2, ym2 = dg.axes(svg, px2, py2, pw2, ph2, (3.6, 6.4), (0.1, 2.0, "log"), "dimension D", "settled E/E_throat = 2 M", xfmt=lambda v: f"{v:g}" if abs(v - round(v)) < 1e-9 else "", yfmt=lambda v: f"{v:g}")
+xm2, ym2 = dg.axes(svg, px2, py2, pw2, ph2, (3.6, 6.4), (0.1, 4.0, "log"), "dimension D", "settled E/E_throat = 2 M", xfmt=lambda v: f"{v:g}" if abs(v - round(v)) < 1e-9 else "", yfmt=lambda v: f"{v:g}")
 svg.line(px2, ym2(1.0), px2 + pw2, ym2(1.0), dg.INK_SOFT, 1)
 print(f"\n{'D':>2s} {'S':>9s} {'G 1e-8':>9s} {'G 1e-6':>9s}   (plateau 2M, finest h)")
 vals = {}
@@ -77,10 +77,10 @@ for D in (4, 5, 6):
     dg.marker(svg, "circle", xm2(D - 0.06), ym2(S_), dg.SERIES[0], f"D = {D} S: 2M = {S_:.4f}")
     dg.marker(svg, "square", xm2(D), ym2(G8), dg.SERIES[1], f"D = {D} G, delta = 1e-8: 2M = {G8:.4f}")
     dg.marker(svg, "diamond", xm2(D + 0.06), ym2(G6), dg.SERIES[2], f"D = {D} G, delta = 1e-6: 2M = {G6:.4f}")
-dg.legend(svg, px2 + pw2 - 4, py2 + 14, [("S", dg.SERIES[0]), ("G, delta = 1e-8", dg.SERIES[1]), ("G, delta = 1e-6", dg.SERIES[2])])
-dg.callout(svg, xm2(6.0), ym2(vals[6][1]), f"D = 6 G: {vals[6][1]:.2f} (1e-8), {vals[6][2]:.2f} (1e-6)", dx=-150, dy=-40)
+dg.legend(svg, px2 + 330, py2 + 14, [("S", dg.SERIES[0]), ("G, delta = 1e-8", dg.SERIES[1]), ("G, delta = 1e-6", dg.SERIES[2])])
+dg.callout(svg, xm2(6.0), ym2(vals[6][1]), f"D = 6 G: {vals[6][1]:.2f} (1e-8), {vals[6][2]:.2f} (1e-6)", dx=-24, dy=-34)
 height = dg.footnote(svg, ["settled_mass_d56.py (this branch), settled_mass.py (#41), settled_mass_g.py (#253)", "numba 0.68.1", "negative-mass-raw I246-dh610, I41-rpi5, I253-rpi5"], dg.host_specs(),
-                     ["shared machine (dh610, load average 10 to 22 of 20)"], py2 + ph2 + 40, repo_url="https://github.com/nmoinvaz/negative-mass")
+                     ["shared machine (dh610, load average up to 22 of 20)"], py2 + ph2 + 40, repo_url="https://github.com/nmoinvaz/negative-mass")
 os.makedirs(os.path.join(RAW, "figures"), exist_ok=True)
 out = os.path.join(RAW, "figures", "settled_mass_d56.svg")
 open(out, "w").write(svg.finish(height))

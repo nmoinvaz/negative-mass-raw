@@ -1,0 +1,143 @@
+settled_mass_d56.py analyze {'raw': '/home/nathan/Source/negative-mass-raw/I246-dh610', 'cases': '5S', 'skip': 'pl41,pfx', 'mutate': 'interp_shift'}: numba 0.68.1, numpy 2.5.4, python 3.14.10, dh610-fedora, load average at start 18.05 19.29 16.53, mutation interp_shift, 2026-11-27 22:58:19
+
+== Declared chain (#41's constants), the exact planted solution, and the planted cases
+[pass] CFG: the chain constants of this driver equal the declared (#41's) and #40's rectangles X of S and G at D = 5, 6 equal the declared  (F1 1.5, K 28, W1 2.4, dxp 14.0, dm 3.0; X {('S', 3): 18.0, ('S', 4): 15.0, ('G', 3): 22.0, ('G', 4): 28.0})
+[pass] FLX: general-n first-law integrand on planted series: ghost only (r^n/n) e^f r_-, normal only the opposite sign, equal fluxes 0 (n = 3, 4)  (errors 0.0e+00, 0.0e+00, 0.0e+00, 0.0e+00, 0.0e+00, 0.0e+00)
+[pass] PT0: the planted exact Tangherlini (closed form, n = 3, 4) equals dn.kruskal_exact's r and f at 400 points (r in [0.4, 5.9]); on the horizon of the stretching gauge r = lam and e^{-f} = e^{kp (x+ - xs)}  (max |r|, |f| difference 1.4e-13; horizon 0.0e+00 (bar 1e-09))
+    PT1 D = 5, S-like (lam 0.54, kp 2.7) h = 0.0141421: status limit, columns 733, F to 4e+08, max |M - 0.14580| 3.143e-03, max |x- - x_h| 2.86e-03
+    PT1 D = 5, S-like (lam 0.54, kp 2.7) h = 0.00707107: status limit, columns 1468, F to 3.964e+08, max |M - 0.14580| 2.903e-03, max |x- - x_h| 1.37e-03
+    PT1 D = 5, S-like (lam 0.54, kp 2.7) h = 0.00353553: status limit, columns 2935, F to 4.006e+08, max |M - 0.14580| 2.594e-03, max |x- - x_h| 6.74e-04
+    PT1 D = 5, S-like (lam 0.54, kp 2.7) h = 0.00176777: status limit, columns 5860, F to 4.025e+08, max |M - 0.14580| 1.266e-03, max |x- - x_h| 3.34e-04
+[FAIL] PT1-5S: exact Tangherlini D = 5 (S-like, lam 0.54, kp 2.7) through the chain: M recovered, second order, limit reached  (max |M - M_exact| at h = 0.00176777: 1.27e-03 (bar 4.4e-05); errors ['3.14e-03', '2.90e-03', '2.59e-03', '1.27e-03']; orders [0.115, 0.162, 1.035] in (1.75, 2.25); status ['limit', 'limit', 'limit', 'limit']; F reached [400004737, 396400815, 400623274, 402538968])
+[pass] CONV: the conversion E = (D - 2) V_{D-2} M (kappa^2 = 1, unit-ball volumes) gives the static throat (M = 1/2) E = pi, 2 pi, pi^2 = [ST17]'s E_f/a_0 = 3.14, 6.28, 9.87 to their digits, D = 4, 5, 6  (D = 4: 3.1416 against 3.14; D = 5: 6.2832 against 6.28; D = 6: 9.8696 against 9.87)
+[pass] A4P: [ST17]'s printed A_4 = pi^2/Omega^4 gives E_throat = 2 pi^2 = 19.74 at n = 6, twice the table's 9.87 (a discrepancy inside the paper)  (E_throat from the printed A_4: 19.7392; table 9.87; ratio 1.9999)
+[pass] CMPT: the comparison on planted offsets: half the bar is 'equal', three times the bar is 'differs' (the comparison can fail)  (planted bar 8.00e-05)
+[pass] L0ID-5S: D = 5, family S: level 0 of the chain equals dn.evolve bit for bit (nodes, dead flags) and finds the same first trapped cell  (h = 0.00707107, delta = 1e-6: nodes equal True, dead equal True, events (796, 796) and (796, 796))
+
+== D = 5, family S: p*_h, runs and checks
+[pass] RC1-5S: D = 5, S: p*_h (#40's, or bisected here for G at D = 6, h = 0.00125) with hi - lo <= 1e-11, h as the job takes it, fate(p*_h -/+ 1e-10) = collapse/expansion on this machine  (k=0 h=0.00707107: hi-lo 9.1e-15, fates [-1, 1]; k=1 h=0.00353553: hi-lo 9.1e-15, fates [-1, 1]; k=2 h=0.00176777: hi-lo 9.1e-15, fates [-1, 1])
+[pass] RC2-5S: D = 5, S: fates at p*_h -/+ delta (all h, both delta); first trapped cell and its time against #40's at delta = 1e-8 (where #40 has the job)  (events {0: [1062, 1062], 1: [2125, 2125], 2: [4251, 4251]} against #40's {0: [1062, 1062], 1: [2125, 2125], 2: [4251, 4251]})
+[pass] RC3-5S: D = 5, S: M_AH at the first trapped cell against #40's formation value at p*_h - 1e-8  (|dM| 1.5e-04, 1.5e-04, 1.4e-04 (bar 0.002); M_AH [0.49168, 0.49199, 0.49205], #40 [0.49153, 0.49184, 0.49191])
+[pass] RC4-5S: D = 5, S: first law on the horizon, both fields: M(x+_b) - M(x+_a) = integral of (r^n/n) e^f r_- (phi0_+^2 - phi1_+^2) along it, first trapped cell to F = 20  (max relative difference 5.14e-03 over all runs (bar 0.02))
+    k=0,d=1e-06: dM -3.2988e-01, flux -3.3060e-01
+    k=1,d=1e-06: dM -3.3069e-01, flux -3.3100e-01
+    k=2,d=1e-06: dM -3.3132e-01, flux -3.3153e-01
+    k=0,d=1e-08: dM -3.3025e-01, flux -3.3195e-01
+    k=1,d=1e-08: dM -3.3065e-01, flux -3.3153e-01
+    k=2,d=1e-08: dM -3.3114e-01, flux -3.3170e-01
+[pass] RC5-5S: D = 5, S, limit e^-f = 4.03e+08 (K = 28): every run ends at the limit (e^-f on the horizon, 2.013e+08 <= F_end < 4.027e+08), horizon at least Nc/8 cells from the box edges, no gaps  (k=0,d=1e-06: F_end 3.99e+08, edge 291/680; k=1,d=1e-06: F_end 4.03e+08, edge 578/1356; k=2,d=1e-06: F_end 4.02e+08, edge 1159/2716; k=0,d=1e-08: F_end 4.02e+08, edge 292/680; k=1,d=1e-08: F_end 4.01e+08, edge 578/1356; k=2,d=1e-08: F_end 4.01e+08, edge 1159/2716)
+
+== D = 5, S, limit e^-f = 4.03e+08 (K = 28): second-order convergence of M_AH(x+): max |M_h - M_h/2| over windows of x+ - x+_f (cubic splines), h = (0.0070710678118654745, 0.0035355339059327372, 0.0017677669529663686)
+    RC6 D = 5, S, delta = 1e-06, x+ - x+_f in [0, 1.5]: E12 7.37e-04, E23 1.94e-04, order 1.92 ok
+    RC6 D = 5, S, delta = 1e-06, x+ - x+_f in [1.5, 3]: E12 1.68e-03, E23 9.95e-04, order 0.75 OUT
+    RC6 D = 5, S, delta = 1e-06, x+ - x+_f in [3, 99]: E12 1.70e-03, E23 6.68e-04, order 1.35 OUT
+    RC6 D = 5, S, delta = 1e-08, x+ - x+_f in [0, 1.5]: E12 9.51e-04, E23 2.47e-04, order 1.94 ok
+    RC6 D = 5, S, delta = 1e-08, x+ - x+_f in [1.5, 3]: E12 1.79e-03, E23 8.53e-04, order 1.07 OUT
+    RC6 D = 5, S, delta = 1e-08, x+ - x+_f in [3, 99]: E12 3.90e-03, E23 1.04e-03, order 1.91 ok
+[FAIL] RC6-5S: D = 5, S, limit e^-f = 4.03e+08 (K = 28): M_AH(x+) converges at second order at the three h (0.0070710678118654745, 0.0035355339059327372, 0.0017677669529663686), three windows, both deltas (observed order in (1.5, 2.5))
+[FAIL] RC8-5S: D = 5, S, limit e^-f = 4.03e+08 (K = 28): M_AH has settled at the limit: plateau mean over the last 1.0 of x+ differs from the previous 1.0 by <= 0.0001 and the mean horizon flux (both fields) over the last 0.5 is <= 1e-05, every run  (plateau change -1.1e-03, -3.8e-04, -1.2e-05, -4.5e-04, -2.7e-04, +6.1e-05; flux 6.2e-07, 6.0e-07, 9.8e-07, 7.3e-07, 4.8e-07, 1.1e-06)
+[pass] RC5a-5S: D = 5, S, limit e^-f = 1.57e+06 (#41's): every run ends at the limit (e^-f on the horizon, 7.864e+05 <= F_end < 1.573e+06), horizon at least Nc/8 cells from the box edges, no gaps  (k=0,d=1e-06: F_end 1.55e+06, edge 291/680; k=1,d=1e-06: F_end 1.57e+06, edge 578/1356; k=2,d=1e-06: F_end 1.57e+06, edge 1159/2716; k=0,d=1e-08: F_end 1.57e+06, edge 292/680; k=1,d=1e-08: F_end 1.57e+06, edge 578/1356; k=2,d=1e-08: F_end 1.57e+06, edge 1159/2716)
+
+== D = 5, S, limit e^-f = 1.57e+06 (#41's): second-order convergence of M_AH(x+): max |M_h - M_h/2| over windows of x+ - x+_f (cubic splines), h = (0.0070710678118654745, 0.0035355339059327372, 0.0017677669529663686)
+    RC6a D = 5, S, delta = 1e-06, x+ - x+_f in [0, 1.5]: E12 7.37e-04, E23 1.94e-04, order 1.92 ok
+    RC6a D = 5, S, delta = 1e-06, x+ - x+_f in [1.5, 3]: E12 1.68e-03, E23 9.95e-04, order 0.75 OUT
+    RC6a D = 5, S, delta = 1e-06, x+ - x+_f in [3, 99]: E12 1.70e-03, E23 4.17e-04, order 2.03 ok
+    RC6a D = 5, S, delta = 1e-08, x+ - x+_f in [0, 1.5]: E12 9.51e-04, E23 2.47e-04, order 1.94 ok
+    RC6a D = 5, S, delta = 1e-08, x+ - x+_f in [1.5, 3]: E12 1.79e-03, E23 8.53e-04, order 1.07 OUT
+    RC6a D = 5, S, delta = 1e-08, x+ - x+_f in [3, 99]: E12 3.04e-03, E23 1.05e-03, order 1.53 ok
+[FAIL] RC6a-5S: D = 5, S, limit e^-f = 1.57e+06 (#41's): M_AH(x+) converges at second order at the three h (0.0070710678118654745, 0.0035355339059327372, 0.0017677669529663686), three windows, both deltas (observed order in (1.5, 2.5))
+[FAIL] RC8a-5S: D = 5, S, limit e^-f = 1.57e+06 (#41's): M_AH has settled at the limit: plateau mean over the last 1.0 of x+ differs from the previous 1.0 by <= 0.0001 and the mean horizon flux (both fields) over the last 0.5 is <= 1e-05, every run  (plateau change -6.5e-04, +5.2e-05, -1.5e-04, -4.1e-04, +1.9e-04, +1.6e-05; flux 1.2e-05, 1.5e-05, 1.7e-05, 1.9e-05, 1.4e-05, 2.3e-05)
+    delta difference |plat(1e-6) - plat(1e-8)| at the three h ['3.05e-03', '7.62e-05', '3.13e-04'], observed orders [5.33, -2.04]
+[FAIL] RC7-5S: D = 5, S: the settled value does not depend on delta: plateau means over the last 1.0 at 1e-6 and 1e-8 agree at the finest h  (|dM| 3.1e-03, 7.6e-05, 3.1e-04 at the three h, observed orders [5.33, -2.04] (bar 0.0001 at the finest h))
+
+== M_AH(x+) at D = 5, family S, delta = 1e-06, h = 0.00176777: x+_f = 5.6312, x-_f = 5.6215, t_f = 7.9569; M = r_AH^2/2; a = 1, 8 pi G = 1; t = (x+ + x-)/sqrt2
+    dx+     t - t_f     r_AH      M_AH      2 M       e^-f
+     0.00    0.0000   0.99202   0.49205   0.98411       1.022
+     0.25    0.3468   0.98540   0.48551   0.97101       1.042
+     0.50    0.6911   0.97324   0.47360   0.94719       1.079
+     1.00    1.3448   0.91271   0.41652   0.83303       1.306
+     1.50    1.8924   0.75211   0.28284   0.56568       2.654
+     2.00    2.2893   0.57841   0.16728   0.33455       15.28
+     2.50    2.6446   0.54764   0.14996   0.29991        82.1
+     3.00    2.9984   0.54708   0.14965   0.29930       341.3
+     3.50    3.3521   0.54420   0.14808   0.29616        1375
+     4.00    3.7059   0.54242   0.14711   0.29421        5464
+     4.50    4.0596   0.54229   0.14704   0.29407   2.127e+04
+     5.00    4.4121   0.54249   0.14715   0.29430   8.132e+04
+     5.50    4.7659   0.54258   0.14719   0.29439   3.098e+05
+     6.00    5.1196   0.54278   0.14731   0.29461   1.172e+06
+     6.50    5.4734   0.54299   0.14742   0.29483   4.415e+06
+     7.00    5.8271   0.54285   0.14734   0.29469   1.659e+07
+     7.50    6.1809   0.54276   0.14730   0.29459   6.215e+07
+     8.00    6.5334   0.54328   0.14758   0.29515   2.303e+08
+
+== M_AH(x+) at D = 5, family S, delta = 1e-08, h = 0.00176777: x+_f = 7.5157, x-_f = 7.5059, t_f = 10.6219; M = r_AH^2/2; a = 1, 8 pi G = 1; t = (x+ + x-)/sqrt2
+    dx+     t - t_f     r_AH      M_AH      2 M       e^-f
+     0.00    0.0000   0.99202   0.49205   0.98411       1.022
+     0.25    0.3468   0.98540   0.48551   0.97102       1.042
+     0.50    0.6912   0.97325   0.47361   0.94722       1.079
+     1.00    1.3448   0.91276   0.41657   0.83313       1.306
+     1.50    1.8926   0.75224   0.28293   0.56586       2.652
+     2.00    2.2895   0.57830   0.16722   0.33443       15.28
+     2.50    2.6448   0.54784   0.15006   0.30013       81.88
+     3.00    2.9986   0.54698   0.14959   0.29919         341
+     3.50    3.3523   0.54403   0.14799   0.29597        1374
+     4.00    3.7061   0.54234   0.14707   0.29414        5454
+     4.50    4.0598   0.54221   0.14700   0.29399   2.123e+04
+     5.00    4.4123   0.54209   0.14693   0.29386   8.132e+04
+     5.50    4.7661   0.54218   0.14698   0.29396   3.099e+05
+     6.00    5.1198   0.54209   0.14693   0.29387   1.175e+06
+     6.50    5.4736   0.54237   0.14708   0.29417   4.424e+06
+     7.00    5.8273   0.54265   0.14723   0.29447    1.66e+07
+     7.50    6.1811   0.54246   0.14713   0.29426   6.223e+07
+     8.00    6.5336   0.54216   0.14697   0.29393   2.318e+08
+
+== Late-time values, D = 5, S, limit e^-f = 4.03e+08 (K = 28, the quoted value) (reports)
+  delta   h        M_end     plat(1.0)  range(1.0) plat(0.5)  drift(1.0)  plat change  flux(0.5)
+   1e-06 0.00707107  0.148558  0.148362  4.7e-04  0.148550  -4.58e-04  -1.05e-03  6.18e-07
+   1e-06 0.00353553  0.148017  0.147852  4.6e-04  0.148018  -4.50e-04  -3.83e-04  5.98e-07
+   1e-06 0.00176777  0.147578  0.147394  2.8e-04  0.147483  -2.73e-04  -1.17e-05  9.81e-07
+   1e-08 0.00707107  0.151609  0.151416  3.4e-04  0.151537  -3.29e-04  -4.51e-04  7.33e-07
+   1e-08 0.00353553  0.147694  0.147776  2.1e-04  0.147684  +1.82e-04  -2.67e-04  4.78e-07
+   1e-08 0.00176777  0.146969  0.147081  2.3e-04  0.147010  +2.23e-04  +6.12e-05  1.13e-06
+  delta = 1e-06: plateau(1.0) [0.148362, 0.147852, 0.147394], differences +5.10e-04, +4.58e-04, Richardson (second order) 0.147241; M_end [0.148558, 0.148017, 0.147578], Richardson 0.147432
+  delta = 1e-08: plateau(1.0) [0.151416, 0.147776, 0.147081], differences +3.64e-03, +6.94e-04, Richardson (second order) 0.146850; M_end [0.151609, 0.147694, 0.146969], Richardson 0.146727
+
+== Late-time values, D = 5, S, limit e^-f = 1.57e+06 (#41's, same series cut) (reports)
+  delta   h        M_end     plat(1.0)  range(1.0) plat(0.5)  drift(1.0)  plat change  flux(0.5)
+   1e-06 0.00707107  0.146633  0.146485  4.8e-04  0.146578  -4.81e-04  -6.51e-04  1.24e-05
+   1e-06 0.00353553  0.147376  0.146978  5.9e-04  0.147088  -5.93e-04  +5.24e-05  1.53e-05
+   1e-06 0.00176777  0.147305  0.147220  1.6e-04  0.147264  -1.55e-04  -1.50e-04  1.65e-05
+   1e-08 0.00707107  0.150468  0.150013  7.5e-04  0.150120  -7.52e-04  -4.07e-04  1.95e-05
+   1e-08 0.00353553  0.147331  0.147118  3.4e-04  0.147224  -3.42e-04  +1.94e-04  1.37e-05
+   1e-08 0.00176777  0.146933  0.146960  4.7e-05  0.146944  +4.18e-05  +1.56e-05  2.32e-05
+  delta = 1e-06: plateau(1.0) [0.146485, 0.146978, 0.14722], differences -4.94e-04, -2.42e-04, Richardson (second order) 0.147301; M_end [0.146633, 0.147376, 0.147305], Richardson 0.147282
+  delta = 1e-08: plateau(1.0) [0.150013, 0.147118, 0.14696], differences +2.89e-03, +1.59e-04, Richardson (second order) 0.146907; M_end [0.150468, 0.147331, 0.146933], Richardson 0.146800
+
+== The comparison with [ST17] (Table I, GR rows, E_f/a_0 = 3.14, 6.28, 9.87 for n = 4, 5, 6) in one unit
+  unit: E = c_D M, c_D = (D - 2) V_{D-2} (V_2 = pi, V_3 = 4 pi/3, V_4 = pi^2/2, unit-ball volumes as [ST17]'s printed A_2, A_3, A_5; kappa^2 = 1), M = r^(D-3)(1 - (grad r)^2)/2 with a_0 = 1
+  c_4 = 6.2832, c_5 = 12.5664, c_6 = 19.7392; static throat E = c_D/2 = 3.1416, 6.2832, 9.8696; [ST17]'s printed A_4 would give c_6 = 39.4784
+  D  quantity                         M          E = c_D M    E/E_throat   [ST17] E_f   [ST17] E_f/E_throat   here / [ST17]
+  5  S formation (first trapped cell)    0.49205       6.1833      0.9841        6.28         0.9995       0.9846
+  5  S settled (plateau, delta = 1e-8)   0.14708       1.8483      0.2942        6.28         0.9995       0.2943
+  D = 4 (#41, #253): S settles at M = 0.2231 (E/E_throat 0.4462), G at 0.2355; [ST17]'s 3.14 is E_throat
+
+== Roundoff floor, D = 5, S: M_AH(x+) under relative noise in the ray data (delta = 1e-8) against the h-differences
+[FAIL] RN0-5S: D = 5, S: noise 0 reproduces the run of record bit for bit (the injection is inert at zero, the job is deterministic)  (k = [1, 2]: [False, False])
+    h = 0.00353553, noise 1 x 2^-52, 3 seed(s): max |M_noisy - M| in windows [(0.0, 1.5), (1.5, 3.0), (3.0, 99.0)]: 2.83e-04, 1.41e-03, 2.06e-03
+    h = 0.00353553, noise 64 x 2^-52, 1 seed(s): max |M_noisy - M| in windows [(0.0, 1.5), (1.5, 3.0), (3.0, 99.0)]: 2.76e-04, 1.41e-03, 2.06e-03
+    h = 0.00353553, noise 1.04858e+06 x 2^-52, 1 seed(s): max |M_noisy - M| in windows [(0.0, 1.5), (1.5, 3.0), (3.0, 99.0)]: 1.13e-02, 1.13e-02, 2.15e-03
+    h = 0.00176777, noise 1 x 2^-52, 3 seed(s): max |M_noisy - M| in windows [(0.0, 1.5), (1.5, 3.0), (3.0, 99.0)]: 1.58e-04, 6.67e-04, 1.38e-03
+    h = 0.00176777, noise 64 x 2^-52, 1 seed(s): max |M_noisy - M| in windows [(0.0, 1.5), (1.5, 3.0), (3.0, 99.0)]: 1.54e-04, 6.67e-04, 1.38e-03
+    h = 0.00176777, noise 1.04858e+06 x 2^-52, 1 seed(s): max |M_noisy - M| in windows [(0.0, 1.5), (1.5, 3.0), (3.0, 99.0)]: 1.24e-03, 1.37e-03, 1.56e-03
+[FAIL] RNR-5S: D = 5, S: the scatter responds when the noise is large: nonzero at 2^-52 and at 1.04858e+06 x 2^-52 at least 10 times that, every window and h  (h = 0.00353553: 39.9, 8.0, 1.0; h = 0.00176777: 7.8, 2.0, 1.1)
+  scatter at 2^-52 against the h-difference E between the h and its coarser neighbour (same windows, delta = 1e-8):
+    D = 5, S, h = 0.00353553, x+ - x+_f in [0, 1.5]: noise scatter 2.83e-04, E(0.00707107 vs 0.00353553) 9.51e-04, ratio 0.298: floor approached
+    D = 5, S, h = 0.00353553, x+ - x+_f in [1.5, 3]: noise scatter 1.41e-03, E(0.00707107 vs 0.00353553) 1.79e-03, ratio 0.788: floor approached
+    D = 5, S, h = 0.00353553, x+ - x+_f in [3, 99]: noise scatter 2.06e-03, E(0.00707107 vs 0.00353553) 3.90e-03, ratio 0.529: floor approached
+    D = 5, S, h = 0.00176777, x+ - x+_f in [0, 1.5]: noise scatter 1.58e-04, E(0.00353553 vs 0.00176777) 2.47e-04, ratio 0.638: floor approached
+    D = 5, S, h = 0.00176777, x+ - x+_f in [1.5, 3]: noise scatter 6.67e-04, E(0.00353553 vs 0.00176777) 8.53e-04, ratio 0.782: floor approached
+    D = 5, S, h = 0.00176777, x+ - x+_f in [3, 99]: noise scatter 1.38e-03, E(0.00353553 vs 0.00176777) 1.04e-03, ratio 1.326: floor reached
+
+21 checks, 8 failed; 412 s
+mutation interp_shift: fired ['PT1-5S', 'RC6-5S', 'RC6a-5S', 'RC7-5S', 'RC8-5S', 'RC8a-5S', 'RN0-5S', 'RNR-5S'], declared ['PT1-5S', 'RC6-5S', 'RC6a-5S', 'RC7-5S', 'RC8-5S', 'RC8a-5S', 'RN0-5S', 'RNR-5S']: MATCH

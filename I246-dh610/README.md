@@ -155,3 +155,17 @@ fails in every analysis without any mutation, so RC8a-⟨case⟩ is in every set
 as in #253), only the planted FLX; `col_shift` does not fire RC6 at D = 5 (the shift h/2 × dM/dx⁺ is below the h-difference there; it fires the noise comparison, which compares x⁺); `rcut_off` fires only the level-0
 identity. PL1 to PL3 (#41's, through the driver) are not exercised by these runs (`--skip=pl41`); their own mutation sets were computed in #41 and #253. The mutated analyses of record use the same cases and are run again
 after the runs of record (`mut/`). Dev logs: `dev/mut/`; the first logs of `a4p` and `pfx_cut`, interrupted by a reboot of dh610 at 19:59 on 2026-11-27, are kept as `*.run1_reboot` and both were rerun (unit `nm-i246-devmut3b-*`).
+
+## Results (runs of record; added after the declaration, nothing above is changed)
+
+Code `settled_mass_d56.py` at 0c52443 for every run of record, the analysis and the mutated analyses (the note and the output were committed after it). Machine dh610-fedora, one thread per process, `nice -n 10`.
+
+| what | result |
+|---|---|
+| runs of record | 80 of 80 with `job.rc` 0: 24 main (`D<D>_<fam>_k<k>_d<δ>`), 8 prefix (`_K20`, `_K24`), 48 noise (`_rn_u<u>_s<seed>`). 10 to 470 s each (median 80 s); four runs show 3200 to 3700 s of wall time because they spanned a 53-minute gap (about 20:16 to 21:09 local, 2026-11-27) in which dh610 did not answer; peak rss 9.2 GB (D = 6, G, h = 0.00125) |
+| interruptions | reboot at 19:59 (before the declaration: only dev mutations `a4p`, `pfx_cut`, rerun) and suspend at 21:23 (42 runs of record unfinished: 4 in flight, renamed `runs/*.run1_suspend`, and 38 not started; rerun as units `nm-i246-rec2-l0..l3`). Posts 01 to 03 |
+| analysis of record | `runs/analysis_record_1.log` (= `settled_mass_d56_output.txt` of the branch), exit 1: 69 counted checks, 4 failed (RC8a-5S, RC8a-5G, RC8a-6S, RC8a-6G, the settled test at #41's limit, declared as expected); PL1, PL2, PL3 print `[pass]` outside the count (the declared 72 included them) |
+| mutated analyses of record | `mut/<name>.log`: 26 of 26 exit 0 (`MATCH`: the failed set equals the declared set) |
+| figure | `figures/settled_mass_d56.svg` (script `scripts/make_figure.py`, table `figures/settled_mass_d56_table.txt`) |
+
+Settled values (plateau mean over the last 1.0 of x⁺, K = 28, δ = 1e-8; second-order Richardson in brackets): D = 5: S 0.145859 (0.145866), G 0.263924 (0.263951); D = 6: S 0.107793 (0.107920), G 0.862180 (0.862862). G at δ = 1e-6: 0.234978 (0.234999) and 0.567448 (0.567927).
