@@ -12,7 +12,7 @@ features=${3:-}
 crate=$HOME/Source/negative-mass-i192/phase2/nonradial/taylor_polar
 cd "$crate"
 export CARGO_NET_GIT_FETCH_WITH_CLI=true
-args=(build --release -j 2 --locked --target-dir "target/$set_")
+args=(build --release -j "${JOBS:-2}" --locked --target-dir "target/$set_")
 if [ -n "$features" ]; then args+=(--features "$features"); fi
 echo "# build $label: cargo ${args[*]}  (Cargo.toml md5 $(md5 -q Cargo.toml), Cargo.lock md5 $(md5 -q Cargo.lock), HEAD $(git rev-parse --short HEAD))"
 nice -n 10 cargo "${args[@]}"

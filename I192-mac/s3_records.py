@@ -37,6 +37,8 @@ def run(binpath, cmd, mutate=None, **kw):
     p = subprocess.run(["nice", "-n", "10"] + args, capture_output=True, text=True, env=env, cwd=HERE)
     if p.returncode:
         raise RuntimeError(f"{' '.join(args)[:200]} exited {p.returncode}: {p.stderr[-400:]}")
+    if cmd == "jjets":   # one JSON object over several lines
+        return [json.loads(p.stdout)]
     return [json.loads(x) for x in p.stdout.splitlines() if x.startswith("{")]
 
 

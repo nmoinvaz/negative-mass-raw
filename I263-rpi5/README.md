@@ -271,3 +271,29 @@ The RD controls use the committed code be7b9cb (the only change since 2e70c66 is
 
 *Targets of the Euler-sum controls* (part `euler7`; `dev_24_euler_*`): nominal fires nothing; `rd_master` (the coefficient of ΣH_nH_n^{(2)}/n³ in the exact assembly, 101/48 as 100/48) fires RD5c (sympy residual ≠ 0).
 `reduce7`'s `rd_master` (⟨lt²C²⟩'s ζ(6) coefficient) fires RD5, RD5b, RD7, as declared in A2.
+
+**A4 (2026-11-27, 17:00, after `run_06c`, before `run_09_weights7` and its controls): the part `weights7`.**
+`run_06a` … `run_06c` were read before this amendment: Q1 … Q4 not found; Q5, Q6, Q7, Q8, Q9 found, each the same relation 315 Ω₅ = … with zero coefficients on every Li constant (Q7, Q8) and on the 11 weight-7 constants (Q9), verified at 350 digits.
+`weights7` prints Ω₅ by weight from the relation of Q6 (its constants' weights 6 … 0, the values of the parts and which monomials of each weight are present) and the check **W7**: the sum of the parts equals Ω₅ from the relation, which lies in 40860 … 40861. Control `w7_rel` (a coefficient of the relation off by one) fires W7 (`dev_26_weights_*`).
+Declared: nominal fires nothing, `w7_rel` fires W7. The coefficient of ζ(3) and of ζ(3) ln 2 in Ω₃, Ω₄, Ω₅ is an observation I made while reading the output, not a check.
+
+**A5 (2026-11-27, 17:55, after the controls of record of T1, T2, EX and RD were read; before the controls of the checks that had none): what the controls of record showed, and the controls for E0, CACHE, XS, LC2, RD1, RD3, A7, PQ2, PQ4, PQ6 … PQ9.**
+
+*What had been seen before this amendment* (the `ctl_*` logs of record): **T1 12 of 12 on target, T2 5 of 5, EX 12 of 12, and the RD group 7 of 10: `rd_B`, `rd_J5` and `rd_master` fire RD8 in addition to the targets declared in A2.**
+RD8 (the integer relation of `run_06b` against the derived closed form) was inactive in the development runs `dev_24_rd_*` (its constant was `None` until `run_06b` finished), so the declared sets lacked it; the declared files are not changed and these three are reported as **off target, by exactly RD8**.
+Reading the summary I saw that E0, CACHE, XS, LC2, RD1, RD3, A7 and PQ2, PQ4, PQ6 … PQ9 had no control that fires them; AGENTS.md asks for one for each check.
+
+*Controls added* (`dev_30_*`, `dev_33_*`; `rd_Y3`, `a7_B` and `lc2_J` are new mutations of `order7.py`, commit below; `w7_rel`, `rd_*` as before):
+
+| control | part | what it breaks | fires | silent |
+|---|---|---|---|---|
+| `wrong_c7`, `wrong_h` | `sym xsym cache` | c₇'s sign; c₂'s sign | E0 | XS, CACHE |
+| `stale_cache` | `sym xsym cache` | level k − 1 of the cached chain from the first trial | CACHE | E0, XS |
+| `e4_g`, `e5_noD3` | `sym xsym cache` | E4's 22ℓ² as 20ℓ²; W's 16D₃ cot θ dropped | XS | E0, CACHE |
+| `lc2_J` | `exch7` | the reference J₂ with 12 ln²2 as 11 ln²2 | LC2 | the other 14 |
+| `rd_Y3` | `reduce7` | Y₃'s −16D₃ as −15D₃ in the symbolic integrand | RD1, RD2, RD3, RD6, RD7, LN2, RD8 | RD4, RD5, RD5b, A7 |
+| `a7_B` | `reduce7` | the numeric integrand's L₃: 32 Lc2 as 31 Lc2 | RD1, RD6, A7 | RD2 … RD5b, RD7, LN2, RD8 |
+| T2b: `pslq_wrong_basis`, `pslq_wrong_target` | `pslq --no-real --bases=Q2,Q4,Q6,Q7,Q8,Q9 --pslq-cap=250` | as T2 | PQ2, PQ4, PQ6, PQ7, PQ8, PQ9 | **predicted by the logic of T2's `dev_25`, not read from a development run**; the nominal run must fire nothing |
+
+`declared_chk.json`, `declared_t2b.json`, `declared_red.json` and `declared_ex.json` (with `lc2_J` and `rd_Y3`, `a7_B`) carry them. `dev_30_rd_rd_Y3` stopped with a `KeyError` (a monomial outside the masters) and `dev_31`, `dev_32` with a `TypeError` (I_final still had u): the code now reports RD3 and RD6 instead.
+PLW has no control of its own (it is the controls' own statement, as at order 6).

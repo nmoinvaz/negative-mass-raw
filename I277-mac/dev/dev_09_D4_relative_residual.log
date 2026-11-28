@@ -1,0 +1,10 @@
+nojac=False c=-1.5 beta=+0.05: rel C++ 8.20e-04 2.16e-04 5.40e-05 1.35e-05 3.47e-06 | rel C-- 1.59e-05 5.21e-06 5.00e-06 2.26e-05 8.74e-05
+nojac=False c=-1.5 beta=-0.05: rel C++ 9.26e-03 2.97e-03 8.60e-04 2.33e-04 6.06e-05 | rel C-- 3.25e-05 3.29e-05 1.44e-04 4.34e-04 2.43e-03
+nojac=False c=-1.0 beta=+0.05: rel C++ 1.03e-04 2.57e-05 6.46e-06 1.65e-06 5.33e-07 | rel C-- 3.31e-05 4.35e-05 1.35e-04 6.33e-04 3.52e-03
+nojac=False c=-1.0 beta=-0.05: rel C++ 2.70e-03 7.70e-04 2.07e-04 5.36e-05 1.36e-05 | rel C-- 8.51e-05 2.99e-04 1.13e-03 5.92e-03 2.57e-02
+/Users/nathan/Source/negative-mass-i277/notes/black_universe/planted_family.py:171: RuntimeWarning: invalid value encountered in log
+  lnE_r = np.log(fam.F(vn[:, None], rho_r))
+nojac=True c=-1.5 beta=+0.05: rel C++ nan nan nan nan nan | rel C-- 1.59e-05 5.21e-06 5.00e-06 2.26e-05 8.74e-05
+nojac=True c=-1.5 beta=-0.05: rel C++ 7.61e-01 7.61e-01 7.61e-01 7.61e-01 7.61e-01 | rel C-- 3.25e-05 3.29e-05 1.44e-04 4.34e-04 2.43e-03
+nojac=True c=-1.0 beta=+0.05: rel C++ nan nan nan nan nan | rel C-- 3.31e-05 4.35e-05 1.35e-04 6.33e-04 3.52e-03
+nojac=True c=-1.0 beta=-0.05: rel C++ 7.62e-01 7.62e-01 7.62e-01 7.62e-01 7.62e-01 | rel C-- 8.51e-05 2.99e-04 1.13e-03 5.92e-03 2.57e-02

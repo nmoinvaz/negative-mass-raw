@@ -1,0 +1,21 @@
+[pass] N0: planted: beta = 0, c = -1, -3/2, -3/10: the ray separatrix (55 bisections) equals the static horizon rho_h to 1e-9 and rays at rho_h +- 1e-4 escape / fall; c = 0 (Ellis, time dependent): rays equal 1 - beta rho = C (1 + beta v)^{-1/2} to 1e-9 and the beta = -1 separatrix is rho = -1  (c = -1.0: separatrix 0.000000000000, claimed rho_h 0.000000000000, diff 1.7e-16, rays at rho_h +-1e-4: outside escapes, inside falls; c = -1.5: separatrix 0.339617128522, claimed rho_h 0.339617128522, diff 1.1e-16, rays at rho_h +-1e-4: outside escapes, inside falls; c = -0.3: separatrix -0.926753835863, claimed rho_h -0.926753835863, diff 3.3e-16, rays at rho_h +-1e-4: outside escapes, inside falls; Ellis c = 0: exact rays to 1.3e-12, beta = -1 separatrix -1.000000000000 (exact -1))
+    (N0: 22 s)
+[FAIL] N1: (grad r)^2 = 2 r_v r_rho + F r_rho^2 from the metric: its root at fixed v equals the closed-form root of s_AH(rho) = s to 1e-12 (c = -1, -3/2; beta = -1: both branches at four s; beta = 1, c = -3/2: the two roots), and it vanishes on rho = 0 to 1e-30  (worst root difference +inf, rho = 0 residual 0.0; 20 roots; c = -1.0, beta = -1, plus, s = -0.05: the closed form has no root; c = -1.0, beta = -1, plus, s = -0.3: the closed form has no root)
+    (N1: 0 s)
+[FAIL] N2: region labels: at 4 x (5-6 v) x 12 points the signs of n(r) = -r_rho and l(r) = r_v + F r_rho/2 from the metric jets equal the closed-form labels (-sign rho; sign(s - s_AH(rho))), l(r) equals P/(2R lam) (1e-9), and dr/dv along an integrated ray equals l(r) (1e-3)  (264 points; worst relative l(r) difference 6.9e-14, worst ray 1.5e-04; disagreements [(-1.0, -1, -6.0, -8.0), (-1.0, -1, -6.0, -8.0, 'ray'), (-1.0, -1, -6.0, -3.0)])
+    (N2: 0 s)
+[pass] N3: beta = +1, c = -1, -3/2: 72 outgoing rays from v_0 = -10, -3, 0, 2 and rho_0 from -30 to 1e8 all reach rho = -infinity at finite v with r > 1e6, none escapes, and the fall time v_b rises with rho_0 (the curve rho = -infinity is spacelike); F -> -K R^2 arccot(rho) < 0 at v = 60 (1e-9)  (0 rays escape []; late-time F difference 3.6e-16; fall time rises with rho_0 (I+ spacelike): True; c = -1.0: rho_0 = 0 falls at v = -1.77; c = -1.0: rho_0 = 1000 falls at v = 25.32; c = -1.0: rho_0 = 1e+08 falls at v = 61.47; c = -1.5: rho_0 = 0 falls at v = -8.05; c = -1.5: rho_0 = 1000 falls at v = 16.88; c = -1.5: rho_0 = 1e+08 falls at v = 40.98)
+    (N3: 1 s)
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i278/notes/black_universe/family_causal.py", line 1095, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nathan/Source/negative-mass-i278/notes/black_universe/family_causal.py", line 1081, in main
+    bad = run_all(NUMERIC)
+  File "/Users/nathan/Source/negative-mass-i278/notes/black_universe/family_causal.py", line 1049, in run_all
+    fn()
+    ~~^^
+  File "/Users/nathan/Source/negative-mass-i278/notes/black_universe/family_causal.py", line 550, in N4
+    inside = side(f, v0, rh - d)
+                         ~~~^~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'float'
