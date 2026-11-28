@@ -79,4 +79,43 @@ Logs: `dev_NN_*` development runs, `run_NN_*` runs of record, `ctl_*` controls; 
 
 ## Amendments
 
-(none yet)
+**A1 (written after the development runs, before the runs of record).**
+
+- *Development runs kept:* `dev_01_exch_roots.log` (the first run of the hierarchy and the identity checks at the roots: 0 failures),
+  `dev_02_masters.log`, `dev_ctl_*.log` and `dev_2_ctl_*.log` (the 15 mutations; `dev_2_` are `e4_Om1` and `e2w_P` run again after the flag
+  of `SY_bnd1` was un-chained from `SY_bnd0`). Seen on the screen and not saved: the first `sym`, `bnd`, `fp` and the three shifted `exch`
+  runs of the development phase. All passed except the first `BND_throat`, which took the first two Gauss–Legendre nodes (the largest v of the
+  first panel) instead of the two with the smallest l; fixed before the runs of record.
+- *Bars in the code before its first run:* raw 30 digits (the issue's), and 40 digits once the boundary term of the by-parts step at the cutoff is
+  subtracted (`BAR_COR`; the table above has only the raw bar). The first run gave 61 to 68 raw and 91 to 94 corrected digits.
+- *Settings:* 440 bits, N = 160 (throat 230), l_max 345, panels of 0.5 in v with 40 Gauss–Legendre nodes up to v = 18.5 (l = 342.25), 100 digits for
+  the integrands. H1's second setting: 500 bits, N = 190, throat 260, 44 nodes on panels of 0.4 up to v = 18.4.
+- *Declared targets* (`TARGETS` in the script; a control is on target when the set of FAIL lines equals the declared set and its exit code is 1),
+  computed in the development runs, parts as run by `ctl_jobs.txt`:
+
+| control | parts run | checks that must fail (all others silent) |
+|---|---|---|
+| `e4_20` | sym exch | E4_6, E4_7, G6R, G7R, SY_W4 |
+| `e4_Om1` | sym exch | E4_6, E4_7, G6R, G7R, SY_W4, SY_bnd0 |
+| `e4_C` | sym exch | E4_6, E4_7, G6R, G7R, SY_W4 |
+| `e2w_P` | sym exch | E2Wb, G7R, SY_P, SY_bnd0 |
+| `e2w_g` | sym exch | E2Wb, SY_P |
+| `e5_noD3` | sym exch | E5, G7R, SY_W |
+| `e5_a1` | sym exch | E5, G7R, SY_W |
+| `e5_K` | sym exch | E5, G7R, SY_K |
+| `hyp_G4` | exch | E1_6, E1_7, E2Wa, E2Wb, E2_4, E2_5, E2_6, E3_5, E3_6, E3_7, E4_7, G6R, G7R, H2_G5, H2_G6 |
+| `c_wrong` | exch bnd | BND_outer, E1_6, E1_7, E2Wa, E2Wb, E2_3, E2_4, E2_5, E2_6, E3_4, E3_5, E3_6, E3_7, E4_6, E4_7, E5, G6R, G7R, H1, H2_G3, H2_G4, H2_G5, H2_G6 |
+| `g6r_slope` | exch | G6R |
+| `g7r_slope` | exch | G7R |
+| `m1_basis` | masters | M1 |
+| `m1_J2` | masters | M1 |
+| `fp_const` | fp | FP1, FP2 |
+
+- *Predictions of the README's mutation table that the development runs did not confirm* (reported, not repaired): `c_wrong` was listed with H0;
+  H0 is silent, because c₃ first enters h₃ and H0 tests only Y₁, L₁, Y₂, L₂. It fires `H2_G3 … H2_G6`, every identity from E1_6 on (G₃ ≠ 0
+  breaks the hypotheses), `BND_outer` and `H1`. `e2w_g` leaves `G7R` silent: the reduced form uses P, not g₄. `e4_Om1` and `e2w_P` also fire `SY_bnd0`,
+  which uses W₄ and P in the boundary expansions.
+- *Order:* `run_01` was started before this amendment was written (it declares no control targets; its checks and bars are those of the table above). The controls start after this amendment is committed.
+- *Runs of record:* `run_01_*` (sym exch shifts bnd masters fp; it builds the node caches in the session's scratch directory, rebuilt by the
+  script in 30 s per configuration), then the 15 controls (`ctl_queue.sh`, three workers, `ctl_*`), then `run_02_all` (all parts and `ctlsum`,
+  `--out=identity_review_output.txt`).
