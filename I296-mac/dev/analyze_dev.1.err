@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i296/notes/wormhole_evolution/settled_mass_eps.py", line 539, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nathan/Source/negative-mass-i296/notes/wormhole_evolution/settled_mass_eps.py", line 531, in main
+    sys.exit(analyze_cmd())
+             ~~~~~~~~~~~^^
+  File "/Users/nathan/Source/negative-mass-i296/notes/wormhole_evolution/settled_mass_eps.py", line 393, in analyze_cmd
+    p = P1[n]
+        ~~^^^
+KeyError: 'W1'
