@@ -1,0 +1,1 @@
+dev_04_on_offgrid_ctl|mkdir -p $RAW/dump_dev_04_on_ctl && cd $WT && $RAW/sys/arm.sh on dev_04_on_offgrid_ctl && $PY notes/warp/conical_offgrid.py --grid=ctl --no-controls --nobuild --dump=$RAW/dump_dev_04_on_ctl

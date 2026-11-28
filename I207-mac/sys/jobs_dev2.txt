@@ -1,0 +1,3 @@
+dev_07_early_offgrid_ctl|mkdir -p $RAW/dump_dev_07_early_ctl && cd $WT && $RAW/sys/arm.sh early dev_07_early_offgrid_ctl && $PY notes/warp/conical_offgrid.py --grid=ctl --no-controls --nobuild --dump=$RAW/dump_dev_07_early_ctl
+dev_08_late_offgrid_ctl|mkdir -p $RAW/dump_dev_08_late_ctl && cd $WT && $RAW/sys/arm.sh late dev_08_late_offgrid_ctl && $PY notes/warp/conical_offgrid.py --grid=ctl --no-controls --nobuild --dump=$RAW/dump_dev_08_late_ctl
+dev_09_ungated_offgrid_ctl|mkdir -p $RAW/dump_dev_09_ungated_ctl && cd $WT && $RAW/sys/arm.sh ungated dev_09_ungated_offgrid_ctl && $PY notes/warp/conical_offgrid.py --grid=ctl --no-controls --nobuild --dump=$RAW/dump_dev_09_ungated_ctl
