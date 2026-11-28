@@ -26,6 +26,17 @@ Issue: https://github.com/nmoinvaz/negative-mass/issues/304.
 - Gating: every bisection ends with hi − lo ≤ 1e-14 and no stop; every pair collapses on the − side and expands on the + side.
   Reported: rate × t, c and p with their errors, per B and h.
 
+## Launch (Windows)
+
+Three lanes (choptuik-large-d's run of #1112 shares the laptop; never touch its processes). From PowerShell, detached through
+WMI so that the session's terminal cannot end them:
+
+    $q = Invoke-CimMethod Win32_Process -MethodName Create -Arguments @{CommandLine="conhost.exe --headless powershell -NoProfile -ExecutionPolicy Bypass -File C:\Users\nathan\Source\negative-mass-raw\I304-win\run_lanes.ps1"}
+    Invoke-CimMethod Win32_Process -MethodName Create -Arguments @{CommandLine="conhost.exe --headless powershell -NoProfile -ExecutionPolicy Bypass -File C:\Users\nathan\Source\negative-mass-raw\I304-win\keepawake.ps1 -QueuePid $($q.ProcessId)"}
+
+`keepawake.ps1` is #114's (I114-win): it holds SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED) until the queue's
+process ends and changes no power setting. Progress: `queue.log`, `logs\lane<L>.log`; the end: `lanes_done`.
+
 ## Runner's part
 
 Run the four lanes, post progress, push this folder. The coordinator writes and runs the analysis.
