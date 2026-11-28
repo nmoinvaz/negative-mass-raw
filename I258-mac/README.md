@@ -68,3 +68,9 @@ Runs of record: `runs/` (`check.log`, `mut_<name>.log`, `table.log`, `.rc`); a r
 Run 1 (`runs/check.log`, `table.log`, `mut_*.log` for the 14 mutations): code 4f31b3f. The code was then extended at 7b7805c by one mutation (`mode_M`), its declared
 set and one `table` line (Θ at the left_mass datum against −c₁); the diff touches nothing else (`git diff 4f31b3f 7b7805c`). Run 2 at 7b7805c: `check.2.log`,
 `table.2.log`, `mut_mode_M.log`. The 14 mutation logs of run 1 stay the logs of record for those mutations; `check.2.log` equals `check.log` apart from the time.
+
+## Result (run 1 at 4f31b3f, run 2 at 7b7805c; note and output at c1276a4 of `wip/i258-full-slice`)
+
+`runs/check.log`, `check.2.log`: 17 of 17 checks pass. `runs/mut_*.log`: 15 mutations, fired sets equal the declared ones (15 of 15; `full_slice.py mutations runs mut_`).
+`runs/table.log`, `table.2.log`: the data tables. Datum G: c₁ = 1.4e-15, c₂ = −6.653514770e-4, evolved horizon fit equal to the slice to 2.7e-8 relative (bar 1e-6).
+`design.md` is the approved stage-1 design; `dev1/` the development run of the script; `probe/` the stage-1 probes.
