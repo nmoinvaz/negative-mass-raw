@@ -1,0 +1,19 @@
+[pass] S1: double-null gauge (dr, dOm, dth): smooth solutions (nullity 33 of the truncated system, N = 7) obey y21 = (F_Pi/2) y10, y12 = (F_Pi/2) y01, y_i0 = y_0i = 0 (i >= 2); y21 = 0 is excluded  (F_Pi(0) = 1/kappa from my Om0; y21 = (F_Pi/2) y10: True; y12 = (F_Pi/2) y01: True; Y_N''(0) = -F_Pi Y_N(0): True; horizon laws True; y21 = 0 in the span: False)
+       relation: (1) y00 + (1/kappa) y11 + (-2) y22 = 0
+       relation: (1) y01 + (-2*kappa) y12 = 0
+       relation: (1) y02 = 0
+       relation: (1) y03 = 0
+       relation: (1) y04 = 0
+       relation: (1) y10 + (-2*kappa) y21 = 0
+       relation: (1) y20 = 0
+       relation: (1) y30 = 0
+       relation: (1) y40 = 0
+[pass] S1b: a smooth solution with delta r = c2 V on H+ and 0 on H- (y00 = y01 = 0, y10 = 1, nothing else imposed) exists  (nullity 30; its Y = V + (F_Pi/2) V^2 U + ... = V + 1/(2*kappa) V^2 U + ...; V R = V + O(V^3 U^2))
+[pass] S1g: general smooth gauge (dr, dOm, dth, hv, hu): smooth solutions (nullity 67 of the truncated system, N = 5) obey y21 = (F_Pi/2) y10, y12 = (F_Pi/2) y01, y_i0 = y_0i = 0 (i >= 2); y21 = 0 is excluded  (F_Pi(0) = 1/kappa from my Om0; y21 = (F_Pi/2) y10: True; y12 = (F_Pi/2) y01: True; Y_N''(0) = -F_Pi Y_N(0): True; horizon laws True; y21 = 0 in the span: False)
+[pass] S2: smooth ansatz: no solution with Y = c2 V R, none with Y = c2' U R (also when only the degree <= 3 coefficients of Y are imposed), a solution with Y = c1 R  (consistent: Y=VR (degree <= 7): False, Y=UR (degree <= 7): False, Y=VR (degree <= 3): False, Y=R (degree <= 7): True)
+[FAIL] S3: double-null gauge: log ansatz has a solution with Y = c2 V R  (inconsistent)
+[FAIL] S4: planted: Y = c1 R (the static mass mode) through the same log ansatz: the coefficient of V ln V in delta theta is 0 for every solution  (q = None, spread None, log terms of delta theta in the particular solution: [])
+[FAIL] S5: control: members (b, kappa) with A''(0) = -2/b^2 and kappa independent, and G0 changed: q = A''(0) c_h / (2 kappa), c_h = d_V delta r on H+  (b=1, G0=1: inconsistent | b=2, G0=1: inconsistent | b=3/2, G0=1: inconsistent | b=1/2, G0=1: inconsistent | b=1, G0=3: inconsistent | b=2, G0=5/2: inconsistent)
+[FAIL] S6: the log is the violation of the smooth relation: Y = V + t V^2 U + ... has q = 2 t - F_Pi, and a smooth solution iff t = F_Pi/2  (t = 0/1 (F_Pi/2): no log solution | t = 1/2 (F_Pi/2): no log solution | t = 1/1 (F_Pi/2): no log solution | t = 2/1 (F_Pi/2): no log solution)
+
+8 checks, 4 pass; failed: ['S3', 'S4', 'S5', 'S6']; mutation nolog; 24 s

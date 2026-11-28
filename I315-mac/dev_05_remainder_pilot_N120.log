@@ -1,0 +1,13 @@
+order9.py  mutate=None  parts=['remainder']  mpmath 1.3.0  sympy 1.14.0
+  W^2 (qd, w2_output.txt) against the series s - 4 ln 2 + Omega1/s + ... (Omega1 .. Omega7 of G2), s = 2(D - 3):
+  D       s       rem8 s^7 (tends to Omega7)    (rem8 s^7 - Omega7) s (tends to Omega8)   rem9 s^8 (tends to Omega8)
+  1000   1994    24990035.684641              -1107285987.99                           -1107285987.99
+  2000   3994    25269791.914257              -1100557448.42                           -1100557448.42
+  5103   10200   25437847.813333              -1096467279.07                           -1096467279.07
+  10000  19994   25490569.343808              -1095176580.25                           -1095176580.25
+PASS    R8: two-point extrapolation (s2 x2 - s1 x1)/(s2 - s1) of rem8 s^7 from D = 5103, 10^4: 25545476.0 against the computed Omega7 25545345.0, relative difference 5.16e-6 (bar 0.000100000000000000004792173602385929598312941379845142364501953125: an estimate, not a bound)
+  reported: two-point extrapolation of rem9 s^8 from D = 5103, 10^4: Omega8 ~ -1.0938324e+9 (an estimate, not a bound)
+PASS    R9: rem9 s^8 at D = 5103 and 10^4 differs by 1.2907e+6 (bar 100000000.0: a wrong Omega7 adds (error)·s, about 2e4 per unit)
+PASS    X5: Omega7 against the polynomial extrapolation in 1/s of #195's 64 W^2 values (Omega0 .. Omega6 fixed at the closed forms), windows of the K largest s, |difference| G1: K = 14 1.6e-19, K = 18 1.1e-18, K = 22 4.2e-18, K = 26 1.1e-17, K = 30 2.0e-17, K = 36 3.7e-17, K = 44 5.8e-17; G2: K = 14 1.6e-19, K = 18 1.1e-18, K = 22 4.2e-18, K = 26 1.1e-17, K = 30 2.0e-17, K = 36 3.7e-17, K = 44 5.8e-17 (bar 0.00000000000010000000000000000303737455634003709136034716842278413651001756079494953155517578125 on every window; the spread over windows is an estimator range, 5.8e-17; not a bound)
+
+3 passed, 0 failed of 3 checks; 0 s
