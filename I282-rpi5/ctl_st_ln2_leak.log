@@ -1,0 +1,8 @@
+order8.py  mutate=ln2_leak  parts=['pslq', 'closed6']  mpmath 1.3.0  sympy 1.14.0
+  PSLQ at 250 digits (the two grids share 430.8), tolerance 1e-238, verification at 270 digits
+PASS    PF6: F6 = {f7, pi^4 zeta(3), pi^2 zeta(5), zeta(7), pi^6, zeta(3)^2, pi^2 zeta(3), zeta(5), pi^4, zeta(3), pi^2, 1}, n = 12, H = 10000000000000000, d = 250: planted relation (den 15, seed 282006) recovered: True (1 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 196.6
+    REAL F6: not found at H = 10000000000000000 (5 s)
+FAIL    ID6: no relation of F6 was found (the file has no relation): f7 is not in the span of the ln 2-free monomials of weight <= 7 at these digits
+FAIL    ZL: F6 found: False; relations found in the bases with ln 2 (none): all with zero coefficients on every ln 2 monomial
+
+1 passed, 2 failed of 3 checks; 11 s

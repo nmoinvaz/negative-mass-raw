@@ -214,3 +214,38 @@ M6 stays silent in every control but `coarse_B` (both grids share the error); RE
 | `wrong_closed5` | PL5, X4 |
 
 *Not yet read (their targets come in A2, before their controls of record):* T2b (`dev_12_t2b_*`, `dev_12_t2bxf_*`), the structure group ST (`dev_14_st_*` on `dev_planted_f7.json`).
+
+**A2 (2026-11-27, 23:20, after `dev_12_t2b_*` and `dev_14_st_*`, with `run_06b` at X3 and `run_06c` running; before the controls of T2b and ST): one discrepancy of this README, and the targets of T2b and ST.**
+
+- **Discrepancy 3: the README's H for X1, X2, X3 is not the code's.** The table of bases above says H = 10¹⁴, 10¹³, 10¹² (budgets 287.0, 346.8, 370.0); `order8.py` (committed at 0ac9b7e, before the README) has **10¹², 10¹¹, 10¹⁰** (budgets **247.0, 294.8, 310.0**), the values copied from the order-7 table, and the README's numbers came from my head.
+  The runs use the code's (`run_06a` prints H = 10¹² and budget 247.0 for X1; `run_06b` H = 10¹¹ for X2). F1 … F6 (10¹⁶) and XF (10¹⁰) agree. Every budget is below d = 390, and the relation found has height 2.76e9, below every H of X1 … XF, so no verdict depends on the difference. The criteria are unchanged; this is a typo of the README, not a change of the code.
+- *What had been seen:* `run_06b`'s PX2 passes and **X2 finds the same relation as F5, F6 and X1, with zeros on all 14 ln 2 monomials**; X3 and XF (`run_06c`) were still running.
+- *Targets of the T2b controls* (`declared_t2b.json`; read from `dev_12_t2b_*` on `dev_N170_285.json`, parts `values pslq remainder --no-real --bases=F2,F4,F6,X1,X2,X3 --pslq-cap=250`; XF has its own controls, target in A3):
+
+| control | fires |
+|---|---|
+| `nominal` | nothing |
+| `pslq_wrong_basis` | PF2, PF4, PF6, PX1, PX2, PX3 |
+| `pslq_wrong_target` | PF2, PF4, PF6, PX1, PX2, PX3 |
+
+- *Targets of the ST controls* (`declared_st.json`; read from `dev_14_st_*` on `dev_planted_f7.json`, parts `pslq closed6 --bases=F6 --pslq-cap=250` (the relation file written by the same run), PF6 passes in every run): the planted f₇ is the stand-in for the real one, so that the controls do not depend on the real relation.
+
+| control | fires |
+|---|---|
+| `nominal` | nothing |
+| `ln2_leak` | ID6, ZL |
+| `f7_rel` | ID6 |
+| `ln2_zl` | ZL |
+
+Under `ln2_leak` PSLQ finds nothing in F6 (f₇ + 1000 ln 2 ζ(3)² is not in the span), so ID6 fails because no relation exists and ZL fails because F6 found none; under `f7_rel` the relation is there, ZL passes and ID6 fails; under `ln2_zl` the reverse.
+
+**A3 (2026-11-28, 00:45, after `run_06b` … `run_06d` and `run_07`; the controls of T2b, ST and XF are still running): XF's H, and what the runs of record gave.**
+
+- **Discrepancy 4 (the same kind as 3): XF's H.** `order8.py` at 0ac9b7e had **H = 10⁸** for XF (budget 308.1); this README declares 10¹⁰ (budget 382.1). `run_06c` ran at 0ac9b7e: PXF passes, and **XF finds nothing at H = 10⁸** (1035 s), as it must: the relation of F5, F6, X1, X2, X3 has height 2.76e9, above 10⁸ (the caveat declared for XF).
+  The one-number commit a017a05 sets XF's H to the declared 10¹⁰ and **`run_06d` repeats XF at the declared H**: PXF passes (planted relation recovered in 436 s, perturbed basis finds nothing), and **the real XF finds the same relation, with zero coefficients on all 25 ln 2 monomials**
+  (budget 382.1 < 390, the perturbed basis finds nothing, it holds at 410 digits on both grids to 4.0e-401). Both runs are kept; the verdict on XF is `run_06d`'s, and `run_06c`'s "not found" is a statement about H = 10⁸ only.
+- `run_06b`: PX2, PX3 pass; X2 and X3 find the relation of F5, F6, X1 (35 m 29 s). `run_06a` (F1 … F6, X1) took 4 m 25 s, `run_06c` 41 m 45 s, `run_06d` 1 h 05 m 19 s, peak 59 MB each.
+- `run_07_closed6` (`--rel=rel_a.json,rel_b.json,rel_c.json,rel_d.json`; `rel_c.json` is empty): **ID6 passes** (Ω₆ from the F6 relation equals G1 and G2 to the 400 digits of its working precision, bar 380) and **ZL passes** (F6 found; the relations of X1, X2, X3, XF have zero coefficients on every ln 2 monomial).
+- **Code of the runs of record:** `order8.py` at 0ac9b7e for `run_01` … `run_06c` and the controls CHK, T1, T2; a017a05 for `run_06d`, `run_07` and the controls of T2b, ST, XF. `git diff 0ac9b7e a017a05` is the one number (XF's H in `PSLQ_BASES`); nothing else changed.
+  A T2b control at cap 250 uses H = 10^max(4, min(declared H, ⌊(d − 25)/(n + 1)⌋ − 1)), which is below both values for XF, so the two commits behave alike there.
+- **Controls of record read so far:** CHK 7 of 7, T2 5 of 5, T1 14 of 14 on target (`ctl_chk_*`, `ctl_t2_*`, `ctl_t1_*` against `declared_chk.json`, `declared_t2.json`, `declared_t1.json`).

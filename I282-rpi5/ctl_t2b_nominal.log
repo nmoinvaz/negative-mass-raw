@@ -1,0 +1,23 @@
+order8.py  mutate=None  parts=['values', 'pslq', 'remainder']  mpmath 1.3.0  sympy 1.14.0
+PASS    PL0: planted: Omega0 against its closed form, digits: G1 440.2, G2 430.5 (bar 100 on G1, G2; the others reported)
+PASS    PL1: planted: Omega1 against its closed form, digits: G1 439.7, G2 429.9 (bar 100 on G1, G2; the others reported)
+PASS    PL2: planted: Omega2 against its closed form, digits: G1 439.6, G2 429.7 (bar 100 on G1, G2; the others reported)
+PASS    PL3: planted: Omega3 against its closed form, digits: G1 440.0, G2 429.7 (bar 100 on G1, G2; the others reported)
+PASS    PL4: planted: Omega4 against its closed form, digits: G1 440.0, G2 430.8 (bar 100 on G1, G2; the others reported)
+PASS    PL5: planted: Omega5 against its closed form, digits: G1 439.6, G2 430.1 (bar 100 on G1, G2; the others reported)
+PASS    SL: slope of G_k in Omega_(k-2) against -4 pi, k = 2 .. 8, digits: G1 441.4/441.4/441.4/441.4/441.4/441.4/441.4, G2 431.2/431.2/431.2/431.2/431.2/431.2/431.2 (bar 100 on G1, G2)
+PASS    RES: max over k = 2 .. 8 of |G_k at the chain's root| / |slope|: G1 6.75e-454, G2 3.17e-443 (bar 1e-100 on G1, G2)
+PASS    M6: Omega6 of G1 against G2 (two grids, two precisions): 430.8 digits (bar 100); |diff| = 6.39e-425
+PASS    RNG: Omega6 between 3.5e6 and 3.9e6: G1 3672259.16259, G2 3672259.16259
+  reported: digits between evaluations, Omega5 / Omega6: G1-G2 430.1/430.8
+  PSLQ at 250 digits (the two grids share 430.8), tolerance 1e-238, verification at 270 digits
+PASS    PF2: F2 = {f7, pi^4 zeta(3), pi^2 zeta(5), zeta(7), pi^6, zeta(3)^2}, n = 6, H = 10000000000000000, d = 250: planted relation (den 11, seed 282002) recovered: True (0 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 98.8
+    REAL F2: skipped (--no-real)
+PASS    PF4: F4 = {f7, pi^4 zeta(3), pi^2 zeta(5), zeta(7), pi^6, zeta(3)^2, pi^2 zeta(3), zeta(5), pi^4}, n = 9, H = 10000000000000000, d = 250: planted relation (den 5, seed 282004) recovered: True (0 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 147.7
+    REAL F4: skipped (--no-real)
+PASS    PF6: F6 = {f7, pi^4 zeta(3), pi^2 zeta(5), zeta(7), pi^6, zeta(3)^2, pi^2 zeta(3), zeta(5), pi^4, zeta(3), pi^2, 1}, n = 12, H = 10000000000000000, d = 250: planted relation (den 15, seed 282006) recovered: True (1 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 196.6
+    REAL F6: skipped (--no-real)
+PASS    PX1: X1 = {f7, pi^4 zeta(3), pi^2 zeta(5), zeta(7), pi^6, zeta(3)^2, pi^2 zeta(3), zeta(5), pi^4, zeta(3), pi^2, 1, ln 2 pi^6, ln 2 zeta(3)^2, ln 2 pi^2 zeta(3), ln 2 zeta(5), ln 2 pi^4, ln 2 zeta(3), ln 2 pi^2, ln 2}, n = 20, H = 10000000000, d = 250: planted relation (den 21, seed 282007) recovered: True (12 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 207.0
+    REAL X1: skipped (--no-real)
+PASS    PX2: X2 = {f7, pi^4 zeta(3), pi^2 zeta(5), zeta(7), pi^6, zeta(3)^2, pi^2 zeta(3), zeta(5), pi^4, zeta(3), pi^2, 1, ln 2 pi^6, ln 2 zeta(3)^2, ln 2 pi^2 zeta(3), ln 2 zeta(5), ln 2 pi^4, ln 2 zeta(3), ln 2 pi^2, ln 2, ln^2 2 pi^2 zeta(3), ln^2 2 zeta(5), ln^2 2 pi^4, ln^2 2 zeta(3), ln^2 2 pi^2, ln^2 2}, n = 26, H = 10000000, d = 250: planted relation (den 11, seed 282008) recovered: True (42 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 190.8
+    REAL X2: skipped (--no-real)
