@@ -20,3 +20,10 @@ this folder: `python3 ind310.py [--mutate=no-shift|rs-one]`. Exit 1 when a check
 
 - `no-shift`: c₁ = R_h/2 (the horizon's shift dropped) → K1.
 - `rs-one`: r_S := 1 in K1 → K1.
+
+## Rerun on the Mac (2026-11-28)
+
+`rerun_{derive,check,table}.txt`: `static_c1_all.py derive`, `check` and `table` from the branch (code b54e1f5), nice 10, exit 0.
+derive 21 of 21 and check 146 of 146, the same verdicts as the output of record, check for check. Values at roundoff level differ
+between the Mac and rpi5 (Θ_gen + r_S c₁ at c = −0.01: 1.9e-10 here, 1.2e-10 there; bar 1e-9), as expected of float64 ODE runs on
+two platforms. The conclusions are equal.
