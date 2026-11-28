@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-i263/notes/wormhole_largeD/order7.py", line 1545, in <module>
+  File "/home/nathan/Source/negative-mass-i263/notes/wormhole_largeD/order7.py", line 1521, in main
+    check_sym()
+         ~~~~^^
+  File "/home/nathan/Source/negative-mass-i263/notes/wormhole_largeD/order7.py", line 438, in check_evals
+    print(f"  {name}: {e['grid']}  {e['secs']:.0f} s (panel setup {e['init_secs']:.0f} s)\n    Omega0 = {nd(e['Om0'], 60)}\n    Omega1 = {nd(e['Om1'], 60)}"
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-i263/notes/wormhole_largeD/order7.py", line 438, in <genexpr>
+    print(f"  {name}: {e['grid']}  {e['secs']:.0f} s (panel setup {e['init_secs']:.0f} s)\n    Omega0 = {nd(e['Om0'], 60)}\n    Omega1 = {nd(e['Om1'], 60)}"
+                                                                             ^^^^^^^^^^^^^^
+KeyError: 'resid2'

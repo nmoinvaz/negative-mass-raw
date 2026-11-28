@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-i263/notes/wormhole_largeD/order7.py", line 1545, in <module>
+    main()
+    ~~~~^^
+  File "/home/nathan/Source/negative-mass-i263/notes/wormhole_largeD/order7.py", line 1521, in main
+    ev = check_evals()
+  File "/home/nathan/Source/negative-mass-i263/notes/wormhole_largeD/order7.py", line 438, in check_evals
+    + "\n    |G_k| at the root / |slope|, k = 2 .. 7 = " + " ".join(nd(e[f"resid{k}"], 3) for k in range(2, 8)), flush=True)
+                                                           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-i263/notes/wormhole_largeD/order7.py", line 438, in <genexpr>
+    + "\n    |G_k| at the root / |slope|, k = 2 .. 7 = " + " ".join(nd(e[f"resid{k}"], 3) for k in range(2, 8)), flush=True)
+                                                                       ~^^^^^^^^^^^^^
+KeyError: 'resid2'
