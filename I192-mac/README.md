@@ -211,3 +211,9 @@ a release that contains it. Python `~/Source/negative-mass/.venv/bin/python`. At
   answered by JT2) and `width_of`'s unscaled f64 products (at nb 30 and x >= 5e-4 they do not underflow; JT2 shows it).
 
 Run files of this stage: `dev_25`+ (`devrun.sh`) and `run_10`+ (`runrec.sh`); `s3_build.sh`, `s3_compare.py`, `s3_records.py`, `s3_steps.py` are written before the first run and kept as they were.
+
+**A5 (2026-11-27, during the RP2 runs).** `run_10_s3_records_default` (the first RP2 run, default pair) was stopped by its PID (exit 1, the log kept) after 33 minutes: the one octo-double `d` record of A4 (`d lane=od l=2 gammas=1.0`)
+had used 28 CPU-minutes on the old binary alone and did not finish, so the pair would have passed the 2 h stop rule and held back every record after it. The six f64, dd and qd `d` commands before it were equal (old and new, 17 records
+`d f64 l=2 .. d qd l=6`, 14 s to 38 s each). **The od `d` record is dropped from RP2** (`s3_records.py` now takes it only with `--od`; no data motivated this, the run time did): the octo-double lane is compared through
+`recipcheck od` (the reciprocals, the candidate cause of any multidouble 6 difference) and `tabcheck`/`jtable` (DD), not through a determinant. The bar of RP2 is unchanged for the records that remain. Reruns are `run_11` (default),
+`run_12` (lib_plane), `run_13` (complex), `run_22` (the `jsign` control), numbered by hand (`s3_run.sh`) because `runrec.sh` would take 15, which the check chains use.
