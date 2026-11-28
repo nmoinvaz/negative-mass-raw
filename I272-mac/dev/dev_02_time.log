@@ -1,0 +1,20 @@
+ellis_spectrum.py  code b1d1c84  mutate=None  crate=../wormhole_largeD/w2_crate/target/release/w2_crate
+
+== time-domain linear response of the throat radius (even sector, unstable mode projected out)
+FAIL    T1-D4: Y(t, 0) at t = 10 and 20, h = 0.02 against 0.01: relative difference 4.88e-03 (bar 2e-3); 0.4400, 0.4522 at h = 0.01
+   D = 4 (c=3 w=0.5, h = 0.01): t=8: Y 0.4321, v 5.0897e-03, rate 0.285 | t=10: Y 0.4400, v 2.9894e-03, rate 0.249 | t=12: Y 0.4447, v 1.8719e-03, rate 0.221 | t=15: Y 0.4489, v 1.0125e-03, rate 0.191 | t=20: Y 0.4522, v 4.2459e-04, rate 0.160
+   D = 4: the #255 estimator v = v_inf + c exp(-k (t - 6.5)) on t in [6.5, 12]: v_inf = 7.7622e-04, k = 0.3379; late rates at t = 20 over four data: [0.238 0.235 0.238 0.239]
+FAIL    T2-D4: k of the #255 estimator on the linear response = 0.3379 against kappa = 0.244 (bar +-0.024)
+PASS    T3-D4: late decay rate of the throat speed at t = 20 over four data (centers 3, 6, 1.5, widths 0.5, 1): [0.238 0.235 0.238 0.239], spread 0.005 (bar 0.02)
+PASS    T4-D4: Y(t, 0)/P for two data far from the throat (P = integral w Y1 sigma0, w = 1/(r'^2 r^n)) at t = 20 differ by 7.11e-04 (bar 1e-2): the response is that of one conjugate momentum
+PASS    T5-D4: the shift saturates: Y(40)/Y(30) - 1 = 1.02e-03 (bar 1e-2)
+FAIL    T1-D5: Y(t, 0) at t = 10 and 20, h = 0.02 against 0.01: relative difference 4.29e-02 (bar 2e-3); 0.4665, 0.7261 at h = 0.01
+   D = 5 (c=3 w=0.5, h = 0.01): t=8: Y 0.4075, v 3.0433e-02, rate 0.035 | t=10: Y 0.4665, v 2.8670e-02, rate 0.026 | t=12: Y 0.5225, v 2.7345e-02, rate 0.022 | t=15: Y 0.6021, v 2.5807e-02, rate 0.017 | t=20: Y 0.7261, v 2.3881e-02, rate 0.014
+   D = 5: the #255 estimator v = v_inf + c exp(-k (t - 6.5)) on t in [6.5, 12]: v_inf = 2.4222e-02, k = 0.1701; late rates at t = 20 over four data: [0.027 0.028 0.027 0.027]
+FAIL    T2-D5: k of the #255 estimator on the linear response = 0.1701 against kappa = 0.495 (bar +-0.010)
+PASS    T3-D5: late decay rate of the throat speed at t = 20 over four data (centers 3, 6, 1.5, widths 0.5, 1): [0.027 0.028 0.027 0.027], spread 0.002 (bar 0.02)
+PASS    T4-D5: Y(t, 0)/P for two data far from the throat (P = integral w Y1 sigma0, w = 1/(r'^2 r^n)) at t = 20 differ by 2.52e-03 (bar 1e-2): the response is that of one conjugate momentum
+FAIL    T5-D5: the secular speed is constant: d ln v/dt at t = 15, 25 = -0.0175, -0.0123 (a constant speed has 0; bar 0.005)
+FAIL    T6: rdot_inf / E_net at B = 0.02, 0.04, 0.07, 0.1 (throat_drift.md's table): [0.0136 0.0231 0.0476 0.068 ], max/min 5.01 (a speed linear in the injected energy needs <= 1.2)
+
+11 checks, 5 pass, 6 fail: T1-D4, T2-D4, T1-D5, T2-D5, T5-D5, T6
