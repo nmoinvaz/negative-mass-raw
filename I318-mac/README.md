@@ -101,3 +101,43 @@ Both came from reading the code and the printed outputs while designing the plan
    - **B (fine)**: the mean locus's throat radius interpolated on the stored locus (every slice, spacing 0.0035 in t) at the same t_dep. Same test (|rho_r - 1| <= 0.10), **reported, not gating**: it is the physical ratio of the parts.
    - The diagnostic "interpolation factor of A at t_dep" is printed for B = 0 and the seven members (computed for the law K e^{2 lambda t} with lambda from the stored odd part; a description, not a correction).
    - PL1 is run on both: B recovers the planted ratios to 2e-3; A recovers them times the planted law's own interpolation factor, which is computed by an independent evaluation of the two bracketing planted rows (agreement to 1e-9).
+
+## Stage 2: the development set, what it showed, a correction to my own planted check, a post hoc addition, the mutations (written before the runs of record)
+
+**Development set.** The seven new pairs (e = 9) were run once into `dev/runs_dev/runs` (`scripts/run_pairs.sh`, exit 0 for all; the driver's `wait` returned before X3 finished, X3's own rc file is complete: fixed in the script for the record).
+The analysis on it (`dev/analyze_dev.4.log`, 29 checks) therefore showed me the Part 2 and Part 1 results **before** this stage was written. The criteria of stages 1 and 1b were not changed after seeing them. The runs of record will be compared with this set bit for bit (as #305 did).
+What the development set showed: SAME met (<= 0.0003); rho_v = 1.002 (X1) to 1.009 (W3, X3) at all seven, rho_r (A) 0.891 (X3) to 0.965 and (B) 0.975 to 1.029; PD2 **fails at X3 only, on r_th (A)**; B-reading inside at all seven; P1G **fails** (predicted S at e12 -172.6e-6, ratio -0.46: the sign, as I expected); PA2b's magnitude is 0.99 of +374e-6, PA1's 0.07.
+REPV3 and NEED reproduce #317's printed residuals and ratios. This is the baseline against which mutations are computed; the checks that fail on it (PD2, P1G, P1A) cannot be newly fired and show that they can fail by failing.
+
+**A mistake in my planted check, corrected before the record (the bar is unchanged).** PL1 first failed (r_th and rdot_th recovered to 7.2e-3 against the 2e-3 bar) because the planted law is K eps^2 r_t, so the ratio to B = 0's (r_t = 1) is rho r_t at the moment (r_t = 1.0058 there), not rho. The expected value now carries r_t(t_dep), and the
+independent A expectation solves the departure time exactly (the reader divides by the mean's throat radius, which carries the planted part; my first expectation used r_t alone and missed by 9.4e-8 against the 1e-8 bar). The bars 2e-3 and 1e-8 are as declared; both passed after the correction. (`dev/analyze_dev.1.log` is the stage-1 partition run on the stored delta scan, kept.)
+
+**Post hoc, added after the first development run on the seven pairs (non-gating; check LIFE).** The stored pair also carries the two runs' crossing times (`cross_a`: r = 0.75, 0.5 on the collapse side; `cross_b`: r = 2.0, 3.0 on the expansion side). With amplitudes k (delta + D) and k (delta - D) the difference
+dT = T_b - T_a = const - (1/lambda) ln((delta + D)/(delta - D)), so m1 = D/delta = -tanh(lambda dev / 2), dev the deviation of dT from the linear trend over log10 delta of e7, B0.1, e9, e10, lambda = ln 10 / (T gain per decade). It does not use the departure reading.
+The check LIFE (S within a factor 2 of +374e-6 for both crossing pairs) is a description on the scan, post hoc.
+
+**Mutations and their effects, computed on the development set** (`dev/mut/`; run 4 with the sets undeclared, run 5 with the declared sets: **16 of 16 MATCH** on the second pass; the effect of `lam_off` on LIFE was first tried at lambda x 0.5 and fired nothing (the factor-2 bar is wide), so it is x 0.25).
+A mutation's "newly fired" excludes the three checks that fail on the baseline (PD2, P1G, P1A).
+
+| mutation | what it changes | newly fires |
+|---|---|---|
+| eps_swap | the two eps (1e-3, 1e-2) swapped in every reading | B0REF, NEED, PD2B, PL1, PL2, REP296, REPV3, SAME |
+| d_sign | difference taken as S - N | B0REF, REP296 |
+| b0_scale | B = 0's d0 x 1.2 | B0REF, PD2B |
+| same_moment_off | the new pair read at eps = 2e-3 | B0REF, PD2B, PL1, REP296, SAME |
+| plant_ratio | planted ratio x 1.15 on the X side | PL1 |
+| m1_sign | the model's m1 sign flipped | LIFE, PL2 |
+| dv_scale | the model's rdot_th shift x 1.2 | PL2 |
+| rep_off | the REP318 locus comparison forced to fail | REP318 |
+| m0_shift | M_0 + 1e-4 in the fit | NINE |
+| bis_off | the rerun's lo + 1e-16 | BIS |
+| zone_one_path | the zone is the Mac bracket alone | P1B |
+| run_miss | W3 treated as missing | RUNS |
+| cfg_e | the expected e of the new pair 8 | CFG |
+| v3_coef | V3's c x 1.05 | NEED, REPV3 |
+| dep_eps | #266's departure eps x 10 | B0REF, NEED, NINE, PL1, PL2, REP296, REPV3, SAME |
+| lam_off | lambda x 0.25 in LIFE | LIFE |
+
+PD2, P1G and P1A fail on the baseline, so no mutation can newly fire them; that PD2's test can fire is shown by PL1's flags (1.15 outside, 1.05 inside) and by PD2 failing at X3, and that P1G's can pass by P1B (the same code, magnitude) passing.
+
+**Runs of record.** After this stage is committed: `scripts/run_pairs.sh <RAW>` into `runs/` (two at a time), then `analyze --raw=<RAW>` (the log `record/analyze_record.1.log`), the 16 mutations on it (`record/mut/`), the comparison of `runs/` with `dev/runs_dev/runs` (bit for bit), the figure and the note.
