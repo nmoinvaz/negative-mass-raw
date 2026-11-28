@@ -99,3 +99,17 @@ Blind spots kept: `dm_noT` does not fire T3 (the s-form and ρ-form δm share th
   A plateau (a wrong mode) gives ratio 1: `mode_khat`, `mode_dF0`. The bars of the issue (1e-6, 1e-12) were not touched.
 - T8: bars relative to max(|c₁|, 1e-5) so that a class with c₁ ≈ 0 (G: |c₁| ≈ 1e-12 from truncation) is held to the absolute 1e-11.
 - First mutation chain A of d1 failed to start (a relative path to `run_mut.sh`); the eight logs were produced by a second launch with the same script.
+
+## Result (runs of record, code cde8be5, `runs/`)
+
+`derive` 3 of 3 (0 s), `check` 8 of 8 (128 s), `table` (all exit 0, empty .err); the 20 mutations (`runs/mut_*.log`) fire the declared sets, 20 of 20. The development run d1 (script 08789b2) and the run of record
+give equal `check` lines apart from timings; `table` differs only in its header.
+
+| criterion | result |
+|---|---|
+| κ r_S c₁ = δM_ADM to 1e-6 at c = −1.5, −0.3, Schwarzschild | exact mode through the slice code: 1.2e-16, 1.5e-16, 0 (constants); cut extensions at ρ = 1e8 2.0e-13, 2.7e-13, 1.7e-13; Θ_gen + r_S c₁ ≤ 4.5e-12, 8.2e-13, 2.7e-15. Through the solver ≤ 8.5e-7 (c = −0.3, horizon fit), ≤ 1.9e-7 for A0, A1R, A1L |
+| r_S = 1 fails at c ≠ −1 | 5.31e-2 (c = −1.5), 2.67e-1 (c = −0.3), 5.0e-1 (Schwarzschild 2M = 2); holds where r_S = 1 |
+| dM = κ_ξ dA/(8π) to 1e-12 | ratios 1.0000000000000 at six L per member and three r_S for Schwarzschild |
+| gauge | Θ_gen = 0, δr(S) = 0 on pure gauge; c₂ = −η(0)R′_h G(0): −1.12925e-2 (c = −1.5), +1.35916e-1 (c = −0.3) to 2e-13 |
+
+Peak memory 0.68 GB (T7). The note is `notes/black_universe/static_c1_members.md`, its output `static_c1_members_output.txt` (= derive, check, table and mutations of `runs/`).
