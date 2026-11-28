@@ -10,3 +10,11 @@ Criteria, written before the first run:
   comparison; both share the binaries' `jtable` output.
 - S3: `taylor_polar.py --raw=...` (the default mode, 23 checks) on the `lib_table` build: 22 passed, 0 failed, 1 skipped (TS),
   and every CHECK line's verdict equals `run_44`'s.
+
+## Results
+
+| criterion | verdict | reading |
+|---|---|---|
+| S1 | met | both builds rc 0 (`b1_default.rc`, `b2_libtable.rc`); `tree_default.txt` names multishoot v5.0.0 and no git source |
+| S2 | met | `s3_steps.py` exit 0, every case equal (464, 389 steps); the six files of `steps_out/` are byte-equal to `I192-mac/s3_steps_out/` (`steps_cmp.txt`) |
+| S3 | met except R1 | 21 passed, 0 failed, 2 skipped (R1, TS), 1315 s. Every verdict equals `run_44`'s except R1, which is SKIPPED here: it compares the old-pin and new-pin binaries (`target/bins/old_default`, `new_default`), which this tree does not have. R1's content is the runner's RP2 (3532 records, 0 differ), not rerun here |
