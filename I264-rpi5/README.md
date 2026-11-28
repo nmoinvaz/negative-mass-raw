@@ -119,3 +119,18 @@ Logs: `dev_NN_*` development runs, `run_NN_*` runs of record, `ctl_*` controls; 
 - *Runs of record:* `run_01_*` (sym exch shifts bnd masters fp; it builds the node caches in the session's scratch directory, rebuilt by the
   script in 30 s per configuration), then the 15 controls (`ctl_queue.sh`, three workers, `ctl_*`), then `run_02_all` (all parts and `ctlsum`,
   `--out=identity_review_output.txt`).
+
+**A2 (after the runs of A1 and the comparison with the notes; before the second set of runs).**
+
+- *What I read and when.* After `run_02` (all declared runs of A1, 15 of 15 controls on target, 0 failures) was committed (raw e12aee3), I read
+  `omega4.md` lines 84 to 204 and `omega5.md` lines 1 to 195 (the reductions, status paragraphs, defects and "what the notes should say"). I have
+  not read `order6.py`, `order7.py` or `PanelK`.
+- *New part `masters2`* (script commit 8bd606d): every master integral that the two notes use, evaluated by quadrature of its definition (no Fourier
+  series, no Parseval, no Euler sums) against the closed form the note states: J₁ … J₅ (also from B(a)), J̃₂ … J̃₆, ⟨θ²⟩, ⟨C²⟩, ⟨ℓC²⟩, ⟨ltC²⟩, ⟨θ lt C⟩,
+  ⟨θC⟩, ⟨uC⟩, ⟨lt²D₃⟩, ⟨C Lc2⟩, ⟨CK₂⟩, ⟨lt C K₂⟩, ⟨CK₃⟩, ⟨θ²lt²⟩, ⟨θK₂⟩, ⟨K₂²⟩, and my two averages against the notes' forms (NM2, NM3). Bar 40 digits each.
+  The development run (not kept: `dev_03_masters2` is the output on the screen, 0 failures, 49 to 58 digits, 7 integrals equal to the last printed digit)
+  printed "999.0 digits" for an exact match; the print now says "equal at the working precision".
+- *Declared targets of the three new controls* (computed in `dev_3_ctl_*.log`): `m2_K2K2` fires `MK2K2` only, `m2_J5` fires `MJ5` only, `m2_M3` fires `NM3` only.
+- *Second set of runs.* The script changed from bfb32f2 to 8bd606d only by the part `masters2`, the three mutations, their `CTL_PARTS` and `TARGETS` entries and the
+  print above. Everything is rerun on 8bd606d: `ctl2_*` (18 controls, `ctl2_queue.sh`), then `run_03_all_ctlsum` (all parts, with `ctlsum` reading `ctl2_*`),
+  whose output is `identity_review_output.txt`. The first set (`run_01`, `run_02`, `ctl_*`) stays as the record of the runs of A1.
