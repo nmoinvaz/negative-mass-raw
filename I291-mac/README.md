@@ -128,6 +128,30 @@ mutations, about 1 min each).
 
 ## Changes made after this README
 
-None yet.
+Report-only additions and one script fix; no check, bar, window, series or mutation changed (the criteria, the bars and the mutation sets are as committed at c324b74a, code 7415596):
 
-## Results of record (after the runs)
+- `report_offsets` in the driver (1c9ba81): the offsets ε_k − ε̄ of the eight pairs of each h at t = 12 … 18, and the dependence on δ of member 0's pair, printed in the output. Six extra pairs
+  (member 0 at e = 11 and 10, the three h: `jobs_rec_C.txt`, `jobs_rec_D.txt`, `scripts/launch_I291_extra.sh`) were run for it. The development table above quotes six offsets from a K = 6 mean;
+  the output has the K = 8 table.
+- `scripts/repro.sh` first compared the `pstar/summary.json` files byte for byte and flagged the wall-clock `secs`; it now compares the json without `secs` (72 files, 0 different).
+- The figure script `throat_tail_graph.py` and the note.
+- During development the first launch of `scripts/run_muts.sh` stopped at once (the list was looked up after a `cd`); it was relaunched, nothing else.
+
+## Results of record
+
+Runs: `scripts/launch_I291.sh` at 23:39 on 2026-11-27: 48 jobs (3 h × 8 members × bisection and pair), all exit 0 in 9 min (bisection 4 to 5 s, 15 to 18 s, 53 to 63 s and pair 7 to 9 s, 10 to 11 s, 19 to 21 s at
+h = 0.02, 0.01, 0.005); then the six extra pairs. REPRO: `scripts/repro.sh` → `logs/repro.log`: 72 files, 0 different from the development runs. `analyze_record.log` (= `throat_tail_output.txt` of the
+note): 25 checks, 24 pass, **1 fails: S1 at h = 0.005** (slope −2.304, |p − 2.9| = 0.596 against 0.580). `mut/`: 13 of 13 mutations fire exactly their declared set.
+
+| check | verdict | numbers |
+|---|---|---|
+| S1 slope over [15, 18.2] within 20 % of −2.9 | h = 0.01 met, h = 0.005 not met | −2.413, −2.304 (over [15, 16]: −2.321, −2.306) |
+| S2 rate × t on [10, 16], spread against half an exponential's | met | 9.9 %, 9.4 % against 23.1 % |
+| S3 the two h agree within 10 % | met | 4.6 % |
+| DR no drift before the window | met | v < 0, \|v\| falls on [12, 18.2] |
+| WIN | met | T_end = 18.20 (18.90 at h = 0.01, 18.20 at 0.005) |
+| ORD (post hoc) | met | p*ₕ 2.00, v(10) 1.96, v(12) 1.97 |
+| PL1, PL2, PL3, PL4, PL5 | met | 97 %, 100 %, 100 %, 100 %, 92 % against 90 % |
+| BR, EVT, RATE, three h | met | 24 members each |
+
+Figure: `throat_tail.svg` (from `throat_tail_graph.py` in the worktree).
