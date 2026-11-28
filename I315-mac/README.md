@@ -176,4 +176,8 @@ On the grids of record, as separate processes (each started with `runrec.sh`, `n
 
 ## Amendments
 
-(none yet)
+**A1 (2026-11-28, 03:40 PST, after the first k-step of G1 and G2, before any other run of record; criteria unchanged):** three corrections of this file.
+- **Run count of `run_01`.** The table says 13 checks and 20 s; the run has **11 checks** (E0, CACHE, LN2, TR6, LN2b, ZV1, ZV2, ZV2b, ZV3, ZV4, TBL) and took 7 s; `run_01` passed 11 of 11 (`run_01_sym_struct_cache_zv_table.log`). The disclosure's "`dev_06` and `run_01`" is `run_01` alone: `dev_06` was never made.
+- **The wall projection was wrong.** The README and the issue said about 2.4 h per grid. The first k-step of G1 and of G2 took **1612 s each** (panel setup about 15 min before it), 1.7 times the projection (it scaled the pilot's time by P·N² and a factor 3 for the 625-digit arithmetic; the factor is larger).
+  Projected now: about 4.4 h per grid, ending near 07:20 PST (started 02:51 PST), above the 4 h line of the task and below the 6 h stop. Reported to the coordinator and on the issue at 03:35; **the coordinator answered "continue with the grids as they are"** (hc, 03:37; a restart at N = 355 would save about 50 min and lose the X2/X3 capacity, so none was made) **and "run the PSLQ stage as declared, X3 and XF included unless the declared rule skips them"**.
+- **Machine load at the start of the grids:** load average 3.8 (`run_02_evals_G1.env`), two processes of mine, nice 10.
