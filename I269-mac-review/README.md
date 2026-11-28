@@ -22,3 +22,16 @@ Mutations, each with the check it must fail:
 - `no-h`: F without the term 1/λ² − 1. K1 must fail (the θθ equation).
 - `k-off`: λ² = L + β e^{1.01 K v}. K1 must fail (the vv equation).
 - `phi-scale`: φ = 1.01 √2 arctan ρ. K1 must fail (the ρρ equation).
+
+## Results
+
+| check | result | verdict |
+|---|---|---|
+| K1 | 47 points (4 members, 3 (L, β), 4 points; λ² > 0): worst relative residual 8.9e-40 | pass |
+| K2 | ∂r/∂β at β = 0 against R e^{Kv}/2: 2.3e-41 | pass |
+| `no-h` | K1 0.91 | fires |
+| `k-off` | K1 4.6e-3, K2 6.2e-2 | fires |
+| `phi-scale` | K1 0.30 | fires |
+
+Reading: the exact family is confirmed by a brute-force Ricci tensor that shares no code with `exact_mode.py`, at every member and
+every sign of β tested, and its linearization in β is #262's Y_K.
