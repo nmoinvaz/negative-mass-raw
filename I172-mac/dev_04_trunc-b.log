@@ -1,0 +1,57 @@
+[PASS] ricci: own Ricci tensor of a generic static u(x, rho): the frame block equals the printed [[P - h, Q, Z], [Q, -P - h, Y], [Z, Y, h]]: True; R(e_phi, .) = 0: True; for u = F(x/rho) the hats rho^2 R3 are the hand entries (P = -(F'^2 + F F''), Q = -eta w/2, Z = -w/2, Y = -(eta F'^2 + F w/2), h = eta^2 F'^2/2, w = F' + eta F''): True; 8 det of the hats equals det_classify.conical_N(): True and its theta-form equals A0 + nu^2 A1 + nu^4 A2: True
+  (0 s)
+[PASS] factor: R3 - (h L2 L2 + S11 L1 L1) = diag(D/(h S11), 0, 0) for a symbolic block: True; h (L2 + wL1)(L2 - wL1) = R3(xi, xi) up to that term: True; the coefficient of k ^ dk for k = L2 +- w L1 from direct derivatives equals E +- w B at 4 exact points of a polynomial shift: True
+  (0 s)
+  (c, g', rho, O+, O-) at eps = +1; eps = -1 swaps or negates the pair as bessel_closure.md's table:
+    (2, 1, '5/7', 677/15, -167/15)
+    (6, 17, '5/7', 1595569/95, -196979/95)
+    (3, 7/2, '2/3', 38507/88, -8785/88)
+    (-6, 7, '3/11', -763, 3465)
+    (-2, 1, '4/39', 0, 34)
+[PASS] planted_bessel: u = c x + g(rho), own Ricci, the same pair() and EB(): on the ODE (eps = +-1) 4 h E = 2 g'(g'^2 + 4 c^2) exactly: True; w^2 = (g'^2 + 2 c^2)/g'^2: True; at 5 exact jets {O+, O-} = {O_k, O_m} of bessel_closure.md: True
+  (1 s)
+[PASS] planted_pairs: through pair() and EB() with u = c x + g(rho): the closed (d rho, dt) gives (O+, O-) = (0, 0): True; the boosted closed pair k = e^-chi d(t + x + rho), m = e^chi d(t - x + rho^2/2), chi = c x + g gives (0, 0): True; the non-integrable (dt, x d rho) gives {O+, O-} = {2, -2} against the predicted {-2, 2}: True
+  (0 s)
+[PASS] series_resid: the K = 13 series: det of the hats of R3 has no nonzero coefficient below nu^20: True (lowest nonzero order None; known to 20 >= 18: True); signature: h = 8 F_inf^2 nu^4 + ... > 0, S11 = -2 F_inf^2 nu^2 + ... < 0, w^2 = nu^-2/4 + ... > 0 for every real F_inf != 0: True
+  (24 s)
+  rho^3 O+ (k ^ dk), series in nu = 1/eta, T = ln eta:
+    nu^4 T^0: -64*Fi**3
+    nu^6 T^0: 8*Fi**2*(28*C - 11*Fi**3 - 85*Fi)
+    nu^6 T^1: 224*Fi**3*(Fi**2 + 7)
+    nu^8 T^0: -8*Fi*(56*C**2 - 30*C*Fi**3 - 298*C*Fi + 29*Fi**6 + 76*Fi**4 + 283*Fi**2)
+    nu^8 T^1: -16*Fi**2*(Fi**2 + 7)*(56*C - 15*Fi**3 - 149*Fi)
+    nu^8 T^2: -448*Fi**3*(Fi**2 + 7)**2
+    nu^10 T^0: (13248*C**3 - 5904*C**2*Fi**3 - 106992*C**2*Fi + 13212*C*Fi**6 + 10632*C*Fi**4 + 263388*C*Fi**2 - 5823*Fi**9 - 22291*Fi**7 + 68227*Fi**5 - 244273*Fi**3)/18
+    nu^10 T^1: 2*Fi*(Fi**2 + 7)*(3312*C**2 - 984*C*Fi**3 - 17832*C*Fi + 1101*Fi**6 + 886*Fi**4 + 21949*Fi**2)/3
+    nu^10 T^2: 8*Fi**2*(Fi**2 + 7)**2*(276*C - 41*Fi**3 - 743*Fi)
+    nu^10 T^3: 736*Fi**3*(Fi**2 + 7)**3
+    (known below nu^14)
+  rho^3 O- (m ^ dm):
+    nu^4 T^0: 64*Fi
+    nu^6 T^0: -24*(4*C + 3*Fi**3 - 3*Fi)
+    nu^6 T^1: -96*Fi*(Fi**2 + 7)
+    nu^8 T^0: 4*(32*C**2 + 12*C*Fi**3 - 92*C*Fi + 17*Fi**6 + 106*Fi**4 - 51*Fi**2)/Fi
+    nu^8 T^1: 16*(Fi**2 + 7)*(16*C + 3*Fi**3 - 23*Fi)
+    nu^8 T^2: 128*Fi*(Fi**2 + 7)**2
+    nu^10 T^0: -(8640*C**3 + 3888*C**2*Fi**3 - 46512*C**2*Fi + 4860*C*Fi**6 + 3144*C*Fi**4 + 444*C*Fi**2 + 81*Fi**9 + 6869*Fi**7 + 59011*Fi**5 + 181463*Fi**3)/(54*Fi**2)
+    nu^10 T^1: -2*(Fi**2 + 7)*(2160*C**2 + 648*C*Fi**3 - 7752*C*Fi + 405*Fi**6 + 262*Fi**4 + 37*Fi**2)/(9*Fi)
+    nu^10 T^2: -8*(Fi**2 + 7)**2*(180*C + 27*Fi**3 - 323*Fi)/3
+    nu^10 T^3: -160*Fi*(Fi**2 + 7)**3
+    (known below nu^14)
+  rho^3 (O+ + O-) = 4 h E:
+    nu^4 T^0: -64*Fi*(Fi - 1)*(Fi + 1)
+    nu^6 T^0: 8*(28*C*Fi**2 - 12*C - 11*Fi**5 - 94*Fi**3 + 9*Fi)
+    nu^6 T^1: 32*Fi*(Fi**2 + 7)*(7*Fi**2 - 3)
+    nu^8 T^0: -4*(112*C**2*Fi**2 - 32*C**2 - 60*C*Fi**5 - 608*C*Fi**3 + 92*C*Fi + 58*Fi**8 + 135*Fi**6 + 460*Fi**4 + 51*Fi**2)/Fi
+    nu^8 T^1: -16*(Fi**2 + 7)*(56*C*Fi**2 - 16*C - 15*Fi**5 - 152*Fi**3 + 23*Fi)
+    nu^8 T^2: -64*Fi*(Fi**2 + 7)**2*(7*Fi**2 - 2)
+    (known below nu^14)
+[PASS] obstruction: K = 13 series, own pair: rho^3 O+ = -64*Fi**3 nu^4 + O(nu^6 ln eta): True; rho^3 O- = 64*Fi nu^4 + O(nu^6 ln eta): True; C does not enter at nu^4: True; sum -64*Fi**3 + 64*Fi, difference -64*Fi**3 - 64*Fi (the sum has the zeros F_inf = +-1 at this order, the difference none): True; known below nu^14: True
+  (0 s)
+[FAIL] truncation: K = 4: known below nu^5, agrees with K = 13 where both are known: True; K = 6: known below nu^7, agrees with K = 13 where both are known: True; K = 9: known below nu^10, agrees with K = 13 where both are known: False; K = 13: known below nu^14, agrees with K = 13 where both are known: True; K = 17: known below nu^18, agrees with K = 13 where both are known: True. With only a_{2,0} = -2 F_inf, a_{4,0} = C, a_{4,1} = Bb free and nothing beyond nu^4: the nu^4 coefficient of O- is 64*Fi (no C, no Bb) and of O+ is 16*Bb - 80*Fi**3 - 112*Fi (no C; at Bb = F_inf (F_inf^2 + 7) it is -64 F_inf^3): True
+  (116 s)
+[PASS] zero_set: leading coefficients -64 F^3 and 64 F: real zeros [0, 0, 0] and [0], so only F_inf = 0, which is outside the family; sum -64 F (F^2 - 1): zeros [-1, 0, 1]; difference -64 F (F^2 + 1): zeros [0]; at F_inf = +-1 the pair (O+, O-) is (-64, 64) and (64, -64), each nonzero
+  (1 s)
+
+checks: 7 passed, 1 failed ['truncation']. 143 s
+control trunc-b: target checks ['truncation'], fired ['truncation']
