@@ -4,8 +4,8 @@ Machine dh610-fedora (Fedora, i7-12700, 20 threads shared with choptuik-large-d,
 processes, runs longer than a few minutes as systemd user units `nm-i246-*`. Memory is reported, never a stop condition; any single run over 3 h of wall time is stopped and reported (`timeout 10800`).
 Issue https://github.com/nmoinvaz/negative-mass/issues/246 ("The settled threshold mass at D = 5 and 6 (#41)"), with #253's addition (family G at D = 5 and 6). Worktree `negative-mass-i246`, branch
 `wip/i246-settled-mass-d56`, from main at 1f3a548. Code: `notes/wormhole_evolution/settled_mass_d56.py`, a thin driver that imports #41's `settled_mass.py`, #253's `settled_mass_g.py`, #40's `threshold.py`
-and #39's `dn.py` unchanged. This README is written before any run of record (the first commit of this folder after the development runs); the mutation targets in the last section were computed in
-development runs and are declared with it. Nothing declared here is changed after the first run of record without a ruling over hc. Status words as in AGENTS.md: every mass here is *numerical
+and #39's `dn.py` unchanged. This README is the declaration, committed after the development runs and before any run of record (commit 3f47cce1 holds the development runs and a work-in-progress README; the commit that adds the
+mutation table below is the declaration); the mutation targets in the last section were computed in development runs. Nothing declared here is changed after the first run of record without a ruling over hc. Status words as in AGENTS.md: every mass here is *numerical
 evidence*. No sentence claims novelty. Units: a = 1 (throat radius of the initial static wormhole), 8πG = 1, D = n + 2, M = r^(n−1)(1 + 2e^f r₊r₋)/2, which on the apparent horizon (r₊ = 0) is r^(n−1)/2.
 
 ## Question and plan
@@ -53,7 +53,9 @@ The three p*ₕ of G at D = 6 (0.012657679, 0.011087978, 0.010696934) have diffe
 4. **Bracket bar** 1e-11 (RC1), because #40's G at D = 5, h = 0.00707 ended at 2.9e-12; every δ is at least 1e3 times that.
 5. Two slips in development, kept in `dev/`: the first noise queue passed the 2^20 dose as `%g` (1.04858e+06, not 1048576.0) and was stopped and moved to `dev/_d05_aborted_noise_dose_format`; the first analysis (`dev/d04/analyze_1.log`)
    looked for run folders named `1e-06` while the lane script writes `1e-6`.
-6. The planted cases' (λ, kp) were set from the development series (settled r_AH and late d ln e^{−f}/dx⁺ of the real S and G runs, rounded); their bars are 15 times the observed errors (below).
+6. dh610 rebooted at 19:59 on 2026-11-27; every unit stopped. Intact: all development chain and noise jobs (rc 0), the bisection, 22 of 24 development mutations. Interrupted and rerun: the development mutations `a4p`
+   and `pfx_cut` (first logs kept as `dev/mut/*.run1_reboot`). The declared mutation sets in the driver are those of the completed development runs; the two interrupted ones matched on rerun.
+7. The planted cases' (λ, kp) were set from the development series (settled r_AH and late d ln e^{−f}/dx⁺ of the real S and G runs, rounded); their bars are 15 times the observed errors (below).
 
 ## What the driver adds to #41's code
 
@@ -107,6 +109,8 @@ All other checks pass in development.
   (0, 1), (1, 1), (1, 2), (1, 3), (64, 1), (2²⁰, 1). Report: max |M_noisy − M| over the three windows against the h-difference E between that h and its coarser neighbour, ratio ≥ 1 "reached", 0.1 to 1 "approached", < 0.1 "not reached"
   (as #253). What it measures: the scatter between roundoff realizations of the run, not a calibrated roundoff response (#253's RNR failure); it is the same kind of number as #41's machine-to-machine 2e-5.
 
+Expected number of checks in the analysis of record: 72 (18 global, 46 per case, 8 noise).
+
 ## Run plan (commands)
 
 From `notes/wormhole_evolution/` of the worktree: `python3 settled_mass_d56.py pstar --n=N --fam=F --k=K --out=RAW/runs` (K = 0, 1, 2 coarse to fine; G at D = 6 has k = 2 from `scripts/bisect_pstar.py`);
@@ -116,4 +120,38 @@ Run folders: `runs/D<D>_<fam>_k<k>_d<δ>` (the 24 runs), `..._K20`, `..._K24` (P
 
 ## Mutations (computed in development, `dev/mut/`; the case column is the `--cases=` of the mutated analysis)
 
-MUTATIONS_PLACEHOLDER
+| mutation | what it breaks | case | must fire (all contain the baseline RC8a of the case) |
+|---|---|---|---|
+| `mass_exponent` | `settled_mass.track`: M = r^n/2 instead of r^(n-1)/2 | 5S | PT1-5S, RC3-5S, RC4-5S, RC8a-5S, RN0-5S, RNR-5S |
+| `finder_sign` | the horizon finder looks for the opposite sign change of r_+ | 5S | PT1-5S, RC2-5S, RC3-5S, RC4-5S, RC5-5S, RC5a-5S, RC6-5S, RC6a-5S, RC7-5S, RC8-5S, RC8a-5S |
+| `hm_swap` | the x- spacing of every zoomed box replaced by h (x+ spacing) | 5S | PT1-5S, RC5-5S, RC5a-5S, RC6-5S, RC6a-5S, RC8-5S, RC8a-5S, RN0-5S, RNR-5S |
+| `interp_shift` | the cubic interpolation of the left ray at 1/4 instead of 1/2 | 5S | PT1-5S, RC6-5S, RC6a-5S, RC7-5S, RC8-5S, RC8a-5S, RN0-5S, RNR-5S |
+| `no_zoom` | K = 0 (level 0 only) | 5S | PT1-5S, RC5-5S, RC5a-5S, RC6-5S, RC6a-5S, RC8-5S, RC8a-5S, RN0-5S, RNR-5S |
+| `short_limit` | K = 12 (limit e^-f = 6144) | 5S | RC5-5S, RC5a-5S, RC8-5S, RC8a-5S, RN0-5S |
+| `pstar_off` | p*_h + 2e-8 in the runs | 5S | RC2-5S, RC3-5S, RC4-5S, RC5-5S, RC5a-5S, RC6-5S, RC6a-5S, RC7-5S, RC8-5S, RC8a-5S |
+| `pstar_shift` | p*_h + 3e-10 in RC1's stored p*_h | 5S | RC1-5S, RC8a-5S |
+| `theta_coef` | `dn`: the sphere-term coefficient n instead of n - 1 | 5S | L0ID-5S, PT1-5S, RC1-5S, RC2-5S, RC3-5S, RC4-5S, RC5-5S, RC5a-5S, RC6-5S, RC6a-5S, RC7-5S, RC8-5S, RC8a-5S |
+| `rcut_off` | r_cut 1.5 times the declared | 5S | L0ID-5S, RC8a-5S |
+| `col_shift` | the x+ label of a column at its edge instead of its centre | 5S | RC8a-5S, RN0-5S, RNR-5S |
+| `time_unit` | t = x+ + x- instead of (x+ + x-)/sqrt2 | 5S | RC2-5S, RC8a-5S |
+| `delta_swap` | the delta = 1e-6 run replaced by delta = 3e-2 | 5S | RC7-5S, RC8a-5S |
+| `flux_sign` | the first-law flux with the opposite sign | 5S | FLX, RC4-5S, RC8a-5S |
+| `flux_exp` | the first-law flux with r^(n+1)/n | 5S | FLX, RC4-5S |
+| `normal_drop` | the normal field's flux dropped from the first law | 5G | FLX, RC8a-5G |
+| `normal_sign` | the normal field's flux with the ghost's sign | 5G | FLX, RC8a-5G |
+| `family_B` | family G with B = 0.11 instead of 0.1 | 5G | DEP-5G, L0ID-5G, RC1-5G, RC2-5G, RC3-5G, RC4-5G, RC5-5G, RC5a-5G, RC6-5G, RC6a-5G, RC8-5G, RC8a-5G |
+| `trk_shift` | the track wrapper reads phi_+ one row off | 5G | RC8a-5G, TRK-5G |
+| `crit_dm` | dm = 2 instead of 3 | 5S | CFG, RC8a-5S |
+| `tang_kappa` | the planted solution's e^{-f} with kappa x 1.02 | 5S | PT0, PT1-5S, RC8a-5S |
+| `conv_vol` | the conversion with V_4 = pi^2 (the printed A_4) | 5S | CONV, RC8a-5S |
+| `a4p` | the 'printed A_4' case computed with the unit 4-ball | 5S | A4P, RC8a-5S |
+| `cmp_bar0` | the G-against-S bar set to 0 | 5S | CMPT, RC8a-5S |
+| `rn_ref` | the noise runs' reference is the delta = 1e-6 run | 5S | RC8a-5S, RN0-5S, RNR-5S |
+| `pfx_cut` | PFX and the 1.57e6 reading cut at 1.5 F_max | 5S | PFX, RC5a-5S, RC8a-5S |
+
+`--mutate=NAME` runs `analyze` on the case in the table (default `--cases=`; `--skip=pl41,pfx` except for `pfx_cut`, which skips only `pl41`), recomputing the runs under the mutation for the mutations that change a run
+(`RUN_MUTS` in the driver) and reading the stored runs for the analysis-only ones. The mutated analysis exits 0 iff the set of failed checks equals the declared set. The baseline: RC8a (the settled test at #41's limit)
+fails in every analysis without any mutation, so RC8a-⟨case⟩ is in every set. Silent by design or by data, as computed: `normal_drop` and `normal_sign` do not fire RC4 (the normal flux is below 1e-5 of the mass change,
+as in #253), only the planted FLX; `col_shift` does not fire RC6 at D = 5 (the shift h/2 × dM/dx⁺ is below the h-difference there; it fires the noise comparison, which compares x⁺); `rcut_off` fires only the level-0
+identity. PL1 to PL3 (#41's, through the driver) are not exercised by these runs (`--skip=pl41`); their own mutation sets were computed in #41 and #253. The mutated analyses of record use the same cases and are run again
+after the runs of record (`mut/`). Dev logs: `dev/mut/`; the first logs of `a4p` and `pfx_cut`, interrupted by a reboot of dh610 at 19:59 on 2026-11-27, are kept as `*.run1_reboot` and both were rerun (unit `nm-i246-devmut3b-*`).
