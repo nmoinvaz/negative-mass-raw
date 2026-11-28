@@ -255,3 +255,19 @@ On the grids of record, as separate processes (each started with `runrec.sh`, `n
 | `rd_J5` | J̃₅'s ζ(5) coefficient × 17/18 | RD5, RD7, LN2 | RD6 (the numeric integral does not use J̃₅) |
 | `rd_master` | ⟨lt²C²⟩'s ζ(6) coefficient 95/96 as 94/96 | RD5, RD5b, RD7 | LN2 (A is free of ln 2) |
 | `rd_B` | the sign of the boundary term of step CL | RD6, RD7, LN2 | RD5 |
+
+**A3 (2026-11-27, 16:40, after `dev_24_euler_*` and `dev_25_t2_*`, before the T2 and `euler7` controls of record and the RD controls of record): the targets of T2 and of the Euler-sum controls.**
+`run_05` (`values remainder`: PL0 … PL4, SL, RES, M5, RNG, R6, R7, X3 all pass, M5 382.7 digits), `run_06a` (Q1 … Q4: not found), `run_06b` (Q5, Q6: found) and Q7, Q8 of `run_06c` (found) were read before this amendment; the T2 controls had no target before `dev_25`.
+The RD controls use the committed code be7b9cb (the only change since 2e70c66 is the constant of RD8, the relation of `run_06b`).
+
+*Targets of the T2 controls* (`declared_t2.json`; `dev_25_t2_*` on `G1.json`, `G2.json`: parts `values pslq remainder --no-real --bases=Q1,Q3,Q5 --pslq-cap=150`; d = 150 and the budgets of the lowered H are below 125, so PQ5 passes in the nominal run; on the control grids `dev_22_t2_*` d = 88 and PQ5 failed in the nominal run for a budget above d, which is why these controls use the grids of record):
+
+| control | what it breaks | fires | silent |
+|---|---|---|---|
+| `pslq_wrong_basis` | the first constant of every basis + √2·10⁻³ | PQ1, PQ3, PQ5 | everything else |
+| `pslq_wrong_target` | the planted target × (1 + 10⁻²⁰) | PQ1, PQ3, PQ5 | everything else |
+| `wrong_Om5_series` | Ω₅ + 10 in the series of R6, R7 | R6, R7 | everything else (X3 does not use the series) |
+| `wrong_closed4` | Ω₄'s closed form + 10⁻³ | PL4, X3 | R6, R7 (they use the grids' Ω's) |
+
+*Targets of the Euler-sum controls* (part `euler7`; `dev_24_euler_*`): nominal fires nothing; `rd_master` (the coefficient of ΣH_nH_n^{(2)}/n³ in the exact assembly, 101/48 as 100/48) fires RD5c (sympy residual ≠ 0).
+`reduce7`'s `rd_master` (⟨lt²C²⟩'s ζ(6) coefficient) fires RD5, RD5b, RD7, as declared in A2.
