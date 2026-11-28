@@ -32,3 +32,25 @@ Criteria, written before the first run:
 Mutations (each must fail at least the named check): `eps-1e-2` (departure at 1e-2: K1), `b-scale` (b × 1.05 after the
 fit: K3), `plat-half` (plateau over the last 0.5: K1 if the plateau moves by 2e-6, reported either way), `rth-side`
 (r_th_a in place of r_th: K1).
+
+## Results
+
+| check | verdict | reading (`run_01.log`) |
+|---|---|---|
+| K1 | met | largest differences from the note's table: t_dep 4.9e-4, r_th 4.9e-7, γ₁ 4.0e-7, M 5.0e-7 |
+| K2 | met | a = 0.20269, b = 0.8534, M₀ = 0.223086 |
+| K3 | met | M − predicted within 4.7e-7 of the note's column; largest at 1e-9 … 1e-12 is 8.88e-4, so PRED not met is reproduced |
+| K4 | met | dM = +2.0737e-3, predicted +1.1860e-3 |
+| K5 | met | ratios 0.650, 0.653, 0.670, 0.650 |
+
+Mutations: `eps-1e-2` fails all five; `b-scale` fails K3 only; `rth-side` fails K1, K2, K3; `plat-half` fails nothing:
+the plateau over the last 0.5 of x⁺ differs from the one over the last 1.0 by at most 7.4e-7, inside K1's 2e-6. So the
+plateau window is not tested by K1 at this bar, as the criteria allowed.
+
+## Rerun of the runner's code
+
+From a detached worktree at 86b6039, nice 10:
+- `settled_mass_member.py job` and `member` at h = 0.005, δ = 1e-12 (`rerun_e12_h0.005/`, rc 0 and 0): the chain's
+  `series.npz`, the pair's `locus.npz` and `member.json` rows and t_dep are bitwise equal to the runner's.
+- `settled_mass_member.py analyze --raw=I267-mac` (`rerun_analyze.log`, rc 1, as stored: HST and PRED fail): equal to
+  the stored `settled_mass_member_output.txt` (`stored_output_86b6039.txt`) except for the header's timestamp.
