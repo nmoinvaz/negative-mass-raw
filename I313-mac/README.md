@@ -176,3 +176,21 @@ The baseline (`dev/ana_dev2.log`) fails FITQ, so FITQ cannot newly fire: it show
 (two lanes, nice 10, `NUMBA_NUM_THREADS=1`, `scripts/run_one.sh`: pstar, chain, member; logs never overwritten, reruns numbered); `python settled_mass_route5.py analyze --raw=RAW [--rn=RAW/runs_rn]`; `scripts/run_muts.sh RAW RAW/mut LANE 2 RAW/analyze_record.log`.
 Second realization (post hoc): the three points at h = 0.005 with the bracket (0.98 p*ₕ, 1.02 p*ₕ) in `runs_rn/runs`.
 Stop condition: a single run not finished in 2 h of wall time is stopped and reported (development: 25 to 80 s). A check that fails on the runs of record is reported as not met. Nothing above is changed after the first run of record.
+
+## Changes made after the criteria (stage 2 stands as committed, d9fb2fc0; nothing in the bars, the route, the frozen constants or the declared mutation sets was changed after the first run of record)
+
+1. `scripts/make_jobs_rn.py` (the second realization's brackets, 0.98 and 1.02 p*ₕ of the records), `settled_mass_route5_post.py` (post hoc: Spearman rank correlations of the miss, geometric means of |M − P4|/rms per route, margins to the bar against the changes of M, the separation in units of the point's own h difference) were written after the analysis of record;
+   they read the stored runs and change none of them (`post_hoc_1.log`; `post_hoc_2.log` is the same with two header lines reworded, final). The driver was not edited after the runs of record began (negative-mass `19866b3`).
+2. `settled_mass_route5_graph.py` and the figure were added after the records; they read the raw folder and gate nothing (`graph_1.log`). The note and its proposed text are in negative-mass `779a6ba`.
+3. The analysis of record was run once, with `--rn` (`analyze_record.log`); the development analysis `dev/ana_dev2.log` differs from it in the path line and the second-realization block only.
+
+## Results (the runs of record)
+
+- 6 jobs (`jobs_rec.txt`, `rec_lane0.log`, `rec_lane1.log`), all exit 0, 24 to 78 s each, `runs/`; the X2 reproduction (`jobs_rep.txt`, `rep_lane0.log`, `runs_rep/`, exit 0, 81 s); the second realization (`jobs_rn.txt`, `rn_lane0.log`, `rn_lane1.log`, `runs_rn/`, 3 jobs exit 0, 75 to 85 s; bracket 0.98 and 1.02 times p*ₕ).
+  The runs of record equal the development set (`dev/set_a`) in every printed number.
+- The analysis of record: `analyze_record.log` (= the repository's `settled_mass_route5_output.txt`), exit 1: **31 checks (1 post hoc), 30 gating, 1 gating check fails: FITQ**. P4 passes: **M − P4 = +2.87e-05, +5.28e-05, +1.83e-05 (bar 6e-5)** at leverage 0.103, 0.521, 0.771; P4-ph passes too.
+  LEVB, SEPB, SEPW, SEPC, SEPN, SEPX, HST, RH, REP5 (bit for bit), FRZ, TGT, RC4, RC5, RC8, BR, STL, EVT, CFG, FAM0, RUNS and the eight planted cases pass. **FITQ: rms 6.86e-05, 1.50e-04, 2.33e-04 (bar 1e-4).**
+- The 35 mutations on the runs of record: `mut/<name>.log` (+ `.err`, `.rc`; `mut_lane*.log` the progress), `--baseline=analyze_record.log` (FITQ fails): **35 of 35 MATCH their declared sets**, all exit 0.
+- The second realization (`--rn`): p*ₕ differs by at most 5.0e-14, M by −5.7e-07, −9.8e-07, +1.3e-06, M − P4 stays +2.81e-05, +5.18e-05, +1.96e-05.
+- Post hoc (`post_hoc_2.log`): the miss is not ordered by leverage (Spearman +0.68 over nine, +0.54 over X and Y) and is ordered by |ṙ_th| over X and Y (+0.94); (M − P4)/ṙ_th is −0.0454 on Y against −0.0796 on X; |M − P4|/rms geometric means 0.055 (N), 0.226 (Y), 1.244 (X); the margin of Y2 to the bar (7.2e-6) is 0.54 of M's change between h = 0.01 and 0.005.
+- Figure: `settled_mass_route5.svg`, drawn by `notes/wormhole_evolution/settled_mass_route5_graph.py` of the repository from this folder.
