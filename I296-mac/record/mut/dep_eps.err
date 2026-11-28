@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i296/notes/wormhole_evolution/settled_mass_eps.py", line 551, in analyze_cmd
+    post_hoc(P1, P2, allp, f1, t1, f2, t2)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i296/notes/wormhole_evolution/settled_mass_eps.py", line 373, in post_hoc
+    x1 = fit_pred(Pe, fn, tn, M0)
+  File "/Users/nathan/Source/negative-mass-i296/notes/wormhole_evolution/settled_mass_eps.py", line 176, in fit_pred
+    co = np.linalg.lstsq(A, y, rcond=None)[0]
+         ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/numpy/linalg/_linalg.py", line 2556, in lstsq
+    x, resids, rank, s = _umath_linalg.lstsq(a, b, rcond,
+                         ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+                                             signature=signature)
+                                             ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/numpy/linalg/_linalg.py", line 156, in _raise_linalgerror_lstsq
+    raise LinAlgError("SVD did not converge in Linear Least Squares")
+numpy.linalg.LinAlgError: SVD did not converge in Linear Least Squares

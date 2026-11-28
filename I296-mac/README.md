@@ -92,3 +92,18 @@ that already fails without a mutation (a check failing at baseline cannot be new
 1. `analyze --part=record` (about a minute) -> `record/analyze_record.log`; reruns are numbered, no log is overwritten. 2. `scripts/run_muts.sh record record/mut BASELOG` (12 mutations, one lane).
 3. Note `notes/wormhole_evolution/settled_mass_eps.md` with the script's output `settled_mass_eps_output.txt` (the record's log), the answer, the error-bar table, proposed text for `settled_mass_route3.md`, `critical_ghost.md` section 1.3 and Paper V (not applied).
 Files here: `README.md`, `dev/` (development logs, `mut/`), `scripts/run_muts.sh`, and stage 2's `record/`.
+
+## Stage 2: the analysis of record (added after Stage 1 was committed at 21b10fba; nothing above was edited)
+
+- **Record 1** (`record/analyze_record.log`, code dc9d00a, 14 s, exit 1): 21 checks, 2 gating checks fail: **T1** (max |M - M_pred| 1.29e-4; W1 +4.80e-5, W2 -1.28e-4, W3 -1.97e-5, C1 +4.67e-5, C2 -1.29e-4, C3 -3.20e-5)
+  and **T2** (9.34e-5; N1 +6.67e-5, N2 -9.34e-5, N3 +1.24e-5). The other 11 gating checks pass (CFG, RUNS, PDEP2, PTD2, PFIT2, MEM, E2B, E3S, E3F, E3N, E3P); six of the eight post hoc checks fail (T1-V1, T1-V2, T1-V3, T1-h, T2-V2, T2-h),
+  T2-V1 and T2-V3 pass (4.2e-5, 3.7e-5).
+- **Addendum, after Record 1 and before any mutation of record:** `post_hoc2` was added (code 97a41f4; printed only, gates nothing, the gating checks and T1, T2 unchanged): the fits' own errors under the four readings,
+  T1 and T2 without e12 (and without e11, e12), and B = 0's reading against eps with its eps^2 scaling. It was added because Record 1's in-sample table has e12 at +374e-6 (the delta = 1e-12 pair at the pair's roundoff floor, whose
+  same-moment partner differs in t_dep by 0.026) and because B = 0's contamination looked like eps^2. **Record 2** (`record/analyze_record.2.log`, code 97a41f4, exit 1) equals Record 1 in every line above `== Post hoc 2`
+  (checked with diff) and is the output of record, copied to `notes/wormhole_evolution/settled_mass_eps_output.txt`.
+- **Mutations of record** (`record/mut/NAME.log`, baseline = Record 2, `scripts/run_muts.sh record record/mut record/analyze_record.2.log`): 12 run, all exit codes as printed in each log.
+  **9 of 12 newly fire exactly their declared set** (asym_sign, coef_a, drop_point, eps_swap, loo_off, m0_shift, no_rscale, no_run, rdot_nolapse). **3 of 12 (coef_c, dep_eps, no_speed) fire their declared set and also the two post hoc checks T2-V1
+  and T2-V3** (DIFFERENT, exit 1): those two pass on the record at the bar 6e-5 (margins 1.8e-5 and 2.3e-5), but the development bar was 3e-4 where the mutations' shifts (about 1e-4) did not reach it. The declared sets were not edited.
+  T1 and T2 fail without a mutation, so no mutation can newly fire them on the record; that they can fail is shown by these failures, by PFIT2's planted data (fires at 5.5e-4 and 1.3e-4 for a x 1.05 and c x 0.8) and by development (coef_a and no_rscale fire them at the dev bar).
+- Reruns are numbered; no log is overwritten. Raw commit of Stage 2 is named in the issue's closing comment.
