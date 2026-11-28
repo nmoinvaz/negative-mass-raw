@@ -1,0 +1,16 @@
+settled_mass_eps_scan.py analyze []: numpy 2.5.4, mutation None, part record, 2026-11-28 05:03:38
+== part record: 24 members (the fifteen and the held-out nine) and B0, h = 0.005, grid 0.001, 0.002, 0.005, 0.01
+[pass] CFG: M_0 = 0.223086 and the frozen P4 of #295; the fifteen are those of #295; the grid is the issue's; bar 6e-5  (M_0 0.223086, P4 (0.2296318924, 0.2834170383, 0.7657657062))
+[pass] RUNS: every member and B0 reads at every eps of the grid with finite (t_dep, gamma_1, r_th, rdot_th) under REF and WJ
+[pass] DEPX: the departure time written in `settled_mass_speed` (ln-linear in |odd|/r = eps) equals #266's `departure_time` to 3e-6 at every member and eps of the grid  (max 1.8e-06)
+[pass] MONO: t_dep increases with eps at every member, and t_dep(1e-2) - t_dep(1e-3) is 1.9 to 2.4 (ln 10 / lambda)  (shift 1.949 to 2.065)
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i323/notes/wormhole_evolution/settled_mass_eps_scan.py", line 848, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/nathan/Source/negative-mass-i323/notes/wormhole_evolution/settled_mass_eps_scan.py", line 839, in main
+    return analyze_cmd()
+  File "/Users/nathan/Source/negative-mass-i323/notes/wormhole_evolution/settled_mass_eps_scan.py", line 590, in analyze_cmd
+    pn = pm[p["name"]][key][j]
+         ~~^^^^^^^^^^^
+KeyError: 'X1'
