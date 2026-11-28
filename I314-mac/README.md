@@ -147,3 +147,51 @@ weights: the check on N does not distinguish the weightings; PMEM does).
 ### Stage 1 is closed here
 
 Commands of the record (after this README is committed): `settled_mass_speed.py analyze` (all 21 points) to `record/analyze_record.log`, then every mutation with `--part=all` and the record log as baseline to `record/mut/`.
+
+## Stage 2: the record
+
+Script `settled_mass_speed.py`: record 1 at 80856bd (as declared above), record 2 at a0bc2f2 (the output of record). Commands from `notes/wormhole_evolution`: `python3 settled_mass_speed.py analyze` to `record/analyze_record.log`
+(exit 1, 75 s; `record/analyze_record.1.log` is record 1), then `scripts/run_muts.sh record/mut LANE 2 record/analyze_record.log all` (18 mutations, `record/mut/`).
+
+What changed between the records, all disclosed: (1) REFX failed in record 1 and fails in record 2 as declared: its bar (6e-8) is below half a unit of the printed last digit of #305's +2.13e-04 and +1.98e-04 (5e-7); a post hoc `REFX-ph`
+with half a unit of each printed digit was added in record 2 (passes: differences +9.2e-09, -2.0e-07, -3.4e-08), REFX itself is unchanged; (2) the print of the shift that would close the miss had the wrong sign in record 1
+(`-(M - P4)/(r_th c)`, written so in stage 1); record 2 prints `+(M - P4)/(r_th c)`; (3) record 2 adds a post hoc print of the fraction of the reference miss each reading closes. Every gating number of record 1 equals record 2's.
+
+### Result
+
+Residuals M - predicted after refitting the fifteen with each reading (bar 6e-5), `record/analyze_record.log`:
+
+| reading | X1 | X2 | X3 | N1 to N3, largest |
+|---|---|---|---|---|
+| REF | +9.00e-05 | +2.13e-04 | +1.98e-04 | 2.2e-06 |
+| S1 | +9.03e-05 | +2.12e-04 | +1.96e-04 | 1.9e-06 |
+| S1r | +1.05e-04 | +1.78e-04 | +1.14e-04 | 8.0e-06 |
+| S2 | +9.25e-05 | +2.20e-04 | +2.10e-04 | 2.3e-06 |
+| S3 | +8.93e-05 | +2.11e-04 | +1.96e-04 | 1.1e-06 |
+| WA | +1.00e-04 | +2.18e-04 | +2.06e-04 | 4.2e-06 |
+| WJ | +3.92e-05 | +1.43e-04 | +1.83e-04 | 2.6e-06 |
+| WJi | +9.02e-05 | +2.35e-04 | +2.72e-04 | 3.3e-06 |
+
+Gating checks: 29; PN_rho pass for all 8 readings; PX_rho fail for all 8 (X1 to X3 within 6e-5: none; WJ at X1 only); REFX fails (above); every other check passes; PSPD errors 4.3e-06 (S1), 4.1e-06 (S1r), 1.9e-05 (S2), 9.0e-08 (S3).
+The speed would have to shift by +1.18e-04, +2.83e-04, +2.63e-04 (10.5, 10.3, 10.8 % of |rdot_th|); S1, S2, S3 move it by at most 3.1e-06, 4.0e-05, 1.1e-05 (0.13, 1.65, 0.45 %). The map: all four speed estimators are "form (neither)".
+My stage 1 expectation (every reading near +9e-5 to +2e-4) held for the speed estimators, WA and WJi; WJ at X1 (+3.9e-05) did not.
+
+## Stage 3: amendment, Y1 to Y3 added to the held-out set (declared before any new reading touches them)
+
+The coordinator (hc, and #314's comment "Added from #313") adds #313's three members Y1 to Y3 to the held-out set beside N1 to N3 and X1 to X3. Written after record 2 and before any reading of mine is applied to Y;
+stages 1 and 2 are not edited. Y1, Y2, Y3 are the Gaussian normal pulse (x_c, w) = (5.0, 0.7) at B = 0.0394, 0.0768, 0.09431 (`I313-mac/runs/R_B*_xc5_w0.7/h0.005`), the route of #313 at leverage 0.4 to 1.0.
+They do not enter the fit: the fifteen's refit under every reading is unchanged, so the residuals at N and X of record 2 must reappear bit for bit in record 3 (checked by diff).
+
+What is added, identical in kind to the N and X checks:
+- PY_rho, rho = REF, S1, S1r, S2, S3, WA, WJ, WJi: Y1 to Y3 within 6e-5 of the refit over the fifteen under reading rho (gating).
+- REFY: the reference reading's residuals M - P4 at Y1 to Y3 equal #313's printed values +2.9e-05, +5.3e-05, +1.8e-05 (as quoted in #314's comment) to half a unit of the last printed digit, 5e-7 for each (two significant digits, unit 1e-6; I got this wrong for X, stage 2). Gating.
+- The dev partition does not load Y (it raises as for X); the Y-checks (PY_*, REFY) join the X-checks in the list that is printed apart in the mutation runs and is not part of MATCH. The mutation effects of stage 1 are unchanged (dev partition unchanged).
+- REFX-ph, which record 2 added and mutation runs counted as a newly fired check, is added to the list of X-checks that are printed apart (my omission; it made `coef_c`, `drop_pt`, `m0_shift` and `x_speed` read DIFFERENT in record 2's mutations, whose other newly fired sets match the declared ones).
+- The figure carries Y1 to Y3.
+No criterion, bar, reading or window changes. The verdict map stays defined for X only.
+
+Known to me when this is written: the reference's residuals at Y (+2.9e-05, +5.3e-05, +1.8e-05, within the bar, Y2 at 88 % of it) and the whole of record 2.
+**Expected before the run, stated so a wrong expectation is visible:** the speed estimators agree with `speed_at` to 1 % or better wherever the curvature of r(tau) is not far beyond the fitted points', so S1, S3 should leave Y within 6e-5 as REF does; Y2 sits 0.7e-5 from the bar, so a reading that raises its residual by more than that fails there by that margin
+alone (not a statement about the reading); readings that change the member (WA, WJ, WJi) can move Y by up to a few 1e-5 (their shifts at N, at the same leverage, are 4e-6 at most).
+
+Commands of record 3: `settled_mass_speed.py analyze` to `record/analyze_record.3.log`, then the 18 mutations with that log as baseline to `record/mut_3/` (record 2's files stay).
