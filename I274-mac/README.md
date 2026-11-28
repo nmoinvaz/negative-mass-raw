@@ -116,3 +116,26 @@ Two lanes of one process each: lane A the odd-numbered boxes of the table above,
 
 Observed in the same development runs, before any run of record: the unmutated crate on these five boxes asks exactly the stored points (n3_l2 and h1_l2 as well), and the smallest margin
 of the five is 5.15e-5 rad (s1_l6), against 10 E >= 3.1e-5.
+
+## Results (the output file is `phase2/nonradial/i274_recount_output.txt` of the code branch, a copy is `i274_recount_output.txt` here)
+
+- **35 of 35 boxes OK** (`run_02`, `run_03`, f64 lane, one process each, 483 s and 506 s of wall time; crate time 835 s for 6811 evaluations incl. the extra box, 0.07 s per D median,
+  0.8 s at most). Crate winding 0 and planted pair +2 (22 symmetric boxes) or +1 (13 upper boxes) in every box, equal to the stored count and planted check; every max step
+  and min abs D equal to the log's as printed; the counter asks **exactly winding2's stored points** in all 35 (0 asked not stored, 0 stored not asked).
+- **MARGIN.** The smallest distance of any compared quantity from its threshold is 5.15e-5 rad (s1 at l = 6), then 7.33e-5 (s1 at l = 3, with the plant), 1.39e-4 (rep at l = 4),
+  3.72e-4 (n1 at l = 5, with the plant), 3.80e-4 (c075 at l = 2); the other 30 boxes are above 6e-4. E (the stored phase error used) is the floor 3.1e-6 except in the 11 boxes with
+  larger crate-against-stored phase: 3.13e-6 to 3.27e-6 (s1, s3, R_s 1293 to 1343), 3.78e-6 (t2_r40, R_s 1870), 7.51e-6 (t2_r80, 3717), 9.60e-6 (s2_l2, 3831), 2.51e-6 (h3_l2) is below the floor.
+  The least margin / (10 E) is 1.63 (s1 at l = 6); no box is reported.
+- **dd lane** (`run_07`, `dev_08_dd_vs_f64`): rep_l4, s1_l3 and s1_l6 give the same count, planted pair, margins and crate-against-stored phase (1.00e-6, 3.14e-6, 3.15e-6) in double-double; f64 against dd at
+  the common points: phase 6e-13 rad, modulus 1.3e-13 at worst.
+- **Controls** (`run_04`, `run_05`): `reverse`, `wrongdouble`, `misplant`, `jsign`, `star_eps`, `rs_shift`, `strip_off`, `kmin_shift` fire on 35 of 35 boxes (`star_eps` stops the crate on c075_l2:
+  the flipped-eps star does not solve); **`onesided` fires on 21 of 22 symmetric boxes and does not fire on s2_l2** (planted difference +1.9746 against 2, within the 0.05 tolerance: the box is
+  0.02 wide in Re s). The control is reported as not met there; nothing was changed. `reverse`, `wrongdouble` and `misplant` fire on s2_l2.
+- **Extra box** (`run_06`, not in either list): #115's s1 at l = 5 (the box whose guard-1 count lost 2 pi): winding 0, planted +2, 387 points = the stored 387, margin 3.74e-4, phase 3.15e-6; OK.
+
+## Notes
+
+- The driver at 63fe72b ran every run of record. After them only `--collect` was edited (the extra box's rows, a numeric controls table, the result line); `run_box` is unchanged.
+  `i274_recount_output.txt` is made by that collector from `results/`; `collect.rc` is 1 because of the `onesided` row; `dev_09_collect_mut_missing` shows `--collect --mutate=missing` exit 1.
+- `dev_04_boxtable` failed (a `|` in the stored text broke a split) and was rerun as `dev_05`. Two redundant background waiters were started; they only waited for exit codes.
+- `dev_01` to `dev_09`, `dev_launch_*.out` and `launch_*.out` are development and launcher output; `results_dev/`, `jsonl_dev/` hold the development counts (not records).
