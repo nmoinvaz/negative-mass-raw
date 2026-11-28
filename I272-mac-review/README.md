@@ -27,3 +27,21 @@ Criteria, written before the first run:
 
 Mutations, each must fail at least the named checks: `wrong-n` (n + 1 in p's second term: K1), `no-proj` (the growing mode
 kept: K2, K4), `width` (width 1.0 in place of 0.5: K2's Y values).
+
+## Results
+
+| check | verdict | reading (`run_01.log`) |
+|---|---|---|
+| K1 | met | W² relative 5.7e-9 (D = 4), 2.5e-8 (D = 5) from #195's |
+| K2 | met | P 0.45773; Y(t, 0) within 9.8e-5; local rate within 3.5e-3 (0.2825, 0.2448, 0.2155, 0.1824, 0.1443, 0.1186) |
+| K3 | met | rate × t = 2.735, 2.886, 2.965 at t = 15, 20, 25; rise 8.4 % (an exponential: 67 %) |
+| K4 | met | P 0.10362; Y(t, 0) within 1.0e-4; v/P = 0.2815, 0.2421 at t = 10, 20 |
+
+Mutations: `wrong-n` fails K1 to K4; `no-proj` fails K2, K3, K4; `width` fails K2 and K4.
+
+## Rerun of the runner's driver
+
+From a detached worktree at 6373c3c, with `w2_crate` built there (`rerun2_build.log`): `ellis_spectrum.py run`, exit 1 as stored,
+`rerun2_full.log`. Apart from timings it equals `I272-mac/runs/run_01_full.log` except the header's commit (adc4c02 there, the
+branch head 6373c3c here; the driver file is the same). The first attempt (`rerun_full.log`) stopped at the planted and spectrum
+stages because the crate was not built in the review tree; it is kept.
