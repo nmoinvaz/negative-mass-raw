@@ -165,10 +165,24 @@ does not, that is reported with its log. Amendments to this README, if any, are 
 
 ## Amendments
 
-None yet.
+None.
 
 ## Files
 
 `scratch_explore_*.py` (the scratch explorations of "What was explored"), `dev_01_baseline.log`, `dev_02_<mutation>.log`,
 `dev_03_k17.log` (the K = 17 probe), `dev_04_<mutation>.log`, `run_mut.sh` and `run_mut_some.sh` (the control drivers), then
 the runs of record.
+
+## Results of the runs of record (written after them)
+
+Script at a4ee923 (`run_final.run1.commit`), unchanged since the criteria were declared; note and output at 78b6991 on
+`wip/i172-conical-closure`.
+
+| run | what | result |
+|---|---|---|
+| `run_final.run1` | the 11 checks, `--no-controls` | exit 0, 11 of 11 pass, 206 s, peak resident 116 MB (`/usr/bin/time -l`, `run_final.run1.time`) |
+| `final_<name>` x 15 | each control once, `run_mut.sh final` (12 with `--skip-num`) | all exit 1, each fails its target check and no other; 2417 s in all, one process at a time |
+
+The controls and the checks ran side by side as two processes. The criteria were not changed after the first run of record, and no
+check failed. `conical_closure_output.txt` in the repository is `run_final.run1.log` followed by the 15 control lines assembled from
+`final_<name>.log` and `.rc` (the script's own format).
