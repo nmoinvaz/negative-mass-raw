@@ -1,0 +1,21 @@
+order9.py  mutate=None  parts=['pslq']  mpmath 1.3.0  sympy 1.14.0
+  PSLQ at 480 digits (the two grids share 730.0), tolerance 1e-450, verification at 500 digits, maxsteps 4000000
+  zeta(5,3) at 540 digits: 0 s
+PASS    PF1: F1 = {f8, pi^8, pi^2 zeta(3)^2, zeta(3) zeta(5), zeta(5,3)}, n = 5, H = 10000000000000000, d = 480: planted relation (den 9, seed 315001) recovered: True (0 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 82.5
+    REAL F1: not found at H = 10000000000000000 (0 s)
+PASS    PF2: F2 = {f8, pi^8, pi^2 zeta(3)^2, zeta(3) zeta(5), zeta(5,3), pi^4 zeta(3), pi^2 zeta(5), zeta(7)}, n = 8, H = 10000000000000000, d = 480: planted relation (den 13, seed 315002) recovered: True (0 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 131.4
+    REAL F2: not found at H = 10000000000000000 (1 s)
+PASS    PF3: F3 = {f8, pi^8, pi^2 zeta(3)^2, zeta(3) zeta(5), zeta(5,3), pi^4 zeta(3), pi^2 zeta(5), zeta(7), pi^6, zeta(3)^2}, n = 10, H = 10000000000000000, d = 480: planted relation (den 9, seed 315003) recovered: True (0 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 164.0
+    REAL F3: not found at H = 10000000000000000 (2 s)
+PASS    PF4: F4 = {f8, pi^8, pi^2 zeta(3)^2, zeta(3) zeta(5), zeta(5,3), pi^4 zeta(3), pi^2 zeta(5), zeta(7), pi^6, zeta(3)^2, pi^2 zeta(3), zeta(5)}, n = 12, H = 10000000000000000, d = 480: planted relation (den 7, seed 315004) recovered: True (1 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 196.6
+    REAL F4: not found at H = 10000000000000000 (4 s)
+PASS    PF5: F5 = {f8, pi^8, pi^2 zeta(3)^2, zeta(3) zeta(5), zeta(5,3), pi^4 zeta(3), pi^2 zeta(5), zeta(7), pi^6, zeta(3)^2, pi^2 zeta(3), zeta(5), pi^4}, n = 13, H = 10000000000000000, d = 480: planted relation (den 15, seed 315005) recovered: True (1 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 212.9
+    REAL F5: not found at H = 10000000000000000 (8 s)
+PASS    PF6: F6 = {f8, pi^8, pi^2 zeta(3)^2, zeta(3) zeta(5), zeta(5,3), pi^4 zeta(3), pi^2 zeta(5), zeta(7), pi^6, zeta(3)^2, pi^2 zeta(3), zeta(5), pi^4, zeta(3)}, n = 14, H = 10000000000000000, d = 480: planted relation (den 13, seed 315006) recovered: True (2 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 229.2
+    REAL F6: FOUND (counts) relation [-14175, 378346368, 487564098, 186321755, 424351125, -590097931, 203334047, 314717592, 401186856, -614745349, -855036448, -2722874, -571775664, 718667281], residual 2.77e-470 (bar 1.0e-450), budget with H = 10000000000000000: 229.2 + 30 < 480: True; f8 coefficient -14175; perturbed basis (constant pi^8 + sqrt(2)/1000) finds nothing; verified at 500 digits (bar 1.0e-470): G1 3.04e-489, G2 3.04e-489 -> True
+PASS    PF7: F7 = {f8, pi^8, pi^2 zeta(3)^2, zeta(3) zeta(5), zeta(5,3), pi^4 zeta(3), pi^2 zeta(5), zeta(7), pi^6, zeta(3)^2, pi^2 zeta(3), zeta(5), pi^4, zeta(3), pi^2, 1}, n = 16, H = 10000000000000000, d = 480: planted relation (den 11, seed 315007) recovered: True (3 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 261.8
+    REAL F7: FOUND (counts) relation [14175, -378346368, -487564098, -186321755, -424351125, 590097931, -203334047, -314717592, -401186856, 614745349, 855036448, 2722874, 571775664, -718667281, 0, 0], residual 2.77e-470 (bar 1.0e-450), budget with H = 10000000000000000: 261.8 + 30 < 480: True; f8 coefficient 14175; perturbed basis (constant pi^8 + sqrt(2)/1000) finds nothing; verified at 500 digits (bar 1.0e-470): G1 3.04e-489, G2 3.04e-489 -> True
+PASS    PF7m: F7m = {f8, pi^8, pi^2 zeta(3)^2, zeta(3) zeta(5), pi^4 zeta(3), pi^2 zeta(5), zeta(7), pi^6, zeta(3)^2, pi^2 zeta(3), zeta(5), pi^4, zeta(3), pi^2, 1}, n = 15, H = 10000000000000000, d = 480: planted relation (den 9, seed 315011) recovered: True (3 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 245.5
+    REAL F7m: not found at H = 10000000000000000 (10 s)
+
+8 passed, 0 failed of 8 checks; 120 s

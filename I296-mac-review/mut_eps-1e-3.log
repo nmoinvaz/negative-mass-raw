@@ -1,0 +1,7 @@
+  eps = 0.001: nine-point fit [0.22999 0.27238 0.78347]; residuals on the six W1 +1.42e-05, W2 +4.78e-05, W3 +7.22e-05, C1 -3.67e-06, C2 -1.29e-05, C3 -2.12e-05
+  fifteen-point fit [0.22963 0.28343 0.76576]; residuals on the three N1 -4.80e-07, N2 -2.14e-06, N3 +1.20e-06
+[FAIL] K1: T1 largest |M - P| 7.221e-05 (note 1.29e-4; bar 6e-5)
+[FAIL] K2: T2 largest |M - P| 2.139e-06 (note 9.3e-5; bar 6e-5)
+[PASS] K3: eps = 1e-3: #283's W3 +7.108e-05 (7.11e-5), #295's largest 2.14e-06 (2.15e-6)
+
+3 criteria, 1 pass; failed: ['K1', 'K2']; mutation eps-1e-3

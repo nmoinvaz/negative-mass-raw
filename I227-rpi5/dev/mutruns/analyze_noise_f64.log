@@ -1,0 +1,9 @@
+[pass] BR-E: bisection to hi - lo <= 1e-24 with every run an event  (hi - lo = 5.68e-25, stopped None, runs 50, 503.3 s)
+[pass] SR-E: series e = 3 .. 20 step 0.5, both sides, complete  (22 points, e from 3.0 to 20.0)
+[FAIL] FM-E: fate monotone: every series point p* -/+ 10^-e lands on its own side, e <= 20  (6 wrong, first at e = 15.0: e=15 side -1 fate +1, e=15 side +1 fate -1, e=16 side -1 fate +1, e=16 side +1 fate -1, e=18 side -1 fate +1, e=20 side +1 fate -1)
+[FAIL] TM-E: T non-decreasing as |p - p*| falls, each side  (4 decreases, first (-1, 16.0, 18.0, 33.53100356386608, 30.64600789662497))
+[pass] EVC-E: events within 5 cells of the diagonal (the column cap does not bind)  (max |i - j| = 0)
+[FAIL] LL1-E: slope of T against ln(1/delta) over [1e-20, 1e-12] (the decades the double run could not reach) against 1/W = 0.846045  (0.199223 +- 0.060273 (OLS), -7.65e-01 (bar 5e-03), fit spread [0.000860, 0.831463], n = 8)
+[FAIL] LL2-E: the extension's slope agrees with the slope over #40's window [1e-11, 1e-3]  (extension 0.199223, double window 0.847158 +- 0.001094: -7.65e-01 (bar 5e-03); both windows 0.639807)
+[FAIL] LL3-E: log law: largest residual of the extension fit <= one row spacing sqrt2 h  (max residual 1.2279 against sqrt2 h = 0.0283 (rms 0.8463, uniform quantization 0.0082))
+8 checks, 3 pass, 5 fail, 0 skipped

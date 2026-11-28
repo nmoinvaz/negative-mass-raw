@@ -1,0 +1,19 @@
+[FAIL] S1: double-null gauge (dr, dOm, dth): smooth solutions (nullity 33 of the truncated system, N = 7) obey y21 = (F_Pi/2) y10, y12 = (F_Pi/2) y01, y_i0 = y_0i = 0 (i >= 2); y21 = 0 is excluded  (F_Pi(0) = 1/kappa from my Om0; y21 = (F_Pi/2) y10: False; y12 = (F_Pi/2) y01: False; Y_N''(0) = -F_Pi Y_N(0): False; horizon laws True; y21 = 0 in the span: False)
+       relation: (1) y00 + (1/kappa) y11 + (-2) y22 = 0
+       relation: (1) y01 + (-2*kappa) y12 = 0
+       relation: (1) y02 = 0
+       relation: (1) y03 = 0
+       relation: (1) y04 = 0
+       relation: (1) y10 + (-2*kappa) y21 = 0
+       relation: (1) y20 = 0
+       relation: (1) y30 = 0
+       relation: (1) y40 = 0
+[pass] S1b: a smooth solution with delta r = c2 V on H+ and 0 on H- (y00 = y01 = 0, y10 = 1, nothing else imposed) exists  (nullity 30; its Y = V + (F_Pi/2) V^2 U + ... = V + 1/(2*kappa) V^2 U + ...; V R = V + O(V^3 U^2))
+[FAIL] S1g: general smooth gauge (dr, dOm, dth, hv, hu): smooth solutions (nullity 67 of the truncated system, N = 5) obey y21 = (F_Pi/2) y10, y12 = (F_Pi/2) y01, y_i0 = y_0i = 0 (i >= 2); y21 = 0 is excluded  (F_Pi(0) = 1/kappa from my Om0; y21 = (F_Pi/2) y10: False; y12 = (F_Pi/2) y01: False; Y_N''(0) = -F_Pi Y_N(0): False; horizon laws True; y21 = 0 in the span: False)
+[pass] S2: smooth ansatz: no solution with Y = c2 V R, none with Y = c2' U R (also when only the degree <= 3 coefficients of Y are imposed), a solution with Y = c1 R  (consistent: Y=VR (degree <= 7): False, Y=UR (degree <= 7): False, Y=VR (degree <= 3): False, Y=R (degree <= 7): True)
+[pass] S3: log ansatz: Y = c2 V R has a solution; the coefficient of V ln V in delta theta is -c2/kappa for every solution, i.e. d_N delta phi = -sqrt2/kappa c2 ln|s| = -(pi/sqrt2) c2 ln|s| at kappa = 2/pi  (double-null gauge: coefficient of V ln V in delta theta = -1/kappa, spread over the solution space False, nullity 31, log terms of delta theta of degree <= 1: [('dth', 1, 0, '-1/kappa')] | general smooth gauge, logs also in hv, hu: coefficient of V ln V in delta theta = -1/kappa, spread over the solution space False, nullity 103, log terms of delta theta of degree <= 1: [('dth', 1, 0, '-1/kappa')])
+[pass] S4: planted: Y = c1 R (the static mass mode) through the same log ansatz: the coefficient of V ln V in delta theta is 0 for every solution  (q = 0, spread False, log terms of delta theta in the particular solution: [])
+[pass] S5: control: members (b, kappa) with A''(0) = -2/b^2 and kappa independent, and G0 changed: q = A''(0) c_h / (2 kappa), c_h = d_V delta r on H+  (b=1, G0=1: A''(0) = -2, q = -1/kappa, A''(0)/(2 kappa) = -1/kappa: equal | b=2, G0=1: A''(0) = -1/2, q = -1/(4*kappa), A''(0)/(2 kappa) = -1/(4*kappa): equal | b=3/2, G0=1: A''(0) = -8/9, q = -4/(9*kappa), A''(0)/(2 kappa) = -4/(9*kappa): equal | b=1/2, G0=1: A''(0) = -8, q = -4/kappa, A''(0)/(2 kappa) = -4/kappa: equal | b=1, G0=3: A''(0) = -2, q = -1/kappa, A''(0)/(2 kappa) = -1/kappa: equal | b=2, G0=5/2: A''(0) = -1/2, q = -1/(4*kappa), A''(0)/(2 kappa) = -1/(4*kappa): equal)
+[FAIL] S6: the log is the violation of the smooth relation: Y = V + t V^2 U + ... has q = 2 t - F_Pi, and a smooth solution iff t = F_Pi/2  (y21 = 0/1 (F_Pi/2) y10: smooth solution False, q = -1/kappa (2 y21 - F_Pi y10 = -1/kappa) | y21 = 1/2 (F_Pi/2) y10: smooth solution True, q = 0 (2 y21 - F_Pi y10 = 0) | y21 = 1/1 (F_Pi/2) y10: smooth solution False, q = 1/kappa (2 y21 - F_Pi y10 = 1/kappa) | y21 = 2/1 (F_Pi/2) y10: smooth solution False, q = 3/kappa (2 y21 - F_Pi y10 = 3/kappa))
+
+8 checks, 5 pass; failed: ['S1', 'S1g', 'S6']; mutation fpi; 87 s

@@ -1,0 +1,17 @@
+#!/bin/bash
+# usage: run_mut.sh ABSOLUTE_OUT_DIR PREFIX NAME...   (derive mutations k_*, check mutations otherwise); one process, nice 10, on the cache of the runs of record
+OUT="$1"; PREFIX="$2"; shift 2
+PY=$HOME/Source/negative-mass/.venv/bin/python
+SCRIPT=$HOME/Source/negative-mass-i322/notes/black_universe/remainder.py
+CACHE=$HOME/Source/negative-mass-raw/I322-mac/cache
+mkdir -p "$OUT"
+cd $HOME/Source/negative-mass-i322/notes/black_universe
+for m in "$@"; do
+  case "$m" in
+    k_*) sub=derive ;;
+    *) sub=check ;;
+  esac
+  nice -n 10 "$PY" "$SCRIPT" $sub --mutate=$m --cache=$CACHE > "$OUT/${PREFIX}${m}.log" 2> "$OUT/${PREFIX}${m}.err"
+  echo $? > "$OUT/${PREFIX}${m}.rc"
+done
+echo done > "$OUT/${PREFIX}ALLDONE"
