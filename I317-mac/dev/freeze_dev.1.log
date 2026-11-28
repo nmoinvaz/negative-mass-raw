@@ -1,0 +1,9 @@
+settled_mass_blind.py freeze {'part': 'dev'}: numba 0.68.1, numpy 2.5.4, python 3.14.7, Nathans-MacBook-Air-M5-3.local, part dev, mutation None, 2026-11-28 04:29:59
+froze 11 points ('B0.025', 'B0.1', 'B0.125', 'e7', 'e9', 'e11', 'W1', 'W2', 'W3', 'C1', 'C3') at h = 0.005, M_0 = 0.223086; B = 0's readings: eps 1e-2 r_th - 1 -1.4116e-04, rdot_th -3.2397e-04; eps 1e-3 -1.4961e-06, -3.2608e-06
+    V3_1e-2   (a, b, c) = +0.229563831409, +0.133766170317, +0.553971841071; in-sample max 2.054e-05, leave-one-out max 2.991e-05; subtracts dr -1.411564e-04, dv -3.239682e-04
+    V1_1e-2   (a, b, c, intercept) = +0.229639012377, +0.133552704123, +0.553348576349, +0.000209693854; in-sample max 2.080e-05, leave-one-out max 3.051e-05
+    V3_1e-3   (a, b, c) = +0.228873266715, +0.296859889460, +0.745096842441; in-sample max 4.001e-05, leave-one-out max 6.083e-05; subtracts dr -1.496053e-06, dv -3.260799e-06
+    FIX_1e-2  (a, b, c) = +0.236163820105, +0.106326470372, +0.464778494788; in-sample max 1.555e-04, leave-one-out max 1.658e-04
+    FIX_1e-3  (a, b, c) = +0.228990944690, +0.295795009302, +0.744813067526; in-sample max 3.978e-05, leave-one-out max 6.101e-05
+inputs sha256 020af9e8001935dac14240fab035666b31b40eeb5ba1ce82ad1e16dad6ac82b5
+wrote /Users/nathan/Source/negative-mass-raw/I317-mac/dev/frozen_dev.json; 4 s

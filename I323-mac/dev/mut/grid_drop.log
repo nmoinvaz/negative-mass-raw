@@ -1,0 +1,21 @@
+settled_mass_eps_scan.py analyze ['--part=dev', '--mutate=grid_drop', '--baseline=/Users/nathan/Source/negative-mass-raw/I323-mac/dev/analyze_dev.3.log']: numpy 2.5.4, mutation grid_drop, part dev, 2026-11-28 04:44:20
+== part dev: 15 members (the fifteen; the held-out nine are not loaded) and B0, h = 0.005, grid 0.001, 0.002, 0.01; fit 11, stand-ins ('B0.05', 'e9', 'W2', 'C2')
+[FAIL] CFG: M_0 = 0.223086 and the frozen P4 of #295; the fifteen are those of #295; the grid is the issue's; bar 6e-5  (M_0 0.223086, P4 (0.2296318924, 0.2834170383, 0.7657657062))
+[pass] RUNS: every member and B0 reads at every eps of the grid with finite (t_dep, gamma_1, r_th, rdot_th) under REF and WJ
+[pass] DEPX: the departure time written in `settled_mass_speed` (ln-linear in |odd|/r = eps) equals #266's `departure_time` to 3e-6 at every member and eps of the grid  (max 1.8e-06)
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i323/notes/wormhole_evolution/settled_mass_eps_scan.py", line 805, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/nathan/Source/negative-mass-i323/notes/wormhole_evolution/settled_mass_eps_scan.py", line 796, in main
+    return analyze_cmd()
+  File "/Users/nathan/Source/negative-mass-i323/notes/wormhole_evolution/settled_mass_eps_scan.py", line 569, in analyze_cmd
+    mono = all(all(REFS[GRID[i + 1]][p["name"]]["t_dep"] > REFS[GRID[i]][p["name"]]["t_dep"] for i in range(3)) for p in allp)
+           ^^^
+  File "/Users/nathan/Source/negative-mass-i323/notes/wormhole_evolution/settled_mass_eps_scan.py", line 569, in <genexpr>
+    mono = all(all(REFS[GRID[i + 1]][p["name"]]["t_dep"] > REFS[GRID[i]][p["name"]]["t_dep"] for i in range(3)) for p in allp)
+               ^^^
+  File "/Users/nathan/Source/negative-mass-i323/notes/wormhole_evolution/settled_mass_eps_scan.py", line 569, in <genexpr>
+    mono = all(all(REFS[GRID[i + 1]][p["name"]]["t_dep"] > REFS[GRID[i]][p["name"]]["t_dep"] for i in range(3)) for p in allp)
+                        ~~~~^^^^^^^
+IndexError: tuple index out of range

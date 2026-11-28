@@ -1,0 +1,6 @@
+D5F_bisect|timeout 7200 $PY -u extended_bisect.py bisect --D=5 --h=0.0070710678118654745 --variant=F --lo=0.0002884790069034818 --hi=0.0002884790669034818 --tol=1e-16 --out=$RAW/runs/D5F
+f64_D5_a|timeout 7200 $PY -u extended_bisect.py f64 --D=5 --h=0.0070710678118654745 --k0=0 --k1=4 --X=18.0 --f64tol=1e-16 --out=$RAW/runs/f64_D5
+f64_D5_b|timeout 7200 $PY -u extended_bisect.py f64 --D=5 --h=0.0070710678118654745 --k0=4 --k1=8 --X=18.0 --f64tol=1e-16 --out=$RAW/runs/f64_D5
+D6F_bisect|timeout 7200 $PY -u extended_bisect.py bisect --D=6 --h=0.005 --variant=F --lo=0.0011155147689984473 --hi=0.0011155148289984475 --tol=1e-16 --out=$RAW/runs/D6F
+f64_D6_a|timeout 7200 $PY -u extended_bisect.py f64 --D=6 --h=0.005 --k0=0 --k1=4 --X=15.0 --f64tol=1e-16 --out=$RAW/runs/f64_D6
+f64_D6_b|timeout 7200 $PY -u extended_bisect.py f64 --D=6 --h=0.005 --k0=4 --k1=8 --X=15.0 --f64tol=1e-16 --out=$RAW/runs/f64_D6

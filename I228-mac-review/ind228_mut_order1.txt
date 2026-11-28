@@ -1,0 +1,14 @@
+  fixed-order (q = 2) Richardson p* = 1.0566586e-02 (reported)
+  p*_h = 1.2657679e-02, 1.1087978e-02, 1.0696934e-02; hi - lo at 0.00125 = 5.68e-15
+[FAIL] K1: order 2.0051 (note 2.005), observed-order Richardson p* 1.0305890e-02 (note 1.0567197e-2, bar 1e-9), bracket equal to #246's True
+  h = 0.005: slope 0.990046 over 34 points (note 0.990046, difference +1.4e-07)
+  h = 0.0025: slope 0.994756 over 34 points (note 0.994756, difference +1.7e-08)
+  h = 0.00125: slope 0.996251 over 34 points (note 0.996251, difference +2.3e-08)
+[PASS] K2: worst 1.4e-07 (bar 1e-6); finest two differ by 1.50e-03 (bar 5e-3)
+  t = 8: tau 7.367, r_th - 1 = 0.35006 (note 0.35006), rdot 0.09382 (note 0.09382) over 1266 slices
+  t = 10: tau 9.180, r_th - 1 = 0.51492 (note 0.51492), rdot 0.08723 (note 0.08723) over 1236 slices
+  t = 12: tau 11.024, r_th - 1 = 0.66809 (note 0.66809), rdot 0.07901 (note 0.07901) over 1220 slices
+[PASS] K3: rdot worst 4.7e-06 (bar 5e-4); r_th - 1 worst 1.5e-06 (bar 1e-4)
+
+3 criteria, 2 pass; failed: ['K1']; mutation order1
+exit 1

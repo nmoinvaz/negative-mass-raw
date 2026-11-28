@@ -1,0 +1,13 @@
+[FAIL] B1: the family r = lam R, F = A - 2 rho lam'/lam + 1/lam^2 - 1 solves vv, v-rho, rho-rho, thth and the scalar equation of my Ricci in the ingoing chart  (worst relative residual 0.184 over 2 values of beta and 3 points; bar 1e-20)
+       0 s
+[pass] B5: amplitude of the family: delta r = c1 + c2 V on the ray U = 0 with c1 = 0, c2 = 1/2 per unit beta  (c2 = 0.5 (V = 1e-7), delta r / V over V = 1e-3, 1e-5, 1e-7 differs by 4.72e-16; c1 = 0.0)
+[FAIL] B2: d_V delta phi of the exact family at fixed U: slope against ln V over -(pi/sqrt2) c2, at V = 1e-4 ... 1e-8 (bar |ratio - 1| < 1e-4 at 1e-8 and falling)  (V_b = 1.0, U = -0.5: 0.000951462287, 9.52530647e-5, 9.52637518e-6, 9.52648206e-7, 9.52649274e-8; V_b = 1.0, U = -1.0: 0.00884816565, 0.000887761672, 8.88056392e-5, 8.88085866e-6, 8.88088813e-7; V_b = 0.05, U = -0.5: 0.000263795861, 2.64028874e-5, 2.64052184e-6, 2.64054515e-7, 2.64054748e-8; V_b = 0.05, U = -1.0: 0.000559831118, 5.60830128e-5, 5.60930099e-6, 5.60940097e-7, 5.60941096e-8)
+       135 s
+[FAIL] X1: cross-check of the two routes: the numeric slope of B2 equals Route A's exact -(sqrt2/kappa) c2 (S3) to 1e-5, and does not depend on the step in beta (10 eps)  (ratio at 1e-8: 9.52649274e-8 (eps) and 9.52649274e-8 (10 eps); -(sqrt2/kappa) c2 = -1.11072073454)
+       167 s
+[pass] B3: planted: the static mass mode (r = sqrt(L) R, F = A + 1/L - 1), in its own Kruskal chart V = e^{kappa_L v}, has no log: slope / ((pi/sqrt2) c) < 1e-6 at V = 1e-8  (U = -0.5: slope / ((pi/sqrt2)/2) = -0.000629, -6.3e-5, -6.3e-6, -6.3e-7, -6.3e-8; U = -1.0: slope / ((pi/sqrt2)/2) = -0.00675, -0.000679, -6.79e-5, -6.79e-6, -6.79e-7)
+       189 s
+[pass] B4: the same mode in the chart with V = e^{kappa v} of the background (kappa not kappa_L) has the log of the gauge xi^V = (d kappa/kappa) V ln V, proportional to U_K = -Pi(rho_b)/V_b: sqrt2 U_K/(2 kappa^2) per unit dL, to 1e-3  (U = -0.5: slope -1.33537, predicted sqrt2 U_K/(2 kappa^2) = -1.335368; U = -1.0: slope -4.3139115, predicted sqrt2 U_K/(2 kappa^2) = -4.3138906)
+       211 s
+
+6 checks, 3 pass; failed: ['B1', 'B2', 'X1']; mutation h; 211 s

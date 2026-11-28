@@ -1,0 +1,4 @@
+[FAIL] PL1: planted threshold recovered to the bisection tolerance; planted series: every point on its side, T monotone, slope on [1e-20, 1e-12]  (|p* - p0| = 2.1e-21 (bar 1e-24), wrong side 0, T decreases 0, slope 0.84637 against 0.84605 (+3.8e-04, bar 3e-3), stopped None)
+[pass] PL2: planted linear response p*(eta) = p0 + kappa eta: kappa from eta = 1e-8, 1e-10 predicts the shift at eta = +-1e-16  (kappa 0.37 (eta 1e-8), 0.37 (1e-10), agree to 0.0e+00 (bar 1e-02); predicted shift +3.7000e-17, measured +3.7003e-17 and +3.7000e-17 for -eta (relative error +8.4e-05, +1.3e-05; bar 1e-03))
+[pass] PL3: a planted threshold floor of rms 3e-14 puts the first wrong-side point at e in [12.5, 15.5]  (first wrong e over 8 draws: [14.0, 14.0, 14.5, 14.5, 14.0, 14.0, 14.5, 14.5])
+3 checks, 1 fail

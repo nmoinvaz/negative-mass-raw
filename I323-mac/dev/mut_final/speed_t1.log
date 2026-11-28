@@ -1,0 +1,88 @@
+settled_mass_eps_scan.py analyze ['--part=dev', '--mutate=speed_t1', '--baseline=/Users/nathan/Source/negative-mass-raw/I323-mac/dev/analyze_dev.4.log']: numpy 2.5.4, mutation speed_t1, part dev, 2026-11-28 04:53:39
+== part dev: 15 members (the fifteen; the held-out nine are not loaded) and B0, h = 0.005, grid 0.001, 0.002, 0.005, 0.01; fit 11, stand-ins ('B0.05', 'e9', 'W2', 'C2')
+[pass] CFG: M_0 = 0.223086 and the frozen P4 of #295; the fifteen are those of #295; the grid is the issue's; bar 6e-5  (M_0 0.223086, P4 (0.2296318924, 0.2834170383, 0.7657657062))
+[pass] RUNS: every member and B0 reads at every eps of the grid with finite (t_dep, gamma_1, r_th, rdot_th) under REF and WJ
+[pass] DEPX: the departure time written in `settled_mass_speed` (ln-linear in |odd|/r = eps) equals #266's `departure_time` to 3e-6 at every member and eps of the grid  (max 1.8e-06)
+[pass] MONO: t_dep increases with eps at every member, and t_dep(1e-2) - t_dep(1e-3) is 1.9 to 2.4 (ln 10 / lambda)  (shift 1.949 to 2.065)
+[FAIL] REFRD: the reference reading (t_dep, gamma_1, r_th, rdot_th) of every member at eps = 1e-3 and 1e-2 equals #296's printed member table to half a unit of the last printed digit  (120 numbers compared; differing ['B0.025@0.01 rdot -9.690412e-05 vs -0.0003921', 'B0.05@0.01 rdot -0.0003025555 vs -0.0005185', 'B0.1@0.01 rdot 6.504821e-05 vs 0.0001885', 'B0.125@0.01 rdot 0.001594459 vs 0.001973', 'e7@0.01 rdot -0.0006315798 vs -0.0002561'])
+[FAIL] B0CTRL: B0's t_dep, r_th - 1 and rdot_th at eps = 1e-3, 2e-3, 5e-3, 1e-2 equal #296's printed table to half a unit of the last printed digit  (differing ['B0@0.002 rdot_th -3.2608e-06 vs -1.296e-05', 'B0@0.005 rdot_th -3.2608e-06 vs -8.097e-05', 'B0@0.01 rdot_th -3.2608e-06 vs -0.000324'])
+[FAIL] REF15: the fifteen's in-sample and leave-one-out errors (M - predicted, reference reading, M_0 = 0.223086) at eps = 1e-3 and 1e-2 equal #296's printed values (x1e-6) to half a unit  (60 numbers compared; differing ['B0.025@0.01 ins +25.5 vs +161', 'B0.025@0.01 loo +25.6 vs +170', 'B0.05@0.01 ins +9.1 vs +70', 'B0.05@0.01 loo +9.7 vs +77'])
+[pass] CTRL314: at eps = 1e-3 the refit over the fifteen with REF and WJ has #314's printed (a, b, c) and maximal in-sample and leave-one-out errors, to half a unit of the last printed digit  (differing [])
+[pass] WJ314: at eps = 1e-3 WJ's change of gamma_1 and r_th against the reference reading equals #314's printed table (and the reference's gamma_1 and r_th), to half a unit of the last printed digit  (differing [])
+[pass] FRZ: the refit over the fifteen at eps = 1e-3 (REF) returns the frozen (a, b, c) of #295 to 1e-9  (max 3.4e-11)
+
+== planted cases
+[FAIL] PRD_REF: planted pairs with a second-order part and drift (4 trajectories, h = 0.01 and 0.005) through the REF reader at eps = 0.001, 0.002, 0.005, 0.01: departure time, gamma_1, r_th and rdot_th equal the expected reading of an independent implementation  (max |reading - expected|: t_dep 7.2e-06 (bar 2e-05), gamma_1 4.8e-10 (1e-05), r_th 1.6e-08 (1e-07), rdot_th 1.2e-03 (5e-06))
+[pass] PRD_WJ: planted pairs with a second-order part and drift (4 trajectories, h = 0.01 and 0.005) through the WJ reader at eps = 0.001, 0.002, 0.005, 0.01: gamma_1 and r_th equal the expected reading  (max error gamma_1 4.3e-10 (bar 1e-05), r_th 1.6e-08 (bar 1e-07))
+    PRD against the exact analytic values (reported, gates nothing): the reading's interpolation between rows every 0.5 in t and the speed's window
+      eps  0.001: |r_th(REF) - exact| 2.06e-05, |r_th(WJ) - exact| 2.06e-05, |rdot_th(REF) - exact| 1.95e-06; the second-order part is 1.41e-06 in r_th
+      eps  0.002: |r_th(REF) - exact| 2.58e-05, |r_th(WJ) - exact| 2.58e-05, |rdot_th(REF) - exact| 5.85e-04; the second-order part is 5.64e-06 in r_th
+      eps  0.005: |r_th(REF) - exact| 4.72e-07, |r_th(WJ) - exact| 4.72e-07, |rdot_th(REF) - exact| 1.14e-03; the second-order part is 3.53e-05 in r_th
+      eps   0.01: |r_th(REF) - exact| 1.62e-05, |r_th(WJ) - exact| 1.62e-05, |rdot_th(REF) - exact| 1.22e-03; the second-order part is 1.41e-04 in r_th
+    PL2 eps  0.001: REF expected max |M - pred| 8.21e-07, scan - expected 3.8e-08; WJ expected max |M - pred| 8.21e-07, scan - expected 3.8e-08; REF-V3 expected max |M - pred| 1.43e-06, scan - expected 3.4e-08; WJ-V3 expected max |M - pred| 1.43e-06, scan - expected 3.4e-08
+    PL2 eps  0.002: REF expected max |M - pred| 1.02e-04, scan - expected 9.3e-05; WJ expected max |M - pred| 1.02e-04, scan - expected 9.3e-05; REF-V3 expected max |M - pred| 1.08e-04, scan - expected 9.7e-05; WJ-V3 expected max |M - pred| 1.08e-04, scan - expected 9.7e-05
+    PL2 eps  0.005: REF expected max |M - pred| 1.41e-04, scan - expected 8.9e-05; WJ expected max |M - pred| 1.41e-04, scan - expected 8.9e-05; REF-V3 expected max |M - pred| 1.62e-04, scan - expected 1.0e-04; WJ-V3 expected max |M - pred| 1.62e-04, scan - expected 1.0e-04
+    PL2 eps   0.01: REF expected max |M - pred| 1.26e-04, scan - expected 3.1e-05; WJ expected max |M - pred| 1.26e-04, scan - expected 3.1e-05; REF-V3 expected max |M - pred| 1.71e-04, scan - expected 6.8e-05; WJ-V3 expected max |M - pred| 1.71e-04, scan - expected 6.8e-05
+[FAIL] PL2: 24 planted members with drift and a second-order part (alpha = -1.41) through the readers, the refit and the prediction, REF, WJ, REF-V3, WJ-V3 at eps = 1e-3, 2e-3, 5e-3, 1e-2: M - predicted of the nine equals the analytic expectation (an independent implementation: root-found departure, interpolated rows, #267's estimator, normal equations, the planted B0's offset)  (max |scan - expected| 1.0e-04 (bar 1e-06); the expected misses reach 1.7e-04 (bar 6e-05))
+[pass] PL3: planted clean members with a known speed deformation per group and eps (table of the largest |M - predicted|: N 1e-6, 2e-5, 5e-5, 9e-5; X 1e-5, 4e-5, 8e-5, 1.5e-4; Y 2e-5, 2.2e-5, 2.4e-5, 2.1e-5): the scan returns the table to 1e-9, the first exits are N 1e-2, X 5e-3, Y none, N and X move by more than 25 % of their first value and Y (2e-5 to 2.4e-5) does not  (max |table - scan| 3.6e-17 (bar 1e-09); first exits {'N': 0.01, 'X': 0.005, 'Y': None}; moves {'N': True, 'X': True, 'Y': False})
+
+== the members at departure, reference reading, at eps = 0.001, 0.002, 0.005, 0.01 (gamma_1, r_th, rdot_th; t_dep); B0 and the shifts of WJ and of the V3 subtraction
+    member    | eps  0.001: gamma_1   r_th       rdot_th      t_dep  | eps  0.002: gamma_1   r_th       rdot_th      t_dep  | eps  0.005: gamma_1   r_th       rdot_th      t_dep  | eps   0.01: gamma_1   r_th       rdot_th      t_dep  
+    B0.025    | +0.002936 0.999446 -9.6904e-05  13.303  | +0.002935 0.999390 -9.6904e-05  13.890  | +0.002934 0.999299 -9.6904e-05  14.666  | +0.002934 0.999152 -9.6904e-05  15.252  
+    B0.05     | +0.011844 0.998356 -3.0256e-04  13.355  | +0.011840 0.998188 -3.0256e-04  13.944  | +0.011837 0.997971 -3.0256e-04  14.722  | +0.011836 0.997748 -3.0256e-04  15.311  
+    B0.1      | +0.048316 1.002878 +6.5048e-05  13.615  | +0.048267 1.002963 +6.5048e-05  14.218  | +0.048206 1.003175 +6.5048e-05  15.015  | +0.048165 1.003340 +6.5048e-05  15.618  
+    B0.125    | +0.075449 1.015883 +1.5945e-03  13.864  | +0.075273 1.016897 +1.5945e-03  14.485  | +0.075045 1.018440 +1.5945e-03  15.307  | +0.074880 1.019660 +1.5945e-03  15.929  
+    e7        | +0.048511 1.003370 -6.3158e-04  11.610  | +0.048446 1.003075 -6.3158e-04  12.214  | +0.048369 1.002854 -6.3158e-04  13.012  | +0.048321 1.002742 -6.3158e-04  13.615  
+    e9        | +0.048159 1.003477 +5.0940e-04  15.618  | +0.048115 1.003806 +5.0940e-04  16.222  | +0.048058 1.004301 +5.0940e-04  17.019  | +0.048019 1.004650 +5.0940e-04  17.623  
+    e10       | +0.048013 1.004787 +8.0517e-04  17.624  | +0.047970 1.005281 +8.0517e-04  18.228  | +0.047914 1.005968 +8.0517e-04  19.026  | +0.047876 1.006441 +8.0517e-04  19.630  
+    e11       | +0.047870 1.006583 +1.0109e-03  19.628  | +0.047828 1.007192 +1.0109e-03  20.233  | +0.047772 1.008018 +1.0109e-03  21.033  | +0.047734 1.008588 +1.0109e-03  21.639  
+    e12       | +0.047732 1.008642 +1.0957e-03  21.613  | +0.047691 1.009283 +1.0957e-03  22.219  | +0.047641 1.010063 +1.0957e-03  23.020  | +0.047611 1.010441 +1.0957e-03  23.626  
+    W1        | +0.012003 0.994956 -5.0483e-04  13.348  | +0.012009 0.994676 -5.0483e-04  13.936  | +0.012016 0.994333 -5.0483e-04  14.712  | +0.012021 0.994024 -5.0483e-04  15.300  
+    W2        | +0.047982 0.989179 -6.6526e-04  13.568  | +0.047965 0.988867 -6.6526e-04  14.166  | +0.047942 0.988616 -6.6526e-04  14.957  | +0.047924 0.988479 -6.6526e-04  15.554  
+    W3        | +0.075022 0.993634 +4.9885e-04  13.776  | +0.074893 0.994028 +4.9885e-04  14.389  | +0.074723 0.994840 +4.9885e-04  15.198  | +0.074594 0.995570 +4.9885e-04  15.810  
+    C1        | +0.011989 0.999623 -3.8877e-04  13.365  | +0.011979 0.999407 -3.8877e-04  13.955  | +0.011969 0.999139 -3.8877e-04  14.733  | +0.011964 0.998882 -3.8877e-04  15.322  
+    C2        | +0.048006 1.006321 -2.9163e-04  13.640  | +0.047933 1.006209 -2.9163e-04  14.243  | +0.047851 1.006196 -2.9163e-04  15.041  | +0.047799 1.006215 -2.9163e-04  15.643  
+    C3        | +0.074833 1.019366 +9.9490e-04  13.891  | +0.074627 1.020045 +9.9490e-04  14.511  | +0.074379 1.021206 +9.9490e-04  15.331  | +0.074203 1.022170 +9.9490e-04  15.951  
+    B0 (static): 0.001: r_th - 1 -1.496e-06 (WJ +5.094e-07), rdot_th -3.261e-06, gamma_1 -8.5e-09; 0.002: r_th - 1 -5.432e-06 (WJ -2.021e-06), rdot_th -3.261e-06, gamma_1 -6.7e-09; 0.005: r_th - 1 -3.527e-05 (WJ -1.736e-05), rdot_th -3.261e-06, gamma_1 -5.5e-09; 0.01: r_th - 1 -1.412e-04 (WJ -7.545e-05), rdot_th -3.261e-06, gamma_1 -4.8e-09
+    WJ - REF: 0.001: max |d gamma_1| 1.6e-04, max |d r_th| 1.8e-04; 0.002: max |d gamma_1| 1.4e-04, max |d r_th| 1.5e-04; 0.005: max |d gamma_1| 1.1e-04, max |d r_th| 1.5e-04; 0.01: max |d gamma_1| 9.8e-05, max |d r_th| 3.2e-04
+
+== refit over the eleven (development) at each eps and reading: (a, b, c), in-sample and leave-one-out maxima, M - predicted at the stand-ins ('B0.05', 'e9', 'W2', 'C2') (bar 6e-05)
+    eps    reading   a          b          c          in-sample  LOO        | B0.05 e9 W2 C2
+    0.001  REF      +0.22987  +0.27947  +0.76954  4.85e-05  8.41e-05  | -8.82e-06  -2.32e-05  +2.80e-05  -2.78e-05
+    0.001  WJ       +0.22955  +0.28320  +0.77193  4.98e-05  8.71e-05  | -8.06e-06  -2.14e-05  +2.73e-05  -2.78e-05
+    0.001  REF-V3   +0.22974  +0.28059  +0.77007  4.85e-05  8.42e-05  | -1.02e-05  -2.29e-05  +2.90e-05  -2.71e-05
+    0.001  WJ-V3    +0.22944  +0.28414  +0.77238  4.99e-05  8.71e-05  | -9.20e-06  -2.11e-05  +2.81e-05  -2.72e-05
+    0.002  REF      +0.22965  +0.28466  +0.64006  4.99e-05  7.61e-05  | -7.25e-06  -2.45e-05  +1.88e-05  -2.24e-05
+    0.002  WJ       +0.22929  +0.28919  +0.64030  4.33e-05  7.00e-05  | -6.87e-06  -2.19e-05  +1.76e-05  -2.24e-05
+    0.002  REF-V3   +0.22951  +0.28596  +0.64068  4.99e-05  7.62e-05  | -8.81e-06  -2.41e-05  +1.99e-05  -2.14e-05
+    0.002  WJ-V3    +0.22918  +0.29019  +0.64077  4.33e-05  7.01e-05  | -8.07e-06  -2.15e-05  +1.85e-05  -2.17e-05
+    0.005  REF      +0.23009  +0.26593  +0.49411  6.27e-05  9.57e-05  | -4.28e-06  -2.92e-05  +9.31e-06  -1.88e-05
+    0.005  WJ       +0.22949  +0.27380  +0.49083  4.61e-05  7.04e-05  | -5.23e-06  -2.30e-05  +8.74e-06  -1.76e-05
+    0.005  REF-V3   +0.22966  +0.26966  +0.49593  6.28e-05  9.59e-05  | -8.76e-06  -2.80e-05  +1.25e-05  -1.61e-05
+    0.005  WJ-V3    +0.22924  +0.27597  +0.49187  4.62e-05  7.05e-05  | -7.82e-06  -2.23e-05  +1.06e-05  -1.61e-05
+    0.01   REF      +0.23170  +0.22665  +0.40356  9.44e-05  1.44e-04  | +5.59e-06  -4.13e-05  -3.82e-07  -2.31e-05
+    0.01   WJ       +0.23033  +0.24413  +0.39583  5.97e-05  9.11e-05  | +9.55e-07  -2.82e-05  +2.18e-06  -1.82e-05
+    0.01   REF-V3   +0.23021  +0.23966  +0.40990  9.48e-05  1.45e-04  | -9.90e-06  -3.72e-05  +1.05e-05  -1.39e-05
+    0.01   WJ-V3    +0.22951  +0.25132  +0.39932  5.99e-05  9.14e-05  | -7.60e-06  -2.60e-05  +8.18e-06  -1.32e-05
+
+[pass] PD_REF@0.001: REF at eps = 0.001: the refit over the eleven predicts the four stand-ins ('B0.05', 'e9', 'W2', 'C2') within 6e-5  (M - pred -8.82e-06, -2.32e-05, +2.80e-05, -2.78e-05)
+[pass] PD_WJ@0.001: WJ at eps = 0.001: the refit over the eleven predicts the four stand-ins ('B0.05', 'e9', 'W2', 'C2') within 6e-5  (M - pred -8.06e-06, -2.14e-05, +2.73e-05, -2.78e-05)
+[pass] PD_REF-V3@0.001: REF-V3 at eps = 0.001: the refit over the eleven predicts the four stand-ins ('B0.05', 'e9', 'W2', 'C2') within 6e-5  (M - pred -1.02e-05, -2.29e-05, +2.90e-05, -2.71e-05)
+[pass] PD_WJ-V3@0.001: WJ-V3 at eps = 0.001: the refit over the eleven predicts the four stand-ins ('B0.05', 'e9', 'W2', 'C2') within 6e-5  (M - pred -9.20e-06, -2.11e-05, +2.81e-05, -2.72e-05)
+[pass] PD_REF@0.002: REF at eps = 0.002: the refit over the eleven predicts the four stand-ins ('B0.05', 'e9', 'W2', 'C2') within 6e-5  (M - pred -7.25e-06, -2.45e-05, +1.88e-05, -2.24e-05)
+[pass] PD_WJ@0.002: WJ at eps = 0.002: the refit over the eleven predicts the four stand-ins ('B0.05', 'e9', 'W2', 'C2') within 6e-5  (M - pred -6.87e-06, -2.19e-05, +1.76e-05, -2.24e-05)
+[pass] PD_REF-V3@0.002: REF-V3 at eps = 0.002: the refit over the eleven predicts the four stand-ins ('B0.05', 'e9', 'W2', 'C2') within 6e-5  (M - pred -8.81e-06, -2.41e-05, +1.99e-05, -2.14e-05)
+[pass] PD_WJ-V3@0.002: WJ-V3 at eps = 0.002: the refit over the eleven predicts the four stand-ins ('B0.05', 'e9', 'W2', 'C2') within 6e-5  (M - pred -8.07e-06, -2.15e-05, +1.85e-05, -2.17e-05)
+[pass] PD_REF@0.005: REF at eps = 0.005: the refit over the eleven predicts the four stand-ins ('B0.05', 'e9', 'W2', 'C2') within 6e-5  (M - pred -4.28e-06, -2.92e-05, +9.31e-06, -1.88e-05)
+[pass] PD_WJ@0.005: WJ at eps = 0.005: the refit over the eleven predicts the four stand-ins ('B0.05', 'e9', 'W2', 'C2') within 6e-5  (M - pred -5.23e-06, -2.30e-05, +8.74e-06, -1.76e-05)
+[pass] PD_REF-V3@0.005: REF-V3 at eps = 0.005: the refit over the eleven predicts the four stand-ins ('B0.05', 'e9', 'W2', 'C2') within 6e-5  (M - pred -8.76e-06, -2.80e-05, +1.25e-05, -1.61e-05)
+[pass] PD_WJ-V3@0.005: WJ-V3 at eps = 0.005: the refit over the eleven predicts the four stand-ins ('B0.05', 'e9', 'W2', 'C2') within 6e-5  (M - pred -7.82e-06, -2.23e-05, +1.06e-05, -1.61e-05)
+[pass] PD_REF@0.01: REF at eps = 0.01: the refit over the eleven predicts the four stand-ins ('B0.05', 'e9', 'W2', 'C2') within 6e-5  (M - pred +5.59e-06, -4.13e-05, -3.82e-07, -2.31e-05)
+[pass] PD_WJ@0.01: WJ at eps = 0.01: the refit over the eleven predicts the four stand-ins ('B0.05', 'e9', 'W2', 'C2') within 6e-5  (M - pred +9.55e-07, -2.82e-05, +2.18e-06, -1.82e-05)
+[pass] PD_REF-V3@0.01: REF-V3 at eps = 0.01: the refit over the eleven predicts the four stand-ins ('B0.05', 'e9', 'W2', 'C2') within 6e-5  (M - pred -9.90e-06, -3.72e-05, +1.05e-05, -1.39e-05)
+[pass] PD_WJ-V3@0.01: WJ-V3 at eps = 0.01: the refit over the eleven predicts the four stand-ins ('B0.05', 'e9', 'W2', 'C2') within 6e-5  (M - pred -7.60e-06, -2.60e-05, +8.18e-06, -1.32e-05)
+
+== post hoc blocks (finer grid, extension, second speed reading) read the held-out nine and are skipped in the development partition
+
+30 checks (0 post hoc, gating nothing), 5 gating checks failed, 0 post hoc checks failed; 72 s
+mutation speed_t1: fired ['B0CTRL', 'PL2', 'PRD_REF', 'REF15', 'REFRD']; failing without a mutation (--baseline) ['PD_REF-V3@0.01', 'PD_REF@0.01', 'PD_WJ-V3@0.01', 'PD_WJ@0.01']; controls and planted checks newly fired ['B0CTRL', 'PL2', 'PRD_REF', 'REF15', 'REFRD'], declared []; outcome checks newly fired (not declared) []: DIFFERENT

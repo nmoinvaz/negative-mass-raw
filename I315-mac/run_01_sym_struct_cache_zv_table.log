@@ -1,0 +1,29 @@
+order9.py  mutate=None  parts=['sym', 'struct', 'cache', 'zv', 'table']  mpmath 1.3.0  sympy 1.14.0
+PASS    CACHE: cached chain against the uncached chain on (N 24, w 1/2, V 12, 60 digits): Omega0 .. Omega7 equal to 60.0, 60.0, 60.0, 60.0, 60.0, 60.0, 60.0, 60.0 digits, worst relative difference 0.0 (bar 1e-55); times 1 s and 3 s
+PASS    E0: h_k (k = 0 .. 9) and dY_k/dl (k = 1 .. 9) from the epsilon-expansion of the master equation against the table: residuals 0 (0.7 s)
+PASS    LN2: F = exp(4 ln 2 eps)(1 + Omega0 eps + ... + Omega5 eps^6) from the closed forms: f0 = 1, f1 = 0, and d f_n / d ln 2 = 0 for n = 2 .. 6, sympy residuals 0; f2 = 2*p2/3, f3 = 80*z3, f4 = 22*p2**2/45 - 384*z3, f5 = -2432*p2**2/45 - 160*p2*z3 + 3072*z3 - 10432*z5, f6 = -38812*p2**3/315 + 39424*p2**2/45 - 256*p2*z3/3 + 3200*z3**2 - 36864*z3 + 74240*z5 (0.0 s)
+PASS    TR6: Omega6 printed in omega6.md (24 terms) minus Omega6 from the f7 relation by exact algebra: 0 (0.0 s)
+PASS    LN2b: f7 = [eps^7] exp(4 ln 2 eps)(1 + Omega0 eps + ... + Omega6 eps^7) with the printed Omega6: d f7/d ln 2 = 0 and f7 minus the relation's f7 = 0 (sympy)
+PASS    ZV1: zeta(5,3) + zeta(3,5) = zeta(3) zeta(5) - zeta(8) (stuffle; zeta(3,5) by the same routine with b = 5): residual 1.32e-571 (bar 1.0e-555); zeta(5,3) = 0.0377076729848475440113047822936599148226
+PASS    ZV2: zeta(3) zeta(5) as a shuffle product minus the stuffle: 6 zeta(5,3) + 15 zeta(6,2) + 30 zeta(7,1) + 3 zeta(4,4) - zeta(8) = 0 (zeta(6,2) by the routine, zeta(7,1) Euler's formula, zeta(4,4) = (zeta(4)^2 - zeta(8))/2): residual 5.12e-570 (bar 1.0e-555)
+PASS    ZV2b: zeta(2,6) + zeta(6,2) = zeta(2) zeta(6) - zeta(8): residual 2.65e-571 (bar 1.0e-555)
+PASS    ZV3: zeta(5,3) against mp.nsum (30 digits, Richardson/Shanks on sum n^-5 (zeta(3) - zeta(3, n))): 30.0 digits (bar 20)
+PASS    ZV4: PSLQ at 550 digits, H = 1e12: {pi^8, pi^2 zeta(3)^2, zeta(3) zeta(5), zeta(5,3)} has no relation (none); {zeta(6,2), those four} has [-27000, -7, 0, 54000, -10800]
+  ZV: 2 s at 560 digits
+| basis | constants besides f8 | n | H | budget | budget + slack |
+|---|---|---|---|---|---|
+| F1 | the 4 monomials of weight 8 | 4 | 1e16 | 82.5 | 112.5 |
+| F2 | F1 and the 3 of weight 7 | 7 | 1e16 | 131.4 | 161.4 |
+| F3 | F2 and the 2 of weight 6 | 9 | 1e16 | 164.0 | 194.0 |
+| F4 | F3 and the 2 of weight 5 | 11 | 1e16 | 196.6 | 226.6 |
+| F5 | F4 and pi^4 | 12 | 1e16 | 212.9 | 242.9 |
+| F6 | F5 and zeta(3) | 13 | 1e16 | 229.2 | 259.2 |
+| F7 | F6 and pi^2, 1 (the ln 2-free basis, weight <= 8) | 15 | 1e16 | 261.8 | 291.8 |
+| F7m | F7 without zeta(5,3) | 14 | 1e16 | 245.5 | 275.5 |
+| X1 | F7 and ln 2 x the 11 monomials of weight <= 7 | 26 | 1e15 | 414.1 | 444.1 |
+| X2 | X1 and ln^2 2 x the 8 of weight <= 6 | 34 | 1e14 | 501.5 | 531.5 |
+| X3 | X2 and ln^3 2 x the 6 of weight <= 5 | 40 | 1e12 | 505.3 | 535.3 |
+| XF | X3 and ln^4 2 x 4, ln^5 2 x 3, ln^6 2 x 2, ln^7 2, ln^8 2 (the full basis, weight <= 8) | 51 | 1e9 | 484.7 | 514.7 |
+PASS    TBL: the table of bases in /Users/nathan/Source/negative-mass-raw/I315-mac/README.md equals the code's PSLQ_BASES (H, n, budgets): True
+
+11 passed, 0 failed of 11 checks; 7 s
