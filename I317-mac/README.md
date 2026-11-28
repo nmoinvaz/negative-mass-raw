@@ -106,3 +106,25 @@ This is a prior, not a criterion.
 - The bar of 6e-5, the fit set (14 points), M_0, V3's definition and the order are fixed here and not changed after X is read.
 - The eps = 1e-2 and 1e-3 members of the 14 and B = 0 are read in dev as well as at the freeze (they are training members); no X or N member is read before the freeze.
 - Three more things are not controlled here: h other than 0.005, delta other than 1e-8, X's equality to B = 0's second-order part (PL4 shows the size of a 50 % member dependence: 1.4e-4).
+
+## Stage 2: the frozen fit (written and committed before X1-X3 or N1-N3 were read by any code)
+
+`freeze --part=record` (log `record/freeze_record.1.log`, exit 0, 6 s) read B = 0 and the 14 training members (B0.025, B0.05, B0.1, B0.125, e7, e9, e10, e11, W1, W2, W3, C1, C2, C3) at eps = 1e-3 and 1e-2, h = 0.005, and wrote
+`frozen_v3.json` (this folder). Script `notes/wormhole_evolution/settled_mass_blind.py` at commit 8f63e0b of nmoinvaz/negative-mass (branch `wip/i317-corrected-blind`), sha256 `78f8454944a331e81d63a114d41ce5b6c3beb7c7305b597f6d26e2970d0332a8`;
+inputs sha256 `0517bce5789750ad0aaaacf3275e7506dc1450936a1cbdc47419201fb11f2ded`. M_0 = 0.223086, bar = 6e-05.
+
+**The gating fit is V3 at eps = 1e-2.** Form: y = M / r_th' - M_0 = a g + b g^2 + c rdot_th', with r_th' = r_th - dr and rdot_th' = rdot_th - dv, (dr, dv) = B = 0's (r_th - 1, rdot_th) at the same eps; prediction M = r_th' (M_0 + a g + b g^2 + c rdot_th').
+Plain least squares over the 14 points, no weights. Frozen coefficients (12 digits; the file holds the full floats):
+
+| fit | (a, b, c [, intercept]) | in-sample max | leave-one-out max | subtracted (dr, dv) |
+|---|---|---|---|---|
+| V3_1e-2 | +0.229606394834, +0.131548678788, +0.558734349701 | 2.047e-05 | 2.965e-05 | -1.411564e-04, -3.239682e-04 |
+| V1_1e-2 | +0.229658178272, +0.131501001749, +0.558263902441, +0.000211848400 | 2.075e-05 | 3.041e-05 | none |
+| V3_1e-3 | +0.228776413889, +0.297260530540, +0.749985718292 | 3.989e-05 | 6.284e-05 | -1.496053e-06, -3.260799e-06 |
+| FIX_1e-2 | +0.236536612091, +0.099542208240, +0.467328462919 | 1.554e-04 | 1.638e-04 | none |
+| FIX_1e-3 | +0.228897026074, +0.296149233172, +0.749665170223 | 3.956e-05 | 6.315e-05 | none |
+
+Not X: nothing of #305's X1-X3 or #295's N1-N3 was read (the script raises). For reference only, and read before X: #295's frozen P4 (eps = 1e-3, e12 kept, fifteen points) is (0.2296318924, 0.2834170383, 0.7657657062); V3 at eps = 1e-3 without e12 is (0.2288, 0.2973, 0.7500);
+V3 at eps = 1e-2 is (0.2296, 0.1315, 0.5587): the form's b and c differ by 2x and 0.75x between the two readings even after the subtraction. That was seen at the freeze and is not a criterion.
+
+The raw commit that holds `frozen_v3.json` is named in stage 3 (a commit cannot name its own hash).
