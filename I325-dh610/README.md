@@ -110,7 +110,7 @@ What the code gives at D = 6 and what the data can fail:
 
 2 h per run, stopped and reported with its bracket; units named `nm-i325-*`, stopped by name only; memory is reported, never a stop condition. At most 4 processes.
 
-# Part 2b: corrections, one amendment, the mutations and their computed effects (2026-11-28 05:50, dh610 clock; before any pair of record)
+# Part 2b: corrections, one amendment, the mutations and their computed effects (2026-11-28 05:44, dh610 clock; before any pair of record. The first draft said 05:50, an estimate; the push was at 05:44 and the flag file README_2B_DONE was created at 05:44:34)
 
 No pair of record had started when this was written (the pairs wait for `README_2B_DONE`, created after this part is pushed). Development runs: `dev/analysis_dev1`, `dev/analysis_dev2` (the analysis on #228's frozen record
 and the four finished bisections), `dev/mut_all_quick` (every mutation of `drift_b6.py` against the baseline), `dev/pair_B0.04_d1e-11_hk1` (one pair at δ = 1e-11, B = 0.04, h = 0.0025, from #228's bisection),
