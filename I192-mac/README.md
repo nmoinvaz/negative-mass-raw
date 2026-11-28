@@ -228,3 +228,7 @@ kept as `trees_nophase2_unused` outside the repository and are not used.
 Every command before it, old binary against new, was equal as strings: `d` f64, dd, qd at l = 2 and 6 (22 records), `planted` const and linear in f64, dd, qd (42 records), `starsteps` (164), `jtable` l = 2 and l = 6 (465 records each, every
 coefficient of J0 and J1 at 20 digits), `recipcheck` in f64, dd, qd, od, and `tabcheck`. `run_12_s3_records_libplane`, started by the same chain, was stopped by its PID after one minute (rc 143 written by hand) so that it would not hit the same fault.
 `s3_records.py` now reads `jjets` whole. The record runs are `run_31` (default), `run_32` (lib_plane), `run_33` (complex), `run_34` (the `jsign` control, must exit 1).
+
+**A8 (2026-11-27).** `run_31_s3_records_default` (RP2, default pair): **1167 records, 0 differ** (old pin against new pin, every field as strings except times). In `run_23_s3_old_default_mode` the check **R1 reads FAIL
+`raised RuntimeError: ... old_libplane d lane=dd l=2 ... exited -15`: that was my own `kill`** (a pattern for the stopped records run's children also matched R1's child process in the old tree); no check result changed. R1 is rerun alone on the old tree
+as `run_35_s3_old_R1` (the same two pins are compared there, since the check reads `target/bins`), and the comparison of the default-mode logs takes R1's line from it. The other checks of `run_23` are untouched.
