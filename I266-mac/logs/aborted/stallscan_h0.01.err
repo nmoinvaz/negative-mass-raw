@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i266/notes/wormhole_evolution/settled_mass_b.py", line 961, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nathan/Source/negative-mass-i266/notes/wormhole_evolution/settled_mass_b.py", line 939, in main
+    B = None if fam == "O" else float(opts.get("B", 0.1))
+                                ~~~~~^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: '0.15,0.155,0.16,0.165,0.17,0.175'

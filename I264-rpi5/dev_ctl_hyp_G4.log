@@ -1,0 +1,40 @@
+# identity_review.py parts=exch mutate=hyp_G4 shift=
+
+== part exch ==
+# nodes loaded from /tmp/claude-1000/-home-nathan-Source-negative-mass-i264/68a7bf57-1915-46d5-843f-9e1cd30b9313/scratchpad/cache/2_0.001_b440_N160_n40_w0.5.pkl
+# integrals accumulated in 1.8 s; 1480 nodes; shift {2: '0.001'}
+PASS H3_G2 : G_2: quadrature 2.2668185e-69, (L_k + 2 Om_{k-1})/u at the cutoff 2.2668185e-69, digits 91.5
+PASS H3_G3 : G_3: quadrature 7.5875152e-67, (L_k + 2 Om_{k-1})/u at the cutoff 7.5875152e-67, digits 91.3
+PASS H3_G4 : G_4: quadrature -0.012566371, (L_k + 2 Om_{k-1})/u at the cutoff -0.012566371, digits 91.6
+PASS H3_G5 : G_5: quadrature -8.5417066, (L_k + 2 Om_{k-1})/u at the cutoff -8.5417066, digits 92.2
+PASS H3_G6 : G_6: quadrature -5788.6841, (L_k + 2 Om_{k-1})/u at the cutoff -5788.6841, digits 91.8
+# G7 quadrature -3259835.164 (no L_7 in the hierarchy)
+PASS H2_G2 : |G_2| = 2.267e-69 at the closed forms (bar 1e-30)
+PASS H2_G3 : |G_3| = 7.588e-67 at the closed forms (bar 1e-30)
+PASS SLOPE_G4 : G_4 = -0.0125663706144 against -4 pi delta = -0.0125663706144
+FAIL H2_G5 : |G_5| = 8.542 at the closed forms (bar 1e-30)
+FAIL H2_G6 : |G_6| = 5789.0 at the closed forms (bar 1e-30)
+# G_7 at #263's Omega_5: -3.26e+6 (reported)
+FAIL E1_6 : lhs -5788.6840938 rhs -5814.21839117 | raw 4.13 digits, with the boundary term 25.53 at the cutoff 93.2 digits (scale 3.43e+5)
+FAIL E1_7 : lhs -3259835.16435 rhs -3278510.35704 | raw 2.61 digits, with the boundary term 1.868e+4 at the cutoff 93.8 digits (scale 7.61e+6)
+PASS E2_2 : lhs 29.266600969 rhs 29.266600969 | raw 68.3 digits, with the boundary term 3.879e-67 at the cutoff 92.8 digits (scale 80.2)
+PASS E2_3 : lhs -346.764947618 rhs -346.764947618 | raw 66.6 digits, with the boundary term 1.298e-64 at the cutoff 91.4 digits (scale 491.0)
+FAIL E2_4 : lhs -2685.59571974 rhs -2683.44529957 | raw 3.57 digits, with the boundary term -2.15 at the cutoff 91.6 digits (scale 8.0e+3)
+FAIL E2_5 : lhs 36763.0384908 rhs 38224.7380271 | raw 1.83 digits, with the boundary term -1462.0 at the cutoff 91.6 digits (scale 9.85e+4)
+FAIL E2_6 : lhs 409307.976339 rhs 1399896.54189 | raw 0.29 digits, with the boundary term -9.906e+5 at the cutoff 92.4 digits (scale 1.93e+6)
+PASS E3_3 : lhs 118.58707565 rhs 118.58707565 | raw 67.0 digits, with the boundary term -3.391e-65 at the cutoff 91.3 digits (scale 303.0)
+PASS E3_4 : lhs 4251.13884656 rhs 4251.13884656 | raw 65.1 digits, with the boundary term -3.775e-62 at the cutoff 91.8 digits (scale 4.26e+3)
+FAIL E3_5 : lhs -18349.8837942 rhs -18358.3461094 | raw 3.51 digits, with the boundary term 8.462 at the cutoff 91.6 digits (scale 2.76e+4)
+FAIL E3_6 : lhs -1384221.93494 rhs -1392819.45601 | raw 2.21 digits, with the boundary term 8598.0 at the cutoff 93.2 digits (scale 1.39e+6)
+FAIL E3_7 : lhs -264712106.685 rhs -271000134.126 | raw 1.64 digits, with the boundary term 6.288e+6 at the cutoff 94.2 digits (scale 2.75e+8)
+PASS E4_6 : lhs -232044.726332 rhs -232044.726332 | raw 63.5 digits, with the boundary term 7.241e-59 at the cutoff 91.7 digits (scale 2.45e+5)
+FAIL E4_7 : lhs 2838524.36392 rhs 2854757.90665 | raw 2.25 digits, with the boundary term -1.623e+4 at the cutoff 58.8 digits (scale 2.91e+6)
+FAIL E2Wa : lhs -1262440.06028 rhs -1010550.4591 | raw 0.701 digits, with the boundary term -2.519e+5 at the cutoff 92.2 digits (scale 1.26e+6)
+FAIL E2Wb : lhs 3646250.88387 rhs 2970979.47711 | raw 0.732 digits, with the boundary term 6.753e+5 at the cutoff 58.9 digits (scale 3.65e+6)
+PASS E5 : lhs 1553059.01944 rhs 1553059.01944 | raw 62.7 digits, with the boundary term -4.107e-57 at the cutoff 91.9 digits (scale 1.89e+6)
+FAIL G6R : lhs -5788.6840938 rhs 0.268515807148 | raw 1.75 digits, with the boundary term -5789.0 at the cutoff 91.7 digits (scale 3.24e+5)
+FAIL G7R : lhs -3259835.16435 rhs -2.24653260338 | raw 0.351 digits, with the boundary term -3.26e+6 at the cutoff 92.3 digits (scale 7.31e+6)
+# part exch: 2.7 s
+
+15 check(s) failed: H2_G5, H2_G6, E1_6, E1_7, E2_4, E2_5, E2_6, E3_5, E3_6, E3_7, E4_7, E2Wa, E2Wb, G6R, G7R
+exit 1

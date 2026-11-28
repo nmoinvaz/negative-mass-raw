@@ -1,0 +1,8 @@
+# identity_review.py parts=fp mutate=fp_const shift=
+
+== part fp ==
+FAIL FP1 : int u (pi/2 - th) = 1.088793045151801065250344 by quadrature; the rule gives (pi/2) FP int u - FP int u th = 0.0: 0.0 digits
+FAIL FP2 : int u (J1 - Lc1) = -2.046622024472740646169641 by quadrature; the rule gives J1 FP int u - FP int u Lc1 = -1.291928195012492507311513: 0.433 digits
+# part fp: 1.2 s
+
+2 check(s) failed: FP1, FP2

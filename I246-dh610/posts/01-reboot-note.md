@@ -1,0 +1,3 @@
+(Relayed by the coordinator from negative-mass-dh610-i246; the runner could not post: gh on dh610 has an invalid token after the reboot.)
+
+dh610 rebooted at 19:59 local on 2026-11-27 and every `nm-i246` unit stopped. Intact: all development chain and noise jobs (rc 0), the bisection of p*ₕ of G at D = 6, h = 0.00125 (44 runs, hi − lo 5.7e-15, p*ₕ = 0.01069693394962485, 2569 s), 22 of 24 development mutations. Interrupted and rerun as units `nm-i246-devmut3b-l0/l1`: the development mutations `a4p` and `pfx_cut` (first logs kept as `*.run1_reboot`); both matched their targets. Pushed: branch `wip/i246-settled-mass-d56`, raw `I246-dh610` at 3f47cce1. Nothing declared is affected (no criterion was declared yet).

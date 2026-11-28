@@ -1,0 +1,27 @@
+settled_mass_d56.py planted {}: numba 0.68.1, numpy 2.5.4, python 3.14.10, dh610-fedora, load average at start 18.35 16.29 16.23, mutation None, 2026-11-27 18:49:18
+[pass] FLX: general-n first-law integrand on planted series: ghost only (r^n/n) e^f r_-, normal only the opposite sign, equal fluxes 0 (n = 3, 4)  (errors 0.0e+00, 0.0e+00, 0.0e+00, 0.0e+00, 0.0e+00, 0.0e+00)
+[pass] PT0: the planted exact Tangherlini (closed form, n = 3, 4) equals dn.kruskal_exact's r and f at 400 points (r in [0.4, 5.9]); on the horizon of the stretching gauge r = lam and e^{-f} = e^{kp (x+ - xs)}  (max |r|, |f| difference 1.4e-13; horizon 0.0e+00 (bar 1e-09))
+    PT1 D = 5, S-like (lam 0.54, kp 2.7) h = 0.0141421: status limit, columns 586, F to 1.549e+06, max |M - 0.14580| 2.047e-04, max |x- - x_h| 3.03e-04
+    PT1 D = 5, S-like (lam 0.54, kp 2.7) h = 0.00707107: status limit, columns 1172, F to 1.568e+06, max |M - 0.14580| 4.766e-05, max |x- - x_h| 8.77e-05
+    PT1 D = 5, S-like (lam 0.54, kp 2.7) h = 0.00353553: status limit, columns 2343, F to 1.561e+06, max |M - 0.14580| 1.234e-05, max |x- - x_h| 1.93e-05
+    PT1 D = 5, S-like (lam 0.54, kp 2.7) h = 0.00176777: status limit, columns 4686, F to 1.565e+06, max |M - 0.14580| 2.903e-06, max |x- - x_h| 4.74e-06
+[pass] PT1-5S: exact Tangherlini D = 5 (S-like, lam 0.54, kp 2.7) through the chain: M recovered, second order, limit reached  (max |M - M_exact| at h = 0.00176777: 2.90e-06 (bar 4.4e-05); errors ['2.05e-04', '4.77e-05', '1.23e-05', '2.90e-06']; orders [2.102, 1.949, 2.088] in (1.75, 2.25); status ['limit', 'limit', 'limit', 'limit']; F reached [1548687, 1567964, 1561489, 1565491])
+    PT1 D = 5, G-like (lam 0.73, kp 1.9) h = 0.0141421: status limit, columns 743, F to 1.543e+06, max |M - 0.26645| 1.972e-04, max |x- - x_h| 1.60e-04
+    PT1 D = 5, G-like (lam 0.73, kp 1.9) h = 0.00707107: status limit, columns 1486, F to 1.556e+06, max |M - 0.26645| 4.836e-05, max |x- - x_h| 8.37e-05
+    PT1 D = 5, G-like (lam 0.73, kp 1.9) h = 0.00353553: status limit, columns 2973, F to 1.572e+06, max |M - 0.26645| 1.226e-05, max |x- - x_h| 1.93e-05
+    PT1 D = 5, G-like (lam 0.73, kp 1.9) h = 0.00176777: status limit, columns 5945, F to 1.569e+06, max |M - 0.26645| 3.047e-06, max |x- - x_h| 2.95e-06
+[pass] PT1-5G: exact Tangherlini D = 5 (G-like, lam 0.73, kp 1.9) through the chain: M recovered, second order, limit reached  (max |M - M_exact| at h = 0.00176777: 3.05e-06 (bar 8.0e-05); errors ['1.97e-04', '4.84e-05', '1.23e-05', '3.05e-06']; orders [2.028, 1.979, 2.009] in (1.75, 2.25); status ['limit', 'limit', 'limit', 'limit']; F reached [1543130, 1555582, 1571782, 1569246])
+    PT1 D = 6, S-like (lam 0.6, kp 3.6) h = 0.01: status limit, columns 696, F to 1.519e+06, max |M - 0.10800| 1.750e-04, max |x- - x_h| 2.70e-04
+    PT1 D = 6, S-like (lam 0.6, kp 3.6) h = 0.005: status limit, columns 1393, F to 1.566e+06, max |M - 0.10800| 4.350e-05, max |x- - x_h| 6.75e-05
+    PT1 D = 6, S-like (lam 0.6, kp 3.6) h = 0.0025: status limit, columns 2785, F to 1.56e+06, max |M - 0.10800| 1.108e-05, max |x- - x_h| 1.69e-05
+    PT1 D = 6, S-like (lam 0.6, kp 3.6) h = 0.00125: status limit, columns 5571, F to 1.571e+06, max |M - 0.10800| 2.521e-06, max |x- - x_h| 4.39e-06
+[pass] PT1-6S: exact Tangherlini D = 6 (S-like, lam 0.6, kp 3.6) through the chain: M recovered, second order, limit reached  (max |M - M_exact| at h = 0.00125: 2.52e-06 (bar 3.2e-05); errors ['1.75e-04', '4.35e-05', '1.11e-05', '2.52e-06']; orders [2.008, 1.973, 2.136] in (1.75, 2.25); status ['limit', 'limit', 'limit', 'limit']; F reached [1519348, 1565886, 1560067, 1570948])
+    PT1 D = 6, G-like (lam 1.19, kp 1.75) h = 0.01: status limit, columns 1115, F to 1.549e+06, max |M - 0.84258| 3.174e-04, max |x- - x_h| 1.43e-04
+    PT1 D = 6, G-like (lam 1.19, kp 1.75) h = 0.005: status limit, columns 2231, F to 1.57e+06, max |M - 0.84258| 8.417e-05, max |x- - x_h| 3.59e-05
+    PT1 D = 6, G-like (lam 1.19, kp 1.75) h = 0.0025: status limit, columns 4461, F to 1.567e+06, max |M - 0.84258| 1.948e-05, max |x- - x_h| 9.06e-06
+    PT1 D = 6, G-like (lam 1.19, kp 1.75) h = 0.00125: status limit, columns 8923, F to 1.572e+06, max |M - 0.84258| 4.985e-06, max |x- - x_h| 2.26e-06
+[pass] PT1-6G: exact Tangherlini D = 6 (G-like, lam 1.19, kp 1.75) through the chain: M recovered, second order, limit reached  (max |M - M_exact| at h = 0.00125: 4.98e-06 (bar 2.5e-04); errors ['3.17e-04', '8.42e-05', '1.95e-05', '4.98e-06']; orders [1.915, 2.112, 1.966] in (1.75, 2.25); status ['limit', 'limit', 'limit', 'limit']; F reached [1548699, 1570088, 1566938, 1572151])
+[pass] CONV: the conversion E = (D - 2) V_{D-2} M (kappa^2 = 1, unit-ball volumes) gives the static throat (M = 1/2) E = pi, 2 pi, pi^2 = [ST17]'s E_f/a_0 = 3.14, 6.28, 9.87 to their digits, D = 4, 5, 6  (D = 4: 3.1416 against 3.14; D = 5: 6.2832 against 6.28; D = 6: 9.8696 against 9.87)
+[pass] A4P: [ST17]'s printed A_4 = pi^2/Omega^4 gives E_throat = 2 pi^2 = 19.74 at n = 6, twice the table's 9.87 (a discrepancy inside the paper)  (E_throat from the printed A_4: 19.7392; table 9.87; ratio 1.9999)
+
+8 checks, 0 failed; 120 s

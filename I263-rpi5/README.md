@@ -297,3 +297,35 @@ Reading the summary I saw that E0, CACHE, XS, LC2, RD1, RD3, A7 and PQ2, PQ4, PQ
 
 `declared_chk.json`, `declared_t2b.json`, `declared_red.json` and `declared_ex.json` (with `lc2_J` and `rd_Y3`, `a7_B`) carry them. `dev_30_rd_rd_Y3` stopped with a `KeyError` (a monomial outside the masters) and `dev_31`, `dev_32` with a `TypeError` (I_final still had u): the code now reports RD3 and RD6 instead.
 PLW has no control of its own (it is the controls' own statement, as at order 6).
+
+## Results of record (written after the runs; the criteria above and A1 … A5 are unchanged)
+
+Code: worktree `~/Source/negative-mass-i263`, branch `wip/i263-omega5`. `order7.py` at 7d93fc3 (`run_02`, `run_03`), f7f294a (`run_01`, `run_04`), 2e70c66 (`run_05`, `run_06a`, `run_06b`), 4f6f020 (`run_06c`), be7b9cb (`run_07`), 7c21d83 (`run_08`, `run_09`) and 996c69f (the last controls); the controls of EX and T1 ran at 2e70c66 and be7b9cb.
+`git diff 7d93fc3 996c69f` changes only `check_remainder` (one printed line, Ω₆), `check_exch7` (the `lc2_J` hook), the uncached chain (its residuals), the `stale_cache` hook, and the parts `reduce7`, `euler7`, `weights7` (checks, mutations, constants); `cc`, `PanelK`, `omega_chain`'s nominal path, `run_B`, the grids, `check_evals`, `check_values`, `check_pslq`
+and the exchange checks are identical (compared function by function). `order7_output.txt` of the code repository is `assemble_output.py`'s output of the logs below.
+
+| run | what | exit | wall | peak RSS |
+|---|---|---|---|---|
+| `run_01_sym_xsym_cache_exch7` | CACHE, E0, XS, E1_7 … LC2: 15 of 15 | 0 | 58 s | 101 MB |
+| `run_02_evals_G1` | G1 (285, 1/4, 48, 445 digits; panel setup 8 m 22 s) | 0 | 1 h 34 m 46 s | 1.02 GB |
+| `run_03_evals_G2` | G2 (275, 3/10, 47, 410 digits; panel setup 6 m 52 s) | 0 | 1 h 4 m 52 s | 795 MB |
+| `run_04_evals_B` | B1, B2, B3 (reported) | 0 | 19 m 10 s | 443 MB |
+| `run_05_values_remainder` | PL0 … PL4, SL, RES, M5, RNG, R6, R7, X3: 12 of 12 | 0 | 1 s | 62 MB |
+| `run_06a_pslq_Q1_Q2_Q3_Q4` | PQ1 … PQ4 and the real PSLQ: **not found** | 0 | 2 m 28 s | 62 MB |
+| `run_06b_pslq_Q5_Q6` | PQ5, PQ6 and the real PSLQ: **found** (the same relation) | 0 | 12 m 29 s | 62 MB |
+| `run_06c_pslq_Q7_Q8_Q9` | PQ7 … PQ9 and the real PSLQ: **found** (the same relation, zero on every Li and weight-7 constant) | 0 | 1 h 26 m 31 s | 63 MB |
+| `run_07_reduce7` | RD1 … RD8, RD5b, LN2, A7: 11 of 11 | 0 | 4 m 49 s | 88 MB |
+| `run_08_euler7` | RD5c: 1 of 1 | 0 | 8 m 58 s | |
+| `run_09_weights7` | W7: 1 of 1 | 0 | 1 s | 62 MB |
+
+**Acceptance of the issue.**
+- Ω₀ … Ω₄ planted through the same code: G1 419.3 … 420.3 digits, G2 383.0 … 384.5 (bar 100).
+- Two grids agree on Ω₅ to 382.7 digits (bar 100); Ω₅ = 40860.455354525687312544064826033704278039372215373284… is in 4.0e4 … 4.2e4.
+- PSLQ: Q1 … Q4 not found; Q5, Q6, Q7, Q8, Q9 found, the same relation, with perturbed-basis controls (planted relation recovered exactly in all nine, the perturbed bases find nothing); it holds at 350 digits (20 more than the 330 used), 3.35e-344 on G1 and G2.
+- The by-hand reduction meets the computed value: the closed form equals G1 to 418.9 digits and G2 to 382.7 (RD7), and PSLQ's integer vector is 315 times its coefficients (RD8).
+- The step that removes Y₅ was declared before the run: E4 extends unchanged; L₄ and Y₄ need E2W and E5 (both checked on the hierarchy to 44 to 50 digits).
+
+**Controls of record: 51 runs, 48 on target, 3 off target** (`order7_output.txt`, last section; `ctl_summary.py PREFIX --declared declared_X.json`): T1 12 of 12 (`ctl_t1_*`, control grids), T2 5 of 5 (`ctl_t2_*`: Q1, Q3, Q5), T2b 3 of 3 (`ctl_t2b_*`: Q2, Q4, Q6 … Q9 at cap 250; the targets predicted),
+EX 13 of 13 (`ctl_ex_*`), CHK 6 of 6 (`ctl_chk_*`: E0, CACHE, XS), RD 9 of 12 (`ctl_red_*`: the reduction, `euler7`, `weights7`). **The three off target are `rd_B`, `rd_J5`, `rd_master`: each fires RD8 as well as its declared set** (RD8 was inactive in the development runs, A5). All checks have a control except PLW.
+
+Final state: code repository `wip/i263-omega5` at c618f36 (`order7.py` unchanged since 996c69f; `omega5.md` and `order7_output.txt` added); this folder's last commit is named in the issue's closing comment.
