@@ -1,0 +1,200 @@
+lines 349 against 359; differing lines: 66; (i) zero-token 2; (iii) fitted exponent 0; (ii) other 64
+note: line counts differ: 349 against 359 (lines are aligned by difflib before they are paired)
+(i) zero-token line 5:
+  base [PASS] plant_167: #167's planted cases through the same crate: matching (|C- - a|, |e|, |C+ - b|, nodes) linear: <err>, <err>, <err>, <err>, cubic: <err>, <err>, <err>, <err> (bars <err>, <err>); blowup: 8 walks, worst error <err>, worst bar <err> (1e-8), kinds right: True
+  run  [PASS] plant_167: #167's planted cases through the same crate: matching (|C- - a|, |e|, |C+ - b|, nodes) linear: <err>, <err>, <err>, <err>, cubic: <err>, <err>, <err>, <err> (bars <err>, <err>); blowup: 8 walks, worst error <err>, worst bar 0.0e+00 (1e-8), kinds right: True
+(i) zero-token line 7:
+  base [PASS] plant_far: planted equations started at x0 = 1e6 and walked inward by hp_walk with the locator: F'' = 2F^3 (pl6) and F F'' + F'^2 = 0 (pl7), x* = 0.7321, error and bar <= 1e-8; (1 + x^2) F'' + 4 x F' + 2 (F - 7/10) = 0 (pl4), exact alpha + (a + b x)/(1 + x^2): pl6 dd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 dd: x* error <err>, bar <err>, <n> steps from 1e6; pl4 dd: worst relative error of F, F', F'' at 1e3, 10, 1 <err> (bar <err>); pl6 qd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 qd: x* error <err>, bar <err>, <n> steps from 1e6; pl4 qd: worst relative error of F, F', F'' at 1e3, 10, 1 <err> (bar <err>)
+  run  [PASS] plant_far: planted equations started at x0 = 1e6 and walked inward by hp_walk with the locator: F'' = 2F^3 (pl6) and F F'' + F'^2 = 0 (pl7), x* = 0.7321, error and bar <= 1e-8; (1 + x^2) F'' + 4 x F' + 2 (F - 7/10) = 0 (pl4), exact alpha + (a + b x)/(1 + x^2): pl6 dd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 dd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl4 dd: worst relative error of F, F', F'' at 1e3, 10, 1 <err> (bar <err>); pl6 qd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 qd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl4 qd: worst relative error of F, F', F'' at 1e3, 10, 1 <err> (bar <err>)
+(ii) other line 9:
+  base [PASS] regress167: #167's 187 grid points through `offgrid` (hp walker, series tables of 8 parts) and through #167's `conical_global scan --rstop=1e-8` (both run here): class and kind equal and eta* within 1e-8 at 172 singular points (worst difference <err>); mismatches []
+  run  [FAIL] regress167: #167's 187 grid points through `offgrid` (hp walker, series tables of 8 parts) and through #167's `conical_global scan --rstop=1e-8` (both run here): class and kind equal and eta* within 1e-8 at 170 singular points (worst difference <err>); mismatches [((2.0, 3000.0), 'S:F->0', 'NONFINITE'), ((-2.0, -3000.0), 'S:F->0', 'NONFINITE')]
+(ii) other line 11:
+  base [NOTE] scan_first_pass: the first pass (stop at R <= 1e-8 max(1, x)) and the pass of record (R <= <err> max(1, x)) differ at 44 of 818 points:
+  run  (deleted)
+(ii) other line 11:
+  base (inserted)
+  run  [NOTE] scan_first_pass: the first pass (stop at R <= 1e-8 max(1, x)) and the pass of record (R <= <err> max(1, x)) differ at 46 of 818 points:
+(ii) other line 11:
+  base (inserted)
+  run     F_inf=2 C=10000: first pass S:a3->0 at 1.723881779; record TINYSTEP at -
+(ii) other line 14:
+  base (inserted)
+  run     F_inf=4 C=30000: first pass S:a3->0 at 3.864651293; record TINYSTEP at -
+(ii) other line 14:
+  base (inserted)
+  run     F_inf=-2 C=-10000: first pass S:a3->0 at 1.723881779; record TINYSTEP at -
+(ii) other line 15:
+  base    F_inf=0.07 C=3: first pass S:fold at 4.785330889e-05; record S:F->0 at 2.420504793e-05
+  run  (deleted)
+(ii) other line 18:
+  base    F_inf=6 C=10000: first pass S:a3->0 at 5.879711063; record S:F->0 at 5.654148443
+  run     F_inf=5 C=30000: first pass S:a3->0 at 4.887360434; record S:F->0 at 4.621440417
+(ii) other line 21:
+  base    F_inf=12 C=30000: first pass S:a3->0 at 11.9227013; record S:F->0 at 11.80758764
+  run     F_inf=8 C=100000: first pass S:a3->0 at 7.928774963; record TINYSTEP at -
+(ii) other line 22:
+  base    F_inf=16 C=30000: first pass S:a3->0 at 15.92525529; record S:F->0 at 15.83865707
+  run     F_inf=12 C=100000: first pass S:a3->0 at 11.94329521; record S:F->0 at 11.82837564
+(ii) other line 24:
+  base    F_inf=24 C=30000: first pass S:a3->0 at 23.93471435; record S:F->0 at 23.87689777
+  run  (deleted)
+(ii) other line 26:
+  base    F_inf=32 C=3000: first pass S:a3->0 at 31.94134069; record S:F->0 at 31.89796534
+  run  (deleted)
+(ii) other line 27:
+  base    F_inf=32 C=10000: first pass S:a3->0 at 31.94284122; record S:F->0 at 31.89946777
+  run  (deleted)
+(ii) other line 28:
+  base    F_inf=32 C=30000: first pass S:a3->0 at 31.94652425; record S:F->0 at 31.90315561
+  run  (deleted)
+(ii) other line 26:
+  base (inserted)
+  run     F_inf=24 C=300000: first pass S:a3->0 at 23.96419759; record S:F->0 at 23.90645139
+(ii) other line 56:
+  base   region A: 198 points, classes {'S:F->0': 101, 'FLOOR:log': 54, 'S:a3->0': 43}; singular eta* from 1.112 to 2e+04
+  run  (deleted)
+(ii) other line 56:
+  base (inserted)
+  run     F_inf=64 C=1e+06: first pass S:a3->0 at 63.97939557; record S:F->0 at 63.95771562
+(ii) other line 56:
+  base (inserted)
+  run     F_inf=128 C=-3e+06: first pass S:a3->0 at 127.9850717; record S:F->0 at 127.9742308
+(ii) other line 56:
+  base (inserted)
+  run     F_inf=128 C=-1e+06: first pass S:a3->0 at 127.9866166; record TINYSTEP at -
+(ii) other line 56:
+  base (inserted)
+  run    TINYSTEP points (5; the step fell below <err> |x|), from the last steps' (x, h, median Taylor radius of F'', sign changes of the last ten ratios):
+(ii) other line 56:
+  base (inserted)
+  run     F_inf=2 C=10000: stalled; x_last 1.72388177919; last steps (1.723881779, <err>, <err>, 7) (1.723881779, <err>, <err>, 7) (1.723881779, <err>, <err>, 7) (1.723881779, <err>, <err>, 7)
+(ii) other line 56:
+  base (inserted)
+  run     F_inf=4 C=30000: stalled; x_last 3.86465129268; last steps (3.864651293, <err>, <err>, 9) (3.864651293, <err>, <err>, 9) (3.864651293, <err>, <err>, 9) (3.864651293, <err>, <err>, 9)
+(ii) other line 56:
+  base (inserted)
+  run     F_inf=-2 C=-10000: stalled; x_last 1.72388177919; last steps (1.723881779, <err>, <err>, 7) (1.723881779, <err>, <err>, 7) (1.723881779, <err>, <err>, 7) (1.723881779, <err>, <err>, 7)
+(ii) other line 56:
+  base (inserted)
+  run     F_inf=8 C=100000: stalled; x_last 7.92877496333; last steps (7.928774963, <err>, <err>, 9) (7.928774963, <err>, <err>, 9) (7.928774963, <err>, <err>, 9) (7.928774963, <err>, <err>, 10)
+(ii) other line 56:
+  base (inserted)
+  run     F_inf=128 C=-1e+06: stalled; x_last 127.986616646; last steps (127.9866166, <err>, <err>, 10) (127.9866166, <err>, <err>, 10) (127.9866166, <err>, <err>, 9) (127.9866166, <err>, <err>, 9)
+(ii) other line 56:
+  base (inserted)
+  run    region A: 198 points, classes {'S:F->0': 101, 'FLOOR:log': 54, 'S:a3->0': 40, 'TINYSTEP': 3}; singular eta* from 1.112 to 2e+04
+(ii) other line 58:
+  base   region C: 315 points, classes {'S:F->0': 232, 'S:a3->0': 83}; singular eta* from 4.152 to 4472
+  run    region C: 315 points, classes {'S:F->0': 237, 'S:a3->0': 76, 'TINYSTEP': 2}; singular eta* from 4.152 to 4472
+(ii) other line 68:
+  base    F_inf=-2: -1e+08:a3->0@1.732049143 -3e+07:a3->0@1.73204563 -1e+07:a3->0@1.732036289 -3e+06:a3->0@1.732006111 -1e+06:a3->0@1.73192683 -300000:a3->0@1.731674436 -100000:a3->0@1.731022513 -30000:a3->0@1.728991206 -10000:a3->0@1.723881779 10000:F->0@70.40209277 30000:F->0@122.2717533 100000:F->0@223.480978 300000:F->0@387.2178988 1e+06:F->0@707.0580441 3e+06:F->0@1224.714267 1e+07:F->0@2236.049734 3e+07:F->0@3872.972033 1e+08:F->0@7071.061147
+  run     F_inf=-2: -1e+08:a3->0@1.732049143 -3e+07:a3->0@1.73204563 -1e+07:a3->0@1.732036289 -3e+06:a3->0@1.732006111 -1e+06:a3->0@1.73192683 -300000:a3->0@1.731674436 -100000:a3->0@1.731022513 -30000:a3->0@1.728991206 -10000:TINYSTEP 10000:F->0@70.40209277 30000:F->0@122.2717533 100000:F->0@223.480978 300000:F->0@387.2178988 1e+06:F->0@707.0580441 3e+06:F->0@1224.714267 1e+07:F->0@2236.049734 3e+07:F->0@3872.972033 1e+08:F->0@7071.061147
+(ii) other line 69:
+  base    F_inf=2: -1e+08:F->0@7071.061147 -3e+07:F->0@3872.972033 -1e+07:F->0@2236.049734 -3e+06:F->0@1224.714267 -1e+06:F->0@707.0580441 -300000:F->0@387.2178988 -100000:F->0@223.480978 -30000:F->0@122.2717533 -10000:F->0@70.40209277 10000:a3->0@1.723881779 30000:a3->0@1.728991206 100000:a3->0@1.731022513 300000:a3->0@1.731674436 1e+06:a3->0@1.73192683 3e+06:a3->0@1.732006111 1e+07:a3->0@1.732036289 3e+07:a3->0@1.73204563 1e+08:a3->0@1.732049143
+  run     F_inf=2: -1e+08:F->0@7071.061147 -3e+07:F->0@3872.972033 -1e+07:F->0@2236.049734 -3e+06:F->0@1224.714267 -1e+06:F->0@707.0580441 -300000:F->0@387.2178988 -100000:F->0@223.480978 -30000:F->0@122.2717533 -10000:F->0@70.40209277 10000:TINYSTEP 30000:a3->0@1.728991206 100000:a3->0@1.731022513 300000:a3->0@1.731674436 1e+06:a3->0@1.73192683 3e+06:a3->0@1.732006111 1e+07:a3->0@1.732036289 3e+07:a3->0@1.73204563 1e+08:a3->0@1.732049143
+(ii) other line 71:
+  base    F_inf=4: -1e+08:F->0@4999.980435 -3e+07:F->0@2738.579595 -1e+07:F->0@1581.085335 -3e+06:F->0@865.9357265 -1e+06:F->0@499.8573006 -300000:F->0@273.6259871 -100000:F->0@157.7461609 -30000:F->0@86.01052608 -10000:F->0@49.09921366 10000:F->0@3.527557745 30000:a3->0@3.864651293 100000:a3->0@3.870076593 300000:a3->0@3.871892406 1e+06:a3->0@3.872616183 3e+06:a3->0@3.872848854 1e+07:a3->0@3.872939021 3e+07:a3->0@3.872967361 1e+08:a3->0@3.872978153
+  run     F_inf=4: -1e+08:F->0@4999.980435 -3e+07:F->0@2738.579595 -1e+07:F->0@1581.085335 -3e+06:F->0@865.9357265 -1e+06:F->0@499.8573006 -300000:F->0@273.6259871 -100000:F->0@157.7461609 -30000:F->0@86.01052608 -10000:F->0@49.09921366 10000:F->0@3.527557745 30000:TINYSTEP 100000:a3->0@3.870076593 300000:a3->0@3.871892406 1e+06:a3->0@3.872616183 3e+06:a3->0@3.872848854 1e+07:a3->0@3.872939021 3e+07:a3->0@3.872967361 1e+08:a3->0@3.872978153
+(ii) other line 83:
+  base    F_inf=5: -1e+08:F->0@4472.105658 -3e+07:F->0@2449.438361 -1e+07:F->0@1414.13078 -3e+06:F->0@774.4579596 -1e+06:F->0@446.9929751 -300000:F->0@244.5854001 -100000:F->0@140.853417 -30000:F->0@76.54559857 -10000:F->0@43.3304174 -3000:F->0@22.34020159 -1000:F->0@11.09437043 -300:F->0@4.890770032 -100:F->0@4.164463621 -30:F->0@4.152040878 -10:F->0@4.159266438 -3:F->0@4.162527644 -1:F->0@4.163519373 0:F->0@4.164024697 1:F->0@4.164536189 3:F->0@4.165577261 10:F->0@4.169400336 30:F->0@4.181612133 100:F->0@4.231606714 300:F->0@4.347764722 1000:F->0@4.478749096 3000:F->0@4.55827794 10000:F->0@4.60350778 30000:a3->0@4.887360434 100000:a3->0@4.894853783 300000:a3->0@4.897414248 1e+06:a3->0@4.898448103
+  run     F_inf=5: -1e+08:F->0@4472.105658 -3e+07:F->0@2449.438361 -1e+07:F->0@1414.13078 -3e+06:F->0@774.4579596 -1e+06:F->0@446.9929751 -300000:F->0@244.5854001 -100000:F->0@140.853417 -30000:F->0@76.54559857 -10000:F->0@43.3304174 -3000:F->0@22.34020159 -1000:F->0@11.09437043 -300:F->0@4.890770032 -100:F->0@4.164463621 -30:F->0@4.152040878 -10:F->0@4.159266438 -3:F->0@4.162527644 -1:F->0@4.163519373 0:F->0@4.164024697 1:F->0@4.164536189 3:F->0@4.165577261 10:F->0@4.169400336 30:F->0@4.181612133 100:F->0@4.231606714 300:F->0@4.347764722 1000:F->0@4.478749096 3000:F->0@4.55827794 10000:F->0@4.60350778 30000:F->0@4.621440417 100000:a3->0@4.894853783 300000:a3->0@4.897414248 1e+06:a3->0@4.898448103 
+(ii) other line 85:
+  base    F_inf=8: -1e+08:F->0@3535.450203 -3e+07:F->0@1936.349886 -1e+07:F->0@1117.805839 -3e+06:F->0@611.9907411 -1e+06:F->0@352.9472395 -300000:F->0@192.6519375 -100000:F->0@110.2473784 -30000:F->0@58.73262104 -10000:F->0@31.54060797 -3000:F->0@13.67968319 -1000:F->0@7.431502641 -300:F->0@7.461068049 -100:F->0@7.50011006 -30:F->0@7.511591158 -10:F->0@7.514669477 -3:F->0@7.515726405 -1:F->0@7.516026458 0:F->0@7.516176164 1:F->0@7.516325657 3:F->0@7.516624007 10:F->0@7.517661566 30:F->0@7.520569656 100:F->0@7.530121249 300:F->0@7.552855512 1000:F->0@7.602147003 3000:F->0@7.66136651 10000:F->0@7.715408871 30000:F->0@7.74378012 100000:a3->0@7.928774963 300000:a3->0@7.933929072 1e+06:a3->0@7.93609751
+  run     F_inf=8: -1e+08:F->0@3535.450203 -3e+07:F->0@1936.349886 -1e+07:F->0@1117.805839 -3e+06:F->0@611.9907411 -1e+06:F->0@352.9472395 -300000:F->0@192.6519375 -100000:F->0@110.2473784 -30000:F->0@58.73262104 -10000:F->0@31.54060797 -3000:F->0@13.67968319 -1000:F->0@7.431502641 -300:F->0@7.461068049 -100:F->0@7.50011006 -30:F->0@7.511591158 -10:F->0@7.514669477 -3:F->0@7.515726405 -1:F->0@7.516026458 0:F->0@7.516176164 1:F->0@7.516325657 3:F->0@7.516624007 10:F->0@7.517661566 30:F->0@7.520569656 100:F->0@7.530121249 300:F->0@7.552855512 1000:F->0@7.602147003 3000:F->0@7.66136651 10000:F->0@7.715408871 30000:F->0@7.74378012 100000:TINYSTEP 300000:a3->0@7.933929072 1e+06:a3->0@7.936097516 3e+06:a
+(ii) other line 86:
+  base    F_inf=12: -1e+08:F->0@2886.537449 -3e+07:F->0@1580.777036 -1e+07:F->0@912.2896377 -3e+06:F->0@499.0292266 -1e+06:F->0@287.1358997 -300000:F->0@155.5842165 -100000:F->0@87.3365943 -30000:F->0@43.61648439 -10000:F->0@19.44639408 -3000:F->0@11.56885118 -1000:F->0@11.67554605 -300:F->0@11.69328838 -100:F->0@11.69751257 -30:F->0@11.69892057 -10:F->0@11.69931654 -3:F->0@11.69945449 -1:F->0@11.69949384 0:F->0@11.6995135 1:F->0@11.69953316 3:F->0@11.69957245 10:F->0@11.69970977 30:F->0@11.70010029 100:F->0@11.70144622 300:F->0@11.70512249 1000:F->0@11.71632709 3000:F->0@11.73902016 10000:F->0@11.77626991 30000:F->0@11.80758764 100000:a3->0@11.94329521 300000:a3->0@11.95207155 1e+06:a3->0@11.95603
+  run     F_inf=12: -1e+08:F->0@2886.537449 -3e+07:F->0@1580.777036 -1e+07:F->0@912.2896377 -3e+06:F->0@499.0292266 -1e+06:F->0@287.1358997 -300000:F->0@155.5842165 -100000:F->0@87.3365943 -30000:F->0@43.61648439 -10000:F->0@19.44639408 -3000:F->0@11.56885118 -1000:F->0@11.67554605 -300:F->0@11.69328838 -100:F->0@11.69751257 -30:F->0@11.69892057 -10:F->0@11.69931654 -3:F->0@11.69945449 -1:F->0@11.69949384 0:F->0@11.6995135 1:F->0@11.69953316 3:F->0@11.69957245 10:F->0@11.69970977 30:F->0@11.70010029 100:F->0@11.70144622 300:F->0@11.70512249 1000:F->0@11.71632709 3000:F->0@11.73902016 10000:F->0@11.77626991 30000:F->0@11.80758764 100000:F->0@11.82837564 300000:a3->0@11.95207155 1e+06:a3->0@11.956034
+(ii) other line 88:
+  base    F_inf=24: -1e+08:F->0@2040.118634 -3e+07:F->0@1116.140256 -1e+07:F->0@642.4624066 -3e+06:F->0@348.4947854 -1e+06:F->0@196.0937458 -300000:F->0@98.47619297 -100000:F->0@43.605937 -30000:F->0@23.80724999 -10000:F->0@23.84994339 -3000:F->0@23.85729041 -1000:F->0@23.85907098 -300:F->0@23.85966658 -100:F->0@23.85983425 -30:F->0@23.85989268 -10:F->0@23.85990935 -3:F->0@23.85991518 -1:F->0@23.85991685 0:F->0@23.85991768 1:F->0@23.85991852 3:F->0@23.85992018 10:F->0@23.85992601 30:F->0@23.85994266 100:F->0@23.86000084 300:F->0@23.86016636 1000:F->0@23.86073735 3000:F->0@23.86230099 10000:F->0@23.867097 30000:F->0@23.87689777 100000:F->0@23.89303019 300000:a3->0@23.96419759 1e+06:a3->0@23.97293494
+  run     F_inf=24: -1e+08:F->0@2040.118634 -3e+07:F->0@1116.140256 -1e+07:F->0@642.4624066 -3e+06:F->0@348.4947854 -1e+06:F->0@196.0937458 -300000:F->0@98.47619297 -100000:F->0@43.605937 -30000:F->0@23.80724999 -10000:F->0@23.84994339 -3000:F->0@23.85729041 -1000:F->0@23.85907098 -300:F->0@23.85966658 -100:F->0@23.85983425 -30:F->0@23.85989268 -10:F->0@23.85990935 -3:F->0@23.85991518 -1:F->0@23.85991685 0:F->0@23.85991768 1:F->0@23.85991852 3:F->0@23.85992018 10:F->0@23.85992601 30:F->0@23.85994266 100:F->0@23.86000084 300:F->0@23.86016636 1000:F->0@23.86073735 3000:F->0@23.86230099 10000:F->0@23.867097 30000:F->0@23.87689777 100000:F->0@23.89303019 300000:F->0@23.90645139 1e+06:a3->0@23.97293494 
+(ii) other line 90:
+  base    F_inf=64: -1e+08:F->0@1237.847474 -3e+07:F->0@664.1394871 -1e+07:F->0@362.0835805 -3e+06:F->0@159.126609 -1e+06:F->0@63.90478765 -300000:F->0@63.94674087 -100000:F->0@63.9497507 -30000:F->0@63.95060498 -10000:F->0@63.95083414 -3000:F->0@63.95091289 -1000:F->0@63.95093525 -300:F->0@63.95094307 -100:F->0@63.9509453 -30:F->0@63.95094608 -10:F->0@63.9509463 -3:F->0@63.95094638 -1:F->0@63.9509464 0:F->0@63.95094641 1:F->0@63.95094642 3:F->0@63.95094645 10:F->0@63.95094652 30:F->0@63.95094675 100:F->0@63.95094753 300:F->0@63.95094976 1000:F->0@63.95095756 3000:F->0@63.9509798 10000:F->0@63.95105719 30000:F->0@63.95127439 100000:F->0@63.9519919 300000:F->0@63.95373817 1e+06:a3->0@63.97939557 3e+
+  run     F_inf=64: -1e+08:F->0@1237.847474 -3e+07:F->0@664.1394871 -1e+07:F->0@362.0835805 -3e+06:F->0@159.126609 -1e+06:F->0@63.90478765 -300000:F->0@63.94674087 -100000:F->0@63.9497507 -30000:F->0@63.95060498 -10000:F->0@63.95083414 -3000:F->0@63.95091289 -1000:F->0@63.95093525 -300:F->0@63.95094307 -100:F->0@63.9509453 -30:F->0@63.95094608 -10:F->0@63.9509463 -3:F->0@63.95094638 -1:F->0@63.9509464 0:F->0@63.95094641 1:F->0@63.95094642 3:F->0@63.95094645 10:F->0@63.95094652 30:F->0@63.95094675 100:F->0@63.95094753 300:F->0@63.95094976 1000:F->0@63.95095756 3000:F->0@63.9509798 10000:F->0@63.95105719 30000:F->0@63.95127439 100000:F->0@63.9519919 300000:F->0@63.95373817 1e+06:F->0@63.95771562 3e+0
+(ii) other line 91:
+  base    F_inf=128: -1e+08:F->0@816.9452969 -3e+07:F->0@366.473206 -1e+07:F->0@127.9374128 -3e+06:a3->0@127.9850717 -1e+06:a3->0@127.9866166 -300000:a3->0@127.9870458 -100000:a3->0@127.9871602 -30000:a3->0@127.9871994 -10000:a3->0@127.9872106 -3000:a3->0@127.9872145 -1000:a3->0@127.9872156 -300:a3->0@127.987216 -100:a3->0@127.9872161 -30:a3->0@127.9872161 -10:a3->0@127.9872161 -3:a3->0@127.9872161 -1:a3->0@127.9872161 0:a3->0@127.9872161 1:a3->0@127.9872161 3:a3->0@127.9872161 10:a3->0@127.9872162 30:a3->0@127.9872162 100:a3->0@127.9872162 300:a3->0@127.9872163 1000:a3->0@127.9872167 3000:a3->0@127.9872178 10000:a3->0@127.9872217 30000:a3->0@127.9872328 100000:a3->0@127.9872713 300000:a3->0@127.98
+  run     F_inf=128: -1e+08:F->0@816.9452969 -3e+07:F->0@366.473206 -1e+07:F->0@127.9374128 -3e+06:F->0@127.9742308 -1e+06:TINYSTEP -300000:a3->0@127.9870458 -100000:a3->0@127.9871602 -30000:a3->0@127.9871994 -10000:a3->0@127.9872106 -3000:a3->0@127.9872145 -1000:a3->0@127.9872156 -300:a3->0@127.987216 -100:a3->0@127.9872161 -30:a3->0@127.9872161 -10:a3->0@127.9872161 -3:a3->0@127.9872161 -1:a3->0@127.9872161 0:a3->0@127.9872161 1:a3->0@127.9872161 3:a3->0@127.9872161 10:a3->0@127.9872162 30:a3->0@127.9872162 100:a3->0@127.9872162 300:a3->0@127.9872163 1000:a3->0@127.9872167 3000:a3->0@127.9872178 10000:a3->0@127.9872217 30000:a3->0@127.9872328 100000:a3->0@127.9872713 300000:a3->0@127.9873792 1e+0
+(ii) other line 300:
+  base   kappa-curve ends: 126 at R <= <err> and 167 at R <= 1e-8; by F_inf (points, C range, eta* range, sqrt(F_inf^2 - 1)):
+  run    kappa-curve ends: 116 at R <= <err> and 160 at R <= 1e-8; by F_inf (points, C range, eta* range, sqrt(F_inf^2 - 1)):
+(ii) other line 302:
+  base    F_inf=-2: 9 points, C from -1e+08 to -10000, eta* from 1.7238818 to 1.7320491; sqrt(F_inf^2 - 1) = 1.7320508
+  run     F_inf=-2: 8 points, C from -1e+08 to -30000, eta* from 1.7289912 to 1.7320491; sqrt(F_inf^2 - 1) = 1.7320508
+(ii) other line 303:
+  base    F_inf=2: 9 points, C from 10000 to 1e+08, eta* from 1.7238818 to 1.7320491; sqrt(F_inf^2 - 1) = 1.7320508
+  run     F_inf=2: 8 points, C from 30000 to 1e+08, eta* from 1.7289912 to 1.7320491; sqrt(F_inf^2 - 1) = 1.7320508
+(ii) other line 305:
+  base    F_inf=4: 8 points, C from 30000 to 1e+08, eta* from 3.8646513 to 3.8729782; sqrt(F_inf^2 - 1) = 3.8729833
+  run     F_inf=4: 7 points, C from 100000 to 1e+08, eta* from 3.8700766 to 3.8729782; sqrt(F_inf^2 - 1) = 3.8729833
+(ii) other line 306:
+  base    F_inf=5: 8 points, C from 30000 to 1e+08, eta* from 4.8873604 to 4.8989718; sqrt(F_inf^2 - 1) = 4.8989795
+  run     F_inf=5: 7 points, C from 100000 to 1e+08, eta* from 4.8948538 to 4.8989718; sqrt(F_inf^2 - 1) = 4.8989795
+(ii) other line 308:
+  base    F_inf=8: 7 points, C from 100000 to 1e+08, eta* from 7.928775 to 7.9372364; sqrt(F_inf^2 - 1) = 7.9372539
+  run     F_inf=8: 6 points, C from 300000 to 1e+08, eta* from 7.9339291 to 7.9372364; sqrt(F_inf^2 - 1) = 7.9372539
+(ii) other line 309:
+  base    F_inf=12: 7 points, C from 100000 to 1e+08, eta* from 11.943295 to 11.958225; sqrt(F_inf^2 - 1) = 11.958261
+  run     F_inf=12: 6 points, C from 300000 to 1e+08, eta* from 11.952072 to 11.958225; sqrt(F_inf^2 - 1) = 11.958261
+(ii) other line 311:
+  base    F_inf=24: 6 points, C from 300000 to 1e+08, eta* from 23.964198 to 23.979039; sqrt(F_inf^2 - 1) = 23.979158
+  run     F_inf=24: 5 points, C from 1e+06 to 1e+08, eta* from 23.972935 to 23.979039; sqrt(F_inf^2 - 1) = 23.979158
+(ii) other line 313:
+  base    F_inf=64: 5 points, C from 1e+06 to 1e+08, eta* from 63.979396 to 63.991594; sqrt(F_inf^2 - 1) = 63.992187
+  run     F_inf=64: 4 points, C from 3e+06 to 1e+08, eta* from 63.984236 to 63.991594; sqrt(F_inf^2 - 1) = 63.992187
+(ii) other line 314:
+  base    F_inf=128: 32 points, C from -3e+06 to 1e+08, eta* from 127.98507 to 127.99453; sqrt(F_inf^2 - 1) = 127.99609
+  run     F_inf=128: 30 points, C from -300000 to 1e+08, eta* from 127.98705 to 127.99453; sqrt(F_inf^2 - 1) = 127.99609
+(ii) other line 317:
+  base   F->0 points: 504, eta* from <err> to 2e+04; measured exponent against 2/(eta*^2 + 4): worst relative difference 1.5e-02
+  run    F->0 points: 509, eta* from <err> to 2e+04; measured exponent against 2/(eta*^2 + 4): worst relative difference <err>
+(ii) other line 318:
+  base [PASS] scan: 818 points (full grid), classes {'S:F->0': 504, 'FLOOR:log': 188, 'S:a3->0': 126}; every point has a verdict (none NOSTART, STEPLIMIT, NONFINITE, TINYSTEP: True); start residual <= <err> at every start: True; every SINGULAR has a bar <= 1e-8 max(1, eta*): True (max bar <err>); THROUGH 0, GLOBAL 0; not classified []
+  run  [FAIL] scan: 818 points (full grid), classes {'S:F->0': 509, 'FLOOR:log': 188, 'S:a3->0': 116, 'TINYSTEP': 5}; every point has a verdict (none NOSTART, STEPLIMIT, NONFINITE, TINYSTEP: False); start residual <= <err> at every start: True; every SINGULAR has a bar <= 1e-8 max(1, eta*): True (max bar <err>); THROUGH 0, GLOBAL 0; not classified [((2.0, 10000.0), 'TINYSTEP'), ((4.0, 30000.0), 'TINYSTEP'), ((-2.0, -10000.0), 'TINYSTEP'), ((8.0, 100000.0), 'TINYSTEP'), ((128.0, -1000000.0), 'TINYSTEP')]
+(ii) other line 320:
+  base [PASS] spread: the same point from the next start radius 4 L (residual <= <err> there too): 812 of 818 points have a second start; class and kind equal, eta* within 1e-8 max(1, eta*), FLOOR p0 within a relative 1e-9; worst eta* difference 0.0e+00; mismatches 0 []
+  run  [FAIL] spread: the same point from the next start radius 4 L (residual <= <err> there too): 812 of 818 points have a second start; class and kind equal, eta* within 1e-8 max(1, eta*), FLOOR p0 within a relative 1e-9; worst eta* difference <err>; mismatches 2 [((16.0, 300000.0), 3200.0, 12800.0, 'S:a3->0 against TINYSTEP'), ((128.0, -300000.0), 12800.0, 51200.0, 'S:a3->0 against TINYSTEP')]
+(ii) other line 322:
+  base [PASS] modes: `project` (Newton on F'' at each step) against `conserve` (N constant) over 818 points: class and kind equal, eta* within <err> max(1, eta*), FLOOR p0 within <err>; worst relative eta* difference 0.0e+00; mismatches 0 []
+  run  [FAIL] modes: `project` (Newton on F'' at each step) against `conserve` (N constant) over 818 points: class and kind equal, eta* within <err> max(1, eta*), FLOOR p0 within <err>; worst relative eta* difference <err>; mismatches 1 [((16.0, 300000.0), 'S:a3->0 against TINYSTEP')]
+(ii) other line 333:
+  base    line F_inf=5: 131 points (C from -1e+08 to 1e+08), classes {'S:F->0': 102, 'S:a3->0': 29}
+  run     line F_inf=5: 131 points (C from -1e+08 to 1e+08), classes {'S:F->0': 103, 'TINYSTEP': 1, 'S:a3->0': 27}
+(ii) other line 334:
+  base    line F_inf=16: 131 points (C from -1e+08 to 1e+08), classes {'S:F->0': 108, 'S:a3->0': 23}
+  run     line F_inf=16: 131 points (C from -1e+08 to 1e+08), classes {'S:F->0': 109, 'TINYSTEP': 1, 'S:a3->0': 21}
+(ii) other line 335:
+  base    F_inf=0.01: C in (0, 1) S:F->0|FLOOR:log -> C* = 0.4922912683132 (F->0@<err> | FLOOR:log p0=3.194e-01), 40 iterations, width <err>
+  run     F_inf=0.01: C in (0, 1) S:F->0|FLOOR:log -> C* = 0.4922912683123 (F->0@<err> | FLOOR:log p0=3.194e-01), 40 iterations, width <err>
+(ii) other line 337:
+  base    F_inf=1: C in (4216.97, 5623.41) S:F->0|FLOOR:log -> C* = 4262.09393767 (F->0@<err> | FLOOR:log p0=1.926e+02), 39 iterations, width <err>
+  run  (deleted)
+(ii) other line 338:
+  base    F_inf=5: C in (23713.7, 31622.8) S:F->0|S:a3->0 -> C* = 24853.40137767 (F->0@4.61935 | a3->0@4.88537), 39 iterations, width <err>
+  run  (deleted)
+(ii) other line 339:
+  base    F_inf=16: C in (133352, 177828) S:F->0|S:a3->0 -> C* = 155138.0470913 (F->0@15.8669 | a3->0@15.9534), 39 iterations, width <err>
+  run  (deleted)
+(ii) other line 340:
+  base [PASS] bisect: 5 class changes along the lines of [0.01, 0.1, 1.0, 5.0, 16.0] bisected in C to relative width <err>; both ends keep their different labels and no end is THROUGH, NOSTART, STEPLIMIT, NONFINITE or TINYSTEP (THROUGH ends 0)
+  run  (deleted)
+(ii) other line 337:
+  base (inserted)
+  run     F_inf=1: C in (4216.97, 5623.41) S:F->0|FLOOR:log -> C* = 4262.093937647 (F->0@<err> | FLOOR:log p0=1.926e+02), 39 iterations, width <err>
+(ii) other line 337:
+  base (inserted)
+  run     F_inf=5: C in (31622.8, 42169.7) S:F->0|TINYSTEP -> C* = 34597.53531776 (F->0@4.62282 | TINYSTEP), 39 iterations, width <err>
+(ii) other line 337:
+  base (inserted)
+  run     F_inf=5: C in (42169.7, 56234.1) TINYSTEP|S:a3->0 -> C* = 49596.7337875 (TINYSTEP | a3->0@4.89141), 39 iterations, width <err>
+(ii) other line 337:
+  base (inserted)
+  run     F_inf=16: C in (177828, 237137) S:F->0|TINYSTEP -> C* = 218738.1728374 (F->0@15.8704 | TINYSTEP), 38 iterations, width <err>
+(ii) other line 337:
+  base (inserted)
+  run     F_inf=16: C in (237137, 316228) TINYSTEP|S:a3->0 -> C* = 304312.0401254 (TINYSTEP | a3->0@15.9595), 38 iterations, width <err>
+(ii) other line 337:
+  base (inserted)
+  run  [FAIL] bisect: 7 class changes along the lines of [0.01, 0.1, 1.0, 5.0, 16.0] bisected in C to relative width <err>; both ends keep their different labels and no end is THROUGH, NOSTART, STEPLIMIT, NONFINITE or TINYSTEP (THROUGH ends 0)
+(ii) other line 348:
+  base checks: 15 passed, 0 failed []. <t> s
+  run  checks: 10 passed, 5 failed ['regress167', 'scan', 'spread', 'modes', 'bisect']. <t> s

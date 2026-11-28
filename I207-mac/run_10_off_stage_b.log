@@ -1,0 +1,29 @@
+# run_10_off_stage_b: 2026-11-28T06:01:01Z machine Nathans-MacBook-Air-M5-3 load  4.01 5.01 5.37  threads 2 nice 10 (RAYON_NUM_THREADS=2)
+# command: mkdir -p $RAW/dump_run_10_off_stage_b && cd $WT && $RAW/sys/arm.sh off run_10_off_stage_b && $PY notes/warp/conical_offgrid.py --nobuild --no-controls --dump=$RAW/dump_run_10_off_stage_b --only=dd_qd
+conical_offgrid.py: grid full; controls run every check (on the ctl grid) and must fail their targets and no others
+[NOTE] dd_qd: O8 as first worded (quad-double fit of the last 10 of 60 orders) failed in dev_07 at 20 of 142 points: eta* identical, kind `F->0` in double-double and `other` in quad-double; quad-double now fits the last 33 orders (chosen after dev_07). The 20 points, fitted exponent against alpha = 2/(eta*^2 + 4) (ratio in brackets) and the kind of each lane:
+   F_inf=-2 C=1e+08: eta* 7071.061147 (QD 7071.061147), alpha 4.0000e-08; double-double 4.0166e-08 (1.004) F->0; quad-double 3.9945e-08 (0.999) F->0
+   F_inf=-1 C=1e+08: eta* 9999.996516 (QD 9999.996516), alpha 2.0000e-08; double-double 2.0059e-08 (1.003) F->0; quad-double 1.9943e-08 (0.997) F->0
+   F_inf=-0.5 C=3e+07: eta* 7745.962772 (QD 7745.962772), alpha 3.3333e-08; double-double 3.3587e-08 (1.008) F->0; quad-double 3.3298e-08 (0.999) F->0
+   F_inf=-0.5 C=1e+08: eta* 14142.13332 (QD 14142.13332), alpha 1.0000e-08; double-double 1.0037e-08 (1.004) F->0; quad-double 9.9880e-09 (0.999) F->0
+   F_inf=0.001 C=-100000: eta* 9999.996989 (QD 9999.996989), alpha 2.0000e-08; double-double 1.9913e-08 (0.996) F->0; quad-double 1.9948e-08 (0.997) F->0
+   F_inf=0.002 C=-100000: eta* 7071.063725 (QD 7071.063725), alpha 4.0000e-08; double-double 3.9930e-08 (0.998) F->0; quad-double 3.9950e-08 (0.999) F->0
+   F_inf=0.005 C=-300000: eta* 7745.96292 (QD 7745.96292), alpha 3.3333e-08; double-double 3.3235e-08 (0.997) F->0; quad-double 3.3303e-08 (0.999) F->0
+   F_inf=0.01 C=-1e+06: eta* 9999.996989 (QD 9999.996989), alpha 2.0000e-08; double-double 2.0048e-08 (1.002) F->0; quad-double 1.9933e-08 (0.997) F->0
+   F_inf=0.02 C=-1e+06: eta* 7071.063725 (QD 7071.063725), alpha 4.0000e-08; double-double 4.0009e-08 (1.000) F->0; quad-double 3.9940e-08 (0.998) F->0
+   F_inf=0.03 C=-3e+06: eta* 9999.996988 (QD 9999.996988), alpha 2.0000e-08; double-double 1.9882e-08 (0.994) F->0; quad-double 1.9958e-08 (0.998) F->0
+   F_inf=0.03 C=-1e+06: eta* 5773.497809 (QD 5773.497809), alpha 6.0000e-08; double-double 6.0018e-08 (1.000) F->0; quad-double 5.9986e-08 (1.000) F->0
+   F_inf=0.05 C=-3e+06: eta* 7745.962919 (QD 7745.962919), alpha 3.3333e-08; double-double 3.3613e-08 (1.008) F->0; quad-double 3.3313e-08 (0.999) F->0
+   F_inf=0.1 C=-1e+07: eta* 9999.996984 (QD 9999.996984), alpha 2.0000e-08; double-double 2.0178e-08 (1.009) F->0; quad-double 1.9979e-08 (0.999) F->0
+   F_inf=0.25 C=-3e+07: eta* 10954.44834 (QD 10954.44834), alpha 1.6667e-08; double-double 1.6643e-08 (0.999) F->0; quad-double 1.6614e-08 (0.997) F->0
+   F_inf=0.25 C=-1e+07: eta* 6324.550768 (QD 6324.550768), alpha 5.0000e-08; double-double 5.0134e-08 (1.003) F->0; quad-double 4.9945e-08 (0.999) F->0
+   F_inf=0.5 C=-1e+08: eta* 14142.13332 (QD 14142.13332), alpha 1.0000e-08; double-double 1.0037e-08 (1.004) F->0; quad-double 9.9880e-09 (0.999) F->0
+   F_inf=0.5 C=-3e+07: eta* 7745.962772 (QD 7745.962772), alpha 3.3333e-08; double-double 3.3587e-08 (1.008) F->0; quad-double 3.3298e-08 (0.999) F->0
+   F_inf=1 C=-1e+08: eta* 9999.996516 (QD 9999.996516), alpha 2.0000e-08; double-double 2.0059e-08 (1.003) F->0; quad-double 1.9943e-08 (0.997) F->0
+   F_inf=1.5 C=-1e+08: eta* 8164.960933 (QD 8164.960933), alpha 3.0000e-08; double-double 3.0196e-08 (1.007) F->0; quad-double 2.9961e-08 (0.999) F->0
+   F_inf=2 C=-1e+08: eta* 7071.061147 (QD 7071.061147), alpha 4.0000e-08; double-double 4.0166e-08 (1.004) F->0; quad-double 3.9945e-08 (0.999) F->0
+[PASS] dd_qd: quad-double (kt 60, tol 1e-64) against double-double on 142 points (start radius >= 204800 and the 30 smallest and 30 largest eta*): class and kind equal, eta* within 1e-12 max(1, eta*), FLOOR p0 within a relative 1e-12; worst relative eta* difference 4.1e-13; mismatches 0 []
+  (131 s)
+
+checks: 1 passed, 0 failed []. 131 s
+# run_10_off_stage_b finished 2026-11-28T06:03:12Z exit 0 load  3.88 4.65 5.17 

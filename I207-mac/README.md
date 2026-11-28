@@ -31,8 +31,9 @@ degree are the library's (`Opts::default()`); the series is read in the lane's o
   fields the smallest bar wins. A field that reads a pair, `Unresolved` or nothing gives no estimate, as a field with a sign change
   of its ratios did for the f64 fit. The stop rule (five consecutive real estimates ahead, the last R at most the stop radius, bar =
   spread of the last five eta*) and the labels of `conical_kind` are unchanged.
-- **Gate.** `locate` costs 1.2 ms (double-double, K = 30), 21 ms (quad-double, K = 60) and 430 ms (octo-double, K = 120) per field
-  and step on this Mac (a benchmark in a scratch crate outside the repository, not a result of record). It runs only at the steps where the
+- **Gate.** `locate` costs about 1 ms (double-double, K = 30), 16 ms (quad-double, K = 60) and 0.3 s (octo-double, K = 120) per field
+  and step on this Mac (`dev_12_bench_locate.log`, source in `sys/bench_locate/`; a first run under a higher load gave 1.2 ms, 21 ms and
+  430 ms, which the first commit's comment quoted). It runs only at the steps where the
   planner's step h is at most 16 stop radii. h is about 0.09 times the radius (the planner's tolerance to the power 1/K), so the
   gate is open from R of about 180 stop radii inward, which contains the five steps the rule needs. Outside it the step has no
   estimate. The ungated arm (`locate_ungated`) checks this (criterion C8).
@@ -137,7 +138,11 @@ steps) and alpha(F) = 2.5 (alpha of the three fields 2.50, 1.50, 0.50 at R = 1.7
 a pair for its first-pass versus pass-of-record points (conical_offgrid.md section 4). The cause of the difference with the f64 fit
 is not decided here.
 
-### D2 Controls (`dev_07` early, `dev_08` late), see the table above; `dev_09` ungated `ctl` run (the gate check, C8) started after.
+### D2 Controls (`dev_07` early, `dev_08` late), see the table above; `dev_09` ungated `ctl` run (the gate check, C8)
+
+`dev_09` was stopped at 23 min by the agent (its own PID, `dev_09_ungated_offgrid_ctl.stopped`), in the `dd_qd` check, to free the
+queue: checks 1 to 7 were done, and its 50 dump files (560 records) equal `dev_04`'s (the gated arm) outside the `loc` key, parsed
+and compared as JSON. C8 is checked again in full by `run_18`.
 
 ### D3 Pilot of the hardest case
 
@@ -152,3 +157,63 @@ fitted-exponent kinds and C4's bar come from it). `dev_10`, `dev_11`: clippy cle
 `dev_10_clippy_on_failed1_shellsplit.log` is a failed command line (zsh did not split `--features locate_lib`), kept.
 
 ## Amendments
+
+### A1 The lint and test runs are numbered `run_20` to `run_25` (not `run_20`, `run_21`)
+
+The run plan said "`run_20`, `run_21` clippy off, on (and the other three arms); `run_22` unit tests". As queued
+(`sys/jobs_record.txt`, `sys/jobs_lint.txt`, `sys/run_all.sh`): `run_20` to `run_24` clippy of the arms off, on, early, late, ungated;
+`run_25` `cargo test --release --lib --features=locate_lib`. The script controls are `run_19` as planned. No criterion changes.
+The queue started 2026-11-28 04:58 UTC (the log headers hold the exact times), from the clean tree at 2abf1ee.
+
+### A2 `classify_diff.py` aligns the log lines (a change of the listing, not of a criterion)
+
+`classify_diff.py` paired the lines of the two logs by position, like `compare_outputs.py`. In `run_07` the new run lists 46 points
+of the NOTE `scan_first_pass` where the baseline lists 44, so every line after the first inserted one was shifted and 340 of 349 lines
+were reported as differing. It now aligns the normalized lines with `difflib.SequenceMatcher` first, pairs the lines of a replaced
+block of equal length, and counts an inserted or deleted line as kind (ii). The comparator itself, the kinds (i), (ii), (iii) and C3's
+rule ("no line of kind (ii)") are as declared; only the count of lines of kind (ii) changes (338 positional, 64 aligned for `run_07`).
+`selftest_tools.py` passes with it. The positional listing is kept as `classify_run_07_on_stage_a.v1_positional.txt`.
+
+### A3 The first lint and test jobs failed in the queue (mine); reruns `run_26` to `run_31`
+
+`run_20` to `run_25` exited 2 within a second: `run_queue.sh` creates `NAME.log` before it starts the job, and `clippy.sh` and `test.sh`
+refuse to overwrite a log of that name. Their logs are kept. `run_26` to `run_31` are the same six jobs (clippy of the arms off, on,
+early, late, ungated, and `cargo test --release --lib --features=locate_lib`) started by hand, `clippy.sh` and `test.sh` writing their
+own logs. No code changed between the queue's start and these runs except the comment of `src/loc.rs` (commit 9a9fa74, after the runs of
+the arms); the arms of the runs of record were built at 2abf1ee.
+
+## Results of the runs of record
+
+Table of all runs: `results_table.md` (`sys/summarize_i207.py`). Per run, `cmp_<run>.txt` (the comparator through `compare_run.py`),
+`classify_<run>.txt` (kinds (i), (iii), (ii)), `eta_<run>.txt` (C4), `loc_<run>.md` (the Unresolved and pair tables, C9).
+The code of the runs: `wip/i207-locate-walkers`, arms built at 2abf1ee (`run_01` to `run_05`, all exit 0, no warning).
+
+| id | verdict | numbers |
+|---|---|---|
+| C0 | met | five builds exit 0 with no warning; `cargo clippy --all-targets -- -D warnings` exit 0 on the five arms (`run_26` to `run_30`); `cargo test --release --lib --features=locate_lib` 3 of 3 (`run_31`) |
+| C1 | **comparator met, eta* bar not met as declared** | feature off against the baselines: `ctl` (`run_15`) 0 of 68 gated lines, 537 eta* (largest difference 1.33e-15 max(1, eta*), **1 record above the declared 1e-15**, F_inf 1.5, C 1000; 10 records with another step count); stage a (`run_09`) 0 of 349 gated lines, 4034 eta*, largest 1.33e-15, 102 records with another step count; stage b (`run_10`) 9 of 25 lines differ, all of kind (iii) (the f64 fit's exponent in the `dd_qd` note, Pi against Mac), 727 eta* equal. The size is #216's one-path difference (2.45e-15 there); the feature's code is compiled out in this arm |
+| C2 | **not met** | on arm, full grid: stage a (`run_07`, 1861 s, exit 1) 10 of 15 checks pass, failed `regress167`, `scan`, `spread`, `modes`, `bisect`; stage b (`run_08`, 1221 s, exit 1) 0 of 1, failed `dd_qd` |
+| C3 | **not met** | stage a: 59 records of the dump of another class or kind (31 `a3->0` to `F->0`, 25 `a3->0` to `TINYSTEP`, 2 `a3->0` to `NONFINITE` in #167's binary, 1 `fold` to `F->0` in a first pass), 64 lines of kind (ii); stage b: 11 records, 2 lines of kind (ii). Of the 818 points 808 keep class and kind and 10 change (below) |
+| C4 | met | stage a: 3971 eta* of records that keep class and kind, largest difference 1.945e-11 max(1, eta*), none above 1e-10, 89 above 1e-12; stage b: 716, largest 5.5e-15, none above 1e-12 |
+| C5 | **not met on, met off** | off (`run_11`, `run_13`): `conical_global.py` 17 of 17 and 13 of 13 controls on target only, `conical_loglog.py` 20 of 20 and 17 of 17, exit 0. On (`run_12`, `run_14`): 16 of 17 (`scan`: 2 `NONFINITE`, (+-2, +-3000)) and 19 of 20 (`basin`: 9 of 100 labels `kappa@`, which the script prints for `NONFINITE`), controls 13 of 13 and 17 of 17 on target only, exit 1 each |
+| C6 | **not met on, met off** | off: 0 gated lines of 126 and of 124, 13 and 17 control logs equal; on: 50 and 3 lines of kind (ii), 3 of 13 and 1 of 17 control logs differ (the exit codes of all equal) |
+| C7 | met | `early` (`run_16`): 14 of 16, fails `scan` ((16, 1e8) `TINYSTEP`, which the `on` arm passes) and `regress167` (3 points); 11 lines of kind (ii) against 2 for `on`; 13 records of another class or kind. `late` (`run_17`): 16 of 16, 0 lines of kind (ii), no record of another class or kind (silent, as developed) |
+| C8 | met | `ungated` (`run_18`, 2087 s against 570 s) against `on` (`run_06`): 79 files, 685 records equal outside the `loc` key, 535 eta* bit for bit, 0 differing lines of 68; `locate` was called 266,880 times against 67,088. `equal_outside_loc.py --mutate=eta` and `--mutate=count` fail it |
+| C9 | met | `check_c9.py` on the six feature-on dumps: the counts of table 1 equal the rows of tables 2 and 3 and the counts made from the dump (`c9_all.txt`); `--mutate=drop` fails it. Stage a: 240 records with an Unresolved step (2940 of 101,143 gated steps), 318 with a pair step |
+| C10 | met, with the declared exception | `run_19`, exit 1 (the script's own line: "SOME DID NOT FIRE ON TARGET ONLY"): `locator-side` fails exactly its targets; `n-drift` fails exactly its targets; `plant-locator` and `recip-dd` fail their targets and also `regress167`, which fails in every on-arm run (declared above), and the script prints them as `[EXTRA]` |
+
+**The 10 points of the 818 whose class changes** (both from `a3->0` in #183): `TINYSTEP` at (F_inf, C) = (2, 1e4), (-2, -1e4), (4, 3e4),
+(8, 1e5), (128, -1e6); `F->0` beyond the curve at (5, 3e4) eta* 4.6214 (was 4.8874), (12, 1e5) 11.8284 (11.9433), (24, 3e5) 23.9065
+(23.9642), (64, 1e6) 63.9577 (63.9794), (128, -3e6) 127.9742 (127.9851). In #167's 187-point grid, (+-2, +-3000) `S:F->0` at 1.2014 in
+`offgrid` (was `a3->0` at 1.7085) and `NONFINITE` in #167's binary. At (1.5, 1e4) the double-double lane reads a real singularity and ends
+`a3->0` and the quad-double lane ends `TINYSTEP` (60 of 87 gated steps read a pair).
+
+**What the old fit said** where `locate` said `Unresolved` (stage a, 240 records, 2940 Unresolved steps among their 101,143 gated steps):
+at 217 of the records the f64 fit was a real singularity ahead on steps where `locate` was not; at 209 the stop step, class, kind and
+eta* equal the baseline's and the old rule's shadow; at 31 the old rule would have stopped earlier than the walk with `locate` did (the
+changed points above, their mirrors and repeats), at none later. Every record with its counts and the old rule's stop step and eta* is in
+`loc_run_07_on_stage_a.md`, tables 2 to 4. At the 5 `TINYSTEP` points of the grid the old rule would have stopped 36 to 39 steps before the walk
+ended, at the eta* where the walk stalls (to 5e-15), and `locate` read a pair at 38 to 55 of 73 to 79 gated steps.
+
+Not run: `+avx2,+fma`, another machine or OS, `conical_offgrid.py` controls other than the four of `run_19`, the controls of #167's and #184's
+scripts beyond their default target-only mode, octo-double walks with the feature.

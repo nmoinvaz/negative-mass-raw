@@ -1,0 +1,37 @@
+log lines compared: 25; gated differences: 9
+line 2:
+  base    F_inf=-2 C=1e+08: eta* 7071.061147 (QD 7071.061147), alpha <err>; double-double <err> (0.997) F->0; quad-double <err> (0.999) F->0
+  on      F_inf=-2 C=1e+08: eta* 7071.061147 (QD 7071.061147), alpha <err>; double-double <err> (1.004) F->0; quad-double <err> (0.999) F->0
+line 4:
+  base    F_inf=-0.5 C=3e+07: eta* 7745.962772 (QD 7745.962772), alpha <err>; double-double <err> (1.003) F->0; quad-double <err> (0.999) F->0
+  on      F_inf=-0.5 C=3e+07: eta* 7745.962772 (QD 7745.962772), alpha <err>; double-double <err> (1.008) F->0; quad-double <err> (0.999) F->0
+line 9:
+  base    F_inf=0.01 C=-1e+06: eta* 9999.996989 (QD 9999.996989), alpha <err>; double-double <err> (0.999) F->0; quad-double <err> (0.997) F->0
+  on      F_inf=0.01 C=-1e+06: eta* 9999.996989 (QD 9999.996989), alpha <err>; double-double <err> (1.002) F->0; quad-double <err> (0.997) F->0
+line 10:
+  base    F_inf=0.02 C=-1e+06: eta* 7071.063725 (QD 7071.063725), alpha <err>; double-double <err> (1.003) F->0; quad-double <err> (0.998) F->0
+  on      F_inf=0.02 C=-1e+06: eta* 7071.063725 (QD 7071.063725), alpha <err>; double-double <err> (1.000) F->0; quad-double <err> (0.998) F->0
+line 12:
+  base    F_inf=0.03 C=-1e+06: eta* 5773.497809 (QD 5773.497809), alpha <err>; double-double <err> (0.999) F->0; quad-double <err> (1.000) F->0
+  on      F_inf=0.03 C=-1e+06: eta* 5773.497809 (QD 5773.497809), alpha <err>; double-double <err> (1.000) F->0; quad-double <err> (1.000) F->0
+line 15:
+  base    F_inf=0.25 C=-3e+07: eta* 10954.44834 (QD 10954.44834), alpha <err>; double-double <err> (1.004) F->0; quad-double <err> (0.997) F->0
+  on      F_inf=0.25 C=-3e+07: eta* 10954.44834 (QD 10954.44834), alpha <err>; double-double <err> (0.999) F->0; quad-double <err> (0.997) F->0
+line 16:
+  base    F_inf=0.25 C=-1e+07: eta* 6324.550768 (QD 6324.550768), alpha <err>; double-double <err> (1.000) F->0; quad-double <err> (0.999) F->0
+  on      F_inf=0.25 C=-1e+07: eta* 6324.550768 (QD 6324.550768), alpha <err>; double-double <err> (1.003) F->0; quad-double <err> (0.999) F->0
+line 18:
+  base    F_inf=0.5 C=-3e+07: eta* 7745.962772 (QD 7745.962772), alpha <err>; double-double <err> (1.003) F->0; quad-double <err> (0.999) F->0
+  on      F_inf=0.5 C=-3e+07: eta* 7745.962772 (QD 7745.962772), alpha <err>; double-double <err> (1.008) F->0; quad-double <err> (0.999) F->0
+line 21:
+  base    F_inf=2 C=-1e+08: eta* 7071.061147 (QD 7071.061147), alpha <err>; double-double <err> (0.997) F->0; quad-double <err> (0.999) F->0
+  on      F_inf=2 C=-1e+08: eta* 7071.061147 (QD 7071.061147), alpha <err>; double-double <err> (1.004) F->0; quad-double <err> (0.999) F->0
+listed, not gated: 64 error-sized numbers on aligned lines, 9 differ as printed; 0 lines whose step counts differ
+  relative differences of the differing ones: max 6.67e-03, median 4.88e-03; 0 differ by more than a factor 2 (rel > 1), 0 by more than 10%
+  line 21: 3.9898e-08 -> 4.0166e-08      F_inf=2 C=-1e+08: eta* 7071.061147 (QD 7071.061147), alpha 4.0000e-08; double-double 3.
+  line 2: 3.9898e-08 -> 4.0166e-08      F_inf=-2 C=1e+08: eta* 7071.061147 (QD 7071.061147), alpha 4.0000e-08; double-double 3.
+  line 15: 1.6733e-08 -> 1.6643e-08      F_inf=0.25 C=-3e+07: eta* 10954.44834 (QD 10954.44834), alpha 1.6667e-08; double-double
+  line 18: 3.3423e-08 -> 3.3587e-08      F_inf=0.5 C=-3e+07: eta* 7745.962772 (QD 7745.962772), alpha 3.3333e-08; double-double 
+  line 4: 3.3423e-08 -> 3.3587e-08      F_inf=-0.5 C=3e+07: eta* 7745.962772 (QD 7745.962772), alpha 3.3333e-08; double-double 
+dump: 56 files, 960 records, 3840 string fields, 727 eta* values compared; files missing in the run: 0; eta* differing in the 10 printed digits: 0, largest relative difference of any eta* 0.00e+00; records whose step count differs (listed, not gated): 18
+RESULT: gated differences found

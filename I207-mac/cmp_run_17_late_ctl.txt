@@ -1,0 +1,28 @@
+log lines compared: 68; gated differences: 4
+line 5:
+  base [PASS] plant_167: #167's planted cases through the same crate: matching (|C- - a|, |e|, |C+ - b|, nodes) linear: <err>, <err>, <err>, <err>, cubic: <err>, <err>, <err>, <err> (bars <err>, <err>); blowup: 8 walks, worst error <err>, worst bar <err> (1e-8), kinds right: True
+  on   [PASS] plant_167: #167's planted cases through the same crate: matching (|C- - a|, |e|, |C+ - b|, nodes) linear: <err>, <err>, <err>, <err>, cubic: <err>, <err>, <err>, <err> (bars <err>, <err>); blowup: 8 walks, worst error <err>, worst bar 0.0e+00 (1e-8), kinds right: True
+line 7:
+  base [PASS] plant_far: planted equations started at x0 = 1e6 and walked inward by hp_walk with the locator: F'' = 2F^3 (pl6) and F F'' + F'^2 = 0 (pl7), x* = 0.7321, error and bar <= 1e-8; (1 + x^2) F'' + 4 x F' + 2 (F - 7/10) = 0 (pl4), exact alpha + (a + b x)/(1 + x^2): pl6 dd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 dd: x* error <err>, bar <err>, <n> steps from 1e6; pl4 dd: worst relative error of F, F', F'' at 1e3, 10, 1 <err> (bar <err>); pl6 qd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 qd: x* error <err>, bar <err>, <n> steps from 1e6; pl4 qd: worst relative error
+  on   [PASS] plant_far: planted equations started at x0 = 1e6 and walked inward by hp_walk with the locator: F'' = 2F^3 (pl6) and F F'' + F'^2 = 0 (pl7), x* = 0.7321, error and bar <= 1e-8; (1 + x^2) F'' + 4 x F' + 2 (F - 7/10) = 0 (pl4), exact alpha + (a + b x)/(1 + x^2): pl6 dd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 dd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl4 dd: worst relative error of F, F', F'' at 1e3, 10, 1 <err> (bar <err>); pl6 qd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 qd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl4 qd: worst relati
+line 42:
+  base   F->0 points: 21, eta* from 1.282 to 1e+04; measured exponent against 2/(eta*^2 + 4): worst relative difference 2.9e-03
+  on     F->0 points: 21, eta* from 1.282 to 1e+04; measured exponent against 2/(eta*^2 + 4): worst relative difference <err>
+line 43:
+  base [PASS] scan: 31 points (ctl grid), classes {'S:F->0': 21, 'FLOOR:log': 7, 'S:a3->0': 3}; every point has a verdict (none NOSTART, STEPLIMIT, NONFINITE, TINYSTEP: True); start residual <= <err> at every start: True; every SINGULAR has a bar <= 1e-8 max(1, eta*): True (max bar <err>); THROUGH 0, GLOBAL 0; not classified []
+  on   [PASS] scan: 31 points (ctl grid), classes {'S:F->0': 21, 'FLOOR:log': 7, 'S:a3->0': 3}; every point has a verdict (none NOSTART, STEPLIMIT, NONFINITE, TINYSTEP: True); start residual <= <err> at every start: True; every SINGULAR has a bar <= 1e-8 max(1, eta*): True (max bar 0.0e+00); THROUGH 0, GLOBAL 0; not classified []
+listed, not gated: 55 error-sized numbers on aligned lines, 2 differ as printed; 0 lines whose step counts differ
+  relative differences of the differing ones: max 2.14e-01, median 1.00e-01; 0 differ by more than a factor 2 (rel > 1), 2 by more than 10%
+  line 63: 1.1e-59 -> 1.4e-59   [PASS] recip_check: a quad-double walk of (0.1, 3e4) to eta = 20 with every step halved (1
+  line 9: 1.8e-13 -> 2.0e-13   [PASS] regress167: #167's 187 grid points through `offgrid` (hp walker, series tables of 8
+dump file offgrid_c529a136fa.jsonl paired with offgrid_8a0e2f2147.jsonl (first lines equal up to the absolute path)
+dump: 79 files, 685 records, 2300 string fields, 537 eta* values compared; files missing in the run: 0; eta* differing in the 10 printed digits: 8, largest relative difference of any eta* 1.63e-09; records whose step count differs (listed, not gated): 15
+conical_global_a153d385ff.jsonl record 65 xstar: base 0.0009548066174825603 on 0.0009548066174084515
+conical_global_a153d385ff.jsonl record 66 xstar: base 4.578491656216713e-05 on 4.578491648732298e-05
+conical_global_a153d385ff.jsonl record 154 xstar: base 4.578491656216713e-05 on 4.578491648732298e-05
+conical_global_a153d385ff.jsonl record 155 xstar: base 0.0009548066174825603 on 0.0009548066174084515
+offgrid_82cba858e3.jsonl record 1 xstar: base 4.5784916560794805e-05 on 4.578491648732298e-05
+offgrid_82cba858e3.jsonl record 2 xstar: base 0.0009548066174793937 on 0.0009548066174084515
+offgrid_8f869062c1.jsonl record 14 xstar: base 0.0009548066174793937 on 0.0009548066174084515
+offgrid_8f869062c1.jsonl record 15 xstar: base 4.5784916560794805e-05 on 4.578491648732298e-05
+RESULT: gated differences found

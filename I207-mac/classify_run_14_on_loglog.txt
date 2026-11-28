@@ -1,0 +1,13 @@
+lines 124 against 124; differing lines: 4; (i) zero-token 1; (iii) fitted exponent 0; (ii) other 3
+(i) zero-token line 91:
+  base [PASS] plant_167: #167's planted cases through the rebuilt crate: linear (|C- - a|, |e|, |C+ - b|, nodes) linear: <err>, <err>, <err>, <err>, cubic: <err>, <err>, <err>, <err> (thresholds <err>, <err>); blowup: 8 walks, worst error <err>, worst bar <err> (1e-8)
+  run  [PASS] plant_167: #167's planted cases through the rebuilt crate: linear (|C- - a|, |e|, |C+ - b|, nodes) linear: <err>, <err>, <err>, <err>, cubic: <err>, <err>, <err>, <err> (thresholds <err>, <err>); blowup: 8 walks, worst error <err>, worst bar 0.0e+00 (1e-8)
+(ii) other line 12:
+  base [PASS] basin: #167's forward grid (100 solutions, plus sides), a rerun of #167's crate here: the class and kind labels equal #167's printed table at 100 of 100; eta* within 1e-8 of #167's raw records (I167-mac/dev_09_forward.log, full digits) at 82 of 85 points that have one (the 3 kappa-locus points below are NOT MET as first worded and do not gate), worst |d eta*| over all <err>; other disagreements []; the LOGLOG set is the printed 15: True; the DD project walks of the 15 reach 1e12 with verdict LOGLOG: 15 of 15
+  run  [FAIL] basin: #167's forward grid (100 solutions, plus sides), a rerun of #167's crate here: the class and kind labels equal #167's printed table at 91 of 100; eta* within 1e-8 of #167's raw records (I167-mac/dev_09_forward.log, full digits) at 82 of 85 points that have one (the 0 kappa-locus points below are NOT MET as first worded and do not gate), worst |d eta*| over all <err>; other disagreements []; the LOGLOG set is the printed 15: True; the DD project walks of the 15 reach 1e12 with verdict LOGLOG: 15 of 15
+(ii) other line 13:
+  base   NOT MET (as first worded) [W1, does not gate]: eta* to 1e-8 at the kappa-locus points, where eta* is the x of an F'' overflow and #167 states it to 1e-6 only: 3 points differ from the raw records by <err> to <err>: (1.5, 0.01); (2, 0.01); (-2, -0.01)
+  run      first disagreements: ((1.5, 0.01), 'label', 'a3->0@1.14147', 'kappa@1.14147'); ((1.5, 0.01), 'xstar', 1.141470143669393, 1.1414696766358243, <err>); ((1.5, 0.1), 'label', 'a3->0@1.34202', 'kappa@1.34202'); ((2.0, 0.01), 'label', 'a3->0@1.76325', 'kappa@1.76325'); ((2.0, 0.01), 'xstar', 1.7632507699321303, 1.7632499774037007, <err>); ((2.0, 0.1), 'label', 'a3->0@2.02284', 'kappa@2.02284')
+(ii) other line 103:
+  base checks: 20 passed, 0 failed []. <t> s
+  run  checks: 19 passed, 1 failed ['basin']. <t> s
