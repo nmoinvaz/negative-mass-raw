@@ -85,3 +85,19 @@ A check that fails without a mutation cannot be newly fired. Failing checks are 
 ### Stop and run rules
 
 New pairs run at nice 10, one or two at a time; a run not finished in 2 h of wall time is stopped and reported. Logs are kept and never overwritten (reruns are numbered).
+
+## Stage 1b: two corrections to stage 1, written before any analysis code was run
+
+Both came from reading the code and the printed outputs while designing the planted cases (hand arithmetic; no number of record, and no Part 1 or Part 2 number, had been computed).
+
+1. **The +374e-6 is the fifteen's, not the nine's.** #296's output prints e12's in-sample error +374 in the line "fifteen at eps = 0.01: (a, b, c) = +0.240502, +0.034453, +0.510037"
+   (the nine of T1 and the six of #283: B 0.025, 0.05, 0.1, 0.125, e7, e9 to e12, W1-W3, C1-C3). Stage 1 said "nine". S (the shift of the form's residual) uses the fifteen's fit at eps = 1e-2,
+   and NINE parses that line. Nothing else in the criteria changes (the gate is S within [0.5, 2] of +374e-6).
+2. **The reading of r_th has a position-dependent interpolation artifact.** `member_at` interpolates the throat radius linearly in t between the stored rows 0.5 apart. The second-order term grows as e^{2 lambda t} (about a factor 3.2 per cell),
+   so linear interpolation overestimates it by 17 % at the middle of a cell and 0 on a row, whatever the member. At eps = 1e-2 the cell position x of the departure time is 0.47 (B = 0, t = 15.234), 0.62 (W3), 0.9 (C3), 0.83 (N3, B0.125), 0.66, 0.27, 0.82 (X1-X3):
+   the factors are about 1.17 (B = 0), 1.15, 1.07, 1.09, 1.13, 1.16, 1.08, so a ratio of readings differs from the ratio of parts by up to -9 %. The speed is read on a fine grid (`rdot_local` on every k/10-th slice, window +-0.5 in proper time), whose window bias (about +9.5 % for a term growing as e^{2 lambda t}) is common to every member and cancels in the ratio.
+   Therefore two readings of r_th are carried, the rest being unchanged:
+   - **A (the reader as is)**: `member_at`'s r_th, the one the fits and V3 use. **PD2 gates on A** for r_th (and on `speed_at` for rdot_th), as declared in stage 1. V3's own-part variant subtracts A's offsets, to be consistent with the frozen fit.
+   - **B (fine)**: the mean locus's throat radius interpolated on the stored locus (every slice, spacing 0.0035 in t) at the same t_dep. Same test (|rho_r - 1| <= 0.10), **reported, not gating**: it is the physical ratio of the parts.
+   - The diagnostic "interpolation factor of A at t_dep" is printed for B = 0 and the seven members (computed for the law K e^{2 lambda t} with lambda from the stored odd part; a description, not a correction).
+   - PL1 is run on both: B recovers the planted ratios to 2e-3; A recovers them times the planted law's own interpolation factor, which is computed by an independent evaluation of the two bracketing planted rows (agreement to 1e-9).
