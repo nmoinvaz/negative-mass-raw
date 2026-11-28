@@ -110,3 +110,11 @@ script's counter. The planted stage, the zero stage and the time stage were reru
 - E_net is second order in the amplitude, so no linear map from E_net to the data of the linear problem exists: T6 tests the consequence (a speed linear in E_net),
   and the secular coefficient per unit conjugate momentum `P` is reported (`v/P`), not compared with `rdot_inf/E_net`.
 - Rates are computed for proper time t = tau (g_tt = -1 on the background).
+
+## Results (added after the runs of record; the criteria above are unchanged)
+
+Code `adc4c02` (branch `wip/i272-ellis-spectrum`); output of record `runs/run_01_full.log` (= `notes/wormhole_evolution/ellis_spectrum_output.txt`), exit 1.
+57 checks, 49 pass, 8 fail: S3-D5-odd, S3-D4-odd, T2-D4, T2-D5, T2m-D4, T3-D4, T5-D5, T6, the eight the predictions above name. The controls (`runs/mut/`) each fire exactly their declared set.
+Wall time: the full run about 10 min, each control 0.1 to 5 min, nice 10, at most 2 processes.
+Slips: the Z2 line above says eight candidates; there are seven (six solutions, one that must fail). T7's message prints 67 % for an exponential's rate x t over t = 15 to 25; it is 50 %.
+Own development processes stopped by name (`pkill -f`) twice, early, before PIDs were used.
