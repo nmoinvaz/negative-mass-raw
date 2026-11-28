@@ -1,0 +1,3 @@
+ctl_t2bxf_nominal|$PY -I order9.py pslq --no-real --bases=XF --pslq-cap=300 --load=$RAW/G1.json,$RAW/G2.json
+ctl_t2bxf_pslq_wrong_basis|$PY -I order9.py pslq --no-real --bases=XF --pslq-cap=300 --load=$RAW/G1.json,$RAW/G2.json --mutate=pslq_wrong_basis
+ctl_t2bxf_pslq_wrong_target|$PY -I order9.py pslq --no-real --bases=XF --pslq-cap=300 --load=$RAW/G1.json,$RAW/G2.json --mutate=pslq_wrong_target
