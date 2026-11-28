@@ -1,0 +1,52 @@
+[pass] CTL: the reader in #228's rule (pair at 1e-9 alone, absolute eps, the mask of rising ln|odd|) reproduces every number of #228's PH lines at eps = 0.1, both h  (98 numbers at the printed digits)
+  pilot D = 6, h = 0.0025: pair at 1e-9 (labelled 1e-09, files 1e-09), pair at 1e-10 (files 1e-10); the pair ends at t = 17.93, 20.43
+     u_9/u_10 over rho_9 in [1e-6, 3e-3] (t = 7.25 to 13.79): median 0.99893, spread 2.5e-04
+     rho_9 = 0.0100 (t = 14.94): u_9/(c u_10) - 1 = +7.16e-04 = 7.14 rho^2
+     rho_9 = 0.0200 (t = 15.61): u_9/(c u_10) - 1 = +2.92e-03 = 7.28 rho^2
+     rho_9 = 0.0400 (t = 16.30): u_9/(c u_10) - 1 = +1.17e-02 = 7.30 rho^2
+     rho_9 = 0.0801 (t = 16.96): u_9/(c u_10) - 1 = +4.59e-02 = 7.16 rho^2
+     eps 0.1, REL (eps r_th): readable e from the 1e-9 pair: 3 to 8.5; from the 1e-10 pair: 3 to 9.5
+       1e-9  e 3-5: slope 0.6165 (OLS 0.6166), r_th(tau_dep)/W window mean 0.5965 -> +0.0335; at the middle 0.5943 -> +0.0372; tau_dep 5.37 to 8.21, max rho 0.000
+       1e-9  e 4-6: slope 0.6927 (OLS 0.6927), r_th(tau_dep)/W window mean 0.6599 -> +0.0496; at the middle 0.6593 -> +0.0505; tau_dep 6.70 to 9.89, max rho 0.000
+       1e-9  e 5-7: slope 0.7676 (OLS 0.7677), r_th(tau_dep)/W window mean 0.7276 -> +0.0550; at the middle 0.7275 -> +0.0551; tau_dep 8.21 to 11.75, max rho 0.001
+       1e-9  e 6-8: slope 0.8403 (OLS 0.8404), r_th(tau_dep)/W window mean 0.7957 -> +0.0560; at the middle 0.7960 -> +0.0557; tau_dep 9.89 to 13.76, max rho 0.010
+       1e-9  e 7-9: not evaluated (no reading at e = 9)
+       1e-9  e 8-10: not evaluated (no reading at e = 9)
+       1e-9  e 9-11: not evaluated (no reading at e = 9)
+       tau_dep from the 1e-9 pair against the 1e-10 pair over 12 common readings: max |difference| 0.0050 (expected ~ (n/delta_10) r_th/W = -1.1e-03 x 1)
+     eps 0.1, ABS (eps): readable e from the 1e-9 pair: 3 to 8.5; from the 1e-10 pair: 3 to 9.5
+       1e-9  e 3-5: slope 0.5834 (OLS 0.5834), r_th(tau_dep)/W window mean 0.5901 -> -0.0114; at the middle 0.5879 -> -0.0078; tau_dep 5.29 to 7.98, max rho 0.000
+       1e-9  e 4-6: slope 0.6527 (OLS 0.6526), r_th(tau_dep)/W window mean 0.6501 -> +0.0041; at the middle 0.6494 -> +0.0051; tau_dep 6.55 to 9.56, max rho 0.000
+       1e-9  e 5-7: slope 0.7236 (OLS 0.7236), r_th(tau_dep)/W window mean 0.7147 -> +0.0125; at the middle 0.7146 -> +0.0127; tau_dep 7.98 to 11.31, max rho 0.001
+       1e-9  e 6-8: slope 0.7940 (OLS 0.7941), r_th(tau_dep)/W window mean 0.7803 -> +0.0176; at the middle 0.7804 -> +0.0174; tau_dep 9.56 to 13.22, max rho 0.005
+       1e-9  e 7-9: not evaluated (no reading at e = 9)
+       1e-9  e 8-10: not evaluated (no reading at e = 9)
+       1e-9  e 9-11: not evaluated (no reading at e = 9)
+       tau_dep from the 1e-9 pair against the 1e-10 pair over 12 common readings: max |difference| 0.0009 (expected ~ (n/delta_10) r_th/W = -1.1e-03 x 1)
+  pilot D = 6, h = 0.00125: pair at 1e-9 (labelled 1e-09, files 1e-09), pair at 1e-10 (files 1e-10); the pair ends at t = 17.94, 20.42
+     u_9/u_10 over rho_9 in [1e-6, 3e-3] (t = 7.26 to 13.80): median 0.99746, spread 1.0e-04
+     rho_9 = 0.0100 (t = 14.95): u_9/(c u_10) - 1 = +6.73e-04 = 6.72 rho^2
+     rho_9 = 0.0200 (t = 15.63): u_9/(c u_10) - 1 = +2.83e-03 = 7.07 rho^2
+     rho_9 = 0.0400 (t = 16.31): u_9/(c u_10) - 1 = +1.15e-02 = 7.20 rho^2
+     rho_9 = 0.0801 (t = 16.97): u_9/(c u_10) - 1 = +4.56e-02 = 7.11 rho^2
+     eps 0.1, REL (eps r_th): readable e from the 1e-9 pair: 3 to 8.5; from the 1e-10 pair: 3 to 9.5
+       1e-9  e 3-5: slope 0.6172 (OLS 0.6174), r_th(tau_dep)/W window mean 0.5970 -> +0.0337; at the middle 0.5949 -> +0.0374; tau_dep 5.37 to 8.22, max rho 0.000
+       1e-9  e 4-6: slope 0.6934 (OLS 0.6934), r_th(tau_dep)/W window mean 0.6606 -> +0.0497; at the middle 0.6600 -> +0.0506; tau_dep 6.71 to 9.90, max rho 0.000
+       1e-9  e 5-7: slope 0.7683 (OLS 0.7684), r_th(tau_dep)/W window mean 0.7283 -> +0.0550; at the middle 0.7282 -> +0.0551; tau_dep 8.22 to 11.75, max rho 0.001
+       1e-9  e 6-8: slope 0.8410 (OLS 0.8411), r_th(tau_dep)/W window mean 0.7964 -> +0.0559; at the middle 0.7967 -> +0.0556; tau_dep 9.90 to 13.77, max rho 0.010
+       1e-9  e 7-9: not evaluated (no reading at e = 9)
+       1e-9  e 8-10: not evaluated (no reading at e = 9)
+       1e-9  e 9-11: not evaluated (no reading at e = 9)
+       tau_dep from the 1e-9 pair against the 1e-10 pair over 12 common readings: max |difference| 0.0035 (expected ~ (n/delta_10) r_th/W = -2.5e-03 x 1)
+     eps 0.1, ABS (eps): readable e from the 1e-9 pair: 3 to 8.5; from the 1e-10 pair: 3 to 9.5
+       1e-9  e 3-5: slope 0.5840 (OLS 0.5841), r_th(tau_dep)/W window mean 0.5906 -> -0.0112; at the middle 0.5885 -> -0.0076; tau_dep 5.29 to 7.98, max rho 0.000
+       1e-9  e 4-6: slope 0.6534 (OLS 0.6533), r_th(tau_dep)/W window mean 0.6507 -> +0.0041; at the middle 0.6500 -> +0.0052; tau_dep 6.56 to 9.57, max rho 0.000
+       1e-9  e 5-7: slope 0.7243 (OLS 0.7243), r_th(tau_dep)/W window mean 0.7153 -> +0.0125; at the middle 0.7152 -> +0.0127; tau_dep 7.98 to 11.32, max rho 0.001
+       1e-9  e 6-8: slope 0.7947 (OLS 0.7948), r_th(tau_dep)/W window mean 0.7810 -> +0.0176; at the middle 0.7811 -> +0.0174; tau_dep 9.57 to 13.23, max rho 0.005
+       1e-9  e 7-9: not evaluated (no reading at e = 9)
+       1e-9  e 8-10: not evaluated (no reading at e = 9)
+       1e-9  e 9-11: not evaluated (no reading at e = 9)
+       tau_dep from the 1e-9 pair against the 1e-10 pair over 12 common readings: max |difference| 0.0021 (expected ~ (n/delta_10) r_th/W = -2.5e-03 x 1)
+    PLR rdot = 0.09, r0 = 1.2: splice c = u_A/u_B = 0.76900 (planted (1 + -0.0003)/(1 + 0.3) = 0.76900), spread 5.7e-05, splice at t = 13.82
+    PLR rdot = 0, r0 = 1.2: splice c = u_A/u_B = 0.76900 (planted (1 + -0.0003)/(1 + 0.3) = 0.76900), spread 5.6e-05, splice at t = 9.59
+[pass] PLR: planted pairs (drifting radius rdot = 0.09 and constant, roundoff shifts -3e-4 and +30%, nonlinearity 7 rho^2) through the splice and the reader: REL window slopes against the exact ones, ABS window slopes against the mean of r_th/W (the planted rate recovered)  (worst REL 2.3e-03, worst ABS 1.6e-03, bar 0.005; windows evaluated >= 5 at each eps)
