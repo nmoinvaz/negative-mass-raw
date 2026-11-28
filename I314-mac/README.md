@@ -167,7 +167,7 @@ Residuals M - predicted after refitting the fifteen with each reading (bar 6e-5)
 | S1 | +9.03e-05 | +2.12e-04 | +1.96e-04 | 1.9e-06 |
 | S1r | +1.05e-04 | +1.78e-04 | +1.14e-04 | 8.0e-06 |
 | S2 | +9.25e-05 | +2.20e-04 | +2.10e-04 | 2.3e-06 |
-| S3 | +8.93e-05 | +2.11e-04 | +1.96e-04 | 1.1e-06 |
+| S3 | +8.93e-05 | +2.11e-04 | +1.96e-04 | 2.1e-06 |
 | WA | +1.00e-04 | +2.18e-04 | +2.06e-04 | 4.2e-06 |
 | WJ | +3.92e-05 | +1.43e-04 | +1.83e-04 | 2.6e-06 |
 | WJi | +9.02e-05 | +2.35e-04 | +2.72e-04 | 3.3e-06 |
@@ -195,3 +195,26 @@ Known to me when this is written: the reference's residuals at Y (+2.9e-05, +5.3
 alone (not a statement about the reading); readings that change the member (WA, WJ, WJi) can move Y by up to a few 1e-5 (their shifts at N, at the same leverage, are 4e-6 at most).
 
 Commands of record 3: `settled_mass_speed.py analyze` to `record/analyze_record.3.log`, then the 18 mutations with that log as baseline to `record/mut_3/` (record 2's files stay).
+
+### Record 3 (with Y1 to Y3, stage 3), result
+
+Script at dae4fee. `record/analyze_record.3.log` (exit 1, 56 s; 39 checks, 1 post hoc, 9 gating fail: PX_rho for the eight readings and REFX, as record 2); `dev/analyze_dev.3.log` equals `dev/analyze_dev.2.log` apart from its header. The residuals at N and X are identical to record 2's (the PN and PX lines hash equal).
+REFY passes (+2.87e-05, +5.28e-05, +1.83e-05). PY_rho pass for all 8 readings, M - predicted at Y1, Y2, Y3:
+
+| reading | Y1 | Y2 | Y3 |
+|---|---|---|---|
+| REF | +2.87e-05 | +5.28e-05 | +1.83e-05 |
+| S1 | +2.88e-05 | +5.31e-05 | +1.89e-05 |
+| S1r | +4.03e-05 | +5.31e-05 | +2.96e-06 |
+| S2 | +3.03e-05 | +5.68e-05 | +2.35e-05 |
+| S3 | +2.83e-05 | +5.19e-05 | +1.70e-05 |
+| WA | +2.98e-05 | +4.22e-05 | +1.00e-06 |
+| WJ | +9.54e-06 | +2.51e-05 | +1.26e-05 |
+| WJi | +2.64e-05 | +5.11e-05 | +3.25e-05 |
+
+My stage 3 expectation (S1, S3 within 6e-5 as REF) held; Y2 is the point nearest the bar under every reading but WJ (S2 +5.68e-05, 95 % of the bar), and no reading crosses it.
+Mutations of record 3 (`record/mut_3/`, with the script of record 3): 17 of 18 newly fire exactly their declared sets; `x_speed` newly fires nothing as declared, but REFX-ph fires (an X-check, listed apart) and its stage 1 expectation (every PX_rho that fails in the baseline passes) is not met: PX_REF, PX_S1, PX_S2, PX_S3, PX_WA pass
+(largest residual 1.5e-05), PX_S1r (X3 -7.1e-05), PX_WJ (X1 -5.1e-05, X2 -7.4e-05) and PX_WJi (X3 +7.8e-05) do not; the script's MATCH rule for it also required REFX (printed-value comparison) to flip, which it cannot. The X- and Y-checks that fire beside the declared sets are listed in the log lines and in the note.
+Record 2's mutations (`record/mut/`) had four DIFFERENT because REFX-ph was missing from the list of X-checks printed apart (my omission, fixed in record 3). Record 2's PX/PN residuals, and the post hoc print of the closed fraction, are unchanged.
+
+Correction: the stage 2 result table gave S3's largest N residual as 1.1e-06; the record's PN_S3 line has -6.06e-07, -2.09e-06, +1.08e-06, so it is 2.1e-06 (corrected above; the first result post on #314 repeated the 1.1e-06).
