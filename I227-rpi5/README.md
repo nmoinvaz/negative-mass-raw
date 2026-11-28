@@ -121,3 +121,17 @@ Code: the commit named in `commit.txt` of this folder (written when the first jo
 
 Stop conditions: a run of more than 2 h of wall time is stopped (none is expected: 12 to 50 s per binary128 run at D = 4); memory is reported, never a stop condition.
 If a check fails in a run of record it is reported with its numbers, the criteria stay as declared.
+
+## Amendments (after the declaration; no check, bar or window changed)
+
+- **A1.** The development paragraph above says the noise mutation moves p* by +3.2e-14. The shift is +3.2e-15 (record: 4.752772527960562e-05 against 4.7527725276423075e-05; the development run is the same bisection). A scale slip of 10 in the README text; the check logic reads the series, not this number.
+- **A2.** Report-only code was added after the declaration, at `bf451f5` and `b6e1592` of the code branch: the series tables, the float64 series table, the line that the E and F series are equal event by event. `git diff 3838b4f -- extended_bisect.py` is 20 added lines and no deleted or changed line of any check, bar, window or mutation.
+- **A3.** The runs of record are at `3838b4f` (`commit.txt`); the analysis, the figure and the output are from the final commit named in the issue's closing comment.
+
+## Results of record (the numbers are in `notes/wormhole_evolution/extended_bisect_output.txt`)
+
+26 jobs, all exit 0 (`done/`, `queue.log`, `logs/`). Controls 7 of 7 pass, analysis 37 of 37 pass. Run-level mutations (`mut/runs/`, `mut/runlevel_table.txt`) and the analysis and controls tables (`mut/analysis_table.txt`, `mut/controls_table.txt`) fire the declared sets;
+`pstar_off` and `bisect_loose` also fire TM and P1-scaleM16 in the record, which the thinned development set did not contain.
+
+Layout: `runs/E`, `runs/F` (binary128 bisection `bisect.json`, `points_bisect.jsonl`, series `series_*.jsonl`, `f64series_*.jsonl`), `runs/f64` (16 float64 bisections), `runs/pert/<name>` (six perturbation bisections), `runs/stall/D4,D5,D6` (8 pairs each),
+`runs/D5F`, `runs/D6F`, `runs/f64_D5`, `runs/f64_D6` (the floors), `mut/` (mutations), `lists/`, `scripts/`, `logs/`, `dev/`.

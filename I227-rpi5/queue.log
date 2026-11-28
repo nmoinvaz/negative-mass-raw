@@ -1,0 +1,52 @@
+2026-11-28T02:43:18-08:00 start E_bisect (15-min load 2.22)
+2026-11-28T02:43:19-08:00 start F_bisect (15-min load 2.22)
+2026-11-28T02:43:20-08:00 start f64_a (15-min load 2.22)
+2026-11-28T02:46:33-08:00 end f64_a rc=0
+2026-11-28T02:46:33-08:00 start f64_b (15-min load 2.41)
+2026-11-28T02:49:47-08:00 end f64_b rc=0
+2026-11-28T02:49:47-08:00 start controls (15-min load 2.54)
+2026-11-28T02:50:43-08:00 end controls rc=0
+2026-11-28T02:53:44-08:00 start D5F_bisect (15-min load 2.50)
+2026-11-28T02:56:40-08:00 end E_bisect rc=0
+2026-11-28T02:56:52-08:00 end F_bisect rc=0
+2026-11-28T02:57:10-08:00 start E_series_m (15-min load 2.59)
+2026-11-28T02:57:11-08:00 start E_series_p (15-min load 2.59)
+2026-11-28T03:00:41-08:00 end E_series_m rc=0
+2026-11-28T03:00:41-08:00 start E_f64series (15-min load 2.70)
+2026-11-28T03:01:18-08:00 end E_f64series rc=0
+2026-11-28T03:01:18-08:00 start F_series_m (15-min load 2.71)
+2026-11-28T03:01:57-08:00 end E_series_p rc=0
+2026-11-28T03:01:57-08:00 start F_series_p (15-min load 2.74)
+2026-11-28T03:04:48-08:00 end F_series_m rc=0
+2026-11-28T03:04:48-08:00 start F_f64series (15-min load 2.79)
+2026-11-28T03:05:26-08:00 end F_f64series rc=0
+2026-11-28T03:05:26-08:00 start pert_scaleP16 (15-min load 2.80)
+2026-11-28T03:06:42-08:00 end F_series_p rc=0
+2026-11-28T03:06:42-08:00 start pert_scaleM16 (15-min load 2.83)
+2026-11-28T03:08:15-08:00 end D5F_bisect rc=0
+2026-11-28T03:08:15-08:00 start f64_D5_a (15-min load 2.85)
+2026-11-28T03:12:37-08:00 end f64_D5_a rc=0
+2026-11-28T03:12:37-08:00 start f64_D5_b (15-min load 2.92)
+2026-11-28T03:17:20-08:00 end f64_D5_b rc=0
+2026-11-28T03:17:20-08:00 start D6F_bisect (15-min load 2.95)
+2026-11-28T03:17:25-08:00 end pert_scaleP16 rc=0
+2026-11-28T03:17:25-08:00 start pert_bumpP8 (15-min load 2.95)
+2026-11-28T03:18:54-08:00 end pert_scaleM16 rc=0
+2026-11-28T03:18:54-08:00 start pert_bumpP10 (15-min load 2.96)
+2026-11-28T03:22:11-08:00 end pert_bumpP8 rc=0
+2026-11-28T03:22:11-08:00 start pert_bumpP16 (15-min load 3.00)
+2026-11-28T03:24:48-08:00 end pert_bumpP10 rc=0
+2026-11-28T03:24:48-08:00 start pert_bumpM16 (15-min load 3.00)
+2026-11-28T03:32:53-08:00 end pert_bumpP16 rc=0
+2026-11-28T03:32:53-08:00 start stall_D4 (15-min load 3.02)
+2026-11-28T03:34:02-08:00 end stall_D4 rc=0
+2026-11-28T03:34:02-08:00 start stall_D5 (15-min load 3.02)
+2026-11-28T03:35:17-08:00 end pert_bumpM16 rc=0
+2026-11-28T03:35:18-08:00 start stall_D6 (15-min load 3.01)
+2026-11-28T03:37:29-08:00 end D6F_bisect rc=0
+2026-11-28T03:37:29-08:00 start f64_D6_a (15-min load 3.00)
+2026-11-28T03:37:42-08:00 end stall_D5 rc=0
+2026-11-28T03:39:37-08:00 end stall_D6 rc=0
+2026-11-28T03:43:33-08:00 end f64_D6_a rc=0
+2026-11-28T03:43:33-08:00 start f64_D6_b (15-min load 2.91)
+2026-11-28T03:49:41-08:00 end f64_D6_b rc=0

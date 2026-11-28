@@ -1,0 +1,15 @@
+E_series_m|timeout 7200 $PY -u extended_bisect.py series --D=4 --h=0.02 --side=-1 --e0=3 --e1=20 --out=$RAW/runs/E
+E_series_p|timeout 7200 $PY -u extended_bisect.py series --D=4 --h=0.02 --side=1 --e0=3 --e1=20 --out=$RAW/runs/E
+E_f64series|timeout 7200 $PY -u extended_bisect.py f64series --D=4 --h=0.02 --e0=3 --e1=20 --X=34 --out=$RAW/runs/E
+F_series_m|timeout 7200 $PY -u extended_bisect.py series --D=4 --h=0.02 --side=-1 --e0=3 --e1=20 --out=$RAW/runs/F
+F_series_p|timeout 7200 $PY -u extended_bisect.py series --D=4 --h=0.02 --side=1 --e0=3 --e1=20 --out=$RAW/runs/F
+F_f64series|timeout 7200 $PY -u extended_bisect.py f64series --D=4 --h=0.02 --e0=3 --e1=20 --X=34 --out=$RAW/runs/F
+pert_scaleP16|timeout 7200 $PY -u extended_bisect.py bisect --D=4 --h=0.02 --variant=E --eta-scale=1e-16 --lo=4.752772526642308e-05 --hi=4.752772528642308e-05 --tol=1e-24 --out=$RAW/runs/pert/scaleP16
+pert_scaleM16|timeout 7200 $PY -u extended_bisect.py bisect --D=4 --h=0.02 --variant=E --eta-scale=-1e-16 --lo=4.752772526642308e-05 --hi=4.752772528642308e-05 --tol=1e-24 --out=$RAW/runs/pert/scaleM16
+pert_bumpP8|timeout 7200 $PY -u extended_bisect.py bisect --D=4 --h=0.02 --variant=E --bump=1e-8 --lo=4.652772527642308e-05 --hi=4.852772527642308e-05 --tol=1e-16 --out=$RAW/runs/pert/bumpP8
+pert_bumpP10|timeout 7200 $PY -u extended_bisect.py bisect --D=4 --h=0.02 --variant=E --bump=1e-10 --lo=4.751772527642307e-05 --hi=4.7537725276423076e-05 --tol=1e-18 --out=$RAW/runs/pert/bumpP10
+pert_bumpP16|timeout 7200 $PY -u extended_bisect.py bisect --D=4 --h=0.02 --variant=E --bump=1e-16 --lo=4.752772526642308e-05 --hi=4.752772528642308e-05 --tol=1e-24 --out=$RAW/runs/pert/bumpP16
+pert_bumpM16|timeout 7200 $PY -u extended_bisect.py bisect --D=4 --h=0.02 --variant=E --bump=-1e-16 --lo=4.752772526642308e-05 --hi=4.752772528642308e-05 --tol=1e-24 --out=$RAW/runs/pert/bumpM16
+stall_D4|timeout 7200 $PY -u extended_bisect.py stall --D=4 --h=0.02 --variant=F --pc=4.7527725341106454e-05 --delta=1e-10 --tmax=17 --snap=0.25 --L0=4 --k0=0 --k1=8 --out=$RAW/runs/stall/D4
+stall_D5|timeout 7200 $PY -u extended_bisect.py stall --D=5 --h=0.0070710678118654745 --variant=F --pc=0.0002884790369034818 --delta=1e-10 --tmax=11 --snap=0.25 --L0=4 --k0=0 --k1=8 --out=$RAW/runs/stall/D5
+stall_D6|timeout 7200 $PY -u extended_bisect.py stall --D=6 --h=0.005 --variant=F --pc=0.0011155147989984474 --delta=1e-10 --tmax=8.5 --snap=0.25 --L0=4 --k0=0 --k1=8 --out=$RAW/runs/stall/D6

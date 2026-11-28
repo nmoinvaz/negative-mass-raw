@@ -1,0 +1,5 @@
+E_bisect|timeout 7200 $PY -u extended_bisect.py bisect --D=4 --h=0.02 --variant=E --lo=-0.01 --hi=0.01 --tol=1e-24 --out=$RAW/runs/E
+F_bisect|timeout 7200 $PY -u extended_bisect.py bisect --D=4 --h=0.02 --variant=F --lo=-0.01 --hi=0.01 --tol=1e-24 --out=$RAW/runs/F
+f64_a|timeout 7200 $PY -u extended_bisect.py f64 --D=4 --h=0.02 --k0=0 --k1=8 --X=34 --f64tol=1e-16 --out=$RAW/runs/f64
+f64_b|timeout 7200 $PY -u extended_bisect.py f64 --D=4 --h=0.02 --k0=8 --k1=16 --X=34 --f64tol=1e-16 --out=$RAW/runs/f64
+controls|timeout 7200 $PY -u extended_bisect.py controls
