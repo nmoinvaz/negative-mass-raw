@@ -28,3 +28,11 @@ Run 1 (`ind185_run1.txt`) passed 4 of 4, but the mutation `cfac` did not fire K3
 O(T⁻⁸) at every c, so K3's "N₀ is O(T⁻⁷)" could not fail. K3's order test becomes N₀·T⁸ → 0 (B's T⁻⁶ term cancelled, so
 N₀ = O(T⁻⁹)), which holds only at c = 2(1 − f²)/f. The rest of K3 is unchanged. `p0` fired K4 (A = −p₀² and B quadratic in F when
 Q = p₀), which the README expected not to; it is kept as a mutation that fires.
+
+## Reruns on the Mac (2026-11-28)
+
+- `rerun_run1_nocrate.txt`: 6 of 9, the three crate checks raise FileNotFoundError (the crate was not built in the review tree).
+- `rerun_run2_nologdir.txt`: crate built (`cargo build --release -j 2`, 34 s); 9 of 9, then the controls stopped on my `--logdir`
+  pointing at a folder that did not exist.
+- `rerun_run3.txt`: `conical_eta0.py --logdir=…/logs3`, exit 0: 9 of 9 checks and 8 of 8 controls, each firing its targets only.
+  The verdict lines equal the output of record apart from timings.
