@@ -217,3 +217,9 @@ had used 28 CPU-minutes on the old binary alone and did not finish, so the pair 
 `d f64 l=2 .. d qd l=6`, 14 s to 38 s each). **The od `d` record is dropped from RP2** (`s3_records.py` now takes it only with `--od`; no data motivated this, the run time did): the octo-double lane is compared through
 `recipcheck od` (the reciprocals, the candidate cause of any multidouble 6 difference) and `tabcheck`/`jtable` (DD), not through a determinant. The bar of RP2 is unchanged for the records that remain. Reruns are `run_11` (default),
 `run_12` (lib_plane), `run_13` (complex), `run_22` (the `jsign` control), numbered by hand (`s3_run.sh`) because `runrec.sh` would take 15, which the check chains use.
+
+**A6 (2026-11-27, the run trees).** `run_14_s3_old_default_mode` (old pin, default mode) was stopped by its PID at about 35 minutes (rc file written by hand: 143; its log is kept): the scratch copy of the script's
+directory held only `phase2/nonradial`, and `background.py` puts `phase2/` on the path, so S1, S2 and S3 failed with `ModuleNotFoundError: No module named 'boson_star'`: a harness fault, not a verdict (the other 16 checks
+that had run passed). The trees are now `git archive HEAD phase2` (the crate's sources left out), one per pin (`old`, `new`), each with its own `taylor_polar/target/{release,complex/release,bins}`; S1 on the old tree passes
+(29 s). **The chains are renumbered**: old pin `run_23` default mode, `run_25` rows, `run_27` rows with the lib_plane binaries, `run_29` complex; new pin `run_24`, `run_26`, `run_28`, `run_30`. The first scratch trees are
+kept as `trees_nophase2_unused` outside the repository and are not used.
