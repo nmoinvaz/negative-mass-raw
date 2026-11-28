@@ -123,6 +123,16 @@ I321-mac/
   runs/              the runs of record: derive.log, series.log, check.log, mut_*.log (added after this README)
 ```
 
-## Runs of record
+## Runs of record (`runs/`, code commit b1ef08e, `nice -n 10`, one process each, `run_main.sh` and `run_mut.sh`)
 
-(filled after the runs)
+| command | exit | time, peak memory | result |
+|---|---|---|---|
+| `log_at_S.py derive` | 0 | 7 s, 84 MB | 4 of 4 (D1 to D4) |
+| `log_at_S.py series` | 0 | 80 s, 88 MB | 8 of 8 (S1, S1b, S1g, S2 to S6) |
+| `log_at_S.py check` | 0 | 211 s, 77 MB | 6 of 6 (B1, B5, B2, X1, B3, B4) |
+| 18 mutations (`mut_*.log`) | 1 each (each fires) | 7 s (derive), about 85 s (series), about 210 s (check) | `mutations.log`: 18 of 18 fired sets equal the declared ones |
+
+Nothing failed in the runs of record and no check disagrees with #302: the coefficient of ln V is -(pi/sqrt2) c2 exactly in Route A and 1 + 1.7e-6 ... 7.1e-6 of it in Route B at V = 1e-8. Two refinements of #302's text are in
+`notes/black_universe/log_at_S.md` Sec. 2 and 9 (the smooth relations hold per branch, y21 = (F_Pi/2) y10 and y12 = (F_Pi/2) y01, not only in the sum). `dev/probes/` holds the development scripts (`lib1-3`, `p1`-`p11`, `pB1`, `pB2`) and
+the outputs of `p2`, `p7`, `p9`, `p10`, `p11` rerun after the runs of record (q = -1/kappa at N = 6, 7, 8 and in general smooth gauge, other (b, kappa), the relations at N = 6, 7); the other probes' outputs were on the terminal only.
+The stale `E01.pkl` and `__pycache__` of the probes were removed or moved to the Trash.
