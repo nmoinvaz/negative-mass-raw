@@ -1,0 +1,6 @@
+[FAIL] S1: x-form of H at dphi = dF = 0 with q = (A/2)(V + (1 - A)/R^2), V from (v rho), R^2 A'' = 2 (A - 1): d/drho[R (A dr' - A' dr/2)] = 0 (symbolic)  (residual -u(rho)/(2*sqrt(rho**2 + 1)))
+[pass] S2: c_b = (1 - A rho^2/R^2)/2 - rho A'/2 = 1/(2 rho^2) + O(rho^-3) and R - rho = 1/(2 rho) + O(rho^-3) at rho -> infinity (c = -1): dm + kappa Theta = c_b dr + (R - rho) dr_x -> 0 for dr = O(ln rho)  (c_b = -2*t**3/(5*pi) + t**2/2; R - rho = -t**3/8 + t/2)
+[FAIL] S3: the potential V = -A''/2 - rho A'/R^2 of the member c on the profile phi = sqrt2 arctan rho is proportional to c (dV/c has no c): a neighbouring member solves a different theory  (d(V/c)/dc = (-3*rho**2*atan(rho) - 3*rho - atan(rho))/(rho**2 + 1))
+[FAIL] S4: the background identity of T1: mu s r_Pi = rho A/(2 kappa) and (mu s r_Pi)' = mu E (1/r - V r) with V R^2 = 1 - (rho A)' ((theta theta), #269), symbolic in A(rho)  (residual A(rho)/(2*kappa**2*s))
+
+1 of 4 checks pass; fired: S1, S3, S4  [0 s]  mutation: s_pot

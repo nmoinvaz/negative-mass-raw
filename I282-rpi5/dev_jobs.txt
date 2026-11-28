@@ -1,0 +1,34 @@
+dev_09_chk_nominal|$PY order8.py sym struct cache
+dev_09_chk_wrong_h|$PY order8.py sym struct cache --mutate=wrong_h
+dev_09_chk_wrong_c6|$PY order8.py sym struct cache --mutate=wrong_c6
+dev_09_chk_wrong_c7|$PY order8.py sym struct cache --mutate=wrong_c7
+dev_09_chk_wrong_c8|$PY order8.py sym struct cache --mutate=wrong_c8
+dev_09_chk_stale_cache|$PY order8.py sym struct cache --mutate=stale_cache
+dev_09_chk_ln2_struct|$PY order8.py sym struct cache --mutate=ln2_struct
+dev_10_t1_cnom|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt
+dev_10_t1_wrong_h|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=wrong_h
+dev_10_t1_wrong_c6|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=wrong_c6
+dev_13_planted_f7|$PY order8.py pslq closed6 --load=$RAW/dev_planted_f7.json --bases=F6 --pslq-cap=390 --save-rel=$RAW/dev_planted_rel.json --rel=$RAW/dev_planted_rel.json
+dev_10_t1_wrong_c7|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=wrong_c7
+dev_10_t1_wrong_c8|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=wrong_c8
+dev_10_t1_wrong_Om0|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=wrong_Om0
+dev_10_t1_wrong_Om1|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=wrong_Om1
+dev_10_t1_wrong_Om2|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=wrong_Om2
+dev_10_t1_wrong_Om3|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=wrong_Om3
+dev_10_t1_wrong_Om4|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=wrong_Om4
+dev_10_t1_wrong_Om5|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=wrong_Om5
+dev_10_t1_coarse_B|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=coarse_B
+dev_10_t1_short_tail|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=short_tail
+dev_10_t1_stale_cache|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=stale_cache
+dev_11_t2_nominal|$PY order8.py values pslq remainder --load=$RAW/dev_N170_285.json --no-real --w2raw=$RAW/inputs_w2_growthD.txt --bases=F1,F3,F5 --pslq-cap=150
+dev_11_t2_pslq_wrong_basis|$PY order8.py values pslq remainder --load=$RAW/dev_N170_285.json --no-real --w2raw=$RAW/inputs_w2_growthD.txt --bases=F1,F3,F5 --pslq-cap=150 --mutate=pslq_wrong_basis
+dev_11_t2_pslq_wrong_target|$PY order8.py values pslq remainder --load=$RAW/dev_N170_285.json --no-real --w2raw=$RAW/inputs_w2_growthD.txt --bases=F1,F3,F5 --pslq-cap=150 --mutate=pslq_wrong_target
+dev_11_t2_wrong_Om6_series|$PY order8.py values pslq remainder --load=$RAW/dev_N170_285.json --no-real --w2raw=$RAW/inputs_w2_growthD.txt --bases=F1,F3,F5 --pslq-cap=150 --mutate=wrong_Om6_series
+dev_11_t2_wrong_closed5|$PY order8.py values pslq remainder --load=$RAW/dev_N170_285.json --no-real --w2raw=$RAW/inputs_w2_growthD.txt --bases=F1,F3,F5 --pslq-cap=150 --mutate=wrong_closed5
+dev_12_t2b_nominal|$PY order8.py values pslq remainder --load=$RAW/dev_N170_285.json --no-real --w2raw=$RAW/inputs_w2_growthD.txt --bases=F2,F4,F6,X1,X2,X3 --pslq-cap=250
+dev_12_t2b_pslq_wrong_basis|$PY order8.py values pslq remainder --load=$RAW/dev_N170_285.json --no-real --w2raw=$RAW/inputs_w2_growthD.txt --bases=F2,F4,F6,X1,X2,X3 --pslq-cap=250 --mutate=pslq_wrong_basis
+dev_12_t2b_pslq_wrong_target|$PY order8.py values pslq remainder --load=$RAW/dev_N170_285.json --no-real --w2raw=$RAW/inputs_w2_growthD.txt --bases=F2,F4,F6,X1,X2,X3 --pslq-cap=250 --mutate=pslq_wrong_target
+dev_14_st_nominal|$PY order8.py pslq closed6 --load=$RAW/dev_planted_f7.json --bases=F6 --pslq-cap=250 --save-rel=$RAW/dev_14_st_nominal_rel.json --rel=$RAW/dev_14_st_nominal_rel.json
+dev_14_st_ln2_leak|$PY order8.py pslq closed6 --load=$RAW/dev_planted_f7.json --bases=F6 --pslq-cap=250 --save-rel=$RAW/dev_14_st_ln2_leak_rel.json --rel=$RAW/dev_14_st_ln2_leak_rel.json --mutate=ln2_leak
+dev_14_st_f7_rel|$PY order8.py pslq closed6 --load=$RAW/dev_planted_f7.json --bases=F6 --pslq-cap=250 --save-rel=$RAW/dev_14_st_f7_rel_rel.json --rel=$RAW/dev_14_st_f7_rel_rel.json --mutate=f7_rel
+dev_14_st_ln2_zl|$PY order8.py pslq closed6 --load=$RAW/dev_planted_f7.json --bases=F6 --pslq-cap=250 --save-rel=$RAW/dev_14_st_ln2_zl_rel.json --rel=$RAW/dev_14_st_ln2_zl_rel.json --mutate=ln2_zl

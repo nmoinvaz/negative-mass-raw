@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i283/notes/wormhole_evolution/settled_mass_route.py", line 687, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nathan/Source/negative-mass-i283/notes/wormhole_evolution/settled_mass_route.py", line 681, in main
+    sys.exit(analyze_cmd(opts["raw"]))
+             ~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i283/notes/wormhole_evolution/settled_mass_route.py", line 555, in analyze_cmd
+    r_ = sep_test(c_["mem"]["g1"], (c_["mem"]["r_th"], c_["sp"]), (a_["mem"]["r_th"], a_["sp"]), cv)
+  File "/Users/nathan/Source/negative-mass-i283/notes/wormhole_evolution/settled_mass_route.py", line 248, in sep_test
+    pch = float(PchipInterpolator(x, yB)(g1))
+                ~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/scipy/interpolate/_cubic.py", line 267, in __init__
+    x, _, y, axis, _ = prepare_input(x, y, axis, xp=xp)
+                       ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/scipy/interpolate/_cubic.py", line 65, in prepare_input
+    raise ValueError("`x` must be strictly increasing sequence.")
+ValueError: `x` must be strictly increasing sequence.
