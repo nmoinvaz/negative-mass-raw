@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i317/notes/wormhole_evolution/settled_mass_blind.py", line 629, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nathan/Source/negative-mass-i317/notes/wormhole_evolution/settled_mass_blind.py", line 619, in main
+    sys.exit(analyze_cmd())
+             ~~~~~~~~~~~^^
+  File "/Users/nathan/Source/negative-mass-i317/notes/wormhole_evolution/settled_mass_blind.py", line 467, in analyze_cmd
+    bad = [f"{n} {x:+.3e} vs {p305[n]['res'][0]:+.2e}" for n, x in zip(test, res4) if abs(x - p305[n]["res"][0]) > p305[n]["res"][1] + 1e-12]
+                                                                                              ~~~~^^^
+KeyError: 'X1'

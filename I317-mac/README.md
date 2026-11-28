@@ -128,3 +128,16 @@ Not X: nothing of #305's X1-X3 or #295's N1-N3 was read (the script raises). For
 V3 at eps = 1e-2 is (0.2296, 0.1315, 0.5587): the form's b and c differ by 2x and 0.75x between the two readings even after the subtraction. That was seen at the freeze and is not a criterion.
 
 The raw commit that holds `frozen_v3.json` is named in stage 3 (a commit cannot name its own hash).
+
+## Stage 3: the record (after the frozen file was committed and pushed)
+
+The raw commit that holds `frozen_v3.json` and stage 2 above is **7a8a4e8c** (pushed before any code read X1-X3; GIT in every record log prints it: `last commit 7a8a4e8c8a1674b0316dd56dc10d98b2120405d8 2026-11-28T04:41:01-08:00`).
+Script commits in nmoinvaz/negative-mass (branch `wip/i317-corrected-blind`): 8f63e0b (freeze and analysis, used for the freeze), 55fd959 and 010c9e7 (the post hoc command; `git diff 8f63e0b 010c9e7` adds 62 lines, deletes none).
+
+- `record/analyze_record.1.log` (script 8f63e0b+55fd959), `.2.log` (55fd959), `.3.log` (010c9e7, the output of record): 19 checks, 15 gating; **PX fails**, the other 14 gating pass; the three logs are equal apart from header and time.
+- Prediction of record, V3 at eps = 1e-2 (bar 6e-5): X1 +3.346e-05, X2 +7.317e-05, X3 +7.733e-05. Not gating: V1 1e-2 +3.359e-05, +7.285e-05, +7.722e-05; V3 1e-3 +7.774e-05, +1.769e-04, +1.439e-04; unsubtracted 1e-2 +6.956e-05, -1.168e-04, -1.020e-04; unsubtracted 1e-3 +7.886e-05, +1.756e-04, +1.432e-04.
+- Control, not X: N1-N3 under the frozen V3 fit +7.3e-08, -2.12e-06, -1.79e-06.
+- `record/post_hoc.1.log` (before the trajectory block), `.2.log` (final): post hoc, gates nothing.
+- Mutations of record, `record/mut/*.1.log` (baseline `analyze_record.3.log`): 20 of 23 match their declared sets; `test_swap` and `x_loader_h` also newly fire REFX (its X branch has no dev run); `parse_wrong` fires PARSE305 and then raises KeyError 'X1' in REFX (log and `.err` kept).
+- Figure: `record/graph.1.log`, `.2.log` (the first drew text past the right edge; the second is the figure in the note).
+- Deviations from stage 1: none in the bar, fit set, M_0 or order. The prior written in stage 1 (X1 inside, X2 and X3 outside would not surprise me) matched the result.
