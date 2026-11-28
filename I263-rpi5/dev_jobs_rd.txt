@@ -1,0 +1,13 @@
+dev_24_rd_nominal|$PY order7.py reduce7 --load=$RAW/dev_cnom.json
+dev_24_rd_rd_kit|$PY order7.py reduce7 --load=$RAW/dev_cnom.json --mutate=rd_kit
+dev_24_rd_rd_Dstep|$PY order7.py reduce7 --load=$RAW/dev_cnom.json --mutate=rd_Dstep
+dev_24_rd_rd_J5|$PY order7.py reduce7 --load=$RAW/dev_cnom.json --mutate=rd_J5
+dev_24_rd_rd_master|$PY order7.py reduce7 --load=$RAW/dev_cnom.json --mutate=rd_master
+dev_24_rd_rd_B|$PY order7.py reduce7 --load=$RAW/dev_cnom.json --mutate=rd_B
+dev_24_euler_nominal|$PY order7.py euler7
+dev_24_euler_rd_master|$PY order7.py euler7 --mutate=rd_master
+dev_25_t2_nominal|$PY order7.py values pslq remainder --no-real --bases=Q1,Q3,Q5 --pslq-cap=150 --w2raw=$RAW/inputs_w2_growthD.txt --load=$RAW/G1.json,$RAW/G2.json
+dev_25_t2_pslq_wrong_basis|$PY order7.py values pslq remainder --no-real --bases=Q1,Q3,Q5 --pslq-cap=150 --w2raw=$RAW/inputs_w2_growthD.txt --load=$RAW/G1.json,$RAW/G2.json --mutate=pslq_wrong_basis
+dev_25_t2_pslq_wrong_target|$PY order7.py values pslq remainder --no-real --bases=Q1,Q3,Q5 --pslq-cap=150 --w2raw=$RAW/inputs_w2_growthD.txt --load=$RAW/G1.json,$RAW/G2.json --mutate=pslq_wrong_target
+dev_25_t2_wrong_Om5_series|$PY order7.py values pslq remainder --no-real --bases=Q1,Q3,Q5 --pslq-cap=150 --w2raw=$RAW/inputs_w2_growthD.txt --load=$RAW/G1.json,$RAW/G2.json --mutate=wrong_Om5_series
+dev_25_t2_wrong_closed4|$PY order7.py values pslq remainder --no-real --bases=Q1,Q3,Q5 --pslq-cap=150 --w2raw=$RAW/inputs_w2_growthD.txt --load=$RAW/G1.json,$RAW/G2.json --mutate=wrong_closed4

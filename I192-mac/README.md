@@ -165,3 +165,55 @@ the lane). In the test, a wrong input and no hook: `ref_scale` (the reference fu
 - Not changed: `TableJets::jets` clamping `kj` to `nb` (it would integrate a different system without saying so); it stops with a message.
 - **Runs of record, second set** (module bc78792, tests 60d21ab): `run_06` default (25 passed), `run_07` mutate (31), `run_08` portable,mutate (31), `run_09` fmt, clippy (three feature sets), doc; the 28 digest
   lines of `run_06` equal `run_01`'s (`cmp`): no table changed. `run_01` to `run_05` stay as the runs of the first commits.
+
+**A4 (2026-11-27, stage 3: the crate on the library). Written before the first stage 3 run; no bar below is changed after a run.** The coordinator's word for stage 3 came with
+multishoot 5.0.0 released (crates.io; it holds #70's plane and #73's implicit module, takes multidouble 6.1.0 and multisolver 0.3.0) and #188 and #196 merged into main.
+
+Setup. Worktree `~/Source/negative-mass-i192`, `wip/i192-taylor-tables`, fast-forwarded from 0d1d376 to main 54a6679 (nothing of mine was committed). The crate
+`phase2/nonradial/taylor_polar/`. **Old pin** = multidouble ba0ad10 and multishoot a880903 (both git, `[patch.crates-io]`), multisolver 0.2.2: the tree as it is at 54a6679, built by
+`s3_build.sh old old_default | old_libplane lib_plane | old_complex complex` (`dev_25` to `dev_27`, `--locked`, binaries in `target/bins/`). **New pin** = `multishoot = "=5.0.0"`, `multidouble = "6.1.0"`
+from crates.io, no `[patch]`. The library's table, for the flag, is the pull request multishoot#79 at 60d21ab as a renamed optional git dependency (`multishoot_tables`); the flag waits for
+a release that contains it. Python `~/Source/negative-mass/.venv/bin/python`. At most 2 processes, nice 10; a run not finished in 2 h is stopped by its PID and reported.
+
+*Repin, the feature `lib_table` off*
+
+- **RP1, the builds.** `cargo build --release --locked -j 2` succeeds with the new pin for the default build, `--features lib_plane` and `--features complex`, and `cargo tree --locked -e normal`
+  of the default features shows no `git+` source and no `[patch]` is left in `Cargo.toml`. Every source change the repin forces is listed in the note, with the compiler's reason.
+- **RP2, the records, bitwise.** For each pair (old, new) of default, `lib_plane` and `complex` binaries, `s3_records.py` runs the same commands and compares **every field of every record as a string**
+  except the wall times: `star`; `d` at l = 2, 6 in f64, dd, qd (taylor_polar.py's R1 list, 17 records, D printed to 130 digits) and one od record; `planted` const and linear in f64, dd, qd; `starsteps`;
+  `jtable` for l = 2 and l = 6 (J0 and J1, every entry, every step, 20 digits); `recipcheck` in f64, dd, qd, od; `tabcheck`; `jjets`; and for the complex build `dc` and `cp1`. **Met when 0 records differ in each
+  pair.** A difference is a finding, not a failure of the repin: it is reported with the records and fields, the largest relative difference, and the cause if found (multidouble 6's reciprocals, #193 and
+  multidouble#188, are the first candidate; `recipcheck` and the od/qd lanes show it).
+  *Control:* the same comparison with `mutate=jsign` (and, on the complex pair, the same) passed to the new binary only must report differing records (exit 1).
+- **RP3, the checks.** `taylor_polar.py` with the old and with the new binaries, each in its own copy of `phase2/nonradial` (the script's binary path is fixed), compared by `s3_compare.py` (every token of every
+  non-`#` line as a string; only wall times and the load average are not compared; the count of replaced tokens is printed): the default mode (22 checks, TS skipped), `--rows` (l = 2, 4, 5, 6, default build),
+  `--rows` with the `lib_plane` binaries (#189's plane rows), and `--complex` with the runner's references (`--ref-dir`, `--bins`). **Met when every check gives the same verdict and 0 tokens differ.** Tokens that
+  differ are listed with their lines and classified by cause; the verdicts alone equal is not enough to call it met (a printed digit that moved is a difference of the integrator's bits).
+  *Control:* the comparison of the new default-mode log with a log of the same binary under `--mutate=moncrief` (a check's printed numbers change) must report mismatches (exit 1).
+
+*J's table from multishoot, the feature `lib_table` on*
+
+- **JT1, the builds.** `--features lib_table`, `lib_table,lib_plane` and `lib_table,complex` build. The feature touches only `table.rs`'s `build_table` (DD in, DD out); `JTable`, its lookups (`jets`,
+  `taylor_shift` in the crate's lane) and `to_lane` are the crate's own.
+- **JT2, the step list.** The library is called with `nb` 30 (`NS`), `tail` 1e-25, **`last` 2 passed explicitly** (the library's default is 4), `fraction` 0.3, no `hmax` and no `atol`; the source's `valid_to` is the end
+  of the star step; the path is [max(first star step's x0, 0.999 rmin), x1 of the last star step with x0 <= rmax]. `s3_steps.py` compares `jtable` of the default build (#186's own `build_table`) and of the `lib_table` build for
+  l = 2, 3, 4, 5, 6 over [5e-4, 34.7] and l = 2 over [1.5e-3, 24.6]. **Met when, in every case, the number of steps is equal and every x0 and x1 is within 1e-9 relative of #186's** (the bar of the library's C3);
+  reported (no bar): how many breakpoints are bitwise equal, the largest relative difference, and how many steps have equal coefficient strings. The step list is expected to equal #186's apart from the
+  removed `h < 1e-14 b` jump; if that jump fired on these inputs the lists differ and the difference is reported with its steps.
+  *Control:* `--mutate=lib_last4` (the library called with `last` 4, an option of the crate's `build_table` under the feature) must change the number of steps (exit 1 of `s3_steps.py`).
+- **JT3, the checks.** The default mode on the `lib_table` binary gives the same verdicts as the default build (22 passed, 0 failed, 1 skipped, TS); `--rows` for l = 2, 4, 5, 6 gives RA2, RA4, RA5, RA6 (every
+  token of the stored files as a string) and every other `--rows` check as on the default build. The tokens of the two logs are compared by `s3_compare.py`: **reported, not a bar**, since a step list that differs at the
+  ulp level moves D by the table's rounding only (the stored-file tokens are the bar).
+- **JT4, `wide_table` still fires.** `--mutate=wide_table` (declared targets T3 and A2) fails T3 and A2 on the `lib_table` binary as on the default build, and the step count under it is that of the star's steps
+  (the library's `TableControl::Wide`, feature `mutate` of the library, on in this build).
+- **JT5.** The head record of `jtable` (pattern, `nb`, `linear_defect`) is equal in the two builds; the table build time (`t_table`) is reported for both.
+- **Findings carried from the design (section 9, items 1 and 2), stated in the note and not fixed in the crate's `table.rs`**: #186's `x1 = st.x1` jump for `h < 1e-14 b` (whether it fired on these inputs is
+  answered by JT2) and `width_of`'s unscaled f64 products (at nb 30 and x >= 5e-4 they do not underflow; JT2 shows it).
+
+Run files of this stage: `dev_25`+ (`devrun.sh`) and `run_10`+ (`runrec.sh`); `s3_build.sh`, `s3_compare.py`, `s3_records.py`, `s3_steps.py` are written before the first run and kept as they were.
+
+**A5 (2026-11-27, during the RP2 runs).** `run_10_s3_records_default` (the first RP2 run, default pair) was stopped by its PID (exit 1, the log kept) after 33 minutes: the one octo-double `d` record of A4 (`d lane=od l=2 gammas=1.0`)
+had used 28 CPU-minutes on the old binary alone and did not finish, so the pair would have passed the 2 h stop rule and held back every record after it. The six f64, dd and qd `d` commands before it were equal (old and new, 17 records
+`d f64 l=2 .. d qd l=6`, 14 s to 38 s each). **The od `d` record is dropped from RP2** (`s3_records.py` now takes it only with `--od`; no data motivated this, the run time did): the octo-double lane is compared through
+`recipcheck od` (the reciprocals, the candidate cause of any multidouble 6 difference) and `tabcheck`/`jtable` (DD), not through a determinant. The bar of RP2 is unchanged for the records that remain. Reruns are `run_11` (default),
+`run_12` (lib_plane), `run_13` (complex), `run_22` (the `jsign` control), numbered by hand (`s3_run.sh`) because `runrec.sh` would take 15, which the check chains use.

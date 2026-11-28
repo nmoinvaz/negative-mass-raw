@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-i263/notes/wormhole_largeD/order7.py", line 1548, in <module>
+    main()
+    ~~~~^^
+  File "/home/nathan/Source/negative-mass-i263/notes/wormhole_largeD/order7.py", line 1524, in main
+    ev = check_evals()
+  File "/home/nathan/Source/negative-mass-i263/notes/wormhole_largeD/order7.py", line 436, in check_evals
+    ev[name] = run_B(N, w, V, dps)
+               ~~~~~^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-i263/notes/wormhole_largeD/order7.py", line 363, in run_B
+    Om, slopes, secs, resid = (omega_chain if cached else omega_chain_ref)(B, kmax, log=log)
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-i263/notes/wormhole_largeD/order7.py", line 340, in omega_chain
+    resid[k - 1] = abs(G[k - 1]) / abs(slopes[k - 1])
+                       ~^^^^^^^
+KeyError: 2

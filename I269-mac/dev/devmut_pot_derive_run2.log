@@ -1,0 +1,17 @@
+[FAIL] S0: the static member solves the five equations in the null chart, symbolic c (convention and potential: planted truth)  (vv: nonzero, vr: nonzero, rr: 0, thth: nonzero, scal: nonzero)
+    (S0: 1 s)
+[FAIL] S1: for an arbitrary lam(v), r = lam R, F = A - 2 rho lam'/lam + 1/lam^2 - 1: E_rho rho, E_v rho, E_theta theta and the scalar equation vanish identically  (rr: 0, vr: nonzero, thth: nonzero, scal: nonzero)
+[FAIL] S2: the remaining equation: E_vv = 2 (K lam lam' - lam lam'' - lam'^2) / ((1 + rho^2) lam^2), K = -2c/pi; it is zero iff (lam lam')' = K lam lam'  (E_vv - expected = 2*c*(12*c*rho**4*lam(v)**2*atan(rho)**2 - 12*pi*c*rho**4*lam(v)**2*atan(rho) + 3*pi**2*c*rho**4*lam(v)**2 + 24*c*rho**3*lam(v)**2*atan(rho) - 12*pi*c*rho**3*lam(v)**2 + 16*c*rho**2*lam(v)**2*atan(rho)**2 - 16*pi*c*rho**2*lam(v)**2*atan(rho) + 12*c*rho**2*lam(v)**2 + 4*pi**2*c*rho**2*lam(v)**2 + 16*c*rho*lam(v)**2*atan(rho) - 8*pi*c*rho*lam(v)**2 + 4*c*lam(v)**2*atan(rho)**2 - 4*pi*c*lam(v)**2*atan(rho) + pi**2*c*lam(v)**2 + 12*pi*rho**3*lam(v)*atan(rho)*Derivative(lam(v), v) - 6*pi**2*rho**3*lam(v)*Derivative(lam(v), v) + 12*pi*rho**2*lam(v)*Derivative(lam(v), v) - 6*pi*rho**2*atan(rho) + 3*pi**2*rho**2 + 4*pi*rho*lam(v)*atan(rho)*Derivative(lam(v), v) - 2*pi**2*rho*lam(v)*Derivative(lam(v), v) - 6*pi*rho - 2*pi*atan(rho) + pi**2)/(pi**2*(rho**2 + 1)*lam(v)**2))
+    (S1: 2 s)
+[FAIL] S3: lam^2 = L + beta e^{K v}: all five residuals vanish identically for symbolic c, L, beta  (vv: nonzero, vr: nonzero, rr: 0, thth: nonzero, scal: nonzero)
+    (S3: 6 s)
+[pass] S4a: the rate is the first integral K = (R^2 A' - 2 rho A)/2 + rho of the static equations (rho independent, equal to -2c/pi)
+[FAIL] S4b: with c and the coefficient Ks of rho + R^2 arctan rho independent (no asymptotic flatness): the same four vanish and E_vv has Ks in place of K  (failed)
+    (S4: 1 s)
+[pass] S5: the first-order part delta r = (beta/2) R e^{K(t+x)} is Y_K: #212's operator Y'' - P Y' - Q Y of the master equation annihilates R e^{Wx} at W = the candidate's rate
+    (S5: 0 s)
+[FAIL] S6: the hand-reduced equations (R_ab = (R2/2) h_ab - 2 H_ab/r, R_theta theta = 1 - r box r - (grad r)^2, box phi) at arbitrary lam(v) give the same residuals as the brute-force tensor: four zero, E_vv as in S2  (rr: ok, vr: differs, thth: differs, scal: differs, vv: differs)
+    (S6: 1 s)
+
+8 checks, 2 pass; failed: ['S0', 'S1', 'S2', 'S3', 'S4b', 'S6']; mutation pot; 10 s
+rc=1

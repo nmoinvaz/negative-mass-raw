@@ -1,0 +1,100 @@
+order7.py  mutate=pslq_wrong_target  parts=['values', 'pslq', 'remainder']  mpmath 1.3.0  sympy 1.14.0
+PASS    PL0: planted: Omega0 against its closed form, digits: G1 133.8, G2 121.0 (bar 100 on G1, G2; the others reported)
+PASS    PL1: planted: Omega1 against its closed form, digits: G1 133.3, G2 121.6 (bar 100 on G1, G2; the others reported)
+PASS    PL2: planted: Omega2 against its closed form, digits: G1 133.2, G2 120.7 (bar 100 on G1, G2; the others reported)
+PASS    PL3: planted: Omega3 against its closed form, digits: G1 133.4, G2 120.6 (bar 100 on G1, G2; the others reported)
+PASS    PL4: planted: Omega4 against its closed form, digits: G1 133.7, G2 121.2 (bar 100 on G1, G2; the others reported)
+PASS    SL: slope of G_k in Omega_(k-2) against -4 pi, k = 2 .. 7, digits: G1 135.5/135.5/135.5/135.5/135.5/135.5, G2 122.0/122.0/122.0/122.0/122.0/122.0 (bar 100 on G1, G2)
+PASS    RES: max over k = 2 .. 7 of |G_k at the chain's root| / |slope|: G1 7.32e-152, G2 5.3e-142 (bar 1e-100 on G1, G2)
+PASS    M5: Omega5 of G1 against G2 (two grids, two precisions): 120.6 digits (bar 100); |diff| = 1.11e-116
+PASS    RNG: Omega5 between 4.0e4 and 4.2e4: G1 40860.4553545, G2 40860.4553545
+  reported: digits between evaluations, Omega4 / Omega5: G1-G2 121.2/120.6
+  PSLQ at 88 digits (the two grids share 120.6), tolerance 1e-76, verification at 108 digits
+FAIL    PQ1: Q1 = {Omega5, ln^6 2, pi^2 ln^4 2, pi^4 ln^2 2, pi^6, zeta(3) ln^3 2, pi^2 zeta(3) ln 2, zeta(3)^2, zeta(5) ln 2}, n = 9, H = 1000000, d = 88: planted relation (den 5, seed 263001) recovered: False (0 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 57.7
+    REAL Q1: skipped (--no-real)
+FAIL    PQ3: Q3 = {Omega5, ln^6 2, pi^2 ln^4 2, pi^4 ln^2 2, pi^6, zeta(3) ln^3 2, pi^2 zeta(3) ln 2, zeta(3)^2, zeta(5) ln 2, ln^5 2, pi^2 ln^3 2, pi^4 ln 2, zeta(3) ln^2 2, pi^2 zeta(3), zeta(5)}, n = 15, H = 10000, d = 88: planted relation (den 5, seed 263003) recovered: False (2 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 65.5
+    REAL Q3: skipped (--no-real)
+FAIL    PQ5: Q5 = {Omega5, ln^6 2, pi^2 ln^4 2, pi^4 ln^2 2, pi^6, zeta(3) ln^3 2, pi^2 zeta(3) ln 2, zeta(3)^2, zeta(5) ln 2, ln^5 2, pi^2 ln^3 2, pi^4 ln 2, zeta(3) ln^2 2, pi^2 zeta(3), zeta(5), ln^4 2, pi^2 ln^2 2, pi^4, zeta(3) ln 2, ln^3 2, pi^2 ln 2, zeta(3)}, n = 22, H = 10000, d = 88: planted relation (den 5, seed 263005) recovered: False (8 s); perturbed basis on the planted target finds [6, 1201, -3175, 3419, 886, -2803, 1308, 3274, -3972, 3066, -2644, 758, 4052, -1798, -5383, -1951, -418, -3305, 101, -2581, 347, 437]; budget (n + 1) log10(2H + 1) + 1 = 95.6
+    REAL Q5: skipped (--no-real)
+  W^2 (qd, w2_output.txt) against the series s - 4 ln 2 + Omega1/s + ... (Omega1 .. Omega5 of G2), s = 2(D - 3):
+  D       s       rem6 s^5 (tends to Omega5)    (rem6 s^5 - Omega5) s (tends to Omega6)   rem7 s^6 (tends to Omega6)
+  1000   1994    42708.395062792              3684791.77828                            3684791.77828
+  2000   3994    41781.483421872              3678586.10098                            3678586.10098
+  5103   10200   41220.725263275              3674753.06924                            3674753.06924
+  10000  19994   41044.187177749              3673534.07353                            3673534.07353
+PASS    R6: two-point extrapolation (s2 x2 - s1 x1)/(s2 - s1) of rem6 s^5 from D = 5103, 10^4: 40860.331 against the computed Omega5 40860.455, relative difference -3.05e-6 (bar 1e-4: an estimate, not a bound)
+  reported: two-point extrapolation of rem7 s^6 from D = 5103, 10^4: Omega6 ~ 3672264.5 (an estimate, not a bound)
+PASS    R7: rem7 s^6 at D = 5103 and 10^4 differs by 1219.0 (bar 2500.0: a wrong Omega5 adds (error) s, about 10^4 per unit)
+PASS    X3: Omega5 against the polynomial extrapolation in 1/s of #195's 64 W^2 values (Omega0 .. Omega4 fixed at the closed forms), windows of the K largest s, |difference| G1: K = 14 7.5e-28, K = 18 5.8e-27, K = 22 2.3e-26, K = 26 5.9e-26, K = 30 1.1e-25, K = 36 2.1e-25, K = 44 3.3e-25; G2: K = 14 7.5e-28, K = 18 5.8e-27, K = 22 2.3e-26, K = 26 5.9e-26, K = 30 1.1e-25, K = 36 2.1e-25, K = 44 3.3e-25 (bar 0.00000000000000000000010000000000000000485967743265708723529783189783450120951502847720104849571498561999760568141937255859375 on every window; the spread over windows is an estimator range, 3.3e-25; not a bound)
+  reported, not gated: rem6 s^5 at the D of the list
+  D       rem6 s^5
+  50      81201.675545205
+  54      78067.559602383
+  59      74752.285311208
+  64      71963.88941639
+  70      69156.205369826
+  76      66804.510265509
+  83      64504.173456005
+  90      62573.628157222
+  98      60716.554850661
+  107     58970.631742867
+  116     57504.815691915
+  126     56129.866093676
+  137     54856.681633919
+  149     53688.743275852
+  162     52624.465441848
+  177     51596.107926298
+  192     50732.663234763
+  200     50326.486291685
+  209     49907.639124076
+  227     49171.917495569
+  247     48482.964491731
+  269     47845.860028615
+  292     47284.405627568
+  318     46749.256633099
+  346     46264.377063347
+  376     45826.236120885
+  409     45419.581069298
+  445     45045.656916478
+  484     44704.116039901
+  500     44579.594578979
+  527     44386.805845888
+  573     44100.637478675
+  623     43837.983427768
+  678     43594.211331127
+  737     43373.496620669
+  802     43168.221353942
+  873     42979.176054421
+  949     42808.368357437
+  1000    42708.395062792
+  1032    42650.742296608
+  1123    42504.849527594
+  1221    42372.179316147
+  1329    42248.741432965
+  1445    42136.802144401
+  1572    42033.268565649
+  1710    41938.266475274
+  1860    41851.047024246
+  2000    41781.483421872
+  2023    41770.978830484
+  2201    41697.128076731
+  2394    41629.496145553
+  2604    41567.323718233
+  2832    41510.285639605
+  3081    41457.65805916
+  3351    41409.447244108
+  3645    41365.088183426
+  3965    41324.295016584
+  4313    41286.813579204
+  4691    41252.410477542
+  5103    41220.725263275
+  5550    41191.675192508
+  6037    41164.927381391
+  6567    41140.330329475
+  7143    41117.741256415
+  7770    41096.96231358
+  8452    41077.863749842
+  9193    41060.327267749
+  10000   41044.187177749
+
+12 passed, 3 failed of 15 checks; 21 s
