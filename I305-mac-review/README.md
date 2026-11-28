@@ -17,3 +17,18 @@ Shared: the runs, the stored slices and #225's fit (s_m). Not shared: the readin
 
 Mutations: `old-coef` (#267's (0.2300, 0.2724, 0.7835) in place of the frozen fit: K1's match to the note fails), `no-speed`
 (c = 0: K1).
+
+## Results
+
+| check | verdict | reading (`run_01.log`) |
+|---|---|---|
+| K1 | met | M − P4 = +9.00e-5, +2.13e-4, +1.98e-4 (X1–X3), each beyond 6e-5: the frozen refit misses on this route with the coordinator's readings too |
+| K2 | met | leverage 0.272, 1.975, 3.058; the fifteen fitted points' largest 0.3932 |
+| K3 | met | ṙ_th −1.1304e-3, −2.7327e-3, −2.4394e-3 (a different estimator from the note's) |
+
+Mutations: `old-coef` and `no-speed` fail K1.
+
+## Rerun of the runner's code
+
+From a detached worktree at ca6d11a: the X3 point at h = 0.005 gives a chain, locus, member rows and t_dep bitwise equal to the
+runner's; `analyze` (exit 1: P4 and FITQ fail, as declared) equals `settled_mass_route4_output.txt` apart from the header.
