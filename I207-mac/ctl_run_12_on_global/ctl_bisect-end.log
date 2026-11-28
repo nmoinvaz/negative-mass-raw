@@ -1,0 +1,16 @@
+  bisections:
+   F_inf=0.25 C in (10, 30) S:F->0 -> FLOOR:log: C_c = 17.0976420282, ends S:F->0 (eta* 1.38182e-05) | NONFINITE (eta* None), 44 halvings
+   F_inf=0.5 C in (30, 100) S:F->0 -> FLOOR:log: C_c = 62.7574838873, ends S:F->0 (eta* 1.33303e-05) | NONFINITE (eta* None), 44 halvings
+   F_inf=0.75 C in (100, 300) S:F->0 -> S:other: C_c = 189.755654049, ends S:F->0 (eta* 1.47289e-05) | NONFINITE (eta* None), 44 halvings
+   F_inf=0.75 C in (300, 1000) S:other -> FLOOR:log: C_c = 306.41595402, ends S:other (eta* 9.90589e-07) | FLOOR:log (eta* None), 45 halvings
+   F_inf=1 C in (1000, 3000) S:F->0 -> S:other: C_c = 1412.9789376, ends S:F->0 (eta* 1.85935e-05) | NONFINITE (eta* None), 44 halvings
+   F_inf=1.5 C in (1000, 3000) S:F->0 -> S:a3->0: C_c = 1660.17232716, ends S:F->0 (eta* 0.561038) | NONFINITE (eta* None), 44 halvings
+   F_inf=2 C in (1000, 3000) S:F->0 -> NONFINITE: C_c = 2091.67075346, ends S:F->0 (eta* 1.1922) | NONFINITE (eta* None), 44 halvings
+   F_inf=-0.5 C in (-100, -30) FLOOR:log -> S:F->0: C_c = -92.7704310017, ends FLOOR:log (eta* None) | S:other (eta* 9.90597e-07), 43 halvings
+   F_inf=-1 C in (-3000, -1000) S:other -> S:F->0: C_c = -2421.88589176, ends S:other (eta* 6.44202e-06) | NONFINITE (eta* None), 43 halvings
+   F_inf=-2 C in (-3000, -1000) NONFINITE -> S:F->0: C_c = -2091.67075346, ends NONFINITE (eta* None) | S:F->0 (eta* 1.1922), 44 halvings
+[FAIL] bisect: 10 adjacent pairs of C grid values with different verdict classes bisected to C_hi - C_lo <= 1e-13 (1 + |C|); every bracket ends with the classes still different: False
+  (440 s)
+
+checks: 0 passed, 1 failed ['bisect']. 440 s
+control bisect-end: target checks ['bisect'], fired ['bisect']

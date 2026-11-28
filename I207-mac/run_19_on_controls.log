@@ -1,0 +1,11 @@
+# run_19_on_controls: 2026-11-28T08:10:11Z machine Nathans-MacBook-Air-M5-3 load  3.67 4.01 4.53  threads 2 nice 10 (RAYON_NUM_THREADS=2)
+# command: mkdir -p $RAW/ctl_run_19_on && cd $WT && $RAW/sys/arm.sh on run_19_on_controls && $PY notes/warp/conical_offgrid.py --nobuild --grid=ctl --controls-only --controls=locator-side,plant-locator,n-drift,recip-dd --logdir=$RAW/ctl_run_19_on
+conical_offgrid.py: grid ctl; controls run every check (on the ctl grid) and must fail their targets and no others
+
+== Controls: each mutation, with every check run, must make its target checks fail and no others ==
+[FIRED] --mutate=locator-side (the locator's side test inverted in `offgrid`): exit 1, failed ['regress167', 'scan', 'closed_form', 'bisect'], 556 s
+[EXTRA] --mutate=plant-locator (the locator's side test inverted in the planted cases (loglog's far blow-ups and #167's `plant`)): exit 1, failed ['plant_167', 'plant_far', 'regress167'], 438 s
+[FIRED] --mutate=n-drift (the recursion leaves F''_3 = 0 (order 3 of N not imposed)): exit 1, failed ['plant_far', 'regress167', 'scan', 'spread', 'dd_qd', 'modes', 'closed_form', 'bisect', 'independent', 'recip_check', 'step_halving'], 2048 s
+[EXTRA] --mutate=recip-dd (the lane constants (1/k, shifted coefficients of N, 1/(dN/dF'')) rounded to double-double): exit 1, failed ['plant_far', 'regress167', 'recip_check'], 505 s
+controls: SOME DID NOT FIRE ON TARGET ONLY
+# run_19_on_controls finished 2026-11-28T09:09:18Z exit 1 load  5.16 5.40 5.21 

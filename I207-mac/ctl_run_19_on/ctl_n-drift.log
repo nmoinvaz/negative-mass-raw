@@ -1,0 +1,84 @@
+conical_offgrid.py: grid ctl; controls run every check (on the ctl grid) and must fail their targets and no others
+[PASS] n_table: the lane's N (hp.rs EvalS, double-double) at 40 rational points against det_classify.conical_N() (typed): worst |dN|/sum|terms| 1.77e-32; against conical_limit.build_N() (rebuilt from D): 1.77e-32; threshold 1e-26
+  (0 s)
+[PASS] series_hp: tables_hp.rs equals the regenerated table: True; the lane series of 3 pairs [(0.001, 100000.0, 6), (0.01, -1000000.0, 5), (0.1, 30000000.0, 6)] at the radius shown: dd: worst relative difference of F, F', F'' 3.7e-32 (bar 1.0e-26, mpmath at 50 digits); qd: worst relative difference of F, F', F'' 4.8e-65 (bar 1.0e-55, mpmath at 90 digits); the chosen start residuals of the pairs ['6.1e-22', '6.1e-22', '9.3e-28'] (bar 1e-20)
+  (1 s)
+[PASS] plant_167: #167's planted cases through the same crate: matching (|C- - a|, |e|, |C+ - b|, nodes) linear: 6.5e-28, 5.8e-34, 3.5e-29, 2.8e-29, cubic: 3.2e-28, 2.4e-34, 1.8e-29, 9.3e-30 (bars 1e-20, 1e-22); blowup: 8 walks, worst error 8.4e-17, worst bar 0.0e+00 (1e-8), kinds right: True
+  (4 s)
+[FAIL] plant_far: planted equations started at x0 = 1e6 and walked inward by hp_walk with the locator: F'' = 2F^3 (pl6) and F F'' + F'^2 = 0 (pl7), x* = 0.7321, error and bar <= 1e-8; (1 + x^2) F'' + 4 x F' + 2 (F - 7/10) = 0 (pl4), exact alpha + (a + b x)/(1 + x^2): pl6 dd: no singularity found (stop End); pl7 dd: no singularity found (stop End); pl4 dd: worst relative error of F, F', F'' at 1e3, 10, 1 1.6e+3 (bar 1.0e-24); pl6 qd: no singularity found (stop End); pl7 qd: no singularity found (stop End); pl4 qd: worst relative error of F, F', F'' at 1e3, 10, 1 8.6e+2 (bar 1.0e-50)
+  (0 s)
+[FAIL] regress167: #167's 187 grid points through `offgrid` (hp walker, series tables of 8 parts) and through #167's `conical_global scan --rstop=1e-8` (both run here): class and kind equal and eta* within 1e-8 at 1 singular points (worst difference 2.4e-03); mismatches [((0.25, -3000.0), 'TINYSTEP', 'S:F->0'), ((0.25, -1000.0), 'S:fold', 'S:F->0'), ((0.25, -300.0), 'TINYSTEP', 'S:F->0'), ((0.25, -100.0), 'TINYSTEP', 'S:F->0'), ((0.25, -30.0), 'TINYSTEP', 'S:F->0')]
+  (305 s)
+[NOTE] scan_first_pass: the first pass (stop at R <= 1e-8 max(1, x)) and the pass of record (R <= 1e-12 max(1, x)) differ at 3 of 31 points:
+   F_inf=4 C=-10000: first pass S:a3->0 at 3.853907777; record TINYSTEP at -
+   F_inf=4 C=10000: first pass S:a3->0 at 3.86498961; record TINYSTEP at -
+   F_inf=16 C=100000: first pass S:a3->0 at 15.9553003; record S:fold at 15.9553003
+  TINYSTEP points (14; the step fell below 1e-15 |x|), from the last steps' (x, h, median Taylor radius of F'', sign changes of the last ten ratios):
+   F_inf=0.1 C=-10000: stalled; x_last 122.459097967; last steps (122.459098, 1.3e-13, 1.6e-12, 2) (122.459098, 1.3e-13, 1.6e-12, 2) (122.459098, 1.2e-13, 1.5e-12, 2) (122.459098, 1.2e-13, 1.5e-12, 2)
+   F_inf=1 C=-1e+08: stalled; x_last 8855.72910727; last steps (8855.729107, 9.4e-12, 1.2e-10, 2) (8855.729107, 9.2e-12, 1.1e-10, 2) (8855.729107, 9.0e-12, 1.1e-10, 2) (8855.729107, 8.7e-12, 1.1e-10, 2)
+   F_inf=1 C=-100000: stalled; x_last 122.438560203; last steps (122.4385602, 1.3e-13, 1.6e-12, 2) (122.4385602, 1.3e-13, 1.6e-12, 2) (122.4385602, 1.2e-13, 1.5e-12, 2) (122.4385602, 1.2e-13, 1.5e-12, 2)
+   F_inf=1 C=-10000: stalled; x_last 68.3377620048; last steps (68.337762, 7.3e-14, 9.0e-13, 2) (68.337762, 7.1e-14, 8.8e-13, 2) (68.337762, 7.0e-14, 8.6e-13, 2) (68.337762, 6.8e-14, 8.4e-13, 2)
+   F_inf=1 C=0: stalled; x_last 0.186800675342; last steps (0.1868006753, 2.0e-16, 1.4e-15, 3) (0.1868006753, 1.9e-16, 1.4e-15, 3) (0.1868006753, 1.9e-16, 1.3e-15, 3) (0.1868006753, 1.8e-16, 1.3e-15, 3)
+   F_inf=4 C=-1e+08: stalled; x_last 1801.2503193; last steps (1801.250319, 1.9e-12, 2.3e-11, 2) (1801.250319, 1.8e-12, 2.3e-11, 2) (1801.250319, 1.8e-12, 2.2e-11, 2) (1801.250319, 1.8e-12, 2.2e-11, 2)
+   F_inf=4 C=-100000: stalled; x_last 140.071397057; last steps (140.0713971, 1.5e-13, 1.9e-12, 2) (140.0713971, 1.5e-13, 1.8e-12, 2) (140.0713971, 1.4e-13, 1.8e-12, 2) (140.0713971, 1.4e-13, 1.7e-12, 2)
+   F_inf=4 C=-10000: stalled; x_last 3.85390777452; last steps (3.853907775, 3.9e-15, 2.8e-14, 1) (3.853907775, 3.9e-15, 2.8e-14, 1) (3.853907775, 3.9e-15, 2.8e-14, 1) (3.853907775, 3.9e-15, 2.8e-14, 1)
+   F_inf=4 C=0: stalled; x_last 3.06544839162; last steps (3.065448392, 3.2e-15, 5.1e-14, 3) (3.065448392, 3.2e-15, 5.0e-14, 3) (3.065448392, 3.1e-15, 4.9e-14, 3) (3.065448392, 3.0e-15, 4.7e-14, 3)
+   F_inf=4 C=10000: stalled; x_last 3.86498960989; last steps (3.86498961, 4.2e-15, 3.1e-14, 0) (3.86498961, 4.2e-15, 3.2e-14, 0) (3.86498961, 4.2e-15, 3.2e-14, 0) (3.86498961, 3.9e-15, 2.9e-14, 0)
+   F_inf=16 C=-1e+08: stalled; x_last 2213.46093873; last steps (2213.460939, 2.3e-12, 2.9e-11, 2) (2213.460939, 2.3e-12, 2.8e-11, 2) (2213.460939, 2.2e-12, 2.8e-11, 2) (2213.460939, 2.2e-12, 2.7e-11, 2)
+   F_inf=16 C=-100000: stalled; x_last 16.9902783904; last steps (16.99027839, 1.8e-14, 2.3e-13, 2) (16.99027839, 1.8e-14, 2.2e-13, 2) (16.99027839, 1.7e-14, 2.2e-13, 2) (16.99027839, 1.7e-14, 2.1e-13, 2)
+   F_inf=16 C=-10000: stalled; x_last 15.7473864596; last steps (15.74738646, 1.7e-14, 2.1e-13, 2) (15.74738646, 1.6e-14, 2.0e-13, 2) (15.74738646, 1.6e-14, 2.0e-13, 2) (15.74738646, 1.6e-14, 1.9e-13, 2)
+   F_inf=16 C=0: stalled; x_last 15.802620217; last steps (15.80262022, 1.7e-14, 2.1e-13, 2) (15.80262022, 1.6e-14, 2.0e-13, 2) (15.80262022, 1.6e-14, 2.0e-13, 2) (15.80262022, 1.6e-14, 1.9e-13, 2)
+  region A: 14 points, classes {'TINYSTEP': 9, 'S:fold': 4, 'S:a3->0': 1}; singular eta* from 3.871 to 1981
+  region B: 10 points, classes {'S:fold': 9, 'TINYSTEP': 1}; singular eta* from 0.01185 to 1012
+  region C: 7 points, classes {'TINYSTEP': 4, 'S:a3->0': 1, 'S:fold': 2}; singular eta* from 15.95 to 488.4
+  chosen start radius L: {200.0: 4, 800.0: 2, 3200.0: 9, 12800.0: 4, 51200.0: 6, 204800.0: 6}; worst start residual 3.9e-21
+  scan of record (class of each point; singular eta* to 10 digits, F_inf then C: label@eta*):
+   F_inf=1: -1e+08:TINYSTEP -100000:TINYSTEP -10000:TINYSTEP 0:TINYSTEP 10000:fold@21.97256198 100000:fold@77.21219411 1e+08:fold@1981.077777
+   F_inf=4: -1e+08:TINYSTEP -100000:TINYSTEP -10000:TINYSTEP 0:TINYSTEP 10000:TINYSTEP 100000:a3->0@3.870552865 1e+08:fold@1227.819561
+   F_inf=0.01: -100000:fold@616.1043976 -10000:fold@107.8462557 0:fold@1.67284917 10000:fold@275.9280595 100000:fold@1012.2068
+   F_inf=0.1: -100000:fold@107.8450636 -10000:TINYSTEP 0:fold@0.01184630705 10000:fold@77.38046293 100000:fold@275.9275983
+   F_inf=16: -1e+08:TINYSTEP -100000:TINYSTEP -10000:TINYSTEP 0:TINYSTEP 10000:a3->0@15.9470659 100000:fold@15.9553003 1e+08:fold@488.385938
+  FLOOR points (0): F at 1e-6 and p = eta F' at 1e-2, 1e-4, 1e-6; p0 C/(4 F_inf^2) at 1e-6:
+  FLOOR, p(1e-6)/p(1e-4) within 10% of 1 (a log end, p0 = p): 0 of 0; larger (p still rising at the floor: the flow closes on a singularity below it): 0
+  kappa-curve ends: 2 at R <= 1e-12 and 5 at R <= 1e-8; by F_inf (points, C range, eta* range, sqrt(F_inf^2 - 1)):
+   F_inf=4: 1 points, C from 100000 to 100000, eta* from 3.8705529 to 3.8705529; sqrt(F_inf^2 - 1) = 3.8729833
+   F_inf=16: 1 points, C from 10000 to 10000, eta* from 15.947066 to 15.947066; sqrt(F_inf^2 - 1) = 15.968719
+  F->0 points with eta* < 1e-4: 0
+  FLOOR: p0 F_inf > 0 at every FLOOR point: True
+[FAIL] scan: 31 points (ctl grid), classes {'S:fold': 15, 'TINYSTEP': 14, 'S:a3->0': 2}; every point has a verdict (none NOSTART, STEPLIMIT, NONFINITE, TINYSTEP: False); start residual <= 1e-20 at every start: True; every SINGULAR has a bar <= 1e-8 max(1, eta*): True (max bar 6.1e-10); THROUGH 0, GLOBAL 0; not classified [((0.1, -10000.0), 'TINYSTEP'), ((1.0, -100000000.0), 'TINYSTEP'), ((1.0, -100000.0), 'TINYSTEP'), ((1.0, -10000.0), 'TINYSTEP'), ((1.0, 0.0), 'TINYSTEP'), ((4.0, -100000000.0), 'TINYSTEP')]
+  (65 s)
+[FAIL] spread: the same point from the next start radius 4 L (residual <= 1e-20 there too): 31 of 31 points have a second start; class and kind equal, eta* within 1e-8 max(1, eta*), FLOOR p0 within a relative 1e-9; worst eta* difference 2.7e+03; mismatches 30 [((0.01, -100000.0), 204800.0, 819200.0, 'eta* 616.104397561 against 3302.86153015 (difference 2.7e+03)'), ((0.01, -10000.0), 51200.0, 204800.0, 'eta* 107.846255739 against 818.37802367 (difference 7.1e+02)'), ((0.01, 0.0), 200.0, 800.0, 'eta* 1.67284916982 against 4.52949857568 (difference 2.9e+00)'), ((0.01, 10000.0), 51200.0, 204800.0, 'eta* 275.92805951 against 856.963338793 (difference 5.8e+02)')]
+  (3 s)
+[FAIL] dd_qd: quad-double (kt 60, tol 1e-64) against double-double on 31 points (start radius >= 204800 and the 30 smallest and 30 largest eta*): class and kind equal, eta* within 1e-12 max(1, eta*), FLOOR p0 within a relative 1e-12; worst relative eta* difference 2.1e-01; mismatches 17 [((0.01, -100000.0), 'eta* 616.104397561 against 543.304613812 (difference 7.3e+01)'), ((0.01, -10000.0), 'eta* 107.846255739 against 84.7987852213 (difference 2.3e+01)'), ((0.01, 0.0), 'eta* 1.67284916982 against 1.59795904754 (difference 7.5e-02)'), ((0.01, 10000.0), 'eta* 275.92805951 against 259.363945568 (difference 1.7e+01)')]
+  (1267 s)
+[FAIL] modes: `project` (Newton on F'' at each step) against `conserve` (N constant) over 31 points: class and kind equal, eta* within 1e-10 max(1, eta*), FLOOR p0 within 1e-10; worst relative eta* difference 1.0e+00; mismatches 17 [((0.01, -100000.0), 'S:fold against TINYSTEP'), ((0.01, -10000.0), 'S:fold against TINYSTEP'), ((0.01, 0.0), 'S:fold against TINYSTEP'), ((0.01, 10000.0), 'S:fold against FLOOR:log')]
+  (28 s)
+[PASS] symmetry: (F_inf, C) -> (-F_inf, -C) over 31 points: class and kind equal, eta* within 1e-10 max(1, eta*), |p0| within a relative 1e-10; worst relative eta* difference 0.0e+00; mismatches 0 []
+  (42 s)
+[PASS] n4_factor: the lowest-degree part of N (degree 4 in F, F', F'') equals -(eta F'' + F')^2 [(eta^2+1)(eta^2+2) F'^2 + 2F((eta^2+1)F'' + eta F')] (sympy, expanded): True; with F'/F = 1/(2 chi), chi = sqrt(eta^2+1) h, h = K + 7/8 asinh(eta) + eta sqrt(eta^2+1)/8, the second factor vanishes identically (Bernoulli equation (eta^2+1) psi' + eta psi + (eta^2+1)(1 + eta^2/4) psi^2 = 0, sympy): True
+  (0 s)
+[FAIL] closed_form: F_inf -> 0: N4 = -(eta F'' + F')^2 [(eta^2+1)(eta^2+2) F'^2 + 2F((eta^2+1)F'' + eta F')] gives F'/F = 1/(2 chi), F -> 0 at the root of h; the crate's eta* against it: relative difference at F_inf = 0.005 <= 1e-4 and the difference falls by 4 +- 1 per halving of F_inf (O(F_inf^2)): c=-100: eta*0 = 9.409550756, difference at F_inf = 0.04, 0.02, 0.01, 0.005: inf, inf, inf, inf; ratios nan, nan; c=0: eta*0 = 1.288574873, difference at F_inf = 0.04, 0.02, 0.01, 0.005: 1.28e+00, 3.71e-01, 3.84e-01, 3.87e-01; ratios 0.97, 0.99; c=6: eta*0 = 0.4573391187, difference at F_inf = 0.04, 0.02, 0.01, 0.005: 1.32e+00, 1.39e+00, 1.40e+00, 1.40e+00; ratios 0.99, 1.00
+  (5 s)
+   line F_inf=0.1: 31 points (C from -1e+07 to 1e+07), classes {'TINYSTEP': 11, 'S:fold': 19, 'FLOOR:log': 1}
+   F_inf=0.1: C in (-3.16228e+06, -1e+06) TINYSTEP|S:fold -> C* = -2176689.663448 (TINYSTEP | fold@0.0595494), 40 iterations, width 2.0e-06
+   F_inf=0.1: C in (-1e+06, -316228) S:fold|TINYSTEP -> C* = -886684.4473713 (fold@645.058 | TINYSTEP), 40 iterations, width 6.2e-07
+   F_inf=0.1: C in (-316228, -100000) TINYSTEP|S:fold -> C* = -136041.7726574 (TINYSTEP | fold@0.0595482), 41 iterations, width 9.8e-08
+   F_inf=0.1: C in (-100000, -31622.8) S:fold|TINYSTEP -> C* = -55423.55660284 (fold@161.304 | TINYSTEP), 41 iterations, width 3.1e-08
+   F_inf=0.1: C in (-1000, -316.228) TINYSTEP|S:fold -> C* = -529.95700062 (TINYSTEP | fold@0.0595478), 41 iterations, width 3.1e-10
+   F_inf=0.1: C in (-316.228, -100) S:fold|TINYSTEP -> C* = -220.7590758405 (fold@10.8844 | TINYSTEP), 40 iterations, width 2.0e-10
+   F_inf=0.1: C in (-100, -31.6228) TINYSTEP|S:fold -> C* = -31.76623893502 (TINYSTEP | fold@0.0595478), 41 iterations, width 3.1e-11
+   F_inf=0.1: C in (-31.6228, -10) S:fold|TINYSTEP -> C* = -16.84374967888 (fold@3.37121 | TINYSTEP), 41 iterations, width 9.8e-12
+   F_inf=0.1: C in (-1, 0) TINYSTEP|S:fold -> C* = -0.64389973998 (TINYSTEP | fold@0.0595478), 40 iterations, width 9.1e-13
+   F_inf=0.1: C in (3.16228, 10) S:fold|FLOOR:log -> C* = 4.344430630018 (fold@9.99999e-07 | FLOOR:log p0=6.873e-03), 41 iterations, width 3.1e-12
+   F_inf=0.1: C in (10, 31.6228) FLOOR:log|S:fold -> C* = 10.10686037065 (FLOOR:log p0=3.720e-03 | fold@2.8647), 41 iterations, width 9.8e-12
+[FAIL] bisect: 11 class changes along the lines of [0.1] bisected in C to relative width 1e-12; both ends keep their different labels and no end is THROUGH, NOSTART, STEPLIMIT, NONFINITE or TINYSTEP (THROUGH ends 0)
+  (304 s)
+[FAIL] independent: own Dormand-Prince 5(4) integration in mpmath (30 digits, relative tolerance 1e-13, F'' by Newton on the cubic; no Rust, no multishoot; shares N and the series with the crate) from the same start against the crate's state, relative |dF|, |dF'| <= 1e-8: (5,3000) from L=800 to eta = 20: relative |dF| 0.00042, |dF'| 0.23 (978 steps, 3 s)
+  (3 s)
+[FAIL] recip_check: a quad-double walk of (0.1, 3e4) to eta = 20 with every step halved (482 to 1059 steps) changes F and F' by a relative 0.86 (bar 1e-55); the control (--mutate=recip-dd, constants rounded to double-double) must exceed 1e-45
+  (14 s)
+[FAIL] step_halving: order 30, tol 1e-32 against order 36, tol 1e-38 (double-double) at 4 points: class and kind equal, eta* within 1e-10 max(1, eta*), p0 within 1e-10; worst relative eta* difference 4.1e-03; mismatches 3 [((0.25, 10000.0), 'eta* 63.4945883441 against 63.2321273018 (difference 2.6e-01)'), ((2.0, 1000000.0), 'eta* 136.964574252 against 137.240407336 (difference 2.8e-01)'), ((0.1, 10000.0), 'eta* 77.3804629321 against 77.1386617499 (difference 2.4e-01)')]
+  (4 s)
+
+checks: 5 passed, 11 failed ['plant_far', 'regress167', 'scan', 'spread', 'dd_qd', 'modes', 'closed_form', 'bisect', 'independent', 'recip_check', 'step_halving']. 2048 s
+control n-drift: target checks ['plant_far', 'regress167', 'scan', 'spread', 'dd_qd', 'modes', 'closed_form', 'bisect', 'independent', 'recip_check', 'step_halving'], failed ['plant_far', 'regress167', 'scan', 'spread', 'dd_qd', 'modes', 'closed_form', 'bisect', 'independent', 'recip_check', 'step_halving']

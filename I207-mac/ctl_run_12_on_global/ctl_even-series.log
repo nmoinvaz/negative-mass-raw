@@ -1,0 +1,5 @@
+[FAIL] even_pm1: even solution through F(0) = 1: F = 1 + 2/5 x^2 - 22/125 x^4 + 499499/5312500 x^6 - ... (exact rationals through x^60); N = 0 exactly through order 62: False; walks to 200 from x0 = 1/20 and 1/10 (series tails 8e-81, 9e-63) agree to 1e-12 in F and p: False; at 200 F = 3.02219997, p = eta F' = 0.165663, q/p^2 = -1.000051 (log-log regime, no limit): True
+  (3 s)
+
+checks: 0 passed, 1 failed ['even_pm1']. 3 s
+control even-series: target checks ['even_pm1'], fired ['even_pm1']

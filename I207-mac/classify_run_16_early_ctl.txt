@@ -1,0 +1,47 @@
+lines 68 against 70; differing lines: 15; (i) zero-token 3; (iii) fitted exponent 1; (ii) other 11
+note: line counts differ: 68 against 70 (lines are aligned by difflib before they are paired)
+(i) zero-token line 5:
+  base [PASS] plant_167: #167's planted cases through the same crate: matching (|C- - a|, |e|, |C+ - b|, nodes) linear: <err>, <err>, <err>, <err>, cubic: <err>, <err>, <err>, <err> (bars <err>, <err>); blowup: 8 walks, worst error <err>, worst bar <err> (1e-8), kinds right: True
+  run  [PASS] plant_167: #167's planted cases through the same crate: matching (|C- - a|, |e|, |C+ - b|, nodes) linear: <err>, <err>, <err>, <err>, cubic: <err>, <err>, <err>, <err> (bars <err>, <err>); blowup: 8 walks, worst error <err>, worst bar 0.0e+00 (1e-8), kinds right: True
+(i) zero-token line 7:
+  base [PASS] plant_far: planted equations started at x0 = 1e6 and walked inward by hp_walk with the locator: F'' = 2F^3 (pl6) and F F'' + F'^2 = 0 (pl7), x* = 0.7321, error and bar <= 1e-8; (1 + x^2) F'' + 4 x F' + 2 (F - 7/10) = 0 (pl4), exact alpha + (a + b x)/(1 + x^2): pl6 dd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 dd: x* error <err>, bar <err>, <n> steps from 1e6; pl4 dd: worst relative error of F, F', F'' at 1e3, 10, 1 <err> (bar <err>); pl6 qd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 qd: x* error <err>, bar <err>, <n> steps from 1e6; pl4 qd: worst relative error of F, F', F'' at 1e3, 10, 1 <err> (bar <err>)
+  run  [PASS] plant_far: planted equations started at x0 = 1e6 and walked inward by hp_walk with the locator: F'' = 2F^3 (pl6) and F F'' + F'^2 = 0 (pl7), x* = 0.7321, error and bar <= 1e-8; (1 + x^2) F'' + 4 x F' + 2 (F - 7/10) = 0 (pl4), exact alpha + (a + b x)/(1 + x^2): pl6 dd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 dd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl4 dd: worst relative error of F, F', F'' at 1e3, 10, 1 <err> (bar <err>); pl6 qd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 qd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl4 qd: worst relative error of F, F', F'' at 1e3, 10, 1 <err> (bar <err>)
+(i) zero-token line 47:
+  base [PASS] dd_qd: quad-double (kt 60, tol <err>) against double-double on 31 points (start radius >= 204800 and the 30 smallest and 30 largest eta*): class and kind equal, eta* within <err> max(1, eta*), FLOOR p0 within a relative <err>; worst relative eta* difference 0.0e+00; mismatches 0 []
+  run  [PASS] dd_qd: quad-double (kt 60, tol <err>) against double-double on 31 points (start radius >= 204800 and the 30 smallest and 30 largest eta*): class and kind equal, eta* within <err> max(1, eta*), FLOOR p0 within a relative <err>; worst relative eta* difference <err>; mismatches 0 []
+(iii) fitted exponent line 42:
+  base   F->0 points: 21, eta* from 1.282 to 1e+04; measured exponent against 2/(eta*^2 + 4): worst relative difference 2.9e-03
+  run    F->0 points: 21, eta* from 1.282 to 1e+04; measured exponent against 2/(eta*^2 + 4): worst relative difference <err>
+(ii) other line 9:
+  base [PASS] regress167: #167's 187 grid points through `offgrid` (hp walker, series tables of 8 parts) and through #167's `conical_global scan --rstop=1e-8` (both run here): class and kind equal and eta* within 1e-8 at 172 singular points (worst difference <err>); mismatches []
+  run  [FAIL] regress167: #167's 187 grid points through `offgrid` (hp walker, series tables of 8 parts) and through #167's `conical_global scan --rstop=1e-8` (both run here): class and kind equal and eta* within 1e-8 at 169 singular points (worst difference <err>); mismatches [((0.75, 300.0), 'FLOOR:log', 'NONFINITE'), ((1.0, 3000.0), 'S:F->0', 'NONFINITE'), ((-1.0, -3000.0), 'S:F->0', 'NONFINITE')]
+(ii) other line 11:
+  base [NOTE] scan_first_pass: the first pass (stop at R <= 1e-8 max(1, x)) and the pass of record (R <= <err> max(1, x)) differ at 2 of 31 points:
+  run  [NOTE] scan_first_pass: the first pass (stop at R <= 1e-8 max(1, x)) and the pass of record (R <= <err> max(1, x)) differ at 3 of 31 points:
+(ii) other line 14:
+  base (inserted)
+  run     F_inf=16 C=1e+08: first pass S:a3->0 at 15.96866047; record TINYSTEP at -
+(ii) other line 14:
+  base (inserted)
+  run    TINYSTEP points (1; the step fell below <err> |x|), from the last steps' (x, h, median Taylor radius of F'', sign changes of the last ten ratios):
+(ii) other line 14:
+  base (inserted)
+  run     F_inf=16 C=1e+08: shrinking; x_last 15.9686604735; last steps (15.96866047, <err>, <err>, 10) (15.96866047, <err>, <err>, 10) (15.96866047, <err>, <err>, 10) (15.96866047, <err>, <err>, 10)
+(ii) other line 16:
+  base   region C: 7 points, classes {'S:F->0': 6, 'S:a3->0': 1}; singular eta* from 15.62 to 2500
+  run    region C: 7 points, classes {'S:F->0': 6, 'TINYSTEP': 1}; singular eta* from 15.62 to 2500
+(ii) other line 23:
+  base    F_inf=16: -1e+08:F->0@2499.576479 -100000:F->0@71.22701017 -10000:F->0@15.62204114 0:F->0@15.78191794 10000:F->0@15.81421368 100000:F->0@15.86125434 1e+08:a3->0@15.96866047
+  run     F_inf=16: -1e+08:F->0@2499.576479 -100000:F->0@71.22701017 -10000:F->0@15.62204114 0:F->0@15.78191794 10000:F->0@15.81421368 100000:F->0@15.86125434 1e+08:TINYSTEP
+(ii) other line 37:
+  base   kappa-curve ends: 3 at R <= <err> and 5 at R <= 1e-8; by F_inf (points, C range, eta* range, sqrt(F_inf^2 - 1)):
+  run    kappa-curve ends: 2 at R <= <err> and 5 at R <= 1e-8; by F_inf (points, C range, eta* range, sqrt(F_inf^2 - 1)):
+(ii) other line 39:
+  base    F_inf=16: 1 points, C from 1e+08 to 1e+08, eta* from 15.96866 to 15.96866; sqrt(F_inf^2 - 1) = 15.968719
+  run  (deleted)
+(ii) other line 43:
+  base [PASS] scan: 31 points (ctl grid), classes {'S:F->0': 21, 'FLOOR:log': 7, 'S:a3->0': 3}; every point has a verdict (none NOSTART, STEPLIMIT, NONFINITE, TINYSTEP: True); start residual <= <err> at every start: True; every SINGULAR has a bar <= 1e-8 max(1, eta*): True (max bar <err>); THROUGH 0, GLOBAL 0; not classified []
+  run  [FAIL] scan: 31 points (ctl grid), classes {'S:F->0': 21, 'FLOOR:log': 7, 'S:a3->0': 2, 'TINYSTEP': 1}; every point has a verdict (none NOSTART, STEPLIMIT, NONFINITE, TINYSTEP: False); start residual <= <err> at every start: True; every SINGULAR has a bar <= 1e-8 max(1, eta*): True (max bar <err>); THROUGH 0, GLOBAL 0; not classified [((16.0, 100000000.0), 'TINYSTEP')]
+(ii) other line 67:
+  base checks: 16 passed, 0 failed []. <t> s
+  run  checks: 14 passed, 2 failed ['regress167', 'scan']. <t> s

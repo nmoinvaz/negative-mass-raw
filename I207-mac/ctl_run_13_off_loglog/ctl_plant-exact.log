@@ -1,0 +1,5 @@
+[FAIL] plant_loglog: q + p^2 = 0 from eta = 2 (T = 13/10, g = 7/10) to 1e12, error of F, F', F'' at 200, 1e3, 1e6, 1e9, 1e12: dd project: worst 3.9e-04 (bar 1e-26), 407 steps; dd conserve: worst 3.9e-04 (bar 1e-26), 407 steps; qd project: worst 3.9e-04 (bar 1e-55), 372 steps; qd conserve: worst 3.9e-04 (bar 1e-55), 372 steps; od project: worst 3.9e-04 (bar 1e-115), 327 steps; od conserve: worst 3.9e-04 (bar 1e-115), 327 steps; verdict LOGLOG
+  (6 s)
+
+checks: 0 passed, 1 failed ['plant_loglog']. 6 s
+control plant-exact: target checks ['plant_loglog'], fired ['plant_loglog']

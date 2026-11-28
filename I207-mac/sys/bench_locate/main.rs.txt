@@ -1,0 +1,36 @@
+use multidouble::dd::DD;
+use multidouble::od::OD;
+use multidouble::qd::QD;
+use multisolver::locate::{locate, Opts, Real};
+use std::time::Instant;
+
+// (1 - u/2)^(-0.3) dressed: coefficients of a real singularity at s = 2 (scaled radius ~ 1 after 2^k)
+fn series<T: Real>(k: usize, s: f64, alpha: f64) -> Vec<T> {
+    let mut c = vec![T::from_f64(1.0)];
+    for j in 1..=k {
+        // binom(alpha, j) (-1/s)^j via ratio (alpha - j + 1)/j * (-1/s)
+        let r = T::from_f64(alpha - j as f64 + 1.0) / T::from_f64(j as f64) * T::from_f64(-1.0 / s);
+        let prev = c[j - 1];
+        c.push(prev * r);
+    }
+    c
+}
+
+fn run<T: Real>(name: &str, k: usize, reps: usize) {
+    let c = series::<T>(k, 2.0, -0.3);
+    let o = Opts::default();
+    let t = Instant::now();
+    let mut kinds = String::new();
+    for _ in 0..reps {
+        let l = locate(&c, &o).unwrap();
+        kinds = format!("{:?} s={} bar={:e} cell=({},{}) {:?}", l.kind, l.nearest.re.to_f64(), l.nearest.bar, l.first, l.degree, l.model);
+    }
+    println!("{name} K={k}: {:.2} ms per locate; {kinds}", t.elapsed().as_secs_f64() * 1e3 / reps as f64);
+}
+
+fn main() {
+    run::<f64>("f64", 30, 50);
+    run::<DD>("DD", 30, 20);
+    run::<QD>("QD", 60, 5);
+    run::<OD>("OD", 120, 2);
+}

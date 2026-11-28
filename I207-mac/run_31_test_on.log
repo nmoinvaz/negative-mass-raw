@@ -1,0 +1,14 @@
+# run_31_test_on: 2026-11-28T09:09:51Z machine Nathans-MacBook-Air-M5-3 load  5.60 5.47 5.24  threads 2 nice 10
+# crate dir /Users/nathan/Source/negative-mass-i207/notes/warp/conical_global; target /Users/nathan/Source/negative-mass-i207-target/test; args --features=locate_lib; worktree 2abf1ee, 1 changed paths under the crate
+   Compiling conical_global v0.1.0 (/Users/nathan/Source/negative-mass-i207/notes/warp/conical_global)
+    Finished `release` profile [optimized] target(s) in 0.90s
+     Running unittests src/lib.rs (/Users/nathan/Source/negative-mass-i207-target/test/release/deps/conical_global-e7acd36b64282724)
+
+running 3 tests
+test loc::tests::pow2_near_rounds_on_the_log_scale ... ok
+test loc::tests::scaling_is_exact ... ok
+test hp::tests::newton_sqrt ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+exit 0
