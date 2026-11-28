@@ -1,0 +1,75 @@
+# run_13_clippy_single_1: 2026-11-28T02:50:37Z machine Nathans-MacBook-Air-M5-3 load  16.48 18.01 19.86  threads 2 nice 10; clippy 0.1.94 (4a4ef493e3 2026-03-02)
+# crate dir /Users/nathan/Source/negative-mass-i216/notes/warp/conical_global; target /Users/nathan/Source/negative-mass-i216-target/clippy_single; args 
+   Compiling crossbeam-utils v0.8.23
+   Compiling crossbeam-epoch v0.9.21
+   Compiling crossbeam-deque v0.8.8
+   Compiling rayon-core v1.13.0
+    Checking either v1.19.0
+    Checking rayon v1.12.0
+    Checking multidouble v6.1.0
+    Checking multisolver v0.3.0
+    Checking multishoot v5.0.0
+    Checking conical_global v0.1.0 (/Users/nathan/Source/negative-mass-i216/notes/warp/conical_global)
+error: the loop variable `f` is used to index `s`
+  --> src/connect.rs:51:18
+   |
+51 |         for f in 0..3 {
+   |                  ^^^^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.94.0/index.html#needless_range_loop
+   = note: `-D clippy::needless-range-loop` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::needless_range_loop)]`
+help: consider using an iterator and enumerate()
+   |
+51 -         for f in 0..3 {
+51 +         for (f, <item>) in s.iter().enumerate().take(3) {
+   |
+
+error: very complex type used. Consider factoring parts into `type` definitions
+  --> src/hp.rs:53:22
+   |
+53 |         let mut map: BTreeMap<(usize, usize, usize), Vec<(usize, i64, i64)>> = BTreeMap::new();
+   |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.94.0/index.html#type_complexity
+   = note: `-D clippy::type-complexity` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::type_complexity)]`
+
+error: very complex type used. Consider factoring parts into `type` definitions
+   --> src/hp.rs:121:13
+    |
+121 |     groups: Vec<(usize, usize, usize, Vec<(usize, Sc<P>)>)>,
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.94.0/index.html#type_complexity
+
+error: the loop variable `lk` is used to index `LS`
+   --> src/offgrid.rs:167:15
+    |
+167 |     for lk in 0..LS.len() {
+    |               ^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.94.0/index.html#needless_range_loop
+help: consider using an iterator and enumerate()
+    |
+167 -     for lk in 0..LS.len() {
+167 +     for (lk, <item>) in LS.iter().enumerate() {
+    |
+
+error: the loop variable `k` is only used to index `a`
+  --> src/walk.rs:94:22
+   |
+94 |             for k in c..3 {
+   |                      ^^^^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.94.0/index.html#needless_range_loop
+help: consider using an iterator
+   |
+94 -             for k in c..3 {
+94 +             for <item> in a.iter_mut().skip(c) {
+   |
+
+error: could not compile `conical_global` (lib) due to 5 previous errors
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `conical_global` (lib test) due to 5 previous errors
+exit 101

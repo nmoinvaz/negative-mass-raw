@@ -135,3 +135,78 @@ Result: C1 met and C2 met in every run, with the comparator unchanged. No eta*, 
   `run_07`: 1.9e-29 against 3.4e-30). Multidouble 6's reciprocals are a candidate cause in the `off` arm, whose code is
   unchanged; this was not isolated (multishoot 5.0.0 does not build against multidouble 5.1.0).
 - Not run: `+avx2,+fma`, other machines, `conical_offgrid.py` without `--grid=ctl`.
+
+### S2 Step 2 (one path): runs 11 to 23, commits 5e6696d, b595461 and ab7c76c of `wip/i216-conical-release`
+
+Code: `poly.rs` and `hp.rs` lose the crate's own recursion (`Cx`, `shifted`, `taylor_p`, `recips`, `plan_h`, `horner_p`, `estimate_hp`)
+and walk (`hp_walk`), and `poly_lib.rs` and `hp_lib.rs` are folded into them (`PolyNSrc`, `implicit_taylor`; `W<P>`, `PolyQSrc`,
+`hp_walk`); what other modules use stays (`PolyN`, `abs_dd`; `PolyQ`, `EvalS`, `HpCfg`, `HpOut`, `Stop`, the lane helpers,
+`n_rel_of`, `w_rel_of`). The `implicit_lib` feature, its `cfg` gates and `lib.rs`'s `allow` are removed; multishoot's `mutate`
+feature is now a dependency feature, because the controls `n-drift` and `recip-dd` need `ImplicitControl::SkipOrder` and `RecipDD`.
+The three scripts are unchanged (their build line `cargo build --release -j 2` builds the one path; nothing forced an edit).
+Net: 11 files, +288 -902 lines (`git diff --stat 1b44c49 HEAD -- notes/warp/conical_global`).
+
+Clippy (`cargo clippy --all-targets -- -D warnings`, C4), with the runs of record and the runs that failed, all kept:
+
+| run | tree | result |
+|---|---|---|
+| `run_12_clippy_step1_off` | 8e081f1, feature off | **NOT MET**: 11 errors in the lib (6 in the recursion and the walk that step 2 deletes, 5 in code that stays) |
+| `run_21_clippy_step1_on` | 8e081f1, `--features implicit_lib` | **NOT MET**: the same 11 errors |
+| `run_13_clippy_single_1` | step 2 before the lint fixes | **NOT MET**: 5 errors in the lib (2 `type_complexity` in `hp.rs`, index loops in `connect.rs`, `offgrid.rs`, `walk.rs`) |
+| `run_14_clippy_single_2` | the 5 fixed | **NOT MET**: 2 index loops in `main.rs`, found once the lib passed |
+| `run_15_clippy_single_3` | all fixed, uncommitted | met |
+| `run_22_clippy_single_final` | b595461, run as quoted in the crate README from `notes/warp/conical_global` | met, exit 0 |
+
+The lints were all there before this task (no clippy had run on the crate with `-D warnings`). The fixes are index loops to
+iterators, two type aliases, an unused import and an unused variable; the runs below ran on the fixed tree.
+
+Builds: `run_11_build_single` (the fold, before the lint fixes; the log's first line says
+`run_11_build_single_failed1`, a name I gave before the build, which passed; the log and the rc file are renamed, the line is not edited)
+and `run_16_build_single_2` (b595461), the build of the four runs. `run_16` builds with no warning; `run_11` built with the two warnings of `main.rs` that the lint fixes remove.
+
+| run | exit | checks | controls | gated differences (lines, eta*, class, kind) | error-sized numbers differing as printed | wall (s) | max RSS (MB) | load at start |
+|---|---|---|---|---|---|---|---|---|
+| run_17_single_offgrid_ctl | 0 | 16 passed, 0 failed | - | 0 in the log; 0 of 537 eta* differ, largest relative difference 2.45e-15 | 5 of 77 | 127 | 71 | 15.12 17.11 19.30 |
+| run_18_single_offgrid_ctrl | 0 | - | 2 fired; all fired on target only | 0 in the log | 0 of 0 | 507 | 77 | 13.60 16.37 18.74 |
+| run_19_single_loglog | 0 | 20 passed, 0 failed | 17 fired; all fired on target only | 0 in the log | 206 of 490 | 1209 | 99 | 26.17 17.94 17.83 |
+| run_20_single_global | 0 | 17 passed, 0 failed | 13 fired; all fired on target only | 0 in the log | 4 of 95 | 1952 | 177 | 19.06 21.19 20.49 |
+
+All four runs used the same three binaries (`arm_run_17..20_*.sha256`). Comparisons (`sys/compare_run.py`, `compare_outputs.py`
+unchanged): against #190's baseline, `cmp_run_17_vs_baseline.txt`, `cmp_run_18_vs_baseline.txt`, `cmp_run_19_vs_baseline.txt`,
+`cmp_run_20_vs_baseline.txt`, and `cmp_ctl_dirs_step2.txt` (each control's own log and exit code: 13, 17, 2 equal); against the
+feature-on arm of step 1 on this machine, `cmp_run_17_vs_run_04.txt`, `cmp_run_18_vs_run_06.txt`, `cmp_run_19_vs_run_08.txt`,
+`cmp_run_20_vs_run_10.txt`: no gated difference, no error-sized number differs as printed, 537 eta* equal bit for bit, 0 records
+with another step count. `run_23_single_offgrid_ctl_aswritten` runs the crate README's `ctl` command as quoted, with the script's
+own build (`cargo build --release -j 2`, default features): 16 of 16, the rebuilt `offgrid` has the sha256 of the arm's, and
+`cmp_run_23_vs_baseline.txt` is as `run_17`.
+
+C3: `check_cargo.py` on the final `Cargo.toml` and `Cargo.lock` (`check_cargo_final.log`): multishoot =5.0.0 (feature `mutate`),
+multisolver =0.3.0, multidouble =6.1.0, all registry sources, no git, path or absolute path: met. The check fails on the `Cargo.toml`
+and `Cargo.lock` of main 1b44c49 (`check_cargo_mutation_01.log`: the git pin to eaf55a8 is found three ways).
+
+### Amendments
+
+- The commit message of b595461 says four index loops; five were changed (`connect.rs`, `offgrid.rs`, `walk.rs`, two in `main.rs`).
+  The commit is pushed and not amended. The crate README states the count.
+- The first fold of `poly_lib.rs` into `poly.rs` failed on a quoting error of my script, and the `git rm` and `mv` that followed
+  ran anyway; `poly_lib.rs` was restored from HEAD before any further edit (`cmp` against the moved copy: identical). No run used that
+  state.
+- `sys/compare_run.py` was written before the first run (`run_03`). `sys/summarize.py` and `sys/compare_ctl_dirs.sh` were written
+  after the step 1 runs, from their files; they tabulate and compare each control's log with the same `compare_outputs.py`, which was
+  not changed.
+
+## Result (criteria against outcomes)
+
+| criterion | outcome |
+|---|---|
+| C1 the three scripts pass their checks and controls as in #190 | **met** in 12 of 12 runs: `ctl` 16 of 16 (off, on, one path), its controls `n-drift` and `recip-dd` fired on target only, `conical_loglog.py` 20 of 20 and 17 of 17, `conical_global.py` 17 of 17 and 13 of 13, all exit 0 |
+| C2 every eta*, class and kind equals #190's baseline | **met**: 0 gated differences in 12 runs; 537 eta* equal (off: bit for bit; on and one path: largest relative difference 2.45e-15, #190's number); every class, kind, stop, tiny_kind, through, converged equal; each control's own log equal. Error-sized numbers that differ as printed are listed in S1 and each check passes its bar |
+| C3 `Cargo.toml` names released versions, no git pin | **met** (`check_cargo_final.log`; the check fires on 1b44c49) |
+| C4 `cargo clippy` clean on the crate | **met on the one path** (`run_22`); **not met at step 1** (11 errors, `run_12`, `run_21`), where the crate had never been linted |
+
+Not run: `+avx2,+fma`, another operating system or machine than this Mac, `conical_offgrid.py` without `--grid=ctl`, and the
+cause of the differing error-sized numbers of the `off` arm (not isolated).
+
+Runs: `run_01` to `run_23` (builds 01, 02, 11, 16; clippy 12 to 15, 21, 22; scripts 03 to 10, 17 to 20, 23), every log kept, none
+overwritten; failed runs are `run_02_build_on_failed1`, `run_12`, `run_13`, `run_14`, `run_21`. Queues: `sys/jobs_1.txt`,
+`jobs_2.txt`, `jobs_3.txt`. Timings and the load at each start are in `step1_table.md` and `step2_table.md`.
