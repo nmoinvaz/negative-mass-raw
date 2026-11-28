@@ -96,3 +96,23 @@ Effects of the controls, computed in development runs before the runs of record:
 ## Runs of record
 
 Two lanes of one process each: lane A the odd-numbered boxes of the table above, lane B the even-numbered, then the controls. Order in `runs.txt`.
+
+## Effects of the controls, computed in development runs before the runs of record (declared after them)
+
+`dev_06_ctl_counter` (log, 167 s) and `dev_07_ctl_eval` (152 s) ran each control on five boxes: p7603_l2 and c075_l2 (symmetric, eps = -1 and +1), n3_l2 and h1_l2
+(upper boxes), s1_l6 (l = 6, R_s 1293). Each box's unmutated numbers are in the same logs (the crate evaluations are the same). Every control fired on every box it applies to.
+
+| control | effect on the five dev boxes (p7603_l2, c075_l2, n3_l2, h1_l2, s1_l6) |
+|---|---|
+| `reverse` | planted difference -2.0000, -2.0000, -1.0000, -1.0000, -2.0000 against +2, +2, +1, +1, +2 (crate and stored counts alike); windings stay 0 |
+| `wrongdouble` | +1.0000, +1.0000, +2.0000, +2.0000, +1.0000 against +2, +2, +1, +1, +2 |
+| `misplant` | 0.0000 (the planted zero outside the box) on all five, against the expectation; the counter asks 2 to 32 points the stored cache lacks |
+| `onesided` | symmetric boxes +1.7195, +1.7195, +1.9123 (p7603_l2, c075_l2, s1_l6) against +2; **identity in an upper box** (n3_l2, h1_l2 unchanged, n/a) |
+| `jsign` | phase against the stored values 2.30, 2.08, 3.14, 2.58, 3.12 rad (modulus 0.97, 0.97, 2.3, 0.33, 1.3): 10 E of 21 to 31 against margins of 5.2e-5 to 6.8e-3 |
+| `star_eps` | phase 2.63, (c075_l2: the crate stops, the flipped-eps star does not solve: "more than 200000 Taylor steps"; counted as fired), 2.89, 2.98, 3.11 rad |
+| `rs_shift` | phase 2.92, 2.64, **6.1e-3**, 1.97, 3.06 rad (modulus at most 2e-8): on n3_l2 the effect is 6.1e-3 rad against that box's margin 6.8e-3 (10 E = 6.1e-2), so the control fires there by a factor 9 only |
+| `strip_off` | phase 2.71, 2.80, 2.95, 2.50, 1.97 rad (modulus 4e-10 to 2e-8 unchanged) |
+| `kmin_shift` | R_s 401.1, 400.6, 309.1, 415.8, 1280.6 against the logs' 404.9, 404.4, 312.0, 419.7, 1293.2 |
+
+Observed in the same development runs, before any run of record: the unmutated crate on these five boxes asks exactly the stored points (n3_l2 and h1_l2 as well), and the smallest margin
+of the five is 5.15e-5 rad (s1_l6), against 10 E >= 3.1e-5.
