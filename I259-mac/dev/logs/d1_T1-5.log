@@ -1,0 +1,6 @@
+[pass] T1: background identity (mu s r_Pi)' = mu E (1/r - V r), relative, 8 points of 0.05 <= s <= 100  (c = -1.0: 6.5e-11; c = -1.5: 2.8e-10)
+        (T1 0 s)
+[FAIL] T2: rho-form p, q against the chart's P, Q (8 points); Theta and dm in rho against the s-form on a homogeneous solution (6 points); the closed-form tail against the ODE; Theta conserved on [rho(1.05), 1e8]  (p 1.4e-13, q 7.0e-12, Theta 1.7e-12, dm 2.4e-13; closed form 8.0e+00; conservation 3.1e-13)
+        (T2 0 s)
+[FAIL] T3: Theta_gen vanishes on exact pure gauge L_xi(member), dF != 0, s = -3 ... 10 (finite-difference jets, step 1e-3), |Theta|/|dr|  (c = -1.0: 3.4e-09; c = -1.5: 5.0e-11; Theta without the dF term: 7.3e+00)
+        (T3 0 s)
