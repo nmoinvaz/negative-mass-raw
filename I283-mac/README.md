@@ -166,4 +166,17 @@ For P2 and P3 the coefficient mutations (coef_a, coef_c, no_rscale) newly fail o
 
 ## Changes made after this README
 
-(none yet)
+Everything above this line stands as committed (77a21028); nothing in the criteria, the bars, the points or the mutation targets was changed after the first run of record. What was added after it:
+
+1. Two post hoc prints in `settled_mass_route.py` (the split of P2's miss into the speed term and the shift of (a, b), and M − P3 against r_th's separation from family B's), added after the runs of record; they gate nothing.
+2. The division in the second print crashed the mutation `sep_self` on the runs of record (zero separation): the print was guarded and the mutation rerun (`mut/sep_self.log` crashed, `mut/sep_self.2.log` MATCH).
+3. Print formats: the member table prints ṙ_th to four digits (it printed five decimals), and the supplement's header no longer says "a few 1e-15".
+4. **A correction to this README**: the supplement's second bisection gives the same p*ₕ to **4.3e-14** at most (the floor of p*ₕ, #267's 3e-14), not "a few 1e-15" as written above; and the SEP separations are at least 5e3 (r_th) and 1e3 (ṙ_th) times their h differences, not 6e3.
+
+## Results (the runs of record)
+
+- 14 jobs (`jobs_rec.txt`, `rec_lane0.log`, `rec_lane1.log`), all exit 0, 29 to 120 s each; `runs/`. The analysis of record: `analyze_record.3.log` (= the repository's `settled_mass_route_output.txt`, the final one); `analyze_record.log`, `.1.log`, `.2.log` are earlier runs of the same
+  analysis before the print changes above (the mutations' baseline is `analyze_record.log`: the same [FAIL] lines), exit 1. 32 checks, 22 gating, 3 gating checks fail (HST at W1, P2, P3 at W3) and P2-ph, as the development set did; the records equal it bit for bit (`diff` of the two analyses: the path only).
+- The supplement `runs_rn/` (`jobs_rn.txt`, `rn_lane*.log`): six jobs at h = 0.005, p*ₕ differs from the record's by up to 4.3e-14, M by up to 2.1e-6, W3's P3 residual is +7.3e-5 against +7.1e-5.
+- The 26 mutations on the runs of record: `mut/<name>.log` (+ `.err`, `.rc`; `mut_lane*.log` the progress), `--baseline=analyze_record.log`: all MATCH their declared sets (the lane logs truncate the line at 300 characters; read MATCH in each `.log`).
+- Figure: `settled_mass_route.svg`, drawn by `notes/wormhole_evolution/settled_mass_route_graph.py` of the repository from this folder.
