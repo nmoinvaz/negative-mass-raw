@@ -1,0 +1,4 @@
+[FAIL] K1a: I0 = int_0^oo 2K r e^{-2H} / (A R^2) dr (H from rho = 1e-4, DOP853 1e-13) equals #262's 1.0149036099284089 to 1e-8 relative  (I0 = 2.08842652491e+217, relative 2.1e+217)
+[FAIL] K1b: Y_ref = R e^{kappa x} and Y_b = Y_ref J solve #262's equation Y'' = P Y' + Q Y at W = kappa (rho = -0.8 ... 5): residual over the size of its terms <= 1e-9  (Y_ref 2.8e-16, Y_b 5.0e-01)
+[FAIL] K1c: Y_inf / Y_ref = 1 - J(rho) / I0 is the outgoing solution: <= 1e-6 at rho = 20  (1.00e+00)
+derive: 0 of 3 pass (8 s)

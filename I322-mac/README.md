@@ -103,3 +103,11 @@ Code of record: `notes/black_universe/remainder.py` at commit 50e1d53 of `wip/i3
 three h each, about 280 s per item), then `derive`, `check`, `table` and `dump OUT/series` in one process; `run_mut.sh OUT PREFIX` runs the 14 mutations on the cache (`k_W`, `k_J` with `derive`, the other twelve with `check`); `remainder.py mutations OUT PREFIX` compares
 the fired sets with the declared ones. `cache/` (the readouts of the evolved rectangles, 0.9 GB) stays on the Mac and is not committed; `warm` regenerates it in about 35 min, and `runs/series/series_<name>.npz` holds the Richardson series of every datum.
 Stop condition: a single run not finished in 2 h of wall time is stopped and reported (the pilot of the hardest case, A0 at h = 0.0003125, took 213 s in development). Nothing stops on memory. Logs are numbered, never overwritten.
+
+## Results of record (added after the runs; the criteria above are unchanged)
+
+`runs/r1` (code 50e1d53): `warmA` 1837 s and `warmB` 2045 s (two processes, exit 0), `derive` 3 of 3 (8 s), `check` 7 of 7 (9 s, 1.2 GB peak), `table`, `dump` (exit 0); `mut/` 14 mutation runs (all exit 1 as a fired check does), `mutations.log`: 14 of 14 fired sets equal the declared ones.
+The first report of `mutations` ran while the last two mutation runs were unfinished (g_nophi, f0_W then showed as different or missing); it was rerun after `mut_ALLDONE`.
+Result: Y_rem grows at κ with a/c₂ = −J/I₀ to 4.3e-4 for the 11 data with c₂ ≠ 0; the independent horizon readout gives A/(c₂G₀/I₀) = 0.99918 … 1.00006; c₂ = 0 data (R, Rb) do not grow (α = −0.07 … +0.10). Note: `notes/black_universe/remainder.md`.
+Counts: the 11 data with c₂ ≠ 0 are A0, A1R, A1L, L, G, Lm, Gb and rand0 … rand3 (an earlier comment on the issue said 12).
+`runs/r1/series/series_<name>.npz` are the Richardson series; the cache of readouts (0.9 GB) stays on the Mac.
