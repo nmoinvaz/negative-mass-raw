@@ -1,0 +1,8 @@
+# 2026-11-27 12:16:50 cwd=/Users/nathan/Source/negative-mass-raw/I188-mac
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python /Users/nathan/Source/negative-mass-i188/phase2/nonradial/taylor_polar.py --complex --mutate=bilinear --raw=/Users/nathan/Source/negative-mass-raw --only=P1C
+# taylor_polar.py --complex: start 2026-11-27 12:16:50, load average 5.59, one process, nice 10; lane dd; mutate = bilinear
+CHECK P1C: FAIL  raised RuntimeError: /Users/nathan/Source/negative-mass-i188/phase2/nonradial/taylor_polar/target/complex/release/taylor_polar cp1 lane=f64 cx=1 x=12.0 f=7.0,-3.0,5.0,-11.0 mutate=bilinear exited 101: 
+thread '<unnamed>' (105691230) panicked at src/complex.rs:138:9:
+Cx::ln only of a positive real number (the R diagonal)
+SUMMARY: 0 passed, 1 failed, 0 skipped of 1 checks; failed: P1C; mutate = bilinear; 0 s
+CONTROL bilinear: every targeted check failed, as it must

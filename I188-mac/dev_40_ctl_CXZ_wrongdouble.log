@@ -1,0 +1,6 @@
+# 2026-11-27 12:27:44 cwd=/Users/nathan/Source/negative-mass-raw/I188-mac
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python /Users/nathan/Source/negative-mass-i188/phase2/nonradial/taylor_polar.py --complex --mutate=wrongdouble --only=CXZ --raw=/Users/nathan/Source/negative-mass-raw
+# taylor_polar.py --complex: start 2026-11-27 12:27:44, load average 5.74, one process, nice 10; lane dd; mutate = wrongdouble
+CHECK CXZ: FAIL  planted determinant, dd, L = 2.0, Lz = 2.0, zeros at 0.75 +- 0.5i; J equal to the crate's: True; D against mpmath expm at 20 contour points: worst |D/D_exact - 1| / (eps max(1, ln growth)) = 1.80e+01 (bar 10000); box Re s in [0.2, 1.2]: winding +1.0000 (planted 2), max step 0.27; box Re s in [1.3, 2.0]: winding +0.0000 (planted 0), max step 0.23
+SUMMARY: 0 passed, 1 failed, 0 skipped of 1 checks; failed: CXZ; mutate = wrongdouble; 1 s
+CONTROL wrongdouble: NOT FIRED on W0, CX2

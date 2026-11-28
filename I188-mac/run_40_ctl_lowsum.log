@@ -1,0 +1,8 @@
+# 2026-11-27 13:47:25 cwd=/Users/nathan/Source/negative-mass-i188/phase2/nonradial load=11.64 19.13 16.43
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python -u taylor_polar.py --complex --raw=/Users/nathan/Source/negative-mass-raw --ref-dir=/Users/nathan/Source/negative-mass-raw/I188-mac/ref --jsonl-dir=/Users/nathan/Source/negative-mass-raw/I188-mac/jsonl_rec --mutate=lowsum
+# taylor_polar.py --complex: start 2026-11-27 13:47:25, load average 11.64, one process, nice 10; lane dd; mutate = lowsum
+CHECK L1C: FAIL  raised RuntimeError: /Users/nathan/Source/negative-mass-i188/phase2/nonradial/taylor_polar/target/complex/release/taylor_polar dc lane=qd l=2 rsfix=404.8501936481817 re=0.1,2.0,0.1 im=1.7578125,2.5,0.5 omega=0.7603 eps=-1 exited 101: 
+thread '<unnamed>' (106114669) panicked at src/plane.rs:133:13:
+integrate: more than 1
+SUMMARY: 0 passed, 1 failed, 0 skipped of 1 checks; failed: L1C; mutate = lowsum; 179 s
+CONTROL lowsum: every targeted check failed, as it must

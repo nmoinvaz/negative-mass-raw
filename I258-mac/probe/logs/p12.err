@@ -1,0 +1,4 @@
+/Users/nathan/Source/negative-mass-raw/I258-mac/probe/p12.py:38: RuntimeWarning: divide by zero encountered in scalar divide
+  errs.append(np.max(np.abs(H - exact)) / np.max(np.abs(exact)))
+/Users/nathan/Source/negative-mass-raw/I258-mac/probe/p12.py:41: RuntimeWarning: invalid value encountered in scalar divide
+  out['ratio'] = [errs[k]/errs[k+1] for k in range(len(errs)-1)]

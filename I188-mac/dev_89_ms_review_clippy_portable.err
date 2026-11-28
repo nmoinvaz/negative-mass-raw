@@ -1,0 +1,55 @@
+    Checking multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i188-libs/multishoot)
+error: the use of negated comparison operators on partially ordered types produces code that is hard to read and refactor, please consider using the `partial_cmp` method instead, to make it clear that the two values could be incomparable
+   --> tests/plane_complex.rs:354:8
+    |
+354 |     if !(o.plane <= 1e4 * eps) {
+    |        ^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.94.0/index.html#neg_cmp_op_on_partial_ord
+    = note: `-D clippy::neg-cmp-op-on-partial-ord` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::neg_cmp_op_on_partial_ord)]`
+
+error: the use of negated comparison operators on partially ordered types produces code that is hard to read and refactor, please consider using the `partial_cmp` method instead, to make it clear that the two values could be incomparable
+   --> tests/plane_complex.rs:357:8
+    |
+357 |     if !(o.gauge <= 1e4 * eps) {
+    |        ^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.94.0/index.html#neg_cmp_op_on_partial_ord
+
+error: the use of negated comparison operators on partially ordered types produces code that is hard to read and refactor, please consider using the `partial_cmp` method instead, to make it clear that the two values could be incomparable
+   --> tests/plane_complex.rs:360:8
+    |
+360 |     if !(o.ln_err <= o.ln_bar) {
+    |        ^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.94.0/index.html#neg_cmp_op_on_partial_ord
+
+error: the use of negated comparison operators on partially ordered types produces code that is hard to read and refactor, please consider using the `partial_cmp` method instead, to make it clear that the two values could be incomparable
+   --> tests/plane_complex.rs:366:8
+    |
+366 |     if !(o.phase <= 1e4 * eps) {
+    |        ^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.94.0/index.html#neg_cmp_op_on_partial_ord
+
+error: the use of negated comparison operators on partially ordered types produces code that is hard to read and refactor, please consider using the `partial_cmp` method instead, to make it clear that the two values could be incomparable
+   --> tests/plane_complex.rs:369:8
+    |
+369 |     if !(o.orth <= 1e2 * eps) {
+    |        ^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.94.0/index.html#neg_cmp_op_on_partial_ord
+
+error: very complex type used. Consider factoring parts into `type` definitions
+   --> tests/plane_complex.rs:489:16
+    |
+489 |     let cases: [(&str, fn(&mut Out, f64)); 6] = [
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.94.0/index.html#type_complexity
+    = note: `-D clippy::type-complexity` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::type_complexity)]`
+
+error: could not compile `multishoot` (test "plane_complex") due to 6 previous errors
+warning: build failed, waiting for other jobs to finish...

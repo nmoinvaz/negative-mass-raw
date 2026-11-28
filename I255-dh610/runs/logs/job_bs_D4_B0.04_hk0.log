@@ -1,0 +1,55 @@
+throat_drift.py bisect_stall {'D': '4', 'B': '0.04', 'hk': '0', 'out': '/home/nathan/Source/negative-mass-raw/I255-dh610/runs'}: numba 0.68.1, numpy 2.5.4, python 3.14.10, dh610-fedora, load average at start 12.27 14.07 16.74, mutation None, 2026-11-27 14:21:19
+  bisect run 1: A = 7.173966514032053e-04 fate -1 T 5.204305909532989 (cap 18.3, 0 s)
+  bisect run 2: A = 7.173966514032053e-03 fate 1 T 9.149961748553924 (cap 18.3, 1 s)
+  bisect run 3: A = 7.173966514032053e-04 fate -1 T 5.204305909532989 (cap 18.3, 1 s)
+  bisect run 4: A = 7.173966514032053e-03 fate 1 T 9.149961748553924 (cap 18.3, 1 s)
+  bisect run 5: A = 3.945681582717629e-03 fate 1 T 10.11162697096763 (cap 18.3, 1 s)
+  bisect run 6: A = 2.331539117060417e-03 fate -1 T 8.867119036079306 (cap 18.9, 1 s)
+  bisect run 7: A = 3.138610349889023e-03 fate 1 T 10.705596667164329 (cap 19.4, 2 s)
+  bisect run 8: A = 2.735074733474720e-03 fate 1 T 11.356134905855951 (cap 20.0, 2 s)
+  bisect run 9: A = 2.533306925267568e-03 fate 1 T 12.006673144547577 (cap 20.6, 2 s)
+  bisect run 10: A = 2.432423021163993e-03 fate 1 T 12.770348468229047 (cap 21.2, 2 s)
+  bisect run 11: A = 2.381981069112205e-03 fate 1 T 13.901719318127524 (cap 21.8, 3 s)
+  bisect run 12: A = 2.356760093086311e-03 fate -1 T 10.12576910659136 (cap 22.4, 3 s)
+  bisect run 13: A = 2.369370581099258e-03 fate 1 T 14.891668811788689 (cap 23.0, 3 s)
+  bisect run 14: A = 2.363065337092784e-03 fate -1 T 12.006673144547577 (cap 23.5, 4 s)
+  bisect run 15: A = 2.366217959096021e-03 fate 1 T 15.598775592975237 (cap 24.1, 4 s)
+  bisect run 16: A = 2.364641648094403e-03 fate 1 T 16.447303730399096 (cap 24.7, 5 s)
+  bisect run 17: A = 2.363853492593593e-03 fate 1 T 18.17264427649427 (cap 25.3, 5 s)
+  bisect run 18: A = 2.363459414843189e-03 fate -1 T 12.727922061357855 (cap 25.9, 5 s)
+  bisect run 19: A = 2.363656453718391e-03 fate -1 T 13.788582233137676 (cap 26.5, 6 s)
+  bisect run 20: A = 2.363754973155992e-03 fate 1 T 19.756563466352137 (cap 27.1, 6 s)
+  bisect run 21: A = 2.363705713437192e-03 fate -1 T 14.707821048680188 (cap 27.6, 7 s)
+  bisect run 22: A = 2.363730343296592e-03 fate -1 T 15.96647111919224 (cap 28.2, 7 s)
+  bisect run 23: A = 2.363742658226292e-03 fate 1 T 20.71822868876584 (cap 28.8, 8 s)
+  bisect run 24: A = 2.363736500761442e-03 fate -1 T 18.51205553146381 (cap 29.4, 8 s)
+  bisect run 25: A = 2.363739579493867e-03 fate 1 T 21.340482656210003 (cap 30.0, 9 s)
+  bisect run 26: A = 2.363738040127654e-03 fate 1 T 22.01930516614909 (cap 30.6, 10 s)
+  bisect run 27: A = 2.363737270444548e-03 fate 1 T 22.839549032325483 (cap 31.2, 11 s)
+  bisect run 28: A = 2.363736885602995e-03 fate 1 T 24.310331137193504 (cap 31.8, 11 s)
+  bisect run 29: A = 2.363736693182219e-03 fate -1 T 19.318157262016477 (cap 32.3, 12 s)
+  bisect run 30: A = 2.363736789392607e-03 fate -1 T 21.184919164348962 (cap 32.9, 12 s)
+  bisect run 31: A = 2.363736837497801e-03 fate 1 T 25.074006460874973 (cap 33.5, 13 s)
+  bisect run 32: A = 2.363736813445204e-03 fate 1 T 26.120524497031063 (cap 34.1, 14 s)
+  bisect run 33: A = 2.363736801418906e-03 fate -1 T 22.500137777355942 (cap 34.7, 15 s)
+  bisect run 34: A = 2.363736807432055e-03 fate 1 T 26.94076836320746 (cap 35.3, 16 s)
+  bisect run 35: A = 2.363736804425481e-03 fate 1 T 28.383266196828018 (cap 35.9, 17 s)
+  bisect run 36: A = 2.363736802922193e-03 fate -1 T 23.475945135393378 (cap 36.4, 17 s)
+  bisect run 37: A = 2.363736803673837e-03 fate -1 T 25.45584412271571 (cap 37.0, 18 s)
+bisect D=4 B=0.04 h=0.02: p* = 2.363736804049658e-03, bracket 7.52e-13, 37 runs, 18 s, stopped None, error None, bracket moves []
+sweep row 240 of 2404
+sweep row 480 of 2404
+sweep row 720 of 2404
+sweep row 960 of 2404
+sweep row 1200 of 2404
+sweep row 1440 of 2404
+stall D=4 B=0.04 h=0.02 delta=1e-10 side=-1: 1 s, slices 1556, cross {'c:0.75': 1530, 'c:0.5': 1555}
+sweep row 240 of 2404
+sweep row 480 of 2404
+sweep row 720 of 2404
+sweep row 960 of 2404
+sweep row 1200 of 2404
+sweep row 1440 of 2404
+sweep row 1680 of 2404
+stall D=4 B=0.04 h=0.02 delta=1e-10 side=1: 2 s, slices 1831, cross {'e:2.0': 1707, 'e:3.0': 1830}
+21.1 s

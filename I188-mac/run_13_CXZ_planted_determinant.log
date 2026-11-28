@@ -1,0 +1,5 @@
+# 2026-11-27 13:25:01 cwd=/Users/nathan/Source/negative-mass-i188/phase2/nonradial load=6.70 6.54 5.99
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python -u taylor_polar.py --complex --raw=/Users/nathan/Source/negative-mass-raw --ref-dir=/Users/nathan/Source/negative-mass-raw/I188-mac/ref --jsonl-dir=/Users/nathan/Source/negative-mass-raw/I188-mac/jsonl_rec --only=CXZ
+# taylor_polar.py --complex: start 2026-11-27 13:25:01, load average 6.70, one process, nice 10; lane dd; mutate = None
+CHECK CXZ: PASS  planted determinant, dd, L = 2.0, Lz = 2.0, zeros at 0.75 +- 0.5i; J equal to the crate's: True; D against mpmath expm at 20 contour points: worst |D/D_exact - 1| / (eps max(1, ln growth)) = 1.80e+01 (bar 10000); box Re s in [0.2, 1.2]: winding +2.0000 (planted 2), max step 0.27; box Re s in [1.3, 2.0]: winding +0.0000 (planted 0), max step 0.23
+SUMMARY: 1 passed, 0 failed, 0 skipped of 1 checks; mutate = None; 0 s

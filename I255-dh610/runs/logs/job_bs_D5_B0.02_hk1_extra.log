@@ -1,0 +1,49 @@
+throat_drift.py bisect_stall {'D': '5', 'B': '0.02', 'hk': '1', 'out': '/home/nathan/Source/negative-mass-raw/I255-dh610/runs/extra'}: numba 0.68.1, numpy 2.5.4, python 3.14.10, dh610-fedora, load average at start 19.81 19.58 19.22, mutation None, 2026-11-27 14:51:35
+  bisect run 1: A = 1.298294138831329e-04 fate -1 T 5.0024999999999995 (cap 17.9, 9 s)
+  bisect run 2: A = 1.298294138831329e-03 fate 1 T 8.437499999999998 (cap 17.9, 20 s)
+  bisect run 3: A = 1.298294138831329e-04 fate -1 T 5.0024999999999995 (cap 17.9, 26 s)
+  bisect run 4: A = 1.298294138831329e-03 fate 1 T 8.437499999999998 (cap 17.9, 38 s)
+  bisect run 5: A = 7.140617763572310e-04 fate 1 T 9.242499999999998 (cap 17.9, 51 s)
+  bisect run 6: A = 4.219455951201819e-04 fate -1 T 5.744999999999999 (cap 18.3, 60 s)
+  bisect run 7: A = 5.680036857387065e-04 fate 1 T 10.037499999999998 (cap 18.7, 74 s)
+  bisect run 8: A = 4.949746404294442e-04 fate -1 T 6.619999999999998 (cap 19.1, 84 s)
+  bisect run 9: A = 5.314891630840753e-04 fate 1 T 10.792499999999999 (cap 19.5, 100 s)
+  bisect run 10: A = 5.132319017567598e-04 fate -1 T 7.544999999999998 (cap 19.9, 111 s)
+  bisect run 11: A = 5.223605324204176e-04 fate 1 T 11.442499999999997 (cap 20.3, 128 s)
+  bisect run 12: A = 5.177962170885887e-04 fate -1 T 9.662499999999998 (cap 20.7, 143 s)
+  bisect run 13: A = 5.200783747545031e-04 fate 1 T 11.862499999999999 (cap 21.1, 163 s)
+  bisect run 14: A = 5.189372959215459e-04 fate 1 T 12.297499999999998 (cap 21.5, 183 s)
+  bisect run 15: A = 5.183667565050673e-04 fate 1 T 12.772499999999997 (cap 21.9, 203 s)
+  bisect run 16: A = 5.180814867968280e-04 fate 1 T 13.362499999999999 (cap 22.3, 225 s)
+  bisect run 17: A = 5.179388519427083e-04 fate 1 T 14.587499999999997 (cap 22.7, 250 s)
+  bisect run 18: A = 5.178675345156485e-04 fate -1 T 10.134999999999998 (cap 23.1, 270 s)
+  bisect run 19: A = 5.179031932291784e-04 fate -1 T 10.854999999999997 (cap 23.5, 289 s)
+  bisect run 20: A = 5.179210225859434e-04 fate 1 T 15.942499999999995 (cap 23.9, 318 s)
+  bisect run 21: A = 5.179121079075609e-04 fate -1 T 11.3075 (cap 24.3, 339 s)
+  bisect run 22: A = 5.179165652467522e-04 fate -1 T 11.929999999999996 (cap 24.7, 362 s)
+  bisect run 23: A = 5.179187939163478e-04 fate -1 T 13.142499999999997 (cap 25.1, 386 s)
+  bisect run 24: A = 5.179199082511457e-04 fate 1 T 16.4575 (cap 25.5, 417 s)
+  bisect run 25: A = 5.179193510837468e-04 fate 1 T 17.167499999999997 (cap 25.9, 448 s)
+  bisect run 26: A = 5.179190725000473e-04 fate -1 T 14.229999999999997 (cap 26.3, 476 s)
+  bisect run 27: A = 5.179192117918971e-04 fate 1 T 17.702499999999997 (cap 26.7, 512 s)
+  bisect run 28: A = 5.179191421459722e-04 fate 1 T 18.527499999999996 (cap 27.1, 547 s)
+  bisect run 29: A = 5.179191073230098e-04 fate -1 T 14.999999999999996 (cap 27.5, 576 s)
+  bisect run 30: A = 5.179191247344910e-04 fate 1 T 19.417499999999997 (cap 27.9, 613 s)
+  bisect run 31: A = 5.179191160287503e-04 fate -1 T 15.594999999999997 (cap 28.3, 646 s)
+  bisect run 32: A = 5.179191203816206e-04 fate 1 T 20.847499999999997 (cap 28.7, 687 s)
+  bisect run 33: A = 5.179191182051855e-04 fate -1 T 16.007499999999997 (cap 29.1, 721 s)
+  bisect run 34: A = 5.179191192934030e-04 fate -1 T 16.409999999999997 (cap 29.5, 755 s)
+  bisect run 35: A = 5.179191198375118e-04 fate -1 T 17.542499999999997 (cap 29.9, 786 s)
+bisect D=5 B=0.02 h=0.00353553: p* = 5.179191201095662e-04, bracket 5.44e-13, 35 runs, 786 s, stopped None, error None, bracket moves []
+sweep row 1360 of 13600
+sweep row 2720 of 13600
+sweep row 4080 of 13600
+sweep row 5440 of 13600
+stall D=5 B=0.02 h=0.00353553 delta=1e-10 side=-1: 51 s, slices 6271, cross {'c:0.75': 6197, 'c:0.5': 6270}
+sweep row 1360 of 13600
+sweep row 2720 of 13600
+sweep row 4080 of 13600
+sweep row 5440 of 13600
+sweep row 6800 of 13600
+stall D=5 B=0.02 h=0.00353553 delta=1e-10 side=1: 58 s, slices 7739, cross {'e:2.0': 7060, 'e:3.0': 7738}
+895.5 s

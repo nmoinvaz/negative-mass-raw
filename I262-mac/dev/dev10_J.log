@@ -1,0 +1,6 @@
+Wronskian / rho at 0: 1  and Abel check W = 2K rho^2/A:  
+J_aa = I*pi*(-8 + pi**2)/8   (residue 1/2 - pi**2/16)
+J_ab = -I*pi**2   (residue pi/2)
+J_ba = 0   (residue 0)
+J_bb = I*pi*(8 - pi**2)/8   (residue 1/2 - pi**2/16)
+expected: J_aa = i pi kdot/kappa = I*pi*(-8 + pi**2)/8 = -J_bb;  J_ba = 0;  J_ab = -i pi^2
