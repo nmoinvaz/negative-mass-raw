@@ -13,3 +13,20 @@ Criteria, written before the first run:
 - K2: leverage within 2 % of the note's 0.10, 0.52, 0.77.
 
 Mutations: `old-coef` (#267's coefficients: K1), `no-speed` (c = 0: K1).
+
+## Results
+
+Run 1 (`run_01.log`) printed K1 and K2 (both met) and then stopped on a NameError of this script (an edit removed the line that
+counts failures); run 2 is the same script with that line restored.
+
+| check | verdict | reading (`run_02.log`) |
+|---|---|---|
+| K1 | met | M − P4 = +2.87e-5, +5.28e-5, +1.85e-5 (Y1–Y3), each within 6e-5, within 5e-6 of the note's |
+| K2 | met | leverage 0.103, 0.521, 0.771; fitted maximum 0.3932 |
+
+Mutations: `old-coef` and `no-speed` fail K1.
+
+## Rerun of the runner's code
+
+From a detached worktree at 779a6ba: the Y3 point at h = 0.005 is bitwise equal to the runner's (chain, locus, member rows, t_dep);
+`analyze` (exit 1: FITQ, as declared) equals `settled_mass_route5_output.txt` apart from the header.
