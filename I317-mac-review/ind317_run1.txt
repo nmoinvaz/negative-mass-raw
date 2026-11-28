@@ -1,0 +1,8 @@
+  B = 0 at eps = 0.01: r_th - 1 = -1.412e-04, rdot_th = -3.234e-04 (#296: -1.41 eps^2 = -1.41e-04, -3.24 eps^2 = -3.24e-04)
+  fit over 14: (a, b, c) = (0.229607, 0.131451, 0.558911); #317's V3: (0.229606, 0.131549, 0.558734)
+  residuals M - predicted: N1 +1.025e-07, N2 -1.846e-06, N3 -1.755e-06, X1 +3.340e-05, X2 +7.348e-05, X3 +7.783e-05
+[PASS] K1: X against #317's +3.35e-5, +7.32e-5, +7.73e-5: worst 5.28e-07 (bar 1e-5); X1 inside, X2 and X3 outside 6e-5: True
+[PASS] K2: N1-N3 largest |M - predicted| 1.85e-06 (bar 6e-5)
+
+2 criteria, 2 pass; failed: []; mutation None
+exit 0

@@ -1,0 +1,8 @@
+settled_mass_blind.py analyze {'part': 'record', 'mutate': 'no_run', 'baseline': '/Users/nathan/Source/negative-mass-raw/I317-mac/record/analyze_record.3.log'}: numba 0.68.1, numpy 2.5.4, python 3.14.7, Nathans-MacBook-Air-M5-3.local, part record, mutation no_run, 2026-11-28 04:46:03
+== Part record: train 14 ('B0.025', 'B0.05', 'B0.1', 'B0.125', 'e7', 'e9', 'e10', 'e11', 'W1', 'W2', 'W3', 'C1', 'C2', 'C3'); test ('X1', 'X2', 'X3'); frozen file /Users/nathan/Source/negative-mass-raw/I317-mac/frozen_v3.json
+[pass] CFG: M_0 = 0.223086 equals B = 0's plateau (h = 0.005) to 1e-6; P4's constants equal #295's frozen refit; the bar is 6e-5; the frozen file is this part's, over this training set, with M_0 and bar as declared; X1 to X3 are the declared (B, x_c, w) of #305  (|M_0 - B = 0 plateau| 1.8e-07; frozen part record, 14 training points, M_0 0.223086, bar 6e-05)
+[pass] GIT: the frozen file is tracked, unmodified and contained in a pushed commit of the raw repository, before X1 to X3 are read  (tracked True, unmodified True, pushed True, last commit 7a8a4e8c8a1674b0316dd56dc10d98b2120405d8 2026-11-28T04:41:01-08:00)
+[FAIL] RUNS: every member and B = 0 reads without error at both eps, with finite (t_dep, gamma_1, r_th, rdot_th, M)  (missing {'W1 0.01': "RuntimeError('treated as missing')"})
+
+3 checks (0 non-gating), 1 gating checks failed, 0 non-gating checks failed; 7 s
+mutation no_run: fired ['RUNS']; failing without a mutation (--baseline) ['PX', 'PX-FIX_1e-2', 'PX-FIX_1e-3', 'PX-V1_1e-2', 'PX-V3_1e-3']; newly fired ['RUNS'], declared ['RUNS']: MATCH

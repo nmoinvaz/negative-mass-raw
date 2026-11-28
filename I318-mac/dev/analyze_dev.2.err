@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i318/notes/wormhole_evolution/settled_mass_second.py", line 597, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nathan/Source/negative-mass-i318/notes/wormhole_evolution/settled_mass_second.py", line 591, in main
+    sys.exit(analyze_cmd(opts["raw"]))
+             ~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i318/notes/wormhole_evolution/settled_mass_second.py", line 450, in analyze_cmd
+    check_planted()
+    ~~~~~~~~~~~~~^^
+  File "/Users/nathan/Source/negative-mass-i318/notes/wormhole_evolution/settled_mass_second.py", line 324, in check_planted
+    rt_dep = float(m.planted_traj(np.array(t_dep_exact(K_x, delta, EPS_HI)))[0][()])
+                                           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i318/notes/wormhole_evolution/settled_mass_second.py", line 309, in t_dep_exact
+    return brentq(f, 5.0, 25.0, xtol=1e-14)
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/scipy/optimize/_zeros_py.py", line 858, in brentq
+    r = _zeros._brentq(f, a, b, xtol, rtol, maxiter, args, full_output, disp)
+ValueError: f(a) and f(b) must have different signs

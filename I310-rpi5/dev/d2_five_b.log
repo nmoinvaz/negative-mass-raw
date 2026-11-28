@@ -1,0 +1,19 @@
+bars: T1 (6 quantities of static_c1_members.py T1) and T1x, T2, T5 at 1e-12 (the issue's); C0 1e-9; T3 1e-8; T4: Theta_gen + r_S c1, c1 from Theta_gen, c1(S), dm slice 1e-9, kappa r_S c1 and the cut extensions 1e-6 (T4 of #301, unchanged)
+        (chart[-0.5] 0.2 s, rho_c 0.475927, rho_hi 45.1)
+[pass] C0[-0.5]: rho_c 0.475927, rho_hi 45.1, rho(1e12) 20.5586 (ref 20.5586); max 5.4e-13 at Pi = 0.0001
+[pass] T3[-0.5]: c=-0.5: p 1.1e-14, q 2.0e-12, a 4.1e-12, a(0)+r_S 3.3e-12, Theta 6.8e-14, dm 1.4e-13; closed form 4.0e-13; conservation 4.0e-13
+        (T3[-0.5] 0 s)
+[pass] T4[-0.5]: c=-0.5: c1(S) 0.213307687900 (exact 0.213307687900, 0.0e+00); c1 from Theta_gen at 9-14 s 1.1e-12; Theta + r_S c1 1.1e-12; dm slice vs exact 3.2e-13; dM exact 0.159154943092; kappa r_S c1 vs dM 0.0e+00; cut extensions vs kappa r_S c1 2.5e-13, vs dM 2.5e-13
+        (T4[-0.5] 1 s)
+[pass] T7[-0.5]: c=-0.5: errors 2.78e-03, 6.95e-04, 1.74e-04, 4.34e-05, ratio 4.00; c1 fit 4.7e-10, dr(S) 4.8e-11, Theta_gen 1.8e-10, dM cuts vs exact 5.4e-11, kappa r_S c1 vs dM cuts 5.1e-10; c2 -2.3e-14
+        (T7[-0.5] 26 s, h 0.005, 0.0025, 0.00125, 0.000625)
+        (chart[-0.1] 0.0 s, rho_c -1.02488, rho_hi 43.7)
+[pass] C0[-0.1]: rho_c -1.02488, rho_hi 43.7, rho(1e12) 32.2152 (ref 32.2152); max 1.4e-13 at Pi = 0.01
+[pass] T3[-0.1]: c=-0.1: p 4.9e-14, q 1.5e-11, a 6.4e-11, a(0)+r_S 1.1e-12, Theta 3.5e-13, dm 4.0e-14; closed form 2.5e-13; conservation 2.5e-13
+        (T3[-0.1] 0 s)
+[pass] T4[-0.1]: c=-0.1: c1(S) 0.034418960595 (exact 0.034418960595, 1.0e-15); c1 from Theta_gen at 9-14 s 4.5e-12; Theta + r_S c1 4.5e-12; dm slice vs exact 1.5e-13; dM exact 0.031830988618; kappa r_S c1 vs dM 0.0e+00; cut extensions vs kappa r_S c1 6.4e-13, vs dM 6.4e-13
+        (T4[-0.1] 1 s)
+[pass] T7[-0.1]: c=-0.1: errors 1.10e-04, 2.74e-05, 6.86e-06, 1.71e-06, ratio 4.00; c1 fit 1.3e-10, dr(S) 2.9e-11, Theta_gen 2.3e-10, dM cuts vs exact 9.5e-11, kappa r_S c1 vs dM cuts 2.3e-10; c2 1.4e-14
+        (T7[-0.1] 27 s, h 0.005, 0.0025, 0.00125, 0.000625)
+
+8 of 8 checks pass  [57 s]  mutation: None
