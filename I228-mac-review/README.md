@@ -37,3 +37,12 @@ unchanged (1e-9), and prints the fixed-order value as a report. The `order1` mut
 `no-sides` passes K2 (`ind228_mut_no-sides.txt`): both sides of the series sit at the same δ = 10^-e, so the side intercept is
 orthogonal to ln(1/δ) and one intercept gives the same slope. It cannot fire and is kept as a record. Added `collapse-only`
 (the collapse side alone, slope 0.857 by the note) → K2.
+
+## Reruns on the Mac (2026-11-28)
+
+- `rerun_threshold_analyze.txt`: `threshold.py analyze --raw=<raw>/I228-dh610/runs40` with `not_run={}` (the coordinator's change on
+  main). It equals the branch's `threshold_output.txt` except the header, the timing and one last digit (RA[D=4 S] rel diff
+  1.51e-12 against 1.52e-12).
+- `rerun_g_d6_analyze.txt`: `g_d6.py analyze --base=<raw>/I228-dh610/runs --hks=1,2`, exit 1, 29 of 41, the same 12 failures as
+  `g_d6_output.txt`. It differs in the header, the timing, the 16th digit of CTL's slope, and the ṙ∞ of the three fits marked
+  "NOT converged" (−118 against −108, SE 5e4): a degenerate fit, platform roundoff.
