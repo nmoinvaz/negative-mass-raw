@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i266/notes/wormhole_evolution/settled_mass_b.py", line 832, in <module>
+  File "/Users/nathan/Source/negative-mass-i266/notes/wormhole_evolution/settled_mass_b.py", line 826, in main
+    check_planted()
+             ~~~~^^
+  File "/Users/nathan/Source/negative-mass-i266/notes/wormhole_evolution/settled_mass_b.py", line 595, in analyze_cmd
+    s_, i_ = chain_of(e)
+             ~~~~~~~~^^^
+  File "/Users/nathan/Source/negative-mass-i266/notes/wormhole_evolution/settled_mass_b.py", line 359, in chain_of
+    r = g.run_real_g(e["h"], DELTA, e["p"]["ps"], K=K)
+  File "/Users/nathan/Source/negative-mass-i266/notes/wormhole_evolution/settled_mass_g.py", line 147, in run_real_g
+    raise RuntimeError(f"fates at p*_h -/+ delta: {pt['fate']}, {up['fate']} (wanted -1, +1)")
+RuntimeError: fates at p*_h -/+ delta: -1, -1 (wanted -1, +1)

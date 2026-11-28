@@ -1,0 +1,13 @@
+/Users/nathan/Source/negative-mass-i266/notes/wormhole_evolution/settled_mass_b.py:641: RuntimeWarning: invalid value encountered in scalar divide
+  rel = abs(dMs - g.flux_integral_g(s, 0, i1)) / abs(dMs)
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i266/notes/wormhole_evolution/settled_mass_b.py", line 832, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nathan/Source/negative-mass-i266/notes/wormhole_evolution/settled_mass_b.py", line 826, in main
+    sys.exit(analyze_cmd(opts["raw"]))
+             ~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i266/notes/wormhole_evolution/settled_mass_b.py", line 779, in analyze_cmd
+    f"{math.log((b_[4] - c0) / (a_[4] - c0)) / math.log(b_[0] / a_[0]):.2f}, r_th - 1 {math.log(abs(b_[3] - 1) / abs(a_[3] - 1)) / math.log(b_[0] / a_[0]):.2f}")
+       ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: expected a positive input, got -1.400354442674705
