@@ -1,0 +1,9 @@
+[PASS] K1: I0 = 1.0149036099284089 against #262's 1.0149036099284090: relative 1.06e-16 (bar 1e-12)
+  Pi = -0.1: rho -0.1087309734 (printed -0.3114), Q 0.1066482762 (printed +0.296062) OFF
+  Pi = 0.5: rho 0.3677736324 (printed 0.6819), Q -0.3444269506 (printed -0.573712) OFF
+  Pi = 1.0: rho 0.5972474345 (printed 1.0000), Q -0.5193006711 (printed -0.732706) OFF
+[FAIL] K2: rho(Pi) and Q at the three Pi equal the printed closed form to half a unit of the last digit
+[FAIL] K3: 33 fits of 11 data (A0, A1L, A1R, G, Gb, L, Lm, rand0, rand1, rand2, rand3): worst |Q fit - Q| = 2.29e-01 (bar 4.35e-4)
+
+3 criteria, 1 pass; failed: ['K2', 'K3']; mutation None
+exit 1

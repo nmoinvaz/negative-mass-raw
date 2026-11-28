@@ -1,0 +1,10 @@
+[PASS] K1: I0 = 1.0149036099284089 against #262's 1.0149036099284090: relative 1.06e-16 (bar 1e-12)
+  G0 = e^(2H(1)) = 2.47254595936; printed 2.47254596: equal to half a unit (reported)
+  Pi = -0.1: rho -0.3113674422 (printed -0.3114), Q -0.2960622414 (printed +0.296062) OFF
+  Pi = 0.5: rho 0.6818842522 (printed 0.6819), Q 0.5737115468 (printed -0.573712) OFF
+  Pi = 1.0: rho 1.0 (printed 1.0000), Q 0.7327058087 (printed -0.732706) OFF
+[FAIL] K2: rho(Pi) and Q at the three Pi equal the printed closed form to half a unit of the last digit
+[FAIL] K3: 33 fits of 11 data (A0, A1L, A1R, G, Gb, L, Lm, rand0, rand1, rand2, rand3): worst |Q fit - Q| = 1.47e+00 (bar 4.35e-4)
+
+3 criteria, 1 pass; failed: ['K2', 'K3']; mutation j-sign
+exit 1

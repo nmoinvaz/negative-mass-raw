@@ -20,3 +20,11 @@ of the branch. Exit 1 when a check fails.
 
 - `j-sign`: Q = +J/I₀ → K2, K3.
 - `rho-is-pi`: ρ = Π (H dropped in the map) → K2.
+
+## Amendment A1 (2026-11-28, after run 1)
+
+Run 1 (`ind322_run1.txt`) failed K2 and K3: with Π = ρe^{2H} it found ρ(Π = 1) = 0.597, not 1.0000. The cause is the criterion's
+map, not #322's. `remainder.py` reads Π = −VU in the solver's Kruskal chart, where dρ/dΠ at S is G0 = 2.47254596 (the output's
+closed-form line), and #262's e^{2κx} = ρe^{2H} has dρ/dΠ = 1. So the chart's Π is ρe^{2H}/G0. From run 2 on, K2 solves
+ρe^{2H(ρ)} = G0 Π with G0 = e^{2H(1)}, and a reported line checks that e^{2H(1)} equals the printed G0 to half a unit of its last
+digit. Bars unchanged.
