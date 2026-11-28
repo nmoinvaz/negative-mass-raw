@@ -134,4 +134,40 @@ Layout: `runs/<tag>/h<h>/{pstar/{points.jsonl,summary.json}, chain/{series.npz,s
 
 ## Changes made after this README
 
-(none yet)
+### Amendment A1 (2026-11-27, coordinator's ruling by hc; made before any run of record was analysed)
+
+The runs of record (`runs/`) are unchanged by it. The ruling: B = 0.2 is run as declared and reported as not applicable (a finding about G, not a failed check); B = 0.125 and h = 0.02 are supplementary,
+labelled post hoc, and gate nothing; the note says where between B = 0.15 and 0.2 the stall disappears, if the runs bracket it.
+
+- **Checks split.** Every check that covers B = 0.125 or h = 0.02 is split in two. The gated check covers the issue's members (O and G at B = 0, 0.025, 0.05, 0.1, 0.2) at the issue's two h (0.01, 0.005);
+  the same check with the suffix `-ph` covers the rest, is printed as POST HOC, and does not set the exit code. Same bars. PO and RC6 read an order and need three h, so they exist only as `PO-ph`
+  and `RC6-ph`; the gated "two h" statement is RH. REL is gated over B = 0.025, 0.05, 0.1 (bar unchanged, 6e-5) and `REL-ph` over B = 0.025, 0.05, 0.1, 0.125.
+- **Known before the amendment was written:** on the development set REL over three B misses its bar (7.9e-5 against 6e-5: each held-out point is predicted from two others, and B = 0.1 is an
+  extrapolation from B = 0.025 and 0.05), and `REL-ph` over four B passes (5.5e-6). The bar is not moved; REL is expected to be reported as not met.
+- **New, post hoc, gating nothing:** `settled_mass_b.py stallscan --h=H --B=B1,B2,... --out=DIR` (p*ₕ to 1e-12 and the lifetime at p*ₕ ∓ 1e-6, ∓ 1e-8) for B = 0.15, 0.155, …, 0.175 at h = 0.02 and 0.01,
+  to bracket where the stall ends; printed by `analyze`.
+- **Mutation targets recomputed** on the development set with the amended analysis: the table above is replaced by the one below (dev logs `dev/mut_b/`). Code at aee454e.
+
+| mutation | checks that fire (declared, amended) |
+|---|---|
+| `crit_dm` | CFG, REL |
+| `bisect_early` | BR, BR-ph, REL |
+| `pstar_h_swap` | P40, P40-ph, REL |
+| `go_h` | GO, GO-ph, REL |
+| `pstar_h1` | PO-ph, REL |
+| `stl_flat` | REL, STL, STL-ph |
+| `evt_side` | EVT, EVT-ph, REL |
+| `flux_sign` | RC4, RC4-ph, REL |
+| `short_limit` | RB10, RB10-ph, RC5, RC5-ph, RC8, RC8-ph |
+| `no_zoom` | RB0, RB0-ph, RB10, RB10-ph, RC4, RC4-ph, RC5, RC5-ph, RC6-ph, RC8, RC8-ph, REL, REL-ph, RH, RH-ph |
+| `mass_exponent` | RB0, RB0-ph, RB10, RB10-ph, RC4, RC4-ph, REL-ph |
+| `family_B` | EVT, EVT-ph, RB10, RB10-ph, RC5, RC5-ph, RC6-ph, REL, RH |
+| `b_offset` | EVT, EVT-ph, RB0, RB0-ph, RB10, RB10-ph, RC5, RC5-ph, RC6-ph, REL, RH, RH-ph |
+| `h_plat` | REL, RH |
+| `rth_collapse_side` | MB0, MB0-ph, REL, REL-ph |
+| `asym_sign` | C225, PMEM, REL |
+| `dep_eps` | MB0, MB0-ph, PDEP, REL, REL-ph |
+| `eps_h` | HST, HST-ph, MB0, REL, REL-ph |
+| `rel_perm` | PREL, REL, REL-ph |
+
+REL fails without a mutation (above), so it is in every set where a mutation leaves it failing; the sets are exactly what fired on the development set.
