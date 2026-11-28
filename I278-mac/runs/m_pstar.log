@@ -13,11 +13,11 @@
 [pass] S6: Gamma^v_{rho rho} = Gamma^rho_{rho rho} = 0 for any F(v, rho): rho is affine on the ingoing rays v = const
     (S6: 0 s)
 
-7 checks, 7 pass; failed: []; mutation pstar; 1 s
+7 checks, 7 pass; failed: []; mutation pstar; 0 s
 mutation pstar: fired [], declared ['N4', 'N6']: DIFFERENT
 rc=0
 [pass] N0: planted: beta = 0, c = -1, -3/2, -3/10: the ray separatrix (55 bisections) equals the static horizon rho_h to 1e-9 and rays at rho_h +- 1e-4 escape / fall; c = 0 (Ellis, time dependent): rays equal 1 - beta rho = C (1 + beta v)^{-1/2} to 1e-9 and the beta = -1 separatrix is rho = -1  (c = -1.0: separatrix 0.000000000000, claimed rho_h 0.000000000000, diff 1.7e-16, rays at rho_h +-1e-4: outside escapes, inside falls; c = -1.5: separatrix 0.339617128522, claimed rho_h 0.339617128522, diff 1.1e-16, rays at rho_h +-1e-4: outside escapes, inside falls; c = -0.3: separatrix -0.926753835863, claimed rho_h -0.926753835863, diff 3.3e-16, rays at rho_h +-1e-4: outside escapes, inside falls; Ellis c = 0: exact rays to 1.3e-12, beta = -1 separatrix -1.000000000000 (exact -1))
-    (N0: 24 s)
+    (N0: 20 s)
 [pass] N1: (grad r)^2 = 2 r_v r_rho + F r_rho^2 from the metric: its root at fixed v equals the closed-form root of s_AH(rho) = s to 1e-12 (c = -1, -3/2; beta = -1: both branches at four s; beta = 1, c = -3/2: the two roots), and it vanishes on rho = 0 to 1e-30  (worst root difference 1.45e-33, rho = 0 residual 0.0; 20 roots; c = -1.0, beta = -1, plus, s = -0.05: rho = 0.15033443946716, diff 9.0e-42; c = -1.0, beta = -1, plus, s = -0.3: rho = 0.35343588713383, diff 5.8e-43)
     (N1: 0 s)
 [pass] N2: region labels: at 4 x (5-6 v) x 12 points the signs of n(r) = -r_rho and l(r) = r_v + F r_rho/2 from the metric jets equal the closed-form labels (-sign rho; sign(s - s_AH(rho))), l(r) equals P/(2R lam) (1e-9), and dr/dv along an integrated ray equals l(r) (1e-3)  (264 points; worst relative l(r) difference 6.9e-14, worst ray 1.5e-04; disagreements [])
@@ -45,7 +45,9 @@ rc=0
     (N11: 3 s)
 [pass] N12: beta = +1: from the metric jets, c = -1 has l(r) > 0 for every rho > 0 at 49 values of v (no trapped region ever); c = -3/2 has trapped points at s = 0.995 s_max and none at 1.005 s_max (s_max = max of s_AH on (0, rho_h)); rho < 0 is anti-trapped (n, l > 0) at all v  (c = -1.0: l(r) > 0 at all 49 v from -12 to 12 and 24001 rho > 0 (no trapped region); c = -1.5: at s = 0.995 s_max (s_max = 0.04903680 at rho = 0.176045, v_max = -3.15749) trapped points found; c = -1.5: at s = 1.005 s_max (s_max = 0.04903680 at rho = 0.176045, v_max = -3.15749) trapped points none)
     (N12: 0 s)
+[pass] N13: beta = -1, c = -1, -3/2, rays at rho_EH(-10) + 1e-4 (AF side) and - 3e-5 (other side) to the cone: AF side, Ricci(1e-6)/Ricci(1e-8) in (8, 12), Kretschmann ratio in (80, 120), |Ricci| < 0.02 and Kretschmann < 1e-3 at tau = 1e-8; other side, Ricci and Kretschmann at tau = 1e-8 within 0.5% of 12 H^2 and 24 H^4, H^2 = -2c  (c = -1.0: right ray (tau = 1e-6 -> 1e-8): Ricci -0.004986 -> -0.0004948 (ratio 10.08), Kretschmann 7.457e-05 -> 7.344e-07 (ratio 101.5); left ray at tau = 1e-8: Ricci 24 (12 H^2 = 24), Kretschmann 96.001 (24 H^4 = 96); c = -1.5: right ray (tau = 1e-6 -> 1e-8): Ricci -0.06607 -> -0.006528 (ratio 10.12), Kretschmann 0.0131 -> 0.0001278 (ratio 102.4); left ray at tau = 1e-8: Ricci 36.026 (12 H^2 = 36), Kretschmann 216.31 (24 H^4 = 216))
+    (N13: 0 s)
 
-12 checks, 10 pass; failed: ['N4', 'N6']; mutation pstar; 35 s
+13 checks, 11 pass; failed: ['N4', 'N6']; mutation pstar; 31 s
 mutation pstar: fired ['N4', 'N6'], declared ['N4', 'N6']: equal
 rc=1

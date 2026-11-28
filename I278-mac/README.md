@@ -128,4 +128,18 @@ Status: N13 is *numerical evidence*; the de Sitter value is the limit of the clo
 
 ## Runs of record
 
-(to be filled after the runs)
+2026-11-27, `runs/runrec.sh` (logs are numbered, none overwritten; the concatenated `runs/m_<name>.log`, from which the `mutations` report reads, is a derived file and holds the latest run).
+
+| run | code | log | result | exit |
+|---|---|---|---|---|
+| first runs of record: `derive`, `check` | 90a9277 | `runs/derive_run1.log`, `runs/check_run1.log` | S0–S6: 7 of 7; N0–N12: 12 of 12 (39 s) | 0 |
+| first runs: 16 mutations, `derive` + `check` | 90a9277 | `runs/m_<name>_{derive,check}_run1.log` | the fired sets equal the declared ones, 16 of 16 | 1 (a failed check exits 1, as intended) |
+| second runs of record: `derive`, `check` | 068953c | `runs/derive_run2.log`, `runs/check_run2.log` | S0–S6: 7 of 7 (1 s); N0–N13: 13 of 13 (33 s) | 0 |
+| second runs: 17 mutations (`ds_h` added), `derive` + `check` | 068953c | `runs/m_<name>_{derive,check}_run2.log` | the fired sets equal the declared ones, 17 of 17 (`family_causal.py mutations runs m_`) | 1 (as intended) |
+| `table` | 5ba41d8 | `runs/table_run1.log` | the numbers the note quotes | 0 |
+| `figures` | 5ba41d8 (run 3) | `runs/figures_run{1,2,3}.log`, `runs/fig/family_causal.svg` | run 3 is the figure of record; a fresh render equals it byte for byte (the figure file is overwritten by each figures run; runs 1 and 2 used the code of 90a9277 and 068953c) | 0 |
+
+Worst residuals in the runs of record: N0 3.3e-16 (static), 1.3e-12 (Ellis); N1 1.45e-33; N2 6.9e-14 and 1.5e-4; N4 9.4e-12; N8 1.4e-13; N10 1002.00. No amendment to the criteria beyond Amendment 1. The checks N0–N12 are identical in 90a9277, 068953c and
+5ba41d8; 068953c adds N13 and `ds_h`, 5ba41d8 adds the `table` subcommand. `family_causal_output.txt` in the repository (branch commit f5fd6a7) is `derive_run2.log`, `check_run2.log`, `table_run1.log` and the `mutations` report, in that order.
+
+Failures of the criteria: none. Discrepancies with the text of #269's note: its Sec. 5 row "r → 0 at every ρ" holds at fixed ρ only (the outgoing rays reach v\* at finite r, as #277 found); reported in `family_causal.md` with proposed text.
