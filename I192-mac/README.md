@@ -211,3 +211,24 @@ a release that contains it. Python `~/Source/negative-mass/.venv/bin/python`. At
   answered by JT2) and `width_of`'s unscaled f64 products (at nb 30 and x >= 5e-4 they do not underflow; JT2 shows it).
 
 Run files of this stage: `dev_25`+ (`devrun.sh`) and `run_10`+ (`runrec.sh`); `s3_build.sh`, `s3_compare.py`, `s3_records.py`, `s3_steps.py` are written before the first run and kept as they were.
+
+**A5 (2026-11-27, during the RP2 runs).** `run_10_s3_records_default` (the first RP2 run, default pair) was stopped by its PID (exit 1, the log kept) after 33 minutes: the one octo-double `d` record of A4 (`d lane=od l=2 gammas=1.0`)
+had used 28 CPU-minutes on the old binary alone and did not finish, so the pair would have passed the 2 h stop rule and held back every record after it. The six f64, dd and qd `d` commands before it were equal (old and new, 17 records
+`d f64 l=2 .. d qd l=6`, 14 s to 38 s each). **The od `d` record is dropped from RP2** (`s3_records.py` now takes it only with `--od`; no data motivated this, the run time did): the octo-double lane is compared through
+`recipcheck od` (the reciprocals, the candidate cause of any multidouble 6 difference) and `tabcheck`/`jtable` (DD), not through a determinant. The bar of RP2 is unchanged for the records that remain. Reruns are `run_11` (default),
+`run_12` (lib_plane), `run_13` (complex), `run_22` (the `jsign` control), numbered by hand (`s3_run.sh`) because `runrec.sh` would take 15, which the check chains use.
+
+**A6 (2026-11-27, the run trees).** `run_14_s3_old_default_mode` (old pin, default mode) was stopped by its PID at about 35 minutes (rc file written by hand: 143; its log is kept): the scratch copy of the script's
+directory held only `phase2/nonradial`, and `background.py` puts `phase2/` on the path, so S1, S2 and S3 failed with `ModuleNotFoundError: No module named 'boson_star'`: a harness fault, not a verdict (the other 16 checks
+that had run passed). The trees are now `git archive HEAD phase2` (the crate's sources left out), one per pin (`old`, `new`), each with its own `taylor_polar/target/{release,complex/release,bins}`; S1 on the old tree passes
+(29 s). **The chains are renumbered**: old pin `run_23` default mode, `run_25` rows, `run_27` rows with the lib_plane binaries, `run_29` complex; new pin `run_24`, `run_26`, `run_28`, `run_30`. The first scratch trees are
+kept as `trees_nophase2_unused` outside the repository and are not used.
+
+**A7 (2026-11-27, the record runs again).** `run_11_s3_records_default` ended with exit 1 at its last command: `jjets` prints one JSON object over several lines and `s3_records.py` read it line by line (a harness fault; `run_11`'s log is kept).
+Every command before it, old binary against new, was equal as strings: `d` f64, dd, qd at l = 2 and 6 (22 records), `planted` const and linear in f64, dd, qd (42 records), `starsteps` (164), `jtable` l = 2 and l = 6 (465 records each, every
+coefficient of J0 and J1 at 20 digits), `recipcheck` in f64, dd, qd, od, and `tabcheck`. `run_12_s3_records_libplane`, started by the same chain, was stopped by its PID after one minute (rc 143 written by hand) so that it would not hit the same fault.
+`s3_records.py` now reads `jjets` whole. The record runs are `run_31` (default), `run_32` (lib_plane), `run_33` (complex), `run_34` (the `jsign` control, must exit 1).
+
+**A8 (2026-11-27).** `run_31_s3_records_default` (RP2, default pair): **1167 records, 0 differ** (old pin against new pin, every field as strings except times). In `run_23_s3_old_default_mode` the check **R1 reads FAIL
+`raised RuntimeError: ... old_libplane d lane=dd l=2 ... exited -15`: that was my own `kill`** (a pattern for the stopped records run's children also matched R1's child process in the old tree); no check result changed. R1 is rerun alone on the old tree
+as `run_35_s3_old_R1` (the same two pins are compared there, since the check reads `target/bins`), and the comparison of the default-mode logs takes R1's line from it. The other checks of `run_23` are untouched.

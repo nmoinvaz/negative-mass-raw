@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-raw/I192-mac/s3_records.py", line 117, in <module>
+    sys.exit(main(sys.argv))
+             ~~~~^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-raw/I192-mac/s3_records.py", line 91, in main
+    ro = run(old, cmd, **kw)
+  File "/Users/nathan/Source/negative-mass-raw/I192-mac/s3_records.py", line 38, in run
+    raise RuntimeError(f"{' '.join(args)[:200]} exited {p.returncode}: {p.stderr[-400:]}")
+RuntimeError: /Users/nathan/Source/negative-mass-i192/phase2/nonradial/taylor_polar/target/bins/old_default d lane=od l=2 gammas=1.0 omega=0.7603 eps=-1.0 lam=10240.0 mu=21845333.333333336 pc=3.86682473052039692307 exited -15: 

@@ -1,0 +1,49 @@
+== Xp=2
+c = -1.5, beta = 0.05, h = 0.02, Xp = 2.0 (Np = 100), Xm = 8.0 (Nm = 400); exact 0.1 s, evolve 0.1 s, dead cells 0
+v* = None; rho0 range [0.407161, 1]; rho at the last row range [0.01215, 1.16]
+   v <= 0.5: max |err| r 1.895e-06  f 3.864e-06  phi 1.212e-06
+   v <= 1: max |err| r 4.448e-06  f 8.946e-06  phi 2.564e-06
+   v <= 1.5: max |err| r 7.688e-06  f 1.532e-05  phi 4.094e-06
+   v <= 2: max |err| r 1.145e-05  f 2.282e-05  phi 5.986e-06
+   v <= 2.5: max |err| r 1.593e-05  f 3.232e-05  phi 9.246e-06
+   v <= 3: max |err| r 1.841e-05  f 3.838e-05  phi 1.325e-05
+   v <= 4: max |err| r 1.841e-05  f 3.838e-05  phi 1.325e-05
+   v <= 5: max |err| r 1.841e-05  f 3.838e-05  phi 1.325e-05
+   v <= 6: max |err| r 1.841e-05  f 3.838e-05  phi 1.325e-05
+   v <= 8: max |err| r 1.841e-05  f 3.838e-05  phi 1.325e-05
+== Xp=3
+c = -1.5, beta = 0.05, h = 0.02, Xp = 3.0 (Np = 150), Xm = 8.0 (Nm = 400); exact 0.1 s, evolve 0.1 s, dead cells 0
+v* = None; rho0 range [0.407161, 1]; rho at the last row range [-2.944, 0.6745]
+   v <= 0.5: max |err| r 1.895e-06  f 3.864e-06  phi 1.212e-06
+   v <= 1: max |err| r 4.448e-06  f 8.946e-06  phi 2.564e-06
+   v <= 1.5: max |err| r 7.688e-06  f 1.532e-05  phi 4.094e-06
+   v <= 2: max |err| r 1.145e-05  f 2.282e-05  phi 5.986e-06
+   v <= 2.5: max |err| r 1.593e-05  f 3.232e-05  phi 9.246e-06
+   v <= 3: max |err| r 1.891e-05  f 4.014e-05  phi 1.655e-05
+   v <= 4: max |err| r 3.294e-04  f 3.791e-04  phi 2.250e-04
+   v <= 5: max |err| r 2.933e-03  f 2.999e-03  phi 7.197e-04
+   v <= 6: max |err| r 2.933e-03  f 2.999e-03  phi 7.197e-04
+   v <= 8: max |err| r 2.933e-03  f 2.999e-03  phi 7.197e-04
+== Xp=4
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i277/notes/black_universe/planted_family.py", line 166, in <module>
+    o = probe(c, beta, h, Xp, Xm)
+  File "/Users/nathan/Source/negative-mass-i277/notes/black_universe/planted_family.py", line 133, in probe
+    rho, lnE = flow(fam, rho0, v0, vn)
+               ~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i277/notes/black_universe/planted_family.py", line 87, in flow
+    raise RuntimeError("flow: " + sol.message)
+RuntimeError: flow: Required step size is less than spacing between numbers.
+== Xp=5
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i277/notes/black_universe/planted_family.py", line 166, in <module>
+    o = probe(c, beta, h, Xp, Xm)
+  File "/Users/nathan/Source/negative-mass-i277/notes/black_universe/planted_family.py", line 130, in probe
+    Sp, Sm, rho0 = ray_data(fam, rho_c, v0, Np, h, Nl=Nm)
+                   ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i277/notes/black_universe/planted_family.py", line 100, in ray_data
+    rho_r, lnE_r = flow(fam, np.array([rho_c]), v0, vn)
+                   ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i277/notes/black_universe/planted_family.py", line 87, in flow
+    raise RuntimeError("flow: " + sol.message)
+RuntimeError: flow: Required step size is less than spacing between numbers.
