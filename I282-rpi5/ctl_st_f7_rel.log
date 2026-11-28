@@ -1,0 +1,14 @@
+order8.py  mutate=f7_rel  parts=['pslq', 'closed6']  mpmath 1.3.0  sympy 1.14.0
+  PSLQ at 250 digits (the two grids share 430.8), tolerance 1e-238, verification at 270 digits
+PASS    PF6: F6 = {f7, pi^4 zeta(3), pi^2 zeta(5), zeta(7), pi^6, zeta(3)^2, pi^2 zeta(3), zeta(5), pi^4, zeta(3), pi^2, 1}, n = 12, H = 10000000000000000, d = 250: planted relation (den 15, seed 282006) recovered: True (1 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 196.6
+    REAL F6: FOUND (counts) relation [-2835, 20706336, -6168960, 2762242560, 7656704, 104509440, 87091200, -870912000, -42384384, 1602478080, 0, 0], residual 7.5e-242 (bar 1.0e-238), budget with H = 10000000000000000: 196.6 < 250: True; f7 coefficient -2835; perturbed basis (constant pi^4 zeta(3) + sqrt(2)/1000) finds nothing; verified at 270 digits (bar 1.0e-258): G1 2.54e-262, G2 2.54e-262 -> True
+FAIL    ID6: Omega6 from the ln 2-free relation of F6 (f7 = -sum c_i b_i / c_0, Omega6 = f7 - the exact ln 2 terms) = 3672259.50170874448447423927445993650058307931803015369667945 against the grids, digits: G1 7.0, G2 7.0 (bar 380; the working precision here is 400 digits)
+  Omega6 = 155248*p2**3*q/315 + 24307*p2**3/9 - 704*p2**2*q**3/135 - 19456*p2**2*q**2/45 - 157696*p2**2*q/45 + 328672*p2**2*z3/45 - 74752*p2**2/5 - 256*p2*q**5/45 - 1280*p2*q**2*z3 + 1024*p2*q*z3/3 + 30720*p2*z3 - 2176*p2*z5 - 1024*q**7/315 + 2560*q**4*z3/3 + 4096*q**3*z3 + 24576*q**2*z3 - 83456*q**2*z5 - 12800*q*z3**2 + 147456*q*z3 - 296960*q*z5 + 36864*z3**2 + 565248*z3 - 307200*z5 + 974336*z7
+    weight 7: 11 terms, part 2082208.5542893331683
+    weight 6: 6 terms, part 2420538.9317849990287
+    weight 5: 4 terms, part -176504.05637585649605
+    weight 4: 2 terms, part -1333444.1883868855671
+    weight 3: 1 terms, part 679460.26039715435063
+PASS    ZL: F6 found: True; relations found in the bases with ln 2 (none): all with zero coefficients on every ln 2 monomial
+
+2 passed, 1 failed of 3 checks; 14 s

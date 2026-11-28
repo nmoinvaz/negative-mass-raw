@@ -1,0 +1,13 @@
+order8.py  mutate=None  parts=['values', 'pslq', 'remainder']  mpmath 1.3.0  sympy 1.14.0
+PASS    PL0: planted: Omega0 against its closed form, digits: G1 250.8, G2 250.8 (bar 100 on G1, G2; the others reported)
+PASS    PL1: planted: Omega1 against its closed form, digits: G1 250.3, G2 250.3 (bar 100 on G1, G2; the others reported)
+PASS    PL2: planted: Omega2 against its closed form, digits: G1 250.0, G2 250.0 (bar 100 on G1, G2; the others reported)
+PASS    PL3: planted: Omega3 against its closed form, digits: G1 250.0, G2 250.0 (bar 100 on G1, G2; the others reported)
+PASS    PL4: planted: Omega4 against its closed form, digits: G1 250.7, G2 250.7 (bar 100 on G1, G2; the others reported)
+PASS    PL5: planted: Omega5 against its closed form, digits: G1 251.0, G2 251.0 (bar 100 on G1, G2; the others reported)
+PASS    SL: slope of G_k in Omega_(k-2) against -4 pi, k = 2 .. 8, digits: G1 300.4/300.4/300.4/300.4/300.4/300.4/300.4, G2 300.4/300.4/300.4/300.4/300.4/300.4/300.4 (bar 100 on G1, G2)
+PASS    RES: max over k = 2 .. 8 of |G_k at the chain's root| / |slope|: G1 7.25e-274, G2 7.25e-274 (bar 1e-100 on G1, G2)
+PASS    M6: Omega6 of G1 against G2 (two grids, two precisions): 315.0 digits (bar 100); |diff| = 0.0
+PASS    RNG: Omega6 between 3.5e6 and 3.9e6: G1 3672259.16259, G2 3672259.16259
+  reported: digits between evaluations, Omega5 / Omega6: G1-G2 315.0/315.0
+  PSLQ at 250 digits (the two grids share 315.0), tolerance 1e-238, verification at 270 digits
