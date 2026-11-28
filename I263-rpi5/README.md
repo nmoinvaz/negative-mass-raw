@@ -241,7 +241,7 @@ On the grids of record, as separate processes (each started with `runrec.sh`, `n
 | `wrong_c6` | PL4, R6, R7, X3 | PL0 … PL3, SL, M5, RNG |
 | `wrong_c7` | X3 | **R6, R7** (Ω₅ moves by less than their sensitivity), PL0 … PL4, SL, M5, RNG |
 | `wrong_Om0` … `wrong_Om3` | PL(i+1) … PL4, R6, R7, X3 | PL0 … PLi, SL, M5 |
-| `wrong_Om4` | X3 | **R6, R7** (+1/100 in Ω₄ moves Ω₅ by 0.04, below R6's bar), everything else |
+| `wrong_Om4` | X3 | **R6, R7** (+1/100 in Ω₄ moves Ω₅ by 0.027726 (PLW), below R6's bar), everything else |
 | `coarse_B` | PL0 … PL4, SL, M5, PQ1, PQ3, R6, R7, X3 | RES, RNG; PQ1, PQ3 fire because PSLQ is given the few digits the coarse grids share |
 | `short_tail` | PL0 … PL4, SL, R6, R7, X3 | **M5** (both grids share V), RES, RNG |
 | `stale_cache` | PL2, PL3, PL4, RES, RNG, R6, R7, X3 | PL0, PL1, SL, M5 |
