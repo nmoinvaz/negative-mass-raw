@@ -1,0 +1,24 @@
+# run_02_build_on_failed1: 2026-11-28T01:14:52Z machine Nathans-MacBook-Air-M5-3 load  59.83 43.40 34.16  threads 2 nice 10
+# worktree 1b44c49, 2 changed paths under the crate; target /Users/nathan/Source/negative-mass-i216-target/on1; args --features implicit_lib
+   Compiling crossbeam-utils v0.8.23
+   Compiling crossbeam-epoch v0.9.21
+   Compiling crossbeam-deque v0.8.8
+   Compiling rayon-core v1.13.0
+   Compiling either v1.19.0
+   Compiling rayon v1.12.0
+   Compiling multidouble v6.1.0
+   Compiling multisolver v0.3.0
+   Compiling multishoot v5.0.0
+   Compiling conical_global v0.1.0 (/Users/nathan/Source/negative-mass-i216/notes/warp/conical_global)
+error[E0046]: not all trait items implemented, missing: `is_finite`
+  --> src/hp_lib.rs:66:1
+   |
+66 | impl<P: Precision<Native>> Scalar for W<P> {
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ missing `is_finite` in implementation
+   |
+   = help: implement the missing item: `fn is_finite(self) -> bool { todo!() }`
+
+For more information about this error, try `rustc --explain E0046`.
+error: could not compile `conical_global` (lib) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+exit 101
