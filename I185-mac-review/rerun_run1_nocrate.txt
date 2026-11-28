@@ -1,0 +1,108 @@
+[PASS] reduction: eta^4 N = N0 + eta^2 N2 + eta^4 N4, no odd powers (degree 4 in eta); N0 = -2 A B with A = F(P - Q) - P^2 = -eta^2 (F F'' + F'^2), B = (F^2 - 1) Q^2 + 2 F P^2 Q + 2 F P^3 + 2 P^4; N2 = F**2*P**2*Q**2 + 4*F*P**4*Q - 2*F*Q**3 + 4*P**6 - 3*P**2*Q**2; N4 = P^2 (P^4 - Q^2); residuals True, True, True
+    (reduction: 0.0 s)
+[PASS] planted: PL1 E = Q (F = a + p0 ln eta): p0 free True, exact Q = 0; PL2 E = Q^2 - 2 P^3 (F - f0 = 2/(t0 - t)): code gamma = 1, c = [2]; exact residual 0; PL3 E = Q - P^2 (F = -ln(t0 - t)): code m = 1, a = [1]; exact residual 0; PL4 E = Q - P + 9.25 F (F = e^(t/2) cos 3t): indicial roots [1/2 - 3*I, 1/2 + 3*I]: complex pair, no real p; exact residual 0; PL5 E = Q - P + F/4 (F = e^(t/2)(1 + 2t)): indicial root {1/2: 2}: double, a factor T^r is allowed; exact residual 0; PL6 A = F (P - Q) - P^2 (F^2 = a + b eta): roots {1: 1, 0: 1} at f != 0, {1/2: 1, 0: 1} at f = 0 (F = sqrt(b eta)); each equal to the planted truth: [True, True, True, True, True, True]
+    (planted: 0.1 s)
+[PASS] table: f generic: exp g(p) = 2*f*p**5*(f - 1)*(f + 1)*(p - 1) (face 3, roots {1: 1, 0: 5}); alg gamma = 1, c = -2*f + 2/f (= 2 (1 - f^2)/f) | f = 0: exp roots {1/2: 1, 0: 5}; alg gamma = 1/2, c = [-3/2, 3/2] | f = +1: tie sigma = 1 (p = 2), c = [2/5] (64*c**3*(5*c - 2)); sigma > 1 face roots {1: 1, -1/2: 1, 0: 4}; no algebraic balance | f = -1: tie sigma = 1 (p = 2), c = [-2/5] (64*c**3*(5*c + 2)); sigma > 1 face roots {1: 1, -1/2: 1, 0: 4}; no algebraic balance | P -> p0: ties [('1/2', False)]; dominant face for theta >= 1: [(2, 4, 0, 0)] (carries P^4: p0 = 0 forced) | F ~ T^(1-m), ln T (P = a T^-m, 0 < m <= 1): ties [] (none: the dominant monomial F^2 P^4 stands alone) | F = c e^(-pt) large: g(p) = 2*p**4*(2*p + 1)*(5*p - 2): p = 2/5 (F ~ eta^(-2/5)); p = -1/2 belongs to F ~ sqrt(eta) (A = 0)
+    (table: 0.1 s)
+[PASS] ift_row1: at eta = 0: a3 = a2 = 0, a1 = 2 g^2 f (f^2 - 1), a0 = 2 g^4 (f^2 - 1); the root of the cubic that stays finite is F'' -> -g^2/f (N_F'' = a1 != 0 for g != 0, f not in {0, +-1}), the other two are the double root of 2 f (f^2 - 1)(eta F'' + g)^2 (the part a3 F''^2 + a2 F'' + a1): F'' ~ -g/eta, F' ~ -g ln eta unbounded: a real C^1 solution with F'(0) = g != 0 has F'' -> -g^2/f, and the analytic family is the only one (True)
+    (ift_row1: 0.0 s)
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-r185/notes/warp/conical_eta0.py", line 799, in main
+    fn()
+    ~~^^
+  File "/Users/nathan/Source/negative-mass-r185/notes/warp/conical_eta0.py", line 429, in c_floor15
+    r = floor_flow(fi, c, sr)
+  File "/Users/nathan/Source/negative-mass-r185/notes/warp/conical_eta0.py", line 394, in floor_flow
+    j = crate_json(["walk", fi, c])
+  File "/Users/nathan/Source/negative-mass-r185/notes/warp/conical_eta0.py", line 375, in crate_json
+    p = subprocess.run([BIN] + [str(a) for a in args], capture_output=True, text=True, env=dict(os.environ, RAYON_NUM_THREADS="2"))
+  File "/Users/nathan/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/subprocess.py", line 555, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/subprocess.py", line 1990, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/nathan/Source/negative-mass-r185/notes/warp/conical_global/target/release/conical_global'
+[FAIL] floor15: raised FileNotFoundError: [Errno 2] No such file or directory: '/Users/nathan/Source/negative-mass-r185/notes/warp/conical_global/target/release/conical_global'
+    (floor15: 0.0 s)
+[PASS] iia_exists: orbits of branch II with Q > 0 started at t = -13.8 (F, P) = (0.5, 1e-3), (0.25, 1e-4), (0.75, 1e-3), walked to t = -4e5: f_inf 0.44312: P T^2 kappa/4 = 0.9995, slope of P^(-1/2) over sqrt(kappa)/2 = 1.0000, c from F over 2 (1 - f^2)/f = 0.9992; f_inf 0.22177: P T^2 kappa/4 = 0.9979, slope of P^(-1/2) over sqrt(kappa)/2 = 1.0000, c from F over 2 (1 - f^2)/f = 0.9969; f_inf 0.71496: P T^2 kappa/4 = 0.9997, slope of P^(-1/2) over sqrt(kappa)/2 = 1.0000, c from F over 2 (1 - f^2)/f = 0.9996; worst deviation from the dominant balance P = 4/(kappa T^2), F - f = c/T is 0.0031 (F - f ~ 2 (1 - f^2)/(f |ln eta|): F' ~ 1/(eta ln^2 eta), not C^1)
+    (iia_exists: 0.0 s)
+[PASS] kappa_symbolic: a3 = 2 F eta^2 kappa: True; on kappa = 0, a2 = 2 g eta^2 (2 g (eta^2 + 1) - F eta): True, zeros g = 0 and g_e = eta/(2F): True; kappa' = -eta there: True; beta = da2/dg = 2 F eta^3: True; the two eigenvalues of the desingularized flow (eta', F', g') = (a3, g a3, w), w^3 + a2 w^2 + a1 a3 w + a0 a3^2 = 0, equal -2 F eta^3 (1:1 resonance): True; a1(E) = eta^6 (eta^2 + 2)/(4 F^3) != 0: True; scaled cubic Om^3 + beta Y Om^2 - a1 alpha Om: True; dY/dtau = (1/2) sqrt(beta^2 Y^2 + 4 a1 alpha): True, solved by Y = (2 sqrt(a1 alpha)/beta) sinh(beta (tau - tau0)/2): True; y_inf = c sqrt(|kappa_z|), c = eta sqrt(eta^2 + 2)/(2 sqrt(2) F^2): True
+    (kappa_symbolic: 0.1 s)
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-r185/notes/warp/conical_eta0.py", line 799, in main
+    fn()
+    ~~^^
+  File "/Users/nathan/Source/negative-mass-r185/notes/warp/conical_eta0.py", line 643, in c_kappa_cross
+    r1 = kappa_cross(fi, c, mp.mpf("0.02"))
+  File "/Users/nathan/Source/negative-mass-r185/notes/warp/conical_eta0.py", line 580, in kappa_cross
+    j = crate_json(["walk", fi, c])
+  File "/Users/nathan/Source/negative-mass-r185/notes/warp/conical_eta0.py", line 375, in crate_json
+    p = subprocess.run([BIN] + [str(a) for a in args], capture_output=True, text=True, env=dict(os.environ, RAYON_NUM_THREADS="2"))
+  File "/Users/nathan/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/subprocess.py", line 555, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/subprocess.py", line 1990, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/nathan/Source/negative-mass-r185/notes/warp/conical_global/target/release/conical_global'
+[FAIL] kappa_cross: raised FileNotFoundError: [Errno 2] No such file or directory: '/Users/nathan/Source/negative-mass-r185/notes/warp/conical_global/target/release/conical_global'
+    (kappa_cross: 0.0 s)
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-r185/notes/warp/conical_eta0.py", line 799, in main
+    fn()
+    ~~^^
+  File "/Users/nathan/Source/negative-mass-r185/notes/warp/conical_eta0.py", line 740, in c_kappa_retrace
+    A = physical_ode(fi, c, "0.01")
+  File "/Users/nathan/Source/negative-mass-r185/notes/warp/conical_eta0.py", line 686, in physical_ode
+    r = kappa_cross(fi, c, mp.mpf("0.02"), dps=dps)
+  File "/Users/nathan/Source/negative-mass-r185/notes/warp/conical_eta0.py", line 580, in kappa_cross
+    j = crate_json(["walk", fi, c])
+  File "/Users/nathan/Source/negative-mass-r185/notes/warp/conical_eta0.py", line 375, in crate_json
+    p = subprocess.run([BIN] + [str(a) for a in args], capture_output=True, text=True, env=dict(os.environ, RAYON_NUM_THREADS="2"))
+  File "/Users/nathan/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/subprocess.py", line 555, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/.local/share/uv/python/cpython-3.14.7-macos-aarch64-none/lib/python3.14/subprocess.py", line 1990, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/nathan/Source/negative-mass-r185/notes/warp/conical_global/target/release/conical_global'
+[FAIL] kappa_retrace: raised FileNotFoundError: [Errno 2] No such file or directory: '/Users/nathan/Source/negative-mass-r185/notes/warp/conical_global/target/release/conical_global'
+    (kappa_retrace: 0.0 s)
+6 of 9 checks pass in 0 s; failed: ['floor15', 'kappa_cross', 'kappa_retrace']
+[PASS] control red-factor (B with 3 F P^3 in place of 2 F P^3): exit 1, fails its targets ['reduction']: True, others: [], 0 s
+[PASS] control bal-weight (the weight of Q in T is g + 1 in place of g + 2 in the algebraic regime): exit 1, fails its targets ['planted']: True, others: [], 0 s
+[PASS] control n-c33 (N with the coefficient 3 in place of 2 on F^3 F''^3 eta^2 (det_classify.conical_N(c33=3))): exit 1, fails its targets ['table', 'kappa_symbolic']: True, others: [], 1 s
+[PASS] control ift-sq (the perfect square's coefficient 3 f (f^2 - 1) in place of 2 f (f^2 - 1)): exit 1, fails its targets ['ift_row1']: True, others: [], 0 s
+[PASS] control floor-sign (the other root of B (Q > 0) for the continuation below the floor): exit 1, fails its targets ['floor15']: True, others: [], 0 s
+[PASS] control iia-sign (the other root of B (Q < 0) for the orbits with P -> 0): exit 1, fails its targets ['iia_exists']: True, others: [], 0 s
+[PASS] control cross-root (the flow follows the root -a0 a3/a1 in place of the escaping root): exit 1, fails its targets ['kappa_cross']: True, others: [], 0 s
+[PASS] control retrace-root (the retrace takes the root -a0/a1 in place of the tracked root): exit 1, fails its targets ['kappa_retrace']: True, others: [], 0 s
+exit 1

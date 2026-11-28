@@ -1,0 +1,7 @@
+[FAIL] K1: eta-degrees [0, 2, 4] (odd []); N0 + 2AB = -F**3*P**3 + 3*F**3*P**2*Q - 3*F**3*P*Q**2 + F**3*Q**3
+[PASS] K2: N(eta = 0) = 2*F1**2*(F0 - 1)*(F0 + 1)*(F0*F2 + F1**2)
+[FAIL] K3: leading T^-6 coefficient of B: 2*c**2*(c*f + 2*f**2 - 2); roots [0, -2*f + 2/f]; N0 * T^6 -> 8*f**6 - 24*f**4 + 24*f**2 - 8 with c = (2 - 2*f**2)/f
+[PASS] K4: A = F*p0 - p0**2, B = 2*F*p0**3 + 2*p0**4: both grow with F = f + p0 t, so N0 = -2AB != 0 at large |t|
+
+4 criteria, 2 pass; failed: ['K1', 'K3']; mutation c33
+exit 1

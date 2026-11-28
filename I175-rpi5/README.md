@@ -90,3 +90,18 @@ generator list.
 ## Amendments
 
 (A1) 2026-11-28, before any run of record: `wrong-modulus` replaced by `wrong-prime` (see above).
+
+## Development runs and the 2026-11-28 memory event
+
+| run | input | result |
+|---|---|---|
+| `dev/R2_p2147483629_dev1` | R2, `liftstd` mod 2147483629 (11 generators, `option(redSB)`), unit `nm-i175-dev1`, started 05:32 | stopped at the 3600 s limit, exit 124, no output; peak resident 5.0 GB (`.time`) |
+| `dev/K22_p2147483629_dev1` | K22, same recipe, unit `nm-i175-dev2`, started 05:40 | killed by the kernel's OOM killer at 06:13 (`journalctl --user -u nm-i175-dev2`: oom-kill, 4.3 GB memory peak, 233 MB swap peak, 31 min 40 s CPU); `.out`, `.err`, `.time` empty, no `.rc` |
+
+Both were running together with 3.7 GB and 2.4 GB at 06:05 (7.3 of 7.9 GB used, swap 0.9 of 1.0 GB). The session that
+launched them ended at about 06:08 local (14:08 UTC), `holder_lost`, while the machine was out of memory; the
+coordinator resumed it in a new terminal (rpi5-ubuntu/t4s). Both logs stay as written. These two runs have exactly the
+form of runs of record (same inputs and recipe), so they count as the R2 and K22 results for p = 2147483629 under the 1 h
+stop: **no finish**. From here one Singular process runs at a time whenever a run may exceed about 3 GB (coordinator,
+2026-11-28); nothing is stopped over memory; Singular units get `OOMScoreAdjust=500` so that if the kernel must kill, it
+picks them before the session or other projects.
