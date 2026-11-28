@@ -327,3 +327,5 @@ and the exchange checks are identical (compared function by function). `order7_o
 
 **Controls of record: 51 runs, 48 on target, 3 off target** (`order7_output.txt`, last section; `ctl_summary.py PREFIX --declared declared_X.json`): T1 12 of 12 (`ctl_t1_*`, control grids), T2 5 of 5 (`ctl_t2_*`: Q1, Q3, Q5), T2b 3 of 3 (`ctl_t2b_*`: Q2, Q4, Q6 … Q9 at cap 250; the targets predicted),
 EX 13 of 13 (`ctl_ex_*`), CHK 6 of 6 (`ctl_chk_*`: E0, CACHE, XS), RD 9 of 12 (`ctl_red_*`: the reduction, `euler7`, `weights7`). **The three off target are `rd_B`, `rd_J5`, `rd_master`: each fires RD8 as well as its declared set** (RD8 was inactive in the development runs, A5). All checks have a control except PLW.
+
+Final state: code repository `wip/i263-omega5` at c618f36 (`order7.py` unchanged since 996c69f; `omega5.md` and `order7_output.txt` added); this folder's last commit is named in the issue's closing comment.
