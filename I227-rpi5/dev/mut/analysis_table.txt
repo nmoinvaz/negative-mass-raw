@@ -1,0 +1,11 @@
+clean            exit 0  fires: -
+time_unit        exit 1  fires: LL1-E, LL3-E, LL1-F, LL3-F
+pstar_off        exit 1  fires: FM-E, LL1-E, LL2-E, LL3-E, FM-F, LL1-F, LL2-F, LL3-F, P1-scaleP16, P2
+bisect_loose     exit 1  fires: BR-E, FM-E, TM-E, LL1-E, LL2-E, LL3-E, BR-F, FM-F, TM-F, LL1-F, LL2-F, LL3-F, P1-scaleP16, P2
+drop_point       exit 1  fires: SR-E, SR-F
+evc_shift        exit 1  fires: EVC-E, EVC-F
+offsets_scaled   exit 1  fires: FS-E, FS-F, S2-D4, S3-D4
+drop_k           exit 1  fires: KF
+t_unit           exit 1  fires: S0-D4, S1-D4, S0-D5, S1-D5, S0-D6, S1-D6
+seed_scale       exit 1  fires: S2-D4, S3-D4
+pert_sign        exit 1  fires: P1-scaleP16, P2

@@ -1,0 +1,4 @@
+float_cast   exit 1 only=BR,P1              fires: P1-scaleP16
+noise_f64    exit 1 only=BR,SR,FM,TM,EVC,LL1,LL2,LL3 fires: FM-E, TM-E, LL1-E, LL2-E, LL3-E
+h_wrong      exit 1 only=A2                 fires: A2-E
+eta_dropped  exit 1 only=P1                 fires: P1-scaleP16

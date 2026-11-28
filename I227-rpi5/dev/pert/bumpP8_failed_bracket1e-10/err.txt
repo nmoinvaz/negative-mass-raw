@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-i227/notes/wormhole_evolution/extended_bisect.py", line 972, in <module>
+    main()
+    ~~~~^^
+  File "/home/nathan/Source/negative-mass-i227/notes/wormhole_evolution/extended_bisect.py", line 968, in main
+    sys.exit(cmds[a.cmd](a))
+             ~~~~~~~~~~~^^^
+  File "/home/nathan/Source/negative-mass-i227/notes/wormhole_evolution/extended_bisect.py", line 350, in cmd_bisect
+    lo, hi, stopped = threshold.bisect(run, lo, hi, LD(a.tol), sink)
+                      ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-i227/notes/wormhole_evolution/threshold.py", line 126, in bisect
+    raise RuntimeError(f"bracket [{lo}, {hi}] does not straddle the threshold: fate {r['fate']} at {p}, wanted {want}")
+RuntimeError: bracket [4.7527625276423074e-05, 4.7527825276423074e-05] does not straddle the threshold: fate 1 at 4.7527625276423074e-05, wanted -1
