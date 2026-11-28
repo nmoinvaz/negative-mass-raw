@@ -1,0 +1,14 @@
+  #266's four B: (g1 0.002934, r_th 0.999152, M 0.223563), (g1 0.011836, r_th 0.997748, M 0.225235), (g1 0.048165, r_th 1.003340, M 0.235548), (g1 0.074880, r_th 1.019660, M 0.247101)
+[FAIL] K2: a = 0.21696, b = 0.5349, M0 = 0.223086 (note: 0.2027, 0.8534, 0.223086)
+  delta 1e-7: t_dep 13.615, r_th 1.002742, g1 0.048321, M 0.235198, predicted 0.235463, M - predicted -2.644e-04  (note -5.21e-04)
+  delta 1e-8: t_dep 15.618, r_th 1.003340, g1 0.048165, M 0.235548, predicted 0.235561, M - predicted -1.273e-05  (note +5.00e-07)
+  delta 1e-9: t_dep 17.623, r_th 1.004650, g1 0.048019, M 0.235991, predicted 0.235829, M - predicted +1.619e-04  (note +3.48e-04)
+  delta 1e-10: t_dep 19.630, r_th 1.006441, g1 0.047876, M 0.236497, predicted 0.236211, M - predicted +2.855e-04  (note +5.87e-04)
+  delta 1e-11: t_dep 21.639, r_th 1.008588, g1 0.047734, M 0.237051, predicted 0.236676, M - predicted +3.748e-04  (note +7.61e-04)
+  delta 1e-12: t_dep 23.626, r_th 1.010441, g1 0.047611, M 0.237622, predicted 0.237078, M - predicted +5.439e-04  (note +8.88e-04)
+[FAIL] K1: largest differences from the note's table: t_dep 2.0e+00, r_th 2.0e-03, g1 1.9e-04, M 5.0e-07 (bars 1e-3, 1e-6, 1e-5, 2e-6)
+[FAIL] K3: M - predicted against the note's column: worst 3.9e-04 (bar 1e-5); largest |M - predicted| at 1e-9 ... 1e-12 5.44e-04 (> 6e-5: PRED not met)
+[FAIL] K4: dM +2.0737e-03 (note +2.074e-3), predicted +1.5171e-03 (note +1.186e-3)
+[FAIL] K5: excess +2.097e-04, +1.353e-04, +8.478e-05, +5.018e-05, +1.352e-04; ratios 0.645, 0.627, 0.592, 2.695 (note 0.649, 0.653, 0.669, 0.650)
+
+5 criteria, 0 pass; failed: ['K2', 'K1', 'K3', 'K4', 'K5']; mutation eps-1e-2

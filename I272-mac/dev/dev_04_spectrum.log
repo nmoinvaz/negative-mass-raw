@@ -1,0 +1,29 @@
+ellis_spectrum.py  code b1d1c84  mutate=None  crate=../wormhole_largeD/w2_crate/target/release/w2_crate
+
+== poles of the resolvent: argument-principle scan (shooting) and complex-scaled collocation
+PASS    S1-D5: Re W > 0, boxes around and beside the unstable root W = 1.727703: windings 1.000, -0.000, -0.000 (want 1, 0, 0)
+   D = 5 even: Re W in [-8.2, -0.2], Im W in [0, 8], 1 zero(s), 2 cell(s) skipped near the origin, 54 s
+      zero at W = -4.23470 +0.37426i; over ray angle and far point (n = 8): spread 1.6e-06
+PASS    S2-D5-even: no zero with Re W in [-1.4, -0.2], Im W in [0, 1] (the region of kappa = 0.495 and 0.244): 0 found
+PASS    S3-D5-even: the 1 zero(s) near the cut: worst spread over four ray angles and two far points 1.6e-06 (bar 1e-3)
+   D = 5 odd: Re W in [-8.2, -0.2], Im W in [0, 8], 1 zero(s), 2 cell(s) skipped near the origin, 51 s
+      zero at W = -6.78097 +0.46746i; over ray angle and far point (n = 8): spread 1.8e-01
+PASS    S2-D5-odd: no zero with Re W in [-1.4, -0.2], Im W in [0, 1] (the region of kappa = 0.495 and 0.244): 0 found
+FAIL    S3-D5-odd: the 1 zero(s) near the cut: worst spread over four ray angles and two far points 1.8e-01 (bar 1e-3)
+PASS    S4-D5-even: complex scaling at theta = -0.7, -0.85, -1.0 (N = 481): eigenvalues |W^2| < 80 present at all three: ['2.98489-0.00018i', '-0.00003-0.00123i']; counts [74, 73, 73]
+PASS    S4-D5-odd: complex scaling at theta = -0.7, -0.85, -1.0 (N = 481): eigenvalues |W^2| < 80 present at all three: []; counts [72, 72, 71]
+PASS    S1-D4: Re W > 0, boxes around and beside the unstable root W = 1.181970: windings 1.000, 0.000, -0.000 (want 1, 0, 0)
+   D = 4 even: Re W in [-8.2, -0.2], Im W in [0, 8], 2 zero(s), 2 cell(s) skipped near the origin, 69 s
+      zero at W = -5.66677 +0.24749i; over ray angle and far point (n = 8): spread 3.5e-05
+      zero at W = -2.61874 +0.15269i; over ray angle and far point (n = 8): spread 2.2e-10
+PASS    S2-D4-even: no zero with Re W in [-1.4, -0.2], Im W in [0, 1] (the region of kappa = 0.495 and 0.244): 0 found
+PASS    S3-D4-even: the 2 zero(s) near the cut: worst spread over four ray angles and two far points 3.5e-05 (bar 1e-3)
+   D = 4 odd: Re W in [-8.2, -0.2], Im W in [0, 8], 2 zero(s), 2 cell(s) skipped near the origin, 83 s
+      zero at W = -7.21809 +0.26614i; over ray angle and far point (n = 8): spread 1.8e-02
+      zero at W = -4.13102 +0.21485i; over ray angle and far point (n = 8): spread 6.9e-08
+PASS    S2-D4-odd: no zero with Re W in [-1.4, -0.2], Im W in [0, 1] (the region of kappa = 0.495 and 0.244): 0 found
+FAIL    S3-D4-odd: the 2 zero(s) near the cut: worst spread over four ray angles and two far points 1.8e-02 (bar 1e-3)
+PASS    S4-D4-even: complex scaling at theta = -0.7, -0.85, -1.0 (N = 481): eigenvalues |W^2| < 80 present at all three: ['1.39702-0.00010i']; counts [74, 73, 73]
+PASS    S4-D4-odd: complex scaling at theta = -0.7, -0.85, -1.0 (N = 481): eigenvalues |W^2| < 80 present at all three: []; counts [72, 72, 71]
+
+14 checks, 12 pass, 2 fail: S3-D5-odd, S3-D4-odd

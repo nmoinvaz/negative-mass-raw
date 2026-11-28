@@ -1,0 +1,71 @@
+{
+ "box": "t1_r40",
+ "issue": "126",
+ "job": "w_t1_r40",
+ "l": 2,
+ "eps": -1,
+ "w": 0.7603,
+ "x0": 0.02,
+ "x1": 0.1,
+ "y0": 0.15,
+ "y1": 0.33,
+ "plant": [
+  0.03,
+  0.25
+ ],
+ "rsmult": 40.0,
+ "zfac": 1.0,
+ "sym": false,
+ "rm": 24.10980364018201,
+ "rs": 825.4650895423956,
+ "kmin": 0.04991543788840878,
+ "log": {
+  "rm": 24.11,
+  "rs": 825.5,
+  "kmin": 0.05,
+  "wind": 0.0,
+  "step": "0.38",
+  "nmin": "3.73e-03",
+  "expected": 1,
+  "plant_with": 1.0,
+  "plant_without": 0.0,
+  "diff": 1.0,
+  "plant_step": "0.36",
+  "plant_pass": true
+ },
+ "n_cache": 108,
+ "mutate": "strip_off",
+ "lane": "f64",
+ "stored_run": {
+  "winding": 1.5350593775119056e-16,
+  "maxstep": 0.38023615198672556,
+  "nmin": 0.0037325273718922638,
+  "margin": 0.019763848013274465,
+  "plant_count": 1.0000000000000002,
+  "plant_diff": 1.0,
+  "plant_expected": 1,
+  "plant_maxstep": 0.3594191125971226,
+  "plant_margin": 0.019763848013274465,
+  "plant_ok": true,
+  "asked": 108,
+  "missing": 0
+ },
+ "points": null,
+ "agree": {
+  "n": 8,
+  "ph_max": 2.952967919216181,
+  "mod_max": 3.6961766980425637e-11
+ },
+ "E": 2.952967919216181,
+ "margin_used": 0.019763848013274465,
+ "wall_crate": 0.6794,
+ "checks": {
+  "INPUT": true,
+  "STORED": true,
+  "MARGIN": false
+ },
+ "fired": true,
+ "effect": "8 stored points: phase 2.95e+00 rad (max), modulus 3.70e-11; margin 1.98e-02 against 10 E = 2.95e+01",
+ "wall_total": 4.551453113555908,
+ "verdict": "REPORT MARGIN"
+}

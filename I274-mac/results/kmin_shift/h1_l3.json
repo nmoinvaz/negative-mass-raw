@@ -1,0 +1,62 @@
+{
+ "box": "h1_l3",
+ "issue": "126",
+ "job": "w_h1_l3",
+ "l": 3,
+ "eps": -1,
+ "w": 0.7603,
+ "x0": 0.1,
+ "x1": 2.0,
+ "y0": 2.5,
+ "y1": 6.0,
+ "plant": [
+  0.3,
+  2.7
+ ],
+ "rsmult": 40.0,
+ "zfac": 1.0,
+ "sym": false,
+ "rm": 24.10980364018201,
+ "rs": 415.7935423187259,
+ "kmin": 0.10212320821628015,
+ "log": {
+  "rm": 24.11,
+  "rs": 419.7,
+  "kmin": 0.101,
+  "wind": -0.0,
+  "step": "0.38",
+  "nmin": "2.63e-04",
+  "expected": 1,
+  "plant_with": 1.0,
+  "plant_without": -0.0,
+  "diff": 1.0,
+  "plant_step": "0.40",
+  "plant_pass": true
+ },
+ "n_cache": 148,
+ "mutate": "kmin_shift",
+ "lane": "f64",
+ "stored_run": {
+  "winding": -5.47762195140939e-16,
+  "maxstep": 0.3800731789484435,
+  "nmin": 0.0002633003877684526,
+  "margin": 0.0006080802080957182,
+  "plant_count": 1.0000000000000004,
+  "plant_diff": 1.0000000000000009,
+  "plant_expected": 1,
+  "plant_maxstep": 0.3988951581760514,
+  "plant_margin": 0.0006080802080957182,
+  "plant_ok": true,
+  "asked": 148,
+  "missing": 0
+ },
+ "points": null,
+ "checks": {
+  "INPUT": false,
+  "STORED": true
+ },
+ "fired": true,
+ "effect": "R_s 415.8 against the log's 419.7",
+ "wall_total": 0.0018591880798339844,
+ "verdict": "REPORT INPUT"
+}

@@ -1,0 +1,62 @@
+{
+ "box": "p085_l3",
+ "issue": "126",
+ "job": "w_p085_l3",
+ "l": 3,
+ "eps": -1,
+ "w": 0.85,
+ "x0": 0.1,
+ "x1": 2.0,
+ "y0": 0.0,
+ "y1": 2.5,
+ "plant": [
+  0.3,
+  1.76
+ ],
+ "rsmult": 40.0,
+ "zfac": 1.0,
+ "sym": true,
+ "rm": 27.940931346567332,
+ "rs": 405.94208611336643,
+ "kmin": 0.10581978254716515,
+ "log": {
+  "rm": 27.94,
+  "rs": 409.7,
+  "kmin": 0.105,
+  "wind": 0.0,
+  "step": "0.40",
+  "nmin": "1.23e-03",
+  "expected": 2,
+  "plant_with": 2.0,
+  "plant_without": 0.0,
+  "diff": 2.0,
+  "plant_step": "0.40",
+  "plant_pass": true
+ },
+ "n_cache": 221,
+ "mutate": "kmin_shift",
+ "lane": "f64",
+ "stored_run": {
+  "winding": 1.6962958301138756e-15,
+  "maxstep": 0.39875760099554197,
+  "nmin": 0.0012317362118221416,
+  "margin": 0.0012423990044580502,
+  "plant_count": 1.9999999999999998,
+  "plant_diff": 1.999999999999998,
+  "plant_expected": 2,
+  "plant_maxstep": 0.39933174877684197,
+  "plant_margin": 0.0006682512231580562,
+  "plant_ok": true,
+  "asked": 221,
+  "missing": 0
+ },
+ "points": null,
+ "checks": {
+  "INPUT": false,
+  "STORED": true
+ },
+ "fired": true,
+ "effect": "R_s 405.9 against the log's 409.7",
+ "wall_total": 0.00203704833984375,
+ "verdict": "REPORT INPUT"
+}

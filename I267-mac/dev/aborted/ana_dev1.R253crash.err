@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i267/notes/wormhole_evolution/settled_mass_member.py", line 761, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nathan/Source/negative-mass-i267/notes/wormhole_evolution/settled_mass_member.py", line 755, in main
+    sys.exit(analyze_cmd(opts["raw"]))
+             ~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i267/notes/wormhole_evolution/settled_mass_member.py", line 501, in analyze_cmd
+    sc = {r["delta"]: r for r in json.load(open(f"{g.I253}/runs/scan_G_h{h:g}.json"))} if os.path.exists(f"{g.I253}/runs/scan_G_h{h:g}.json") else {}
+                                                                                                            ^^^^^^
+AttributeError: module 'settled_mass_g' has no attribute 'I253'
