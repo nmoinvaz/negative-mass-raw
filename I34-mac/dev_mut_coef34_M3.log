@@ -1,0 +1,9 @@
+CLD /Users/nathan/Source/negative-mass-i34-cld at 82e991a0; M 3 Mt None mode test parity odd mutate 'coef34' r1 0.2 rtol 1e-12
+PASS  K1 background series = CLD's series_at  max rel diff 0.00e+00 (truncation index 94 vs 94)
+PASS  K2 planted heat modes mu = -1, -2, -3 (even class)  zeros ['-3.000000000', '-2.000000000', '-1.000000000'] max |err| 9.5e-12
+FAIL  K3 boost: zero of the test field at mu = 0  zero at inf (all in +-0.12: [])
+FAIL  K4 CLD Prop. 5: full linearization zero at lambda = 0  zero at inf (|err| inf, tolerance 0.002)
+FAIL  K4 CLD Prop. 5: full linearization zero at lambda = 1  zero at inf (|err| inf, tolerance 0.002)
+FAIL  K4 CLD Prop. 5: full linearization zero at lambda = 2  zero at inf (|err| inf, tolerance 0.015)
+exit 1
+# wall 22 s, exit 1

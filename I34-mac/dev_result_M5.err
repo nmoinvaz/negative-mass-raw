@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i34/notes/wormhole_next/mu_inf_stokes.py", line 448, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nathan/Source/negative-mass-i34/notes/wormhole_next/mu_inf_stokes.py", line 429, in main
+    x = json.load(open(a.bg))["x"] if a.bg else BG[a.M]
+                  ~~~~^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'bg_M5_run01.json'
