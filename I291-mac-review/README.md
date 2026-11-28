@@ -22,3 +22,19 @@ Criteria, written before the first run:
 
 Mutations: `one-member` (member 0 alone: K1 at h = 0.005, if the note's ±0.1 to ±0.23 single-pair scatter is right),
 `t-not-tau` (ln t in place of ln τ: reported), `wide` (the fit over ±1.0 in τ: reported).
+
+## Results
+
+| check | verdict | reading (`run_01.log`) |
+|---|---|---|
+| K1 | met | slope −2.4065 (h = 0.01), −2.3050 (h = 0.005); worst 0.007 from the note's |
+| K2 | met | rate × t = 2.129, 2.226, 2.340 (h = 0.01) and 2.131, 2.227, 2.315 (h = 0.005); worst 0.021; spread 9.5 % (bar 23.1 %) |
+| K3 | reported | S1 with this estimator: met at h = 0.01 (−2.406), not met at h = 0.005 (−2.305), as the note |
+
+Mutations: `one-member` fails K1 and K2 (−2.357, −2.083: the note's single pairs −2.36, −2.07); `t-not-tau` and `wide` move the
+slopes by at most 0.013 and fail nothing (reported, as declared).
+
+## Rerun of the runner's analysis
+
+From a detached worktree at 532f56b: `throat_tail.py analyze` (exit 1, as stored: S1 at h = 0.005) equals
+`throat_tail_output.txt` apart from the header.
