@@ -21,3 +21,10 @@ script from that definition. Run from this folder: `python3 ind185.py [--mutate=
 - `c33`: N's F₀³F₂³η² coefficient 2 → 3 (`conical_N(c33=3)`) → K1.
 - `cfac`: c = (1 − f²)/f → K3.
 - `p0`: P = p₀ with Q = p₀ (wrong second derivative) → K4 is not expected to fire; reported.
+
+## Amendment A1 (2026-11-28, after run 1)
+
+Run 1 (`ind185_run1.txt`) passed 4 of 4, but the mutation `cfac` did not fire K3: with A ~ T⁻² and B ~ T⁻⁶, N₀ = −2AB is
+O(T⁻⁸) at every c, so K3's "N₀ is O(T⁻⁷)" could not fail. K3's order test becomes N₀·T⁸ → 0 (B's T⁻⁶ term cancelled, so
+N₀ = O(T⁻⁹)), which holds only at c = 2(1 − f²)/f. The rest of K3 is unchanged. `p0` fired K4 (A = −p₀² and B quadratic in F when
+Q = p₀), which the README expected not to; it is kept as a mutation that fires.
