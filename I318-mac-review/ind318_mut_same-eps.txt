@@ -1,0 +1,14 @@
+  B = 0: r_th part -1.3966e-04, rdot_th part -3.2014e-04 (reading at 1e-2 minus at 1e-3)
+  X1     : t_dep 15.3292 (e8, 1e-2) 17.2788 (e9, 1e-3); rho_rdot 0.7347 (#318 1.002), rho_r -8.5179 (#318 A 0.954)
+  X2     : t_dep 15.6359 (e8, 1e-2) 17.6129 (e9, 1e-3); rho_rdot 2.6993 (#318 1.006), rho_r -11.7304 (#318 A 0.96)
+  X3     : t_dep 15.9082 (e8, 1e-2) 17.9292 (e9, 1e-3); rho_rdot 4.0349 (#318 1.009), rho_r 5.0693 (#318 A 0.891)
+  W3     : t_dep 15.8103 (e8, 1e-2) 17.8477 (e9, 1e-3); rho_rdot 2.0914 (#318 1.009), rho_r 26.6347 (#318 A 0.965)
+  C3     : t_dep 15.9508 (e8, 1e-2) 18.0159 (e9, 1e-3); rho_rdot 1.7593 (#318 1.002), rho_r 31.2377 (#318 A 0.905)
+  N3     : t_dep 15.9159 (e8, 1e-2) 17.9694 (e9, 1e-3); rho_rdot 1.8579 (#318 1.005), rho_r 30.0295 (#318 A 0.92)
+  B0.125 : t_dep 15.9288 (e8, 1e-2) 18.0018 (e9, 1e-3); rho_rdot 1.4150 (#318 1.003), rho_r 36.2112 (#318 A 0.92)
+[FAIL] K0: same moment: worst |dt_dep| 2.07e+00 (bar 0.01)
+[FAIL] K1: rho_rdot within 0.02 of #318's: worst 3.026; at X1-X3 0.735, 2.699, 4.035 (needed 1.19, 1.41, 1.44)
+[FAIL] K2: rho_r within 0.02 of #318's reader A: worst 35.291
+
+3 criteria, 0 pass; failed: ['K0', 'K1', 'K2']; mutation same-eps
+exit 1
