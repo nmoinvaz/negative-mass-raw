@@ -16,7 +16,8 @@ met is reported as not met. A control that fires on real data stops the work unt
 ```
 I230-dh610/
 ├── README.md
-├── scripts/            joblane.sh (one lane of jobs, 3 h limit each), mutlane.sh (the mutation runs)
+├── scripts/            joblane.sh (one lane of jobs, 3 h limit each), mutlane.sh (the mutation runs), make_figure.py, data_graphs.py (vendored from the arriba graph-data skill)
+├── figures/            throat_scaling.svg
 ├── dev/                development runs (kept, none edited): dev_NN_*.py, dev_NN*.log, mut/ (the mutation runs of dev_03, dev_05, dev_06), jt/ (dev_07)
 └── runs/               runs of record (after the declaration)
     ├── D<D>_A<A>_h<h>_X<X>.npz              one streamed run of family S: the diagonal series, the edge columns x+ = X/4, X/2, X, the horizon contours
@@ -24,7 +25,9 @@ I230-dh610/
     ├── D<D>_S_b<b>_h<h>_X<X>.npz            the jump test: S plus a step b in the end value of the field
     ├── *.partial.npz                         the diagonal series so far (written at each tenth of the rows)
     ├── logs/<lane>_<k>.log                  per job: start, progress, end, exit code
-    └── analysis*.log                         `throat_scaling.py analyze` on the above
+    ├── mut/rec_<mutation>.log               the 18 mutation runs of record (977e873)
+    ├── analysis_9b6b1f8.log, analysis.log   `throat_scaling.py analyze` at the declared commit and at 977e873
+    └── (figures/throat_scaling.svg one level up)
 ```
 
 ## Rulings received (coordinator's brief, over hc)
@@ -227,6 +230,57 @@ Stop condition: a job not finished in 3 h of wall time is stopped (`timeout`, ex
 3. JTC (above): keep the declared read-off (c at r = 50a; expected 1.06e-3 against the bar 1e-3 at D = 4, b = 0.4) and report it not met, or replace it before the analysis
    by the extrapolated c, the same estimator as K4X, K5X, K6X and JTK (not computed in any development run)? The declared form is used unless the coordinator rules otherwise.
 
+## Rulings received during the runs (coordinator, 2026-11-28)
+
+1. K5F stays as declared, **not met** (3.1e-3 against 1e-3). Report the extrapolated exponent (4.00003) and c (3.7e-4) beside it and say plainly that the extrapolation is a second estimator applied to the same runs.
+2. JTC stays as declared, with no change of estimator; if it fails in the runs of record it is reported as not met. The extrapolated c may be added for that member as a supplementary row labelled post hoc, gating nothing.
+3. Status words: the closed form is *checked symbolically*; k = 2/(nA^2 - n - 1) follows from it; k = 2(n-1) is *conditional* on H1 (A = (2/pi) phi_inf). Say what would be needed to derive H1.
+
 ## Stage 2: results
 
-(to be written after the runs of record)
+Runs of record (16 jobs, all exit 0, none stopped by the 3 h limit; joblane logs in `runs/logs/`, every job with its start and end times):
+
+| job | wall time |
+|---|---|
+| D = 4 tuned, X = 800, h = 0.01 (N = 80000) | 5292 s |
+| D = 6, A = 0.05, h = 0.003, X = 200 (N = 66667) | 3807 s |
+| D = 6, A = 0.2, h = 0.003 | 3724 s |
+| D = 6, A = 0.01, h = 0.003 | 4083 s |
+| D = 6, A = 0.05, h = 0.006 (N = 33333) | 850 s |
+| the 11 jump-test jobs | 18 s to 51 s each |
+
+Memory, sampled by `ps` five minutes into the first four jobs: 0.21 to 0.26 GB each (the X = 800 job included); not recorded later. Load average 13 to 18 of 20.
+
+**Analysis.** `runs/analysis_9b6b1f8.log` is `throat_scaling.py analyze` at the declared commit 9b6b1f8; `runs/analysis.log` (= `notes/wormhole_evolution/throat_scaling_output.txt`) is the same at 977e873, which adds report-only rows
+(the "post hoc" section). The 25 verdict lines (pass, FAIL, SKIP) and the final count are identical in the two files (`diff` of the two, empty). **21 of 25 checks pass; not met: K5F, K6X, WS, JTC.**
+
+| id | verdict | number |
+|---|---|---|
+| CF1, CF2, CF3, CF4 | pass | residuals 0; 2.3e-11 |
+| PF, PX, PS | pass | 5e-5, 1e-5; 2e-5; 4e-9 (exact), 2.3e-2 (A + 2 %) |
+| K4F, K4X, C4 | pass | 2.0e-4, 4e-6, 3.7e-4 |
+| **K5F** | **not met, as expected** | 3.13e-3 (3.98749, 3.98973) |
+| K5X, C5 | pass | 8e-6 (4.00003), 3.7e-4 |
+| K6F, C6, RES6 | pass | 1.5e-3 (5.99908, 5.99981, 5.99846), 1.4e-4 (10.66756, 10.66688, 10.66814); H 3.9e-3, k 6e-6 |
+| **K6X** | **not met** | 2.8e-2: A = 0.2 gives 6.02838 (A = 0.05: 6.00163, A = 0.01: 6.00033) |
+| **WS** | **not met** | 4.7e-3, A = 0.2 at D = 6; every other run below 8e-4 |
+| T800, K800, KT800 | pass | tau_s = 17.890219 (declared reference 17.8902), k = 2.000000, K (tau_s - tau)^2 = 4.00000 at tau_s - tau = 0.155 |
+| JTK | pass | 2.2e-4 (11 runs) |
+| **JTC** | **not met, as expected** | 1.06e-3 (D = 4, b = 0.4: c = 5.5643 at r = 50a against 5.5702) |
+| SP1, SP2 | pass | 4.5e-4 relative; 1.3e-3 absolute (22 runs) |
+
+**Mutations of record** (`runs/mut/rec_*.log`, 18 runs at 977e873): each fires exactly its declared set, none fires an extra check, none of the declared targets is silent.
+
+**Why K6X and WS fail (a control that fires on real data; the cause is known).** The differenced local exponent k_loc = H^2/(dH/dtau) is noise-limited at fine h: H has a cell-to-cell noise of about 3e-9 (relative, rms of its second difference) at h = 0.003 and changes by 3e-6 to 9e-6 per cell, so k_loc scatters
+by 1.8e-3 (3e-4 at h = 0.006). The mean of k_loc over the window equals the mean of the throat-relation series to 3e-7 (no bias). For A = 0.2 the approach at r_end (about 6e-5) is below the scatter, the three-parameter extrapolation is ill-conditioned and g runs to its lower bound.
+The declared PX control used scatter 1e-4 and could not show it. Post hoc rows in the output: (a) the extrapolation of the throat-relation series (no differentiation) gives 5.99999, 6.00000, 6.00000 (D = 6), 2.00000 (X = 800) with fit rms 2e-7; (b) planted series at scatter 1.8e-3 and an approach of
+7e-5 give errors of rms 7e-3 and max 1.7e-2 (3 of 20 seeds beyond 1e-2); at an approach of 1.5e-3, rms 4e-4. Nothing declared was changed.
+
+**Post hoc rows (gate nothing).** The extrapolated c of the 11 jump-test runs is within 2.4e-5 of the prediction (the coordinator allowed the row; JTC as declared reads c at r = 50a and misses once). The numbers are in the output, section "post hoc rows".
+
+**Things that disagree with the issue post.** The declaration post on the issue said 29 checks; the script has 25 checks (plus BUILD in the mutation runs). The count in this README's declared tables is the right one.
+
+**Figure.** `figures/throat_scaling.svg` (`scripts/make_figure.py`, vendored `scripts/data_graphs.py` equal to the arriba graph-data copy): k_loc/k against r for D = 4, 5, 6 and k against A for the jump test with the closed form's curves. The "better" arrow is omitted, no axis has a better direction.
+
+**The answer.** The late state of the symmetric expanding throat is the closed form r^n = x+ + x-, phi = A arcsin((x+ - x-)/(x+ + x-)), with H = k/(tau_s - tau), k = 2/(nA^2 - n - 1), |rho|/H^2 = n^2 A^2/2 (*checked symbolically*). With A = (2/pi) phi_inf (H1, not derived) k = 2(n-1) and c = n^3/(2(n-1)) (*conditional*). The note
+`notes/wormhole_evolution/throat_scaling.md` (branch `wip/i230-throat-kn`, head bab2391) has the derivation, what would derive H1, the proposals and the follow-ups.
