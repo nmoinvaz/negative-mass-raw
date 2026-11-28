@@ -118,6 +118,20 @@ is blind to `rs_one` (it uses the member's r_S through a(0) = −r_S of the char
 T4 costs about 1 s per member (T3 + T4), T7 about 30 s per member, the unmutated run 183 s on one process. The d3 `check` runs used the working file before the `derive`, `DECLARED` and `mutations` additions (committed as b54e1f5 with them);
 the check code is the same, and the runs of record are compared with `dev/d3_base.log` line by line apart from timings.
 
-## Result (runs of record)
+## Result (runs of record, code commit b54e1f5, `runs/`)
 
-(to be filled after the runs of record)
+`check` 146 of 146 (184 s, exit 0, `runs/r_base.log`), `derive` 21 of 21 (3 s, exit 0, `runs/r_derive_base.log`), `table` exit 0 (`runs/table.log`), every `.err` empty. The 17 mutations of `check` (`runs/r_<name>.log`) and the 2 of `derive`
+(`runs/r_derive_<name>.log`) exit 1 and fire the declared sets: `static_c1_all.py mutations runs r_` gives 20 of 20 equal, the unmutated run included. The unmutated run of record equals `dev/d3_base.log` line by line apart from timings
+(`diff` on the check lines). Launched as three transient systemd units (`nm-i310-rec1` … `rec3`), nice 10, one thread each, about 30 min wall; peak memory 0.55 GB (one T7 member, `dev/d4_mem_T7.err`).
+
+| criterion | result |
+|---|---|
+| κ r_S c₁ = −c/π to 1e-12 at all 20 | T1x ≤ 7.4e-35 (c = −0.01); T1 ≤ 1.7e-15 at 19, 6.0e-13 at c = −0.01 (bar 1e-12); all 20 pass |
+| dM = κ_ξ dA/(8π) to 1e-12 at all 20 | T2 \|ratio − 1\| ≤ 1.6e-18 (c = −0.01), 1.6e-21 (c = −10); M_MS against K L^{3/2}/3 the same |
+| Θ_gen + r_S c₁ ≤ 1e-9 at the five | 1.5e-10 (c = −10), 7.6e-12 (−3), 1.1e-12 (−0.5), 4.5e-12 (−0.1), 1.2e-10 (−0.01); the other 15 ≤ 1.1e-11; cut extensions ≤ 6.7e-12 |
+| `rs_one` fails at every c ≠ −1 | T5: miss = 1 − 1/r_S at 19 of 19 (3.084e-9 at c = −0.9999 … 0.859 at c = −0.01), holds at c = −1; `--mutate=rs_one` fires T1 and T1x at the 19 and neither at c = −1; T4 at 15 members and C1 |
+| each check has a `--mutate=` | 20 of 20 fired sets equal the declared ones |
+| secondary | C0 ≤ 2.5e-10 (21 charts); T3 19 of 19 (worst 5.1e-9 of 1e-8, coefficient a at c = −0.01); T7 5 of 5 at the ladder 0.005 … 0.000625 (error/scale at the finest step 2.7e-8 … 4.3e-5, ratios 4.00, every other bar ≤ 8.4e-9); C1 2.6e-12; S0 residual 0; T0 20 of 20 |
+
+Nothing failed in the runs of record. Items that differ from the text of #301 or the task are listed in the note (`notes/black_universe/static_c1_all.md`, Sec. 7): the stock chart cannot be built at ρ_h ≥ 1 and its table is too short at small κ; T4 has no step h; the finer h that #301 needed at c = −0.3 is
+an effect of the anchor at ρ = 1 (shown at c = −0.1, −0.01).
