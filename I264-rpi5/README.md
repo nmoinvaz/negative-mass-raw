@@ -134,3 +134,22 @@ Logs: `dev_NN_*` development runs, `run_NN_*` runs of record, `ctl_*` controls; 
 - *Second set of runs.* The script changed from bfb32f2 to 8bd606d only by the part `masters2`, the three mutations, their `CTL_PARTS` and `TARGETS` entries and the
   print above. Everything is rerun on 8bd606d: `ctl2_*` (18 controls, `ctl2_queue.sh`), then `run_03_all_ctlsum` (all parts, with `ctlsum` reading `ctl2_*`),
   whose output is `identity_review_output.txt`. The first set (`run_01`, `run_02`, `ctl_*`) stays as the record of the runs of A1.
+
+## Runs of record and result
+
+| file | what | exit | result |
+|---|---|---|---|
+| `run_01_sym_exch_shifts_bnd_masters_fp` | script bfb32f2, all parts but `ctlsum`; builds the caches | 0 | 127 PASS, 0 FAIL; 2 min 51 s, peak 222 MB |
+| `ctl_*` (15) | the controls of A1, `ctl_queue.sh` | 1 each | 15 of 15 on target |
+| `run_02_all_ctlsum` (and `run_02_identity_review_output.txt`, the same text) | bfb32f2, all parts with `ctlsum` | 0 | 142 PASS, 0 FAIL |
+| `ctl2_*` (18) | the controls on 8bd606d (the 15 and three for `masters2`), `ctl2_queue.sh` | 1 each | 18 of 18 on target |
+| `run_03_all_ctl2sum` | 8bd606d, all parts with `ctlsum` over `ctl2_*`; the repository's `identity_review_output.txt` | 0 | 169 PASS (151 checks, 18 controls), 0 FAIL; 70 s, peak 202 MB |
+| `run_04_quoted_command` | the command quoted in `identity_review.md`, as written, with the venv's python (`run_quoted.sh`) | 0 | the same, 0 FAIL |
+| `scratch_tail.py`, `scratch_tail.log` | G₂ … G₇ at the two cutoffs (not a declared check): ratios 6.2 … 5.9 against e^{1.85} = 6.3, so the G_k at the closed forms are tails | 0 | |
+
+Code: branch `wip/i264-identity-review` at 98aa798 (bfb32f2 the script, 8bd606d `masters2`, 98aa798 the note and output). The first `run_04` attempt (a launcher in the wrong directory) created no files.
+The 18 controls and every development run are in this folder; the node caches are in the session's scratch directory and rebuilt by the script.
+
+Result: E4 (k = 6, and on Y₅ at k = 7), E2W (g₄ and 12ℓ²) and E5 hold on the independent hierarchy to 62.3 … 63.5 digits (bar 30) and to 91.7 … 92.1 digits against the exact finite-cutoff form with the boundary
+term (bar 40); the reduced G₆ and G₇ equal the definition to 64.5 and 62.8; G₂ … G₇ vanish at the closed forms to 1.7e-59 … 2.3e-69 (G₇ = 6.9e-57); ∫ℓ²D₃ meets its closed form to 72.2 digits; ⟨lt²C²⟩ and ⟨lt³D₃⟩ are identified by PSLQ
+and meet the notes' forms to 57.7 and 53.7 digits; 18 of 18 controls on target. Differences from `omega4.md` and `omega5.md`: none in a sign, constant or result; wording and scope differences are listed in `identity_review.md` §7.
