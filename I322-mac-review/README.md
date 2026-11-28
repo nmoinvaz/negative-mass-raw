@@ -28,3 +28,9 @@ map, not #322's. `remainder.py` reads Π = −VU in the solver's Kruskal chart, 
 closed-form line), and #262's e^{2κx} = ρe^{2H} has dρ/dΠ = 1. So the chart's Π is ρe^{2H}/G0. From run 2 on, K2 solves
 ρe^{2H(ρ)} = G0 Π with G0 = e^{2H(1)}, and a reported line checks that e^{2H(1)} equals the printed G0 to half a unit of its last
 digit. Bars unchanged.
+
+## Rerun on the Mac (2026-11-28)
+
+`rerun_warm{A,B}.log`, `rerun_{derive,check,table}.log`: the runs of record rerun from the branch (code 50e1d53) into a scratch
+cache, two processes at nice 10 (2058 s and 2299 s), all exit 0. `derive`, `check` and `table` equal `remainder_output.txt` line
+for line apart from the section headers and the timings. The mutation logs were not rerun.
