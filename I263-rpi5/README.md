@@ -217,3 +217,41 @@ On the grids of record, as separate processes (each started with `runrec.sh`, `n
 | `e5_const` | W(π/2) not subtracted | none: **the constant is zero** | all |
 | `wrong_h` | the sign of −l/R in c₂ (Ω₀ ≠ −4 ln 2 then) | E4_7, G7R | E1_7, E2_x, E3_7, E2Wx, E5_7: E4 is the only step that uses Ω₀ = −4 ln 2 |
 | `wrong_c7` | the sign of l⁶/(720R) in c₇ | none: **E1 … E5 hold for any table** (E0 and the values see it) | all |
+
+**A2 (2026-11-27, 16:20, after `run_02` … `run_04`, `run_06c`'s Q7, before the controls of record of the groups T1, EX, RD): what was seen, two discrepancies, and the targets of T1 and RD.**
+
+*What had been seen before this amendment* (`run_01` … `run_04`, `dev_21` … `dev_24`):
+- `run_01` (15 of 15), `run_02` (G1: N 285, 1 h 34 m 46 s, panel setup 8 m 22 s, peak 1.02 GB), `run_03` (G2: N 275, 1 h 4 m 52 s, panel setup 6 m 52 s, peak 0.79 GB), `run_04` (B1 … B3: 19 m 10 s): the grids' Ω₀ … Ω₅ are saved in `G1.json`, `G2.json`, `B.json`; I read them
+  (Ω₅ = 40860.455354525687312544064826033704278039372215373284079454102667838994220332959565447528…, the same to the digits printed in both). `run_06c` printed `PQ7` and the real PSLQ of Q7: **found**, the relation of the derived closed form
+  (315 Ω₅ − 1792 ln⁶2 − … = 0, no Li term), after which the controls below were run and the targets read.
+- **Discrepancy 1: the cap of d.** The README above says d = min(340, ⌊digits shared⌋ − 32); the code (committed at 7d93fc3, before the README) has `PSLQ_DIGITS = 330`. The runs use 330 (the two grids share 382.7 digits, tolerance 1e-318, verification at 350 digits).
+  Every budget is below 318 (Q7 307.9, Q9 308.1), so the criteria are unchanged; this is a typo of the README, not a change of the code.
+- **Discrepancy 2: RD5c is its own part.** `reduce7` first held RD5c (the Euler sums by Euler–Maclaurin at 40 digits); `dev_23_rd_nominal` ran 28 minutes without finishing it and I stopped its unit (partial log `dev_23_rd_nominal_stopped.log`). RD5c is now the part `euler7` at 34 digits (bar 30), run as `run_08_euler7`, with its own controls.
+  `reduce7` has RD1 … RD7, RD5b, LN2, RD8 and A7. The checks' statements are unchanged.
+- **Two controls failed to run at first, and were fixed:** `dev_21_t1_wrong_Om0` … `wrong_Om4` died with `KeyError: 'resid2'` (the uncached chain, used by the wrong-input mutations, had no residuals), and `dev_21_t1_stale_cache` died with `KeyError: 2`.
+  Both are fixed in `order7.py` (commit 4f6f020), and reran as `dev_21b_*`. The controls of record use the fixed code.
+- **LN2** is a new check (not in A1): F(ε) = exp(4 ln 2 ε)(1 + Ω₀ε + … + Ω₅ε⁶) is free of ln 2 through ε⁶ (sympy). It was added to `reduce7` after the derived closed form was in hand; it fires under `rd_J5` and `rd_B`, which break the ln 2 structure.
+- **Not seen yet:** the real PSLQ of Q1 … Q6, Q8, Q9; `run_05`; `run_07`; the T2 and `euler7` controls.
+
+*Targets of the T1 controls* (`declared_t1.json`; read from `dev_21_t1_cnom` and `dev_21b_*`, on the control grids C1, C2 (`--cgrids`), parts `evals values remainder pslq --bases=Q1,Q3 --no-real`; PLW is silent in every `wrong_Om` control, not listed):
+
+| control | fires | silent (declared results) |
+|---|---|---|
+| `wrong_h` | PL0 … PL4, RNG, R6, R7, X3 | SL, RES, M5 (both grids share the error), PQ1, PQ3 |
+| `wrong_c6` | PL4, R6, R7, X3 | PL0 … PL3, SL, M5, RNG |
+| `wrong_c7` | X3 | **R6, R7** (Ω₅ moves by less than their sensitivity), PL0 … PL4, SL, M5, RNG |
+| `wrong_Om0` … `wrong_Om3` | PL(i+1) … PL4, R6, R7, X3 | PL0 … PLi, SL, M5 |
+| `wrong_Om4` | X3 | **R6, R7** (+1/100 in Ω₄ moves Ω₅ by 0.04, below R6's bar), everything else |
+| `coarse_B` | PL0 … PL4, SL, M5, PQ1, PQ3, R6, R7, X3 | RES, RNG; PQ1, PQ3 fire because PSLQ is given the few digits the coarse grids share |
+| `short_tail` | PL0 … PL4, SL, R6, R7, X3 | **M5** (both grids share V), RES, RNG |
+| `stale_cache` | PL2, PL3, PL4, RES, RNG, R6, R7, X3 | PL0, PL1, SL, M5 |
+
+*Targets of the RD controls* (`declared_red.json`; `dev_24_rd_*` on `dev_cnom.json`; part `reduce7 --load=…`):
+
+| control | what it breaks | fires | silent, and why |
+|---|---|---|---|
+| `rd_kit` | the sign of ln 2 in C's expansion at π/2 | RD4 | RD6, RD7: the finite parts of the C terms cancel in the sum, the closed form does not depend on it (as at order 6) |
+| `rd_Dstep` | the sign of the P_{b−1} part of the primitive of the D₃ coefficient | RD2 | RD6, RD7: **a wrong primitive F is still an exact step I ← I − dF with const += B[F]**; only RD2's residual of the primitive sees it |
+| `rd_J5` | J̃₅'s ζ(5) coefficient × 17/18 | RD5, RD7, LN2 | RD6 (the numeric integral does not use J̃₅) |
+| `rd_master` | ⟨lt²C²⟩'s ζ(6) coefficient 95/96 as 94/96 | RD5, RD5b, RD7 | LN2 (A is free of ln 2) |
+| `rd_B` | the sign of the boundary term of step CL | RD6, RD7, LN2 | RD5 |
