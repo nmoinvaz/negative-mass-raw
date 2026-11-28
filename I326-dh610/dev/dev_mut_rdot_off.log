@@ -1,0 +1,25 @@
+drift_b6_long.py analyze {'dev': '1', 'mutate': 'rdot_off'}: numba 0.68.1, numpy 2.5.4, python 3.14.10, dh610-fedora, load average at start 22.62 19.29 15.93, 2026-11-28 08:22:14
+
+---- B = 0.1 (development case: #228 pair at B = 0.1, #325 bisection at B = 0.15) ----
+[pass] BIS[B=0.1]: the bisection reaches hi - lo <= 1e-12, not stopped, total cost <= 10800 s  (hi - lo 9.802e-13, 40 runs counted (stored points included), total cost 0 s, p* 3.412239114915812e-02)
+[pass] RP[B=0.1]: the controls (fate runs of stored points at X = T + 2) reproduce fate, T and cell bit for bit  (2 of 2 equal)
+[pass] JOB6L[B=0.1]: the pair p* -/+ 1e-10 has fates (-1, +1), both events inside the triangle  (fates (-1, 1), T = 18.418363882956594, 25.164162575476258, X = 34.00, runs 65 s and 65 s, p* 1.108797761415474e-02)
+[pass] RDOT[B=0.1]: rdot at t = 8, 10, 12 equals the stored pair's to 1e-06  (t=8: 0.093818 vs 0.093818 (+0.0e+00); t=10: 0.087240 vs 0.087240 (+0.0e+00); t=12: 0.079016 vs 0.079016 (+0.0e+00))
+[pass] NO6L[B=0.1]: max |odd| over t in (6.5, 12.0) is at most 0.0003: the pair's mean is the tuned member  (max |odd| 6.98e-05)
+
+5 of 5 checks pass, 0 skipped, 0 fail
+
+==== baseline done; now the mutation ====
+
+
+---- B = 0.1 (development case: #228 pair at B = 0.1, #325 bisection at B = 0.15) ----
+[pass] BIS[B=0.1]: the bisection reaches hi - lo <= 1e-12, not stopped, total cost <= 10800 s  (hi - lo 9.802e-13, 40 runs counted (stored points included), total cost 0 s, p* 3.412239114915812e-02)
+[pass] RP[B=0.1]: the controls (fate runs of stored points at X = T + 2) reproduce fate, T and cell bit for bit  (2 of 2 equal)
+[pass] JOB6L[B=0.1]: the pair p* -/+ 1e-10 has fates (-1, +1), both events inside the triangle  (fates (-1, 1), T = 18.418363882956594, 25.164162575476258, X = 34.00, runs 65 s and 65 s, p* 1.108797761415474e-02)
+[FAIL] RDOT[B=0.1]: rdot at t = 8, 10, 12 equals the stored pair's to 1e-06  (t=8: 0.093820 vs 0.093818 (+2.0e-06); t=10: 0.087242 vs 0.087240 (+2.0e-06); t=12: 0.079018 vs 0.079016 (+2.0e-06))
+[pass] NO6L[B=0.1]: max |odd| over t in (6.5, 12.0) is at most 0.0003: the pair's mean is the tuned member  (max |odd| 6.98e-05)
+
+4 of 5 checks pass, 0 skipped, 1 fail: RDOT[B=0.1]
+
+mutation rdot_off: verdicts changed against the unmutated analysis: ['RDOT']; declared: [RDOT]
+1.9 s
