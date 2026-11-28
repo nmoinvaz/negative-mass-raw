@@ -1,0 +1,12 @@
+[ok] log identity: exit 0, expected 0
+[ok] log: eta* last printed digit: exit 1, expected 1
+[ok] log: class label: exit 1, expected 1
+[ok] log: a line removed: exit 1, expected 1
+[ok] log: error-sized number (silent by rule): exit 0, expected 0
+[ok] dump identity: exit 0, expected 0
+[ok] dump: eta* changed at its 10th digit (1e-9): exit 1, expected 1
+[ok] dump: eta* changed beyond 10 digits (1e-13), silent by rule: exit 0, expected 0
+[ok] dump: kind: exit 1, expected 1
+[ok] dump: class: exit 1, expected 1
+[ok] dump: steps (listed, not gated): exit 0, expected 0
+selftest: 11 of 11 as expected
