@@ -114,3 +114,107 @@ In the recommended tasks, propose a route with leverage between 0.4 and 1.0 chos
 - **Verdict map.** *Reading*: M2 consistent and all three new points reading-compatible. *Form*: M2 apart and all three new points form-side. Anything else: *not separable by these data*, and the note names the measurement that would separate them (a route at leverage 0.4 to 1.0 whose speed is within the fitted range, and the refit at another departure definition, #296's third task).
   Whatever the verdict, a reading error larger than M3 measures is not excluded by the data, and the note says so.
 The verdict logic is also run on planted inputs (PBEL) before the real ones.
+
+## Stage 2b: the route, the criteria, the planted cases and the mutations (written after the development set and its mutations, before any run of record)
+
+Code at negative-mass `fdc8111` (`settled_mass_route4.py`, branch `wip/i305-outside-route`; `scripts/` here). Development runs in `dev/`: scan `dev/logs/tune_*`, set `dev/set_a`, analysis `dev/ana_dev3.log` (final; `ana_dev1.log`, `ana_dev2.log` are earlier drafts of it), mutations `dev/mut_a/`.
+
+### The route (selected by the stage 1 rule, stage 1b)
+
+Family G, ghost pulse unchanged, normal pulse a Gaussian of centre x_c = 4.0 and width w = 1.5, B tuned at h = 0.02 to within 1 % of the targets:
+
+| point | target γ₁ | B | γ₁ (h = 0.02) | r_th | ṙ_th | leverage (h = 0.02) |
+|---|---|---|---|---|---|---|
+| X1 | 0.012 | 0.09112 | 0.011999 | 0.99370 | −1.131e-03 | 0.272 |
+| X2 | 0.048 | 0.1695 | 0.047546 | 0.98380 | −2.734e-03 | 1.977 |
+| X3 | 0.075 | 0.2044 | 0.074911 | 0.98397 | −2.441e-03 | 3.061 |
+
+### What the development set at h = 0.01 and 0.005 found (`dev/set_a`, `dev/ana_dev3.log`; the runs of record take its brackets and are expected to equal it bit for bit)
+
+Seven jobs (the three points at both h, 26 to 91 s each; and #295's N3 at h = 0.005, 87 s), all exit 0. 31 checks, 30 gating, 2 gating fail (P4, FITQ), 1 post hoc fails (P4-ph). **These results are seen before the criteria below; they do not change a criterion.**
+
+| point | γ₁ (h = 0.005) | r_th | ṙ_th | leverage | M | M − P4 | static-fit rms | M − P3 (#267's) | M − P2' |
+|---|---|---|---|---|---|---|---|---|---|
+| X1 | 0.011999 | 0.993694 | −1.130e-03 | 0.2717 | 0.223687 | **+9.00e-05** | 6.46e-05 | +1.07e-04 | −6.72e-04 |
+| X2 | 0.047545 | 0.983798 | −2.733e-03 | 1.9752 | 0.228997 | **+2.13e-04** | **1.46e-04** | +2.68e-04 | −1.97e-03 |
+| X3 | 0.074911 | 0.983968 | −2.439e-03 | 3.0575 | 0.236361 | **+1.98e-04** | **2.09e-04** | +2.74e-04 | −2.45e-03 |
+
+- **P4 fails** (bar 6e-5) at all three, by 1.5, 3.6 and 3.3 times the bar; the same fit without the speed misses by 6.7e-4 to 2.5e-3; #267's P3 also misses (1.1e-4 to 2.7e-4). The misses are positive at all three.
+- **FITQ fails** at X2 and X3 (bar 1e-4), see stage 2a for its cause. LEV passes (X2, X3 above 0.3932), OUTR passes (all three ṙ_th below −6.7e-4), SEPB, SEPW, SEPC and SEPN pass (r_th separations 1.3e-3 to 3.5e-2 against h differences of 3e-7 to 1e-6; ṙ_th separations 6e-4 to 4e-3),
+  HST passes (γ₁ ≤ 1.1e-5, r_th ≤ 1.0e-6, ṙ_th ≤ 4.9e-7), RH passes (1.0e-5, 1.2e-5, 9.0e-6), TGT passes (γ₁ within 9.5e-3 of its target), REP4 passes bit for bit.
+- Post hoc (gate nothing): refits including the new points move (a, b, c) to (0.2292, 0.2993, 0.7130) (18 points) and (0.2290, 0.3018, 0.7133) (21 points) with in-sample errors up to 1.0e-4; #283's description of P3's residual (K = −3.365e-3 × (r_th − B's)) gives +1.6e-5, +6.4e-5, +1.1e-4 against observed +1.1e-4, +2.7e-4, +2.7e-4.
+
+### The issue's acceptance bars, as I read them (mine to be overruled)
+
+| bar | id | reading | gating |
+|---|---|---|---|
+| at least one new point with leverage above 0.393 in the frozen fit's design | **LEV** | L = aᵀ(AᵀA)⁻¹a at the new members' (γ₁, ṙ_th) at h = 0.005, A the design of the fifteen fitted points; at least one above the fitted maximum computed here (0.3932, W3; the issue's 0.393 is its rounding) | yes |
+| ṙ_th outside the fitted range (the task's choice condition) | **OUTR** | at least one new member's ṙ_th at h = 0.005 outside [−6.7e-4, +1.6e-3] | yes |
+| every new member within 6e-5 of the frozen fit, or the failure reported with the residuals | **P4** | \|M − M_pred\| ≤ 6e-5 at all three, h = 0.005, M_pred = r_th (M₀ + a γ₁ + b γ₁² + c ṙ_th), the frozen constants. A failure is reported as not met, with the residuals | yes |
+| SEP against routes B, W, C and #295's route | **SEPB, SEPW, SEPC, SEPN** | as #295: r_th or ṙ_th at departure differs from the route's curve at the same γ₁ by more than 5 times the point's own h difference, all three points; each curve is B = 0's member plus the route's points, piecewise-linear and PCHIP, the smaller difference; N is #295's three stored points | all three points |
+| the member at the two h as in #283 | **HST** | γ₁ and r_th to 1e-4 relative, ṙ_th to 2e-5 absolute, h = 0.01 against 0.005 | yes |
+| reproduction of one stored #295 point bit for bit | **REP4** | N3 = (0.136, 3.5, 0.75) at h = 0.005 from #295's stored bracket (0.0064, 0.0128): p*ₕ, the chain's series, the locus, the member rows (all but the wall time), the plateau and (γ₁, r_th, ṙ_th, t_dep) equal #295's stored run exactly | yes |
+
+Other checks, all gating, as #295 (same bars): **CFG, FAM0, RUNS, BR, STL, EVT, RC5, RC4, RC8, RH (5e-5), TGT (3 %), FITQ (rms ≤ 1e-4, #283's)**, and **FRZ** (the refit recomputed from the stored fifteen equals the frozen constants and errors).
+**FITQ stays at its bar; it fails on the development set and is expected to fail on the runs of record, and will be reported as not met beside P4.**
+Post hoc, gating nothing: P4-ph (h = 0.01), the comparison columns, leverage in the eighteen-point design, refits over 18 and 21 points, #283's description of P3's residual, the static-fit rms at every stored member, the placement block of stage 2a (M1, M2, M3 and its calibration on N, the verdict), `--rn`.
+RC4 cannot see the normal field (`normal_drop` fires nothing). `lev_rdot` (ṙ_th set to 0 in the leverage row) fires nothing either: LEV does not depend on the sign or size of ṙ_th at these points (leverage of X2 and X3 stays above 0.3932 without it).
+
+Planted cases (before real data, the same code path): **PMEM, PDEP, PTD, PFIT, PPRED4, PSEP3** (#295's, passing: errors γ₁ 5.8e-7, t_dep 6.3e-6, ṙ_th 1.4e-6, refit 2e-15, planted P4 data pass at 1e-12 and miss by 8.7e-4 with a × 1.05, by 1.9e-4 with c × 0.8);
+**PLEV** (the leverage function equals the hat-matrix diagonal at the fitted points to 1.5e-15, the SVD form at random rows to 5.7e-15, is quadratic in the row to 6e-15, and 'above the fitted maximum' is false at 0.9 and 1.0 and true at 1.1 times W3's row);
+**PBEL** (the verdict map of stage 2a on six planted inputs: reading, form and four combinations that must come out 'not separable').
+
+### Mutations (each `--mutate=NAME`, 35; the effect computed on the development set before being declared; "newly fires" = fails with the mutation and not without)
+
+The baseline (`dev/ana_dev3.log`) fails FITQ, P4 and P4-ph, so those three cannot newly fire: P4 and FITQ show that they can fail by failing on the data, and PPRED4 shows P4 passing planted data that follow the fit.
+
+| mutation | what it does | newly fires (declared) |
+|---|---|---|
+| asym_sign | #225's `fit_asym` with the sides swapped | FRZ, PMEM, PTD, SEPC, SEPN, SEPW, TGT |
+| bel_swap | the verdict labels reading and form swapped | PBEL |
+| bisect_early | the bracket replayed after 30 steps | BR |
+| coef_a | a × 1.05 in the predictions | PPRED4 |
+| coef_c | c × 0.8 in the predictions | PPRED4 |
+| crit_dm | `settled_mass.CRIT["dm"] = 2.0` | CFG |
+| dep_eps | ε × 10 in `departure_time` | FRZ, PDEP, PTD |
+| drop_point | the refit over 14 points (W3 dropped) | FRZ |
+| eps_h | ε × 100 at h = 0.005 only | FRZ, HST, LEV, PLEV, PTD, SEPB, SEPC, SEPN, SEPW |
+| evt_side | the pair's expansion-side event in place of the collapse-side one | EVT |
+| fitq_scale | the fit rms × 10 | **nothing** (FITQ fails without a mutation) |
+| flux_sign | the horizon flux with the wrong sign | RC4 |
+| frz_a | the frozen a × (1 + 1e-3) in the comparison with the recomputed refit | FRZ |
+| frz_m0 | M₀ = 0.223095 in the refit and the predictions | FRZ, PPRED4 |
+| lev_bar | the leverage bar × 10 (a × 1.6 first tried did not fire: the route's leverage reaches 3.06) | LEV |
+| lev_design | the leverage computed in the design without the γ₁² column | PLEV |
+| lev_rdot | ṙ_th set to 0 in the new members' leverage row | **nothing** (LEV does not depend on it here) |
+| loo_off | the leave-one-out errors replaced by the in-sample ones | FRZ |
+| mass_exponent | M = r^n/2 (chain rerun) | RC4, REP4 |
+| no_rscale | the prediction without the r_th factor | PPRED4 |
+| no_run | X1's h = 0.005 member output treated as missing | HST, LEV, RH, RUNS, SEPB, SEPC, SEPN, SEPW, TGT |
+| no_settle | the series truncated 3.0 before its end | RC5, RC8, REP4 |
+| normal_drop | the normal field dropped from the flux (#283's blind spot: it is 1e-8 of the flux) | **nothing** (blind spot) |
+| outr_range | the ṙ_th range widened to [−1e-2, +1e-2] | OUTR |
+| rdot_nolapse | τ = t in the speed | FRZ, PTD |
+| rep_off | the reproduction compared with the stored N2 | REP4 |
+| rh_swap | the plateau at h = 0.005 of the next point | RH |
+| sep_k | the factor 5 → 0.005 in the separation test | PSEP3 |
+| sep_self | the four reference curves replaced by the new member's own values | SEPB, SEPC, SEPN, SEPW |
+| short_limit | K = 12 (chain rerun) | RC5, RC8, REP4 |
+| spec_w | the declared w × 1.1 | CFG |
+| stl_flat | the lifetimes at 1e-6 and 1e-8 taken equal | STL |
+| tgt_scale | the targets × 1.1 | TGT |
+| w_scale | the normal pulse's width × 1.1 in `set_route` (the chain is rerun from the stored p*ₕ) | FAM0, HST, LEV, OUTR, REP4, RH, RUNS, SEPB, SEPC, SEPN, SEPW, TGT |
+| xc_offset | the normal pulse's centre + 0.1 (chain rerun) | FAM0, HST, LEV, OUTR, REP4, RH, RUNS, SEPB, SEPC, SEPN, SEPW, TGT |
+
+### Changes made after the development set and before this section (the bars of the issue and the frozen constants were not touched)
+
+1. The placement readings of stage 2a (M1, M2, M3, PBEL) were added to the driver after the development set showed P4 and FITQ failing, at the coordinator's request; the stage 2a commit (811e32ab) precedes the first computation of M3 on this route. M2's ratios were known from the development set.
+   The **M3 calibration on #295's held-out members** was added after the development run showed R_q of order 0.1 to 7 on the new members: on N the same R_q are 3 to 514, so R_q ≥ 1 is satisfied almost everywhere and M3 alone cannot place a miss. It is not part of the verdict map.
+2. `lev_bar`'s factor 1.6 → 10 (it did not fire); two mutations (`lev_rdot`, `normal_drop`) are declared to fire nothing; `fitq_scale` fires nothing because FITQ already fails.
+3. The leverage guard of the selection rule was relaxed from D ≥ 1.0 to D ≥ 0.1 before this folder's README was written (stage 1, item 3).
+
+### Run procedure (the runs of record)
+
+`scripts/make_jobs.py dev/set_a jobs_rec.txt jobs_rep.txt` (6 lines "B XC W H LO HI" for the three points at both h, brackets from the development set's `points.jsonl`; 1 line for N3 from #295's stored bracket); `scripts/run_jobs.sh RAW/runs jobs_rec.txt LANE 2` and `scripts/run_jobs.sh RAW/runs_rep jobs_rep.txt 0 1`
+(two lanes, nice 10, `NUMBA_NUM_THREADS=1`, `scripts/run_one.sh`: pstar, chain, member; logs never overwritten, reruns numbered); `python settled_mass_route4.py analyze --raw=RAW [--rn=RAW/runs_rn]`; `scripts/run_muts.sh RAW RAW/mut LANE 2 RAW/analyze_record.log`.
+Stop condition: a single run not finished in 2 h of wall time is stopped and reported (development: 26 to 91 s). A check that fails on the runs of record is reported as not met. Nothing above is changed after the first run of record.
