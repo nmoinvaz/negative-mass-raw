@@ -125,3 +125,15 @@ I302-mac/
   runs/              the runs of record: derive.log, check.log, table.log, mut_*.log (added after this README)
   cache/             readouts of the evolved rectangles (reused by the mutation runs; no mutation changes an evolution)
 ```
+
+## Runs of record (`runs/`, code commit d1f849b, `nice -n 10`, one process each)
+
+| command | exit | time, peak memory | result |
+|---|---|---|---|
+| `run_main.sh` `derive` | 0 | 2 s, 202 MB | 3 of 3 (S1, S2, S3) |
+| `run_main.sh` `check` (cold cache) | 0 | 135 s, 715 MB | 9 of 9 (P1, L1, L2, P2, P3, P4, H1, H2, H3) |
+| `run_main.sh` `table` | 0 | 5 s, 289 MB | numbers of the note |
+| `run_mut.sh` 14 mutations (`mut_*.log`, same cache) | 1 each (each fires) | about 15 s to 70 s each | `mutations.log`: 14 of 14 fired sets equal the declared ones |
+
+Nothing failed in the runs of record. The criteria of the issue that are not met as worded: I1 at S itself (the exact mode has no smooth representation there; the criterion is met at the horizon crossings U0 = -0.5, -1 on V = 0 and by
+the slice at S against the horizon fit for evolved smooth data). The decision on the ln|s| is in this README (above) and in `horizon_basis.md` Sec. 3. `dev/` keeps every development log; the stale caches of the development runs were moved to the Trash.
