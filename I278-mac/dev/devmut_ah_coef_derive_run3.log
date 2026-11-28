@@ -1,0 +1,16 @@
+[pass] S0: static member: (grad r)^2 = g^{ab} d_a r d_b r = rho^2 A / R^2 for symbolic c (planted truth: the apparent horizon of the static member is A = 0 and the throat)
+    (S0: 0 s)
+[FAIL] S1: family: (grad r)^2 = (rho/R^2) [rho A + s R^2 A'/2], symbolic c and beta, from the metric components
+    (S1: 0 s)
+[pass] S2: R^2 A' = 2K + 2 rho (A - 1) and A' = 2K (1 - rho arccot rho) (K > 0 for c < 0 and rho arccot rho < 1, so A' > 0 for every rho: proved by arctan x < x)  (identity: 0, derivative: 0)
+    (S2: 0 s)
+[pass] S3: l(r) = P/(2 R lam), n(r) = -lam rho/R with P = rho A + s R^2 A'/2, and (grad r)^2 = -2 l(r) n(r)  (l: 0, n: 0, product: 0)
+    (S3: 0 s)
+[FAIL] S4: P = (R^2 A'/2)(s - s_AH(rho)), s_AH = -2 rho A/(R^2 A'): the apparent horizon is s = s_AH(rho) (and rho = 0); F(v, 0) = c + 1/lam^2; F(v, -1/K) = A(-1/K) for every v  (P: nonzero, F(v,0): 0, F(v,-1/K): 0)
+    (S4: 0 s)
+[pass] S5: A -> 1 at rho -> +infinity: the (v, rho) part of the family is exactly -dT^2 + 2 dT dr, T = int dv/lam, r = lam rho (Minkowski)
+    (S5: 0 s)
+[pass] S6: Gamma^v_{rho rho} = Gamma^rho_{rho rho} = 0 for any F(v, rho): rho is affine on the ingoing rays v = const
+    (S6: 0 s)
+
+7 checks, 5 pass; failed: ['S1', 'S4']; mutation ah_coef; 1 s
