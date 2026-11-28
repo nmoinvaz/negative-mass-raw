@@ -19,3 +19,16 @@ Criteria, written before the first run:
 - K3 (reported): f₄ … f₆ from the same series, beside the values of #263's output if printed there.
 
 Mutations: `zeta3` (565248 → 589824, the tower pattern the runner says fails: K2), `ln2` (2^{4ε} → 2^{−4ε}: K1, K2).
+
+## Results
+
+| check | verdict | reading (`run_01.log`) |
+|---|---|---|
+| K1 | met | f₂ − 2π²/3 = 7e-201, f₃ − 80ζ(3) = 0 |
+| K2 | met | f₇ from the printed Ω = 3734247.93996553429378268210386…, the identified closed form the same; relative difference 7.9e-115 (the 107 printed digits of Ω₃ set this) |
+| K3 | reported | f₄ = −413.9676285299941251667953, f₅ = −14287.14392020574186374385, f₆ = 3163.98715783841762272576 |
+
+Mutations: `zeta3` (the tower coefficient 589824 in place of 565248) fails K2; `ln2` fails K1 and K2.
+
+Not rerun: the two grids (2 h each on rpi5). Their agreement to 430.8 digits and the refit of #195's independent W² data to
+1.1e-23 are the runner's; this review checks the identification from the printed Ω only.
