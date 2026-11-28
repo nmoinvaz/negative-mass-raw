@@ -211,3 +211,41 @@ a release that contains it. Python `~/Source/negative-mass/.venv/bin/python`. At
   answered by JT2) and `width_of`'s unscaled f64 products (at nb 30 and x >= 5e-4 they do not underflow; JT2 shows it).
 
 Run files of this stage: `dev_25`+ (`devrun.sh`) and `run_10`+ (`runrec.sh`); `s3_build.sh`, `s3_compare.py`, `s3_records.py`, `s3_steps.py` are written before the first run and kept as they were.
+
+**A5 (2026-11-27, during the RP2 runs).** `run_10_s3_records_default` (the first RP2 run, default pair) was stopped by its PID (exit 1, the log kept) after 33 minutes: the one octo-double `d` record of A4 (`d lane=od l=2 gammas=1.0`)
+had used 28 CPU-minutes on the old binary alone and did not finish, so the pair would have passed the 2 h stop rule and held back every record after it. The six f64, dd and qd `d` commands before it were equal (old and new, 17 records
+`d f64 l=2 .. d qd l=6`, 14 s to 38 s each). **The od `d` record is dropped from RP2** (`s3_records.py` now takes it only with `--od`; no data motivated this, the run time did): the octo-double lane is compared through
+`recipcheck od` (the reciprocals, the candidate cause of any multidouble 6 difference) and `tabcheck`/`jtable` (DD), not through a determinant. The bar of RP2 is unchanged for the records that remain. Reruns are `run_11` (default),
+`run_12` (lib_plane), `run_13` (complex), `run_22` (the `jsign` control), numbered by hand (`s3_run.sh`) because `runrec.sh` would take 15, which the check chains use.
+
+**A6 (2026-11-27, the run trees).** `run_14_s3_old_default_mode` (old pin, default mode) was stopped by its PID at about 35 minutes (rc file written by hand: 143; its log is kept): the scratch copy of the script's
+directory held only `phase2/nonradial`, and `background.py` puts `phase2/` on the path, so S1, S2 and S3 failed with `ModuleNotFoundError: No module named 'boson_star'`: a harness fault, not a verdict (the other 16 checks
+that had run passed). The trees are now `git archive HEAD phase2` (the crate's sources left out), one per pin (`old`, `new`), each with its own `taylor_polar/target/{release,complex/release,bins}`; S1 on the old tree passes
+(29 s). **The chains are renumbered**: old pin `run_23` default mode, `run_25` rows, `run_27` rows with the lib_plane binaries, `run_29` complex; new pin `run_24`, `run_26`, `run_28`, `run_30`. The first scratch trees are
+kept as `trees_nophase2_unused` outside the repository and are not used.
+
+**A7 (2026-11-27, the record runs again).** `run_11_s3_records_default` ended with exit 1 at its last command: `jjets` prints one JSON object over several lines and `s3_records.py` read it line by line (a harness fault; `run_11`'s log is kept).
+Every command before it, old binary against new, was equal as strings: `d` f64, dd, qd at l = 2 and 6 (22 records), `planted` const and linear in f64, dd, qd (42 records), `starsteps` (164), `jtable` l = 2 and l = 6 (465 records each, every
+coefficient of J0 and J1 at 20 digits), `recipcheck` in f64, dd, qd, od, and `tabcheck`. `run_12_s3_records_libplane`, started by the same chain, was stopped by its PID after one minute (rc 143 written by hand) so that it would not hit the same fault.
+`s3_records.py` now reads `jjets` whole. The record runs are `run_31` (default), `run_32` (lib_plane), `run_33` (complex), `run_34` (the `jsign` control, must exit 1).
+
+**A8 (2026-11-27).** `run_31_s3_records_default` (RP2, default pair): **1167 records, 0 differ** (old pin against new pin, every field as strings except times). In `run_23_s3_old_default_mode` the check **R1 reads FAIL
+`raised RuntimeError: ... old_libplane d lane=dd l=2 ... exited -15`: that was my own `kill`** (a pattern for the stopped records run's children also matched R1's child process in the old tree); no check result changed. R1 is rerun alone on the old tree
+as `run_35_s3_old_R1` (the same two pins are compared there, since the check reads `target/bins`), and the comparison of the default-mode logs takes R1's line from it. The other checks of `run_23` are untouched.
+
+**A9 (2026-11-27, results so far and the run plan).** Commits on `wip/i192-taylor-tables`: e9591b2 (the repin: `Cargo.toml`, `Cargo.lock`; no source change was forced: the default, lib_plane and complex builds compile as they are), 7e094a0 (`lib_table`: `table.rs`, `main.rs`'s
+setup field, the optional git dependency), f58fe19 (`taylor_polar.py --build --features=`).
+- **RP1 met.** `cargo tree --locked -e normal` of the default features lists multidouble 6.1.0, multishoot 5.0.0, multisolver 0.3.0, rayon and crossbeam from crates.io only; `[patch]` is gone.
+- **RP2 met in all three pairs**: `run_31` default 1167 records, 0 differ; `run_32` lib_plane 1167, 0; `run_33` complex 1198, 0; the control `run_34` (`mutate=jsign` on the new binary) 949 of 1167 differ, exit 1. `run_39`: the binary with the `lib_table` code but the feature off (`new2_default`,
+  after the helpers were factored out of `build_table`) against the repin-only binary: 1167 records, 0 differ.
+- **JT1 met**: `lib_table`, `lib_table,lib_plane` and `lib_table,complex` build (`dev_31`, `dev_33`, `dev_34`).
+- **JT2 met, with nothing to spare**: `run_37`, `s3_steps.py` on `new_default` and `new_libtable`: l = 2, 3, 4, 5, 6 over [5e-4, 34.7] 464 steps against 464; l = 2 over [1.5e-3, 24.6] 389 against 389; **every breakpoint bitwise equal (4448 of 4448), the coefficient strings of every
+  step equal, the head records equal**. So the `h < 1e-14 b` jump never fired on these inputs and the plain-f64 `width_of` agrees with the library's scaled test at nb 30. The control `run_38` (`mutate=lib_last4`): 532 steps against 464 (l = 2 .. 6), 451 against 389, exit 1.
+- **Run plan** (the numbers of A6 for the new pin are superseded: the first launch of the new chain, `run_24`, was stopped by me after 13 s so the step lists could be checked first). Slot 1 (`s3_chain.sh`, old pin): `run_23` default mode, `run_25` rows, `run_27` rows with the lib_plane binary,
+  `run_29` complex, then `run_35` (R1 alone, A8). Slot 2 (`s3_queue2.sh`): `run_40` new pin default mode, `run_41` new rows, `run_44` and `run_45` lib_table default mode and rows, `run_46` and `run_47` `--mutate=wide_table` on the new-pin and lib_table binaries,
+  `run_43` new complex, `run_42` new rows with the lib_plane binary. The machine's load average is 15 to 33 from other projects.
+
+**A10 (2026-11-27 18:25, the coordinator's word on the pin).** multishoot#79 was merged into multishoot main by rebase (22:11 UTC), so 60d21ab is not on main; #81 is merged too; neither is released. The optional dependency `multishoot_tables` of `Cargo.toml` is now pinned to
+multishoot main **75d1e1e** (commit 7630375; `git diff 60d21ab 75d1e1e -- src/table.rs` is empty, `plane.rs` and `control.rs` differ by #81). Rebuilt against it: `dev_35` (`lib_table`, binary `new_libtable_main`), `dev_36` (`lib_table,lib_plane`), `dev_37` (`lib_table,complex`),
+all rc 0, built while one of the two runs was stopped with SIGSTOP and resumed (the build is the only time a third process would have run; `dev_36` and `dev_37` only). **Every lib_table result before this note (`run_37` and `run_38` on `new_libtable`, 60d21ab) is superseded by a rerun on the 75d1e1e binary**
+(the step lists are expected to be the same: the module is the same file); the lib_table runs `run_44` to `run_47` of the queue use the 75d1e1e binaries (swapped into the lib_table tree before `run_44` started; the md5 in each log's first lines says which).

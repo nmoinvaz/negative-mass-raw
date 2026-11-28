@@ -1,0 +1,9 @@
+dev_30_chk_nominal|$PY order7.py sym xsym cache
+dev_30_chk_wrong_c7|$PY order7.py sym xsym cache --mutate=wrong_c7
+dev_30_chk_wrong_h|$PY order7.py sym xsym cache --mutate=wrong_h
+dev_30_chk_stale_cache|$PY order7.py sym xsym cache --mutate=stale_cache
+dev_30_chk_e4_g|$PY order7.py sym xsym cache --mutate=e4_g
+dev_30_chk_e5_noD3|$PY order7.py sym xsym cache --mutate=e5_noD3
+dev_30_ex_lc2_J|$PY order7.py exch7 --mutate=lc2_J
+dev_30_rd_rd_Y3|$PY order7.py reduce7 --load=$RAW/dev_cnom.json --mutate=rd_Y3
+dev_30_rd_a7_B|$PY order7.py reduce7 --load=$RAW/dev_cnom.json --mutate=a7_B

@@ -1,0 +1,30 @@
+== c = -1.0, beta = -0.7, v* = 0.560264, rho_h = 0.00000, start v0 = -4.0
+  rho0 =   -50.00 -> v_end =    -3.980005  rho_end =         -1e+08  status 1
+  rho0 =    -5.00 -> v_end =    -3.801536  rho_end =         -1e+08  status 1
+  rho0 =    -2.00 -> v_end =    -3.517786  rho_end =         -1e+08  status 1
+  rho0 =    -1.00 -> v_end =    -3.100384  rho_end =         -1e+08  status 1
+  rho0 =    -0.50 -> v_end =    -2.446850  rho_end =         -1e+08  status 1
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-raw/I278-mac/dev/dev3_rays.py", line 14, in <module>
+    v1, r1, st = outcome(f, v0, r0)
+                 ~~~~~~~^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-raw/I278-mac/dev/dev3_rays.py", line 6, in outcome
+    sol = ray(f, v0, r0, vend=(None if f.beta < 0 else v0 + vmax), rmax=1e8, rmin=-1e8)
+  File "/Users/nathan/Source/negative-mass-raw/I278-mac/dev/fam.py", line 38, in ray
+    sol = solve_ivp(lambda v, y: [fam.F(v, y[0])/2], (v0, vend), [r0], events=[ev_hi, ev_lo], rtol=rtol, atol=1e-13, method="LSODA")
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/scipy/integrate/_ivp/ivp.py", line 686, in solve_ivp
+    root_indices, roots, terminate = handle_events(
+                                     ~~~~~~~~~~~~~^
+        sol, events, active_events, event_count, max_events,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        t_old, t)
+        ^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/scipy/integrate/_ivp/ivp.py", line 111, in handle_events
+    roots = [solve_event_equation(events[event_index], sol, t_old, t)
+             ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/scipy/integrate/_ivp/ivp.py", line 76, in solve_event_equation
+    return brentq(lambda t: event(t, sol(t)), t_old, t,
+                  xtol=4 * EPS, rtol=4 * EPS)
+  File "/Users/nathan/Source/negative-mass/.venv/lib/python3.14/site-packages/scipy/optimize/_zeros_py.py", line 858, in brentq
+    r = _zeros._brentq(f, a, b, xtol, rtol, maxiter, args, full_output, disp)
+ValueError: f(a) and f(b) must have different signs

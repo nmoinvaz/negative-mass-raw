@@ -5,10 +5,10 @@ Written before the first stage 3 run (README amendment A4, criterion RP2). The s
 with each binary (the star's pc and zc come from OLD's `star` and are passed to both, so the star record is the only place the
 star solve is compared); every field of every record is compared as a string except the wall times (TIMEKEYS of taylor_polar.py).
 `--mutate=NAME` passes mutate=NAME to NEW only: the control (the comparison must report differences).
-`--complex` adds the commands of the complex build (`dc`, `cp1`).
+`--complex` adds the commands of the complex build (`dc`, `cp1`). `--od` adds an octo-double `d` record (off: it takes hours, README A5).
 
 Commands (each at nice 10, one process):
-  star; d at l = 2, 6 (f64, dd, qd as taylor_polar.py's R1) and an od record; planted const and linear (f64, dd, qd);
+  star; d at l = 2, 6 (f64, dd, qd as taylor_polar.py's R1); planted const and linear (f64, dd, qd);
   starsteps; jtable l = 2 and l = 6 (the coefficients of every entry, J0 and J1, at every step: table.rs's arithmetic);
   recipcheck (f64, dd, qd, od); tabcheck at four radii; jjets l = 2 at r = 2.
 Exit 0: no record differs. Exit 1: some record differs (each is listed with the fields). Exit 2: usage.
@@ -23,6 +23,7 @@ HERE = "/Users/nathan/Source/negative-mass-i192/phase2/nonradial"
 sys.path.insert(0, HERE)
 import taylor_polar as tp  # noqa: E402  (module-level code only defines; main() is guarded)
 
+OD = False   # `--od` adds one octo-double `d` record (run_10 stopped after 31 minutes on the old binary alone: README A5)
 TIMEKEYS = {"t_y", "t_q", "t_s", "wall", "t_star", "t_table", "seconds"}
 R1_D = [("f64", 2, [0.001, 1.0, 40.0]), ("dd", 2, [0.001, 1.0, 40.0]), ("qd", 2, [0.001, 1.0]),
         ("f64", 6, [0.001, 1.0, 40.0]), ("dd", 6, [0.001, 1.0, 40.0]), ("qd", 6, [0.001, 1.0])]
@@ -36,6 +37,8 @@ def run(binpath, cmd, mutate=None, **kw):
     p = subprocess.run(["nice", "-n", "10"] + args, capture_output=True, text=True, env=env, cwd=HERE)
     if p.returncode:
         raise RuntimeError(f"{' '.join(args)[:200]} exited {p.returncode}: {p.stderr[-400:]}")
+    if cmd == "jjets":   # one JSON object over several lines
+        return [json.loads(p.stdout)]
     return [json.loads(x) for x in p.stdout.splitlines() if x.startswith("{")]
 
 
@@ -44,7 +47,8 @@ def commands(star, cplx):
     out = []
     for lane, l, gs in R1_D:
         out.append((f"d {lane} l={l}", "d", dict(lane=lane, l=l, gammas=",".join(repr(g) for g in gs), **star)))
-    out.append(("d od l=2", "d", dict(lane="od", l=2, gammas="1.0", **star)))
+    if OD:
+        out.append(("d od l=2", "d", dict(lane="od", l=2, gammas="1.0", **star)))
     for case in ("const", "linear"):
         for lane in ("f64", "dd", "qd"):
             out.append((f"planted {case} {lane}", "planted", dict(case=case, lane=lane, gamma=10.0, L=1.0, Lz=1.0)))
@@ -68,6 +72,7 @@ def strip(rec):
 
 
 def main(argv):
+    global OD
     mutate, cplx, out = None, False, None
     args = []
     for a in argv[1:]:
@@ -75,6 +80,8 @@ def main(argv):
             mutate = a.split("=", 1)[1]
         elif a == "--complex":
             cplx = True
+        elif a == "--od":
+            OD = True
         elif a.startswith("--out="):
             out = a.split("=", 1)[1]
         else:

@@ -1,0 +1,6 @@
+order7.py  mutate=wrong_c7  parts=['sym', 'xsym', 'cache']  mpmath 1.3.0  sympy 1.14.0
+PASS    CACHE: cached chain against the uncached chain on (N 24, w 1/2, V 12, 60 digits): Omega0 .. Omega5 equal to 60.0, 60.0, 60.0, 60.0, 60.0, 60.0 digits, worst relative difference 0.0 (bar 1e-55); times 3 s and 7 s
+FAIL    E0: h_k (k = 0 .. 7) and dY_k/dl (k = 1 .. 7) from the epsilon-expansion of the master equation against the table: residuals ['Y0*l**6/(360*R)'] (1.3 s)
+PASS    XS: sympy: P' - g4 u = 0; W' - w4' = 0; w5 - w_4(order 6) = 0; W(pi/2) of the primitive = 64*J2 - 32*pi*q**2 - 24*pi*q*w0 - 4*pi*w0**2 - 4*pi*w1
+
+2 passed, 1 failed of 3 checks; 11 s
