@@ -178,3 +178,20 @@ The post hoc pairs of part 2c (`runs/analysis/progress2`): ρ at h = 0.00125 is 
 of these B. LIN4's verdict (Richardson exponent 2.105) assumes that ṙ(8) converges at second order in h, which two h cannot test. To test it: **bisection and pairs (δ = 1e-10 and 1e-11) at h = 0.005 (hk = 0) for B = 0.01, 0.014, 0.03**
 (each about 5 min), then the observed order of ṙ(8) and ṙ(10) over h = 0.005, 0.0025, 0.00125 (`PHORD` lines of `drift_b6.py`), and the exponent of ṙ(8) between 0.01 and 0.014 re-done with the observed order. Post hoc; nothing gates; LIN4's verdict
 stays as declared (second order assumed).
+
+# Part 3: results (2026-11-28 07:15, dh610 clock)
+
+Everything is in `notes/wormhole_evolution/drift_b6.md` of branch `wip/i325-drift-b6` (numbers from `runs/analysis/record2/job.log`, 72 checks, 69 pass; the three failures: JOB6 at B = 0.15 and B = 0.2, LIN3). Short form:
+
+- Local exponent of ṙ(8) over the nine B at the finest h: 2.250, 2.272, 2.415, 2.617, 2.724, 2.220, 1.365, 0.757 for B = 0.01 → 0.014 … 0.15 → 0.2; Richardson 2.105, 2.202, 2.384, 2.602, 2.719, 2.219; resolution parts −0.598, −0.242, −0.100, −0.044, −0.016, −0.003; window parts ≤ 0.005.
+- LIN4 met (2.105; observed-order extrapolation 2.124); LIN3 not met (ρ = 0.078 at B = 0.01 against 0.05); #272's code at n = 4 gives a constant linear speed v/P = 1.235; the amplitude of ṙ∞ at B = 0.02 cannot be predicted.
+- Costs and exit codes: `runs/SUMMARY.txt`. Analyses of record: `runs/analysis/record2` (earlier `record1`, `progress1` … `progress4` are the analyses before the post hoc runs and are kept). Mutations: `runs/mut/`.
+
+## What went wrong, in order
+
+1. Part 2a's cost estimate of the pilot (10 to 20 min) was wrong (3848 s); corrected in 2b. The pilot and the three h = 0.00125 bisections finished at 05:33; the three h = 0.00125 pairs then waited, idle, until README part 2b was pushed (05:44). The pairs run through `pair.sh` and
+   tickets (`scripts/dispatch.sh`, which counts my compute processes and waits for `README_2B_DONE`); the `PART2B_DECLARED` file of the first chain scripts was never created (their pair step was stopped).
+2. LIN3 needed pairs at δ = 1e-11 (amendment in 2b); post hoc runs were added after the first analysis (2c: pairs at h = 0.00125, B = 0.02 at h = 0.00125; 2d: h = 0.005); none gates.
+3. README part 2b's `rich_order` effect (PLX, PLL) was wrong: PLX only. The part 2b table is not edited; this line is the correction.
+4. The times written in parts 2a, 2b, 2d were first estimates ahead of the clock and are corrected in place.
+5. JOB6 failed at B = 0.15 (declared only for B = 0.2).
