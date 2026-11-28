@@ -1,0 +1,9 @@
+[FAIL] n_floor: max |N|/sum|terms| at the step ends over the 15 walks: DD project 3.1e-17 (bar 1e-26), QD project 7.0e-50 (bar 1e-54); printed: DD conserve 3.1e-17
+  (52 s)
+[FAIL] dd_qd: DD against QD (project) at 200, 1e3, 1e4, 1e6, 1e9, 1e12 for the 15: worst relative difference of G, p, q 4.1e-14 (bar 1e-26)
+  (0 s)
+[FAIL] plant_scale: N = p^4 (q + 3p), F' = eta^-4, p falls by 2.7e7 and the scale of N by 7e-38 from eta = 10 to 3000; relative error of F' at 3000: dd conserve: 1.1e+01 (predicted fail, bar 1e-03: as predicted); qd conserve: 1.1e-28 (predicted pass, bar 1e-20: as predicted); dd project: 1.1e+01 (predicted pass, bar 1e-24: NOT as predicted); qd project: 1.1e-28 (predicted pass, bar 1e-50: NOT as predicted); u (p0/p)^5 predicts 1e5 (DD) and 1e-27 (QD)
+  (0 s)
+
+checks: 0 passed, 3 failed ['n_floor', 'dd_qd', 'plant_scale']. 52 s
+control no-project: target checks ['plant_scale', 'n_floor', 'dd_qd'], fired ['plant_scale', 'n_floor', 'dd_qd']

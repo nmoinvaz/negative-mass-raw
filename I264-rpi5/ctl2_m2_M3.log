@@ -1,0 +1,30 @@
+# identity_review.py parts=masters2 mutate=m2_M3 shift=
+
+== part masters2 ==
+PASS MJ : J_n = int ln^n cos for n = 1 .. 5 against n! [a^n] B(a), B(a) = (sqrt(pi)/2) Gamma((a+1)/2)/Gamma(a/2+1): worst 50.97 digits
+PASS MJ5 : J5 of omega4.md: quadrature -120.085591553785731652, closed form -120.085591553785731652, 50.97 digits (bar 40)
+PASS MJt2 : J~_2 = int ln^2(2 cos): quadrature 1.291928195012492507312, closed form 1.291928195012492507312, 55.43 digits (bar 40)
+PASS MJt3 : J~_3 = int ln^3(2 cos): quadrature -2.832279852122309195403, closed form -2.832279852122309195403, 53.63 digits (bar 40)
+PASS MJt4 : J~_4 = int ln^4(2 cos): quadrature 12.11327918941739085832, closed form 12.11327918941739085832, 52.12 digits (bar 40)
+PASS MJt5 : J~_5 = int ln^5(2 cos): quadrature -59.94262002896409483685, closed form -59.94262002896409483685, 50.68 digits (bar 40)
+PASS MJt6 : J~_6 = int ln^6(2 cos): quadrature 360.0641961498852643605, closed form 360.0641961498852643605, 49.32 digits (bar 40)
+PASS Mth2 : <theta^2>: quadrature 1.291928195012492507312, closed form 1.291928195012492507312, >= 58 (equal at the working precision) digits (bar 40)
+PASS MC2 : <C^2>: quadrature 0.8500546799591151479521, closed form 0.8500546799591151479521, >= 58 (equal at the working precision) digits (bar 40)
+PASS MlC2 : <ell C^2> = -ln2 <C^2>: quadrature -0.5892130047354473108895, closed form -0.5892130047354473108895, >= 58 (equal at the working precision) digits (bar 40)
+PASS MltC2 : <lt C^2> = -1.1587e-65 (closed form 0, bar 1e-40)
+PASS MthltC : <theta lt C> = -<C^2>/4: quadrature -0.212513669989778786988, closed form -0.212513669989778786988, >= 58 (equal at the working precision) digits (bar 40)
+PASS MthC : <theta C>: quadrature 0.9440932840407697318009, closed form 0.9440932840407697318009, >= 58 (equal at the working precision) digits (bar 40)
+PASS MuC : <u C>: quadrature 2.583856390024985014623, closed form 2.583856390024985014623, 57.56 digits (bar 40)
+PASS Mlt2D3 : <lt^2 D3>: quadrature 2.130791765825607192827, closed form 2.130791765825607192827, 55.32 digits (bar 40)
+PASS MCLc2 : <C Lc2> = (7/8) zeta(3) J2 - (1/2) int ell^2 D3: quadrature 0.1578333806401905269854, closed form 0.1578333806401905269854, 58.5 digits (bar 40)
+PASS MCK2 : <C K2> = (7/8) zeta(3) J~2 - <lt^2 D3>/2: quadrature 0.2934539216383174069671, closed form 0.2934539216383174069671, 58.77 digits (bar 40)
+PASS MltCK2 : <lt C K2> = -<lt^2 C^2>/4: quadrature -0.06044413301593017158341, closed form -0.06044413301593017158341, >= 58 (equal at the working precision) digits (bar 40)
+PASS MCK3 : <C K3> = (7/8) zeta(3) J~3 - <lt^3 D3>/2: quadrature 0.1389046134481544209031, closed form 0.1389046134481544209031, 57.67 digits (bar 40)
+PASS Mth2lt2 : <theta^2 lt^2>: quadrature 2.337650369887566656868, closed form 2.337650369887566656868, 55.29 digits (bar 40)
+PASS MthK2 : <theta K2> = (pi^2/8) J~2 - <theta^2 lt^2>/2: quadrature 0.425027339979557573976, closed form 0.425027339979557573976, 58.63 digits (bar 40)
+PASS MK2K2 : <K2^2>: quadrature 0.1537746432401693587401, closed form 0.1537746432401693587401, 58.49 digits (bar 40)
+PASS NM2 : <lt^2 C^2> against omega5.md's pi (3/4 zeta(3)^2 - (95/96) zeta(6)): quadrature 0.2417765320637206863337, closed form 0.2417765320637206863337, 57.67 digits (bar 40)
+FAIL NM3 : <lt^3 D3> against omega5.md's pi (9/16 zeta(3)^2 - (11/4) zeta(6)): quadrature -6.235791935762357975256, closed form -5.436772563334635206072, 0.8923 digits (bar 40)
+# part masters2: 31.8 s
+
+1 check(s) failed: NM3

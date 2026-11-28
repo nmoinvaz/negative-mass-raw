@@ -1,0 +1,36 @@
+# run_01_build_off: 2026-11-28T01:13:43Z machine Nathans-MacBook-Air-M5-3 load  38.25 34.31 30.31  threads 2 nice 10
+# worktree 1b44c49, 1 changed paths under the crate; target /Users/nathan/Source/negative-mass-i216-target/off1; args 
+    Updating crates.io index
+     Locking 3 packages to latest compatible versions
+    Updating multidouble v5.1.0 -> v6.1.0
+      Adding multishoot v5.0.0
+    Updating multisolver v0.2.2 -> v0.3.0
+   Compiling crossbeam-utils v0.8.23
+   Compiling crossbeam-epoch v0.9.21
+   Compiling crossbeam-deque v0.8.8
+   Compiling rayon-core v1.13.0
+   Compiling either v1.19.0
+   Compiling rayon v1.12.0
+   Compiling multidouble v6.1.0
+   Compiling multisolver v0.3.0
+   Compiling multishoot v5.0.0
+   Compiling conical_global v0.1.0 (/Users/nathan/Source/negative-mass-i216/notes/warp/conical_global)
+warning: unused import: `end_state`
+  --> src/main.rs:11:52
+   |
+11 | use conical_global::model::{conical, conical_poly, end_state, Implicit, Mutation, NoEnds};
+   |                                                    ^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `kind`
+   --> src/main.rs:239:22
+    |
+239 |     for (name, poly, kind) in cases {
+    |                      ^^^^ help: if this is intentional, prefix it with an underscore: `_kind`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: `conical_global` (bin "conical_global") generated 2 warnings (run `cargo fix --bin "conical_global" -p conical_global` to apply 2 suggestions)
+    Finished `release` profile [optimized] target(s) in 1m 03s
+exit 0

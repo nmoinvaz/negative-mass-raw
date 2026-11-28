@@ -1,0 +1,16 @@
+# identity_review.py parts=masters mutate=m1_J2 shift=
+
+== part masters ==
+PASS M0 : C = Cl2(pi - 2 th) and D3 = (3/4) zeta(3) + Cl3(pi - 2 th) against C = 2 int lt, D3 = 4 int (th - t) lt at 5 angles: worst 2.76e-76 (bar 1e-40)
+FAIL M1 : int l^2 D3 = 3.98960647090248246096726447258 by quadrature (1 s) against 3/4 zeta(3) J2 + (pi/4)(2 ln2 zeta(4) + 5 zeta(5) - 2 zeta(2) zeta(3)) = 3.9986218976761794181077625088: 2.647 digits (bar 40)
+# M2 = <lt^2 C^2> = 0.241776532063720686333657574112862353417274763497050609592427 ; M3 = <lt^3 D3> = -6.23579193576235797525596605155419872768489566473599495887577  (3 s)
+# M4 M1/pi in {1, zeta(5), pi^2 zeta(3), pi^4 ln2, zeta(3) ln^2 2, pi^2 ln^3 2, ln^5 2}: [1440, -1800, 75, -8, -540, 0, 0]
+# M4 M2/pi in {pi^6, zeta(3)^2, pi^2 zeta(3), pi^4, zeta(5), zeta(3), pi^2, 1}: [-18144, -19, 13608, 0, 0, 0, 0, 0, 0]
+# M4 M3/pi in the same basis: [-15120, -44, 8505, 0, 0, 0, 0, 0, 0]
+PASS M4 : PSLQ found a relation for each of M1, M2, M3 in the bases above
+PASS M2 : <lt^2 C^2> = (0.241776532063720686333657574113 - 1.74244023247798536247532052543e-371j) by quadrature at 125 digits (12 s) against pi (3/4 zeta(3)^2 - 19 pi^6/18144) found by PSLQ: 125.8 digits
+PASS M3 : <lt^3 D3> = (-6.23579193576235797525596605155 + 1.25368535028293369514879955101e-121j) against pi (9/16 zeta(3)^2 - 11 pi^6/3780) found by PSLQ: 119.3 digits
+# part masters: 17.4 s
+
+1 check(s) failed: M1
+exit 1

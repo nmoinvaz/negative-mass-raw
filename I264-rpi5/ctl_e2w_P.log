@@ -1,0 +1,60 @@
+# identity_review.py parts=sym,exch mutate=e2w_P shift=
+
+== part sym ==
+PASS SY_c : c_1 .. c_7 from the expansion of (1+eps Om)e^{eps l} - (1/2+eps)S e^{-eps l} - e^{-eps l}/(2R) equal the closed form in ell
+PASS SY_cS : c_1 = Om0 - 3 ell - S, c_2 = Om1 - 2 Om0 ell + ell^2 - 2 S ell, c_3 = Om2 - 2 Om1 ell + 2 Om0 ell^2 - 2 ell^3 - 2 S ell^2
+PASS SY_c67 : c_6 and c_7 equal the definitions printed in omega4.md / omega5.md (read as definitions)
+PASS SY_c0 : c_m(l = 0, R = 1) = Om_{m-1}  (h_k(1) = Om_{k-1})
+PASS SY_L : (L cot th)' = 2 h / S from (R - 1) dL/dR - L/2 = h
+PASS SY_w4 : w4 = (4 Om0 ell + 8 ell c1 + 2 c2)/S = (2 Om1 + 8 Om0 ell - 22 ell^2)/S - 12 ell
+PASS SY_E3 : E3: (4 ell + 2 c1)/S = 2 P_E', P_E = cot th (ell - Om0);  u P_E = ell - Om0
+PASS SY_W4 : W4 = cot th (22 ell^2 - 8 Om0 ell - 2 Om1) + 16 C has W4' = w4 at Om0 = -4 ln 2
+PASS SY_g4 : g4 = 8 Om0 ell + l^2 + 8 ell (ell - Om0) - 2 (22 ell^2 - 8 Om0 ell - 2 Om1 + 16 u C)
+FAIL SY_P : P' = u g4 for P = (32/3) ell^3 - 8 Om0 ell^2 - 4 Om1 ell - 32 (u C + ell^2 + 2 ln2 ell - D3/2)
+PASS SY_Pa : P_a' = u 12 ell^2, P_a = -4 ell^3
+PASS SY_w4p : w4' = (8 Om0 ell c1 + 8 ell c2 + 2 c3 - P)/S = [2 Om2 + a1 ell + a2 ell^2 + a3 ell^3 + 32 u C - 16 D3]/S - 20 ell^2 - 8 Om0 ell
+PASS SY_W : W' = w4'  (with Lc1' = ell, Lc2' = ell^2, C' = 2 (ell + ln2), D3' = 2C; the C cot th terms cancel)
+PASS SY_K : W(pi/2) = K0 + K with K0 = 0 at the roots of Om0, Om1 (and 4*pi*(-3*O1 + 24*log(2)**2 + 2*pi**2)/3 at the root of Om0 only)
+FAIL SY_bnd0 : throat leading terms: W4 Y4 ~ 4 Om1 Om2 th, W4 Y5 ~ 4 Om1 Om3 th, W Y4 ~ 4 Om2^2 th, P L4 cot ~ -4 Om1 Om3 th
+PASS SY_bnd1 : throat leading terms of E1, E2, E3's boundary terms: -cot Y_k ~ 2 Om_{k-2} th, -ell L cot ~ -Om th, 2 P_E Y ~ 4 Om0 Om_{m-2} th
+PASS SY_J : J1 = -(pi/2) ln2 and J2 = (pi/2)(ln^2 2 + pi^2/12) from B(a) = int cos^a
+# B~(a) = (pi/2) Gamma(1+a)/Gamma(1+a/2)^2 vs 2^a B(a) (duplication): equal
+# part sym: 5.2 s
+
+== part exch ==
+# nodes loaded from /tmp/claude-1000/-home-nathan-Source-negative-mass-i264/68a7bf57-1915-46d5-843f-9e1cd30b9313/scratchpad/cache_rec/roots_b440_N160_n40_w0.5.pkl
+# integrals accumulated in 1.8 s; 1480 nodes; shift {}
+PASS H3_G2 : G_2: quadrature 2.2668185e-69, (L_k + 2 Om_{k-1})/u at the cutoff 2.2668185e-69, digits 91.5
+PASS H3_G3 : G_3: quadrature 7.5875152e-67, (L_k + 2 Om_{k-1})/u at the cutoff 7.5875152e-67, digits 91.3
+PASS H3_G4 : G_4: quadrature -1.4207349e-64, (L_k + 2 Om_{k-1})/u at the cutoff -1.4207349e-64, digits 91.6
+PASS H3_G5 : G_5: quadrature -1.218145e-61, (L_k + 2 Om_{k-1})/u at the cutoff -1.218145e-61, digits 92.2
+PASS H3_G6 : G_6: quadrature -1.7161608e-59, (L_k + 2 Om_{k-1})/u at the cutoff -1.7161608e-59, digits 91.8
+# G7 quadrature 6.887536358e-57 (no L_7 in the hierarchy)
+PASS H2_G2 : |G_2| = 2.267e-69 at the closed forms (bar 1e-30)
+PASS H2_G3 : |G_3| = 7.588e-67 at the closed forms (bar 1e-30)
+PASS H2_G4 : |G_4| = 1.421e-64 at the closed forms (bar 1e-30)
+PASS H2_G5 : |G_5| = 1.218e-61 at the closed forms (bar 1e-30)
+PASS H2_G6 : |G_6| = 1.716e-59 at the closed forms (bar 1e-30)
+# G_7 at #263's Omega_5: 6.888e-57 (reported)
+PASS E1_6 : lhs -1.71616079519e-59 rhs -2.36661829336e-59 | raw 64.7 digits, with the boundary term 6.505e-60 at the cutoff 93.2 digits (scale 3.38e+5)
+PASS E1_7 : lhs 6.88753635796e-57 rhs 3.90953178811e-57 | raw 63.2 digits, with the boundary term 2.978e-57 at the cutoff 93.6 digits (scale 4.33e+6)
+PASS E2_2 : lhs 29.266600969 rhs 29.266600969 | raw 68.3 digits, with the boundary term 3.879e-67 at the cutoff 92.8 digits (scale 80.2)
+PASS E2_3 : lhs -346.761806025 rhs -346.761806025 | raw 66.6 digits, with the boundary term 1.298e-64 at the cutoff 91.4 digits (scale 491.0)
+PASS E2_4 : lhs -2683.45836509 rhs -2683.45836509 | raw 65.5 digits, with the boundary term -2.431e-62 at the cutoff 91.6 digits (scale 8.0e+3)
+PASS E2_5 : lhs 37488.7183983 rhs 37488.7183983 | raw 63.7 digits, with the boundary term -2.085e-59 at the cutoff 91.6 digits (scale 9.78e+4)
+PASS E2_6 : lhs 736689.06756 rhs 736689.06756 | raw 62.6 digits, with the boundary term -2.937e-57 at the cutoff 92.2 digits (scale 1.27e+6)
+PASS E3_3 : lhs 118.58707565 rhs 118.58707565 | raw 67.0 digits, with the boundary term -3.391e-65 at the cutoff 91.3 digits (scale 303.0)
+PASS E3_4 : lhs 4251.11271553 rhs 4251.11271553 | raw 65.1 digits, with the boundary term -3.775e-62 at the cutoff 91.8 digits (scale 4.26e+3)
+PASS E3_5 : lhs -17646.1498737 rhs -17646.1498737 | raw 63.7 digits, with the boundary term -5.13e-60 at the cutoff 91.6 digits (scale 2.69e+4)
+PASS E3_6 : lhs -904682.748627 rhs -904682.748627 | raw 62.6 digits, with the boundary term 2.19e-57 at the cutoff 93.0 digits (scale 9.05e+5)
+PASS E3_7 : lhs -1430053.13525 rhs -1430053.13525 | raw 60.7 digits, with the boundary term 1.003e-54 at the cutoff 92.5 digits (scale 5.38e+6)
+PASS E4_6 : lhs -232044.844217 rhs -232044.844217 | raw 63.5 digits, with the boundary term 7.241e-59 at the cutoff 91.7 digits (scale 2.45e+5)
+PASS E4_7 : lhs 1927597.49904 rhs 1927597.49904 | raw 62.3 digits, with the boundary term 9.84e-57 at the cutoff 91.9 digits (scale 1.99e+6)
+PASS E2Wa : lhs -1010550.94245 rhs -1010550.94245 | raw 62.6 digits, with the boundary term -2.848e-57 at the cutoff 92.1 digits (scale 1.05e+6)
+FAIL E2Wb : lhs 2970980.70448 rhs 2929674.29969 | raw 1.87 digits, with the boundary term 7.635e-57 at the cutoff 1.87 digits (scale 3.05e+6)
+PASS E5 : lhs 1553061.99865 rhs 1553061.99865 | raw 62.7 digits, with the boundary term -4.107e-57 at the cutoff 91.9 digits (scale 1.89e+6)
+PASS G6R : lhs -1.71616079519e-59 rhs -7.83456524049e-60 | raw 64.5 digits, with the boundary term -9.327e-60 at the cutoff 91.6 digits (scale 3.18e+5)
+FAIL G7R : lhs 6.88753635796e-57 rhs -39581.4061209 | raw 2.01 digits, with the boundary term 7.02e-57 at the cutoff 2.01 digits (scale 4.05e+6)
+# part exch: 2.2 s
+
+4 check(s) failed: SY_P, SY_bnd0, E2Wb, G7R
