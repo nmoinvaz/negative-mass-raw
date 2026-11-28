@@ -1,0 +1,23 @@
+settled_mass_eps_scan.py analyze ['--part=record', '--mutate=grid_drop', '--baseline=/Users/nathan/Source/negative-mass-raw/I323-mac/record/analyze_record.3.log']: numpy 2.5.4, mutation grid_drop, part record, 2026-11-28 05:18:52
+== part record: 24 members (the fifteen and the held-out nine) and B0, h = 0.005, grid 0.001, 0.002, 0.01
+[FAIL] CFG: M_0 = 0.223086 and the frozen P4 of #295; the fifteen are those of #295; the grid is the issue's; bar 6e-5  (M_0 0.223086, P4 (0.2296318924, 0.2834170383, 0.7657657062))
+[pass] RUNS: every member and B0 reads at every eps of the grid with finite (t_dep, gamma_1, r_th, rdot_th) under REF and WJ
+[pass] DEPX: the departure time written in `settled_mass_speed` (ln-linear in |odd|/r = eps) equals #266's `departure_time` to 3e-6 at every member and eps of the grid  (max 1.8e-06)
+[pass] MONO: t_dep increases with eps at every member, and t_dep(1e-2) - t_dep(1e-3) is 1.9 to 2.4 (ln 10 / lambda)  (shift 1.949 to 2.065)
+[pass] REFRD: the reference reading (t_dep, gamma_1, r_th, rdot_th) of every member at eps = 1e-3 and 1e-2 equals #296's printed member table to half a unit of the last printed digit  (144 numbers compared (18 members); differing [])
+[pass] B0CTRL: B0's t_dep, r_th - 1 and rdot_th at eps = 1e-3, 2e-3, 5e-3, 1e-2 equal #296's printed table to half a unit of the last printed digit  (differing [])
+[pass] REF15: the fifteen's in-sample and leave-one-out errors (M - predicted, reference reading, M_0 = 0.223086) at eps = 1e-3 and 1e-2 equal #296's printed values (x1e-6) to half a unit  (60 numbers compared; differing [])
+[pass] CTRL314: at eps = 1e-3 the refit over the fifteen with REF and WJ has #314's printed (a, b, c) and maximal in-sample and leave-one-out errors, to half a unit of the last printed digit  (differing [])
+[pass] WJ314: at eps = 1e-3 WJ's change of gamma_1 and r_th against the reference reading equals #314's printed table (and the reference's gamma_1 and r_th), to half a unit of the last printed digit  (differing [])
+[pass] FRZ: the refit over the fifteen at eps = 1e-3 (REF) returns the frozen (a, b, c) of #295 to 1e-9  (max 3.4e-11)
+[pass] CTRL314R: at eps = 1e-3 the reference reading and WJ reproduce #314's printed residuals at N1 to N3, X1 to X3, Y1 to Y3 (18 numbers) to half a unit of the last printed digit  (differing [])
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i323/notes/wormhole_evolution/settled_mass_eps_scan.py", line 849, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/nathan/Source/negative-mass-i323/notes/wormhole_evolution/settled_mass_eps_scan.py", line 840, in main
+    return analyze_cmd()
+  File "/Users/nathan/Source/negative-mass-i323/notes/wormhole_evolution/settled_mass_eps_scan.py", line 652, in analyze_cmd
+    sc = scan(RS[eps]["REF"], Mv, fifteen, NAMES_N)
+              ~~^^^^^
+KeyError: 0.005

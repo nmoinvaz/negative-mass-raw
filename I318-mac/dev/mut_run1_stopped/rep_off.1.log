@@ -1,0 +1,89 @@
+settled_mass_second.py analyze {'raw': '/Users/nathan/Source/negative-mass-raw/I318-mac', 'runs': '/Users/nathan/Source/negative-mass-raw/I318-mac/dev/runs_dev/runs', 'mutate': 'rep_off', 'baseline': '/Users/nathan/Source/negative-mass-raw/I318-mac/dev/analyze_dev.3.log'}: numba 0.68.1, numpy 2.5.4, python 3.14.7, Nathans-MacBook-Air-M5-3.local, 2026-11-28 05:14:40
+== B = 0 (the static member, stored pair at delta = 1e-8): its two readings at the same pair; d0 = reading(1e-3) - reading(1e-2)
+    eps 0.001: t_dep 13.287  r_th - 1 -1.4961e-06 (fine -1.2997e-06)  rdot_th -3.2608e-06  cell position 0.573, A's interpolation factor of the e^(2 lambda t) term 1.166 (lambda 1.182)
+    eps 0.01: t_dep 15.234  r_th - 1 -1.4116e-04 (fine -1.1937e-04)  rdot_th -3.2397e-04  cell position 0.469, A's interpolation factor of the e^(2 lambda t) term 1.184 (lambda 1.182)
+    d0: r_th +1.3966e-04 (fine +1.1807e-04), rdot_th +3.2071e-04, gamma_1 -3.71e-09
+[pass] B0REF: B = 0's d0 equals the difference of #296's printed readings (r_th 6 digits, rdot_th 4 digits)  (r_th +1.3966e-04 vs +1.4000e-04 (tol 1e-06); rdot_th +3.2071e-04 vs +3.2074e-04 (tol 5e-08))
+
+== The delta scan: the stored pair at delta = 10^-e read at eps = 1e-2 and the pair at 10^-(e+1) read at eps = 1e-3 (gamma_1 = 0.048). The same code as the seven members
+    e7@1e-2 vs B0.1@1e-3: t_dep 13.615 (diff +0.000); d r_th +1.361e-04 (fine +1.183e-04) rho_r 0.975 (fine 1.002); d rdot_th +3.211e-04 rho_v 1.001; d gamma_1 -5.26e-06; cell 0.23, interpolation factor 1.148; printed by #296: r_th +1.36e-04, gamma_1 -5.26e-06, rdot_th +3.21e-04  [equal]
+    B0.1@1e-2 vs e9@1e-3: t_dep 15.618 (diff +0.000); d r_th +1.364e-04 (fine +1.186e-04) rho_r 0.976 (fine 1.004); d rdot_th +3.209e-04 rho_v 1.001; d gamma_1 -5.43e-06; cell 0.24, interpolation factor 1.151; printed by #296: r_th +1.36e-04, gamma_1 -5.43e-06, rdot_th +3.21e-04  [equal]
+    e9@1e-2 vs e10@1e-3: t_dep 17.623 (diff +0.001); d r_th +1.377e-04 (fine +1.197e-04) rho_r 0.986 (fine 1.014); d rdot_th +3.217e-04 rho_v 1.003; d gamma_1 -5.62e-06; cell 0.25, interpolation factor 1.153; printed by #296: r_th +1.38e-04, gamma_1 -5.62e-06, rdot_th +3.22e-04  [equal]
+    e10@1e-2 vs e11@1e-3: t_dep 19.630 (diff -0.002); d r_th +1.421e-04 (fine +1.230e-04) rho_r 1.017 (fine 1.041); d rdot_th +3.280e-04 rho_v 1.023; d gamma_1 -5.82e-06; cell 0.26, interpolation factor 1.157; printed by #296: r_th +1.42e-04, gamma_1 -5.82e-06, rdot_th +3.28e-04  [equal]
+[pass] REP296: the part 2 code reproduces #296's four printed delta-scan pair differences (r_th, gamma_1, rdot_th, t_dep) to the half unit of the last printed digit
+
+== Part 2: the seven members (stored delta = 1e-8 pair at eps = 1e-2, new delta = 1e-9 pair at eps = 1e-3)
+[pass] RUNS: the seven new pairs are complete (member.json and locus.npz)
+[pass] CFG: each new pair is centred on the stored p*_h bit for bit (the copy, the source, the stored and the new member.json), e = 9 against 8, collapse on the lower side and expansion on the upper  (W3 ps 0.030989067370074921; C3 ps 0.0047378894794761432; N3 ps 0.01152596472085279; B0.125 ps 0.023906281245140236; X1 ps 0.0023824627550406148; X2 ps 0.0083444599027076051; X3 ps 0.012252571091029681)
+[pass] SAME: the new pair at eps = 1e-3 and the stored pair at eps = 1e-2 reach the same moment: |t_dep difference| <= 0.01  (W3 +0.0003, C3 +0.0003, N3 +0.0003, B0.125 +0.0003, X1 +0.0003, X2 +0.0002, X3 +0.0003)
+
+   member       gamma_1   t_dep(S)  d r_th      rho_r(A)  rho_r(B,fine)  d rdot_th    rho_v   d gamma_1   A-interp. factor / B = 0's
+   W3           0.07459  15.810   +1.347e-04   0.9647    1.0013        +3.236e-04   1.0091   -8.74e-06   1.142 / 1.184 = 0.965   [inside 10 %; B inside]
+   C3           0.07420  15.951   +1.264e-04   0.9047    1.0285        +3.213e-04   1.0018   -7.07e-06   1.042 / 1.184 = 0.881   [inside 10 %; B inside]
+   N3           0.07447  15.916   +1.285e-04   0.9201    1.0182        +3.223e-04   1.0051   -7.64e-06   1.071 / 1.184 = 0.905   [inside 10 %; B inside]
+   B0.125       0.07488  15.929   +1.284e-04   0.9195    1.0280        +3.217e-04   1.0030   -7.76e-06   1.060 / 1.184 = 0.895   [inside 10 %; B inside]
+   X1           0.01212  15.329   +1.332e-04   0.9538    0.9878        +3.213e-04   1.0019   -1.59e-06   1.142 / 1.184 = 0.965   [inside 10 %; B inside]
+   X2           0.04765  15.636   +1.341e-04   0.9600    0.9749        +3.226e-04   1.0060   -6.00e-06   1.164 / 1.184 = 0.984   [inside 10 %; B inside]
+   X3           0.07447  15.908   +1.245e-04   0.8913    0.9789        +3.235e-04   1.0089   -8.48e-06   1.079 / 1.184 = 0.911   [OUTSIDE 10 %; B inside]
+[FAIL] PD2: the r_th and rdot_th differences of the same moment are within 10% of B = 0's at every member (A: the reader as is)  (outside: X3)
+[pass] PD2B: POST HOC, gates nothing: the same with r_th on the locus's own grid (B), rdot_th as above
+
+== X1-X3 in V3's frozen fit (#317, I317-mac/frozen_v3.json): residual M - r' (M_0 + a g + b g^2 + c rdot'), r' = r_th - part_r, rdot' = rdot_th - part_v
+    frozen (a, b, c) = 0.229606, 0.131549, 0.558734; M_0 0.223086; B = 0's part at eps = 1e-2: r_th - 1 -1.4116e-04, rdot_th -3.2397e-04
+    X1: M 0.223687  V3 (B = 0's part) residual +3.346e-05 (#317 printed +3.346e-05)  needed ratios: rdot_th 1.186 (#317 1.19), r_th 2.051 (#317 2.05)
+        measured: rho_v 1.002 = 0.84 of the needed; rho_r (A) 0.954 = 0.46 of the needed, (B) 0.988 = 0.48
+        X's own part in place of B = 0's: residual +3.459e-05 (change +1.14e-06); with r_th's part from B: +3.351e-05; with gamma_1's part too (gamma_1 part +1.60e-06): +3.496e-05
+    X2: M 0.228997  V3 (B = 0's part) residual +7.317e-05 (#317 printed +7.317e-05)  needed ratios: rdot_th 1.412 (#317 1.41), r_th 3.219 (#317 3.2)
+        measured: rho_v 1.006 = 0.71 of the needed; rho_r (A) 0.960 = 0.30 of the needed, (B) 0.975 = 0.30
+        X's own part in place of B = 0's: residual +7.342e-05 (change +2.51e-07); with r_th's part from B: +7.293e-05; with gamma_1's part too (gamma_1 part +6.06e-06): +7.486e-05
+    X3: M 0.236361  V3 (B = 0's part) residual +7.733e-05 (#317 printed +7.733e-05)  needed ratios: rdot_th 1.435 (#317 1.44), r_th 3.276 (#317 3.3)
+        measured: rho_v 1.009 = 0.70 of the needed; rho_r (A) 0.891 = 0.27 of the needed, (B) 0.979 = 0.30
+        X's own part in place of B = 0's: residual +7.945e-05 (change +2.12e-06); with r_th's part from B: +7.647e-05; with gamma_1's part too (gamma_1 part +8.56e-06): +8.154e-05
+[pass] REPV3: V3's frozen fit with B = 0's offsets reproduces #317's printed X1-X3 residuals to the half unit of the last digit
+[pass] NEED: the ratios that would close the miss, computed from the frozen fit, equal #317's 1.19, 1.41, 1.44 (rdot_th) and 2.05, 3.2, 3.3 (r_th)
+
+== Part 1: the first-order mode in the pair's mean at the delta scan (all share the Mac p*_h of B = 0.1, h = 0.005)
+[pass] BIS: the Mac bisection of B = 0.1 is reproduced bit for bit by I40-mac-review's rerun (lo, hi), and the dh610 bracket (#253's p*_h) is as wide as it  (Mac [0.014860254854163483, 0.014860254854169168] width 5.685e-15; dh610 [0.014860254854123693, 0.014860254854129378] width 5.685e-15)
+    p*_Mac - p*_dh610 = +3.979e-14; the brackets do not overlap: gap +3.410e-14; zone [0.014860254854123693, 0.014860254854169168] width 4.547e-14
+    D: PA1 |D| <= 2.842e-15; PA2s D = +1.989e-14 (signed); PA2b |D| <= 4.263e-14
+[pass] NINE: the fifteen's fit at eps = 1e-2 reproduces #296's printed coefficients and e12's in-sample error +374e-6 (the issue's number) to the half unit of the printed digit  ((a, b, c) = +0.240502, +0.034453, +0.510037; e12 +374.3e-6 (printed +374))
+
+    pair   delta     eps    t_dep   | per unit m1: d r_th (A)   d rdot_th   d gamma_1   S = d(M - predicted) | PA2s: m1           d r_th      d rdot_th   S         | in-sample error of the fifteen (x1e-6)
+    e7    1e-07  1e-02  13.615  |  +1.036e-02  +1.226e-02  -3.605e-04  -8.614e-03  |  +1.99e-07  +2.061e-09  +2.439e-09      -0.0e-6  |     -102
+    e7    1e-07  1e-03  11.610  |  +1.035e-03  +1.225e-03  -3.502e-05  -8.612e-04  |  +1.99e-07  +2.059e-10  +2.438e-10      -0.0e-6  |        -
+    B0.1  1e-08  1e-02  15.618  |  +1.037e-02  +1.226e-02  -3.670e-04  -8.618e-03  |  +1.99e-06  +2.062e-08  +2.439e-08      -0.0e-6  |      -82
+    B0.1  1e-08  1e-03  13.615  |  +1.036e-03  +1.226e-03  -3.593e-05  -8.616e-04  |  +1.99e-06  +2.061e-09  +2.439e-09      -0.0e-6  |        -
+    e9    1e-09  1e-02  17.623  |  +1.039e-02  +1.226e-02  -3.717e-04  -8.632e-03  |  +1.99e-05  +2.066e-07  +2.439e-07      -0.2e-6  |      -62
+    e9    1e-09  1e-03  15.618  |  +1.037e-03  +1.226e-03  -3.670e-05  -8.619e-04  |  +1.99e-05  +2.063e-08  +2.438e-08      -0.0e-6  |        -
+    e10   1e-10  1e-02  19.630  |  +1.042e-02  +1.226e-02  -3.760e-04  -8.650e-03  |  +1.99e-04  +2.073e-06  +2.439e-06      -1.7e-6  |      -45
+    e10   1e-10  1e-03  17.624  |  +1.039e-03  +1.226e-03  -3.694e-05  -8.634e-04  |  +1.99e-04  +2.066e-07  +2.439e-07      -0.2e-6  |        -
+    e11   1e-11  1e-02  21.639  |  +1.045e-02  +1.226e-02  -3.789e-04  -8.670e-03  |  +1.99e-03  +2.079e-05  +2.439e-05     -17.2e-6  |      -41
+    e11   1e-11  1e-03  19.628  |  +1.042e-03  +1.225e-03  -3.752e-05  -8.650e-04  |  +1.99e-03  +2.073e-06  +2.438e-06      -1.7e-6  |        -
+    e12   1e-12  1e-02  23.626  |  +1.045e-02  +1.226e-02  -3.802e-04  -8.678e-03  |  +1.99e-02  +2.079e-04  +2.439e-04    -172.6e-6  |     +374
+    e12   1e-12  1e-03  21.613  |  +1.041e-03  +1.225e-03  -3.763e-05  -8.661e-04  |  +1.99e-02  +2.071e-05  +2.438e-05     -17.2e-6  |        -
+    PA1: D +2.842e-15, m1(e12) +0.0028, S(e12, eps = 1e-2)    -24.7e-6, ratio to +374e-6 -0.066
+    PA2s: D +1.989e-14, m1(e12) +0.0199, S(e12, eps = 1e-2)   -172.6e-6, ratio to +374e-6 -0.462
+    PA2b: D +4.263e-14, m1(e12) +0.0426, S(e12, eps = 1e-2)   -370.0e-6, ratio to +374e-6 -0.989
+    m1* that gives +374e-6 exactly (the model): -0.0431, D* = -4.310e-14 = -15.2 x PA1's, -2.2 x PA2s's, -1.0 x PA2b's
+[FAIL] P1G: the predicted y shift at e12 from the zone's signed centre (PA2s) is within a factor 2 of +374e-6 (sign included)  (S -172.6e-6, ratio -0.462)
+[FAIL] P1A: POST HOC, gates nothing: PA1 (the Mac bracket's hi - lo, magnitude) predicts |S| within a factor 2 of +374e-6  (|S|/374e-6 = 0.066)
+[pass] P1B: POST HOC, gates nothing: PA2b (the zone's bound, magnitude) predicts |S| within a factor 2 of +374e-6  (|S|/374e-6 = 0.989)
+
+    the predicted shift of PA2s at e9-e11 against the fifteen's in-sample errors there (eps = 1e-2):
+        e9: S    -0.2e-6, in-sample    -62e-6, d r_th +2.07e-07, d rdot_th +2.44e-07
+        e10: S    -1.7e-6, in-sample    -45e-6, d r_th +2.07e-06, d rdot_th +2.44e-06
+        e11: S   -17.2e-6, in-sample    -41e-6, d r_th +2.08e-05, d rdot_th +2.44e-05
+
+== Part 1, post hoc (added after the first development run): the first-order mode of the mean from the crossing times of the two sides (T_b - T_a of r crossing 2.0 and 3.0 on the expansion side, 0.75 and 0.5 on the collapse side)
+    T gains per decade of delta over e7-e10: collapse side 2.0117, expansion side 2.0046; lambda = ln 10 / mean = 1.1466 per unit t
+    dT(e:2.0 - c:0.75): e7 2.531, B0.1 2.524, e9 2.517, e10 2.510, e11 2.500, e12 2.574; linear trend over e7-e10 +0.0071 per decade; deviation from it (e11, e12): -0.0035, +0.0778; in-fit scatter 0.0000
+        m1 = -tanh(lambda dev / 2): e11 +0.0020, e12 -0.0446  (D = m1 delta: -4.456e-14); the model's S at e12: +386.7e-6 (ratio to +374e-6: +1.034); m1* of the reading -0.0431
+    dT(e:3.0 - c:0.5): e7 3.956, B0.1 3.953, e9 3.949, e10 3.942, e11 3.939, e12 4.020; linear trend over e7-e10 +0.0046 per decade; deviation from it (e11, e12): -0.0000, +0.0859; in-fit scatter 0.0014
+        m1 = -tanh(lambda dev / 2): e11 +0.0000, e12 -0.0492  (D = m1 delta: -4.921e-14); the model's S at e12: +427.1e-6 (ratio to +374e-6: +1.142); m1* of the reading -0.0431
+[pass] LIFE: POST HOC, gates nothing: POST HOC: the first-order mode measured from the crossing times of the two sides gives e12's shift S within a factor 2 of +374e-6 (both crossing pairs)  (ratios +1.034, +1.142)
+[pass] PL1: planted second-order parts of ratio 1.0, 0.7, 1.3, 1.15, 1.05 times B = 0's (K eps^2, the mean's speed the exact derivative, rows every 0.5 in t) through the part 2 code: B (fine r_th) and rdot_th recover the ratio times r_t at the moment (the planted law is K eps^2 r_t) to 2e-3, A's d r_th equals the independent interpolation of the two planted rows to 1e-8, and the 10 % test flags 1.15 and not 1.05  (max |recovered - planted|: r_th (B) 1.2e-03, rdot_th 8.8e-04; A's d r_th against the independent interpolation 9.9e-10; flags 1.15 (True, True), 1.05 (False, False))
+[pass] PL2: a planted first-order mode m1 = +-0.05 in the mean (r_a, r_b + m1 q) through the real reader (r_th on the fine locus, speed_at): the shifts equal the model's m1 odd(t_dep) and m1 rdot_local(odd) to 5 %  (m1 +0.05: d r_th (B) reader +5.043e-04 model +5.036e-04 (1.5e-03), d rdot reader +6.193e-04 model +6.193e-04 (1.1e-04); m1 -0.05: d r_th (B) reader -5.038e-04 model -5.036e-04 (4.7e-04), d rdot reader -6.187e-04 model -6.193e-04 (1.1e-03))
+[FAIL] REP318: the stored delta = 1e-8 pairs of X1 and B0.125 rerun through `pair` (e = 8) equal the stored locus arrays bit for bit and the stored rows, p*_h, t_dep, events  (X1: locus DIFFERENT, rows/ps/t_dep/events equal; B0.125: locus DIFFERENT, rows/ps/t_dep/events equal)
+
+18 checks (4 post hoc or reported, gating nothing), 3 gating checks failed, 1 non-gating checks failed; 18 s
+mutation rep_off: fired ['P1A', 'P1G', 'PD2', 'REP318']; failing without a mutation (--baseline) ['P1A', 'P1G', 'PD2']; newly fired ['REP318'], declared []: DIFFERENT

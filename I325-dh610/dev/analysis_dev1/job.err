@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-i325/notes/wormhole_evolution/drift_b6.py", line 426, in <module>
+    main()
+    ~~~~^^
+  File "/home/nathan/Source/negative-mass-i325/notes/wormhole_evolution/drift_b6.py", line 419, in main
+    r, _, _ = analyze(base, base228, mut, quick=a.get("quick", False))
+              ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-i325/notes/wormhole_evolution/drift_b6.py", line 365, in analyze
+    chk_PLX()
+    ~~~~~~~^^
+  File "/home/nathan/Source/negative-mass-i325/notes/wormhole_evolution/drift_b6.py", line 267, in chk_PLX
+    an = {hk: math.log((p["c"] * Ba ** p["alpha"] - p["d"] * h * h) / (p["c"] * Bb ** p["alpha"] - p["d"] * h * h)) / math.log(Ba / Bb) for hk, h in ((1, 0.0025), (2, 0.00125))}
+              ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: expected a positive input, got -3.7859400906197984

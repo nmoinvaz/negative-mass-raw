@@ -107,3 +107,21 @@ Baseline `dev/analyze_dev.4.log` (30 checks; the only failures are the four stan
 A single analysis not finished in 1 h of wall time is stopped and reported (the development run takes about 1 min). Every log is kept, reruns are numbered.
 `dev/`: `analyze_dev.1..4.log` (1: bracket error of the root finder in the planted truth; 2: first complete run; 3: planted bars tightened (PRD r_th 1e-6 to 1e-7, PL2 5e-6 to 1e-6), mutations `moves_never`, `grid_drop` added; 4: final, after the dry-run and MONO edits), `analyze_dryrun.1.log`,
 `mut/` (14 mutations before the `moves_never`/`grid_drop` and `finish` edits: grid_drop crashed on a hard-coded 3), `mut_final/` (the 14 of the table), `match_check_*.log`.
+
+## Stage 2: the record (written after the runs)
+
+Code: `settled_mass_eps_scan.py` at 454d7a2 (record 4); the note, output of record and figure at 23ca1e5 of `wip/i323-eps-scan`.
+
+| log | what |
+|---|---|
+| `record/analyze_record.1.log` | crashed in REFRD after RUNS, DEPX, MONO (REFRD compared X1 to X3 and Y1 to Y3 with #296's table, which lacks them); no residual was printed |
+| `record/analyze_record.2.log` | REFRD fixed (18 members); numbers of the scan as in 3 and 4; the post hoc X table's header listed the columns in a different order than its rows |
+| `record/analyze_record.3.log` | header fixed (code 6834a63) |
+| `record/analyze_record.4.log` | output of record (code 454d7a2: the two mutation-only paths below); equals 3 apart from the first line and the timing |
+| `record/mut/` | the 14 mutations on the record with code 6834a63 (`exits.txt`); `dep_eps` and `grid_drop` crashed there (a mutated post hoc block at eps x 10 beyond the stored rows; CTRL296 indexing the dropped eps) |
+| `record/mut_2/` | `dep_eps` and `grid_drop` rerun with code 454d7a2: both MATCH |
+| `record/graph.1.log` | the figure's numbers |
+
+Result: 72 checks, 26 fail, all outcome checks (PX 16, PN and PY at 1e-2 under REF and WJ 4, NOEXIT_REF, NOEXIT_WJ, XCLOSE x 4); the 16 controls and planted checks pass, CTRL314R and CTRL296 among them.
+13 of 14 mutations of the record newly fire exactly their declared sets, including the record-only controls. `wj_swap` does not: its declared CTRL314R effect is wrong (the swap flips gamma_1's sign under WJ, which the refit absorbs); it fires CTRL314, WJ314 and PRD_WJ as declared.
+`rdot_nolapse` had no record-only expectation and fires CTRL296 and CTRL314R. No criterion of stage 1 was moved.

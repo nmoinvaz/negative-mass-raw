@@ -1,0 +1,18 @@
+baseline rc=1
+eps_swap rc=0 mutation eps_swap: fired ['B0REF', 'NEED', 'P1A', 'P1G', 'PD2', 'PD2B', 'PL1', 'PL2', 'REP296', 'REPV3', 'SAME']; failing without a mutation (--baseline) ['P1A', 'P1G', 'PD2']; newly fired ['B0REF', 'NEED', 'PD2B', 'PL1', 'PL2', 'REP296', 'REPV3', 'SAME'], declared ['B0REF', 'NEED', 'PD2B', 'PL1', 'PL2', 'REP296', 'REPV3', 'SAME']: MATCH
+d_sign rc=0 mutation d_sign: fired ['B0REF', 'P1A', 'P1G', 'PD2', 'REP296']; failing without a mutation (--baseline) ['P1A', 'P1G', 'PD2']; newly fired ['B0REF', 'REP296'], declared ['B0REF', 'REP296']: MATCH
+b0_scale rc=0 mutation b0_scale: fired ['B0REF', 'P1A', 'P1G', 'PD2', 'PD2B']; failing without a mutation (--baseline) ['P1A', 'P1G', 'PD2']; newly fired ['B0REF', 'PD2B'], declared ['B0REF', 'PD2B']: MATCH
+same_moment_off rc=0 mutation same_moment_off: fired ['B0REF', 'P1A', 'P1G', 'PD2', 'PD2B', 'PL1', 'REP296', 'SAME']; failing without a mutation (--baseline) ['P1A', 'P1G', 'PD2']; newly fired ['B0REF', 'PD2B', 'PL1', 'REP296', 'SAME'], declared ['B0REF', 'PD2B', 'PL1', 'REP296', 'SAME']: MATCH
+plant_ratio rc=0 mutation plant_ratio: fired ['P1A', 'P1G', 'PD2', 'PL1']; failing without a mutation (--baseline) ['P1A', 'P1G', 'PD2']; newly fired ['PL1'], declared ['PL1']: MATCH
+m1_sign rc=0 mutation m1_sign: fired ['LIFE', 'P1A', 'P1G', 'PD2', 'PL2']; failing without a mutation (--baseline) ['P1A', 'P1G', 'PD2']; newly fired ['LIFE', 'PL2'], declared ['LIFE', 'PL2']: MATCH
+dv_scale rc=0 mutation dv_scale: fired ['P1A', 'P1G', 'PD2', 'PL2']; failing without a mutation (--baseline) ['P1A', 'P1G', 'PD2']; newly fired ['PL2'], declared ['PL2']: MATCH
+rep_off rc=0 mutation rep_off: fired ['P1A', 'P1G', 'PD2', 'REP318']; failing without a mutation (--baseline) ['P1A', 'P1G', 'PD2']; newly fired ['REP318'], declared ['REP318']: MATCH
+m0_shift rc=0 mutation m0_shift: fired ['NINE', 'P1A', 'P1G', 'PD2']; failing without a mutation (--baseline) ['P1A', 'P1G', 'PD2']; newly fired ['NINE'], declared ['NINE']: MATCH
+bis_off rc=0 mutation bis_off: fired ['BIS', 'P1A', 'P1G', 'PD2']; failing without a mutation (--baseline) ['P1A', 'P1G', 'PD2']; newly fired ['BIS'], declared ['BIS']: MATCH
+zone_one_path rc=0 mutation zone_one_path: fired ['P1A', 'P1B', 'P1G', 'PD2']; failing without a mutation (--baseline) ['P1A', 'P1G', 'PD2']; newly fired ['P1B'], declared ['P1B']: MATCH
+run_miss rc=0 mutation run_miss: fired ['P1A', 'P1G', 'PD2', 'RUNS']; failing without a mutation (--baseline) ['P1A', 'P1G', 'PD2']; newly fired ['RUNS'], declared ['RUNS']: MATCH
+cfg_e rc=0 mutation cfg_e: fired ['CFG', 'P1A', 'P1G', 'PD2']; failing without a mutation (--baseline) ['P1A', 'P1G', 'PD2']; newly fired ['CFG'], declared ['CFG']: MATCH
+v3_coef rc=0 mutation v3_coef: fired ['NEED', 'P1A', 'P1G', 'PD2', 'REPV3']; failing without a mutation (--baseline) ['P1A', 'P1G', 'PD2']; newly fired ['NEED', 'REPV3'], declared ['NEED', 'REPV3']: MATCH
+dep_eps rc=0 mutation dep_eps: fired ['B0REF', 'NEED', 'NINE', 'P1A', 'P1G', 'PD2', 'PL1', 'PL2', 'REP296', 'REPV3', 'SAME']; failing without a mutation (--baseline) ['P1A', 'P1G', 'PD2']; newly fired ['B0REF', 'NEED', 'NINE', 'PL1', 'PL2', 'REP296', 'REPV3', 'SAME'], declared ['B0REF', 'NEED', 'NINE', 'PL1', 'PL2', 'REP296', 'REPV3', 'SAME']: MATCH
+lam_off rc=0 mutation lam_off: fired ['LIFE', 'P1A', 'P1G', 'PD2']; failing without a mutation (--baseline) ['P1A', 'P1G', 'PD2']; newly fired ['LIFE'], declared ['LIFE']: MATCH
+done

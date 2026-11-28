@@ -1,0 +1,10 @@
+  eps 1e-3: fifteen X +9.00e-05, +2.13e-04, +1.98e-04 (#323 +8.89e-05, +2.14e-04, +1.99e-04); N, Y max 5.28e-05; fourteen X +7.88e-05, +1.76e-04, +1.43e-04
+  eps 2e-3: fifteen X +8.53e-05, +1.79e-04, +1.97e-04 (#323 +8.11e-05, +1.84e-04, +2.01e-04); N, Y max 2.06e-05; fourteen X +6.94e-05, +1.26e-04, +1.19e-04
+  eps 5e-3: fifteen X +8.86e-05, +1.43e-04, +2.02e-04 (#323 +6.67e-05, +1.79e-04, +2.29e-04); N, Y max 3.52e-05; fourteen X +6.43e-05, +6.25e-05, +7.51e-05
+  eps 1e-2: fifteen X +7.66e-05, -8.72e-05, -9.01e-06 (#323 +3.26e-05, +1.02e-04, +1.67e-04); N, Y max 1.19e-04; fourteen X +6.96e-05, -1.16e-04, -1.01e-04
+[FAIL] K1: fifteen, V3: X against #323's REF-V3 rows, worst 1.89e-04 (bar 1e-5); X2 and X3 beyond 6e-5 at every eps: False
+[FAIL] K2: fifteen, V3: N and Y largest 1.19e-04 over four eps (bar 6e-5)
+[FAIL] K3: fourteen at eps = 1e-2: X against #317's, worst 1.89e-04 (bar 1e-5)
+
+3 criteria, 0 pass; failed: ['K1', 'K2', 'K3']; mutation no-sub
+exit 1
