@@ -1,0 +1,17 @@
+== data: c1 = dr(S), c2 = d_V dr(S), c2' = d_U dr(S), Y at S and in the gap (amplitude 1e-3) ==
+G: support amp 8.03e-04, k_m -3.2615e-04, k_o -3.9597e-04; c1 1.37e-15; c2 -6.653514770e-04; c2' 3.568161282e-04; Y(S) 1.37e-15; Y(+0.3) -2.5659e-04; Y(-0.3) 1.9201e-04; max|Y| (|s|<=0.5) 3.114e-04
+R: support amp 4.05e-04, k_m -5.5612e-04, k_o -9.0730e-02; c1 0.00e+00; c2 0.000000000e+00; c2' 0.000000000e+00; Y(S) 0.00e+00; Y(+0.3) 0.0000e+00; Y(-0.3) 0.0000e+00; max|Y| (|s|<=0.5) 0.000e+00
+O1: support amp 1.00e-03, k_m 0.0000e+00, k_o 0.0000e+00; c1 2.44e-17; c2 -3.182496326e-04; c2' 3.714652411e-05; Y(S) 2.44e-17; Y(+0.3) -9.1635e-05; Y(-0.3) 9.1635e-05; max|Y| (|s|<=0.5) 1.259e-04
+== the static term M of #232 on the slice (zero on the exact mode) ==
+G: M(s) at s = -0.9, -0.5, -0.2, 0.2, 0.5, 0.9: 0.000e+00, -1.710e-15, -1.124e-14, -1.116e-14, -1.726e-15, -5.073e-16; at s = 1.0 (outside the support): -4.071e-16
+G, C1 not imposed (mass_off): M(s) at s = -0.9, -0.5, -0.2, 0.2, 0.5, 0.9: 0.000e+00, -6.537e-18, -5.967e-17, -5.501e-18, -5.620e-18, -1.071e-17; at s = 1.0 (outside the support): -8.590e-18
+G, delta M_L = 1e-4 (left_mass): M(s) at s = -0.9, -0.5, -0.2, 0.2, 0.5, 0.9: -5.620e-05, -1.966e-04, -1.286e-03, -1.286e-03, -1.966e-04, -5.620e-05; at s = 1.0 (outside the support): -4.511e-05
+== parity: P-odd dphi + P-even dphi_N need no condition and carry c2; P-even dphi + P-odd dphi_N need C1, C2 and carry none ==
+P-odd dphi + P-even dphi_N: corrections k_m -6.82e-18, k_o 3.30e-17; c2 -6.653515e-04; dr'(0) -1.02e-03, n(0) -3.09e-04; end vector 1.7e-17
+P-even dphi + P-odd dphi_N: corrections k_m -3.26e-04, k_o -3.96e-04; c2 -1.335536e-16; dr'(0) 9.63e-17, n(0) -3.63e-16; end vector 3.2e-16
+== first integral: Theta of the homogeneous solutions (conserved), delta m, -1/kappa ratio at rho -> infinity ==
+hom start (1.0, 0.0): Theta at s = 1.05, 1e2, 1e4, 3e4: -2.91523350e-01, -2.91523350e-01, -2.91523350e-01, -2.91523350e-01; delta m(3e4) = 1.81512e-01; Theta/dm = -1.6061 (-1/kappa = -1.5708)
+hom start (0.0, 1.0): Theta at s = 1.05, 1e2, 1e4, 3e4: -1.52196295e+00, -1.52196295e+00, -1.52196295e+00, -1.52196295e+00; delta m(3e4) = 9.60066e-01; Theta/dm = -1.5853 (-1/kappa = -1.5708)
+== c1 and the left start: left_mass with delta M = 1e-4 and 2e-4 ==
+delta M = 1e-04: c1 = 1.573913e-04, c1/delta M = 1.573913
+delta M = 2e-04: c1 = 3.147827e-04, c1/delta M = 1.573913
