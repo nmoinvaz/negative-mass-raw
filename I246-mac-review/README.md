@@ -24,3 +24,25 @@ Criteria, written before the first run:
 
 Mutations: `last-half` (plateau over the last 0.5: K1 if it moves the value by 2e-6, reported either way), `order1`
 (Richardson as 2 M₂ − M₁: K2), `ball` (V_k with π^{k/2}/Γ(k/2): K3).
+
+## Results
+
+| check | verdict | reading (`run_01.log`) |
+|---|---|---|
+| K1 | met | the six finest-h plateaus within 4.2e-7 of the note's |
+| K2 | met | Richardson within 3.6e-7 of the note's four; observed orders 2.02 (D5 S), 2.05 (D6 S); all eight cases 1.99 to 2.13 |
+| K3 | met | E/E_throat 0.2917, 0.2158 |
+| K4 | met | 8 of 8 prefix series (K = 20, 24 at D = 5, 6, S and G) bit-identical to K = 28's first cells |
+
+Mutations: `order1` fails K2 and K3. `last-half` fails nothing: the plateau over the last 0.5 differs by at most 8.9e-7.
+`ball` fails nothing, and K3 could not catch it: the unit-ball volume cancels in E/E_throat, so K3 checks only
+M/(½ a^{n−1}). The absolute throat energies from V_k = π^{k/2}/Γ(k/2 + 1) are π, 2π, π² (3.1416, 6.2832, 9.8696) at D = 4, 5, 6,
+as the note's [ST17] table uses.
+
+## Rerun of the runner's analysis
+
+From a detached worktree at 5b3517b on the Mac: `settled_mass_d56.py analyze` (exit 1, as stored: 69 counted checks, 4 failed,
+RC8a). All 72 verdict lines equal the output of record. The only lines that differ are the planted Tangherlini runs (PT1),
+which the analysis integrates afresh on the analysing machine. Their printed errors differ in the third or fourth digit between
+dh610 (x86-64) and the Mac (aarch64), for example 3.349e-6 against 3.282e-6, each within its bar. Every line read from the
+stored runs is identical.
