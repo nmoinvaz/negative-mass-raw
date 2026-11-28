@@ -110,6 +110,22 @@ closed-form labels with the metric jets of `exact_mode.py`'s explicit family. N0
 - The event horizon of β < 0 under any other definition than the one above.
 - Positions in the figure (the label is a log scale).
 
+## Amendment 1 (written before the second runs of record)
+
+The first runs of record (`runs/*_run1.log`, code 90a9277: `derive` 7 of 7, `check` 12 of 12, 16 mutations 16 of 16 equal to the declared sets) are kept. After them the coordinator's message pointed at #277's
+`planted_family.md` sec. 6: for β < 0 the outgoing rays run to ρ → +∞ as v → v* with r tending to a positive constant, so r → 0 at v* holds at fixed ρ only, and "by hand" the Ricci scalar along such a ray tends to 0 (not computed
+there). That statement is N4, N6 and N11 here (the rays on both sides of the event horizon reach v* at finite r), and the curvature was not tested. `dev/dev9_curv.py` (run 1) computed it along the rays: on the AF side Ricci ∝ √τ and
+Kretschmann ∝ τ tend to 0; on the other side they tend to 12H² and 24H⁴ with H² = −2c (the value 4V(φ → −π/√2) = −24c of the potential). So the cone has two regular sides and only the vertex is singular. The check is added
+before its run of record, with its bars fixed from nothing else than the two scalings and the closed forms:
+
+| id | what | bar |
+|---|---|---|
+| N13 | β = −1, c = −1, −3/2, rays at ρ_EH(−10) + 1e-4 (AF side) and − 3e-5 (other side), τ = v* − v = 1e-6 and 1e-8, Ricci from the trace of the field equations (−Fφ′² + 4V), Kretschmann from `exact_mode.py`: AF side Ricci(1e-6)/Ricci(1e-8) in (8, 12), Kretschmann ratio in (80, 120), \|Ricci\| < 0.02 and Kretschmann < 1e-3 at 1e-8; other side Ricci and Kretschmann at 1e-8 within 0.5% of 12H² and 24H⁴ | as stated |
+
+and the mutation `ds_h` (the claimed H² = −2c × 1.01) fires N13. `dev/devmut_*_N13only_run6.log`: N13 under all 17 mutations fires only under `ds_h`, so the declared sets above are unchanged and `ds_h` is declared as `N13`. The figure
+gains the labels "flat-like" and "dS-like" on the two sides of the cone. Code commit 068953c (the checks N0–N12 are unchanged). The second runs of record (`runs/*_run2.log`) are the ones `family_causal_output.txt` is assembled from.
+Status: N13 is *numerical evidence*; the de Sitter value is the limit of the closed form of V, not proved here.
+
 ## Runs of record
 
 (to be filled after the runs)
