@@ -1,0 +1,19 @@
+planted_family.py check; mutation None; python 3.14.7; numpy 2.5.4; 2026-11-27 16:41:02
+[FAIL] D4: the null constraints on the stored ray data (second-order central differences along each ray) fall by 4.0 +- 0.3 per halving of h = (0.02, 0.01, 0.005, 0.0025, 0.00125)  (c = -1.5, beta = +0.05: sup|C++| 5.30e-06, 1.34e-06, 3.36e-07, 8.38e-08, 2.19e-08 (ratios 3.96 3.98 4.00 3.83); sup|C--| 3.85e-07, 9.64e-08, 2.50e-08, 7.71e-09, 3.54e-09 (ratios 4.00 3.85 3.25 2.18); c = -1.5, beta = -0.05: sup|C++| 1.30e-01, 5.06e-02, 1.63e-02, 4.69e-03, 1.26e-03 (ratios 2.57 3.10 3.48 3.72); sup|C--| 1.19e-06, 2.98e-07, 7.47e-08, 1.93e-08, 6.61e-09 (ratios 4.00 4.00 3.86 2.93); c = -1.0, beta = +0.05: sup|C++| 1.24e-06, 3.10e-07, 7.77e-08, 1.96e-08, 6.02e-09 (ratios 3.99 4.00 3.95 3.26); sup|C--| 7.54e-07, 1.89e-07, 4.72e-08, 1.23e-08, 4.04e-09 (ratios 4.00 4.00 3.83 3.05); c = -1.0, beta = -0.05: sup|C++| 1.75e-02, 5.52e-03, 1.57e-03, 4.19e-04, 1.08e-04 (ratios 3.16 3.52 3.75 3.87); sup|C--| 1.54e-06, 3.85e-07, 9.63e-08, 2.41e-08, 6.41e-09 (ratios 4.00 4.00 3.99 3.76))
+[pass] D5: the exact map (outgoing-ray flow, rtol 1e-12) changes by less than 1e-10 in r, f, phi when the tolerances are tightened to 1e-13 (the code's errors are 1e-7 and above)  (max change 5.1e-12, bar 1e-10)
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i277/notes/black_universe/planted_family.py", line 604, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/nathan/Source/negative-mass-i277/notes/black_universe/planted_family.py", line 591, in main
+    fn()
+    ~~^^
+  File "/Users/nathan/Source/negative-mass-i277/notes/black_universe/planted_family.py", line 479, in check_D6
+    Sp, Sm, _ = ray_data(data, RHO_C, V0, N, h, N, nojac=(MUT == "nojac"))
+                ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i277/notes/black_universe/planted_family.py", line 169, in ray_data
+    rho_r, lnE_r = flow(fam, np.array([rho_c]), v0, vn)
+                   ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathan/Source/negative-mass-i277/notes/black_universe/planted_family.py", line 156, in flow
+    raise RuntimeError("flow: " + sol.message)
+RuntimeError: flow: Required step size is less than spacing between numbers.
