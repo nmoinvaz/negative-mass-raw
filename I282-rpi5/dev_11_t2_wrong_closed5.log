@@ -1,0 +1,101 @@
+order8.py  mutate=wrong_closed5  parts=['values', 'pslq', 'remainder']  mpmath 1.3.0  sympy 1.14.0
+PASS    PL0: planted: Omega0 against its closed form, digits: G1 250.8, G2 250.8 (bar 100 on G1, G2; the others reported)
+PASS    PL1: planted: Omega1 against its closed form, digits: G1 250.3, G2 250.3 (bar 100 on G1, G2; the others reported)
+PASS    PL2: planted: Omega2 against its closed form, digits: G1 250.0, G2 250.0 (bar 100 on G1, G2; the others reported)
+PASS    PL3: planted: Omega3 against its closed form, digits: G1 250.0, G2 250.0 (bar 100 on G1, G2; the others reported)
+PASS    PL4: planted: Omega4 against its closed form, digits: G1 250.7, G2 250.7 (bar 100 on G1, G2; the others reported)
+FAIL    PL5: planted: Omega5 against its closed form, digits: G1 7.6, G2 7.6 (bar 100 on G1, G2; the others reported)
+PASS    SL: slope of G_k in Omega_(k-2) against -4 pi, k = 2 .. 8, digits: G1 300.4/300.4/300.4/300.4/300.4/300.4/300.4, G2 300.4/300.4/300.4/300.4/300.4/300.4/300.4 (bar 100 on G1, G2)
+PASS    RES: max over k = 2 .. 8 of |G_k at the chain's root| / |slope|: G1 7.25e-274, G2 7.25e-274 (bar 1e-100 on G1, G2)
+PASS    M6: Omega6 of G1 against G2 (two grids, two precisions): 315.0 digits (bar 100); |diff| = 0.0
+PASS    RNG: Omega6 between 3.5e6 and 3.9e6: G1 3672259.16259, G2 3672259.16259
+  reported: digits between evaluations, Omega5 / Omega6: G1-G2 315.0/315.0
+  PSLQ at 150 digits (the two grids share 315.0), tolerance 1e-138, verification at 170 digits
+PASS    PF1: F1 = {f7, pi^4 zeta(3), pi^2 zeta(5), zeta(7)}, n = 4, H = 10000000000000000, d = 150: planted relation (den 9, seed 282001) recovered: True (0 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 66.2
+    REAL F1: skipped (--no-real)
+PASS    PF3: F3 = {f7, pi^4 zeta(3), pi^2 zeta(5), zeta(7), pi^6, zeta(3)^2, pi^2 zeta(3), zeta(5)}, n = 8, H = 100000000000000, d = 150: planted relation (den 15, seed 282003) recovered: True (0 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 115.4
+    REAL F3: skipped (--no-real)
+PASS    PF5: F5 = {f7, pi^4 zeta(3), pi^2 zeta(5), zeta(7), pi^6, zeta(3)^2, pi^2 zeta(3), zeta(5), pi^4, zeta(3)}, n = 10, H = 100000000000, d = 150: planted relation (den 5, seed 282005) recovered: True (0 s); perturbed basis on the planted target finds nothing; budget (n + 1) log10(2H + 1) + 1 = 114.0
+    REAL F5: skipped (--no-real)
+  W^2 (qd, w2_output.txt) against the series s - 4 ln 2 + Omega1/s + ... (Omega1 .. Omega6 of G2), s = 2(D - 3):
+  D       s       rem7 s^6 (tends to Omega6)    (rem7 s^6 - Omega6) s (tends to Omega7)   rem8 s^7 (tends to Omega7)
+  1000   1994    3684791.7782838              24990035.6846                            24990035.6846
+  2000   3994    3678586.1009805              25269791.9143                            25269791.9143
+  5103   10200   3674753.0692428              25437847.8133                            25437847.8133
+  10000  19994   3673534.0735349              25490569.3438                            25490569.3438
+PASS    R7: two-point extrapolation (s2 x2 - s1 x1)/(s2 - s1) of rem7 s^6 from D = 5103, 10^4: 3672264.5 against the computed Omega6 3672259.2, relative difference 1.47e-6 (bar 0.0000500000000000000023960868011929647991564706899225711822509765625: an estimate, not a bound)
+  reported: two-point extrapolation of rem8 s^7 from D = 5103, 10^4: Omega7 ~ 25545476.0 (an estimate, not a bound)
+PASS    R8: rem8 s^7 at D = 5103 and 10^4 differs by 52722.0 (bar 100000.0: a wrong Omega6 adds (error) s, about 2e4 per unit)
+FAIL    X4: Omega6 against the polynomial extrapolation in 1/s of #195's 64 W^2 values (Omega0 .. Omega5 fixed at the closed forms), windows of the K largest s, |difference| G1: K = 14 1.7e+2, K = 18 1.9e+2, K = 22 2.1e+2, K = 26 2.2e+2, K = 30 2.3e+2, K = 36 2.4e+2, K = 44 2.4e+2; G2: K = 14 1.7e+2, K = 18 1.9e+2, K = 22 2.1e+2, K = 26 2.2e+2, K = 30 2.3e+2, K = 36 2.4e+2, K = 44 2.4e+2 (bar 0.00000000000000000100000000000000007154242405462192450852805618492324772617063644020163337700068950653076171875 on every window; the spread over windows is an estimator range, 2.4e+2; not a bound)
+  reported, not gated: rem7 s^6 at the D of the list
+  D       rem7 s^6
+  50      3792074.6979238
+  54      3795124.6332815
+  59      3795884.9551484
+  64      3794618.9555474
+  70      3791630.5020503
+  76      3787832.0170036
+  83      3782994.8962367
+  90      3778092.0676692
+  98      3772658.9042657
+  107     3766916.6887751
+  116     3761625.43625
+  126     3756275.041831
+  137     3750988.6428775
+  149     3745860.0730272
+  162     3740955.2077685
+  177     3736007.0949769
+  192     3731694.5787298
+  200     3729616.1892409
+  209     3727439.7130547
+  227     3723535.0391876
+  247     3719784.4589563
+  269     3716235.2866154
+  292     3713043.2578182
+  318     3709944.8055012
+  346     3707090.2922516
+  376     3704472.4517038
+  409     3702010.0803949
+  445     3699718.1807663
+  484     3697601.5793309
+  500     3696824.3891069
+  527     3695615.3149481
+  573     3693807.6215299
+  623     3692134.81082
+  678     3690570.5684117
+  737     3689144.5786978
+  802     3687810.0670678
+  873     3686574.0178172
+  949     3685451.4015074
+  1000    3684791.7782838
+  1032    3684410.5268061
+  1123    3683442.9476727
+  1221    3682559.5705096
+  1329    3681734.6800205
+  1445    3680984.142001
+  1572    3680287.8565037
+  1710    3679647.1662357
+  1860    3679057.46134
+  2000    3678586.1009805
+  2023    3678514.8428735
+  2201    3678013.2868141
+  2394    3677553.0626948
+  2604    3677129.2280048
+  2832    3676739.7529769
+  3081    3676379.8497272
+  3351    3676049.6926408
+  3645    3675745.5257086
+  3965    3675465.4821524
+  4313    3675207.896726
+  4691    3674971.2334006
+  5103    3674753.0692428
+  5550    3674552.8825765
+  6037    3674368.4202164
+  6567    3674198.6711327
+  7143    3674042.6789737
+  7770    3673899.1019437
+  8452    3673767.0640626
+  9193    3673645.7650399
+  10000   3673534.0735349
+
+14 passed, 2 failed of 16 checks; 2 s

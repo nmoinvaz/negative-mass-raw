@@ -155,3 +155,62 @@ On the grids of record, as separate processes (each started with `runrec.sh`, `n
 **Stop condition:** any single run not finished in 4 h of wall time is stopped and reported with what finished. Memory is reported only. If G1 or G2 stops, the other grid and B1 … B3 are reported and PSLQ runs at the digits they share.
 
 ## Amendments
+
+**A1 (2026-11-27, 22:55, after `run_01` … `run_05` and `run_06a`, before the controls of record and `run_06b`, `run_06c`): what was seen, and the targets of CHK, T1 and T2.**
+
+*What had been seen before this amendment* (disclosure; the logs are in this folder):
+- `run_01` (3 of 3: CACHE, E0, LN2), `run_02` (G1, 2 h 14 m 06 s, panel setup 598 s, peak 1.21 GB), `run_03` (G2, 1 h 55 m 27 s, panel setup 644 s, peak 1.04 GB), `run_04` (B1, B2, B3, 22 m 59 s, peak 0.49 GB; it ran beside G1's last k-step) and `run_05` (13 of 13 pass).
+  **Ω₆ = 3672259.16259439048965785936962062657027623668409099035239492678148238…** (G1; G2 agrees to 430.8 digits, |difference| 6.39e-425). PL0 … PL5: G1 439.6 … 440.2 digits, G2 429.7 … 430.8 (bar 100); X4 is the same 1.1e-23 … 4.4e-21 as the development run.
+- `run_06a` (PF1 … PF6, PX1: 7 of 7 pass; the real PSLQ): **F1, F2, F3, F4 find nothing; F5, F6 and X1 find one relation**, with zeros on π², 1 and on every ln 2 monomial of X1
+  (the integer vector of F5 has height 2.76e9; budget 164.0 for F5, 196.6 for F6, 247.0 for X1, all below d = 390; it holds at 410 digits on G1 and G2 to 4.0e-401, bar 1e-398; the perturbed bases find nothing). The vector is in `run_06a_pslq_F1_F6_X1.log`.
+- **Done outside the declared list, in this order:** `dev_08` was stopped by me after 13 minutes inside PXF at cap 200 (`dev_08_pslq_planted.stopped`; PF1 … PX3 had passed); `dev_13_planted_f7` is the end-to-end test of `pslq` and `closed6` on a planted f₇
+  (`dev_planted_f7.json`: an invented ln 2-free combination of the 11 monomials, its Ω₆ built from it and the exact Ω₀ … Ω₅ at 450 digits): F6 returns the planted integer vector exactly, ID6 and ZL pass; `dev_15_values_G1G2` ran `values remainder` on G1, G2 before `run_05`
+  (the same numbers); `dev_16_closed6_rel_a` ran `closed6` on `rel_a.json` (ID6 and ZL pass, the closed form of Ω₆; `run_07` repeats it with all relation files).
+- **Deviation 1: `run_06a` … `run_06c` load `G1.json,G2.json` only** (the table above has `--load=…`); B.json is not needed by PSLQ and did not exist yet when `run_06a` started.
+- **Deviation 2:** the controls ran in a frozen copy of the code (`frozen_0ac9b7e` in the session scratchpad, a byte-for-byte copy of `order8.py`, `order4.py` and `w2_output.txt` at 0ac9b7e) during development, so that edits could not reach a queued job; the controls of record run from the checkout.
+
+*Targets of the CHK controls* (`declared_chk.json`; read from `dev_09_chk_*`; part `sym struct cache`): a control is on target when exactly these checks fire.
+
+| control | fires |
+|---|---|
+| `nominal` | nothing |
+| `wrong_h` | E0 |
+| `wrong_c6` | E0 |
+| `wrong_c7` | E0 |
+| `wrong_c8` | E0 |
+| `stale_cache` | CACHE |
+| `ln2_struct` | LN2 |
+
+*Targets of the T1 controls* (`declared_t1.json`; read from `dev_10_t1_*` on the control grids C1, C2 (`--cgrids`), parts `evals values remainder pslq --bases=F1,F3 --no-real`; PLW is silent in every `wrong_Om` control, i.e. the wrong input moved Ω_{i+1}):
+
+| control | fires |
+|---|---|
+| `cnom` | nothing |
+| `wrong_h` | PL0, PL1, PL2, PL3, PL4, PL5, RNG, R7, R8, X4 |
+| `wrong_c6` | PL4, PL5, R7, R8, X4 |
+| `wrong_c7` | PL5, R7, R8, X4 |
+| `wrong_c8` | X4 |
+| `wrong_Om0` | PL1, PL2, PL3, PL4, PL5, R7, R8, X4 |
+| `wrong_Om1` | PL2, PL3, PL4, PL5, R7, R8, X4 |
+| `wrong_Om2` | PL3, PL4, PL5, R7, R8, X4 |
+| `wrong_Om3` | PL4, PL5, R7, R8, X4 |
+| `wrong_Om4` | PL5, R7, R8, X4 |
+| `wrong_Om5` | X4 |
+| `coarse_B` | PL0, PL1, PL2, PL3, PL4, PL5, SL, M6, PF3, R7, R8, X4 |
+| `short_tail` | PL0, PL1, PL2, PL3, PL4, PL5, SL, R7, R8, X4 |
+| `stale_cache` | PL2, PL3, PL4, PL5, RES, R7, R8, X4 |
+
+Declared silences that are results: `wrong_c8` fires only X4 (the change in Ω₆ is below R7's and R8's sensitivity); `wrong_Om5` fires only X4 for the same reason (+0.01 in Ω₅ moves Ω₆ by less than R7, R8 can see); `wrong_c7`, `wrong_Om4` do not fire PL4 (Ω₄ does not depend on them);
+M6 stays silent in every control but `coarse_B` (both grids share the error); RES fires only in `stale_cache`.
+
+*Targets of the T2 controls* (`declared_t2.json`; read from `dev_11_t2_*` on `dev_N170_285.json`, a wrapper of `dev_04`'s printed values, parts `values pslq remainder --no-real --bases=F1,F3,F5 --pslq-cap=150`; the controls of record use `G1.json`, `G2.json` at the same cap):
+
+| control | fires |
+|---|---|
+| `nominal` | nothing |
+| `pslq_wrong_basis` | PF1, PF3, PF5 |
+| `pslq_wrong_target` | PF1, PF3, PF5 |
+| `wrong_Om6_series` | R7, R8 |
+| `wrong_closed5` | PL5, X4 |
+
+*Not yet read (their targets come in A2, before their controls of record):* T2b (`dev_12_t2b_*`, `dev_12_t2bxf_*`), the structure group ST (`dev_14_st_*` on `dev_planted_f7.json`).

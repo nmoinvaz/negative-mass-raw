@@ -1,0 +1,26 @@
+ctl_chk_nominal|$PY order8.py sym struct cache
+ctl_chk_wrong_h|$PY order8.py sym struct cache --mutate=wrong_h
+ctl_chk_wrong_c6|$PY order8.py sym struct cache --mutate=wrong_c6
+ctl_chk_wrong_c7|$PY order8.py sym struct cache --mutate=wrong_c7
+ctl_chk_wrong_c8|$PY order8.py sym struct cache --mutate=wrong_c8
+ctl_chk_stale_cache|$PY order8.py sym struct cache --mutate=stale_cache
+ctl_chk_ln2_struct|$PY order8.py sym struct cache --mutate=ln2_struct
+ctl_t2_nominal|$PY order8.py values pslq remainder --load=$RAW/G1.json,$RAW/G2.json --no-real --w2raw=$RAW/inputs_w2_growthD.txt --bases=F1,F3,F5 --pslq-cap=150
+ctl_t2_pslq_wrong_basis|$PY order8.py values pslq remainder --load=$RAW/G1.json,$RAW/G2.json --no-real --w2raw=$RAW/inputs_w2_growthD.txt --bases=F1,F3,F5 --pslq-cap=150 --mutate=pslq_wrong_basis
+ctl_t2_pslq_wrong_target|$PY order8.py values pslq remainder --load=$RAW/G1.json,$RAW/G2.json --no-real --w2raw=$RAW/inputs_w2_growthD.txt --bases=F1,F3,F5 --pslq-cap=150 --mutate=pslq_wrong_target
+ctl_t2_wrong_Om6_series|$PY order8.py values pslq remainder --load=$RAW/G1.json,$RAW/G2.json --no-real --w2raw=$RAW/inputs_w2_growthD.txt --bases=F1,F3,F5 --pslq-cap=150 --mutate=wrong_Om6_series
+ctl_t2_wrong_closed5|$PY order8.py values pslq remainder --load=$RAW/G1.json,$RAW/G2.json --no-real --w2raw=$RAW/inputs_w2_growthD.txt --bases=F1,F3,F5 --pslq-cap=150 --mutate=wrong_closed5
+ctl_t1_cnom|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt
+ctl_t1_wrong_Om0|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=wrong_Om0
+ctl_t1_wrong_Om1|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=wrong_Om1
+ctl_t1_wrong_Om2|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=wrong_Om2
+ctl_t1_wrong_Om3|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=wrong_Om3
+ctl_t1_wrong_Om4|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=wrong_Om4
+ctl_t1_wrong_Om5|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=wrong_Om5
+ctl_t1_wrong_h|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=wrong_h
+ctl_t1_wrong_c6|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=wrong_c6
+ctl_t1_wrong_c7|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=wrong_c7
+ctl_t1_wrong_c8|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=wrong_c8
+ctl_t1_coarse_B|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=coarse_B
+ctl_t1_short_tail|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=short_tail
+ctl_t1_stale_cache|$PY order8.py evals values remainder pslq --cgrids --bases=F1,F3 --no-real --w2raw=$RAW/inputs_w2_growthD.txt --mutate=stale_cache
