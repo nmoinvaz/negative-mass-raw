@@ -1,0 +1,13 @@
+  15 fitted points; own (a, b, c) = (0.229631, 0.283430, 0.765761); frozen (0.2296318924, 0.2834170383, 0.7657657062)
+[PASS] K1: own fit against the frozen: differences 7.5e-07, 1.3e-05, 5.0e-06 (bars 2e-3, 2e-2, 2e-2)
+  N1: gamma_1 0.011993, r_th 0.997459, rdot -4.3482e-04, M 0.224974; M - frozen -3.33e-04 (note -4.77e-07); M - own -3.33e-04
+  N2: gamma_1 0.047988, r_th 0.998724, rdot -4.1769e-04, M 0.234137; M - frozen -3.22e-04 (note -2.15e-06); M - own -3.22e-04
+  N3: gamma_1 0.075017, r_th 1.008541, rdot +8.6495e-04, M 0.244642; M - frozen +6.69e-04 (note +1.21e-06); M - own +6.69e-04
+[FAIL] K2: frozen refit with own readings: max |M - predicted| 6.69e-04 (bar 6e-5); max difference from the note's 6.7e-04 (bar 5e-6)
+[FAIL] K3: own refit: max |M - predicted| 6.69e-04 (bar 6e-5)
+  N1: inside the fitted points' bounding box True; nearest fitted point at 0.066 (box-scaled units)
+  N2: inside the fitted points' bounding box True; nearest fitted point at 0.181 (box-scaled units)
+  N3: inside the fitted points' bounding box True; nearest fitted point at 0.363 (box-scaled units)
+[PASS] K4: reported above (not gated)
+
+4 criteria, 2 pass; failed: ['K2', 'K3']; mutation no-speed
