@@ -108,3 +108,22 @@ planted_family.py check [--mutate=NAME] --out=DIR            # about 50 s; exit 
 planted_family.py mutations DIR check_                        # fired sets of DIR/check_<name>.log against the declared ones
 planted_family.py case --c=-1.5 --beta=-0.05 --h=0.005       # one run, JSON
 ```
+
+## Runs of record (added after the runs; the criteria above are unchanged)
+
+Script commits: 4ee1c6b (the runs of record: `runs/check_none.*`, `runs/check_<mutation>.*`, `runs/mutations.log`, `runs/results_*.json`), c883a16 (adds the reported `rays` diagnostic, `runs/rays.log`), 5f2b81c (note and output).
+`runs/final_check_none.log` is `check` of the final script: identical to `check_none.log` apart from the date line and the timings. `runs/assemble.sh` writes `planted_family_output.txt` from these logs.
+
+| id | verdict | numbers |
+|---|---|---|
+| D1, D1b | met | 2.2e-15, 6.5e-15 |
+| D2 | met | 2.0e-14 (r+-), 2.5e-15 (f+-), 1.6e-15 (phi+-); numba `_F` 2.0e-14 |
+| D3 | met | 8.2e-14 |
+| D4 | met | 3.5e-6, 6.1e-5, 5.3e-7, 1.4e-5 at h = 0.00125; falls by at least 3.10 |
+| D5, D6, PL1, PL2 | met | 5.1e-12; bit-identical and 0; as stated; as stated |
+| O | met | 16 of 16 ratios in 3.977 to 4.003; sup error of r at h = 0.00125: 7.4e-8, 1.7e-6, 2.1e-6, 6.9e-7 |
+| V | met | v* errors -3.6e-5 ... -1.4e-7 (c = -1.5), +2.0e-4 ... +7.9e-7 (c = -1) |
+| S | met | beta_sign fires O and V |
+| mutations | 12 of 12 | fired sets equal the declared ones (`runs/mutations.log`) |
+
+Exit codes: `check` rc 0 (47 s); the twelve mutated runs rc 1; `mutations` rc 0; `rays` rc 0. Two lanes, nice 10, one thread each. No criterion was loosened or moved after the declaration.
