@@ -1,0 +1,193 @@
+settled_mass_eps_scan.py analyze []: numpy 2.5.4, mutation None, part record, 2026-11-28 05:06:38
+== part record: 24 members (the fifteen and the held-out nine) and B0, h = 0.005, grid 0.001, 0.002, 0.005, 0.01
+[pass] CFG: M_0 = 0.223086 and the frozen P4 of #295; the fifteen are those of #295; the grid is the issue's; bar 6e-5  (M_0 0.223086, P4 (0.2296318924, 0.2834170383, 0.7657657062))
+[pass] RUNS: every member and B0 reads at every eps of the grid with finite (t_dep, gamma_1, r_th, rdot_th) under REF and WJ
+[pass] DEPX: the departure time written in `settled_mass_speed` (ln-linear in |odd|/r = eps) equals #266's `departure_time` to 3e-6 at every member and eps of the grid  (max 1.8e-06)
+[pass] MONO: t_dep increases with eps at every member, and t_dep(1e-2) - t_dep(1e-3) is 1.9 to 2.4 (ln 10 / lambda)  (shift 1.949 to 2.065)
+[pass] REFRD: the reference reading (t_dep, gamma_1, r_th, rdot_th) of every member at eps = 1e-3 and 1e-2 equals #296's printed member table to half a unit of the last printed digit  (144 numbers compared (18 members); differing [])
+[pass] B0CTRL: B0's t_dep, r_th - 1 and rdot_th at eps = 1e-3, 2e-3, 5e-3, 1e-2 equal #296's printed table to half a unit of the last printed digit  (differing [])
+[pass] REF15: the fifteen's in-sample and leave-one-out errors (M - predicted, reference reading, M_0 = 0.223086) at eps = 1e-3 and 1e-2 equal #296's printed values (x1e-6) to half a unit  (60 numbers compared; differing [])
+[pass] CTRL314: at eps = 1e-3 the refit over the fifteen with REF and WJ has #314's printed (a, b, c) and maximal in-sample and leave-one-out errors, to half a unit of the last printed digit  (differing [])
+[pass] WJ314: at eps = 1e-3 WJ's change of gamma_1 and r_th against the reference reading equals #314's printed table (and the reference's gamma_1 and r_th), to half a unit of the last printed digit  (differing [])
+[pass] FRZ: the refit over the fifteen at eps = 1e-3 (REF) returns the frozen (a, b, c) of #295 to 1e-9  (max 3.4e-11)
+[pass] CTRL314R: at eps = 1e-3 the reference reading and WJ reproduce #314's printed residuals at N1 to N3, X1 to X3, Y1 to Y3 (18 numbers) to half a unit of the last printed digit  (differing [])
+[pass] CTRL296: the reference reading's residuals at N1 to N3 at eps = 1e-3, 2e-3, 5e-3 and 1e-2 equal #296's printed T2 residuals (12 numbers) to half a unit of the last printed digit  (differing [])
+
+== planted cases
+[pass] PRD_REF: planted pairs with a second-order part and drift (4 trajectories, h = 0.01 and 0.005) through the REF reader at eps = 0.001, 0.002, 0.005, 0.01: departure time, gamma_1, r_th and rdot_th equal the expected reading of an independent implementation  (max |reading - expected|: t_dep 7.2e-06 (bar 2e-05), gamma_1 4.8e-10 (1e-05), r_th 1.6e-08 (1e-07), rdot_th 2.0e-06 (5e-06))
+[pass] PRD_WJ: planted pairs with a second-order part and drift (4 trajectories, h = 0.01 and 0.005) through the WJ reader at eps = 0.001, 0.002, 0.005, 0.01: gamma_1 and r_th equal the expected reading  (max error gamma_1 4.3e-10 (bar 1e-05), r_th 1.6e-08 (bar 1e-07))
+    PRD against the exact analytic values (reported, gates nothing): the reading's interpolation between rows every 0.5 in t and the speed's window
+      eps  0.001: |r_th(REF) - exact| 2.06e-05, |r_th(WJ) - exact| 2.06e-05, |rdot_th(REF) - exact| 1.95e-06; the second-order part is 1.41e-06 in r_th
+      eps  0.002: |r_th(REF) - exact| 2.58e-05, |r_th(WJ) - exact| 2.58e-05, |rdot_th(REF) - exact| 9.75e-06; the second-order part is 5.64e-06 in r_th
+      eps  0.005: |r_th(REF) - exact| 4.72e-07, |r_th(WJ) - exact| 4.72e-07, |rdot_th(REF) - exact| 2.21e-05; the second-order part is 3.53e-05 in r_th
+      eps   0.01: |r_th(REF) - exact| 1.62e-05, |r_th(WJ) - exact| 1.62e-05, |rdot_th(REF) - exact| 5.98e-05; the second-order part is 1.41e-04 in r_th
+    PL2 eps  0.001: REF expected max |M - pred| 8.21e-07, scan - expected 3.8e-08; WJ expected max |M - pred| 8.21e-07, scan - expected 3.8e-08; REF-V3 expected max |M - pred| 1.43e-06, scan - expected 3.4e-08; WJ-V3 expected max |M - pred| 1.43e-06, scan - expected 3.4e-08
+    PL2 eps  0.002: REF expected max |M - pred| 1.02e-04, scan - expected 3.9e-08; WJ expected max |M - pred| 1.02e-04, scan - expected 3.9e-08; REF-V3 expected max |M - pred| 1.08e-04, scan - expected 2.9e-08; WJ-V3 expected max |M - pred| 1.08e-04, scan - expected 2.9e-08
+    PL2 eps  0.005: REF expected max |M - pred| 1.41e-04, scan - expected 6.6e-08; WJ expected max |M - pred| 1.41e-04, scan - expected 6.6e-08; REF-V3 expected max |M - pred| 1.62e-04, scan - expected 3.6e-08; WJ-V3 expected max |M - pred| 1.62e-04, scan - expected 3.6e-08
+    PL2 eps   0.01: REF expected max |M - pred| 1.26e-04, scan - expected 3.6e-08; WJ expected max |M - pred| 1.26e-04, scan - expected 3.6e-08; REF-V3 expected max |M - pred| 1.71e-04, scan - expected 1.8e-08; WJ-V3 expected max |M - pred| 1.71e-04, scan - expected 1.8e-08
+[pass] PL2: 24 planted members with drift and a second-order part (alpha = -1.41) through the readers, the refit and the prediction, REF, WJ, REF-V3, WJ-V3 at eps = 1e-3, 2e-3, 5e-3, 1e-2: M - predicted of the nine equals the analytic expectation (an independent implementation: root-found departure, interpolated rows, #267's estimator, normal equations, the planted B0's offset)  (max |scan - expected| 6.6e-08 (bar 1e-06); the expected misses reach 1.7e-04 (bar 6e-05))
+[pass] PL3: planted clean members with a known speed deformation per group and eps (table of the largest |M - predicted|: N 1e-6, 2e-5, 5e-5, 9e-5; X 1e-5, 4e-5, 8e-5, 1.5e-4; Y 2e-5, 2.2e-5, 2.4e-5, 2.1e-5): the scan returns the table to 1e-9, the first exits are N 1e-2, X 5e-3, Y none, N and X move by more than 25 % of their first value and Y (2e-5 to 2.4e-5) does not  (max |table - scan| 3.6e-17 (bar 1e-09); first exits {'N': 0.01, 'X': 0.005, 'Y': None}; moves {'N': True, 'X': True, 'Y': False})
+
+== the members at departure, reference reading, at eps = 0.001, 0.002, 0.005, 0.01 (gamma_1, r_th, rdot_th; t_dep); B0 and the shifts of WJ and of the V3 subtraction
+    member    | eps  0.001: gamma_1   r_th       rdot_th      t_dep  | eps  0.002: gamma_1   r_th       rdot_th      t_dep  | eps  0.005: gamma_1   r_th       rdot_th      t_dep  | eps   0.01: gamma_1   r_th       rdot_th      t_dep  
+    B0.025    | +0.002936 0.999446 -9.6904e-05  13.303  | +0.002935 0.999390 -9.7735e-05  13.890  | +0.002934 0.999299 -1.5559e-04  14.666  | +0.002934 0.999152 -3.9213e-04  15.252  
+    B0.05     | +0.011844 0.998356 -3.0256e-04  13.355  | +0.011840 0.998188 -2.7607e-04  13.944  | +0.011837 0.997971 -3.0280e-04  14.722  | +0.011836 0.997748 -5.1849e-04  15.311  
+    B0.1      | +0.048316 1.002878 +6.5048e-05  13.615  | +0.048267 1.002963 +2.0960e-04  14.218  | +0.048206 1.003175 +3.1697e-04  15.015  | +0.048165 1.003340 +1.8851e-04  15.618  
+    B0.125    | +0.075449 1.015883 +1.5945e-03  13.864  | +0.075273 1.016897 +1.8299e-03  14.485  | +0.075045 1.018440 +2.0380e-03  15.307  | +0.074880 1.019660 +1.9734e-03  15.929  
+    e7        | +0.048511 1.003370 -6.3158e-04  11.610  | +0.048446 1.003075 -3.9559e-04  12.214  | +0.048369 1.002854 -1.8923e-04  13.012  | +0.048321 1.002742 -2.5606e-04  13.615  
+    e9        | +0.048159 1.003477 +5.0940e-04  15.618  | +0.048115 1.003806 +6.0111e-04  16.222  | +0.048058 1.004301 +6.4983e-04  17.019  | +0.048019 1.004650 +4.8345e-04  17.623  
+    e10       | +0.048013 1.004787 +8.0517e-04  17.624  | +0.047970 1.005281 +8.6421e-04  18.228  | +0.047914 1.005968 +8.7514e-04  19.026  | +0.047876 1.006441 +6.8283e-04  19.630  
+    e11       | +0.047870 1.006583 +1.0109e-03  19.628  | +0.047828 1.007192 +1.0507e-03  20.233  | +0.047772 1.008018 +1.0419e-03  21.033  | +0.047734 1.008588 +8.4044e-04  21.639  
+    e12       | +0.047732 1.008642 +1.0957e-03  21.613  | +0.047691 1.009283 +1.0630e-03  22.219  | +0.047641 1.010063 +8.6186e-04  23.020  | +0.047611 1.010441 +3.5598e-04  23.626  
+    W1        | +0.012003 0.994956 -5.0483e-04  13.348  | +0.012009 0.994676 -4.5558e-04  13.936  | +0.012016 0.994333 -4.5728e-04  14.712  | +0.012021 0.994024 -6.5797e-04  15.300  
+    W2        | +0.047982 0.989179 -6.6526e-04  13.568  | +0.047965 0.988867 -4.3803e-04  14.166  | +0.047942 0.988616 -2.3973e-04  14.957  | +0.047924 0.988479 -3.1180e-04  15.554  
+    W3        | +0.075022 0.993634 +4.9885e-04  13.776  | +0.074893 0.994028 +8.6110e-04  14.389  | +0.074723 0.994840 +1.2089e-03  15.198  | +0.074594 0.995570 +1.2310e-03  15.810  
+    C1        | +0.011989 0.999623 -3.8877e-04  13.365  | +0.011979 0.999407 -3.5036e-04  13.955  | +0.011969 0.999139 -3.6435e-04  14.733  | +0.011964 0.998882 -5.7244e-04  15.322  
+    C2        | +0.048006 1.006321 -2.9163e-04  13.640  | +0.047933 1.006209 -1.0291e-04  14.243  | +0.047851 1.006196 +5.2028e-05  15.041  | +0.047799 1.006215 -4.7199e-05  15.643  
+    C3        | +0.074833 1.019366 +9.9490e-04  13.891  | +0.074627 1.020045 +1.2985e-03  14.511  | +0.074379 1.021206 +1.5808e-03  15.331  | +0.074203 1.022170 +1.5622e-03  15.951  
+    N1        | +0.011993 0.997459 -4.3483e-04  13.361  | +0.011990 0.997218 -3.9188e-04  13.949  | +0.011988 0.996920 -4.0070e-04  14.727  | +0.011987 0.996643 -6.0538e-04  15.315  
+    N2        | +0.047988 0.998724 -4.1769e-04  13.623  | +0.047939 0.998543 -2.1558e-04  14.224  | +0.047881 0.998449 -4.5531e-05  15.018  | +0.047844 0.998415 -1.3501e-04  15.618  
+    N3        | +0.075017 1.008541 +8.6492e-04  13.867  | +0.074840 1.009140 +1.1862e-03  14.484  | +0.074624 1.010209 +1.4880e-03  15.299  | +0.074467 1.011110 +1.4816e-03  15.916  
+    X1        | +0.011999 0.993694 -1.1304e-03  13.376  | +0.012022 0.993073 -9.9986e-04  13.964  | +0.012083 0.992349 -9.1743e-04  14.742  | +0.012118 0.991790 -1.0658e-03  15.329  
+    X2        | +0.047545 0.983798 -2.7326e-03  13.649  | +0.047590 0.982378 -2.2366e-03  14.249  | +0.047616 0.980866 -1.7562e-03  15.039  | +0.047648 0.979913 -1.6520e-03  15.636  
+    X3        | +0.074911 0.983968 -2.4390e-03  13.879  | +0.074757 0.982767 -1.6911e-03  14.492  | +0.074550 0.981819 -9.3358e-04  15.299  | +0.074473 0.981383 -6.5353e-04  15.908  
+    Y1        | +0.011968 0.999756 -6.2134e-04  13.361  | +0.011994 0.999414 -5.4793e-04  13.951  | +0.011992 0.999008 -5.2632e-04  14.729  | +0.011985 0.998662 -7.1289e-04  15.318  
+    Y2        | +0.047984 1.005090 -1.1834e-03  13.609  | +0.047991 1.004496 -8.6367e-04  14.211  | +0.047897 1.003943 -5.7405e-04  15.007  | +0.047825 1.003622 -5.9115e-04  15.608  
+    Y3        | +0.074387 1.015009 -4.0479e-04  13.818  | +0.074257 1.014911 +9.3914e-05  14.434  | +0.073964 1.015201 +5.7826e-04  15.249  | +0.073761 1.015596 +6.8354e-04  15.865  
+    B0 (static): 0.001: r_th - 1 -1.496e-06 (WJ +5.094e-07), rdot_th -3.261e-06, gamma_1 -8.5e-09; 0.002: r_th - 1 -5.432e-06 (WJ -2.021e-06), rdot_th -1.296e-05, gamma_1 -6.7e-09; 0.005: r_th - 1 -3.527e-05 (WJ -1.736e-05), rdot_th -8.097e-05, gamma_1 -5.5e-09; 0.01: r_th - 1 -1.412e-04 (WJ -7.545e-05), rdot_th -3.240e-04, gamma_1 -4.8e-09
+    WJ - REF: 0.001: max |d gamma_1| 7.8e-04, max |d r_th| 9.8e-04; 0.002: max |d gamma_1| 4.1e-04, max |d r_th| 4.9e-04; 0.005: max |d gamma_1| 2.5e-04, max |d r_th| 3.0e-04; 0.01: max |d gamma_1| 2.1e-04, max |d r_th| 3.2e-04
+
+== refit over the fifteen at each eps and reading: (a, b, c), in-sample and leave-one-out maxima, M - predicted at the held-out nine (bar 6e-05)
+    eps    reading   a          b          c          in-sample  LOO        | N1 N2 N3 | X1 X2 X3 | Y1 Y2 Y3
+    0.001  REF      +0.22963  +0.28342  +0.76577  5.51e-05  7.90e-05  | -4.77e-07  -2.15e-06  +1.21e-06  |  +9.00e-05  +2.13e-04  +1.98e-04  |  +2.87e-05  +5.28e-05  +1.83e-05
+    0.001  WJ       +0.22932  +0.28692  +0.76841  5.16e-05  7.84e-05  | -1.24e-06  -2.56e-06  +1.64e-06  |  +3.92e-05  +1.43e-04  +1.83e-04  |  +9.54e-06  +2.51e-05  +1.26e-05
+    0.001  REF-V3   +0.22951  +0.28454  +0.76611  5.52e-05  7.91e-05  | -1.86e-06  -1.58e-06  +9.17e-07  |  +8.89e-05  +2.14e-04  +1.99e-04  |  +2.74e-05  +5.37e-05  +1.85e-05
+    0.001  WJ-V3    +0.22922  +0.28787  +0.76869  5.16e-05  7.82e-05  | -2.41e-06  -2.07e-06  +1.39e-06  |  +3.83e-05  +1.44e-04  +1.84e-04  |  +8.42e-06  +2.58e-05  +1.28e-05
+    0.002  REF      +0.23065  +0.21611  +0.72832  8.59e-05  1.20e-04  | +4.73e-06  -3.82e-06  +4.66e-06  |  +8.53e-05  +1.79e-04  +1.97e-04  |  +2.06e-05  +1.83e-05  -6.11e-06
+    0.002  WJ       +0.23032  +0.21975  +0.72942  7.86e-05  1.10e-04  | +3.79e-06  -4.24e-06  +4.70e-06  |  +6.16e-05  +1.48e-04  +1.92e-04  |  +1.14e-05  +5.29e-06  -8.87e-06
+    0.002  REF-V3   +0.23019  +0.22018  +0.72986  8.61e-05  1.20e-04  | -4.39e-07  -1.62e-06  +3.56e-06  |  +8.11e-05  +1.84e-04  +2.01e-04  |  +1.56e-05  +2.15e-05  -5.41e-06
+    0.002  WJ-V3    +0.22990  +0.22355  +0.73084  7.88e-05  1.10e-04  | -1.01e-06  -2.20e-06  +3.68e-06  |  +5.76e-05  +1.53e-04  +1.95e-04  |  +6.80e-06  +8.27e-06  -8.22e-06
+    0.005  REF      +0.23431  +0.10769  +0.66511  1.90e-04  2.44e-04  | +2.54e-05  -2.09e-05  +9.67e-06  |  +8.87e-05  +1.42e-04  +2.02e-04  |  +3.52e-05  -3.01e-06  +7.96e-06
+    0.005  WJ       +0.23379  +0.11394  +0.66370  1.71e-04  2.19e-04  | +2.31e-05  -1.97e-05  +9.00e-06  |  +7.66e-05  +1.29e-04  +1.95e-04  |  +2.98e-05  -7.33e-06  +4.21e-06
+    0.005  REF-V3   +0.23172  +0.12846  +0.67879  1.92e-04  2.45e-04  | -3.85e-06  -7.01e-06  +3.70e-06  |  +6.67e-05  +1.79e-04  +2.29e-04  |  +7.62e-06  +1.83e-05  +1.50e-05
+    0.005  WJ-V3    +0.23138  +0.13339  +0.67641  1.72e-04  2.20e-04  | -4.21e-06  -6.77e-06  +3.42e-06  |  +5.61e-05  +1.62e-04  +2.19e-04  |  +4.04e-06  +1.25e-05  +1.07e-05
+    0.01   REF      +0.24050  +0.03445  +0.51004  3.74e-04  4.31e-04  | +6.67e-05  -9.34e-05  +1.24e-05  |  +7.65e-05  -8.80e-05  -1.01e-05  |  +6.47e-05  -1.20e-04  -5.82e-05
+    0.01   WJ       +0.23948  +0.04452  +0.51346  3.30e-04  3.80e-04  | +6.27e-05  -8.61e-05  +1.16e-05  |  +6.85e-05  -8.46e-05  -5.31e-06  |  +5.94e-05  -1.14e-04  -5.77e-05
+    0.01   REF-V3   +0.23301  +0.07186  +0.60134  3.86e-04  4.43e-04  | -2.01e-05  -3.65e-05  -1.37e-06  |  +3.26e-05  +1.02e-04  +1.67e-04  |  -1.24e-05  -2.09e-05  +8.36e-07
+    0.01   WJ-V3    +0.23253  +0.07917  +0.59877  3.41e-04  3.91e-04  | -1.80e-05  -3.29e-05  -1.17e-06  |  +2.78e-05  +9.33e-05  +1.60e-04  |  -1.23e-05  -2.18e-05  -2.56e-06
+
+[pass] PN_REF@0.001: REF at eps = 0.001: the refit over the fifteen predicts N1 to N3 within 6e-5  (M - pred -4.77e-07, -2.15e-06, +1.21e-06)
+[FAIL] PX_REF@0.001: REF at eps = 0.001: the refit over the fifteen predicts X1 to X3 within 6e-5  (M - pred +9.00e-05, +2.13e-04, +1.98e-04)
+[pass] PY_REF@0.001: REF at eps = 0.001: the refit over the fifteen predicts Y1 to Y3 within 6e-5  (M - pred +2.87e-05, +5.28e-05, +1.83e-05)
+[pass] PN_WJ@0.001: WJ at eps = 0.001: the refit over the fifteen predicts N1 to N3 within 6e-5  (M - pred -1.24e-06, -2.56e-06, +1.64e-06)
+[FAIL] PX_WJ@0.001: WJ at eps = 0.001: the refit over the fifteen predicts X1 to X3 within 6e-5  (M - pred +3.92e-05, +1.43e-04, +1.83e-04)
+[pass] PY_WJ@0.001: WJ at eps = 0.001: the refit over the fifteen predicts Y1 to Y3 within 6e-5  (M - pred +9.54e-06, +2.51e-05, +1.26e-05)
+[pass] PN_REF-V3@0.001: REF-V3 at eps = 0.001: the refit over the fifteen predicts N1 to N3 within 6e-5  (M - pred -1.86e-06, -1.58e-06, +9.17e-07)
+[FAIL] PX_REF-V3@0.001: REF-V3 at eps = 0.001: the refit over the fifteen predicts X1 to X3 within 6e-5  (M - pred +8.89e-05, +2.14e-04, +1.99e-04)
+[pass] PY_REF-V3@0.001: REF-V3 at eps = 0.001: the refit over the fifteen predicts Y1 to Y3 within 6e-5  (M - pred +2.74e-05, +5.37e-05, +1.85e-05)
+[pass] PN_WJ-V3@0.001: WJ-V3 at eps = 0.001: the refit over the fifteen predicts N1 to N3 within 6e-5  (M - pred -2.41e-06, -2.07e-06, +1.39e-06)
+[FAIL] PX_WJ-V3@0.001: WJ-V3 at eps = 0.001: the refit over the fifteen predicts X1 to X3 within 6e-5  (M - pred +3.83e-05, +1.44e-04, +1.84e-04)
+[pass] PY_WJ-V3@0.001: WJ-V3 at eps = 0.001: the refit over the fifteen predicts Y1 to Y3 within 6e-5  (M - pred +8.42e-06, +2.58e-05, +1.28e-05)
+[pass] PN_REF@0.002: REF at eps = 0.002: the refit over the fifteen predicts N1 to N3 within 6e-5  (M - pred +4.73e-06, -3.82e-06, +4.66e-06)
+[FAIL] PX_REF@0.002: REF at eps = 0.002: the refit over the fifteen predicts X1 to X3 within 6e-5  (M - pred +8.53e-05, +1.79e-04, +1.97e-04)
+[pass] PY_REF@0.002: REF at eps = 0.002: the refit over the fifteen predicts Y1 to Y3 within 6e-5  (M - pred +2.06e-05, +1.83e-05, -6.11e-06)
+[pass] PN_WJ@0.002: WJ at eps = 0.002: the refit over the fifteen predicts N1 to N3 within 6e-5  (M - pred +3.79e-06, -4.24e-06, +4.70e-06)
+[FAIL] PX_WJ@0.002: WJ at eps = 0.002: the refit over the fifteen predicts X1 to X3 within 6e-5  (M - pred +6.16e-05, +1.48e-04, +1.92e-04)
+[pass] PY_WJ@0.002: WJ at eps = 0.002: the refit over the fifteen predicts Y1 to Y3 within 6e-5  (M - pred +1.14e-05, +5.29e-06, -8.87e-06)
+[pass] PN_REF-V3@0.002: REF-V3 at eps = 0.002: the refit over the fifteen predicts N1 to N3 within 6e-5  (M - pred -4.39e-07, -1.62e-06, +3.56e-06)
+[FAIL] PX_REF-V3@0.002: REF-V3 at eps = 0.002: the refit over the fifteen predicts X1 to X3 within 6e-5  (M - pred +8.11e-05, +1.84e-04, +2.01e-04)
+[pass] PY_REF-V3@0.002: REF-V3 at eps = 0.002: the refit over the fifteen predicts Y1 to Y3 within 6e-5  (M - pred +1.56e-05, +2.15e-05, -5.41e-06)
+[pass] PN_WJ-V3@0.002: WJ-V3 at eps = 0.002: the refit over the fifteen predicts N1 to N3 within 6e-5  (M - pred -1.01e-06, -2.20e-06, +3.68e-06)
+[FAIL] PX_WJ-V3@0.002: WJ-V3 at eps = 0.002: the refit over the fifteen predicts X1 to X3 within 6e-5  (M - pred +5.76e-05, +1.53e-04, +1.95e-04)
+[pass] PY_WJ-V3@0.002: WJ-V3 at eps = 0.002: the refit over the fifteen predicts Y1 to Y3 within 6e-5  (M - pred +6.80e-06, +8.27e-06, -8.22e-06)
+[pass] PN_REF@0.005: REF at eps = 0.005: the refit over the fifteen predicts N1 to N3 within 6e-5  (M - pred +2.54e-05, -2.09e-05, +9.67e-06)
+[FAIL] PX_REF@0.005: REF at eps = 0.005: the refit over the fifteen predicts X1 to X3 within 6e-5  (M - pred +8.87e-05, +1.42e-04, +2.02e-04)
+[pass] PY_REF@0.005: REF at eps = 0.005: the refit over the fifteen predicts Y1 to Y3 within 6e-5  (M - pred +3.52e-05, -3.01e-06, +7.96e-06)
+[pass] PN_WJ@0.005: WJ at eps = 0.005: the refit over the fifteen predicts N1 to N3 within 6e-5  (M - pred +2.31e-05, -1.97e-05, +9.00e-06)
+[FAIL] PX_WJ@0.005: WJ at eps = 0.005: the refit over the fifteen predicts X1 to X3 within 6e-5  (M - pred +7.66e-05, +1.29e-04, +1.95e-04)
+[pass] PY_WJ@0.005: WJ at eps = 0.005: the refit over the fifteen predicts Y1 to Y3 within 6e-5  (M - pred +2.98e-05, -7.33e-06, +4.21e-06)
+[pass] PN_REF-V3@0.005: REF-V3 at eps = 0.005: the refit over the fifteen predicts N1 to N3 within 6e-5  (M - pred -3.85e-06, -7.01e-06, +3.70e-06)
+[FAIL] PX_REF-V3@0.005: REF-V3 at eps = 0.005: the refit over the fifteen predicts X1 to X3 within 6e-5  (M - pred +6.67e-05, +1.79e-04, +2.29e-04)
+[pass] PY_REF-V3@0.005: REF-V3 at eps = 0.005: the refit over the fifteen predicts Y1 to Y3 within 6e-5  (M - pred +7.62e-06, +1.83e-05, +1.50e-05)
+[pass] PN_WJ-V3@0.005: WJ-V3 at eps = 0.005: the refit over the fifteen predicts N1 to N3 within 6e-5  (M - pred -4.21e-06, -6.77e-06, +3.42e-06)
+[FAIL] PX_WJ-V3@0.005: WJ-V3 at eps = 0.005: the refit over the fifteen predicts X1 to X3 within 6e-5  (M - pred +5.61e-05, +1.62e-04, +2.19e-04)
+[pass] PY_WJ-V3@0.005: WJ-V3 at eps = 0.005: the refit over the fifteen predicts Y1 to Y3 within 6e-5  (M - pred +4.04e-06, +1.25e-05, +1.07e-05)
+[FAIL] PN_REF@0.01: REF at eps = 0.01: the refit over the fifteen predicts N1 to N3 within 6e-5  (M - pred +6.67e-05, -9.34e-05, +1.24e-05)
+[FAIL] PX_REF@0.01: REF at eps = 0.01: the refit over the fifteen predicts X1 to X3 within 6e-5  (M - pred +7.65e-05, -8.80e-05, -1.01e-05)
+[FAIL] PY_REF@0.01: REF at eps = 0.01: the refit over the fifteen predicts Y1 to Y3 within 6e-5  (M - pred +6.47e-05, -1.20e-04, -5.82e-05)
+[FAIL] PN_WJ@0.01: WJ at eps = 0.01: the refit over the fifteen predicts N1 to N3 within 6e-5  (M - pred +6.27e-05, -8.61e-05, +1.16e-05)
+[FAIL] PX_WJ@0.01: WJ at eps = 0.01: the refit over the fifteen predicts X1 to X3 within 6e-5  (M - pred +6.85e-05, -8.46e-05, -5.31e-06)
+[FAIL] PY_WJ@0.01: WJ at eps = 0.01: the refit over the fifteen predicts Y1 to Y3 within 6e-5  (M - pred +5.94e-05, -1.14e-04, -5.77e-05)
+[pass] PN_REF-V3@0.01: REF-V3 at eps = 0.01: the refit over the fifteen predicts N1 to N3 within 6e-5  (M - pred -2.01e-05, -3.65e-05, -1.37e-06)
+[FAIL] PX_REF-V3@0.01: REF-V3 at eps = 0.01: the refit over the fifteen predicts X1 to X3 within 6e-5  (M - pred +3.26e-05, +1.02e-04, +1.67e-04)
+[pass] PY_REF-V3@0.01: REF-V3 at eps = 0.01: the refit over the fifteen predicts Y1 to Y3 within 6e-5  (M - pred -1.24e-05, -2.09e-05, +8.36e-07)
+[pass] PN_WJ-V3@0.01: WJ-V3 at eps = 0.01: the refit over the fifteen predicts N1 to N3 within 6e-5  (M - pred -1.80e-05, -3.29e-05, -1.17e-06)
+[FAIL] PX_WJ-V3@0.01: WJ-V3 at eps = 0.01: the refit over the fifteen predicts X1 to X3 within 6e-5  (M - pred +2.78e-05, +9.33e-05, +1.60e-04)
+[pass] PY_WJ-V3@0.01: WJ-V3 at eps = 0.01: the refit over the fifteen predicts Y1 to Y3 within 6e-5  (M - pred -1.23e-05, -2.18e-05, -2.56e-06)
+
+== first exit and movement per reading (declared: the first eps of the grid at which a group's largest |M - predicted| exceeds 6e-5; X's miss moves if it changes by more than 25 % of its value at 1e-3)
+    REF     N: first exit at 0.01, largest |res| 2.15e-06, 4.73e-06, 2.54e-05, 9.34e-05 (moves); X: first exit at 0.001, largest |res| 2.13e-04, 1.97e-04, 2.02e-04, 8.80e-05 (moves); Y: first exit at 0.01, largest |res| 5.28e-05, 2.06e-05, 3.52e-05, 1.20e-04 (moves)
+    WJ      N: first exit at 0.01, largest |res| 2.56e-06, 4.70e-06, 2.31e-05, 8.61e-05 (moves); X: first exit at 0.001, largest |res| 1.83e-04, 1.92e-04, 1.95e-04, 8.46e-05 (moves); Y: first exit at 0.01, largest |res| 2.51e-05, 1.14e-05, 2.98e-05, 1.14e-04 (moves)
+    REF-V3  N: no exit, largest |res| 1.86e-06, 3.56e-06, 7.01e-06, 3.65e-05 (moves); X: first exit at 0.001, largest |res| 2.14e-04, 2.01e-04, 2.29e-04, 1.67e-04 (does not move); Y: no exit, largest |res| 5.37e-05, 2.15e-05, 1.83e-05, 2.09e-05 (moves)
+    WJ-V3   N: no exit, largest |res| 2.41e-06, 3.68e-06, 6.77e-06, 3.29e-05 (moves); X: first exit at 0.001, largest |res| 1.84e-04, 1.95e-04, 2.19e-04, 1.60e-04 (does not move); Y: no exit, largest |res| 2.58e-05, 8.27e-06, 1.25e-05, 2.18e-05 (moves)
+[FAIL] NOEXIT_REF: REF: N1 to N3 and Y1 to Y3 stay within 6e-5 at every eps of the grid  (first exits: N 0.01, Y 0.01)
+[FAIL] XCLOSE_REF: REF: at some eps of the grid X1 to X3 are within 6e-5 while N1 to N3 and Y1 to Y3 stay within it and the fifteen's in-sample error stays at most 6e-5  (eps with all nine within 6e-5 and in-sample <= 6e-5: []; largest X miss 0.001: 2.13e-04, 0.002: 1.97e-04, 0.005: 2.02e-04, 0.01: 8.80e-05)
+[FAIL] NOEXIT_WJ: WJ: N1 to N3 and Y1 to Y3 stay within 6e-5 at every eps of the grid  (first exits: N 0.01, Y 0.01)
+[FAIL] XCLOSE_WJ: WJ: at some eps of the grid X1 to X3 are within 6e-5 while N1 to N3 and Y1 to Y3 stay within it and the fifteen's in-sample error stays at most 6e-5  (eps with all nine within 6e-5 and in-sample <= 6e-5: []; largest X miss 0.001: 1.83e-04, 0.002: 1.92e-04, 0.005: 1.95e-04, 0.01: 8.46e-05)
+[pass] NOEXIT_REF-V3: REF-V3: N1 to N3 and Y1 to Y3 stay within 6e-5 at every eps of the grid  (first exits: N None, Y None)
+[FAIL] XCLOSE_REF-V3: REF-V3: at some eps of the grid X1 to X3 are within 6e-5 while N1 to N3 and Y1 to Y3 stay within it and the fifteen's in-sample error stays at most 6e-5  (eps with all nine within 6e-5 and in-sample <= 6e-5: []; largest X miss 0.001: 2.14e-04, 0.002: 2.01e-04, 0.005: 2.29e-04, 0.01: 1.67e-04)
+[pass] NOEXIT_WJ-V3: WJ-V3: N1 to N3 and Y1 to Y3 stay within 6e-5 at every eps of the grid  (first exits: N None, Y None)
+[FAIL] XCLOSE_WJ-V3: WJ-V3: at some eps of the grid X1 to X3 are within 6e-5 while N1 to N3 and Y1 to Y3 stay within it and the fifteen's in-sample error stays at most 6e-5  (eps with all nine within 6e-5 and in-sample <= 6e-5: []; largest X miss 0.001: 1.84e-04, 0.002: 1.95e-04, 0.005: 2.19e-04, 0.01: 1.60e-04)
+
+== POST HOC (declared in the raw README, gates nothing): the X residuals against eps, with and without the second-order part subtracted; the speed needed to close the miss
+    eps     | REF X1 X2 X3                       | WJ X1 X2 X3                        | REF-V3 X1 X2 X3                    | WJ-V3 X1 X2 X3                    
+    0.001   | +9.00e-05  +2.13e-04  +1.98e-04   | +3.92e-05  +1.43e-04  +1.83e-04   | +8.89e-05  +2.14e-04  +1.99e-04   | +3.83e-05  +1.44e-04  +1.84e-04  
+    0.002   | +8.53e-05  +1.79e-04  +1.97e-04   | +6.16e-05  +1.48e-04  +1.92e-04   | +8.11e-05  +1.84e-04  +2.01e-04   | +5.76e-05  +1.53e-04  +1.95e-04  
+    0.005   | +8.87e-05  +1.42e-04  +2.02e-04   | +7.66e-05  +1.29e-04  +1.95e-04   | +6.67e-05  +1.79e-04  +2.29e-04   | +5.61e-05  +1.62e-04  +2.19e-04  
+    0.01    | +7.65e-05  -8.80e-05  -1.01e-05   | +6.85e-05  -8.46e-05  -5.31e-06   | +3.26e-05  +1.02e-04  +1.67e-04   | +2.78e-05  +9.33e-05  +1.60e-04  
+    needed shift of rdot_th at X1, X2, X3 to close the miss under REF (+(M - pred) / (r_th c)), % of |rdot_th|
+    0.001   X1 +1.18e-04 (+10.5 %); X2 +2.82e-04 (+10.3 %); X3 +2.63e-04 (+10.8 %)
+    0.002   X1 +1.18e-04 (+11.8 %); X2 +2.50e-04 (+11.2 %); X3 +2.76e-04 (+16.3 %)
+    0.005   X1 +1.34e-04 (+14.6 %); X2 +2.18e-04 (+12.4 %); X3 +3.10e-04 (+33.2 %)
+    0.01    X1 +1.51e-04 (+14.2 %); X2 -1.76e-04 (-10.7 %); X3 -2.02e-05 (-3.1 %)
+
+== POST HOC: the grid refined (eps = 1e-3 x 10^(k/8), k = 0..8) and extended (2e-2, 5e-2): the largest |M - predicted| of N, X, Y per reading, and the first exit on the fine grid
+    eps        | REF     N         X         Y         | WJ      N         X         Y         | REF-V3  N         X         Y         | WJ-V3   N         X         Y        
+    0.001      | REF     2.15e-06  2.13e-04  5.28e-05   | WJ      2.56e-06  1.83e-04  2.51e-05   | REF-V3  1.86e-06  2.14e-04  5.37e-05   | WJ-V3   2.41e-06  1.84e-04  2.58e-05  
+    0.001334   | REF     2.43e-06  1.95e-04  3.28e-05   | WJ      2.88e-06  1.76e-04  1.25e-05   | REF-V3  1.44e-06  1.97e-04  3.43e-05   | WJ-V3   1.98e-06  1.77e-04  1.38e-05  
+    0.001778   | REF     3.23e-06  1.90e-04  2.10e-05   | WJ      3.53e-06  1.83e-04  1.01e-05   | REF-V3  2.35e-06  1.92e-04  2.35e-05   | WJ-V3   2.51e-06  1.85e-04  9.63e-06  
+    0.002371   | REF     6.29e-06  1.96e-04  2.03e-05   | WJ      5.28e-06  1.90e-04  1.24e-05   | REF-V3  2.37e-06  2.00e-04  1.93e-05   | WJ-V3   2.43e-06  1.94e-04  8.22e-06  
+    0.003162   | REF     1.08e-05  2.07e-04  2.30e-05   | WJ      9.46e-06  2.01e-04  1.67e-05   | REF-V3  3.50e-06  2.16e-04  1.87e-05   | WJ-V3   3.45e-06  2.09e-04  1.02e-05  
+    0.004217   | REF     1.90e-05  2.09e-04  2.98e-05   | WJ      1.73e-05  2.02e-04  2.45e-05   | REF-V3  5.22e-06  2.26e-04  1.81e-05   | WJ-V3   5.32e-06  2.18e-04  1.11e-05  
+    0.005623   | REF     3.10e-05  1.98e-04  4.02e-05   | WJ      2.87e-05  1.89e-04  3.50e-05   | REF-V3  9.45e-06  2.34e-04  1.84e-05   | WJ-V3   9.10e-06  2.23e-04  1.36e-05  
+    0.007499   | REF     5.11e-05  1.40e-04  5.47e-05   | WJ      4.75e-05  1.34e-04  4.94e-05   | REF-V3  1.92e-05  2.19e-04  1.83e-05   | WJ-V3   1.76e-05  2.09e-04  1.36e-05  
+    0.01       | REF     9.34e-05  8.80e-05  1.20e-04   | WJ      8.61e-05  8.46e-05  1.14e-04   | REF-V3  3.65e-05  1.67e-04  2.09e-05   | WJ-V3   3.29e-05  1.60e-04  2.18e-05  
+    0.02       | REF     2.11e-04  7.40e-04  3.78e-04   | WJ      1.91e-04  6.73e-04  3.49e-04   | REF-V3  1.38e-04  3.94e-04  2.29e-04   | WJ-V3   1.21e-04  3.28e-04  2.03e-04  
+    0.05       | REF     2.07e-04  7.47e-04  3.65e-04   | WJ      1.68e-04  6.65e-04  3.11e-04   | REF-V3  2.12e-04  9.56e-04  3.98e-04   | WJ-V3   1.67e-04  7.87e-04  3.27e-04  
+    REF     N: first exit on the fine grid 0.01; with 2e-2, 5e-2 0.01
+    REF     X: first exit on the fine grid 0.001; with 2e-2, 5e-2 0.001
+    REF     Y: first exit on the fine grid 0.01; with 2e-2, 5e-2 0.01
+    WJ      N: first exit on the fine grid 0.01; with 2e-2, 5e-2 0.01
+    WJ      X: first exit on the fine grid 0.001; with 2e-2, 5e-2 0.001
+    WJ      Y: first exit on the fine grid 0.01; with 2e-2, 5e-2 0.01
+    REF-V3  N: first exit on the fine grid none; with 2e-2, 5e-2 0.02
+    REF-V3  X: first exit on the fine grid 0.001; with 2e-2, 5e-2 0.001
+    REF-V3  Y: first exit on the fine grid none; with 2e-2, 5e-2 0.02
+    WJ-V3   N: first exit on the fine grid none; with 2e-2, 5e-2 0.02
+    WJ-V3   X: first exit on the fine grid 0.001; with 2e-2, 5e-2 0.001
+    WJ-V3   Y: first exit on the fine grid none; with 2e-2, 5e-2 0.02
+
+== POST HOC: the reference's speed against two estimators that share nothing with `speed_at` (#314's S1 and S3) at each eps: the window bias of a linear fit grows with the second-order part
+    eps    | max |S1 - REF| (fifteen / N,X,Y) | max |S3 - REF| (fifteen / N,X,Y)  | relative to |rdot_th| at X1, X2, X3: S3 - REF
+    0.001  | 7.5e-07 / 3.1e-06               | 4.8e-06 / 1.1e-05                | X1 +0.22 %; X2 +0.28 %; X3 +0.45 %
+    0.002  | 1.1e-06 / 1.8e-06               | 5.7e-06 / 9.5e-06                | X1 +0.31 %; X2 +0.31 %; X3 +0.56 %
+    0.005  | 2.0e-06 / 1.7e-06               | 2.0e-05 / 1.6e-05                | X1 +1.20 %; X2 +0.81 %; X3 +1.75 %
+    0.01   | 5.8e-06 / 6.6e-06               | 5.8e-05 / 4.6e-05                | X1 +3.82 %; X2 +2.68 %; X3 +7.05 %
+
+== POST HOC: the refit with the speed read by S3 (quintic, no window bias) at each eps, M - predicted at X1 to X3 and the largest at N and Y
+    0.001  (a, b, c) +0.2296, +0.2829, +0.7667; in-sample 5.40e-05; X +8.93e-05, +2.11e-04, +1.96e-04; N max 2.09e-06; Y max 5.19e-05
+    0.002  (a, b, c) +0.2306, +0.2162, +0.7290; in-sample 8.37e-05; X +8.44e-05, +1.78e-04, +1.96e-04; N max 4.45e-06; Y max 1.98e-05
+    0.005  (a, b, c) +0.2340, +0.1097, +0.6673; in-sample 1.85e-04; X +8.66e-05, +1.46e-04, +2.04e-04; N max 2.28e-05; Y max 3.27e-05
+    0.01   (a, b, c) +0.2400, +0.0323, +0.5273; in-sample 3.65e-04; X +7.95e-05, -5.60e-05, +2.36e-05; N max 8.47e-05; Y max 1.04e-04
+
+72 checks (0 post hoc, gating nothing), 26 gating checks failed, 0 post hoc checks failed; 83 s
