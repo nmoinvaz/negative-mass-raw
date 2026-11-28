@@ -1,5 +1,8 @@
-WAIT @RAW@/runs/D6_G_h0.00125/summary.json
-RUN runs/series_hk2_p1 7200 @PY@ g_d6.py locus series --D=6 --hk=2 --part=1/4 --out=@RAW@/runs/series/D6_G_h0.00125
+RUN runs/pair_B0.04_d1e-10_hk2 7200 @PY@ g_d6.py drift stall --D=6 --B=0.04 --hk=2 --delta=1e-10 --bis=@RAW@/runs/bisect --out=@RAW@/runs/stall_drift
+WAIT @RAW@/runs/bisect/D6_B0.04_h0.0025/summary.json
+RUN runs/pair_B0.04_d1e-10_hk1 7200 @PY@ g_d6.py drift stall --D=6 --B=0.04 --hk=1 --delta=1e-10 --bis=@RAW@/runs/bisect --out=@RAW@/runs/stall_drift
+WAIT @RAW@/runs/bisect/D6_B0.2_h0.0025/summary.json
+RUN runs/pair_B0.2_d1e-10_hk1 7200 @PY@ g_d6.py drift stall --D=6 --B=0.2 --hk=1 --delta=1e-10 --bis=@RAW@/runs/bisect --out=@RAW@/runs/stall_drift
 WAIT @RAW@/runs/D6_G_h0.00125/summary.json
 RUN runs/series_hk2_p2 7200 @PY@ g_d6.py locus series --D=6 --hk=2 --part=2/4 --out=@RAW@/runs/series/D6_G_h0.00125
 WAIT @RAW@/runs/D6_G_h0.00125/summary.json
@@ -8,3 +11,9 @@ WAIT @RAW@/runs/D6_G_h0.00125/summary.json
 RUN runs/stall_hk2 7200 @PY@ g_d6.py locus stall --D=6 --hk=2 --out=@RAW@/runs/stall
 WAIT @RAW@/runs/D6_G_h0.00125/summary.json
 RUN runs/pair_B0.1_d1e-10_hk2 7200 @PY@ g_d6.py drift stall --D=6 --B=0.1 --hk=2 --delta=1e-10 --out=@RAW@/runs/stall_drift
+RUN runs/bisect_B0.02_hk1 7200 @PY@ g_d6.py drift bisect --D=6 --B=0.02 --hk=1 --out=@RAW@/runs/bisect
+RUN runs/bisect_B0.07_hk1 7200 @PY@ g_d6.py drift bisect --D=6 --B=0.07 --hk=1 --out=@RAW@/runs/bisect
+WAIT @RAW@/runs/bisect/D6_B0.02_h0.0025/summary.json
+RUN runs/pair_B0.02_d1e-10_hk1 7200 @PY@ g_d6.py drift stall --D=6 --B=0.02 --hk=1 --delta=1e-10 --bis=@RAW@/runs/bisect --out=@RAW@/runs/stall_drift
+WAIT @RAW@/runs/bisect/D6_B0.07_h0.0025/summary.json
+RUN runs/pair_B0.07_d1e-10_hk1 7200 @PY@ g_d6.py drift stall --D=6 --B=0.07 --hk=1 --delta=1e-10 --bis=@RAW@/runs/bisect --out=@RAW@/runs/stall_drift

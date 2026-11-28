@@ -72,3 +72,66 @@ A failed check is a result, not repaired by changing the check. Nothing is loose
 - Logs are never overwritten; a rerun is a new directory (`*.partialN` for the dead one).
 - Nothing stops or kills a process over memory; a memory watcher only reports.
 - Only my own units are stopped, by unit name (`systemctl --user stop nm-i228-…`).
+
+# Part 2: declared after the development runs, before any analysis of record
+
+Written 2026-11-28 02:00 (dh610 clock). At that time the job of record had finished (rc 0, 6854 s), the locus series, stall pair and B = 0.1 pair at h = 0.0025 were done, and the series at h = 0.00125 and the other
+pairs were running; none of those was analysed. The development runs are `dev/` (h = 0.005 only, plus the two-h base `dev/combo01` made from them and the runs at h = 0.0025 for the RA mutations):
+`dev/series`, `dev/stall` (locus series and stall pair), `dev/bisect` (B = 0.02, 0.04, 0.07, 0.2), `dev/stall_drift` (pairs at δ = 1e-10, and 1e-12 at B = 0.1), `dev/analysis/analyze_dev1.log` (the first analysis),
+`dev/tail_h0.005` and `dev/tail_control_h0.005` (the tail control), `dev/analyze40_orig` (#40's analysis on #40's raw), `dev/mut/`, `dev/mut_*` (mutations).
+
+## What the development runs showed
+
+1. **The locus levels of #225 do not mark a lifetime at D = 6.** On the collapse side the locus's r_min reaches 0.5 only for e ≤ 4 (3 of 19 points at h = 0.005, 2 at 0.0025): the sweep runs to the end of the triangle t ≤ 34 without a
+   crossing, because #40's trapped cell forms at r about 1.7 and the minimum leaves the slice. For e ≥ 10 both sides cross the expansion level r_min = 2 at the same τ = 15.8 (the throat radius grows through 2 at the tuned
+   stall's own time). #225's FA and ED fail at D = 6 on that account (14 of 34 points off; alternative levels 0.805 against 0.554). They stay in the analysis as they are and are reported as failed; the expansion side alone
+   is added as SLx and LRAx.
+2. **#255's fit does not converge at B = 0.1.** ṙ(τ) falls slowly (0.094, 0.087, 0.079 at t = 8, 10, 12) and does not approach a constant: `fit_rdot` gives κ → 0 and ṙ∞ = −101 ± 5e4. The model-free
+   local ṙ is therefore the primary drift speed; the fit is read only where it converges (κ ≥ 0.05 and SE ≤ 10 % of |ṙ∞|). At B = 0.04 it converges (ṙ∞ = 0.0110 ± 7e-5, κ = 0.46).
+3. **Planted evolutions at n = 4.** #255's planted static throat and moving throats, with its h = 0.02, 0.01, 0.005, miss its bars at n = 4 (3.6e-4 against 2e-4, 1.1e-3 against 5e-4; second order, 1.99). The planted checks
+   PL1_6, PL2_6 are run at D = 6's own h = 0.005, 0.0025, 0.00125; the bars are #255's, unchanged.
+4. **NO6 fails at B = 0.04 with δ = 1e-10** (max |odd| 1.2e-2 against 3e-4, as #255's NO at D = 5, B = 0.04 by 13 %): the unstable mode grows faster at the smaller radius. The fit masks the points above 3e-4 as in #255. Reported, not repaired.
+5. **CMP1 at #40's stall time fails** at h = 0.005 (−3.3 %, bar 2 %): the pulse has just left at t = 6. CMP3 holds over t = 7 to 11 (−0.9 % to +1.5 %). #40's two stall times at D = 6 differ (6.24 expansion, 11.9 collapse);
+   t = 6 is the earlier, since the pair rate is a linear-regime quantity and the pair at 1e-9 is not linear at t = 12 (|odd| 7e-4).
+6. **The split of the job's tail is exact.** `g_d6.py tail` on #40's own D = 6, G, h = 0.005 bracket writes `constraints.json` and `stall.json` identical byte for byte to #40's (cmp), 2.2 GB peak (so about 35 GB at h = 0.00125).
+   `threshold.py analyze` on #40's raw reproduces `threshold_output.txt` line for line, apart from the header and the timing (111 checks, 100 pass).
+
+## Declared settings (`C6` in `g_d6.py`; the D = 6 entries added to #225's and #255's dictionaries by `declare()`)
+
+| item | value |
+|---|---|
+| h of the locus and drift records | hk = 1, 2 = 0.0025, 0.00125 (hk = 0 is development) |
+| locus series, bracket ends | #225's, unchanged (`throat_locus.job_series`, TCAP 34, TCAP_BR 44, 4 parts) |
+| CMP1, CMP2 | at t = 6.0, bar 2 % (#225's) |
+| CMP3 window | t in [7, 11], bar 2 %: the slices where the pair at 1e-9 is linear (\|odd\| ≤ 3e-4) |
+| DR | the throat radius over t = 7 to 11: a drifting scale if it grows by ≥ 5 % (#225's D = 5 bar) |
+| LRAx | the expansion-side locus τ slopes at the two finest h agree within 0.5 % (#225's RA bar) |
+| drift pair | A = p*ₕ ∓ 1e-10 kept whole (#255's), B = 0.04, 0.1, 0.2 and the extras 0.02, 0.07 as far as time allows; p*ₕ(B ≠ 0.1) by `throat_drift.job_bisect` to 1e-12 from #255's bracket |
+| primary drift speed | the local ṙ = dr_th/dτ at t = 8, 10, 12 (linear fit over ±0.5 in τ of the pair's mean; ±0.25 and ±1 give the window part of the error); ṙ(t = 8, 10, 12) and r_th − 1 there |
+| B exponents | α of a ∝ B^α between neighbouring B at the same h, for p*ₕ, r_th − 1, local ṙ (error: the window part and the difference between the two finest h) and for ṙ∞ where both fits converge (error: the SE of the two fits propagated) |
+| NO6 | max \|odd\| ≤ 3e-4 for t in [6.5, 12] (#255's window and bar); a fail is reported |
+| PL1_6, PL2_6, PL3_6 | #255's bars at n = 4 and D = 6's h; PL3_6 adds a slow case (ṙ∞ 0.05, κ 0.15) and the local-slope recovery at t = 8, 10, 12 to 2e-4, ṙ∞ within 3 SE |
+| P246 | \|p*ₕ(job) − p*ₕ(#246)\| ≤ 1e-14 at hk = 0, 1, 2 (hk = 0, 1 are #246's copies of #40's) |
+| CTLN | every amplitude of the locus series and brackets is a point of the job's own record (CTL would pass vacuously on an empty overlap) |
+| JOB6 | the pair has fates (collapse, expansion) on #40's events |
+
+Failures expected from the development runs and kept as results: FA and ED (item 1), CMP1 (item 5), NO6 at B = 0.04 (item 4); #40's SL at G (1/W outside the spread at every h).
+
+## Mutations of the new and the reused checks (effect computed on the development data, `dev/mut*`; each fires exactly the listed checks, a verdict that changes)
+
+| mutation | what it breaks | checks it changes |
+|---|---|---|
+| `p246_off` | #246's p*ₕ shifted by 1e-12 | P246 |
+| `ctl_shift` | the amplitudes shifted by one relative 1e-15 before the lookup | CTLN |
+| `odd_scale6` | the pair's odd part × 10 | NO6 |
+| `ra_scale6` | the finer h's expansion-side slope × 1.01 | LRAx |
+| `tau_unit` (#255's) | τ in units of √2 t | PL3_6 |
+| `rth_diag` (#255's) | the diagonal's radius instead of the locus's | JOB6, NO6, PL2_6 |
+| `pstar_off` (#225's) | p*ₕ shifted by 1e-9 in the fits | CMP2, CTL |
+| `locus_diag` (#225's) | the diagonal's radius in the member table | CMP2, CMP3 |
+| `drop_bracket` (#225's) | the bracket ends not read | JOB |
+| `ra_scale` (#225's) | the finer h's slope × 1.01 | RA |
+| `odd_off`, `ed_t` (#255's, #225's) | not declared: `odd_off` changes no check at D = 6; `ed_t` acts on ED, which fails anyway | (none; ED) |
+
+At the end, each declared mutation is run again on the stored record (`runs/mut/`), baseline and mutated, and the changed verdicts are compared with this table. #40's `threshold.py analyze` is run with its own
+mutations on the merged record for the D = 6 G rows only in so far as `--mutate=time_unit` and `--mutate=pstar_off` are repeated (their declared targets are #40's: PL, PX, SL, G6 and FM, PL, PX, RA, SL).
