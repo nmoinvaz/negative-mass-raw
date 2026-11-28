@@ -1,0 +1,27 @@
+settled_mass_route5.py planted {}: numba 0.68.1, numpy 2.5.4, python 3.14.7, Nathans-MacBook-Air-M5-3.local, mutation None, 2026-11-28 01:49:16
+    PMEM g1 0 h 0.01: err g1 3.1e-16, r_th 0.0e+00, m+- 4.1e-11
+    PMEM g1 0 h 0.005: err g1 6.4e-16, r_th 1.6e-10, m+- 4.1e-11
+    PMEM g1 0.012 h 0.01: err g1 2.6e-08, r_th 3.2e-13, m+- 2.6e-08
+    PMEM g1 0.012 h 0.005: err g1 8.4e-08, r_th 6.9e-10, m+- 8.8e-08
+    PMEM g1 0.048 h 0.01: err g1 5.8e-07, r_th 5.1e-12, m+- 6.7e-07
+    PMEM g1 0.048 h 0.005: err g1 1.4e-07, r_th 2.3e-09, m+- 1.5e-07
+    PMEM g1 0.075 h 0.01: err g1 1.4e-07, r_th 1.3e-11, m+- 1.9e-07
+    PMEM g1 0.075 h 0.005: err g1 2.3e-07, r_th 3.5e-09, m+- 2.8e-07
+[pass] PMEM: planted static members (gamma_1 = 0, 0.012, 0.048, 0.075, known r_th, s_th, end masses) as profile slices through slice_masses, fit_asym, the parabolic throat minimum and asym_masses, h = (0.01, 0.005)  (max error gamma_1 5.8e-07 (bar 1e-05), r_th 3.5e-09 (bar 1e-06), m_+- 6.7e-07 (bar 0.0001))
+[pass] PDEP: planted growing pair (odd part q0 e^{lambda t}, known crossing times of 1e-3, 1e-2, 1e-1) through departure_time  (max |t_dep - exact| 6.3e-06 (bar 2e-05))
+    PTD gamma_1 0.012 r_th 0.997 v -1.0e-03 h 0.01: t_dep 13.6070 (13.6070), gamma_1 0.011994 (0.011994), r_th 0.995953 (0.995948), rdot_th -4.877e-04 (-4.879e-04)
+    PTD gamma_1 0.012 r_th 0.997 v -1.0e-03 h 0.005: t_dep 13.6070 (13.6070), gamma_1 0.011994 (0.011994), r_th 0.995953 (0.995948), rdot_th -4.877e-04 (-4.879e-04)
+    PTD gamma_1 0.048 r_th 0.999 v +2.0e-04 h 0.01: t_dep 13.6070 (13.6070), gamma_1 0.047994 (0.047994), r_th 0.999225 (0.999214), rdot_th +1.633e-04 (+1.638e-04)
+    PTD gamma_1 0.048 r_th 0.999 v +2.0e-04 h 0.005: t_dep 13.6070 (13.6070), gamma_1 0.047994 (0.047994), r_th 0.999225 (0.999214), rdot_th +1.633e-04 (+1.638e-04)
+    PTD gamma_1 0.075 r_th 1.008 v +2.0e-03 h 0.01: t_dep 13.6070 (13.6070), gamma_1 0.074994 (0.074994), r_th 1.010134 (1.010113), rdot_th +1.140e-03 (+1.141e-03)
+    PTD gamma_1 0.075 r_th 1.008 v +2.0e-03 h 0.005: t_dep 13.6070 (13.6070), gamma_1 0.074994 (0.074994), r_th 1.010134 (1.010113), rdot_th +1.140e-03 (+1.141e-03)
+    PTD gamma_1 0.012 r_th 1.001 v +1.0e-03 h 0.01: t_dep 13.6070 (13.6070), gamma_1 0.011994 (0.011994), r_th 1.002073 (1.002058), rdot_th +5.973e-04 (+5.982e-04)
+    PTD gamma_1 0.012 r_th 1.001 v +1.0e-03 h 0.005: t_dep 13.6070 (13.6070), gamma_1 0.011994 (0.011994), r_th 1.002073 (1.002058), rdot_th +5.973e-04 (+5.982e-04)
+[pass] PTD: planted pairs (odd part, trajectories of the measured size, rows every 0.5 in t from the exact static member) through member_at and speed_at: departure time, gamma_1, r_th and rdot_th at departure  (max error t_dep 7.2e-06 (bar 2e-05), gamma_1 4.8e-10 (1e-05), r_th 2.1e-05 (5e-05), rdot_th 1.4e-06 (5e-06))
+[pass] PFIT: planted data that follow the frozen refit exactly (M = r_th (M_0 + a g + b g^2 + c rdot) on the fifteen real (gamma_1, r_th, rdot_th)) return (a, b, c) and zero errors through fit and loo; with W3 displaced by 1e-4 in M its leave-one-out error is the displacement (in y) and the explicit and the hat-matrix leave-one-out agree  (max |co - planted| 2.0e-15, max |loo| 2.8e-17; displaced point: loo y error 1.006407e-04, displacement 1.006407e-04; explicit vs hat-matrix 1.0e-17)
+[pass] PPRED4: planted data that follow the frozen refit exactly pass the P4 test (1e-12), and planted data with a x 1.05, or c x 0.8, fire it (bar 6e-5)  (max |M - predicted|: own 0.0e+00; a x 1.05 8.7e-04; c x 0.8 1.9e-04 (bar 6e-05))
+[pass] PSEP3: planted points at known separations from three planted route curves (B, W, C) through the separation test: informative or not as planted (far, on a curve, 2 % and 10 % beyond the last point, 3e-6 and 6e-6 against an h difference of 1e-6)  (far from all three: B=YW=YC=Y; on route W's curve: B=YW=nC=Y; 2 % beyond the last point, far: B=YW=YC=Y; 10 % beyond the last point, far: B=nW=nC=n; 3e-6 in r_th against an h difference of 1e-6: B=nW=nC=n; 6e-6 in r_th against an h difference of 1e-6: B=YW=YC=Y)
+[pass] PLEV: planted leverage: the function at the fitted points equals the hat-matrix diagonal (1e-9), at random rows the SVD form (1e-9 relative), L(s a) = s^2 L(a) (1e-12), and 'above the fitted maximum' is false at 0.9 and 1.0 and true at 1.1 times W3's row  (max |L - hat| 1.5e-15; |L - svd|/L 5.7e-15; scaling 6.0e-15; decisions at 0.9, 1.0, 1.1 [False, False, True])
+[pass] PBAND: the LEVB decision (every leverage <= 1.0 and the largest >= 0.40) on planted triples: (0.1, 0.2, 0.39) false, (0.1, 0.2, 0.41) true, (0.2, 0.5, 1.0) true, (0.2, 0.5, 1.01) false, (0.45, 0.2, 0.1) true  (5 planted cases)
+
+8 checks (0 post hoc, gating nothing), 0 gating checks failed, 0 post hoc checks failed; 6 s
