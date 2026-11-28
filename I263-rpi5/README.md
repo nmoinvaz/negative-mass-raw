@@ -271,3 +271,8 @@ The RD controls use the committed code be7b9cb (the only change since 2e70c66 is
 
 *Targets of the Euler-sum controls* (part `euler7`; `dev_24_euler_*`): nominal fires nothing; `rd_master` (the coefficient of ΣH_nH_n^{(2)}/n³ in the exact assembly, 101/48 as 100/48) fires RD5c (sympy residual ≠ 0).
 `reduce7`'s `rd_master` (⟨lt²C²⟩'s ζ(6) coefficient) fires RD5, RD5b, RD7, as declared in A2.
+
+**A4 (2026-11-27, 17:00, after `run_06c`, before `run_09_weights7` and its controls): the part `weights7`.**
+`run_06a` … `run_06c` were read before this amendment: Q1 … Q4 not found; Q5, Q6, Q7, Q8, Q9 found, each the same relation 315 Ω₅ = … with zero coefficients on every Li constant (Q7, Q8) and on the 11 weight-7 constants (Q9), verified at 350 digits.
+`weights7` prints Ω₅ by weight from the relation of Q6 (its constants' weights 6 … 0, the values of the parts and which monomials of each weight are present) and the check **W7**: the sum of the parts equals Ω₅ from the relation, which lies in 40860 … 40861. Control `w7_rel` (a coefficient of the relation off by one) fires W7 (`dev_26_weights_*`).
+Declared: nominal fires nothing, `w7_rel` fires W7. The coefficient of ζ(3) and of ζ(3) ln 2 in Ω₃, Ω₄, Ω₅ is an observation I made while reading the output, not a check.
