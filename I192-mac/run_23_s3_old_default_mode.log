@@ -3,3 +3,6 @@
 # binary release/taylor_polar: b90af35e431cdc205a8a42cddcf222e9
 # binary complex/release/taylor_polar: a952a89221069905189615148e255e6c
 CHECK T1: PASS  J at order 0, crate (dd) against the generated function at 60 digits, 8 points x 36 entries: worst relative 5.49e-28 at (l, r, s, i, j) = (6, 24.1, 12000.0, 3, 5) (bar 1.00e-24)
+CHECK T2: PASS  J's series (30 coefficients) at 0.1 of a star step against the generated function at 60 digits on the series' own background, 4 cases, 96 entries: worst relative 3.10e-29 (bar 1.00e-24)
+CHECK R1: FAIL  raised RuntimeError: /private/tmp/claude-501/-Users-nathan-Source-negative-mass-i192/49af8a24-a787-474c-b774-7b29bee02e53/scratchpad/trees/old/phase2/nonradial/taylor_polar/target/bins/old_libplane d lane=dd l=2 gammas=0. exited -15: 
+CHECK P1[f64]: PASS  y' = A y, A = blockdiag([[0,1],[g^2,0]]) + C, L = 24.0, Lz = 40.0 against the invariant subspaces at 90 digits; worst D 8.36e-16, planes 3.06e-16, ln vol 2.11e-12 (bars 1.00e-06, 1.00e-09, 1.00e-09); g=3: D=0.090986 steps 25+42; g=10: D=0.00376077 steps 72+125; g=300: D=1.59705e-7 steps 2123+3545; g=12000: D=2.5056e-12 steps 84921+141541

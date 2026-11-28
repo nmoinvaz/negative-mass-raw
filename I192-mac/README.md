@@ -223,3 +223,8 @@ directory held only `phase2/nonradial`, and `background.py` puts `phase2/` on th
 that had run passed). The trees are now `git archive HEAD phase2` (the crate's sources left out), one per pin (`old`, `new`), each with its own `taylor_polar/target/{release,complex/release,bins}`; S1 on the old tree passes
 (29 s). **The chains are renumbered**: old pin `run_23` default mode, `run_25` rows, `run_27` rows with the lib_plane binaries, `run_29` complex; new pin `run_24`, `run_26`, `run_28`, `run_30`. The first scratch trees are
 kept as `trees_nophase2_unused` outside the repository and are not used.
+
+**A7 (2026-11-27, the record runs again).** `run_11_s3_records_default` ended with exit 1 at its last command: `jjets` prints one JSON object over several lines and `s3_records.py` read it line by line (a harness fault; `run_11`'s log is kept).
+Every command before it, old binary against new, was equal as strings: `d` f64, dd, qd at l = 2 and 6 (22 records), `planted` const and linear in f64, dd, qd (42 records), `starsteps` (164), `jtable` l = 2 and l = 6 (465 records each, every
+coefficient of J0 and J1 at 20 digits), `recipcheck` in f64, dd, qd, od, and `tabcheck`. `run_12_s3_records_libplane`, started by the same chain, was stopped by its PID after one minute (rc 143 written by hand) so that it would not hit the same fault.
+`s3_records.py` now reads `jjets` whole. The record runs are `run_31` (default), `run_32` (lib_plane), `run_33` (complex), `run_34` (the `jsign` control, must exit 1).
