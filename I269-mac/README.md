@@ -101,4 +101,13 @@ limits are *numerical evidence*. No sentence says a result is new.
 
 ## Runs of record
 
-(to be appended)
+2026-11-27, script `notes/black_universe/exact_mode.py` at branch commit e0c1c44 (unchanged since the declaration), `runs/runrec.sh` (logs are numbered, none overwritten).
+
+| run | log | result | exit |
+|---|---|---|---|
+| `derive` | `runs/derive_run1.log` | S0 S1 S2 S3 S4a S4b S5 S6: 8 of 8 pass, 7 s | 0 |
+| `check` | `runs/check_run1.log` | N0 – N6: 7 of 7 pass, 6 s | 0 |
+| 11 mutations, each `derive` + `check` | `runs/m_<name>_{derive,check}_run1.log`, concatenated in `runs/m_<name>.log` | the fired sets equal the declared ones, 11 of 11 (`exact_mode.py mutations runs m_`) | 1 (a failed check exits 1, as intended) |
+
+Worst residuals in the run of record: N0 2.41e-51, N1 2.81e-49, N2 1.23e-50, N6 3.34e-49; N3 exact. No amendment to the criteria.
+`exact_mode_output.txt` in the repository is `derive_run1.log`, `check_run1.log` and the `mutations` report, in that order.
