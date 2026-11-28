@@ -6,7 +6,7 @@ import sys
 
 d = os.path.dirname(os.path.abspath(__file__))
 runs = [r for r in ("run_01_sym_struct_cache", "run_02_evals_G1", "run_03_evals_G2", "run_04_evals_B", "run_05_values_remainder", "run_06a_pslq_F1_F6_X1", "run_06b_pslq_X2_X3",
-                    "run_06c_pslq_XF", "run_07_closed6")
+                    "run_06c_pslq_XF", "run_06d_pslq_XF_H1e10", "run_07_closed6")
         if os.path.exists(f"{d}/{r}.rc")]
 code = sys.argv[2] if len(sys.argv) > 2 else "CODEHASH"
 out = ["# Output of order8.py of record: negative-mass-raw/I282-rpi5/" + " ".join(runs) + ", concatenated in this order, then the summaries of the control runs. "
@@ -33,7 +33,7 @@ for r in runs:
                 failed.append(m.group(2))
 out.append(f"=== totals of the runs of record: {npass} PASS, {nfail} FAIL of {npass + nfail} checks; FAIL: {' '.join(failed) or 'none'}")
 out.append("")
-for pre, decl in (("ctl_chk", "declared_chk.json"), ("ctl_t1", "declared_t1.json"), ("ctl_t2", "declared_t2.json"), ("ctl_t2b", "declared_t2b.json"), ("ctl_st", "declared_st.json")):
+for pre, decl in (("ctl_chk", "declared_chk.json"), ("ctl_t1", "declared_t1.json"), ("ctl_t2", "declared_t2.json"), ("ctl_t2b", "declared_t2b.json"), ("ctl_t2bxf", "declared_t2bxf.json"), ("ctl_st", "declared_st.json")):
     if os.path.exists(f"{d}/{decl}"):
         s = subprocess.run([sys.executable, f"{d}/ctl_summary.py", pre, "--declared", f"{d}/{decl}"], capture_output=True, text=True).stdout
         out.append(f"=== control runs {pre}_* against {decl}")
