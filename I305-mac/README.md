@@ -92,3 +92,25 @@ Leverage at γ₁ = 0.012, 0.048, 0.075 (S = their sum), ṙ_th and D (smallest 
 **What this means, written before the development set:** the rule picked the most extreme candidate scanned. Its leverage at γ₁ = 0.075 is 7.8 times the fitted maximum and its ṙ_th at γ₁ = 0.048 and 0.075 is about four times the fitted
 minimum (−6.65e-4), so this is an extrapolation of the frozen fit far beyond the edge of its data, not a step outside it. A miss of the bar 6e-5 is expected here and is not a ground to move the bar. The issue's own example (2.5, 0.35) counts (S 0.618, max L 0.452) and
 was not selected. A graded test of how the error grows with leverage (the routes (4.0, 1.0), (4.5, 1.0), (4.0, 1.5) have leverage up to 0.71, 1.13, 3.06 at h = 0.02) is a recommended task, not part of this issue.
+
+## Stage 2a: the development set's P4 and FITQ, the coordinator's ruling, and where the note will place a miss (declared before the runs of record)
+
+**Seen on the development set** (`dev/set_a`, `dev/ana_dev1.log`, h = 0.005, before any criterion of stage 2 was written): M − P4 = +9.0e-05, +2.1e-04, +2.0e-04 at X1, X2, X3 (bar 6e-5), so P4 fails on this route as it stands;
+the member's static-fit rms (FITQ, #283's bar 1e-4) is 6.5e-5, 1.46e-4, 2.09e-4, so FITQ fails at X2 and X3. `scripts/fitq_diag.py` (`dev/fitq_diag.1.log`): over 22 stored members at h = 0.005 the rms correlates with |ṙ_th| at +0.95
+(with |r_th − 1| at +0.80, with |γ₁| at +0.55), and the fitted point B0.125 (ṙ_th = +1.59e-3) is at 1.07e-4, above the bar too; the rms of X2 falls with t from 1.5e-4 at t_dep = 13.6 to 1.1e-4 at t = 15 (and is 4.6e-3 at t = 10).
+The planted cases (PMEM, PTD: exact static members with the speeds of this route) recover γ₁, r_th, ṙ_th to 5e-10, 2e-5 and 1.4e-6, so the extraction code is not what fires FITQ: the state at departure is not an exact static member.
+FITQ is a gating check of #283's, kept at its bar; it fires on real data and its bar is not moved.
+
+**The coordinator's ruling (hc, 2026-11-28, after the heads-up on these numbers):** continue with the declared route (4.0, 1.5); switching to a milder route after the development residuals would choose the test by its outcome. Report P4 as it falls with FITQ beside it;
+say which of two the miss belongs to as far as the data allow, without deciding it post hoc: (form) the three-term form does not hold outside its fitted data, (reading) the member's (γ₁, r_th) of a state that a static member describes poorly are not what the form assumes.
+In the recommended tasks, propose a route with leverage between 0.4 and 1.0 chosen by a rule declared before any run.
+
+**Readings that bear on the placement** (post hoc blocks of the analysis of record; they gate nothing; stored runs only, no new run), and the verdict map, fixed here:
+- **M1 (the confound).** rms of the static fit against |ṙ_th|, |r_th − 1|, |γ₁| over the stored members (21 plus the new three) and its Pearson correlation. A correlation of at least 0.9 with |ṙ_th| says: in these data a poor member fit and a large throat speed are one coordinate, so the new route cannot by itself tell the form from the reading.
+- **M2 (common mechanism).** The ratio |M − P4| / rms at the six held-out members (#295's N1 to N3 and the new X1 to X3), geometric mean g_N over N and g_X over X. If g_X/g_N is within [1/3, 3] a common mechanism proportional to the misfit is consistent; if g_X/g_N is above 10 or below 0.1 the misfit alone does not carry the miss. (Known from the development set: N's ratios are 0.03 to 0.09 and X's 0.95 to 1.4, so this reading is **not blind**.)
+- **M3 (the reading's own ambiguity against the shift that would close the miss).** For each new member the shift of one reading that would bring P4 to M, δ*_q = (M − P4) / (∂P4/∂q) for q = γ₁ (∂ = r_th (a + 2 b γ₁)), r_th (∂ = M₀ + a γ₁ + b γ₁² + c ṙ_th) and ṙ_th (∂ = r_th c);
+  and the ambiguity A_q = |q(ε = 1e-2) − q(ε = 1e-3)| of that reading in the same stored run (the definition of departure, #266's `eps_alt`; ṙ_th at its own t_dep). R_q = A_q / |δ*_q|. A point is *reading-compatible* if the largest R_q is at least 1, *form-side* if all three R_q are below 1/3, otherwise in between.
+  (The ε = 1e-2 readings of X1 to X3 are not computed before this section is committed.) Caveat, stated now: the coefficients were fitted on ε = 1e-3 readings, so a definitional shift that is the same on every route is absorbed by them; A_q measures how loosely the reading is defined, not an error, which is why M3 alone does not decide.
+- **Verdict map.** *Reading*: M2 consistent and all three new points reading-compatible. *Form*: M2 apart and all three new points form-side. Anything else: *not separable by these data*, and the note names the measurement that would separate them (a route at leverage 0.4 to 1.0 whose speed is within the fitted range, and the refit at another departure definition, #296's third task).
+  Whatever the verdict, a reading error larger than M3 measures is not excluded by the data, and the note says so.
+The verdict logic is also run on planted inputs (PBEL) before the real ones.
