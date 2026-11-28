@@ -1,0 +1,53 @@
+# identity_review.py parts=exch,bnd mutate=c_wrong shift=
+
+== part exch ==
+# nodes loaded from /tmp/claude-1000/-home-nathan-Source-negative-mass-i264/68a7bf57-1915-46d5-843f-9e1cd30b9313/scratchpad/cache_rec/roots_cwrong_b440_N160_n40_w0.5.pkl
+# integrals accumulated in 1.8 s; 1480 nodes; shift {}
+PASS H3_G2 : G_2: quadrature 2.2668185e-69, (L_k + 2 Om_{k-1})/u at the cutoff 2.2668185e-69, digits 91.5
+PASS H3_G3 : G_3: quadrature 12.279732, (L_k + 2 Om_{k-1})/u at the cutoff 12.279732, digits 91.3
+PASS H3_G4 : G_4: quadrature 8090.9068, (L_k + 2 Om_{k-1})/u at the cutoff 8090.9068, digits 92.3
+PASS H3_G5 : G_5: quadrature 5483764.7, (L_k + 2 Om_{k-1})/u at the cutoff 5483764.7, digits 94.6
+PASS H3_G6 : G_6: quadrature 3.0683634e+9, (L_k + 2 Om_{k-1})/u at the cutoff 3.0683634e+9, digits 95.8
+# G7 quadrature 1.555092236e+12 (no L_7 in the hierarchy)
+PASS H2_G2 : |G_2| = 2.267e-69 at the closed forms (bar 1e-30)
+FAIL H2_G3 : |G_3| = 12.28 at the closed forms (bar 1e-30)
+FAIL H2_G4 : |G_4| = 8091.0 at the closed forms (bar 1e-30)
+FAIL H2_G5 : |G_5| = 5.484e+6 at the closed forms (bar 1e-30)
+FAIL H2_G6 : |G_6| = 3.068e+9 at the closed forms (bar 1e-30)
+# G_7 at #263's Omega_5: 1.555e+12 (reported)
+FAIL E1_6 : lhs 3068363442.45 rhs 3086094759.66 | raw 2.24 digits, with the boundary term -1.773e+7 at the cutoff 97.1 digits (scale 3.09e+9)
+FAIL E1_7 : lhs 1.55509223646e+12 rhs 1.56590013774e+12 | raw 2.16 digits, with the boundary term -1.081e+10 at the cutoff 99.2 digits (scale 1.57e+12)
+PASS E2_2 : lhs 29.266600969 rhs 29.266600969 | raw 68.3 digits, with the boundary term 3.879e-67 at the cutoff 92.8 digits (scale 80.2)
+FAIL E2_3 : lhs 1706.27229432 rhs -395.096869303 | raw 0.0672 digits, with the boundary term 2101.0 at the cutoff 92.1 digits (scale 2.45e+3)
+FAIL E2_4 : lhs 663762.786481 rhs -720793.641474 | raw -0.28 digits, with the boundary term 1.385e+6 at the cutoff 93.6 digits (scale 7.26e+5)
+FAIL E2_5 : lhs 305358846.735 rhs -633050391.355 | raw -0.171 digits, with the boundary term 9.384e+8 at the cutoff 95.4 digits (scale 6.33e+8)
+FAIL E2_6 : lhs 128334271532.0 rhs -396739422558.0 | raw -0.122 digits, with the boundary term 5.251e+11 at the cutoff 97.8 digits (scale 3.97e+11)
+PASS E3_3 : lhs 118.58707565 rhs 118.58707565 | raw 67.0 digits, with the boundary term -3.391e-65 at the cutoff 91.3 digits (scale 303.0)
+FAIL E3_4 : lhs 691925.484407 rhs 700194.774474 | raw 1.93 digits, with the boundary term -8269.0 at the cutoff 94.0 digits (scale 7.0e+5)
+FAIL E3_5 : lhs 454248445.869 rhs 462477489.338 | raw 1.75 digits, with the boundary term -8.229e+6 at the cutoff 95.8 digits (scale 4.63e+8)
+FAIL E3_6 : lhs 247569997626.0 rhs 253540217641.0 | raw 1.63 digits, with the boundary term -5.97e+9 at the cutoff 98.5 digits (scale 2.54e+11)
+FAIL E3_7 : lhs 1.20821306415e+14 rhs 1.24460378897e+14 | raw 1.53 digits, with the boundary term -3.639e+12 at the cutoff 99.9 digits (scale 1.24e+14)
+FAIL E4_6 : lhs -890359023.266 rhs -906222279.463 | raw 1.76 digits, with the boundary term 1.586e+7 at the cutoff 58.3 digits (scale 9.06e+8)
+FAIL E4_7 : lhs -658399171160.0 rhs -674185220960.0 | raw 1.63 digits, with the boundary term 1.579e+10 at the cutoff 58.3 digits (scale 6.74e+11)
+FAIL E2Wa : lhs 120057840956.0 rhs -42122262766.8 | raw -0.131 digits, with the boundary term 1.622e+11 at the cutoff 97.2 digits (scale 1.2e+11)
+FAIL E2Wb : lhs -321660175340.0 rhs 113115957848.0 | raw -0.131 digits, with the boundary term -4.348e+11 at the cutoff 58.2 digits (scale 3.22e+11)
+FAIL E5 : lhs 49257699524.8 rhs 39626802038.9 | raw 0.709 digits, with the boundary term -8.996e+8 at the cutoff 0.67 digits (scale 4.93e+10)
+FAIL G6R : lhs 3068363442.45 rhs -659821183.271 | raw -0.0846 digits, with the boundary term 3.728e+9 at the cutoff 58.8 digits (scale 3.07e+9)
+FAIL G7R : lhs 1.55509223646e+12 rhs -108657941221.0 | raw -0.0293 digits, with the boundary term 1.653e+12 at the cutoff 2.17 digits (scale 1.56e+12)
+# part exch: 2.7 s
+
+== part bnd ==
+# nodes loaded from /tmp/claude-1000/-home-nathan-Source-negative-mass-i264/68a7bf57-1915-46d5-843f-9e1cd30b9313/scratchpad/cache_rec/roots_cwrong_b440_N160_n40_w0.5.pkl
+PASS H0 : Y1, L1, Y2, L2 against README's closed forms at 20 nodes, l from 0.25 to 50.15: worst difference 1.02e-81 (bar 1e-35)
+PASS BND_throat : b/(theta * predicted) - 1 at theta = 0.000441, 0.00232: worst over 11 terms 4.58e-6 (bar 1e-4); e.g. E4_6 1.69e-6, E5 3.78e-6, E2Wb 3.21e-6
+FAIL BND_outer : b/(x l^q) bounded by 1e3 at l = 30, 60, 100:
+#   l = 29.98: E1_6 -304.0, E1_7 -424.0, E2_5 1.52e+3, E2_6 2.01e+3, E3_5 -156.0, E3_6 -248.0, E4_6 565.0, E4_7 1.08e+3, E2Wb -2.37e+3, E5 -179.0
+#   l = 59.91: E1_6 -9.12e+7, E1_7 -1.45e+8, E2_5 8.69e+8, E2_6 1.29e+9, E3_5 -4.37e+7, E3_6 -8.28e+7, E4_6 1.09e+8, E4_7 2.69e+8, E2Wb -1.26e+9, E5 -2.54e+7
+#   l = 99.99: E1_6 -6.82e+15, E1_7 -1.15e+16, E2_5 1.07e+17, E2_6 1.66e+17, E3_5 -3.21e+15, E3_6 -6.44e+15, E4_6 7.04e+15, E4_7 1.89e+16, E2Wb -1.5e+17, E5 -1.41e+15
+# GROW at l = 256.0: Y_k/l^k k=1..7: -1.0, -1.48, 0.531, 2.21e+47, 6.35e+47, 1.34e+48, 2.36e+48
+# GROW at l = 256.0: L_k/l^k k=1..6: -1.98, 4.04, 2.83e+49, 5.37e+49, 1.06e+50, 1.72e+50
+# nodes loaded from /tmp/claude-1000/-home-nathan-Source-negative-mass-i264/68a7bf57-1915-46d5-843f-9e1cd30b9313/scratchpad/cache_rec/roots_cwrong_b500_N190_n44_w0.4.pkl
+FAIL H1 : second setting (N=190, 500 bits, 44 nodes on panels of 0.4, l_end 339): largest relative change 0.054 (E3l_7), bar 1e-40
+# part bnd: 7.3 s
+
+23 check(s) failed: H2_G3, H2_G4, H2_G5, H2_G6, E1_6, E1_7, E2_3, E2_4, E2_5, E2_6, E3_4, E3_5, E3_6, E3_7, E4_6, E4_7, E2Wa, E2Wb, E5, G6R, G7R, BND_outer, H1
