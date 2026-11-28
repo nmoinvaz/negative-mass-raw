@@ -1,0 +1,17 @@
+[pass] S0: the static member solves the five equations in the null chart, symbolic c (convention and potential: planted truth)  (vv: 0, vr: 0, rr: 0, thth: 0, scal: 0)
+    (S0: 1 s)
+[pass] S1: for an arbitrary lam(v), r = lam R, F = A - 2 rho lam'/lam + 1/lam^2 - 1: E_rho rho, E_v rho, E_theta theta and the scalar equation vanish identically  (rr: 0, vr: 0, thth: 0, scal: 0)
+[pass] S2: the remaining equation: E_vv = 2 (K lam lam' - lam lam'' - lam'^2) / ((1 + rho^2) lam^2), K = -2c/pi; it is zero iff (lam lam')' = K lam lam'  (the rho dependence is the overall factor 1/(1 + rho^2))
+    (S1: 1 s)
+[pass] S3: lam^2 = L + beta e^{K v}: all five residuals vanish identically for symbolic c, L, beta  (vv: 0, vr: 0, rr: 0, thth: 0, scal: 0)
+    (S3: 5 s)
+[pass] S4a: the rate is the first integral K = (R^2 A' - 2 rho A)/2 + rho of the static equations (rho independent, equal to -2c/pi)
+[pass] S4b: with c and the coefficient Ks of rho + R^2 arctan rho independent (no asymptotic flatness): the same four vanish and E_vv has Ks in place of K  (the rate is the coefficient Ks, whatever c)
+    (S4: 1 s)
+[pass] S5: the first-order part delta r = (beta/2) R e^{K(t+x)} is Y_K: #212's operator Y'' - P Y' - Q Y of the master equation annihilates R e^{Wx} at W = the candidate's rate
+    (S5: 0 s)
+[FAIL] S6: the hand-reduced equations (R_ab = (R2/2) h_ab - 2 H_ab/r, R_theta theta = 1 - r box r - (grad r)^2, box phi) at arbitrary lam(v) give the same residuals as the brute-force tensor: four zero, E_vv as in S2  (rr: ok, vr: differs, thth: differs, scal: ok, vv: ok)
+    (S6: 0 s)
+
+8 checks, 7 pass; failed: ['S6']; mutation hand_drop; 8 s
+rc=1

@@ -21,7 +21,9 @@ for p in ctl:
     b = [x for x in body(p) if x.startswith("CHECK") or x.startswith("SUMMARY")]
     lines += [f"-- {os.path.basename(p)[:-4]} (exit {rc(p)})"] + [x[:600] for x in b]
 lines += [""]
-for p in runs("D_report"):
-    lines += [f"## report ({os.path.basename(p)}, exit {rc(p)})"] + body(p)
+for p in runs("D_report_2"):
+    lines += [f"## report ({os.path.basename(p)}, exit {rc(p)}; run_16 is the same report before the gamma^2 section was added)"] + body(p) + [""]
+for p in runs("E_jround"):
+    lines += [f"## the rounding error of the generated J in f64 ({os.path.basename(p)}, exit {rc(p)})"] + body(p)
 open(out, "w").write("\n".join(lines) + "\n")
 print(f"wrote {out}: {len(lines)} lines")

@@ -137,3 +137,37 @@ rdot(tau); all passed in the development suite (dev_11) before any run of record
 logs `runs/logs/job_<name>.{log,time,rc,lane}` never overwritten (a rerun gets a number). Measured in development: one D = 5 run to the event costs 14 s (h = 0.00707) and 45 s (h = 0.00354); the
 finest h about 3 to 5 min, so a bisection at h = 0.00177 is about 1 to 1.5 h, inside the 2 h stop. The X = 160 runs: #225's X = 100 took 97 s and 414 s, so about 4 min and 18 min.
 Memory is reported (`/usr/bin/time -v`), not a stop condition.
+
+## Stage 3: rulings and changes during the runs of record (written while the runs were going; nothing in Stage 1 or 2 changed)
+
+- **Rulings (coordinator, over hc).** Q1: no waiver of the 2 h stop for B = 0.2 at h = 0.00177; the job ends at its `timeout 7200` and is reported as stopped with what finished
+  (`bisect/D5_B0.2_h0.00176777/points.jsonl`), and B = 0.2 is reported at the two h that finished. Q2: yes to a **post-hoc supplementary scan**, D = 5, B = 0.02 and 0.07 at
+  h = 0.00707 and 0.00354, the same `bisect_stall` procedure, output in `runs/extra/`, run after the declared runs, gating no criterion; PR and PV stay as declared.
+- **What the declared runs showed on the way** (the first `analyze` over the finished jobs, `runs/analysis_partial1.log`, which stopped on a report-only bug in the mass table):
+  NO fails at B = 0.04 (max |odd| 3.4e-4 against 3e-4 at the end of the window; the fit mask drops the points above 3e-4); QS fails at B = 0.2, h = 0.00707 (1.0e-2 against 5e-3); JOB fails at
+  B = 0.2: the + side run (A = p*_h + 1e-10) does not reach #40's expansion event inside the triangle (t <= 34; near threshold at B = 0.2 the expansion event is at t = 52 to 56 on the
+  diagonal) and the locus's r_min = 2 level is crossed on both sides (the throat radius exceeds 2 during the stall), so the locus fates are (+1, +1). Not changed; reported.
+- **Code after 6f060f4.** Report-only additions and the bug fix of the mass table go in a later commit (named in the note); no check, bar, window or mutation changes.
+
+## Stage 4: results (after the runs of record, the analysis in `runs/analysis_record2.log` = `notes/wormhole_evolution/throat_drift_output.txt`, driver at a44d066)
+
+Jobs (`runs/logs/job_*.{log,time,rc,lane}`, `runs/logs/lanes.log`): 18 declared jobs, all rc = 0 except `bs_D5_B0.2_hk2` (rc = 124, the 2 h timeout: 33 runs, bracket not finished; its points are
+`runs/bisect/D5_B0.2_h0.00176777/points.jsonl`; no waiver, coordinator's ruling Q1); the 4 post-hoc extras (`*_extra`, `runs/extra/`) rc = 0. Longest finished job 57 min (`bs_D5_B0.2_hk1`), the X = 160
+expansions 4 min and 31 min, peak memory 306 MB (`/usr/bin/time -v`), load average 12 to 23 of 20 (four lanes, nice 10).
+
+| result | value |
+|---|---|
+| checks | 37 of 48 pass; fail: PR, PV, NO (B = 0.04, three h), QS (B = 0.2, two h), JOB (B = 0.2, three h), CV (B = 0.2) |
+| PS | p*_h exponent between B = 0.04 and 0.1: 2.044 (h = 0.00354), 2.107 (0.00177): met |
+| PR | r_th - 1 exponent: 2.610, 2.769, 2.857 (t = 8, 10, 12; h = 0.00354); 2.602, 2.761, 2.851 (0.00177): not met |
+| PV | rdot_inf exponent 3.163, 3.162; kappa ratio 1.026, 1.033: not met (exponent) |
+| rdot_inf (h = 0.00177) | B = 0.04: +0.00144 +- 6e-6; B = 0.1: +0.02602 +- 4e-5 (D = 4: B = 0.1 +0.00133, B = 0.04 0.0000 +- 4e-6) |
+| expanding member (D = 5, A = 0.05, X = 160) | FT at both h, k = 3.9957, tau_s / tau_end = 1.1759, 1.1760 (KX2 and RES2 met; X = 100: GROW, 1.2024) |
+| mutations on the record | `runs/mut/summary.txt`: every declared target fires except where the check already fails in the unmutated record (PR, PV) and `ts_bound` (KX2 passes under both bounds) |
+
+Contents of `runs/`: `bisect/D<D>_B<B>_h<h>/{summary.json,points.jsonl}` (every bisection run: amplitude, fate, T), `stall/stall_D<D>_B<B>_h<h>_d1e-10_side{-1,1}.npz` (the pairs), `expand/G_D5_0.05_h<h>.npz`,
+`ctl/` (CT1, CT2, CT4), `extra/` (the post-hoc scan, same layout), `mut/` (mutation runs on the record), `analysis_partial1.log` (the first analysis, which stopped on a report-only bug), `analysis_record1.log`
+(before the energy table), `analysis_record2.log` (of record), `queue.txt` (empty: every line was taken), `logs/`.
+
+**Discrepancies reported, not repaired:** PR and PV not met; NO at B = 0.04 by 13 %; QS at B = 0.2; JOB at B = 0.2 (triangle cap t <= 34 inherited from #225 is shorter than the + side's expansion event at t = 38 to 56
+and the locus's r_min = 2 level is crossed on both sides while the throat radius exceeds 2); B = 0.2 at h = 0.00177 not finished. The prediction in Stage 1 was right about the threshold (p*_h ~ B^2) and wrong about the radius and its speed.

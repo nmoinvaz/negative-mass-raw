@@ -1,0 +1,5 @@
+# 2026-11-27 13:13:44 cwd=/Users/nathan/Source/negative-mass-i188/phase2/nonradial load=5.96 5.07 5.24
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python -u taylor_polar.py --complex --raw=/Users/nathan/Source/negative-mass-raw --ref-dir=/Users/nathan/Source/negative-mass-raw/I188-mac/ref --jsonl-dir=/Users/nathan/Source/negative-mass-raw/I188-mac/jsonl_rec --only=CX2
+# taylor_polar.py --complex: start 2026-11-27 13:13:44, load average 5.96, one process, nice 10; lane dd; mutate = None
+CHECK CX2: PASS  winding2's counter with the crate as the evaluator: b1 (dd): winding -0.0000 (stored +0.0000), max step 0.39 rad, min|D| 6.70e-04, plant difference +2.0000 (expected 2, step 0.40); 147 points asked, 0 not in the stored cache, 0 stored points not asked; 147 evaluated now, 155 s; b2 (dd): winding +0.0000 (stored +0.0000), max step 0.39 rad, min|D| 1.95e-05, plant difference +2.0000 (expected 2, step 0.40); 195 points asked, 0 not in the stored cache, 0 stored points not asked; 195 evaluated now, 62 s
+SUMMARY: 1 passed, 0 failed, 0 skipped of 1 checks; mutate = None; 230 s

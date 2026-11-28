@@ -1,0 +1,70 @@
+    Checking crossbeam-utils v0.8.23
+    Checking either v1.19.0
+    Checking crossbeam-epoch v0.9.21
+    Checking crossbeam-deque v0.8.8
+    Checking rayon-core v1.13.0
+    Checking rayon v1.12.0
+    Checking multidouble v6.1.0
+    Checking multisolver v0.3.0
+    Checking multishoot v4.2.0 (/Users/nathan/Source/negative-mass-i188-libs/multishoot)
+error: the loop variable `p` is only used to index `q`
+   --> tests/plane_complex.rs:185:22
+    |
+185 |             for p in 0..c {
+    |                      ^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.94.0/index.html#needless_range_loop
+    = note: `-D clippy::needless-range-loop` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::needless_range_loop)]`
+help: consider using an iterator
+    |
+185 -             for p in 0..c {
+185 +             for <item> in q.iter().take(c) {
+    |
+
+error: redundant closure
+   --> tests/plane_complex.rs:223:64
+    |
+223 |     let mut pl = Plane::<Complex<T>>::new(N, 2, &basis([0, 1], |x| Complex::from_f64(x)));
+    |                                                                ^^^^^^^^^^^^^^^^^^^^^^^^ help: replace the closure with the associated function itself: `Complex::from_f64`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.94.0/index.html#redundant_closure
+    = note: `-D clippy::redundant-closure` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::redundant_closure)]`
+
+error: this `if` has identical blocks
+   --> tests/plane_complex.rs:255:57
+    |
+255 |       let ph: [(T, T); 2] = if wrong == Wrong::RefNoPhase {
+    |  _________________________________________________________^
+256 | |         [(T::one(), T::zero()), (T::one(), T::zero())]
+257 | |     } else if f == [0.0; N] {
+    | |_____^
+    |
+note: same as this
+   --> tests/plane_complex.rs:257:29
+    |
+257 |       } else if f == [0.0; N] {
+    |  _____________________________^
+258 | |         [(T::one(), T::zero()), (T::one(), T::zero())]
+259 | |     } else {
+    | |_____^
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.94.0/index.html#if_same_then_else
+    = note: `-D clippy::if-same-then-else` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::if_same_then_else)]`
+
+error: the loop variable `i` is used to index `q0`
+   --> tests/plane_complex.rs:264:18
+    |
+264 |         for i in 0..N {
+    |                  ^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.94.0/index.html#needless_range_loop
+help: consider using an iterator and enumerate()
+    |
+264 -         for i in 0..N {
+264 +         for (i, <item>) in q0.iter().enumerate().take(N) {
+    |
+
+error: could not compile `multishoot` (test "plane_complex") due to 4 previous errors
+warning: build failed, waiting for other jobs to finish...

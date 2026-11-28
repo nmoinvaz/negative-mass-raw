@@ -1,0 +1,5 @@
+# 2026-11-27 12:33:37 cwd=/Users/nathan/Source/negative-mass-raw/I188-mac
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python /Users/nathan/Source/negative-mass-i188/phase2/nonradial/taylor_polar.py --complex --only=XR --raw=/Users/nathan/Source/negative-mass-raw
+# taylor_polar.py --complex: start 2026-11-27 12:33:38, load average 7.67, one process, nice 10; lane dd; mutate = None
+CHECK XR: FAIL  stripped D at R_s = 200.00, 300.00, 600.00 against R_s = 404.85 (dd, 8 points of b1): worst modulus ratio 2.2e-16, worst phase 1.1e-01 rad (bar 1e-09)
+SUMMARY: 0 passed, 1 failed, 0 skipped of 1 checks; failed: XR; mutate = None; 68 s

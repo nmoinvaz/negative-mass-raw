@@ -1,0 +1,44 @@
+# 2026-11-27 13:52:10 cwd=/Users/nathan/Source/negative-mass-i188-libs/multishoot
+# cmd: env cargo test --release -j 2 --features mutate --test plane_complex -- --nocapture --test-threads=1
+
+running 16 tests
+test complex_ln_of_a_complex_panics - should panic ... ok
+test complex_real_embedding_is_exact ... ok
+test complex_sqrt_recip_div ... ok
+test complex_to_f64_of_a_complex_panics - should panic ... ok
+test no_conj_dd ... control NoConj dd: plane 4.31e-31 gauge 9.70e-1 ln_err 1.26e-29 phase 1.81e0 orth 4.42e-32
+ok
+test no_conj_f64 ... control NoConj f64: plane 6.68e-16 gauge 9.70e-1 ln_err 1.14e-13 phase 1.81e0 orth 1.62e-15
+ok
+test no_conj_qd ... control NoConj qd: plane 1.55e-63 gauge 9.70e-1 ln_err 1.39e-62 phase 1.81e0 orth 3.24e-64
+ok
+test p1c_dd ... P1c dd: steps 100 plane 4.28e-31 gauge 2.35e-29 ln_err 6.31e-30 (bar 4.74e-26) ln_im 0.0e0 phase 2.67e-29 orth 4.33e-33 digest 79dc4a147b4a9016
+ok
+test p1c_f64 ... P1c f64: steps 160 plane 1.56e-15 gauge 9.77e-15 ln_err 1.14e-13 (bar 4.27e-10) ln_im 0.0e0 phase 3.20e-14 orth 1.11e-16 digest 9460db0b7ba0a8ab
+ok
+test p1c_qd ... P1c qd: steps 61 plane 1.11e-63 gauge 4.08e-62 ln_err 2.51e-61 (bar 5.79e-58) ln_im 0.0e0 phase 3.61e-62 orth 4.27e-65 digest 79376e95e7f37717
+ok
+test real_embedding_dd ... P1c f = 0 dd: complex digest 427fbd3f6c9e98a4, real digest 427fbd3f6c9e98a4, steps 96 and 96
+P1c(f = 0) dd: steps 96 plane 1.47e-31 gauge 8.32e-32 ln_err 6.31e-30 (bar 4.74e-26) ln_im 0.0e0 phase 1.54e-33 orth 3.08e-33 digest 427fbd3f6c9e98a4
+ok
+test real_embedding_f64 ... P1c f = 0 f64: complex digest 4ad9854605ab62ee, real digest 4ad9854605ab62ee, steps 154 and 154
+P1c(f = 0) f64: steps 154 plane 8.42e-16 gauge 6.66e-16 ln_err 4.55e-13 (bar 4.27e-10) ln_im 0.0e0 phase 4.44e-16 orth 4.44e-16 digest 4ad9854605ab62ee
+ok
+test real_embedding_qd ... P1c f = 0 qd: complex digest 09d4fcf483770ce5, real digest 09d4fcf483770ce5, steps 58 and 58
+P1c(f = 0) qd: steps 58 plane 5.32e-64 gauge 4.08e-64 ln_err 1.82e-61 (bar 5.79e-58) ln_im 0.0e0 phase 1.90e-65 orth 1.52e-64 digest 09d4fcf483770ce5
+ok
+test wrong_inputs_dd ... control f_scaled dd: gauge 2.77e-5 phase 3.60e-5 (bars 1.23e-28)
+control ref_no_phase dd: gauge 9.70e-1 phase 1.81e0
+control wrong_plane dd: plane 7.59e-1
+ok
+test wrong_inputs_f64 ... control f_scaled f64: gauge 2.77e-5 phase 3.60e-5 (bars 1.11e-12)
+control ref_no_phase f64: gauge 9.70e-1 phase 1.81e0
+control wrong_plane f64: plane 7.59e-1
+ok
+test wrong_inputs_qd ... control f_scaled qd: gauge 2.77e-5 phase 3.60e-5 (bars 1.50e-60)
+control ref_no_phase qd: gauge 9.70e-1 phase 1.81e0
+control wrong_plane qd: plane 7.59e-1
+ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.49s
+

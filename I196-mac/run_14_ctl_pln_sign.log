@@ -1,0 +1,4 @@
+# 2026-11-27 14:49:05 cwd=/Users/nathan/Source/negative-mass-i196/phase2/nonradial load 28.02 32.17 41.98
+# cmd: bash -c /Users/nathan/Source/negative-mass/.venv/bin/python taylor_drift.py check --dir=/Users/nathan/Source/negative-mass-raw/I196-mac/jsonl --steps=/Users/nathan/Source/negative-mass-raw/I196-mac/crate_star_steps.jsonl --jtable=/Users/nathan/Source/negative-mass-raw/I196-mac/crate_jtable_l5.jsonl --raw=/Users/nathan/Source/negative-mass-raw --only=PLN0 --mutate=pln_sign
+CHECK PLN0: FAIL  scipy's integrator on the planted system (taylor_polar's P1, L = 24.1) at gamma = [10.0, 100.0] against the invariant subspaces at 90 digits: worst 2.00e+00 (bar 1e-06)
+SUMMARY: 0 passed, 1 failed, 0 skipped of 1  [mutation pln_sign]

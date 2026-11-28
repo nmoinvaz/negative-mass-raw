@@ -1,0 +1,272 @@
+# 2026-11-27 13:54:59 cwd=/Users/nathan/Source/negative-mass-i188-libs/multishoot
+# cmd: cargo fmt --check
+Diff in /Users/nathan/Source/negative-mass-i188-libs/multishoot/src/plane.rs:206:
+             return Complex::new(self.re / o.re, self.im / o.re);
+         }
+         let n = o.re * o.re + o.im * o.im;
+[31m-        Complex::new((self.re * o.re + self.im * o.im) / n, (self.im * o.re - self.re * o.im) / n)
+(B[m[32m+        Complex::new(
+(B[m[32m+            (self.re * o.re + self.im * o.im) / n,
+(B[m[32m+            (self.im * o.re - self.re * o.im) / n,
+(B[m[32m+        )
+(B[m     }
+ }
+ 
+Diff in /Users/nathan/Source/negative-mass-i188-libs/multishoot/src/plane.rs:385:
+ /// entry (exactly, e clamped to 1022 in magnitude), and the length scaled back by 2^e. Inside that range the column is
+ /// not rescaled, and the result is bitwise that of the plain sum of squares.
+ fn normalize<T: Real>(col: &mut [T], bilinear: bool) -> T {
+[31m-    let length = |col: &[T]| col.iter().fold(T::zero(), |s, &x| s + if bilinear { x * x } else { x.abs2() }).sqrt();
+(B[m[32m+    let length = |col: &[T]| {
+(B[m[32m+        col.iter()
+(B[m[32m+            .fold(T::zero(), |s, &x| s + if bilinear { x * x } else { x.abs2() })
+(B[m[32m+            .sqrt()
+(B[m[32m+    };
+(B[m     let mut nrm = length(col);
+     let mut back = None;
+     let v = nrm.re_f64();
+Diff in /Users/nathan/Source/negative-mass-i188-libs/multishoot/tests/plane_complex.rs:79:
+ const N: usize = 4;
+ type Mat = [[f64; N]; N];
+ const P: Mat = [[1., 1., 0., 1.], [1., 2., 1., 1.], [0., 1., 2., 1.], [1., 1., 1., 3.]];
+[31m-const PINV: Mat = [[7., -4., 3., -2.], [-4., 3., -2., 1.], [3., -2., 2., -1.], [-2., 1., -1., 1.]];
+(B[m[32m+const PINV: Mat = [
+(B[m[32m+    [7., -4., 3., -2.],
+(B[m[32m+    [-4., 3., -2., 1.],
+(B[m[32m+    [3., -2., 2., -1.],
+(B[m[32m+    [-2., 1., -1., 1.],
+(B[m[32m+];
+(B[m const G: [f64; N] = [24., 8., -8., -24.];
+ const F: [f64; N] = [7., -3., 5., -11.];
+ const X: f64 = 12.0;
+Diff in /Users/nathan/Source/negative-mass-i188-libs/multishoot/tests/plane_complex.rs:132:
+ }
+ 
+ fn basis<T: Real>(cols: [usize; 2], mk: fn(f64) -> T) -> Vec<T> {
+[31m-    cols.iter().flat_map(|&c| (0..N).map(move |i| (c, i))).map(|(c, i)| mk(P[i][c])).collect()
+(B[m[32m+    cols.iter()
+(B[m[32m+        .flat_map(|&c| (0..N).map(move |i| (c, i)))
+(B[m[32m+        .map(|(c, i)| mk(P[i][c]))
+(B[m[32m+        .collect()
+(B[m }
+ 
+ /// a digest of every part of the columns and of the log-volume, for the comparison across backends and with the real plane
+Diff in /Users/nathan/Source/negative-mass-i188-libs/multishoot/tests/plane_complex.rs:207:
+     if wrong == Wrong::FScaled {
+         f_run[1] *= 1.0 + 1e-6;
+     }
+[31m-    let src = Const::<Complex<T>> { j: j_entries(&f_run), mk: mk_c::<T> };
+(B[m[32m+    let src = Const::<Complex<T>> {
+(B[m[32m+        j: j_entries(&f_run),
+(B[m[32m+        mk: mk_c::<T>,
+(B[m[32m+    };
+(B[m     let (a, b) = if wrong == Wrong::OtherPlane { (1, 2) } else { (0, 1) };
+     let mut pl = Plane::<Complex<T>>::new(N, 2, &basis([0, 1], |x| Complex::from_f64(x)));
+     #[cfg(feature = "mutate")]
+Diff in /Users/nathan/Source/negative-mass-i188-libs/multishoot/tests/plane_complex.rs:219:
+     let y = columns_c::<T>(&pl);
+     let q0 = q0::<T>([a, b]);
+     // the real projector onto the exact plane: Pi = B (B^T B)^-1 B^T from the exact (not orthonormal) basis, in the lane
+[31m-    let cols: Vec<[T; N]> = [a, b].iter().map(|&c| std::array::from_fn(|i| T::from_f64(P[i][c]))).collect();
+(B[m[32m+    let cols: Vec<[T; N]> = [a, b]
+(B[m[32m+        .iter()
+(B[m[32m+        .map(|&c| std::array::from_fn(|i| T::from_f64(P[i][c])))
+(B[m[32m+        .collect();
+(B[m     let g = |p: usize, q: usize| (0..N).fold(T::zero(), |s, i| s + cols[p][i] * cols[q][i]);
+     let (g00, g01, g11) = (g(0, 0), g(0, 1), g(1, 1));
+     let det = (g00 * g11 - g01 * g01).recip();
+Diff in /Users/nathan/Source/negative-mass-i188-libs/multishoot/tests/plane_complex.rs:226:
+     let mut plane = 0.0f64;
+     for (re, im) in &y {
+         for part in [re, im] {
+[31m-            let t: Vec<T> = (0..2).map(|p| (0..N).fold(T::zero(), |s, i| s + cols[p][i] * part[i])).collect();
+(B[m[32m+            let t: Vec<T> = (0..2)
+(B[m[32m+                .map(|p| (0..N).fold(T::zero(), |s, i| s + cols[p][i] * part[i]))
+(B[m[32m+                .collect();
+(B[m             let w = [(g11 * t[0] - g01 * t[1]) * det, (g00 * t[1] - g01 * t[0]) * det];
+             for i in 0..N {
+                 let r = part[i] - (cols[0][i] * w[0] + cols[1][i] * w[1]);
+Diff in /Users/nathan/Source/negative-mass-i188-libs/multishoot/tests/plane_complex.rs:247:
+     for c in 0..2 {
+         for i in 0..N {
+             let (er, ei) = (q0[c][i] * ph[c].0, q0[c][i] * ph[c].1);
+[31m-            gauge = gauge.max((y[c].0[i] - er).to_f64().abs()).max((y[c].1[i] - ei).to_f64().abs());
+(B[m[32m+            gauge = gauge
+(B[m[32m+                .max((y[c].0[i] - er).to_f64().abs())
+(B[m[32m+                .max((y[c].1[i] - ei).to_f64().abs());
+(B[m         }
+     }
+     // the phase of the volume: det(Q0^T Q) against e^(48 i)
+Diff in /Users/nathan/Source/negative-mass-i188-libs/multishoot/tests/plane_complex.rs:257:
+         Complex::new(re, im)
+     };
+     let dq = m(0, 0) * m(1, 1) - m(0, 1) * m(1, 0);
+[31m-    let (er, ei) = if f == [0.0; N] || wrong == Wrong::RefNoPhase { (T::one(), T::zero()) } else { (T::parse(COS48), T::parse(SIN48)) };
+(B[m[32m+    let (er, ei) = if f == [0.0; N] || wrong == Wrong::RefNoPhase {
+(B[m[32m+        (T::one(), T::zero())
+(B[m[32m+    } else {
+(B[m[32m+        (T::parse(COS48), T::parse(SIN48))
+(B[m[32m+    };
+(B[m     let phase = ((dq.re - er).to_f64()).hypot((dq.im - ei).to_f64());
+     // orthonormality in the Hermitian product
+     let mut orth = 0.0f64;
+Diff in /Users/nathan/Source/negative-mass-i188-libs/multishoot/tests/plane_complex.rs:280:
+     let exact = T::from_f64(32.0 * X) + T::parse(HALF_LN5);
+     let ln_err = (lnv.re - exact).to_f64().abs();
+     let ln_im = lnv.im.to_f64().abs();
+[31m-    let parts = pl.columns().iter().flat_map(|z| z.re.parts().into_iter().chain(z.im.parts())).chain(lnv.re.parts()).chain(lnv.im.parts());
+(B[m[31m-    Out { plane, gauge, ln_err, ln_bar: 1e4 * T::EPS * exact.to_f64().abs().max(1.0), ln_im, phase, orth, steps: st.steps, digest: digest(parts) }
+(B[m[32m+    let parts = pl
+(B[m[32m+        .columns()
+(B[m[32m+        .iter()
+(B[m[32m+        .flat_map(|z| z.re.parts().into_iter().chain(z.im.parts()))
+(B[m[32m+        .chain(lnv.re.parts())
+(B[m[32m+        .chain(lnv.im.parts());
+(B[m[32m+    Out {
+(B[m[32m+        plane,
+(B[m[32m+        gauge,
+(B[m[32m+        ln_err,
+(B[m[32m+        ln_bar: 1e4 * T::EPS * exact.to_f64().abs().max(1.0),
+(B[m[32m+        ln_im,
+(B[m[32m+        phase,
+(B[m[32m+        orth,
+(B[m[32m+        steps: st.steps,
+(B[m[32m+        digest: digest(parts),
+(B[m[32m+    }
+(B[m }
+ 
+ /// the same system with f = 0 on the real lane `T`: a digest comparable to `p1c(f = 0)`'s, and its ln_vol
+Diff in /Users/nathan/Source/negative-mass-i188-libs/multishoot/tests/plane_complex.rs:288:
+ fn p1_real<T: Lane>() -> (u64, usize) {
+[31m-    let src = Const::<T> { j: j_entries(&[0.0; N]), mk: mk_r::<T> };
+(B[m[32m+    let src = Const::<T> {
+(B[m[32m+        j: j_entries(&[0.0; N]),
+(B[m[32m+        mk: mk_r::<T>,
+(B[m[32m+    };
+(B[m     let mut pl = Plane::<T>::new(N, 2, &basis([0, 1], T::from_f64));
+     let (plan, kj) = plan_for::<T>();
+     let st = pl.advance(&src, 0.0, X, &plan, kj);
+Diff in /Users/nathan/Source/negative-mass-i188-libs/multishoot/tests/plane_complex.rs:320:
+     assert!(o.gauge <= 1e4 * eps, "gauge {:e} > {:e}", o.gauge, 1e4 * eps);
+     assert!(o.ln_err <= o.ln_bar, "ln_vol error {:e} > {:e}", o.ln_err, o.ln_bar);
+     assert!(o.ln_im == 0.0, "ln_vol has an imaginary part {:e}", o.ln_im);
+[31m-    assert!(o.phase <= 1e4 * eps, "phase of the volume {:e} > {:e}", o.phase, 1e4 * eps);
+(B[m[32m+    assert!(
+(B[m[32m+        o.phase <= 1e4 * eps,
+(B[m[32m+        "phase of the volume {:e} > {:e}",
+(B[m[32m+        o.phase,
+(B[m[32m+        1e4 * eps
+(B[m[32m+    );
+(B[m     assert!(o.orth <= 1e2 * eps, "orthonormality {:e} > {:e}", o.orth, 1e2 * eps);
+ }
+ 
+Diff in /Users/nathan/Source/negative-mass-i188-libs/multishoot/tests/plane_complex.rs:327:
+ /// whether the case fails some check (the control's target)
+ fn fails<T: Lane>(o: &Out) -> bool {
+     let eps = T::EPS;
+[31m-    !(o.plane <= 1e4 * eps && o.gauge <= 1e4 * eps && o.ln_err <= o.ln_bar && o.ln_im == 0.0 && o.phase <= 1e4 * eps && o.orth <= 1e2 * eps)
+(B[m[32m+    !(o.plane <= 1e4 * eps
+(B[m[32m+        && o.gauge <= 1e4 * eps
+(B[m[32m+        && o.ln_err <= o.ln_bar
+(B[m[32m+        && o.ln_im == 0.0
+(B[m[32m+        && o.phase <= 1e4 * eps
+(B[m[32m+        && o.orth <= 1e2 * eps)
+(B[m }
+ 
+ fn all_pass<T: Lane>() {
+Diff in /Users/nathan/Source/negative-mass-i188-libs/multishoot/tests/plane_complex.rs:353:
+ fn real_embedding<T: Lane>() {
+     let o = p1c::<T>(Wrong::None, false, [0.0; N]);
+     let (d, steps) = p1_real::<T>();
+[31m-    println!("P1c f = 0 {}: complex digest {:016x}, real digest {:016x}, steps {} and {}", T::NAME, o.digest, d, o.steps, steps);
+(B[m[32m+    println!(
+(B[m[32m+        "P1c f = 0 {}: complex digest {:016x}, real digest {:016x}, steps {} and {}",
+(B[m[32m+        T::NAME,
+(B[m[32m+        o.digest,
+(B[m[32m+        d,
+(B[m[32m+        o.steps,
+(B[m[32m+        steps
+(B[m[32m+    );
+(B[m     assert_eq!(o.steps, steps);
+[31m-    assert_eq!(o.digest, d, "the complex lane with real data is not the real lane bit for bit");
+(B[m[32m+    assert_eq!(
+(B[m[32m+        o.digest, d,
+(B[m[32m+        "the complex lane with real data is not the real lane bit for bit"
+(B[m[32m+    );
+(B[m     pass::<T>("P1c(f = 0)", &o);
+ }
+ 
+Diff in /Users/nathan/Source/negative-mass-i188-libs/multishoot/tests/plane_complex.rs:377:
+ /// the wrong inputs, each failing its check in every lane (no feature needed)
+ fn wrong_inputs<T: Lane>() {
+     assert!(fails::<T>(&p1c::<T>(Wrong::FScaled, false, F)), "f_scaled did not fail");
+[31m-    assert!(fails::<T>(&p1c::<T>(Wrong::RefNoPhase, false, F)), "ref_no_phase did not fail");
+(B[m[31m-    assert!(fails::<T>(&p1c::<T>(Wrong::OtherPlane, false, F)), "wrong_plane did not fail");
+(B[m[32m+    assert!(
+(B[m[32m+        fails::<T>(&p1c::<T>(Wrong::RefNoPhase, false, F)),
+(B[m[32m+        "ref_no_phase did not fail"
+(B[m[32m+    );
+(B[m[32m+    assert!(
+(B[m[32m+        fails::<T>(&p1c::<T>(Wrong::OtherPlane, false, F)),
+(B[m[32m+        "wrong_plane did not fail"
+(B[m[32m+    );
+(B[m     let o = p1c::<T>(Wrong::FScaled, false, F);
+[31m-    println!("control f_scaled {}: gauge {:.2e} phase {:.2e} (bars {:.2e})", T::NAME, o.gauge, o.phase, 1e4 * T::EPS);
+(B[m[32m+    println!(
+(B[m[32m+        "control f_scaled {}: gauge {:.2e} phase {:.2e} (bars {:.2e})",
+(B[m[32m+        T::NAME,
+(B[m[32m+        o.gauge,
+(B[m[32m+        o.phase,
+(B[m[32m+        1e4 * T::EPS
+(B[m[32m+    );
+(B[m     let o = p1c::<T>(Wrong::RefNoPhase, false, F);
+[31m-    println!("control ref_no_phase {}: gauge {:.2e} phase {:.2e}", T::NAME, o.gauge, o.phase);
+(B[m[32m+    println!(
+(B[m[32m+        "control ref_no_phase {}: gauge {:.2e} phase {:.2e}",
+(B[m[32m+        T::NAME,
+(B[m[32m+        o.gauge,
+(B[m[32m+        o.phase
+(B[m[32m+    );
+(B[m     let o = p1c::<T>(Wrong::OtherPlane, false, F);
+     println!("control wrong_plane {}: plane {:.2e}", T::NAME, o.plane);
+ }
+Diff in /Users/nathan/Source/negative-mass-i188-libs/multishoot/tests/plane_complex.rs:406:
+ #[cfg(feature = "mutate")]
+ fn no_conj<T: Lane>() {
+     let o = p1c::<T>(Wrong::None, true, F);
+[31m-    println!("control NoConj {}: plane {:.2e} gauge {:.2e} ln_err {:.2e} phase {:.2e} orth {:.2e}", T::NAME, o.plane, o.gauge, o.ln_err, o.phase, o.orth);
+(B[m[32m+    println!(
+(B[m[32m+        "control NoConj {}: plane {:.2e} gauge {:.2e} ln_err {:.2e} phase {:.2e} orth {:.2e}",
+(B[m[32m+        T::NAME,
+(B[m[32m+        o.plane,
+(B[m[32m+        o.gauge,
+(B[m[32m+        o.ln_err,
+(B[m[32m+        o.phase,
+(B[m[32m+        o.orth
+(B[m[32m+    );
+(B[m     assert!(fails::<T>(&o), "NoConj did not fail");
+[31m-    assert!(o.gauge > 1e4 * T::EPS && o.phase > 1e4 * T::EPS, "NoConj left the phase intact");
+(B[m[32m+    assert!(
+(B[m[32m+        o.gauge > 1e4 * T::EPS && o.phase > 1e4 * T::EPS,
+(B[m[32m+        "NoConj left the phase intact"
+(B[m[32m+    );
+(B[m     // the real part of the plane and of the log-volume are not what it breaks
+     assert!(o.plane <= 1e4 * T::EPS, "NoConj broke the plane: {:e}", o.plane);
+     assert!(o.ln_err <= o.ln_bar, "NoConj broke the real part of the log-volume");
+Diff in /Users/nathan/Source/negative-mass-i188-libs/multishoot/tests/plane_complex.rs:455:
+ 
+ #[test]
+ fn complex_sqrt_recip_div() {
+[31m-    for &(a, b) in &[(3.0f64, 4.0), (-3.0, 4.0), (-3.0, -4.0), (3.0, -4.0), (0.0, 2.0), (-5.0, 0.0), (1e-3, 7.0)] {
+(B[m[32m+    for &(a, b) in &[
+(B[m[32m+        (3.0f64, 4.0),
+(B[m[32m+        (-3.0, 4.0),
+(B[m[32m+        (-3.0, -4.0),
+(B[m[32m+        (3.0, -4.0),
+(B[m[32m+        (0.0, 2.0),
+(B[m[32m+        (-5.0, 0.0),
+(B[m[32m+        (1e-3, 7.0),
+(B[m[32m+    ] {
+(B[m         let z = C::new(a, b);
+         let r = z.sqrt();
+         let back = r * r;

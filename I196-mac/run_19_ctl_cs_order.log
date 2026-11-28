@@ -1,0 +1,4 @@
+# 2026-11-27 14:59:18 cwd=/Users/nathan/Source/negative-mass-i196/phase2/nonradial load 99.06 56.46 45.52
+# cmd: bash -c /Users/nathan/Source/negative-mass/.venv/bin/python taylor_drift.py check --dir=/Users/nathan/Source/negative-mass-raw/I196-mac/jsonl --steps=/Users/nathan/Source/negative-mass-raw/I196-mac/crate_star_steps.jsonl --jtable=/Users/nathan/Source/negative-mass-raw/I196-mac/crate_jtable_l5.jsonl --raw=/Users/nathan/Source/negative-mass-raw --only=CS --mutate=cs_order
+CHECK CS: FAIL  the crate's star from its dumped Taylor steps in f64 against `starcheck` (double-double) at 12 radii, 4 functions: worst relative 4.46e-06 at (r, f) = (30.0, 'phi0') (bar 1e-14)
+SUMMARY: 0 passed, 1 failed, 0 skipped of 1  [mutation cs_order]
