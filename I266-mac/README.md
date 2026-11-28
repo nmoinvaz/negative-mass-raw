@@ -171,3 +171,12 @@ labelled post hoc, and gate nothing; the note says where between B = 0.15 and 0.
 | `rel_perm` | PREL, REL, REL-ph |
 
 REL fails without a mutation (above), so it is in every set where a mutation leaves it failing; the sets are exactly what fired on the development set.
+
+### After A1: changes to reports only (no check, bar or mutation target changed)
+
+- `stallscan`: its first launch stopped on an argument-parsing slip (logs in `logs/aborted/`), fixed and rerun; the scan reaches B = 0.15 to 0.175 at h = 0.02 and 0.01, B = 0.16 to 0.175 and (extra, `runs/stallscan_extra`) B = 0.15, 0.155 at h = 0.005.
+  The report merges the files per h.
+- Reports added to `analyze`: the member's end masses m± (`asym_masses`), and the relation REL with the member read at ε = 1e-2 (a guard was added to that line after the mutation `eps_h` stopped in it on the records: `mut/eps_h.log`
+  crashed, `mut/eps_h.2.log` matches; the first record analysis `analyze_record.log` predates both reports, `analyze_record.2.log` is the output of record).
+- Results of the runs of record: 37 checks (17 post hoc), all pass except the gating REL (7.9e-5 against 6e-5, expected from A1); 19 of 19 mutations fire exactly their declared sets.
+- Figure: `plot_settled_mass_b.py` with the vendored `data_graphs.py` (the arriba graph-data skill's, unchanged) writes `settled_mass_b.svg`.
