@@ -4,7 +4,7 @@ RAW=${RAW:-$HOME/Source/negative-mass-raw/I325-dh610}
 I228=$HOME/Source/negative-mass-raw/I228-dh610/runs
 mkdir -p "$RAW/tickets"
 # name B HK DELTA (priority order: the long h = 0.00125 pairs first)
-list=("0.03 2 1e-10" "0.01 2 1e-10" "0.014 2 1e-10" "0.15 1 1e-10" "0.01 1 1e-10" "0.014 1 1e-10" "0.03 1 1e-10" "0.04 1 1e-11" "0.02 1 1e-11" "0.01 1 1e-11" "0.014 1 1e-11" "0.03 1 1e-11")
+list=("0.01 2 1e-11" "0.014 2 1e-11" "0.03 2 1e-11" "0.04 2 1e-11" "0.02 2 1e-10" "0.02 2 1e-11")
 while [ ! -e "$RAW/README_2B_DONE" ]; do sleep 20; done
 left=${#list[@]}
 declare -A done_

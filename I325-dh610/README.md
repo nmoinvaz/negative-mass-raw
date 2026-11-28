@@ -158,3 +158,16 @@ JOB6 at B = 0.2 (#228's: the + side's event lies beyond t = 34; reported again, 
 
 LIN3 and LIN4 have no data in development (B = 0.01, 0.014 are absent); their mutations act on the planted families (PLL) and on the data of record, where the effect will be read and reported, not declared. At the end each mutation is
 run again on the frozen record (`runs/mut/`, `drift_b6.py mutate-all`) and the changed verdicts are compared with this table; a difference is reported.
+
+Addendum to part 2b (2026-11-28 05:46): `dev/mut_tau_unit_full` finished (53 s, `drift_b6.py mutate --mutate=tau_unit --base=dev`, the planted evolutions included in baseline and mutated analysis): verdicts changed against the unmutated analysis:
+`PL3_6` only, as #228 declared. `rth_diag` (#228's: PL2_6) was not re-run through this script; it is #228's, unchanged, and verified on its record.
+
+# Part 2c: post hoc runs declared after the first analysis of record (2026-11-28 06:08, dh610 clock; the results below were seen, so these gate nothing)
+
+The first analysis of record (`runs/analysis/record1`, 53 of 56 checks pass) shows: LIN3 **fails** (ρ = 0.152, 0.138, 0.108, 0.091, 0.078 at B = 0.04, 0.03, 0.02, 0.014, 0.01: it falls strictly with B but ends at 0.078 against the declared bar 0.05);
+LIN4 passes (Richardson exponent 2.105; 2.848 at h = 0.0025 and 2.250 at h = 0.00125: the resolution part is −0.598); JOB6 fails at B = 0.15 (fates (−1, 0): the + side's event lies beyond the triangle t ≤ 34, as at B = 0.2 in #228; declared
+only for B = 0.2). No bar is moved. Because ρ at B ≤ 0.02 is read at h = 0.0025 only, where ṙ(8) carries an h² part of −1.0e-4 (ṙ(8) at h = 0.00125 minus 0.0025: +1.0e-4 at B = 0.01, 0.014, 0.03, 0.04), two questions are added:
+
+- **Post hoc**: pairs at δ = 1e-11 and **h = 0.00125** at B = 0.01, 0.014, 0.03, 0.04 (p*ₕ from the bisections at h = 0.00125, #228's for B = 0.04): ρ at both h, the Richardson ρ, and the exponents of ṙ(8) and ṙ(10) of the δ = 1e-11 pairs (`EXP11` lines).
+  They answer whether the rise of ṙ between t = 8 and 10 is a feature of the linear problem or of the h² part. Nothing gates on them; LIN3's verdict stays as declared (h = 0.0025).
+- **Extra of part 2a**: B = 0.02 at h = 0.00125 (bisection to 1e-12, then the pairs δ = 1e-10 and 1e-11), so that 0.014 → 0.02 → 0.03 have resolution parts. Same criteria (BIS, JOB6, WIN8, JOB6d, DLT as declared in 2b, h = 0.00125).
