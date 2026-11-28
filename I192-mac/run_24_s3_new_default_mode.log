@@ -1,0 +1,6 @@
+# 2026-11-27 17:15:56 cwd=/Users/nathan/Source/negative-mass-raw/I192-mac host=Nathans-MacBook-Air-M5-3 load=35.34 39.83 33.52
+# cmd: /Users/nathan/Source/negative-mass/.venv/bin/python /private/tmp/claude-501/-Users-nathan-Source-negative-mass-i192/49af8a24-a787-474c-b774-7b29bee02e53/scratchpad/trees/new/phase2/nonradial/taylor_polar.py --raw=/Users/nathan/Source/negative-mass-raw
+# binary release/taylor_polar: fde6c2af44e3b6b06ccca3dcfeddd0d4
+# binary complex/release/taylor_polar: a79e27d3abbce7b2dca049d906c58e64
+CHECK T1: PASS  J at order 0, crate (dd) against the generated function at 60 digits, 8 points x 36 entries: worst relative 5.49e-28 at (l, r, s, i, j) = (6, 24.1, 12000.0, 3, 5) (bar 1.00e-24)
+CHECK T2: PASS  J's series (30 coefficients) at 0.1 of a star step against the generated function at 60 digits on the series' own background, 4 cases, 96 entries: worst relative 3.10e-29 (bar 1.00e-24)

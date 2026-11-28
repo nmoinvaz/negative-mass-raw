@@ -232,3 +232,15 @@ coefficient of J0 and J1 at 20 digits), `recipcheck` in f64, dd, qd, od, and `ta
 **A8 (2026-11-27).** `run_31_s3_records_default` (RP2, default pair): **1167 records, 0 differ** (old pin against new pin, every field as strings except times). In `run_23_s3_old_default_mode` the check **R1 reads FAIL
 `raised RuntimeError: ... old_libplane d lane=dd l=2 ... exited -15`: that was my own `kill`** (a pattern for the stopped records run's children also matched R1's child process in the old tree); no check result changed. R1 is rerun alone on the old tree
 as `run_35_s3_old_R1` (the same two pins are compared there, since the check reads `target/bins`), and the comparison of the default-mode logs takes R1's line from it. The other checks of `run_23` are untouched.
+
+**A9 (2026-11-27, results so far and the run plan).** Commits on `wip/i192-taylor-tables`: e9591b2 (the repin: `Cargo.toml`, `Cargo.lock`; no source change was forced: the default, lib_plane and complex builds compile as they are), 7e094a0 (`lib_table`: `table.rs`, `main.rs`'s
+setup field, the optional git dependency), f58fe19 (`taylor_polar.py --build --features=`).
+- **RP1 met.** `cargo tree --locked -e normal` of the default features lists multidouble 6.1.0, multishoot 5.0.0, multisolver 0.3.0, rayon and crossbeam from crates.io only; `[patch]` is gone.
+- **RP2 met in all three pairs**: `run_31` default 1167 records, 0 differ; `run_32` lib_plane 1167, 0; `run_33` complex 1198, 0; the control `run_34` (`mutate=jsign` on the new binary) 949 of 1167 differ, exit 1. `run_39`: the binary with the `lib_table` code but the feature off (`new2_default`,
+  after the helpers were factored out of `build_table`) against the repin-only binary: 1167 records, 0 differ.
+- **JT1 met**: `lib_table`, `lib_table,lib_plane` and `lib_table,complex` build (`dev_31`, `dev_33`, `dev_34`).
+- **JT2 met, with nothing to spare**: `run_37`, `s3_steps.py` on `new_default` and `new_libtable`: l = 2, 3, 4, 5, 6 over [5e-4, 34.7] 464 steps against 464; l = 2 over [1.5e-3, 24.6] 389 against 389; **every breakpoint bitwise equal (4448 of 4448), the coefficient strings of every
+  step equal, the head records equal**. So the `h < 1e-14 b` jump never fired on these inputs and the plain-f64 `width_of` agrees with the library's scaled test at nb 30. The control `run_38` (`mutate=lib_last4`): 532 steps against 464 (l = 2 .. 6), 451 against 389, exit 1.
+- **Run plan** (the numbers of A6 for the new pin are superseded: the first launch of the new chain, `run_24`, was stopped by me after 13 s so the step lists could be checked first). Slot 1 (`s3_chain.sh`, old pin): `run_23` default mode, `run_25` rows, `run_27` rows with the lib_plane binary,
+  `run_29` complex, then `run_35` (R1 alone, A8). Slot 2 (`s3_queue2.sh`): `run_40` new pin default mode, `run_41` new rows, `run_44` and `run_45` lib_table default mode and rows, `run_46` and `run_47` `--mutate=wide_table` on the new-pin and lib_table binaries,
+  `run_43` new complex, `run_42` new rows with the lib_plane binary. The machine's load average is 15 to 33 from other projects.

@@ -1,0 +1,15 @@
+[pass] N0: planted: beta = 0, c = -1, -3/2, -3/10: the ray separatrix (55 bisections) equals the static horizon rho_h to 1e-9 and rays at rho_h +- 1e-4 escape / fall; c = 0 (Ellis, time dependent): rays equal 1 - beta rho = C (1 + beta v)^{-1/2} to 1e-9 and the beta = -1 separatrix is rho = -1  (c = -1.0: separatrix 0.000000000000, claimed rho_h 0.000000000000, diff 1.7e-16, rays at rho_h +-1e-4: outside escapes, inside falls; c = -1.5: separatrix 0.339617128522, claimed rho_h 0.339617128522, diff 1.1e-16, rays at rho_h +-1e-4: outside escapes, inside falls; c = -0.3: separatrix -0.926753835863, claimed rho_h -0.926753835863, diff 3.3e-16, rays at rho_h +-1e-4: outside escapes, inside falls; Ellis c = 0: exact rays to 1.3e-12, beta = -1 separatrix -1.000000000000 (exact -1))
+    (N0: 28 s)
+Traceback (most recent call last):
+  File "/Users/nathan/Source/negative-mass-i278/notes/black_universe/family_causal.py", line 835, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nathan/Source/negative-mass-i278/notes/black_universe/family_causal.py", line 825, in main
+    bad = run_all(NUMERIC)
+  File "/Users/nathan/Source/negative-mass-i278/notes/black_universe/family_causal.py", line 793, in run_all
+    fn()
+    ~~^^
+  File "/Users/nathan/Source/negative-mass-i278/notes/black_universe/family_causal.py", line 426, in N1
+    x0 = xs[idx[-1] if br in ("plus", "out") else idx[0]]
+            ~~~^^^^
+IndexError: index -1 is out of bounds for axis 0 with size 0
