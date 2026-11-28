@@ -19,3 +19,20 @@ Criteria, written before the first run:
   6e-10 at l = 2).
 
 Mutations: `scale` (crate modulus × (1 + 1e-5): K2), `extra` (a point at s + 1e-3 added to each file: K1).
+
+## Amendment A1 (after run 1, before any check passed)
+
+Run 1 (`run_01.log`) failed K1 and K2 for two reasons of this script, not of the runner's data:
+- The record files `jsonl_rec/*.jsonl` also hold the crate evaluations of the counter controls (`misplant`, `onesided`, ...),
+  which ask points the stored counter does not. For s1_l6 the file has 477 points against the cache's 445, and
+  `results/record/s1_l6.json` records 445 asked of 445 stored. So "no point outside the cache" cannot hold.
+- The search by l alone is ambiguous: boxes with the same region and l but another star or rsmult share their s points
+  (c075_l2 matched the ω = 0.7603 cache, t1_r40 and t1_r80 matched two).
+
+Amended, before run 2:
+- The cache of each box is named from that box's parameters in `results/record/<box>.json` (eps, ω, l, region, y0, rsmult,
+  zfac), by this script's own construction, in the folder of the box's issue (I126-rpi5, I117-rpi5, I115-rpi5).
+- K1': for each of the 36 record files (35 boxes and #115's extra), every cache key is among the crate's evaluations, and the
+  record's asked count equals the cache's size.
+- K2 unchanged, on the cache's keys.
+- Mutation `extra` replaced by `drop` (one stored point removed from each file: K1').
