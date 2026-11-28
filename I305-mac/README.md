@@ -218,3 +218,22 @@ The baseline (`dev/ana_dev3.log`) fails FITQ, P4 and P4-ph, so those three canno
 `scripts/make_jobs.py dev/set_a jobs_rec.txt jobs_rep.txt` (6 lines "B XC W H LO HI" for the three points at both h, brackets from the development set's `points.jsonl`; 1 line for N3 from #295's stored bracket); `scripts/run_jobs.sh RAW/runs jobs_rec.txt LANE 2` and `scripts/run_jobs.sh RAW/runs_rep jobs_rep.txt 0 1`
 (two lanes, nice 10, `NUMBA_NUM_THREADS=1`, `scripts/run_one.sh`: pstar, chain, member; logs never overwritten, reruns numbered); `python settled_mass_route4.py analyze --raw=RAW [--rn=RAW/runs_rn]`; `scripts/run_muts.sh RAW RAW/mut LANE 2 RAW/analyze_record.log`.
 Stop condition: a single run not finished in 2 h of wall time is stopped and reported (development: 26 to 91 s). A check that fails on the runs of record is reported as not met. Nothing above is changed after the first run of record.
+
+## Changes made after the criteria (stage 2b stands as committed, 227ec3bf; nothing in the bars, the points, the frozen constants or the declared mutation sets was changed after the first run of record)
+
+1. `scripts/` and `settled_mass_route4_post.py` (post hoc: the miss divided by ṙ_th, and the coefficient c_eff that would remove it) were written after the analysis of record; they read the stored runs and change none of them (`post_hoc_1.log`). The driver was not edited after the runs of record began (negative-mass `fdc8111`).
+2. The analysis of record was run twice: without `--rn` (`analyze_record.1.log`, before the second realization existed) and with it (`analyze_record.log`, final; the two differ by the second-realization block only).
+3. `settled_mass_route4_graph.py` and the figure were added after the records; they read the raw folder and gate nothing.
+
+## Results (the runs of record)
+
+- 6 jobs (`jobs_rec.txt`, `rec_lane0.log`, `rec_lane1.log`), all exit 0, 27 to 92 s each, `runs/`; the N3 reproduction (`jobs_rep.txt`, `rep_lane0.log`, `runs_rep/`, exit 0, 81 s); the second realization (`jobs_rn.txt`, `rn_lane0.log`, `rn_lane1.log`, `runs_rn/`, 3 jobs exit 0, 64 to 75 s; bracket 0.98 and 1.02 times p*ₕ).
+  The runs of record equal the development set (`dev/set_a`) in every printed number (`diff` of `dev/ana_dev3.log` and `analyze_record.1.log`: the path line only).
+- The analysis of record: `analyze_record.log` (= the repository's `settled_mass_route4_output.txt`), exit 1: **31 checks (1 post hoc), 30 gating, 2 gating checks fail: P4 and FITQ**; P4-ph fails too.
+  LEV (0.272, 1.975, 3.058), OUTR (ṙ_th −1.130e-3, −2.733e-3, −2.439e-3), SEPB, SEPW, SEPC, SEPN, HST, REP4 (bit for bit), FRZ, TGT, RH, RC4, RC5, RC8, BR, STL, EVT, CFG, FAM0, RUNS and the eight planted cases pass.
+  **P4: M − P4 = +9.00e-05, +2.13e-04, +1.98e-04 (bar 6e-5). FITQ: rms 6.5e-5, 1.46e-4, 2.09e-4 (bar 1e-4).**
+- The 35 mutations on the runs of record: `mut/<name>.log` (+ `.err`, `.rc`; `mut_lane*.log` the progress), `--baseline=analyze_record.log` (FITQ, P4, P4-ph fail): **35 of 35 MATCH their declared sets**, all exit 0.
+- The placement block (stage 2a): M1 +0.952, M2 g_X/g_N = 22.7 (apart), M3 reading-compatible at all three (and R_q 3 to 514 on N); **verdict by the map: not separable by these data.**
+- The second realization (`--rn`): p*ₕ differs by at most 5.3e-14, M by −2.3e-09, +1.2e-08, −1.0e-07, M − P4 stays +9.00e-05, +2.13e-04, +1.98e-04.
+- Post hoc (`post_hoc_1.log`): (M − P4)/ṙ_th = −0.0796, −0.0779, −0.0812 at X1, X2, X3; c_eff/c = 0.895, 0.897, 0.892 (and 1.001, 1.007, 1.002 at #295's N1 to N3): three points and one constant, a description.
+- Figure: `settled_mass_route4.svg`, drawn by `notes/wormhole_evolution/settled_mass_route4_graph.py` of the repository from this folder.
