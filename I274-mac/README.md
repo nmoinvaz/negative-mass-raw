@@ -72,60 +72,10 @@ Each check can fail; the box's verdict is OK only if all four pass, otherwise RE
   logged one and the check passing, max steps equal at 2 decimals, min abs D equal at 3 digits, and no point asked that the cache lacks. (The counter's port is faithful on this box.)
 - **COUNT.** The counter with the crate: winding within 0.05 of the stored one, the planted difference within 0.05 of the stored expectation (+2 symmetric, +1 upper box),
   every phase step (with and without the plant) under 0.45 rad.
-- **MARGIN.** The smallest distance of any compared quantity from its threshold (0.4, 0.4, 0.1 rad: the step, the half step, the sum of the half steps against the step),
-  without the plant and with it (as W0 of #188), is at least 10 E, where E = max(3.1e-6 rad, the largest |arg(crate / stored)| over the points both have). 3.1e-6 is the largest
-  phase error of the stored caches measured in #188 (l = 6; 9.8e-7 at l = 2). A box below this is reported, with its margin and E.
-- **Recorded, not checked:** whether the points the counter asks are exactly the stored cache's (asked, stored, asked not stored, stored not asked), min abs D and
-  max step of both, the wall time per D, the setup time, the evaluations made.
-- **Not run.** Where the crate cannot evaluate a box (the star does not solve, or an l or R_s it does not support) the box is reported NOT RUN with the reason and the others go on.
-  A box not finished in 1 h of wall time is stopped (`BoxTimeout`) and reported, and the rest go on.
-- A failed check is a result to report. A count that differs from the stored one is reported with the box, both counts and the margins; no cause is guessed here.
-  No criterion is changed after seeing data.
-
-## Controls (`--mutate=`, each run alone on every box; exit 1 when it fired on every box it applies to)
-
-| control | target | what it breaks | fires when |
-|---|---|---|---|
-| `reverse`, `wrongdouble`, `misplant`, `onesided` | STORED and COUNT | the counter's own (winding2's): clockwise contour, doubling wrong, planted zero moved out of the box, one-sided factor (the identity in an upper box: n/a there) | the planted check fails in both the stored-value and the crate counts |
-| `jsign`, `star_eps` | MARGIN | the crate's J entry sign; the star solved with the sign of eps flipped (#186's controls), 8 stored points per box | 10 E exceeds the margin of the counter on the stored values |
-| `rs_shift`, `strip_off` | MARGIN | the scalar plane started at R_s + 1 with the strip at R_s; winding2's phase strip left out (#188's), same 8 points | same |
-| `kmin_shift` | INPUT | the min Re k 1 percent off, so R_s is 1 percent of a few hundred off | R_s differs from the log's |
-
-Effects of the controls, computed in development runs before the runs of record: see the section at the end of this file (added before the runs of record).
-
-## Runs of record
-
-Two lanes of one process each: lane A the odd-numbered boxes of the table above, lane B the even-numbered, then the controls. Order in `runs.txt`.
-
-## Effects of the controls, computed in development runs before the runs of record (declared after them)
-
-`dev_06_ctl_counter` (log, 167 s) and `dev_07_ctl_eval` (152 s) ran each control on five boxes: p7603_l2 and c075_l2 (symmetric, eps = -1 and +1), n3_l2 and h1_l2
-(upper boxes), s1_l6 (l = 6, R_s 1293). Each box's unmutated numbers are in the same logs (the crate evaluations are the same). Every control fired on every box it applies to.
-
-| control | effect on the five dev boxes (p7603_l2, c075_l2, n3_l2, h1_l2, s1_l6) |
-|---|---|
-| `reverse` | planted difference -2.0000, -2.0000, -1.0000, -1.0000, -2.0000 against +2, +2, +1, +1, +2 (crate and stored counts alike); windings stay 0 |
-| `wrongdouble` | +1.0000, +1.0000, +2.0000, +2.0000, +1.0000 against +2, +2, +1, +1, +2 |
-| `misplant` | 0.0000 (the planted zero outside the box) on all five, against the expectation; the counter asks 2 to 32 points the stored cache lacks |
-| `onesided` | symmetric boxes +1.7195, +1.7195, +1.9123 (p7603_l2, c075_l2, s1_l6) against +2; **identity in an upper box** (n3_l2, h1_l2 unchanged, n/a) |
-| `jsign` | phase against the stored values 2.30, 2.08, 3.14, 2.58, 3.12 rad (modulus 0.97, 0.97, 2.3, 0.33, 1.3): 10 E of 21 to 31 against margins of 5.2e-5 to 6.8e-3 |
-| `star_eps` | phase 2.63, (c075_l2: the crate stops, the flipped-eps star does not solve: "more than 200000 Taylor steps"; counted as fired), 2.89, 2.98, 3.11 rad |
-| `rs_shift` | phase 2.92, 2.64, **6.1e-3**, 1.97, 3.06 rad (modulus at most 2e-8): on n3_l2 the effect is 6.1e-3 rad against that box's margin 6.8e-3 (10 E = 6.1e-2), so the control fires there by a factor 9 only |
-| `strip_off` | phase 2.71, 2.80, 2.95, 2.50, 1.97 rad (modulus 4e-10 to 2e-8 unchanged) |
-| `kmin_shift` | R_s 401.1, 400.6, 309.1, 415.8, 1280.6 against the logs' 404.9, 404.4, 312.0, 419.7, 1293.2 |
-
-Observed in the same development runs, before any run of record: the unmutated crate on these five boxes asks exactly the stored points (n3_l2 and h1_l2 as well), and the smallest margin
-of the five is 5.15e-5 rad (s1_l6), against 10 E >= 3.1e-5.
-
-## Results (the output file is `phase2/nonradial/i274_recount_output.txt` of the code branch, a copy is `i274_recount_output.txt` here)
-
-- **35 of 35 boxes OK** (`run_02`, `run_03`, f64 lane, one process each, 483 s and 506 s of wall time; crate time 835 s for 6811 evaluations incl. the extra box, 0.07 s per D median,
-  0.8 s at most). Crate winding 0 and planted pair +2 (22 symmetric boxes) or +1 (13 upper boxes) in every box, equal to the stored count and planted check; every max step
-  and min abs D equal to the log's as printed; the counter asks **exactly winding2's stored points** in all 35 (0 asked not stored, 0 stored not asked).
-- **MARGIN.** The smallest distance of any compared quantity from its threshold is 5.15e-5 rad (s1 at l = 6), then 7.33e-5 (s1 at l = 3, with the plant), 1.39e-4 (rep at l = 4),
-  3.72e-4 (n1 at l = 5, with the plant), 3.80e-4 (c075 at l = 2); the other 30 boxes are above 6e-4. E (the stored phase error used) is the floor 3.1e-6 except in the 11 boxes with
-  larger crate-against-stored phase: 3.13e-6 to 3.27e-6 (s1, s3, R_s 1293 to 1343), 3.78e-6 (t2_r40, R_s 1870), 7.51e-6 (t2_r80, 3717), 9.60e-6 (s2_l2, 3831), 2.51e-6 (h3_l2) is below the floor.
-  The least margin / (10 E) is 1.63 (s1 at l = 6); no box is reported.
+- **MARGIN.** The smallest distance of any compared quantity from its threshold (the smaller of the margin without and with the plant) is 5.15e-5 rad (s1 at l = 6), then 7.33e-5 (s1 at l = 3, with the plant),
+  1.39e-4 (rep at l = 4, with the plant), 3.72e-4 (n1 at l = 5, with the plant), 3.80e-4 (c075) and 5.35e-4 (p085 at l = 2); the other 29 boxes are at 6.06e-4 or above.
+  E is the floor 3.1e-6 in 26 boxes and above it in 9: 3.13e-6 to 3.15e-6 (s1 at l = 2, 3, 4, 6; R_s 1293), 3.26e-6, 3.27e-6 (s3 at l = 2, 3; 1343), 3.78e-6 (t2_r40; 1870), 7.51e-6 (t2_r80; 3717),
+  9.60e-6 (s2_l2; 3831). The largest crate-against-stored phase is 9.60e-6 rad and modulus 6.2e-8 (s3_l3). The least margin / (10 E) is 1.63 (s1 at l = 6): **no box is reported**.
 - **dd lane** (`run_07`, `dev_08_dd_vs_f64`): rep_l4, s1_l3 and s1_l6 give the same count, planted pair, margins and crate-against-stored phase (1.00e-6, 3.14e-6, 3.15e-6) in double-double; f64 against dd at
   the common points: phase 6e-13 rad, modulus 1.3e-13 at worst.
 - **Controls** (`run_04`, `run_05`): `reverse`, `wrongdouble`, `misplant`, `jsign`, `star_eps`, `rs_shift`, `strip_off`, `kmin_shift` fire on 35 of 35 boxes (`star_eps` stops the crate on c075_l2:
