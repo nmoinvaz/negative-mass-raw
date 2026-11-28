@@ -25,3 +25,21 @@ Criteria, written before the first run:
   at all six and its size within 15 %.
 
 Mutations: `eps-1e-2` (departure at 1e-2: K1), `no-speed` (c = 0 in P3: K3), `swap` (W and C exchanged: K1).
+
+## Results
+
+| check | verdict | reading (`run_01.log`) |
+|---|---|---|
+| K1 | met | t_dep 4.7e-4, γ₁ 5.0e-7, r_th 4.7e-7, M 4.7e-7 from the note's table |
+| K2 | met | M − P2 within 4.6e-7 of the note's; smallest \|M − P2\| 6.47e-5 (C1), so P2 fails at all six |
+| K3 | met | this ṙ_th (quadratic fit in τ) within 3.9e-7 of the note's; M − P3 within 2.3e-7. W3: M − P3 = +7.090e-5, beyond 6e-5 with this estimator too |
+| K4 | met | SEP sign and size within 15 % at 6 of 6 |
+
+Mutations: `eps-1e-2` and `swap` fail all four; `no-speed` fails K3 only.
+
+## Rerun of the runner's code
+
+From a detached worktree at 79fbafa: the W3 point at h = 0.005 (`job` and `member`, rc 0, 0) gives a chain, locus, member rows
+and t_dep bitwise equal to the runner's. `analyze` (exit 1, as declared) equals the branch's `settled_mass_route_output.txt`
+apart from the timing (`stored_output_79fbafa.txt`). The raw folder's `analyze_record.log` is an earlier analysis that printed
+ṙ_th to two digits; the numbers are the same.
