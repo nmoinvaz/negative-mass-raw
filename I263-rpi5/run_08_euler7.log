@@ -1,0 +1,4 @@
+order7.py  mutate=None  parts=['euler7']  mpmath 1.3.0  sympy 1.14.0
+PASS    RD5c: the Euler sums used, against their closed forms (Euler-Maclaurin at 34 digits), digits: H/n^3 = 5 zeta(4)/4: 34.0, H/n^5 = 7 zeta(6)/4 - zeta(3)^2/2: 34.0, H^2/n^4 = 97 zeta(6)/24 - 2 zeta(3)^2: 34.0, H2/n^2 = 7 zeta(4)/4: 34.0, H2/n^4 = zeta(3)^2 - zeta(6)/3: 34.0, H2^2/n^2 = 19 zeta(6)/24 + zeta(3)^2: 34.0, H H2/n^3 = 5 zeta(3)^2/2 - 101 zeta(6)/48: 34.0; (pi/4) sum_m s_m^2, s_m = (-1)^m[(H2_m - zeta(2))/m + 2 H_m/m^2 - 3/(2m^3)], against pi (3 zeta(3)^2/4 - 95 zeta(6)/96): 33.7 digits; sum s_m^2 assembled from the closed forms of the Euler sums, minus 3 zeta(3)^2 - 95 zeta(6)/24: sympy residual 0 (bar 30 digits, residual 0; 538 s)
+
+1 passed, 0 failed of 1 checks; 538 s
