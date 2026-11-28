@@ -107,3 +107,10 @@ Files here: `README.md`, `dev/` (development logs, `mut/`), `scripts/run_muts.sh
   and T2-V3** (DIFFERENT, exit 1): those two pass on the record at the bar 6e-5 (margins 1.8e-5 and 2.3e-5), but the development bar was 3e-4 where the mutations' shifts (about 1e-4) did not reach it. The declared sets were not edited.
   T1 and T2 fail without a mutation, so no mutation can newly fire them on the record; that they can fail is shown by these failures, by PFIT2's planted data (fires at 5.5e-4 and 1.3e-4 for a x 1.05 and c x 0.8) and by development (coef_a and no_rscale fire them at the dev bar).
 - Reruns are numbered; no log is overwritten. Raw commit of Stage 2 is named in the issue's closing comment.
+
+## Stage 3: the note and the figure
+
+- Branch `wip/i296-departure-eps` at **d46fa83**: `notes/wormhole_evolution/settled_mass_eps.md`, `settled_mass_eps_output.txt` (= `record/analyze_record.2.log`, byte for byte), `settled_mass_eps.svg`; the script is unchanged since 97a41f4.
+- `scripts/settled_mass_eps_graph.py` draws the figure from the stored runs through the script's own functions (`record/graph.log` the first drawing, `record/graph.1.log` the final: only the footnote's warning text differs).
+  Rerun: `NUMBA_NUM_THREADS=1 python scripts/settled_mass_eps_graph.py` (about 15 s), writes `notes/wormhole_evolution/settled_mass_eps.svg` in the worktree.
+- Nothing in Stage 1 or 2 was edited. The note reports: T1 and T2 not met; the eps = 1e-3 reproduction met; 3 of 12 record mutations fire two extra post hoc checks.
