@@ -6,7 +6,8 @@ Issue: https://github.com/nmoinvaz/negative-mass/issues/114
 
 ## Code and environment
 
-Code: worktree `negative-mass-i114` (beside this clone) on branch `wip/i114-convergence-cap` at 2447e1c (main 51ced6d),
+Code: worktree `negative-mass-i114` (beside this clone) on branch `wip/i114-convergence-cap` at f7b8e10 (2447e1c added
+the cap, 6e73456 the l = 5 output, f7b8e10 the l = 6 output and RESULTS.md; main 51ced6d),
 `phase2/nonradial/convergence.py` with its per-evaluation wall-time cap (`CAP_S`) and its `--mutate=nocap`, run from
 `phase2/nonradial`, unmodified.
 
@@ -77,7 +78,9 @@ largest working set was 84 MB.
 - `<job>.log` (stdout), `<job>.stderr`, `<job>.log.exit` for each job; `ctl_cap/`, `ctl_nocap/`, `regen5/`, `regen6/`
   hold each control's partial file.
 
-(the two evaluations and the regeneration are added when they finish)
+- The two evaluations and the regenerations: see Results: l = 5 and Results: l = 6. Their files: `run_l5.*`, `run_l6.*`
+  (run 1), `job_run_l6_run2.cmd` and `run_l6_run2.*` (run 2), `regen_out5.*`, `regen_out6.*`, `check_l5.py`,
+  `check_l5.out`, `check_l6.out`, `check_spread.py`, `memory-sampler-run2.log`, `status_run2.ps1`, `register_task.ps1`.
 
 ## Runs (step 3)
 
@@ -164,3 +167,37 @@ Observation, not changed (the script is the coordinator's): `convergence.py` tak
 without `phi_cut` in their name, and the base variant's name `base (rtol1e-10, phi_cut1e-9, R60)` contains it, so base is
 left out of the spread and the spread is over rtol 1e-12, R = 90 and r0. `check_spread.py` shows that including base
 changes no printed spread at any of the 11 gammas of l = 4, 5 and 6, nor in the l = 2 control.
+
+## Results: l = 6 (`run_l6_run2`, finished 2026-11-28 05:37, exit 0)
+
+The rtol 1e-12 evaluation at gamma = 12000 finished inside its cap: wall 282227 s (78.40 h), cpu 278516 s, worker pid
+24560 (`done` record in the partial file; the coordinator estimated about 89 h, the cap was 432000 s and would have
+fallen 2026-11-29 23:13). cpu/wall was 0.987 for the whole run. The sampler has 4703 samples from 2026-11-24 23:13 to
+2026-11-28 05:50 and no gap over 150 s, so no standby. Free memory ran from 12.1 GB (2026-11-25 09:52) to 23.1 GB of
+31.8 GB, other processes included; reported only, the worker held about 33 MB. `check_l5.py` (output in `check_l6.out`)
+reads the partial file independently of `convergence.py`'s printing:
+
+| variant at gamma = 12000 | D |
+|---|---|
+| base | -1.595791249461e-13 |
+| rtol 1e-12 (new) | -1.595791301340e-13 |
+| background R = 90 | -1.595972229568e-13 |
+| r0 = 3e-3 | -1.595633039949e-13 |
+| phi_cut 1e-12 (r_m ~ 34) | -7.926916804460e-14 |
+
+rtol 1e-12 against base: relative difference 3.25e-8 (limit 2.1e-4), D < 0. All five D are negative. The spread over
+the same-r_m variants is 2.126e-4 with and without the rtol 1e-12 value. `run_l6_run2.log` (stdout) has the top row with
+no cap note and time (349304s) = 67077 s of the 65 earlier results plus the new 282227 s; run 1's 49.4 h left no result
+and is not in it. `run_l6.stderr` (run 1), `run_l6_run2.stderr` and `regen_out6.stderr` are empty.
+
+Step 4 for l = 6 (`regen_out6`, exit 0, no new evaluation, stderr empty): stdout went to
+`phase2/nonradial/convergence_l6_output.txt`, which equals `run_l6_run2.log` and differs from the version committed in
+6e73456 in the top row only, and there only in the time `(67077s)` -> `(349304s)` and the removed note. D_base, signs,
+spread, D(r_m ~ 34) and q are the same to the printed digits. Code commit f7b8e10 on `wip/i114-convergence-cap` (with
+RESULTS.md section 3a and the section 8 row). The first launch of `regen_out6` at 05:38:18 did not start (`cmd /c` of a
+relative path from PowerShell); it was started again by full path at 05:48:28, both in `queue.log`.
+
+The end of the run, all of it mine (`queue.log`): the keep-awake released itself at 05:37:55 when its queue pid 9320
+ended; the sampler task was ended with `schtasks /end /tn nm-i114-sampler-run2` at about 05:50 (its process 9284 was
+gone afterwards, by pid, not by name); the three tasks `nm-i114-l6-run2`, `nm-i114-keepawake-run2` and
+`nm-i114-sampler-run2` were deleted with `schtasks /delete /f` at 05:51. No process of mine is left.

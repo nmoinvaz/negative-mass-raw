@@ -1,0 +1,11 @@
+regen5 exit 0
+regen6 exit 0
+ctl_cap exit 0
+ctl_nocap exit 0
+l=5 output DIFFERS
+l=6 output identical
+l=5 partial file unchanged
+l=6 partial file unchanged
+ctl_cap rows marked: 1 (gamma = 40 marks: 6), ctl_nocap rows marked: 0
+W=/var/folders/7t/cbzjknq94l52r9q6mhl9g2pm0000gn/T/tmp.88qkcvG6Xs
+FAIL
