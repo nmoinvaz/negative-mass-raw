@@ -1,0 +1,7 @@
+settled_mass_eps.py analyze {'part': 'record', 'mutate': 'no_run', 'baseline': '/Users/nathan/Source/negative-mass-raw/I296-mac/record/analyze_record.2.log'}: numba 0.68.1, numpy 2.5.4, python 3.14.7, Nathans-MacBook-Air-M5-3.local, part record, mutation no_run, 2026-11-28 01:34:01
+== Part record: 19 points read at eps = 0.001 and 19 at 0.01, h = 0.005; fit sets T1 9 -> 6, T2 15 -> 3
+[pass] CFG: M_0 = 0.223086 equals B = 0's plateau (h = 0.005) to 1e-6 and 0.223095 at h = 0.01; P4's constants equal the frozen refit of #295; the sets are #267's nine (four B, five delta), #283's six and #295's three; the (B, xc, w) stored in each run equal the declared one; bar 6e-5  (|M_0 - B = 0 plateau| 1.8e-07; B = 0 plateau 0.2230862; specs differing [])
+[FAIL] RUNS: every point reads without error at both eps, with finite (t_dep, gamma_1, r_th, rdot_th, M)  (missing {'W1 eps 0.01': 'treated as missing', 'e9 eps 0.01': 'treated as missing'})
+
+2 checks (0 post hoc, gating nothing), 1 gating checks failed, 0 post hoc checks failed; 4 s
+mutation no_run: fired ['RUNS']; failing without a mutation (--baseline) ['T1', 'T1-V1', 'T1-V2', 'T1-V3', 'T1-h', 'T2', 'T2-V2', 'T2-h']; newly fired ['RUNS'], declared ['RUNS']: MATCH

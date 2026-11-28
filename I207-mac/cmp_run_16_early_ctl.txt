@@ -1,0 +1,169 @@
+log lines compared: 68; gated differences: 50
+line counts differ: 68 against 70
+line 5:
+  base [PASS] plant_167: #167's planted cases through the same crate: matching (|C- - a|, |e|, |C+ - b|, nodes) linear: <err>, <err>, <err>, <err>, cubic: <err>, <err>, <err>, <err> (bars <err>, <err>); blowup: 8 walks, worst error <err>, worst bar <err> (1e-8), kinds right: True
+  on   [PASS] plant_167: #167's planted cases through the same crate: matching (|C- - a|, |e|, |C+ - b|, nodes) linear: <err>, <err>, <err>, <err>, cubic: <err>, <err>, <err>, <err> (bars <err>, <err>); blowup: 8 walks, worst error <err>, worst bar 0.0e+00 (1e-8), kinds right: True
+line 7:
+  base [PASS] plant_far: planted equations started at x0 = 1e6 and walked inward by hp_walk with the locator: F'' = 2F^3 (pl6) and F F'' + F'^2 = 0 (pl7), x* = 0.7321, error and bar <= 1e-8; (1 + x^2) F'' + 4 x F' + 2 (F - 7/10) = 0 (pl4), exact alpha + (a + b x)/(1 + x^2): pl6 dd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 dd: x* error <err>, bar <err>, <n> steps from 1e6; pl4 dd: worst relative error of F, F', F'' at 1e3, 10, 1 <err> (bar <err>); pl6 qd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 qd: x* error <err>, bar <err>, <n> steps from 1e6; pl4 qd: worst relative error
+  on   [PASS] plant_far: planted equations started at x0 = 1e6 and walked inward by hp_walk with the locator: F'' = 2F^3 (pl6) and F F'' + F'^2 = 0 (pl7), x* = 0.7321, error and bar <= 1e-8; (1 + x^2) F'' + 4 x F' + 2 (F - 7/10) = 0 (pl4), exact alpha + (a + b x)/(1 + x^2): pl6 dd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 dd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl4 dd: worst relative error of F, F', F'' at 1e3, 10, 1 <err> (bar <err>); pl6 qd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 qd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl4 qd: worst relati
+line 9:
+  base [PASS] regress167: #167's 187 grid points through `offgrid` (hp walker, series tables of 8 parts) and through #167's `conical_global scan --rstop=1e-8` (both run here): class and kind equal and eta* within 1e-8 at 172 singular points (worst difference <err>); mismatches []
+  on   [FAIL] regress167: #167's 187 grid points through `offgrid` (hp walker, series tables of 8 parts) and through #167's `conical_global scan --rstop=1e-8` (both run here): class and kind equal and eta* within 1e-8 at 169 singular points (worst difference <err>); mismatches [((0.75, 300.0), 'FLOOR:log', 'NONFINITE'), ((1.0, 3000.0), 'S:F->0', 'NONFINITE'), ((-1.0, -3000.0), 'S:F->0', 'NONFINITE')]
+line 11:
+  base [NOTE] scan_first_pass: the first pass (stop at R <= 1e-8 max(1, x)) and the pass of record (R <= <err> max(1, x)) differ at 2 of 31 points:
+  on   [NOTE] scan_first_pass: the first pass (stop at R <= 1e-8 max(1, x)) and the pass of record (R <= <err> max(1, x)) differ at 3 of 31 points:
+line 14:
+  base   region A: 14 points, classes {'S:F->0': 9, 'FLOOR:log': 3, 'S:a3->0': 2}; singular eta* from 1.282 to 1e+04
+  on      F_inf=16 C=1e+08: first pass S:a3->0 at 15.96866047; record TINYSTEP at -
+line 15:
+  base   region B: 10 points, classes {'S:F->0': 6, 'FLOOR:log': 4}; singular eta* from 1.288 to 3162
+  on     TINYSTEP points (1; the step fell below <err> |x|), from the last steps' (x, h, median Taylor radius of F'', sign changes of the last ten ratios):
+line 16:
+  base   region C: 7 points, classes {'S:F->0': 6, 'S:a3->0': 1}; singular eta* from 15.62 to 2500
+  on      F_inf=16 C=1e+08: shrinking; x_last 15.9686604735; last steps (15.96866047, <err>, <err>, 10) (15.96866047, <err>, <err>, 10) (15.96866047, <err>, <err>, 10) (15.96866047, <err>, <err>, 10)
+line 17:
+  base   chosen start radius L: {200.0: 4, 800.0: 2, 3200.0: 9, 12800.0: 4, 51200.0: 6, 204800.0: 6}; worst start residual <err>
+  on     region A: 14 points, classes {'S:F->0': 9, 'FLOOR:log': 3, 'S:a3->0': 2}; singular eta* from 1.282 to 1e+04
+line 18:
+  base   scan of record (class of each point; singular eta* to 10 digits, F_inf then C: label@eta*):
+  on     region B: 10 points, classes {'S:F->0': 6, 'FLOOR:log': 4}; singular eta* from 1.288 to 3162
+line 19:
+  base    F_inf=1: -1e+08:F->0@9999.996516 -100000:F->0@316.1612721 -10000:F->0@99.83572354 0:F->0@1.281933263 10000:FLOOR:log 100000:FLOOR:log 1e+08:FLOOR:log
+  on     region C: 7 points, classes {'S:F->0': 6, 'TINYSTEP': 1}; singular eta* from 15.62 to 2500
+line 20:
+  base    F_inf=4: -1e+08:F->0@4999.980435 -100000:F->0@157.7461609 -10000:F->0@49.09921366 0:F->0@3.035483925 10000:F->0@3.527557745 100000:a3->0@3.870076593 1e+08:a3->0@3.872978153
+  on     chosen start radius L: {200.0: 4, 800.0: 2, 3200.0: 9, 12800.0: 4, 51200.0: 6, 204800.0: 6}; worst start residual <err>
+line 21:
+  base    F_inf=0.01: -100000:F->0@3162.269412 -10000:F->0@999.9779473 0:F->0@1.288571687 10000:FLOOR:log 100000:FLOOR:log
+  on     scan of record (class of each point; singular eta* to 10 digits, F_inf then C: label@eta*):
+line 22:
+  base    F_inf=0.1: -100000:F->0@999.9779119 -10000:F->0@316.1706753 0:F->0@1.288259072 10000:FLOOR:log 100000:FLOOR:log
+  on      F_inf=1: -1e+08:F->0@9999.996516 -100000:F->0@316.1612721 -10000:F->0@99.83572354 0:F->0@1.281933263 10000:FLOOR:log 100000:FLOOR:log 1e+08:FLOOR:log
+line 23:
+  base    F_inf=16: -1e+08:F->0@2499.576479 -100000:F->0@71.22701017 -10000:F->0@15.62204114 0:F->0@15.78191794 10000:F->0@15.81421368 100000:F->0@15.86125434 1e+08:a3->0@15.96866047
+  on      F_inf=4: -1e+08:F->0@4999.980435 -100000:F->0@157.7461609 -10000:F->0@49.09921366 0:F->0@3.035483925 10000:F->0@3.527557745 100000:a3->0@3.870076593 1e+08:a3->0@3.872978153
+line 24:
+  base   FLOOR points (7): F at 1e-6 and p = eta F' at 1e-2, 1e-4, 1e-6; p0 C/(4 F_inf^2) at 1e-6:
+  on      F_inf=0.01: -100000:F->0@3162.269412 -10000:F->0@999.9779473 0:F->0@1.288571687 10000:FLOOR:log 100000:FLOOR:log
+line 25:
+  base    F_inf=0.01 C=10000 (log): F = 0.00999917; p = <err>, <err>, <err>; p0 C/(4 F_inf^2) = 0.999047
+  on      F_inf=0.1: -100000:F->0@999.9779119 -10000:F->0@316.1706753 0:F->0@1.288259072 10000:FLOOR:log 100000:FLOOR:log
+line 26:
+  base    F_inf=0.01 C=100000 (log): F = 0.00999991; p = <err>, <err>, <err>; p0 C/(4 F_inf^2) = 0.999710
+  on      F_inf=16: -1e+08:F->0@2499.576479 -100000:F->0@71.22701017 -10000:F->0@15.62204114 0:F->0@15.78191794 10000:F->0@15.81421368 100000:F->0@15.86125434 1e+08:TINYSTEP
+line 27:
+  base    F_inf=0.1 C=10000 (log): F = 0.0999215; p = <err>, <err>, <err>; p0 C/(4 F_inf^2) = 1.010442
+  on     FLOOR points (7): F at 1e-6 and p = eta F' at 1e-2, 1e-4, 1e-6; p0 C/(4 F_inf^2) at 1e-6:
+line 28:
+  base    F_inf=0.1 C=100000 (log): F = 0.0999917; p = <err>, <err>, <err>; p0 C/(4 F_inf^2) = 1.003503
+  on      F_inf=0.01 C=10000 (log): F = 0.00999917; p = <err>, <err>, <err>; p0 C/(4 F_inf^2) = 0.999047
+line 29:
+  base    F_inf=1 C=10000 (log): F = 0.723178; p = 1.7306e-03, 1.3907e-02, 1.3777e-01; p0 C/(4 F_inf^2) = 344.425606
+  on      F_inf=0.01 C=100000 (log): F = 0.00999991; p = <err>, <err>, <err>; p0 C/(4 F_inf^2) = 0.999710
+line 30:
+  base    F_inf=1 C=100000 (log): F = 0.986813; p = 1.0569e-04, 6.9420e-04, 6.0813e-03; p0 C/(4 F_inf^2) = 152.033401
+  on      F_inf=0.1 C=10000 (log): F = 0.0999215; p = <err>, <err>, <err>; p0 C/(4 F_inf^2) = 1.010442
+line 31:
+  base    F_inf=1 C=1e+08 (log): F = 0.999998; p = <err>, <err>, <err>; p0 C/(4 F_inf^2) = 18.385046
+  on      F_inf=0.1 C=100000 (log): F = 0.0999917; p = <err>, <err>, <err>; p0 C/(4 F_inf^2) = 1.003503
+line 32:
+  base   FLOOR, p(1e-6)/p(1e-4) within 10% of 1 (a log end, p0 = p): 4 of 7; larger (p still rising at the floor: the flow closes on a singularity below it): 3
+  on      F_inf=1 C=10000 (log): F = 0.723178; p = 1.7306e-03, 1.3907e-02, 1.3777e-01; p0 C/(4 F_inf^2) = 344.425606
+line 33:
+  base    F_inf=0.01: 2 floor points, 2 with p flat; p(1e-6)/p(1e-4) from 1.0000 to 1.0001
+  on      F_inf=1 C=100000 (log): F = 0.986813; p = 1.0569e-04, 6.9420e-04, 6.0813e-03; p0 C/(4 F_inf^2) = 152.033401
+line 34:
+  base    F_inf=0.1: 2 floor points, 2 with p flat; p(1e-6)/p(1e-4) from 1.0013 to 1.0042
+  on      F_inf=1 C=1e+08 (log): F = 0.999998; p = <err>, <err>, <err>; p0 C/(4 F_inf^2) = 18.385046
+line 35:
+  base    F_inf=1: 3 floor points, 0 with p flat; p(1e-6)/p(1e-4) from 5.4473 to 9.9064
+  on     FLOOR, p(1e-6)/p(1e-4) within 10% of 1 (a log end, p0 = p): 4 of 7; larger (p still rising at the floor: the flow closes on a singularity below it): 3
+line 36:
+  base   flat FLOOR points (4): p0 C/(4 F_inf^2) from 0.99905 to 1.01044
+  on      F_inf=0.01: 2 floor points, 2 with p flat; p(1e-6)/p(1e-4) from 1.0000 to 1.0001
+line 37:
+  base   kappa-curve ends: 3 at R <= <err> and 5 at R <= 1e-8; by F_inf (points, C range, eta* range, sqrt(F_inf^2 - 1)):
+  on      F_inf=0.1: 2 floor points, 2 with p flat; p(1e-6)/p(1e-4) from 1.0013 to 1.0042
+line 38:
+  base    F_inf=4: 2 points, C from 100000 to 1e+08, eta* from 3.8700766 to 3.8729782; sqrt(F_inf^2 - 1) = 3.8729833
+  on      F_inf=1: 3 floor points, 0 with p flat; p(1e-6)/p(1e-4) from 5.4473 to 9.9064
+line 39:
+  base    F_inf=16: 1 points, C from 1e+08 to 1e+08, eta* from 15.96866 to 15.96866; sqrt(F_inf^2 - 1) = 15.968719
+  on     flat FLOOR points (4): p0 C/(4 F_inf^2) from 0.99905 to 1.01044
+line 40:
+  base   F->0 points with eta* < 1e-4: 0
+  on     kappa-curve ends: 2 at R <= <err> and 5 at R <= 1e-8; by F_inf (points, C range, eta* range, sqrt(F_inf^2 - 1)):
+line 41:
+  base   FLOOR: p0 F_inf > 0 at every FLOOR point: True
+  on      F_inf=4: 2 points, C from 100000 to 1e+08, eta* from 3.8700766 to 3.8729782; sqrt(F_inf^2 - 1) = 3.8729833
+line 42:
+  base   F->0 points: 21, eta* from 1.282 to 1e+04; measured exponent against 2/(eta*^2 + 4): worst relative difference 2.9e-03
+  on     F->0 points with eta* < 1e-4: 0
+line 43:
+  base [PASS] scan: 31 points (ctl grid), classes {'S:F->0': 21, 'FLOOR:log': 7, 'S:a3->0': 3}; every point has a verdict (none NOSTART, STEPLIMIT, NONFINITE, TINYSTEP: True); start residual <= <err> at every start: True; every SINGULAR has a bar <= 1e-8 max(1, eta*): True (max bar <err>); THROUGH 0, GLOBAL 0; not classified []
+  on     FLOOR: p0 F_inf > 0 at every FLOOR point: True
+line 44:
+  base   (<t>)
+  on     F->0 points: 21, eta* from 1.282 to 1e+04; measured exponent against 2/(eta*^2 + 4): worst relative difference <err>
+line 45:
+  base [PASS] spread: the same point from the next start radius 4 L (residual <= <err> there too): 31 of 31 points have a second start; class and kind equal, eta* within 1e-8 max(1, eta*), FLOOR p0 within a relative 1e-9; worst eta* difference 0.0e+00; mismatches 0 []
+  on   [FAIL] scan: 31 points (ctl grid), classes {'S:F->0': 21, 'FLOOR:log': 7, 'S:a3->0': 2, 'TINYSTEP': 1}; every point has a verdict (none NOSTART, STEPLIMIT, NONFINITE, TINYSTEP: False); start residual <= <err> at every start: True; every SINGULAR has a bar <= 1e-8 max(1, eta*): True (max bar <err>); THROUGH 0, GLOBAL 0; not classified [((16.0, 100000000.0), 'TINYSTEP')]
+line 47:
+  base [PASS] dd_qd: quad-double (kt 60, tol <err>) against double-double on 31 points (start radius >= 204800 and the 30 smallest and 30 largest eta*): class and kind equal, eta* within <err> max(1, eta*), FLOOR p0 within a relative <err>; worst relative eta* difference 0.0e+00; mismatches 0 []
+  on   [PASS] spread: the same point from the next start radius 4 L (residual <= <err> there too): 31 of 31 points have a second start; class and kind equal, eta* within 1e-8 max(1, eta*), FLOOR p0 within a relative 1e-9; worst eta* difference 0.0e+00; mismatches 0 []
+line 49:
+  base [PASS] modes: `project` (Newton on F'' at each step) against `conserve` (N constant) over 31 points: class and kind equal, eta* within <err> max(1, eta*), FLOOR p0 within <err>; worst relative eta* difference 0.0e+00; mismatches 0 []
+  on   [PASS] dd_qd: quad-double (kt 60, tol <err>) against double-double on 31 points (start radius >= 204800 and the 30 smallest and 30 largest eta*): class and kind equal, eta* within <err> max(1, eta*), FLOOR p0 within a relative <err>; worst relative eta* difference <err>; mismatches 0 []
+line 51:
+  base [PASS] symmetry: (F_inf, C) -> (-F_inf, -C) over 31 points: class and kind equal, eta* within <err> max(1, eta*), |p0| within a relative <err>; worst relative eta* difference 0.0e+00; mismatches 0 []
+  on   [PASS] modes: `project` (Newton on F'' at each step) against `conserve` (N constant) over 31 points: class and kind equal, eta* within <err> max(1, eta*), FLOOR p0 within <err>; worst relative eta* difference 0.0e+00; mismatches 0 []
+listed, not gated: 24 error-sized numbers on aligned lines, 10 differ as printed; 3 lines whose step counts differ
+  relative differences of the differing ones: max 1.00e+00, median 9.00e-01; 0 differ by more than a factor 2 (rel > 1), 10 by more than 10%
+  line 63: 1e-55 -> 4.2e-14   [PASS] recip_check: a quad-double walk of (0.1, 3e4) to eta = 20 with every step halved (1
+  line 63: 1e-45 -> 2.5e-11   [PASS] recip_check: a quad-double walk of (0.1, 3e4) to eta = 20 with every step halved (1
+  line 63: 1.1e-59 -> 1e-13   [PASS] recip_check: a quad-double walk of (0.1, 3e4) to eta = 20 with every step halved (1
+  line 9: 1.8e-13 -> 3.2e-12   [PASS] regress167: #167's 187 grid points through `offgrid` (hp walker, series tables of 8
+  line 28: 4.0140e-07 -> 3.9962e-08      F_inf=0.1 C=100000 (log): F = 0.0999917; p = 4.0035e-07, 4.0088e-07, 4.0140e-07; p0 C/(
+dump file offgrid_c529a136fa.jsonl paired with offgrid_8a0e2f2147.jsonl (first lines equal up to the absolute path)
+dump: 79 files, 685 records, 2300 string fields, 526 eta* values compared; files missing in the run: 0; eta* differing in the 10 printed digits: 10, largest relative difference of any eta* 3.02e-01; records whose step count differs (listed, not gated): 37
+conical_global_a153d385ff.jsonl record 48 class: base SINGULAR on NONFINITE
+conical_global_a153d385ff.jsonl record 48 kind: base other on 
+conical_global_a153d385ff.jsonl record 65 xstar: base 0.0009548066174825603 on 0.0009548066174084515
+conical_global_a153d385ff.jsonl record 66 xstar: base 4.578491656216713e-05 on 4.578491648732298e-05
+conical_global_a153d385ff.jsonl record 67 class: base SINGULAR on NONFINITE
+conical_global_a153d385ff.jsonl record 67 kind: base other on 
+conical_global_a153d385ff.jsonl record 153 class: base SINGULAR on NONFINITE
+conical_global_a153d385ff.jsonl record 153 kind: base other on 
+conical_global_a153d385ff.jsonl record 154 xstar: base 4.578491656216713e-05 on 4.578491648732298e-05
+conical_global_a153d385ff.jsonl record 155 xstar: base 0.0009548066174825603 on 0.0009548066174084515
+offgrid_2c35839695.jsonl record 0 class: base SINGULAR on TINYSTEP
+offgrid_2c35839695.jsonl record 0 kind: base a3->0 on 
+offgrid_2c35839695.jsonl record 0 tiny_kind: base  on shrinking
+offgrid_38eda3c998.jsonl record 6 class: base SINGULAR on TINYSTEP
+offgrid_38eda3c998.jsonl record 6 kind: base a3->0 on 
+offgrid_38eda3c998.jsonl record 6 tiny_kind: base  on shrinking
+offgrid_3b61cb9d35.jsonl record 6 class: base SINGULAR on TINYSTEP
+offgrid_3b61cb9d35.jsonl record 6 kind: base a3->0 on 
+offgrid_3b61cb9d35.jsonl record 6 tiny_kind: base  on shrinking
+offgrid_43028f8d12.jsonl record 0 class: base SINGULAR on TINYSTEP
+offgrid_43028f8d12.jsonl record 0 kind: base a3->0 on 
+offgrid_43028f8d12.jsonl record 0 tiny_kind: base  on shrinking
+offgrid_5e4b28d7a7.jsonl record 6 class: base SINGULAR on TINYSTEP
+offgrid_5e4b28d7a7.jsonl record 6 kind: base a3->0 on 
+offgrid_5e4b28d7a7.jsonl record 6 tiny_kind: base  on shrinking
+offgrid_755c139d2d.jsonl record 14 class: base SINGULAR on FLOOR
+offgrid_755c139d2d.jsonl record 14 kind: base other on log
+offgrid_82cba858e3.jsonl record 0 kind: base other on F->0
+offgrid_82cba858e3.jsonl record 0 xstar: base 3.6494474562655617e-06 on 2.5476289711206824e-06
+offgrid_82cba858e3.jsonl record 1 xstar: base 4.5784916560794805e-05 on 4.578491648732298e-05
+offgrid_82cba858e3.jsonl record 2 xstar: base 0.0009548066174793937 on 0.0009548066174084515
+offgrid_8f869062c1.jsonl record 14 xstar: base 0.0009548066174793937 on 0.0009548066174084515
+offgrid_8f869062c1.jsonl record 15 xstar: base 4.5784916560794805e-05 on 4.578491648732298e-05
+offgrid_8f869062c1.jsonl record 16 kind: base other on F->0
+offgrid_8f869062c1.jsonl record 16 xstar: base 3.6494474562655617e-06 on 2.5476289711206824e-06
+offgrid_b961dc3a10.jsonl record 6 class: base SINGULAR on TINYSTEP
+offgrid_b961dc3a10.jsonl record 6 kind: base a3->0 on 
+offgrid_b961dc3a10.jsonl record 6 tiny_kind: base  on shrinking
+offgrid_eea65d53ce.jsonl record 6 class: base SINGULAR on TINYSTEP
+offgrid_eea65d53ce.jsonl record 6 kind: base a3->0 on 
+RESULT: gated differences found

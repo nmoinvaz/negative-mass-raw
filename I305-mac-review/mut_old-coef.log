@@ -1,0 +1,9 @@
+  X1: gamma_1 0.011999, r_th 0.993694, rdot -1.1304e-03, M 0.223687; M - P4 +1.071e-04 (note +9.00e-05); leverage 0.272 (note 0.272)
+  X2: gamma_1 0.047545, r_th 0.983798, rdot -2.7327e-03, M 0.228997; M - P4 +2.679e-04 (note +2.13e-04); leverage 1.975 (note 1.975)
+  X3: gamma_1 0.074911, r_th 0.983968, rdot -2.4394e-03, M 0.236361; M - P4 +2.745e-04 (note +1.98e-04); leverage 3.058 (note 3.058)
+  largest fitted leverage 0.3932
+[FAIL] K1: M - P4 +1.07e-04, +2.68e-04, +2.74e-04 against the note's within 5e-6, each beyond 6e-5
+[PASS] K2: leverage 0.272, 1.975, 3.058; fitted maximum 0.3932
+[PASS] K3: rdot_th -1.1304e-03, -2.7327e-03, -2.4394e-03
+
+3 criteria, 2 pass; failed: ['K1']; mutation old-coef

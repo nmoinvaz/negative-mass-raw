@@ -1,0 +1,5 @@
+[pass] S1: chart Q -> rho-form q = -(A/2)(A'' + A' R'/R), p = -A'/2 + A R'/R; d/drho[R (A y' - A' y/2)] = 0 on its solutions (symbolic), Ellis members (generic A, R^2 A'' = 2(A - 1), V from (v rho)) and Schwarzschild  (Ellis: residual 0; Schwarzschild: residual 0)
+[FAIL] S2: background identity (mu s r_Pi)' = mu E (1/r - V r) with V from (theta theta), and a = r (s^2 F_Pi - 1) = -R A'/(2 kappa) (so a(0) = -R(rho_h) since A'(rho_h) = 2 kappa), for generic R(rho), A(rho)  (residuals A(rho)/(2*kappa**2*s), 0)
+[pass] S3: K = (R^2 A' - 2 rho A)/2 + rho is constant on R^2 A'' = 2 (A - 1); kappa r_S c1 = K/2 with c1 = R_h/2 + R'_h/A'(rho_h); lim rho (1 - A)/2 = K/3 so dM/dL = K/2 (M ~ L^{3/2}); Schwarzschild kappa r_S c1 = dM  (dK/drho = 0; identity 0; M(L=1) = K/3; Schwarzschild 0)
+
+2 of 3 checks pass; fired: S2  [0 s]  mutation: s_pot

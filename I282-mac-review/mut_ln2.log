@@ -1,0 +1,12 @@
+  printed digits after the point: {3: 107, 4: 195, 5: 240, 6: 238}
+  Omega0: closed form against printed (60 digits): 3.8e-62
+  Omega1: closed form against printed (60 digits): 4.6e-59
+  Omega2: closed form against printed (60 digits): 1.32e-59
+[FAIL] K1: f2 - 2pi^2/3 = 15.4, f3 - 80 zeta(3) = 64.9 (bar 1e-50)
+[FAIL] K2: f7 from the printed Omega = 3512278.62101695190390295589785; identified closed form = 3734247.93996553429378268210386; relative difference 0.0594 (bar 1e-90)
+  f4 = -806.6611459610845685936836
+  f5 = -10743.81342743564851915382
+  f6 = 73590.97110344264188517669
+[PASS] K3: f4 .. f6 printed above (reported)
+
+3 criteria, 1 pass; failed: ['K1', 'K2']; mutation ln2

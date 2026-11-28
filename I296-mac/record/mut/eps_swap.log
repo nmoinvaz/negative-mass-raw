@@ -1,0 +1,140 @@
+settled_mass_eps.py analyze {'part': 'record', 'mutate': 'eps_swap', 'baseline': '/Users/nathan/Source/negative-mass-raw/I296-mac/record/analyze_record.2.log'}: numba 0.68.1, numpy 2.5.4, python 3.14.7, Nathans-MacBook-Air-M5-3.local, part record, mutation eps_swap, 2026-11-28 01:33:05
+== Part record: 19 points read at eps = 0.001 and 19 at 0.01, h = 0.005; fit sets T1 9 -> 6, T2 15 -> 3
+[pass] CFG: M_0 = 0.223086 equals B = 0's plateau (h = 0.005) to 1e-6 and 0.223095 at h = 0.01; P4's constants equal the frozen refit of #295; the sets are #267's nine (four B, five delta), #283's six and #295's three; the (B, xc, w) stored in each run equal the declared one; bar 6e-5  (|M_0 - B = 0 plateau| 1.8e-07; B = 0 plateau 0.2230862; specs differing [])
+[pass] RUNS: every point reads without error at both eps, with finite (t_dep, gamma_1, r_th, rdot_th, M)
+
+== Planted cases
+[pass] PDEP2: planted growing pair (odd part q0 e^{lambda t}, known crossing time of 1e-2) through departure_time  (|t_dep - exact| 5.8e-06 (bar 2e-05))
+    PTD2 gamma_1 0.012 r_th 0.997 v -1.0e-03 h 0.01: t_dep 15.6093 (15.6093), gamma_1 0.011873 (0.011873), r_th 0.995517 (0.995513), rdot_th +2.445e-05 (+2.732e-05)
+    PTD2 gamma_1 0.012 r_th 0.997 v -1.0e-03 h 0.005: t_dep 15.6093 (15.6093), gamma_1 0.011873 (0.011873), r_th 0.995517 (0.995513), rdot_th +2.447e-05 (+2.732e-05)
+    PTD2 gamma_1 0.048 r_th 0.999 v +2.0e-04 h 0.01: t_dep 15.6093 (15.6093), gamma_1 0.047873 (0.047873), r_th 1.000529 (1.000523), rdot_th +1.090e-03 (+1.095e-03)
+    PTD2 gamma_1 0.048 r_th 0.999 v +2.0e-04 h 0.005: t_dep 15.6093 (15.6093), gamma_1 0.047873 (0.047873), r_th 1.000529 (1.000523), rdot_th +1.090e-03 (+1.095e-03)
+    PTD2 gamma_1 0.075 r_th 1.008 v +2.0e-03 h 0.01: t_dep 15.6093 (15.6093), gamma_1 0.074873 (0.074873), r_th 1.014046 (1.014037), rdot_th +2.688e-03 (+2.696e-03)
+    PTD2 gamma_1 0.075 r_th 1.008 v +2.0e-03 h 0.005: t_dep 15.6093 (15.6093), gamma_1 0.074873 (0.074873), r_th 1.014046 (1.014037), rdot_th +2.688e-03 (+2.696e-03)
+    PTD2 gamma_1 0.012 r_th 1.001 v +1.0e-03 h 0.01: t_dep 15.6093 (15.6093), gamma_1 0.011873 (0.011873), r_th 1.004537 (1.004529), rdot_th +1.800e-03 (+1.806e-03)
+    PTD2 gamma_1 0.012 r_th 1.001 v +1.0e-03 h 0.005: t_dep 15.6093 (15.6093), gamma_1 0.011873 (0.011873), r_th 1.004537 (1.004529), rdot_th +1.800e-03 (+1.806e-03)
+[pass] PTD2: planted pairs (odd part Q0 delta e^{lambda t}, trajectories of the measured size, rows every 0.5 in t from the exact static member) through member_at and speed_at at eps = 1e-2: departure time, gamma_1, r_th and rdot_th at departure  (max error t_dep 6.6e-06 (bar 2e-05), gamma_1 4.4e-10 (1e-05), r_th 9.0e-06 (5e-05), rdot_th 8.1e-06 (1e-05))
+[pass] PFIT2: planted data that follow the form exactly (M = r_th (M_0 + a g + b g^2 + c rdot) on the real eps = 1e-2 (gamma_1, r_th, rdot_th)) pass the T1 and T2 code at 1e-12; with a x 1.05, or c x 0.8, in the test points it fires (bar 6e-5)  (max |M - predicted|: own 2.8e-17; a x 1.05 8.8e-04; c x 0.8 1.6e-04 (bar 6e-05))
+
+== The members at departure at eps = 0.001 and 0.01 (h = 0.005; #266's reading on the pair's mean profile; rdot_th = #267's speed there)
+    point   t_dep(1e-3) t_dep(1e-2)  shift | gamma_1(1e-3) gamma_1(1e-2)  d    | r_th(1e-3)  r_th(1e-2)   d         | rdot(1e-3)  rdot(1e-2)  d          | M
+    B0         13.287    13.287   0.000 | -0.000000 -0.000000 +0.0e+00 | 0.999999 0.999999 +0.0e+00 | -3.261e-06 -3.261e-06 +0.0e+00 | 0.223086
+    B0.025     13.303    13.303   0.000 | +0.002936 +0.002936 +0.0e+00 | 0.999446 0.999446 +0.0e+00 | -9.690e-05 -9.690e-05 +0.0e+00 | 0.223563
+    B0.05      13.355    13.355   0.000 | +0.011844 +0.011844 +0.0e+00 | 0.998356 0.998356 +0.0e+00 | -3.026e-04 -3.026e-04 +0.0e+00 | 0.225235
+    B0.1       13.615    13.615   0.000 | +0.048316 +0.048316 +0.0e+00 | 1.002878 1.002878 +0.0e+00 | +6.505e-05 +6.505e-05 +0.0e+00 | 0.235548
+    B0.125     13.864    13.864   0.000 | +0.075449 +0.075449 +0.0e+00 | 1.015883 1.015883 +0.0e+00 | +1.594e-03 +1.594e-03 +0.0e+00 | 0.247100
+    e7         11.610    11.610   0.000 | +0.048511 +0.048511 +0.0e+00 | 1.003370 1.003370 +0.0e+00 | -6.316e-04 -6.316e-04 +0.0e+00 | 0.235198
+    e9         15.618    15.618   0.000 | +0.048159 +0.048159 +0.0e+00 | 1.003477 1.003477 +0.0e+00 | +5.094e-04 +5.094e-04 +0.0e+00 | 0.235991
+    e10        17.624    17.624   0.000 | +0.048013 +0.048013 +0.0e+00 | 1.004787 1.004787 +0.0e+00 | +8.052e-04 +8.052e-04 +0.0e+00 | 0.236497
+    e11        19.628    19.628   0.000 | +0.047870 +0.047870 +0.0e+00 | 1.006583 1.006583 +0.0e+00 | +1.011e-03 +1.011e-03 +0.0e+00 | 0.237051
+    e12        21.613    21.613   0.000 | +0.047732 +0.047732 +0.0e+00 | 1.008642 1.008642 +0.0e+00 | +1.096e-03 +1.096e-03 +0.0e+00 | 0.237622
+    W1         13.348    13.348   0.000 | +0.012003 +0.012003 +0.0e+00 | 0.994956 0.994956 +0.0e+00 | -5.048e-04 -5.048e-04 +0.0e+00 | 0.224367
+    W2         13.568    13.568   0.000 | +0.047982 +0.047982 +0.0e+00 | 0.989179 0.989179 +0.0e+00 | -6.653e-04 -6.653e-04 +0.0e+00 | 0.231740
+    W3         13.776    13.776   0.000 | +0.075022 +0.075022 +0.0e+00 | 0.993634 0.993634 +0.0e+00 | +4.989e-04 +4.989e-04 +0.0e+00 | 0.240794
+    C1         13.365    13.365   0.000 | +0.011989 +0.011989 +0.0e+00 | 0.999623 0.999623 +0.0e+00 | -3.888e-04 -3.888e-04 +0.0e+00 | 0.225489
+    C2         13.640    13.640   0.000 | +0.048006 +0.048006 +0.0e+00 | 1.006321 1.006321 +0.0e+00 | -2.916e-04 -2.916e-04 +0.0e+00 | 0.235995
+    C3         13.891    13.891   0.000 | +0.074833 +0.074833 +0.0e+00 | 1.019366 1.019366 +0.0e+00 | +9.949e-04 +9.949e-04 +0.0e+00 | 0.247278
+    N1         13.361    13.361   0.000 | +0.011993 +0.011993 +0.0e+00 | 0.997459 0.997459 +0.0e+00 | -4.348e-04 -4.348e-04 +0.0e+00 | 0.224974
+    N2         13.623    13.623   0.000 | +0.047988 +0.047988 +0.0e+00 | 0.998724 0.998724 +0.0e+00 | -4.177e-04 -4.177e-04 +0.0e+00 | 0.234137
+    N3         13.867    13.867   0.000 | +0.075017 +0.075017 +0.0e+00 | 1.008541 1.008541 +0.0e+00 | +8.649e-04 +8.649e-04 +0.0e+00 | 0.244642
+[FAIL] MEM: the departure at eps = 1e-2 comes 1.9 to 2.2 later than at 1e-3 at every point (the mode grows by ln 10 / lambda = 1.95 to 2.1: the stored linear growth), and every member is finite  (shift 0.000 to 0.000)
+
+== The printed members of #266 and #267 at h = 0.005 (training points only), to the half unit of their last printed digit
+[FAIL] E2B: the members at eps = 1e-3 and 1e-2 of B = 0, 0.025, 0.05, 0.1, 0.125 (#266's output) and of delta = 1e-7, 1e-9 .. 1e-12 (#267's output) equal the printed t_dep, r_th and gamma_1 to the half unit of the last digit  (60 numbers compared; differing: ['#266 B0 eps 0.01 t_dep: 13.2866804 vs printed 15.234', '#266 B0 eps 0.01 rth: 0.9999985 vs printed 0.99986', '#266 B0.025 eps 0.01 t_dep: 13.3030409 vs printed 15.252', '#266 B0.025 eps 0.01 rth: 0.9994464 vs printed 0.99915', '#266 B0.025 eps 0.01 g1: 0.0029358 vs printed 0.00293', '#266 B0.05 eps 0.01 t_dep: 13.3553514 vs printed 15.311'])
+
+== At eps = 0.001: the earlier notes' numbers (P3 as #267's rounded constants, P4 frozen, the refits) reproduced
+[pass] E3S: at eps = 1e-3 the six points' plateau M and M - P3 (P3 = #267's (0.2300, 0.2724, 0.7835), M_0 = 0.223086) equal #283's printed values to 1e-6  (max difference 4.7e-07; W1 +1.41e-05 (+1.41e-05), W2 +4.72e-05 (+4.72e-05), W3 +7.11e-05 (+7.11e-05), C1 -3.81e-06 (-3.81e-06), C2 -1.36e-05 (-1.36e-05), C3 -2.24e-05 (-2.24e-05))
+[pass] E3F: at eps = 1e-3 the refit over the fifteen points (a, b, c) equals #295's frozen (0.2296318924, 0.2834170383, 0.7657657062) and its printed recomputation to 1e-6  (15 points; refit +0.2296318924, +0.2834170383, +0.7657657062; max |refit - frozen| 3.4e-11, vs printed 3.4e-11)
+[pass] E3N: at eps = 1e-3 the three new members' plateau M and M - P4 (frozen refit, M_0 = 0.223086) equal #295's printed values to 1e-6  (max difference 4.6e-07; N1 -4.77e-07 (-4.77e-07), N2 -2.15e-06 (-2.15e-06), N3 +1.21e-06 (+1.21e-06))
+[pass] E3P: at eps = 1e-3 the refit over the nine points (a, b, c) equals #267's printed (0.2300, 0.2724, 0.7835) to the half unit of its last digit, and its nine leave-one-out errors (predicted - measured in y, in the printed order) equal #267's to 1e-6  (refit +0.22999, +0.27237, +0.78349; max leave-one-out difference 3.6e-07)
+
+== The tests at eps = 0.01 (h = 0.005, M_0 = 0.223086, plain least squares, no intercept, no weights; M - predicted, bar 6e-05)
+    T1: fit over 9 points ('B0.025', 'B0.05', 'B0.1', 'B0.125', 'e7', 'e9', 'e10', 'e11', 'e12'); test ('W1', 'W2', 'W3', 'C1', 'C2', 'C3')
+        eps = 1e-2: (a, b, c) = +0.229987, +0.272368, +0.783489; M - predicted: W1 +1.42e-05, W2 +4.79e-05, W3 +7.22e-05, C1 -3.65e-06, C2 -1.29e-05, C3 -2.13e-05; in-sample max 4.4e-05, leave-one-out max 6.7e-05
+        eps = 1e-3: (a, b, c) = +0.229987, +0.272368, +0.783489; M - predicted: W1 +1.42e-05, W2 +4.79e-05, W3 +7.22e-05, C1 -3.65e-06, C2 -1.29e-05, C3 -2.13e-05; in-sample max 4.4e-05, leave-one-out max 6.7e-05   (the same refit at #266's definition, unrounded)
+[FAIL] T1: refit of P3's form over the nine points of #267 (four B, five delta) at eps = 1e-2 predicts #283's six within 6e-5  (max |M - predicted| 7.22e-05 (bar 6e-05); W1 +1.42e-05, W2 +4.79e-05, W3 +7.22e-05, C1 -3.65e-06, C2 -1.29e-05, C3 -2.13e-05)
+    T2: fit over 15 points ('B0.025', 'B0.05', 'B0.1', 'B0.125', 'e7', 'e9', 'e10', 'e11', 'e12', 'W1', 'W2', 'W3', 'C1', 'C2', 'C3'); test ('N1', 'N2', 'N3')
+        eps = 1e-2: (a, b, c) = +0.229632, +0.283417, +0.765766; M - predicted: N1 -4.77e-07, N2 -2.15e-06, N3 +1.21e-06; in-sample max 5.5e-05, leave-one-out max 7.9e-05
+        eps = 1e-3: (a, b, c) = +0.229632, +0.283417, +0.765766; M - predicted: N1 -4.77e-07, N2 -2.15e-06, N3 +1.21e-06; in-sample max 5.5e-05, leave-one-out max 7.9e-05   (the same refit at #266's definition, unrounded)
+[pass] T2: refit of P3's form over the fifteen points at eps = 1e-2 predicts #295's three within 6e-5  (max |M - predicted| 2.15e-06 (bar 6e-05); N1 -4.77e-07, N2 -2.15e-06, N3 +1.21e-06)
+
+== Post hoc, declared before the test points were read at eps = 1e-2 (gate nothing): the same tests with M_0 read at the same eps, with a free intercept, and at h = 0.01
+[FAIL] T1-V2: POST HOC, gates nothing: T1 with M_0 = B = 0's plateau / B = 0's r_th at eps = 1e-2 (0.223087) instead of 0.223086: M - predicted within 6e-5  ((a, b, c) = +0.2300, +0.2726, +0.7835; W1 +1.40e-05, W2 +4.80e-05, W3 +7.22e-05, C1 -3.92e-06, C2 -1.28e-05, C3 -2.13e-05)
+[FAIL] T1-V3: POST HOC, gates nothing: T1 with the symmetric member's r_th - 1 (-1.5e-06) and rdot_th (-3.3e-06) at eps = 1e-2 subtracted from every member's (M_0 = 0.223086): M - predicted within 6e-5  ((a, b, c) = +0.2299, +0.2735, +0.7837; W1 +1.27e-05, W2 +4.84e-05, W3 +7.20e-05, C1 -5.17e-06, C2 -1.25e-05, C3 -2.16e-05)
+[FAIL] T1-V1: POST HOC, gates nothing: T1 with a free intercept (four parameters; M_0 = 0.223086 + intercept): M - predicted within 6e-5  ((a, b, c, intercept) = +0.2301, +0.2712, +0.7832, -0.0000; W1 +1.58e-05, W2 +4.74e-05, W3 +7.24e-05, C1 -2.06e-06, C2 -1.33e-05, C3 -2.09e-05)
+[pass] T1-h: POST HOC, gates nothing: T1 at h = 0.01 (M_0 = 0.223095, refit at h = 0.01 over the same points, eps = 1e-2): M - predicted within 6e-5  ((a, b, c) = +0.2296, +0.2814, +0.7706; W1 +1.27e-05, W2 +3.99e-05, W3 +5.99e-05, C1 +4.16e-08, C2 -1.61e-05, C3 -2.83e-05)
+[pass] T2-V2: POST HOC, gates nothing: T2 with M_0 = B = 0's plateau / B = 0's r_th at eps = 1e-2 (0.223087) instead of 0.223086: M - predicted within 6e-5  ((a, b, c) = +0.2296, +0.2836, +0.7658; N1 -7.26e-07, N2 -2.05e-06, N3 +1.16e-06)
+[pass] T2-V3: POST HOC, gates nothing: T2 with the symmetric member's r_th - 1 (-1.5e-06) and rdot_th (-3.3e-06) at eps = 1e-2 subtracted from every member's (M_0 = 0.223086): M - predicted within 6e-5  ((a, b, c) = +0.2295, +0.2845, +0.7661; N1 -1.86e-06, N2 -1.58e-06, N3 +9.17e-07)
+[pass] T2-V1: POST HOC, gates nothing: T2 with a free intercept (four parameters; M_0 = 0.223086 + intercept): M - predicted within 6e-5  ((a, b, c, intercept) = +0.2298, +0.2821, +0.7654, -0.0000; N1 +1.11e-06, N2 -2.82e-06, N3 +1.55e-06)
+[pass] T2-h: POST HOC, gates nothing: T2 at h = 0.01 (M_0 = 0.223095, refit at h = 0.01 over the same points, eps = 1e-2): M - predicted within 6e-5  ((a, b, c) = +0.2293, +0.2888, +0.7567; N1 -4.33e-07, N2 -2.65e-06, N3 +4.68e-06)
+
+== Post hoc (gates nothing): the eps = 1e-3 constants applied to the eps = 1e-2 members, without a refit (P3 #267's rounded constants on the six; P4 #295's frozen refit on the three; both on the nine and fifteen)
+    P3 on the six: eps = 1e-2: W1 +1.41e-05, W2 +4.72e-05, W3 +7.11e-05, C1 -3.81e-06, C2 -1.36e-05, C3 -2.24e-05; max 7.11e-05 | eps = 1e-3: max 7.11e-05
+    P4 on the three: eps = 1e-2: N1 -4.77e-07, N2 -2.15e-06, N3 +1.21e-06; max 2.15e-06 | eps = 1e-3: max 2.15e-06
+    P4 on the nine: eps = 1e-2: B0.025 -1.12e-06, B0.05 -7.69e-06, B0.1 -2.01e-05, B0.125 -8.86e-06, e7 -5.97e-07, e9 -1.89e-05, e10 -1.15e-05, e11 -1.13e-06, e12 +5.51e-05; max 5.51e-05 | eps = 1e-3: max 5.51e-05
+    P4 on the six: eps = 1e-2: W1 +7.99e-06, W2 +2.79e-05, W3 +4.57e-05, C1 -7.87e-06, C2 -2.65e-05, C3 -3.93e-05; max 4.57e-05 | eps = 1e-3: max 4.57e-05
+
+== Post hoc (gates nothing): the refit's own errors at both eps (fifteen points, then eighteen)
+    fifteen at eps = 0.001: (a, b, c) = +0.229632, +0.283417, +0.765766; in-sample max 5.51e-05, leave-one-out max 7.90e-05
+        in-sample (x1e-6): B0.025 -1, B0.05 -8, B0.1 -20, B0.125 -9, e7 -1, e9 -19, e10 -12, e11 -1, e12 +55, W1 +8, W2 +28, W3 +46, C1 -8, C2 -27, C3 -39
+        leave-one-out (x1e-6): B0.025 -1, B0.05 -8, B0.1 -23, B0.125 -14, e7 -1, e9 -22, e10 -14, e11 -2, e12 +79, W1 +9, W2 +38, W3 +75, C1 -8, C2 -32, C3 -57
+    fifteen at eps = 0.01: (a, b, c) = +0.229632, +0.283417, +0.765766; in-sample max 5.51e-05, leave-one-out max 7.90e-05
+        in-sample (x1e-6): B0.025 -1, B0.05 -8, B0.1 -20, B0.125 -9, e7 -1, e9 -19, e10 -12, e11 -1, e12 +55, W1 +8, W2 +28, W3 +46, C1 -8, C2 -27, C3 -39
+        leave-one-out (x1e-6): B0.025 -1, B0.05 -8, B0.1 -23, B0.125 -14, e7 -1, e9 -22, e10 -14, e11 -2, e12 +79, W1 +9, W2 +38, W3 +75, C1 -8, C2 -32, C3 -57
+    eighteen at eps = 0.001: (a, b, c) = +0.229616, +0.283636, +0.765976; in-sample max 5.51e-05, leave-one-out max 7.89e-05
+        in-sample (x1e-6): B0.025 -1, B0.05 -7, B0.1 -20, B0.125 -9, e7 -0, e9 -19, e10 -11, e11 -1, e12 +55, W1 +8, W2 +28, W3 +46, C1 -8, C2 -26, C3 -40, N1 -0, N2 -2, N3 +1
+        leave-one-out (x1e-6): B0.025 -1, B0.05 -8, B0.1 -22, B0.125 -13, e7 -0, e9 -22, e10 -14, e11 -1, e12 +79, W1 +9, W2 +36, W3 +65, C1 -8, C2 -30, C3 -52, N1 -0, N2 -2, N3 +1
+    eighteen at eps = 0.01: (a, b, c) = +0.229616, +0.283636, +0.765976; in-sample max 5.51e-05, leave-one-out max 7.89e-05
+        in-sample (x1e-6): B0.025 -1, B0.05 -7, B0.1 -20, B0.125 -9, e7 -0, e9 -19, e10 -11, e11 -1, e12 +55, W1 +8, W2 +28, W3 +46, C1 -8, C2 -26, C3 -40, N1 -0, N2 -2, N3 +1
+        leave-one-out (x1e-6): B0.025 -1, B0.05 -8, B0.1 -22, B0.125 -13, e7 -0, e9 -22, e10 -14, e11 -1, e12 +79, W1 +9, W2 +36, W3 +65, C1 -8, C2 -30, C3 -52, N1 -0, N2 -2, N3 +1
+
+== Post hoc (gates nothing): the same moment read from two pairs. The pair at delta = 10^-e read at eps = 1e-2 and the pair at 10^-(e+1) read at eps = 1e-3 reach it together; their means differ by the unstable mode's second-order part
+    e7@1e-2 vs B0.1@1e-3: t_dep 11.610 vs 13.615; r_th(1e-3 pair) - r_th(1e-2 pair) -4.92e-04; gamma_1 -1.95e-04; rdot_th +6.97e-04
+    B0.1@1e-2 vs e9@1e-3: t_dep 13.615 vs 15.618; r_th(1e-3 pair) - r_th(1e-2 pair) +5.98e-04; gamma_1 -1.57e-04; rdot_th +4.44e-04
+    e9@1e-2 vs e10@1e-3: t_dep 15.618 vs 17.624; r_th(1e-3 pair) - r_th(1e-2 pair) +1.31e-03; gamma_1 -1.46e-04; rdot_th +2.96e-04
+    e10@1e-2 vs e11@1e-3: t_dep 17.624 vs 19.628; r_th(1e-3 pair) - r_th(1e-2 pair) +1.80e-03; gamma_1 -1.43e-04; rdot_th +2.06e-04
+    e11@1e-2 vs e12@1e-3: t_dep 19.628 vs 21.613; r_th(1e-3 pair) - r_th(1e-2 pair) +2.06e-03; gamma_1 -1.39e-04; rdot_th +8.48e-05
+    B = 0 (the symmetric member, r_th = 1): r_th - 1 = -1.50e-06 at eps = 1e-3, -1.50e-06 at 1e-2; M_0(eps) = M/r_th = 0.2230865 and 0.2230865 against 0.223086
+
+== Post hoc (gates nothing): leverage of the test points in the training design at eps = 1e-2 (design columns g, g^2, rdot)
+    T1: training leverage max 0.957 (B0.125), mean 0.333; test points: W1 0.170, W2 0.703, W3 1.448, C1 0.132, C2 0.400, C3 1.056; singular values 1.407e-01, 2.142e-03, 1.284e-03
+    T2: training leverage max 0.393 (W3), mean 0.200; test points: N1 0.070, N2 0.189, N3 0.328; singular values 1.897e-01, 3.114e-03, 1.864e-03
+
+== Post hoc (gates nothing): the tests at other eps (the stored rows reach 1e-1): max |M - predicted| of T1 and T2, three choices of M_0, and the coefficients
+    eps     | T1: M_0 = 0.223086, M_0(eps), free, B = 0 subtracted | T2: the same four | (a, b, c) of the nine | (a, b, c) of the fifteen (M_0 = 0.223086)
+    0.001   | 7.22e-05 7.22e-05 7.24e-05 7.20e-05 | 2.15e-06 2.05e-06 2.82e-06 1.86e-06 | +0.2300, +0.2724, +0.7835 | +0.2296, +0.2834, +0.7658
+    0.002   | 7.19e-05 7.18e-05 7.15e-05 7.11e-05 | 4.73e-06 4.52e-06 3.98e-06 3.56e-06 | +0.2311, +0.2015, +0.7494 | +0.2306, +0.2161, +0.7283
+            T1 residuals (M_0 = 0.223086): W1 +1.90e-05, W2 +4.35e-05, W3 +7.19e-05, C1 +2.33e-06, C2 -9.56e-06, C3 -8.05e-06; T2: N1 +4.73e-06, N2 -3.82e-06, N3 +4.66e-06
+    0.005   | 7.63e-05 7.63e-05 7.61e-05 7.53e-05 | 2.54e-05 2.17e-05 8.64e-06 7.01e-06 | +0.2350, +0.0867, +0.6890 | +0.2343, +0.1077, +0.6651
+            T1 residuals (M_0 = 0.223086): W1 +3.79e-05, W2 +2.01e-05, W3 +7.63e-05, C1 +2.28e-05, C2 -2.54e-05, C3 +6.50e-06; T2: N1 +2.54e-05, N2 -2.09e-05, N3 +9.67e-06
+    0.01    | 7.22e-05 7.22e-05 7.24e-05 7.20e-05 | 2.15e-06 2.05e-06 2.82e-06 1.86e-06 | +0.2300, +0.2724, +0.7835 | +0.2296, +0.2834, +0.7658
+    0.02    | 3.69e-04 3.34e-04 3.33e-04 3.28e-04 | 2.11e-04 1.91e-04 1.52e-04 1.38e-04 | +0.2324, +0.2940, -0.0057 | +0.2369, +0.1920, +0.0720
+            T1 residuals (M_0 = 0.223086): W1 -8.76e-05, W2 -3.69e-04, W3 -3.00e-04, C1 -5.86e-05, C2 -2.73e-04, C3 -1.74e-04; T2: N1 +1.01e-05, N2 -2.11e-04, N3 -3.19e-05
+    0.05    | 3.07e-04 2.86e-04 3.36e-04 3.50e-04 | 2.07e-04 2.03e-04 2.11e-04 2.12e-04 | +0.2228, +0.3612, -0.1004 | +0.2236, +0.3347, -0.0947
+            T1 residuals (M_0 = 0.223086): W1 -1.03e-04, W2 -3.07e-04, W3 -2.24e-04, C1 -7.04e-05, C2 -2.08e-04, C3 -1.58e-04; T2: N1 -4.06e-05, N2 -2.07e-04, N3 -4.28e-05
+
+== Post hoc 2 (gates nothing; added after the first record run): the fits' own errors at both eps for the four readings (fixed M_0, V2 M_0(eps), V1 free intercept, V3 B = 0 subtracted)
+    eps 0.001, nine: fixed in-sample 4.38e-05 loo 6.69e-05; V2 in-sample 4.38e-05 loo 6.69e-05; V1 in-sample 4.37e-05 loo 6.68e-05; V3 in-sample 4.39e-05 loo 6.70e-05
+    eps 0.001, fifteen: fixed in-sample 5.51e-05 loo 7.90e-05; V2 in-sample 5.51e-05 loo 7.90e-05; V1 in-sample 5.50e-05 loo 7.90e-05; V3 in-sample 5.52e-05 loo 7.91e-05
+    eps 0.001, eighteen: fixed in-sample 5.51e-05 loo 7.89e-05; V2 in-sample 5.51e-05 loo 7.89e-05; V1 in-sample 5.51e-05 loo 7.89e-05; V3 in-sample 5.52e-05 loo 7.90e-05
+    eps 0.01, nine: fixed in-sample 4.38e-05 loo 6.69e-05; V2 in-sample 4.38e-05 loo 6.69e-05; V1 in-sample 4.37e-05 loo 6.68e-05; V3 in-sample 4.39e-05 loo 6.70e-05
+    eps 0.01, fifteen: fixed in-sample 5.51e-05 loo 7.90e-05; V2 in-sample 5.51e-05 loo 7.90e-05; V1 in-sample 5.50e-05 loo 7.90e-05; V3 in-sample 5.52e-05 loo 7.91e-05
+    eps 0.01, eighteen: fixed in-sample 5.51e-05 loo 7.89e-05; V2 in-sample 5.51e-05 loo 7.89e-05; V1 in-sample 5.51e-05 loo 7.89e-05; V3 in-sample 5.52e-05 loo 7.90e-05
+    -- the same tests without the roundoff-floor points (delta = 1e-12; and 1e-11, 1e-12), max |M - predicted| of T1 and T2
+    eps 0.001, all nine: fixed: T1 7.22e-05, T2 2.15e-06; V1: T1 7.24e-05, T2 2.82e-06; V3: T1 7.20e-05, T2 1.86e-06
+    eps 0.001, without e12: fixed: T1 5.26e-05, T2 2.93e-06; V1: T1 5.27e-05, T2 3.43e-06; V3: T1 5.23e-05, T2 2.37e-06
+    eps 0.001, without e11, e12: fixed: T1 4.50e-05, T2 3.02e-06; V1: T1 4.51e-05, T2 3.38e-06; V3: T1 4.47e-05, T2 3.14e-06
+    eps 0.01, all nine: fixed: T1 7.22e-05, T2 2.15e-06; V1: T1 7.24e-05, T2 2.82e-06; V3: T1 7.20e-05, T2 1.86e-06
+    eps 0.01, without e12: fixed: T1 5.26e-05, T2 2.93e-06; V1: T1 5.27e-05, T2 3.43e-06; V3: T1 5.23e-05, T2 2.37e-06
+    eps 0.01, without e11, e12: fixed: T1 4.50e-05, T2 3.02e-06; V1: T1 4.51e-05, T2 3.38e-06; V3: T1 4.47e-05, T2 3.14e-06
+    -- the symmetric member B = 0 against eps (r_th = 1 and rdot_th = 0 for the static member): the reading's second-order part
+    eps      r_th - 1     (r_th - 1)/eps^2   rdot_th      rdot_th/eps^2   t_dep
+    0.001    -1.496e-06    -1.496        -3.261e-06    -3.261      13.287
+    0.002    -5.432e-06    -1.358        -1.296e-05    -3.241      13.873
+    0.005    -3.527e-05    -1.411        -8.097e-05    -3.239      14.648
+    0.01     -1.496e-06    -0.015        -3.261e-06    -0.033      13.287
+    0.02     -5.468e-04    -1.367        -1.296e-03    -3.241      15.820
+    0.05     -3.378e-03    -1.351        -8.121e-03    -3.248      16.590
+
+21 checks (8 post hoc, gating nothing), 3 gating checks failed, 3 post hoc checks failed; 13 s
+mutation eps_swap: fired ['E2B', 'MEM', 'T1', 'T1-V1', 'T1-V2', 'T1-V3']; failing without a mutation (--baseline) ['T1', 'T1-V1', 'T1-V2', 'T1-V3', 'T1-h', 'T2', 'T2-V2', 'T2-h']; newly fired ['E2B', 'MEM'], declared ['E2B', 'MEM']: MATCH

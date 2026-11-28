@@ -1,0 +1,55 @@
+log lines compared: 68; gated differences: 8
+line 5:
+  base [PASS] plant_167: #167's planted cases through the same crate: matching (|C- - a|, |e|, |C+ - b|, nodes) linear: <err>, <err>, <err>, <err>, cubic: <err>, <err>, <err>, <err> (bars <err>, <err>); blowup: 8 walks, worst error <err>, worst bar <err> (1e-8), kinds right: True
+  on   [PASS] plant_167: #167's planted cases through the same crate: matching (|C- - a|, |e|, |C+ - b|, nodes) linear: <err>, <err>, <err>, <err>, cubic: <err>, <err>, <err>, <err> (bars <err>, <err>); blowup: 8 walks, worst error <err>, worst bar 0.0e+00 (1e-8), kinds right: True
+line 7:
+  base [PASS] plant_far: planted equations started at x0 = 1e6 and walked inward by hp_walk with the locator: F'' = 2F^3 (pl6) and F F'' + F'^2 = 0 (pl7), x* = 0.7321, error and bar <= 1e-8; (1 + x^2) F'' + 4 x F' + 2 (F - 7/10) = 0 (pl4), exact alpha + (a + b x)/(1 + x^2): pl6 dd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 dd: x* error <err>, bar <err>, <n> steps from 1e6; pl4 dd: worst relative error of F, F', F'' at 1e3, 10, 1 <err> (bar <err>); pl6 qd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 qd: x* error <err>, bar <err>, <n> steps from 1e6; pl4 qd: worst relative error
+  on   [PASS] plant_far: planted equations started at x0 = 1e6 and walked inward by hp_walk with the locator: F'' = 2F^3 (pl6) and F F'' + F'^2 = 0 (pl7), x* = 0.7321, error and bar <= 1e-8; (1 + x^2) F'' + 4 x F' + 2 (F - 7/10) = 0 (pl4), exact alpha + (a + b x)/(1 + x^2): pl6 dd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 dd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl4 dd: worst relative error of F, F', F'' at 1e3, 10, 1 <err> (bar <err>); pl6 qd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl7 qd: x* error 0.0e+00, bar 0.0e+00, <n> steps from 1e6; pl4 qd: worst relati
+line 9:
+  base [PASS] regress167: #167's 187 grid points through `offgrid` (hp walker, series tables of 8 parts) and through #167's `conical_global scan --rstop=1e-8` (both run here): class and kind equal and eta* within 1e-8 at 172 singular points (worst difference <err>); mismatches []
+  on   [FAIL] regress167: #167's 187 grid points through `offgrid` (hp walker, series tables of 8 parts) and through #167's `conical_global scan --rstop=1e-8` (both run here): class and kind equal and eta* within 1e-8 at 170 singular points (worst difference <err>); mismatches [((2.0, 3000.0), 'S:F->0', 'NONFINITE'), ((-2.0, -3000.0), 'S:F->0', 'NONFINITE')]
+line 42:
+  base   F->0 points: 21, eta* from 1.282 to 1e+04; measured exponent against 2/(eta*^2 + 4): worst relative difference 2.9e-03
+  on     F->0 points: 21, eta* from 1.282 to 1e+04; measured exponent against 2/(eta*^2 + 4): worst relative difference <err>
+line 45:
+  base [PASS] spread: the same point from the next start radius 4 L (residual <= <err> there too): 31 of 31 points have a second start; class and kind equal, eta* within 1e-8 max(1, eta*), FLOOR p0 within a relative 1e-9; worst eta* difference 0.0e+00; mismatches 0 []
+  on   [PASS] spread: the same point from the next start radius 4 L (residual <= <err> there too): 31 of 31 points have a second start; class and kind equal, eta* within 1e-8 max(1, eta*), FLOOR p0 within a relative 1e-9; worst eta* difference <err>; mismatches 0 []
+line 47:
+  base [PASS] dd_qd: quad-double (kt 60, tol <err>) against double-double on 31 points (start radius >= 204800 and the 30 smallest and 30 largest eta*): class and kind equal, eta* within <err> max(1, eta*), FLOOR p0 within a relative <err>; worst relative eta* difference 0.0e+00; mismatches 0 []
+  on   [PASS] dd_qd: quad-double (kt 60, tol <err>) against double-double on 31 points (start radius >= 204800 and the 30 smallest and 30 largest eta*): class and kind equal, eta* within <err> max(1, eta*), FLOOR p0 within a relative <err>; worst relative eta* difference <err>; mismatches 0 []
+line 49:
+  base [PASS] modes: `project` (Newton on F'' at each step) against `conserve` (N constant) over 31 points: class and kind equal, eta* within <err> max(1, eta*), FLOOR p0 within <err>; worst relative eta* difference 0.0e+00; mismatches 0 []
+  on   [PASS] modes: `project` (Newton on F'' at each step) against `conserve` (N constant) over 31 points: class and kind equal, eta* within <err> max(1, eta*), FLOOR p0 within <err>; worst relative eta* difference <err>; mismatches 0 []
+line 67:
+  base checks: 16 passed, 0 failed []. <t> s
+  on   checks: 15 passed, 1 failed ['regress167']. <t> s
+listed, not gated: 51 error-sized numbers on aligned lines, 3 differ as printed; 0 lines whose step counts differ
+  relative differences of the differing ones: max 9.98e-01, median 8.78e-01; 0 differ by more than a factor 2 (rel > 1), 3 by more than 10%
+  line 43: 3.2e-14 -> 1.3e-11   [PASS] scan: 31 points (ctl grid), classes {'S:F->0': 21, 'FLOOR:log': 7, 'S:a3->0': 3}; e
+  line 9: 1.8e-13 -> 2.2e-14   [PASS] regress167: #167's 187 grid points through `offgrid` (hp walker, series tables of 8
+  line 63: 1.1e-59 -> 1.4e-59   [PASS] recip_check: a quad-double walk of (0.1, 3e4) to eta = 20 with every step halved (1
+dump file offgrid_c529a136fa.jsonl paired with offgrid_8a0e2f2147.jsonl (first lines equal up to the absolute path)
+dump: 79 files, 685 records, 2300 string fields, 535 eta* values compared; files missing in the run: 0; eta* differing in the 10 printed digits: 16, largest relative difference of any eta* 2.97e-01; records whose step count differs (listed, not gated): 19
+conical_global_a153d385ff.jsonl record 48 xstar: base 1.1573780970654617e-06 on 1.1573781048261941e-06
+conical_global_a153d385ff.jsonl record 65 xstar: base 0.0009548066174825603 on 0.0009548066174084515
+conical_global_a153d385ff.jsonl record 66 xstar: base 4.578491656216713e-05 on 4.578491648732298e-05
+conical_global_a153d385ff.jsonl record 67 xstar: base 3.6494474608504045e-06 on 3.649447453587833e-06
+conical_global_a153d385ff.jsonl record 101 class: base SINGULAR on NONFINITE
+conical_global_a153d385ff.jsonl record 101 kind: base a3->0 on 
+conical_global_a153d385ff.jsonl record 153 xstar: base 3.6494474608504045e-06 on 3.649447453587833e-06
+conical_global_a153d385ff.jsonl record 154 xstar: base 4.578491656216713e-05 on 4.578491648732298e-05
+conical_global_a153d385ff.jsonl record 155 xstar: base 0.0009548066174825603 on 0.0009548066174084515
+conical_global_a153d385ff.jsonl record 170 class: base SINGULAR on NONFINITE
+conical_global_a153d385ff.jsonl record 170 kind: base a3->0 on 
+offgrid_025170aa5b.jsonl record 16 kind: base a3->0 on F->0
+offgrid_025170aa5b.jsonl record 16 xstar: base 1.7085396460352056 on 1.2014264075106749
+offgrid_755c139d2d.jsonl record 14 xstar: base 1.1573780978754433e-06 on 1.1573781050077559e-06
+offgrid_82cba858e3.jsonl record 0 xstar: base 3.6494474562655617e-06 on 3.6494474452614666e-06
+offgrid_82cba858e3.jsonl record 1 xstar: base 4.5784916560794805e-05 on 4.578491648732298e-05
+offgrid_82cba858e3.jsonl record 2 xstar: base 0.0009548066174793937 on 0.0009548066174084515
+offgrid_8f869062c1.jsonl record 14 xstar: base 0.0009548066174793937 on 0.0009548066174084515
+offgrid_8f869062c1.jsonl record 15 xstar: base 4.5784916560794805e-05 on 4.578491648732298e-05
+offgrid_8f869062c1.jsonl record 16 xstar: base 3.6494474562655617e-06 on 3.6494474452614666e-06
+offgrid_ad441bfb69.jsonl record 0 kind: base a3->0 on F->0
+offgrid_ad441bfb69.jsonl record 0 xstar: base 1.7085396460352056 on 1.2014264075106749
+RESULT: gated differences found

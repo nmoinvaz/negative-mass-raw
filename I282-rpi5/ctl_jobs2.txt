@@ -1,0 +1,7 @@
+ctl_st_nominal|$PY order8.py pslq closed6 --load=$RAW/G1.json,$RAW/G2.json --bases=F6 --pslq-cap=250 --save-rel=$RAW/ctl_st_nominal_rel.json --rel=$RAW/ctl_st_nominal_rel.json
+ctl_st_ln2_leak|$PY order8.py pslq closed6 --load=$RAW/G1.json,$RAW/G2.json --bases=F6 --pslq-cap=250 --save-rel=$RAW/ctl_st_ln2_leak_rel.json --rel=$RAW/ctl_st_ln2_leak_rel.json --mutate=ln2_leak
+ctl_st_f7_rel|$PY order8.py pslq closed6 --load=$RAW/G1.json,$RAW/G2.json --bases=F6 --pslq-cap=250 --save-rel=$RAW/ctl_st_f7_rel_rel.json --rel=$RAW/ctl_st_f7_rel_rel.json --mutate=f7_rel
+ctl_st_ln2_zl|$PY order8.py pslq closed6 --load=$RAW/G1.json,$RAW/G2.json --bases=F6 --pslq-cap=250 --save-rel=$RAW/ctl_st_ln2_zl_rel.json --rel=$RAW/ctl_st_ln2_zl_rel.json --mutate=ln2_zl
+ctl_t2b_nominal|$PY order8.py values pslq remainder --load=$RAW/G1.json,$RAW/G2.json --no-real --w2raw=$RAW/inputs_w2_growthD.txt --bases=F2,F4,F6,X1,X2,X3 --pslq-cap=250
+ctl_t2b_pslq_wrong_basis|$PY order8.py values pslq remainder --load=$RAW/G1.json,$RAW/G2.json --no-real --w2raw=$RAW/inputs_w2_growthD.txt --bases=F2,F4,F6,X1,X2,X3 --pslq-cap=250 --mutate=pslq_wrong_basis
+ctl_t2b_pslq_wrong_target|$PY order8.py values pslq remainder --load=$RAW/G1.json,$RAW/G2.json --no-real --w2raw=$RAW/inputs_w2_growthD.txt --bases=F2,F4,F6,X1,X2,X3 --pslq-cap=250 --mutate=pslq_wrong_target

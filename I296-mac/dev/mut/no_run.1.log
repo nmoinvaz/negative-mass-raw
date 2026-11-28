@@ -1,0 +1,8 @@
+settled_mass_eps.py analyze {'part': 'dev', 'mutate': 'no_run', 'baseline': '/Users/nathan/Source/negative-mass-raw/I296-mac/dev/analyze_dev.3.log'}: numba 0.68.1, numpy 2.5.4, python 3.14.7, Nathans-MacBook-Air-M5-3.local, part dev, mutation no_run, 2026-11-28 01:27:47
+== Part dev: 19 points read at eps = 0.001 and 10 at 0.01, h = 0.005; fit sets T1 6 -> 3, T2 8 -> 1
+    development partition: T1 fits ('B0.025', 'B0.1', 'B0.125', 'e7', 'e10', 'e12') and holds out ('B0.05', 'e9', 'e11'); T2 fits ('B0.025', 'B0.05', 'B0.1', 'B0.125', 'e7', 'e9', 'e11', 'e12') and holds out ('e10',); the test points ('W1', 'W2', 'W3', 'C1', 'C2', 'C3', 'N1', 'N2', 'N3') are read at eps = 1e-3 only
+[pass] CFG: M_0 = 0.223086 equals B = 0's plateau (h = 0.005) to 1e-6 and 0.223095 at h = 0.01; P4's constants equal the frozen refit of #295; the sets are #267's nine (four B, five delta), #283's six and #295's three; the (B, xc, w) stored in each run equal the declared one; bar 6e-5  (|M_0 - B = 0 plateau| 1.8e-07; B = 0 plateau 0.2230862; specs differing [])
+[FAIL] RUNS: every point reads without error at both eps, with finite (t_dep, gamma_1, r_th, rdot_th, M)  (missing {'e9 eps 0.01': 'treated as missing'})
+
+2 checks (0 post hoc, gating nothing), 1 gating checks failed, 0 post hoc checks failed; 3 s
+mutation no_run: fired ['RUNS']; failing without a mutation (--baseline) []; newly fired ['RUNS'], declared ['RUNS']: MATCH
