@@ -11,3 +11,5 @@ ctl_red_rd_master|$PY order7.py reduce7 --load=$RAW/G1.json,$RAW/G2.json,$RAW/B.
 ctl_red_rd_B|$PY order7.py reduce7 --load=$RAW/G1.json,$RAW/G2.json,$RAW/B.json --mutate=rd_B
 ctl_red_euler_nominal|$PY order7.py euler7
 ctl_red_euler_rd_master|$PY order7.py euler7 --mutate=rd_master
+ctl_red_weights_nominal|$PY order7.py weights7
+ctl_red_weights_w7_rel|$PY order7.py weights7 --mutate=w7_rel
