@@ -109,3 +109,52 @@ What the code gives at D = 6 and what the data can fail:
 ## Stops and limits (as part 1)
 
 2 h per run, stopped and reported with its bracket; units named `nm-i325-*`, stopped by name only; memory is reported, never a stop condition. At most 4 processes.
+
+# Part 2b: corrections, one amendment, the mutations and their computed effects (2026-11-28 05:44, dh610 clock; before any pair of record. The first draft said 05:50, an estimate; the push was at 05:44 and the flag file README_2B_DONE was created at 05:44:34)
+
+No pair of record had started when this was written (the pairs wait for `README_2B_DONE`, created after this part is pushed). Development runs: `dev/analysis_dev1`, `dev/analysis_dev2` (the analysis on #228's frozen record
+and the four finished bisections), `dev/mut_all_quick` (every mutation of `drift_b6.py` against the baseline), `dev/pair_B0.04_d1e-11_hk1` (one pair at δ = 1e-11, B = 0.04, h = 0.0025, from #228's bisection),
+`dev/mut_odd_scale_devbase`, `dev/mut_dl_scale_devbase`, `dev/mut_tau_unit_full` (running).
+
+## Corrections to part 2a (found by the runs; made before any pair)
+
+1. Item 1 of "What pilot and development showed" is wrong. The pilot's first 17 runs cost 12 to 20 s, and the extrapolation to 10 to 20 min was not justified: later runs reach T = 25 to 45 and the bisection took
+   **3848 s** (64 min, 40 runs). B = 0.15 is the costliest bisection at h = 0.0025, as the task said (4 times #228's B = 0.04, 965 s). The three bisections at h = 0.00125 took 3065, 3028, 3101 s (36, 33, 34 runs).
+2. The extra "B = 0.15 at h = 0.00125" is dropped: 3.3 times 3848 s is above the 2 h stop. B = 0.02 at h = 0.00125 (about 1 h) stays an extra, only if the pairs are finished and time is left.
+3. The resolution part of an exponent is **α(h = 0.00125) − α(h = 0.0025)**, #228's sign, not the opposite sign that part 2a wrote.
+
+## Amendment (before any pair of record): LIN3 is read on pairs at δ = 1e-11
+
+The development analysis of #228's record shows that at δ = 1e-10 the fit window of ṙ(10) (τ ± 0.5) is inside the linear window only for B ≥ 0.07 (t_L = 9.95, 10.18, 11.18, 13.26 at B = 0.02, 0.04, 0.07, 0.1), so LIN3, which needs ṙ(10) at
+B = 0.04, 0.03, 0.02, 0.014, 0.01, cannot be read from the δ = 1e-10 pairs. Part 2a's contingency (a δ = 1e-11 pair where t = 10 is outside, at B ≤ 0.014) is replaced by:
+
+- pairs at **δ = 1e-11, h = 0.0025, B = 0.01, 0.014, 0.02, 0.03, 0.04** (p*ₕ from the bisections of this task, #228's for B = 0.02, 0.04), 2 to 4 min each; LIN3 reads ρ from these only;
+- **DLT[B]**: ṙ(8) of the δ = 1e-11 and the δ = 1e-10 pair agree within 2 % at each of the five B (the mean is the tuned member: p*ₕ is known to 5e-13, so the mean of the δ = 1e-11 pair carries up to 5 % of its odd part, that of
+  δ = 1e-10 0.5 %). In development at B = 0.04 the two agree to 1.2e-5 (relative); a skipped DLT (no value inside the window) is not a pass;
+- **JOB6d[B]**: the δ = 1e-11 pair has fates (collapse, expansion).
+
+LIN4 is unchanged (δ = 1e-10, both h). The pairs run in the order of `scripts/dispatch.sh` (the long h = 0.00125 ones first), never more than 4 compute processes of mine.
+
+## Checks of record
+
+BIS (each bisection of this task), JOB6 and WIN8 (each δ = 1e-10 pair), JOB6d and DLT (each δ = 1e-11 pair), LIN1, LIN2, LIN3, LIN4, PLX, PLL, PL1_6, PL2_6, PL3_6. Failures expected from development:
+JOB6 at B = 0.2 (#228's: the + side's event lies beyond t = 34; reported again, not repaired). Nothing else is expected to fail; LIN3 and LIN4 are tests of the prediction and may fail.
+
+## Mutations and their computed effects (`drift_b6.py mutate --mutate=NAME`, each baseline against mutated analysis on development data; the verdicts that change)
+
+| mutation | what it breaks | verdicts that change in development |
+|---|---|---|
+| `odd_scale` | the pair's odd part × 100 | WIN8 at B = 0.02, 0.04 (h = 0.0025, 0.00125), 0.07 (both h); DLT[B = 0.04] passes → skipped (dev base) |
+| `bis_tol` | hi − lo × 1e3 in BIS | BIS at B = 0.15 (h = 0.0025), 0.01, 0.014, 0.03 (h = 0.00125) |
+| `fate_swap` | the pair's fates reversed | JOB6 at the 7 of #228's 8 pairs that pass (B = 0.2 fails with and without it) |
+| `dl_scale` | the δ = 1e-11 value of ṙ(8) × 1.05 | DLT[B = 0.04]: +1.2e-5 → +5.0e-2 (dev base with the dev pair) |
+| `b_label` | B labelled √(0.1 B) | PLX, PLL |
+| `res_swap` | the resolution part with the opposite sign | PLX |
+| `rich_order` | Richardson with first-order weights (2 x₂ − x₁) | PLX, PLL |
+| `lin_n3` | the linear response of n = 3 used for D = 6 | LIN1, LIN2 |
+| `rho_swap` | ρ = ṙ(8)/ṙ(10) − 1 | PLL |
+| `alpha_scale` | the Richardson exponent × 1.3 | PLL |
+| `tau_unit` (#255's, through `g_d6.chk_planted6`) | τ in units of √2 t | PL3_6 (as #228 computed); its run through this script is `dev/mut_tau_unit_full`, appended when it finishes |
+
+LIN3 and LIN4 have no data in development (B = 0.01, 0.014 are absent); their mutations act on the planted families (PLL) and on the data of record, where the effect will be read and reported, not declared. At the end each mutation is
+run again on the frozen record (`runs/mut/`, `drift_b6.py mutate-all`) and the changed verdicts are compared with this table; a difference is reported.

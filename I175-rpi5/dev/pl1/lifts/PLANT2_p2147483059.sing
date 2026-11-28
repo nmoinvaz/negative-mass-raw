@@ -1,0 +1,21 @@
+short = 0;
+ring R = 2147483059,(s,u0,u1,u2,u3,u4),dp;
+option(redSB);
+ideal I = -6*s^2*u1+3*u0^2*u2+5*u1^3-3*u1^2*u2+6*u1*u2+8,
+  s*u0^2+9*s*u0*u1-2*s*u1^2-u2^2-6*u2+1,
+  6*s*u0*u1-2*s*u1^2+5*u0*u1*u2-9*u2^2+7*u2+9,
+  -6*s^2+8*s*u1-4*u0^3+4*u0*u1^2+2,
+  9*s^2*u0+6*s*u0*u1+3*s+7*u0*u1+1;
+
+int t0 = rtimer;
+matrix T;
+ideal G = liftstd(I, T);
+print("LIFTSTD_SECONDS " + string(rtimer - t0));
+print("G1 " + string(G[1]) + " size " + string(size(G)));
+poly chk = 0;
+int i;
+for (i = 1; i <= ncols(I); i++) { chk = chk + I[i] * T[i, 1]; }
+print("KAPPA " + string(chk));
+for (i = 1; i <= ncols(I); i++) { print("TERMS " + string(i) + " " + string(size(T[i, 1]))); }
+for (i = 1; i <= ncols(I); i++) { print("COF " + string(i) + " " + string(T[i, 1])); }
+quit;
