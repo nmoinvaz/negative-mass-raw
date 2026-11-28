@@ -24,3 +24,16 @@ Run from this folder: `python3 ind228.py [--mutate=order1|no-sides|t-not-tau]`. 
 - `order1`: Richardson at first order, p* = 2p₂ − p₁ → K1.
 - `no-sides`: one intercept for both sides → K2.
 - `t-not-tau`: ṙ against t instead of τ → K3.
+
+## Amendment A1 (2026-11-28, after run 1)
+
+Run 1 (`ind228_run1.txt`) failed K1: the fixed-order Richardson p₂ + (p₂ − p₁)/3 = 1.0566586e-2 is 6.1e-7 from the note's
+1.0567197e-2. The cause: `threshold.py` (line 571) and the note extrapolate with the observed order q = 2.005,
+p* = p₂ + (p₂ − p₁)/(2^q − 1), and the criterion above named order 2. K1 now compares the observed-order value with the bar
+unchanged (1e-9), and prints the fixed-order value as a report. The `order1` mutation uses q = 1. Runs from run 2 on use A1.
+
+## Amendment A2 (2026-11-28, after the mutation runs of A1)
+
+`no-sides` passes K2 (`ind228_mut_no-sides.txt`): both sides of the series sit at the same δ = 10^-e, so the side intercept is
+orthogonal to ln(1/δ) and one intercept gives the same slope. It cannot fire and is kept as a record. Added `collapse-only`
+(the collapse side alone, slope 0.857 by the note) → K2.
