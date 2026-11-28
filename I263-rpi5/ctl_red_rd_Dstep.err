@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/home/nathan/Source/negative-mass-i263/notes/wormhole_largeD/order7.py", line 1556, in <module>
+    main()
+    ~~~~^^
+  File "/home/nathan/Source/negative-mass-i263/notes/wormhole_largeD/order7.py", line 1543, in main
+    check_reduce7(ev)
+    ~~~~~~~~~~~~~^^^^
+  File "/home/nathan/Source/negative-mass-i263/notes/wormhole_largeD/order7.py", line 1373, in check_reduce7
+    total = Bsum + sum(cf * masters[m] for m, cf in Pm.terms())
+                   ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nathan/Source/negative-mass-i263/notes/wormhole_largeD/order7.py", line 1373, in <genexpr>
+    total = Bsum + sum(cf * masters[m] for m, cf in Pm.terms())
+                            ~~~~~~~^^^
+KeyError: (1, 1, 0, 1, 0)
