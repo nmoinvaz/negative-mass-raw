@@ -1,0 +1,5 @@
+dev_15_st_nominal|$PY -I order9.py pslq --bases=F7 --pslq-cap=300 --save-rel=$RAW/dev_st_nominal_rel.json closed7 --rel=$RAW/dev_st_nominal_rel.json --load=$RAW/dev_planted_f8.json
+dev_15_st_ln2_leak|$PY -I order9.py pslq --bases=F7 --pslq-cap=300 --save-rel=$RAW/dev_st_ln2_leak_rel.json closed7 --rel=$RAW/dev_st_ln2_leak_rel.json --load=$RAW/dev_planted_f8.json --mutate=ln2_leak
+dev_15_st_f8_rel|$PY -I order9.py pslq --bases=F7 --pslq-cap=300 --save-rel=$RAW/dev_st_f8_rel_rel.json closed7 --rel=$RAW/dev_st_f8_rel_rel.json --load=$RAW/dev_planted_f8.json --mutate=f8_rel
+dev_15_st_ln2_zl|$PY -I order9.py pslq --bases=F7 --pslq-cap=300 --save-rel=$RAW/dev_st_ln2_zl_rel.json closed7 --rel=$RAW/dev_st_ln2_zl_rel.json --load=$RAW/dev_planted_f8.json --mutate=ln2_zl
+dev_15_st_zeta53_wrong|$PY -I order9.py pslq --bases=F7 --pslq-cap=300 --save-rel=$RAW/dev_st_zeta53_wrong_rel.json closed7 --rel=$RAW/dev_st_zeta53_wrong_rel.json --load=$RAW/dev_planted_f8.json --mutate=zeta53_wrong

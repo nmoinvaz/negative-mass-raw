@@ -1,0 +1,3 @@
+dev_16_t2bxf_nominal|$PY -I order9.py pslq --no-real --bases=XF --pslq-cap=300 --load=$RAW/dev_planted_f8.json
+dev_16_t2bxf_pslq_wrong_basis|$PY -I order9.py pslq --no-real --bases=XF --pslq-cap=300 --load=$RAW/dev_planted_f8.json --mutate=pslq_wrong_basis
+dev_16_t2bxf_pslq_wrong_target|$PY -I order9.py pslq --no-real --bases=XF --pslq-cap=300 --load=$RAW/dev_planted_f8.json --mutate=pslq_wrong_target

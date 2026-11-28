@@ -1,0 +1,8 @@
+dev_10_chk_nominal|$PY -I order9.py sym struct cache
+dev_10_chk_wrong_h|$PY -I order9.py sym struct cache --mutate=wrong_h
+dev_10_chk_wrong_c6|$PY -I order9.py sym struct cache --mutate=wrong_c6
+dev_10_chk_wrong_c7|$PY -I order9.py sym struct cache --mutate=wrong_c7
+dev_10_chk_wrong_c8|$PY -I order9.py sym struct cache --mutate=wrong_c8
+dev_10_chk_wrong_c9|$PY -I order9.py sym struct cache --mutate=wrong_c9
+dev_10_chk_stale_cache|$PY -I order9.py sym struct cache --mutate=stale_cache
+dev_10_chk_ln2_struct|$PY -I order9.py sym struct cache --mutate=ln2_struct
